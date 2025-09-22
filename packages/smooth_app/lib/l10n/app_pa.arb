@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "ਪ੍ਰਯੋਗਾਤਮਕ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਤੇ ਵਿਕਾਸ ਸਾਧਨਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰੋ",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "ਹਰਾ-ਸਕੋਰ ਏ",
+  "environmental_score_b_new": "ਹਰਾ-ਸਕੋਰ B",
+  "environmental_score_c_new": "ਹਰਾ-ਸਕੋਰ C",
+  "environmental_score_d_new": "ਹਰਾ-ਸਕੋਰ ਡੀ",
+  "environmental_score_e_new": "ਗ੍ਰੀਨ-ਸਕੋਰ ਈ",
+  "environmental_score_unknown_new": "ਅਣਜਾਣ ਹਰਾ-ਸਕੋਰ",
+  "environmental_score_not_applicable_new": "ਗ੍ਰੀਨ-ਸਕੋਰ ਲਾਗੂ ਨਹੀਂ ਹੈ",
+  "nova_group_generic_new": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ - NOVA ਸਮੂਹ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ਸਾਰੇ ਨਾਗਰਿਕ ਸਾਨੂੰ ਉਤਪਾਦਾਂ 'ਤੇ ਮੌਜੂਦ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਅਤੇ ਢਾਂਚਾ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ ਜਾਂ ਜੋ ਉਨ੍ਹਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ, ਜਿਵੇਂ ਕਿ ਪੈਕੇਜਿੰਗ ਬਾਰੇ ਜਾਣਕਾਰੀ: ਮਿਸ਼ਨ ਐਮਬਲੇਜ: ਸਾਰੇ ਭੋਜਨ ਉਤਪਾਦਾਂ ਲਈ ਪੈਕੇਜਿੰਗ ਦੀ ਇੱਕ ਵੱਡੇ ਪੱਧਰ 'ਤੇ ਸਹਿਯੋਗੀ ਵਸਤੂ ਸੂਚੀ (ਫਰਾਂਸੀਸੀ ਵਿੱਚ)",
   "guide_greenscore_transparency_arg2_title": "ਨਿਰਮਾਤਾ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ",
   "guide_greenscore_transparency_arg2_text": "ਨਿਰਮਾਤਾ ਸਾਨੂੰ ਉਤਪਾਦਕਾਂ ਲਈ ਸਾਡੇ ਮੁਫ਼ਤ ਪਲੇਟਫਾਰਮ ਰਾਹੀਂ ਆਪਣੀ ਜਾਣਕਾਰੀ ਸਿੱਧੇ ਭੇਜ ਸਕਦੇ ਹਨ।",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "ਗ੍ਰਹਿ ਲਈ ਕਿਹੜਾ ਉਤਪਾਦ ਬਿਹਤਰ ਹੈ?",
+  "guide_greenscore_better_product_arg1_title": "ਇਹ ਦੱਸਣਾ ਔਖਾ ਹੋ ਸਕਦਾ ਹੈ।",
+  "guide_greenscore_better_product_arg1_text": "ਟਿਕਾਊ ਭੋਜਨ ਦੀ ਚੋਣ ਕਰਨਾ ਸਭ ਤੋਂ ਸ਼ਕਤੀਸ਼ਾਲੀ ਚੀਜ਼ਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ ਜੋ ਅਸੀਂ ਜਲਵਾਯੂ ਲਈ ਕਰ ਸਕਦੇ ਹਾਂ, ਕਿਉਂਕਿ **ਸਾਡਾ ਵਿਸ਼ਵਵਿਆਪੀ ਭੋਜਨ ਪ੍ਰਣਾਲੀ ਸਾਰੇ ਗ੍ਰੀਨਹਾਊਸ ਗੈਸਾਂ ਦੇ ਨਿਕਾਸ ਦੇ ਇੱਕ ਚੌਥਾਈ ਤੋਂ ਵੱਧ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਹੈ**।\n(ਸਰੋਤ: ਪੂਅਰ ਅਤੇ ਨੇਮੇਸੇਕ, ਵਿਗਿਆਨ, 2018)।",
+  "guide_greenscore_better_product_arg2_title": "ਤੁਹਾਡੇ ਕੋਲ ਸ਼ਕਤੀ ਹੈ!",
+  "guide_greenscore_better_product_arg2_text": "ਚੰਗੀ ਖ਼ਬਰ ਇਹ ਹੈ ਕਿ ਇਹ ਸਾਨੂੰ ਬਦਲਾਅ ਲਿਆਉਣ ਦਾ ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਤਰੀਕਾ ਦਿੰਦਾ ਹੈ।\n**ਸਾਡੇ ਵਿੱਚੋਂ ਹਰ ਕੋਈ ਹਰ ਸਾਲ ਲਗਭਗ 1,000 ਭੋਜਨ ਖਾਂਦਾ ਹੈ**। ਇਹ **ਗ੍ਰਹਿ ਲਈ ਇੱਕ ਬਿਹਤਰ ਭਵਿੱਖ ਚੁਣਨ** ਦੇ 1,000 ਮੌਕੇ ਹਨ!",
+  "guide_greenscore_better_product_arg3_title": "ਜ਼ਿੰਮੇਵਾਰ ਬਣਨ ਅਤੇ ਫੈਸਲਾ ਲੈਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ",
+  "guide_greenscore_better_product_arg3_text": "ਟਿਕਾਊ ਭੋਜਨ ਚੁਣਨਾ ਗੁੰਝਲਦਾਰ ਲੱਗ ਸਕਦਾ ਹੈ। ਲੇਬਲ ਉਲਝਣ ਵਾਲੇ ਹੁੰਦੇ ਹਨ ਅਤੇ ਜਾਣਕਾਰੀ ਅਕਸਰ ਗੁੰਮ ਹੁੰਦੀ ਹੈ। ਗ੍ਰੀਨ-ਸਕੋਰ ਇਸਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਤੁਹਾਨੂੰ ਭੋਜਨ ਉਤਪਾਦਾਂ ਲਈ **ਸਪਸ਼ਟ**, **ਵਿਗਿਆਨ-ਅਧਾਰਤ**, ਅਤੇ **ਪਾਰਦਰਸ਼ੀ** ਵਾਤਾਵਰਣ ਰੇਟਿੰਗ ਦਿੰਦਾ ਹੈ, ਜਿੱਥੇ ਤੁਹਾਨੂੰ ਇਸਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ: ਜਦੋਂ ਤੁਸੀਂ ਖਰੀਦਦਾਰੀ ਕਰਦੇ ਹੋ।",
+  "guide_greenscore_better_product_arg4_title": "ਪਾਰਦਰਸ਼ਤਾ",
+  "guide_greenscore_better_product_arg4_text": "ਮਲਕੀਅਤ ਲੇਬਲਾਂ ਦੇ ਉਲਟ, ਗ੍ਰੀਨ-ਸਕੋਰ ਗਣਨਾ **ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੀ** ਹੈ** ਅਤੇ ਇਸਨੂੰ **ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੁਆਰਾ ਤਸਦੀਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ**।",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਕੀ ਹੈ?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA ਸਮੂਹ ਤੁਹਾਨੂੰ ਫੂਡ ਪ੍ਰੋਸੈਸਿੰਗ ਦੇ ਪੱਧਰ ਬਾਰੇ ਸੂਚਿਤ ਕਰਦੇ ਹਨ।",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA ਵਰਗੀਕਰਣ ਭੋਜਨਾਂ ਨੂੰ ਉਹਨਾਂ ਦੇ **ਉਦਯੋਗਿਕ ਪ੍ਰੋਸੈਸਿੰਗ ਦੀ ਡਿਗਰੀ** (ਘੱਟੋ-ਘੱਟ ਪ੍ਰੋਸੈਸਡ ਜਾਂ ਗੈਰ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ, ਰਸੋਈ ਸਮੱਗਰੀ, ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ, ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ) ਦੇ ਆਧਾਰ 'ਤੇ **4 ਸਮੂਹਾਂ** ਵਿੱਚ ਸ਼੍ਰੇਣੀਬੱਧ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA ਲੋਗੋ",
+  "guide_nova_groups_title": "4 NOVA ਸਮੂਹ",
+  "guide_nova_groups_intro": "4 NOVA ਸਮੂਹ ਹਨ, ਜਿਨ੍ਹਾਂ ਵਿੱਚੋਂ ਸਮੱਸਿਆ ਵਾਲਾ ਸਮੂਹ 4 ਹੈ - ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ।",
+  "guide_nova_groups_arg1_title": "ਘੱਟ ਤੋਂ ਘੱਟ ਪ੍ਰੋਸੈਸਡ ਜਾਂ ਗੈਰ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ",
+  "guide_nova_groups_arg1_text": "ਕੁਦਰਤ ਤੋਂ ਵੱਖ ਹੋਣ ਤੋਂ ਬਾਅਦ, ਅਣਪ੍ਰੋਸੈਸਡ (ਜਾਂ ਕੁਦਰਤੀ) ਭੋਜਨ ਪੌਦਿਆਂ (ਬੀਜ, ਫਲ, ਪੱਤੇ, ਤਣੇ, ਜੜ੍ਹਾਂ) ਜਾਂ ਜਾਨਵਰਾਂ (ਮਾਸਪੇਸ਼ੀ, ਔਫਲ, ਅੰਡੇ, ਦੁੱਧ), ਦੇ ਨਾਲ-ਨਾਲ ਉੱਲੀ, ਐਲਗੀ ਅਤੇ ਪਾਣੀ ਦੇ ਖਾਣ ਵਾਲੇ ਹਿੱਸੇ ਹਨ।",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "ਪ੍ਰੋਸੈਸਡ ਰਸੋਈ ਸਮੱਗਰੀ, ਜਿਵੇਂ ਕਿ ਤੇਲ, ਮੱਖਣ, ਖੰਡ ਅਤੇ ਨਮਕ, ਸਮੂਹ 1 ਦੇ ਭੋਜਨਾਂ ਤੋਂ ਜਾਂ ਕੁਦਰਤ ਤੋਂ ਦਬਾਉਣ, ਰਿਫਾਇਨਿੰਗ, ਪੀਸਣ, ਮਿਲਿੰਗ ਅਤੇ ਸੁਕਾਉਣ ਵਾਲੀਆਂ ਪ੍ਰਕਿਰਿਆਵਾਂ ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਕੀਤੇ ਗਏ ਪਦਾਰਥ ਹਨ।",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ, ਜਿਵੇਂ ਕਿ ਬੋਤਲਬੰਦ ਸਬਜ਼ੀਆਂ, ਡੱਬਾਬੰਦ ਮੱਛੀ, ਸ਼ਰਬਤ ਵਿੱਚ ਫਲ, ਪਨੀਰ, ਅਤੇ ਤਾਜ਼ੇ ਬਣੇ ਬਰੈੱਡ, ਮੁੱਖ ਤੌਰ 'ਤੇ ਗਰੁੱਪ 2 ਤੋਂ ਗਰੁੱਪ 1 ਦੇ ਭੋਜਨਾਂ ਵਿੱਚ ਨਮਕ, ਤੇਲ, ਖੰਡ, ਜਾਂ ਹੋਰ ਪਦਾਰਥ ਪਾ ਕੇ ਬਣਾਏ ਜਾਂਦੇ ਹਨ। ਪ੍ਰਕਿਰਿਆਵਾਂ ਵਿੱਚ ਵੱਖ-ਵੱਖ ਸੰਭਾਲ ਜਾਂ ਖਾਣਾ ਪਕਾਉਣ ਦੇ ਤਰੀਕੇ ਸ਼ਾਮਲ ਹਨ, ਅਤੇ ਬਰੈੱਡ ਅਤੇ ਪਨੀਰ ਦੇ ਮਾਮਲੇ ਵਿੱਚ, ਗੈਰ-ਅਲਕੋਹਲ ਵਾਲਾ ਫਰਮੈਂਟੇਸ਼ਨ। ਜ਼ਿਆਦਾਤਰ ਪ੍ਰੋਸੈਸਡ ਭੋਜਨਾਂ ਵਿੱਚ ਦੋ ਜਾਂ ਤਿੰਨ ਸਮੱਗਰੀਆਂ ਹੁੰਦੀਆਂ ਹਨ ਅਤੇ ਗਰੁੱਪ 1 ਦੇ ਭੋਜਨਾਂ ਦੇ ਸੋਧੇ ਹੋਏ ਸੰਸਕਰਣਾਂ ਵਜੋਂ ਪਛਾਣੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਆਪਣੇ ਆਪ ਜਾਂ, ਆਮ ਤੌਰ 'ਤੇ, ਹੋਰ ਭੋਜਨਾਂ ਦੇ ਨਾਲ ਮਿਲਾ ਕੇ ਖਾਧਾ ਜਾ ਸਕਦਾ ਹੈ।",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ, ਜਿਵੇਂ ਕਿ ਸਾਫਟ ਡਰਿੰਕਸ, ਮਿੱਠੇ ਜਾਂ ਸੁਆਦੀ ਪੈਕ ਕੀਤੇ ਸਨੈਕਸ, ਪੁਨਰਗਠਿਤ ਮੀਟ ਉਤਪਾਦ, ਅਤੇ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰ ਜੰਮੇ ਹੋਏ ਪਕਵਾਨ, ਸਿਰਫ਼ ਸੋਧੇ ਹੋਏ ਭੋਜਨ ਨਹੀਂ ਹਨ ਬਲਕਿ ਜ਼ਿਆਦਾਤਰ ਜਾਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਭੋਜਨ ਅਤੇ ਐਡਿਟਿਵ ਤੋਂ ਪ੍ਰਾਪਤ ਪਦਾਰਥਾਂ ਤੋਂ ਬਣੇ ਫਾਰਮੂਲੇ ਹਨ, ਜਿਨ੍ਹਾਂ ਵਿੱਚ ਬਹੁਤ ਘੱਟ ਜਾਂ ਕੋਈ ਵੀ ਬਰਕਰਾਰ ਸਮੂਹ 1 ਭੋਜਨ ਨਹੀਂ ਹੁੰਦਾ। ਇਹਨਾਂ ਫਾਰਮੂਲੇ ਵਿੱਚ ਸਮੱਗਰੀ ਵਿੱਚ ਆਮ ਤੌਰ 'ਤੇ ਉਹ ਸ਼ਾਮਲ ਹੁੰਦੇ ਹਨ ਜੋ ਪ੍ਰੋਸੈਸਡ ਭੋਜਨਾਂ ਵਿੱਚ ਵੀ ਪਾਏ ਜਾਂਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਸ਼ੱਕਰ, ਤੇਲ, ਚਰਬੀ, ਜਾਂ ਨਮਕ। ਹਾਲਾਂਕਿ, ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਉਤਪਾਦਾਂ ਵਿੱਚ ਊਰਜਾ ਅਤੇ ਪੌਸ਼ਟਿਕ ਤੱਤਾਂ ਦੇ ਹੋਰ ਸਰੋਤ ਵੀ ਹੁੰਦੇ ਹਨ ਜੋ ਆਮ ਤੌਰ 'ਤੇ ਰਸੋਈ ਤਿਆਰੀਆਂ ਵਿੱਚ ਨਹੀਂ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁਝ ਸਿੱਧੇ ਤੌਰ 'ਤੇ ਭੋਜਨਾਂ ਤੋਂ ਕੱਢੇ ਜਾਂਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਕੇਸੀਨ, ਲੈਕਟੋਜ਼, ਵੇਅ ਅਤੇ ਗਲੂਟਨ।",
+  "guide_nova_explanations_title": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਨਾਲ ਸਮੱਸਿਆਵਾਂ",
+  "guide_nova_explanations_arg1_title": "ਭੋਜਨ ਸਮੱਗਰੀ ਦੀ ਬਹੁਤ ਜ਼ਿਆਦਾ ਪ੍ਰੋਸੈਸਿੰਗ",
+  "guide_nova_explanations_arg1_text": "ਬਹੁਤ ਸਾਰੇ ਭੋਜਨ ਤੱਤਾਂ ਦੀ ਹੋਰ ਪ੍ਰਕਿਰਿਆ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਹਾਈਡ੍ਰੋਜਨੇਟਿਡ ਜਾਂ ਇੰਟਰਸਟੀਰੀਫਾਈਡ ਤੇਲ, ਹਾਈਡ੍ਰੋਲਾਈਜ਼ਡ ਪ੍ਰੋਟੀਨ, ਸੋਇਆ ਪ੍ਰੋਟੀਨ ਆਈਸੋਲੇਟ, ਮਾਲਟੋਡੇਕਸਟ੍ਰੀਨ, ਇਨਵਰਟ ਸ਼ੂਗਰ, ਅਤੇ ਉੱਚ-ਫਰੂਟੋਜ਼ ਮੱਕੀ ਦੀ ਸ਼ਰਬਤ।",
+  "guide_nova_explanations_arg2_title": "ਐਡਿਟਿਵ ਜੋ ਸ਼ੁੱਧ ਭੋਜਨ ਸੁਰੱਖਿਆ ਤੋਂ ਪਰੇ ਜਾਂਦੇ ਹਨ",
+  "guide_nova_explanations_arg2_text": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨਾਂ ਵਿੱਚ ਐਡਿਟਿਵਜ਼ ਵਿੱਚ ਕੁਝ ਸ਼ਾਮਲ ਹਨ ਜੋ ਪ੍ਰੋਸੈਸਡ ਭੋਜਨਾਂ ਵਿੱਚ ਵੀ ਵਰਤੇ ਜਾਂਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਪ੍ਰੀਜ਼ਰਵੇਟਿਵ, ਐਂਟੀਆਕਸੀਡੈਂਟ, ਅਤੇ ਸਟੈਬੀਲਾਈਜ਼ਰ। ਸਿਰਫ਼ ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਉਤਪਾਦਾਂ ਵਿੱਚ ਪਾਏ ਜਾਣ ਵਾਲੇ ਐਡਿਟਿਵਜ਼ ਦੀਆਂ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਉਹ ਸ਼ਾਮਲ ਹਨ ਜੋ ਭੋਜਨ ਦੇ ਸੰਵੇਦੀ ਗੁਣਾਂ ਦੀ ਨਕਲ ਕਰਨ ਜਾਂ ਵਧਾਉਣ ਲਈ ਜਾਂ ਅੰਤਿਮ ਉਤਪਾਦ ਦੇ ਨਾਪਸੰਦ ਪਹਿਲੂਆਂ ਨੂੰ ਛੁਪਾਉਣ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਇਹਨਾਂ ਐਡਿਟਿਵਜ਼ ਵਿੱਚ ਰੰਗ ਅਤੇ ਹੋਰ ਰੰਗ, ਰੰਗ ਸਟੈਬੀਲਾਈਜ਼ਰ; ਸੁਆਦ, ਸੁਆਦ ਵਧਾਉਣ ਵਾਲੇ, ਗੈਰ-ਖੰਡ ਮਿੱਠੇ; ਅਤੇ ਪ੍ਰੋਸੈਸਿੰਗ ਏਡਜ਼ ਜਿਵੇਂ ਕਿ ਕਾਰਬੋਨੇਟਿੰਗ, ਫਰਮਿੰਗ, ਬਲਕਿੰਗ ਅਤੇ ਐਂਟੀ-ਬਲਕਿੰਗ ਏਜੰਟ, ਡੀ-ਫੋਮਿੰਗ, ਐਂਟੀ-ਕੇਕਿੰਗ ਅਤੇ ਗਲੇਜ਼ਿੰਗ ਏਜੰਟ, ਇਮਲਸੀਫਾਇਰ, ਸੀਕੁਐਸਟ੍ਰੈਂਟਸ ਅਤੇ ਹਿਊਮੈਕਟੈਂਟ ਸ਼ਾਮਲ ਹਨ।",
+  "guide_nova_explanations_arg3_title": "ਪ੍ਰੋਸੈਸਿੰਗ ਜੋ ਤੁਸੀਂ ਘਰ ਨਹੀਂ ਕਰ ਸਕਦੇ",
+  "guide_nova_explanations_arg3_text": "ਆਮ ਤੌਰ 'ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਸਮੱਗਰੀਆਂ ਨੂੰ ਜੋੜਨ ਅਤੇ ਅੰਤਿਮ ਉਤਪਾਦ (ਇਸ ਲਈ 'ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ') ਬਣਾਉਣ ਲਈ ਪ੍ਰਕਿਰਿਆਵਾਂ ਦੇ ਕਈ ਕ੍ਰਮ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਪ੍ਰਕਿਰਿਆਵਾਂ ਵਿੱਚ ਕਈ ਘਰੇਲੂ ਸਮਾਨਤਾਵਾਂ ਤੋਂ ਬਿਨਾਂ ਸ਼ਾਮਲ ਹਨ, ਜਿਵੇਂ ਕਿ ਹਾਈਡ੍ਰੋਜਨੇਸ਼ਨ ਅਤੇ ਹਾਈਡ੍ਰੋਲਾਈਜ਼ੇਸ਼ਨ, ਐਕਸਟਰੂਜ਼ਨ ਅਤੇ ਮੋਲਡਿੰਗ, ਅਤੇ ਤਲ਼ਣ ਲਈ ਪ੍ਰੀ-ਪ੍ਰੋਸੈਸਿੰਗ।",
+  "guide_nova_explanations_arg4_title": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਦੇ ਸ਼ਿਕਾਰੀ ਅਤੇ ਵਿੱਤੀ ਪਹਿਲੂ",
+  "guide_nova_explanations_arg4_text": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਦਾ ਸਮੁੱਚਾ ਉਦੇਸ਼ ਬ੍ਰਾਂਡੇਡ, ਸੁਵਿਧਾਜਨਕ (ਟਿਕਾਊ, ਖਪਤ ਲਈ ਤਿਆਰ), ਆਕਰਸ਼ਕ (ਬਹੁਤ ਸੁਆਦੀ) ਅਤੇ ਬਹੁਤ ਜ਼ਿਆਦਾ ਲਾਭਦਾਇਕ (ਘੱਟ ਕੀਮਤ ਵਾਲੀਆਂ ਸਮੱਗਰੀਆਂ) ਭੋਜਨ ਉਤਪਾਦ ਬਣਾਉਣਾ ਹੈ ਜੋ ਹੋਰ ਸਾਰੇ ਭੋਜਨ ਸਮੂਹਾਂ ਨੂੰ ਵਿਸਥਾਪਿਤ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ। ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ ਉਤਪਾਦਾਂ ਨੂੰ ਆਮ ਤੌਰ 'ਤੇ ਆਕਰਸ਼ਕ ਢੰਗ ਨਾਲ ਪੈਕ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਤੀਬਰਤਾ ਨਾਲ ਮਾਰਕੀਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "ਆਪਣੀਆਂ ਕੀਮਤਾਂ ਦੀਆਂ ਤਰਜੀਹਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਪ੍ਰੋਜੈਕਟ",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "ਅਨੁਵਾਦ ਕਰੋ, ਸਾਡੇ ਔਜ਼ਾਰਾਂ ਨੂੰ ਬਿਹਤਰ ਬਣਾਓ…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "ਜੁੜੋ",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ, ਜਾਂ ਸੋਸ਼ਲ ਮੀਡੀਆ 'ਤੇ ਸਾਡਾ ਪਾਲਣ ਕਰੋ",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ਦੁਨੀਆ ਭਰ ਦੇ ਲੱਖਾਂ ਖਪਤਕਾਰਾਂ ਨੂੰ ਸੂਚਿਤ ਕਰਨ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ।",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "ਮਦਦ ਅਤੇ ਸਹਾਇਤਾ",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "ਆਪਣੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਪ੍ਰਾਪਤ ਕਰੋ",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ਲੌਗ ਆਊਟ ਕੀਤਾ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ਸਾਡੇ ਮੈਂਬਰਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੋਣ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "ਸਾਰੇ ਅੰਕੜੇ ਵੇਖੋ",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" ਲਈ {provider} ਖੋਜੋ",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ਇੱਕ ਸੈਟਿੰਗ ਦੀ ਖੋਜ ਕਰੋ (ਜਿਵੇਂ ਕਿ ਨਿਊਟਰੀ-ਸਕੋਰ)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "ਪਹੁੰਚਯੋਗਤਾ: ਇਮੋਜੀ ਦਿਖਾਓ",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "ਪਹੁੰਚਯੋਗਤਾ: ਰੰਗ ਹਟਾਓ",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "ਕਾਨੂੰਨੀ ਜਾਣਕਾਰੀ",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ, ਗੋਪਨੀਯਤਾ ਨੀਤੀ, ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ਲਾਇਸੈਂਸ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "ਐਪ ਬਾਰੇ",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "ਤਕਨੀਕੀ ਜਾਣਕਾਰੀ, ਵਿਕਾਸਕਾਰ ਜਾਣਕਾਰੀ, ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "ਵਰਜਨ ਨੰਬਰ",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "ਸਕੈਨਰ",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "ਐਪ ਸਟੋਰ",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "ਸਰੋਤ ਕੋਡ ਤੱਕ ਪਹੁੰਚ ਕਰੋ",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "ਅਤੇ ਲੱਖਾਂ ਲੋਕਾਂ ਲਈ ਪ੍ਰਭਾਵ ਪਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "ਸੁਝਾਅ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "ਨਵੇਂ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਦੀ ਖੋਜ ਕਰੋ",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਵੈੱਬਸਾਈਟ 'ਤੇ",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "ਮੇਰਾ ਖਾਤਾ ਪ੍ਰਬੰਧਿਤ ਕਰੋ",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "ਖ਼ਤਰੇ ਵਾਲਾ ਖੇਤਰ",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "ਤੁਹਾਡੇ ਸਾਰੇ ਯੋਗਦਾਨ ਗੁੰਮ ਹੋ ਜਾਣਗੇ।",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "ਐਪ ਸੈਟਿੰਗਾਂ",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ਉਤਪਾਦਾਂ ਨੂੰ ਔਫਲਾਈਨ ਸਕੈਨ ਕਰਨ ਦਾ ਬਹੁਤ ਹੀ ਪ੍ਰਯੋਗਾਤਮਕ ਤਰੀਕਾ",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "ਸਰਵਰ ਤੋਂ ਸਾਰੇ ਉਤਪਾਦਾਂ ਨੂੰ ਰਿਫ੍ਰੈਸ਼ ਕਰੋ",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "ਕਿਰਪਾ ਕਰਕੇ ਅਜਿਹਾ ਕਰਨ ਤੋਂ ਬਚੋ ਜਦੋਂ ਤੱਕ ਕਿ ਬਿਲਕੁਲ ਜ਼ਰੂਰੀ ਨਾ ਹੋਵੇ।",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "ਡੈਮੋ ਮੋਡ",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "ਸਕੈਨਰ ਵਿੱਚ ਕਾਰਡ ਸ਼ਾਮਲ ਕਰੋ",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "ਸਕੈਨਰ ਵਿੱਚ 3 ਨਮੂਨਾ ਉਤਪਾਦ ਜੋੜਦਾ ਹੈ",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ਫੋਕਸੋਨੋਮੀ ਹੋਸਟ",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "ਪਹੁੰਚਯੋਗਤਾ ਪ੍ਰਯੋਗ",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "ਕੀਮਤਾਂ ਲਈ ਬਹੁ-ਉਤਪਾਦਾਂ ਦੀ ਚੋਣ",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "ਵਰਤੋਂਕਾਰ ਦੁਆਰਾ ਆਰਡਰ ਕੀਤੇ ਗਿਆਨ ਪੈਨਲ",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "ਸਥਾਨ ਖੋਜ ਤੱਕ ਅਸਥਾਈ ਪਹੁੰਚ",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 ਜਾਂ 3 ਉਤਪਾਦਾਂ ਲਈ ਨਾਲ-ਨਾਲ ਤੁਲਨਾ",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ਉਤਪਾਦ ਸੂਚੀ ਆਯਾਤ",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "ਸਕੋਰ ਅਤੇ ਵਿਧੀਆਂ",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "ਖੋਜੋ ਕਿ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਦੀ ਗਣਨਾ ਕਿਵੇਂ ਕੀਤੀ ਜਾਂਦੀ ਹੈ",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "ਵਿਧੀ ਵਿੱਚ ਮੁੱਖ ਤਬਦੀਲੀਆਂ ਦੀ ਖੋਜ ਕਰੋ",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Open Food ਤੱਥਾਂ ਦੀ ਖੋਜ ਕਰੋ।",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ - ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸਵਾਲ",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਐਨ.ਜੀ.ਓ.",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "ਭਾਈਚਾਰਕ ਅੱਪਡੇਟ ਪ੍ਰਾਪਤ ਕਰੋ",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "ਐਪ ਅਤੇ ਕਮਿਊਨਿਟੀ ਖ਼ਬਰਾਂ ਨਾਲ ਜਾਣੂ ਰਹੋ",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "ਸਾਡੇ ਕਿਸੇ ਇੱਕ ਵਰਚੁਅਲ ਪ੍ਰੋਗਰਾਮ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋ ਕੇ ਸ਼ਾਮਲ ਹੋਵੋ",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ਸੋਸ਼ਲ ਮੀਡੀਆ 'ਤੇ ਸਾਡੇ ਨਾਲ ਪਾਲਣਾ ਕਰੋ",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਬਲੌਗ",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "ਤਾਜ਼ਾ ਖ਼ਬਰਾਂ ਪ੍ਰਾਪਤ ਕਰੋ, ਜਿਵੇਂ ਹੀ ਉਹ ਵਾਪਰਦੀਆਂ ਹਨ",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "ਭਾਈਚਾਰੇ ਤੋਂ ਮਦਦ ਪ੍ਰਾਪਤ ਕਰੋ",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "ਐਪ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "ਸਾਨੂੰ ਡੀਬੱਗ ਜਾਣਕਾਰੀ ਭੇਜੋ",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "ਸਾਨੂੰ ਵਿਸਤ੍ਰਿਤ ਡੀਬੱਗਿੰਗ ਜਾਣਕਾਰੀ ਦੇ ਨਾਲ ਇੱਕ ਈਮੇਲ ਭੇਜੋ।",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "ਐਪ ਬਾਰੇ ਸਾਨੂੰ ਫੀਡਬੈਕ ਭੇਜੋ",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "ਐਪ ਦੇ ਭਵਿੱਖ ਨੂੰ ਆਕਾਰ ਦੇਣ ਵਿੱਚ ਮਦਦ ਕਰੋ",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "ਐਪ ਸਰਵੇਖਣ ਵਿੱਚ ਭਾਗ ਲਓ",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "ਸਾਨੂੰ ਇਹ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰੋ ਕਿ ਸਾਨੂੰ ਅੱਗੇ ਕੀ ਬਣਾਉਣਾ ਚਾਹੀਦਾ ਹੈ",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "ਪੇਸ਼ੇਵਰ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "ਬਿਲਕੁਲ ਮੁਫ਼ਤ, 500 ਐਪਾਂ ਅਤੇ ਲੱਖਾਂ ਖਪਤਕਾਰਾਂ ਲਈ ਸਹੀ ਡੇਟਾ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ। ਸਵੈ-ਸੇਵਾ, ਤੁਹਾਡੇ PIM ਜਾਂ ਸਪ੍ਰੈਡਸ਼ੀਟਾਂ (XLSX) ਦੇ ਅਨੁਕੂਲ।",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ਸ਼ੁਰੂਆਤ ਕਰਨ ਲਈ ਸੰਪਰਕ ਕਰੋ",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "ਆਪਣੀ ਰਿਪੋਰਟ ਲਈ ਲੋੜੀਂਦੀ ਸਾਰੀ ਸਮੱਗਰੀ ਪ੍ਰਾਪਤ ਕਰੋ।",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "ਪ੍ਰੈਸ ਪੁੱਛਗਿੱਛ ਲਈ ਜਾਂ ਆਪਣੀ ਰਿਪੋਰਟ ਬਾਰੇ ਸਾਨੂੰ ਦੱਸਣ ਲਈ ਸੰਪਰਕ ਕਰੋ।",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ਇੱਕ ਸਰਗਰਮ ਵਲੰਟੀਅਰ ਬਣੋ",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "ਵਿਕਾਸ, ਸੰਚਾਰ, ਡਿਜ਼ਾਈਨ… ਕਿਸੇ ਵੀ ਕਿਸਮ ਦੀ ਸਵੈ-ਸੇਵਾ ਜਾਂ ਮੁਹਾਰਤ ਦਾ ਸਵਾਗਤ ਹੈ!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "ਤੁਸੀਂ ਯੋਗਦਾਨ ਪਾਉਣ ਦੇ ਕਈ ਤਰੀਕਿਆਂ ਵਿੱਚੋਂ ਕੁਝ ਲੱਭੋ",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "ਮੋਬਾਈਲ ਐਪ ਵਿਕਾਸ",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "ਸਾਫਟਵੇਅਰ ਵਿਕਾਸ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਦਾ ਤਰੀਕਾ ਸਿੱਖੋ",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "ਰੋਜ਼ਾਨਾ ਅਸਥਿਰ ਬਿਲਡ, ਬਿਲਕੁਲ ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "ਆਪਣੇ ਸਥਾਨਕ ਭਾਈਚਾਰੇ ਨੂੰ ਵਧਾਓ",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "ਸਾਫਟਵੇਅਰ, ਸਮੱਗਰੀ, ਸਮੱਗਰੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਮਦਦ",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "ਅਸੀਂ ਤੁਹਾਡੀ ਮਦਦ ਲਈ ਇੱਕ ਛੋਟਾ ਜਿਹਾ ਟੈਂਪਲੇਟ ਤਿਆਰ ਕੀਤਾ ਹੈ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "ਤੁਹਾਡੇ ਦੇਸ਼ ਵਿੱਚ ਭੋਜਨ ਪਾਰਦਰਸ਼ਤਾ ਵਧਾਉਣ ਲਈ ਸਧਾਰਨ ਕਦਮ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "ਡਾਟਾ ਗੁਣਵੱਤਾ ਟੀਮ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "ਡੇਟਾਬੇਸ ਨੂੰ ਸੰਪੂਰਨ ਅਤੇ ਸਹੀ ਬਣਾਉਣ ਲਈ ਸਾਡੇ ਯਤਨਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ।",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 ਉਤਪਾਦ ਜੋੜੇ ਗਏ",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਵਿੱਚ ਮੇਰੇ ਵੱਲੋਂ ਜੋੜੇ ਗਏ ਨਵੇਂ ਉਤਪਾਦ",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "ਉਤਪਾਦ ਜੋ ਮੈਨੂੰ ਪੂਰੇ ਕਰਨ ਦੀ ਲੋੜ ਹੈ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "ਸਾਰੇ ਅਧੂਰੇ ਉਤਪਾਦ",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "ਉਤਪਾਦ ਜੋ ਤੁਸੀਂ ਪੂਰਾ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "ਆਪਣੇ ਦੇਸ਼ ਵਿੱਚ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਅਤੇ ਗ੍ਰੀਨ-ਸਕੋਰ ਦੀ ਗਣਨਾ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ਮੇਰੇ ਵੱਲੋਂ ਯੋਗਦਾਨ ਕੀਤੀਆਂ ਕੀਮਤਾਂ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "ਕੀਮਤ ਟੈਗ ਅਤੇ ਰਸੀਦਾਂ",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "ਆਪਣੀਆਂ ਰਸੀਦਾਂ ਦੀਆਂ ਫੋਟੋਆਂ ਲਓ ਅਤੇ ਸੰਬੰਧਿਤ ਬਾਰਕੋਡ ਸਕੈਨ ਕਰੋ",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ਕਿਸੇ ਦੁਕਾਨ ਵਿੱਚ ਕੀਮਤਾਂ ਦੀਆਂ ਫੋਟੋਆਂ ਖਿੱਚੋ",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "ਨਵੀਨਤਮ ਕੀਮਤਾਂ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ਓਪਨ ਪ੍ਰਾਈਸ ਕਮਿਊਨਿਟੀ ਦੁਆਰਾ ਜੋੜੀਆਂ ਗਈਆਂ ਨਵੀਨਤਮ ਕੀਮਤਾਂ",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ਸਭ ਤੋਂ ਵੱਧ ਕੀਮਤਾਂ ਵਾਲੇ ਯੋਗਦਾਨੀ",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "ਓਪਨ ਪ੍ਰਾਈਸ ਮੈਟ੍ਰਿਕਸ",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ਪ੍ਰੋਜੈਕਟ ਦੇ ਵਿਕਾਸ ਦੀ ਪਾਲਣਾ ਕਰੋ",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "ਯੋਗਦਾਨ ਪਾਉਣ ਦੇ ਤਰੀਕੇ",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI ਦੀ ਮਦਦ ਨਾਲ, ਆਪਣੇ ਦੁਆਰਾ ਜਾਂ ਦੂਜਿਆਂ ਦੁਆਰਾ ਜੋੜੀਆਂ ਗਈਆਂ ਕੀਮਤਾਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "ਆਪਣੇ ਕੈਮਰਾ ਰੋਲ ਤੋਂ ਸ਼ੈਲਫਾਂ ਦੀਆਂ ਬਹੁਤ ਸਾਰੀਆਂ ਰਸੀਦਾਂ ਜਾਂ ਫੋਟੋਆਂ ਜਲਦੀ ਨਾਲ ਸ਼ਾਮਲ ਕਰੋ",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "ਮਹੀਨਾਵਾਰ ਚੁਣੌਤੀਆਂ",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "ਕੀਮਤਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਲਈ ਮਾਸਿਕ ਥੀਮੈਟਿਕ ਖੋਜਾਂ ਵਿੱਚ ਹਿੱਸਾ ਲਓ",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "ਆਪਣੇ ਵਫ਼ਾਦਾਰੀ ਡੇਟਾ ਦਾ ਮੁੜ ਦਾਅਵਾ ਕਰੋ",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "ਆਪਣੇ ਡੇਟਾ ਦੀ ਬੇਨਤੀ ਕਰਨ ਦਾ ਤਰੀਕਾ ਜਾਣੋ",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "ਐਪ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋ",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਓ",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "ਭੋਜਨ ਦੇ ਤੱਥਾਂ ਨੂੰ ਖੋਲ੍ਹਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਦੇ ਸਰਲ ਤਰੀਕੇ",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "ਪ੍ਰੋਜੈਕਟ ਬਾਰੇ ਸਕੋਰ ਵਿਧੀਆਂ, ਮਦਦ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "ਸੁਝਾਅ ਸਵੀਕਾਰ ਕਰੋ",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "ਪ੍ਰਮਾਣੀਕਰਨ ਅਸਫਲ ਰਿਹਾ, ਸਬੂਤ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "ਕਿਰਪਾ ਕਰਕੇ ਬਦਲਾਵਾਂ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਐਪ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ।",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ਗ੍ਰਾਫਿਕਲ ਇੰਟਰਫੇਸ",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "ਮੀਡੀਆ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "ਫੂਡ ਫੈਕਟਸ ਲੈਬਜ਼ ਖੋਲ੍ਹੋ",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਖੁੱਲ੍ਹੇ ਭੋਜਨ ਦੇ ਤੱਥ ਲਿਆਓ",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ਐਪ ਦੇ ਅਲਫ਼ਾ ਸੰਸਕਰਣ ਵਿੱਚ ਨਾਮ ਦਰਜ ਕਰੋ",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ਯੋਗਦਾਨ ਅਤੇ ਉਤਪਾਦ ਡਾਟਾ",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ਫੋਕਸੋਨੋਮੀ ਨਾ ਦਿਖਾਓ",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

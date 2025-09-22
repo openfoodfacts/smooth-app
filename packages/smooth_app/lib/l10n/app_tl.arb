@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "I-access ang mga pang-eksperimentong feature at development tool",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Datos",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Hindi kilalang Green-Score",
+  "environmental_score_not_applicable_new": "Hindi naaangkop ang Green-Score",
+  "nova_group_generic_new": "Mga ultra-processed na pagkain - mga pangkat ng NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Ang lahat ng mamamayan ay makakatulong sa amin na tipunin at ayusin ang impormasyong naroroon sa mga produkto o maaaring mahihinuha mula sa mga ito, tulad ng impormasyon sa packaging: Mission Emballages: isang malakihang collaborative na imbentaryo ng packaging para sa lahat ng produktong pagkain (sa French)",
   "guide_greenscore_transparency_arg2_title": "Paano makakatulong ang mga tagagawa",
   "guide_greenscore_transparency_arg2_text": "Maaaring ipadala sa amin ng mga tagagawa ang kanilang impormasyon nang direkta sa pamamagitan ng aming libreng platform para sa mga producer.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Aling produkto ang mas mahusay para sa planeta?",
+  "guide_greenscore_better_product_arg1_title": "Maaaring mahirap sabihin",
+  "guide_greenscore_better_product_arg1_text": "Ang pagpili ng napapanatiling pagkain ay isa sa pinakamakapangyarihang bagay na magagawa natin para sa klima, dahil **ang ating pandaigdigang sistema ng pagkain ang may pananagutan sa mahigit isang-kapat ng lahat ng mga greenhouse gas emissions**.\n(Pinagmulan: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "May kapangyarihan ka!",
+  "guide_greenscore_better_product_arg2_text": "Ang mabuting balita ay nagbibigay ito sa amin ng isang makapangyarihang paraan upang lumikha ng pagbabago.\n**Ang bawat isa sa atin ay kumakain ng humigit-kumulang 1,000 pagkain bawat taon**. Iyan ay 1,000 pagkakataon upang **pumili ng isang mas magandang kinabukasan para sa planeta**!",
+  "guide_greenscore_better_product_arg3_title": "Tumutulong na maging responsable at magpasya",
+  "guide_greenscore_better_product_arg3_text": "Ang pagpili ng napapanatiling pagkain ay maaaring maging kumplikado. Nakakalito ang mga label at kadalasang nawawala ang impormasyon. Ginawa ang Green-Score para gawing simple ito, na nagbibigay sa iyo ng **malinaw**, **nakabatay sa agham**, at **transparent** na rating sa kapaligiran para sa mga produktong pagkain, kung saan mo ito kailangan: habang namimili ka.",
+  "guide_greenscore_better_product_arg4_title": "Transparency",
+  "guide_greenscore_better_product_arg4_text": "Hindi tulad ng mga proprietary label, ang pagkalkula ng Green-Score ay **ganap na bukas** at maaaring **ma-verify ng sinuman**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ano ang ultra-processing?",
+  "guide_nova_what_is_nova_paragraph1": "Ang mga pangkat ng NOVA ay nagpapaalam sa iyo tungkol sa antas ng pagproseso ng pagkain.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Ang klasipikasyon ng NOVA ay nagbibigay-daan para sa pagkakategorya ng mga pagkain sa **4 na grupo** batay sa kanilang **degree ng industriyal na pagproseso** (minimally processed o unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Ang mga logo ng NOVA",
+  "guide_nova_groups_title": "Ang 4 na pangkat ng NOVA",
+  "guide_nova_groups_intro": "Mayroong 4 na grupo ng NOVA, ang problema ay ang Group 4 - Mga ultra-processed na pagkain.",
+  "guide_nova_groups_arg1_title": "Minimally processed o unprocessed na pagkain",
+  "guide_nova_groups_arg1_text": "Ang mga hindi pinroseso (o natural) na pagkain ay ang mga nakakain na bahagi ng halaman (mga buto, prutas, dahon, tangkay, ugat) o hayop (kalamnan, offal, itlog, gatas), gayundin ang fungi, algae, at tubig, pagkatapos na mahiwalay sa kalikasan.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Ang mga naprosesong sangkap sa pagluluto, gaya ng mga langis, mantikilya, asukal, at asin, ay mga sangkap na nagmula sa mga pagkain ng Pangkat 1 o mula sa kalikasan sa pamamagitan ng mga prosesong kinabibilangan ng pagpindot, pagpino, paggiling, paggiling, at pagpapatuyo.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Ang mga naprosesong pagkain, tulad ng mga de-boteng gulay, de-latang isda, prutas sa syrup, keso, at bagong gawang tinapay, ay pangunahing ginagawa sa pamamagitan ng pagdaragdag ng asin, langis, asukal, o iba pang mga sangkap mula sa Pangkat 2 hanggang sa Pangkat 1 na pagkain. Kasama sa mga proseso ang iba't ibang paraan ng pag-iimbak o pagluluto, at sa kaso ng mga tinapay at keso, ang non-alcoholic fermentation. Karamihan sa mga naprosesong pagkain ay may dalawa o tatlong sangkap at nakikilala bilang mga binagong bersyon ng mga pagkaing Grupo 1. Maaari silang kainin nang mag-isa o, mas karaniwan, kasama ng iba pang mga pagkain.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ang mga ultra-processed na pagkain, tulad ng mga soft drink, matamis o malasang nakabalot na meryenda, reconstituted meat products, at pre-prepared frozen dish, ay hindi lamang mga binagong pagkain kundi mga formulation na halos lahat o ganap na ginawa mula sa mga substance na nagmula sa mga pagkain at additives, na may kaunti hanggang walang buo na pagkain sa Grupo 1. Ang mga sangkap sa mga pormulasyon na ito ay kadalasang kinabibilangan ng mga matatagpuan din sa mga pagkaing naproseso, tulad ng mga asukal, langis, taba, o asin. Gayunpaman, ang mga ultra-processed na produkto ay naglalaman din ng iba pang pinagkukunan ng enerhiya at nutrients na hindi karaniwang ginagamit sa mga paghahanda sa pagluluto. Ang ilan sa mga ito ay direktang kinukuha mula sa mga pagkain, tulad ng casein, lactose, whey, at gluten.",
+  "guide_nova_explanations_title": "Ang mga problema sa ultra-processing",
+  "guide_nova_explanations_arg1_title": "Matinding pagproseso ng mga sangkap ng pagkain",
+  "guide_nova_explanations_arg1_text": "Marami ang hinango mula sa karagdagang pagproseso ng mga nasasakupan ng pagkain, tulad ng hydrogenated o interesadong mga langis, hydrolyzed na protina, soy protein isolate, maltodextrin, invert sugar, at high-fructose corn syrup.",
+  "guide_nova_explanations_arg2_title": "Mga additives na lampas sa purong kaligtasan ng pagkain",
+  "guide_nova_explanations_arg2_text": "Kasama sa mga additives sa mga ultra-processed na pagkain ang ilan na ginagamit din sa mga naprosesong pagkain, tulad ng mga preservative, antioxidant, at stabilizer. Kasama sa mga klase ng additives na makikita lamang sa mga ultra-processed na produkto ang mga ginagamit para gayahin o pagandahin ang mga sensory na katangian ng mga pagkain o para itago ang mga hindi masarap na aspeto ng huling produkto. Kasama sa mga additives na ito ang mga tina at iba pang mga kulay, mga stabilizer ng kulay; mga lasa, mga pampaganda ng lasa, mga pampatamis na hindi asukal; at mga pantulong sa pagproseso tulad ng carbonating, firming, bulking at anti-bulking agent, de-foaming, anti-caking at glazing agent, emulsifier, sequestrant, at humectants.",
+  "guide_nova_explanations_arg3_title": "Pagproseso na hindi mo magagawa sa bahay",
+  "guide_nova_explanations_arg3_text": "Maraming mga pagkakasunud-sunod ng mga proseso ang ginagamit upang pagsamahin ang karaniwang maraming sangkap at upang lumikha ng panghuling produkto (kaya't 'ultra-processed'). Kasama sa mga proseso ang ilang walang katumbas na domestic, tulad ng hydrogenation at hydrolysation, extrusion at molding, at pre-processing para sa pagprito.",
+  "guide_nova_explanations_arg4_title": "Ang predatory at pinansiyal na aspeto ng ultra-processing",
+  "guide_nova_explanations_arg4_text": "Ang pangkalahatang layunin ng ultra-processing ay lumikha ng mga produktong pagkain na may tatak, maginhawa (matibay, handang ubusin), kaakit-akit (hyper-palatable) at lubos na kumikita (mababa ang halaga) na idinisenyo upang palitan ang lahat ng iba pang pangkat ng pagkain. Ang mga produktong ultra-processed na pagkain ay karaniwang nakabalot nang kaakit-akit at masinsinang ibinebenta.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Pamahalaan ang iyong mga kagustuhan sa presyo",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ang proyekto ng Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Mag-ambag",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Isalin, pagbutihin ang aming mga tool…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Kumonekta",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Makipag-ugnayan, o Subaybayan kami sa social media",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Tulungan kaming ipaalam sa milyun-milyong consumer sa buong mundo",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Tulong at Suporta",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Kumuha ng mga sagot sa iyong mga tanong",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Naka-log out",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Salamat sa pagiging isa sa aming mga miyembro!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Tingnan ang lahat ng istatistika",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Maghanap {provider} para sa \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Maghanap ng setting (hal. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Accessibility: Ipakita ang emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Accessibility: Alisin ang mga kulay",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Mga produkto",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Tungkol sa",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Legal na impormasyon",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Mga tuntunin sa paggamit, patakaran sa privacy, at higit pa",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Mga tuntunin ng paggamit",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Mga lisensya",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Tungkol sa app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Teknikal na impormasyon, impormasyon ng developer, at higit pa",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Impormasyon",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Numero ng bersyon",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App store",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Mga setting ng system",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "I-access ang source code",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "At magsimulang gumawa ng epekto para sa milyun-milyon",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Mga tip",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Tuklasin ang bagong Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Sa website ng Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Pamahalaan ang aking account",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Baguhin ang aking password",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Danger zone",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Mawawala ang lahat ng iyong kontribusyon",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Mga setting ng app",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Napaka-eksperimentong paraan upang i-scan ang mga produkto offline",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "I-refresh ang lahat ng produkto mula sa server",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Mangyaring iwasang gawin iyon maliban kung talagang kinakailangan",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo mode",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Magdagdag ng mga card sa scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Nagdaragdag ng 3 sample na produkto sa scanner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "host ng folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Mga eksperimento sa pagiging naa-access",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Pagpili ng maraming produkto para sa mga presyo",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Mga panel ng kaalaman na iniutos ng user",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Pansamantalang pag-access sa paghahanap ng lokasyon",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Magkatabi na paghahambing para sa 2 o 3 produkto",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Pag-import ng listahan ng produkto",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Mga marka at pamamaraan",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Tuklasin kung paano nakalkula ang Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Tuklasin ang mga pangunahing pagbabago sa pamamaraan",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Tuklasin ang proyekto",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Tuklasin ang Open Food Facts",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Mga Madalas Itanong",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Ang Open Food Facts NGO",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Impormasyon",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Kumuha ng mga update sa komunidad",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Manatili sa loop sa app at mga balita sa komunidad",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Makilahok sa pamamagitan ng pagdalo sa isa sa aming mga virtual na kaganapan",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Sundan kami sa social media",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ang Open Food Facts blog",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Kunin ang pinakabagong balita, habang nangyayari ang mga ito",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Humingi ng tulong mula sa komunidad",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Tulungan kaming pagbutihin ang app",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Ipadala sa amin ang impormasyon sa pag-debug",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Padalhan kami ng email na may detalyadong impormasyon sa pag-debug",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Padalhan kami ng feedback tungkol sa app",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Tumulong na hubugin ang hinaharap ng app",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Kunin ang survey ng app",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Tulungan kaming maunawaan kung ano ang dapat naming gawin sa susunod",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Mga propesyonal",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Ganap na libre, tinitiyak ang tumpak na data para sa 500 app at milyon-milyong mga consumer. Self-service, tugma sa iyong PIM o mga spreadsheet (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Makipag-ugnayan para makapagsimula",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Pahayagan",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Kunin ang lahat ng materyal na kailangan mo para sa iyong ulat",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Makipag-ugnayan para sa mga katanungan sa press o upang ipaalam sa amin ang tungkol sa iyong ulat",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Maging isang aktibong boluntaryo",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Pag-unlad, Komunikasyon, Disenyo… anumang uri ng pagboboluntaryo o kadalubhasaan ay tinatanggap!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Tuklasin ang ilan sa maraming paraan na maaari kang mag-ambag",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Pagbuo ng mobile app",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Alamin kung paano mag-ambag sa pagbuo ng software",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Araw-araw na hindi matatag na mga build, mga bagong feature",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Palakihin ang iyong lokal na komunidad",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Tulong sa software, mga nilalaman, mga pagsasalin ng pagsusuri ng sangkap",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Naghanda kami ng isang maliit na template upang matulungan ka :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Mga simpleng hakbang upang mapalago ang transparency ng pagkain sa iyong bansa",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Sumali sa pangkat ng kalidad ng data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Sumali sa aming pagsisikap upang matiyak na kumpleto at tumpak ang database",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 mga produkto ang naidagdag",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Mga bagong produkto na idinagdag ko sa Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Mga produktong kailangan kong kumpletuhin",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Lahat ng hindi kumpletong produkto",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Mga produktong matutulungan mong kumpletuhin",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Tumulong na kalkulahin ang Nutri-Score at Green-Score sa iyong bansa",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Mga presyo na aking iniambag",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Mga tag ng presyo at mga resibo",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Kumuha ng mga larawan ng iyong mga resibo at i-scan ang mga nauugnay na barcode",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Kumuha ng mga larawan ng mga presyo sa isang tindahan",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Mga pinakabagong presyo",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Mga pinakabagong presyo na idinagdag ng komunidad ng Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Mga kontribyutor na may pinakamaraming presyo",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Buksan ang mga sukatan ng Presyo",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sundin ang ebolusyon ng proyekto",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Mga paraan upang mag-ambag",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Kumpirmahin ang mga presyong idinagdag mo o ng iba, sa tulong ng AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Mabilis na magdagdag ng maraming resibo o larawan ng mga istante mula sa iyong camera roll",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Mga buwanang hamon",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Makilahok sa mga buwanang pampakay na pakikipagsapalaran upang mangolekta ng mga presyo",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "I-reclaim ang iyong data ng katapatan",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Alamin kung paano hilingin ang iyong data",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "I-customize ang app",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Mag-ambag sa proyekto",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Mga simpleng paraan para matulungan ang Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Mga pamamaraan ng marka, tulong, at higit pa tungkol sa proyekto",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Tanggapin ang mungkahi",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Nabigo ang pagpapatotoo, hindi nakakuha ng mga patunay",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Mangyaring i-restart ang app upang ilapat ang mga pagbabago.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Graphical na interface",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Dalhin ang Open Food Facts sa iyong wika",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Mag-enroll sa alpha na bersyon ng app",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Mga kontribusyon at data ng produkto",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Huwag ipakita ang Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

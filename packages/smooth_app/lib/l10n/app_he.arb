@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "תרומה ל־Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "הרשמה לגרסת האלפא הפנימית",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "נא להכיר בזה שעם גרסת האלפא הפנימית הנתונים שלך יכולים להימחק לחלוטין ושהיישומון עשוי להיות בלתי שמיש לעתים!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "מוצרים שדורשים השלמה",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "גישה לתכונות ניסיוניות וכלי פיתוח",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "הפעלת תהליך קליטה מחדש",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "הגדרות ספק חדשות",
   "dev_mode_section_product_page": "עמוד מוצר",
   "dev_mode_section_ui": "מנשק משתמש",
-  "dev_mode_section_data": "נתונים",
   "dev_mode_section_experimental_features": "יכולות ניסיוניות",
-  "dev_preferences_show_folksonomy_title": "להחריג טוקסונומיה עממית",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "להחריג Green-Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Nutri-Score לא ידוע (נוסחה חדשה)",
   "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
   "nutriscore_not_applicable_new_formula": "Nutri-Score לא תקף (נוסחה חדשה)",
-  "environmental_score_generic": "Green-Score",
-  "environmental_score_a": "Green-Score A",
-  "environmental_score_b": "Green-Score B",
-  "environmental_score_c": "Green-Score C",
-  "environmental_score_d": "Green-Score D",
-  "environmental_score_e": "Green-Score E",
-  "environmental_score_unknown": "Green Score לא ידוע",
-  "environmental_score_not_applicable": "Green-Score לא תקף",
-  "nova_group_generic": "אולטרה־עיבוד - קבוצות NOVA",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "ציון ירוק A",
+  "environmental_score_b_new": "ציון ירוק B",
+  "environmental_score_c_new": "גרין-סקור ג'",
+  "environmental_score_d_new": "גרין-סקור ד'",
+  "environmental_score_e_new": "גרין-סקור E",
+  "environmental_score_unknown_new": "ציון ירוק לא ידוע",
+  "environmental_score_not_applicable_new": "ציון ירוק אינו רלוונטי",
+  "nova_group_generic_new": "מזון מעובד במיוחד - קבוצות NOVA",
   "nova_group_1": "קבוצת NOVA‏ 1",
   "nova_group_2": "קבוצת NOVA‏ 2",
   "nova_group_3": "קבוצת NOVA‏ 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "כל האזרחים יכולים לעזור לנו לאסוף ולבנות את המידע הקיים על מוצרים או שניתן להסיק מהם, כגון מידע על אריזות: משימה Emballages: מלאי שיתופי בקנה מידה גדול של אריזות לכל מוצרי המזון (בצרפתית).",
   "guide_greenscore_transparency_arg2_title": "כיצד יצרנים יכולים לעזור",
   "guide_greenscore_transparency_arg2_text": "יצרנים יכולים לשלוח לנו את המידע שלהם ישירות דרך הפלטפורמה החינמית שלנו ליצרנים.",
-  "guide_greenscore_share_link": "https://il.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "איזה מוצר עדיף לכדור הארץ?",
+  "guide_greenscore_better_product_arg1_title": "קשה לדעת",
+  "guide_greenscore_better_product_arg1_text": "בחירת מזון בר-קיימא היא אחד הדברים החזקים ביותר שאנחנו יכולים לעשות למען האקלים, שכן **מערכת המזון העולמית שלנו אחראית ליותר מרבע מכלל פליטות גזי החממה**.\n(מקור: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "יש לך את הכוח!",
+  "guide_greenscore_better_product_arg2_text": "החדשות הטובות הן שזה נותן לנו דרך עוצמתית ליצור שינוי.\n**כל אחד מאיתנו אוכל כ-1,000 ארוחות בכל שנה**. אלו 1,000 הזדמנויות **לבחור עתיד טוב יותר לכדור הארץ**!",
+  "guide_greenscore_better_product_arg3_title": "עוזר לקחת אחריות ולקבל החלטות",
+  "guide_greenscore_better_product_arg3_text": "בחירת מזון בר-קיימא יכולה להרגיש מורכבת. תוויות מבלבלות ולעיתים קרובות חסר בהן מידע. הציון הירוק נוצר כדי לפשט את התהליך, ומעניק לכם דירוג סביבתי **ברור**, **מבוסס מדע** ו**שקוף** למוצרי מזון, בדיוק במקום בו אתם צריכים אותו: בזמן הקניות.",
+  "guide_greenscore_better_product_arg4_title": "שְׁקִיפוּת",
+  "guide_greenscore_better_product_arg4_text": "בניגוד לתוויות קנייניות, חישוב ה-Green-Score הוא **פתוח לחלוטין** וניתן לאמת אותו על ידי כל אחד**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "מזון אולטרה מעובד",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "מה זה אולטרה-פרוססינג?",
+  "guide_nova_what_is_nova_paragraph1": "קבוצות NOVA מיידעות אותך על רמת עיבוד המזון.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "סיווג NOVA מאפשר לסווג מזונות ל- **4 קבוצות** בהתבסס על **מידת העיבוד התעשייתי** שלהם (מזונות מעובדים מינימלית או לא מעובדים, מרכיבים קולינריים, מזונות מעובדים, מזונות מעובדים במיוחד).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "הלוגואים של NOVA",
+  "guide_nova_groups_title": "4 קבוצות NOVA",
+  "guide_nova_groups_intro": "ישנן 4 קבוצות NOVA, כאשר הבעייתית שבהן היא קבוצה 4 - מזונות מעובדים במיוחד.",
+  "guide_nova_groups_arg1_title": "מזונות מעובדים מינימלית או לא מעובדים",
+  "guide_nova_groups_arg1_text": "מזונות לא מעובדים (או טבעיים) הם החלקים האכילים של צמחים (זרעים, פירות, עלים, גבעולים, שורשים) או בעלי חיים (שרירים, פסולת, ביצים, חלב), כמו גם פטריות, אצות ומים, לאחר שהופרדו מהטבע.",
+  "guide_nova_groups_arg2_title": "רכיבים קולינריים מעובדים",
+  "guide_nova_groups_arg2_text": "מרכיבים קולינריים מעובדים, כגון שמנים, חמאה, סוכר ומלח, הם חומרים שמקורם במזונות מקבוצה 1 או מהטבע באמצעות תהליכים הכוללים כבישה, זיקוק, טחינה, כרסום וייבוש.",
+  "guide_nova_groups_arg3_title": "מזון מעובד",
+  "guide_nova_groups_arg3_text": "מזונות מעובדים, כגון ירקות בבקבוקים, דגים משומרים, פירות בסירופ, גבינות ולחמים טריים, מיוצרים בעיקר על ידי הוספת מלח, שמן, סוכר או חומרים אחרים מקבוצה 2 למזונות מקבוצה 1. התהליכים כוללים שיטות שימור או בישול שונות, ובמקרה של לחמים וגבינה, תסיסה ללא אלכוהול. רוב המזונות המעובדים מכילים שניים או שלושה מרכיבים והם מזוהים כגרסאות שעברו שינוי של מזונות מקבוצה 1. ניתן לאכול אותם בפני עצמם או, בדרך כלל, בשילוב עם מזונות אחרים.",
+  "guide_nova_groups_arg4_title": "מזון אולטרה מעובד",
+  "guide_nova_groups_arg4_text": "מזונות מעובדים במיוחד, כגון משקאות קלים, חטיפים ארוזים מתוקים או מלוחים, מוצרי בשר משוחזרים ומנות קפואות שהוכנו מראש, אינם רק מזונות שעברו שינוי, אלא פורמולציות המיוצרות ברובן או כולם מחומרים שמקורם במזונות ותוספים, עם מעט מאוד, אם בכלל, מזון שלם מקבוצה 1. רכיבים בפורמולציות אלו כוללים בדרך כלל את אלה המצויים גם במזונות מעובדים, כגון סוכרים, שמנים, שומנים או מלח. עם זאת, מוצרים מעובדים במיוחד מכילים גם מקורות אנרגיה וחומרים מזינים אחרים שאינם משמשים בדרך כלל בתכשירים קולינריים. חלקם מופקים ישירות ממזונות, כגון קזאין, לקטוז, מי גבינה וגלוטן.",
+  "guide_nova_explanations_title": "הבעיות עם עיבוד אולטרה",
+  "guide_nova_explanations_arg1_title": "עיבוד קיצוני של מרכיבי מזון",
+  "guide_nova_explanations_arg1_text": "רבים מהם נגזרים מעיבוד נוסף של מרכיבי מזון, כגון שמנים מוקשים או אינטראסטריפיים, חלבונים שעברו הידרוליזה, חלבון סויה מבודד, מלטודקסטרין, סוכר אינוורטי וסירופ תירס עתיר פרוקטוז.",
+  "guide_nova_explanations_arg2_title": "תוספים מעבר לבטיחות מזון טהורה",
+  "guide_nova_explanations_arg2_text": "תוספים במזונות אולטרה-מעובדים כוללים כאלה המשמשים גם במזונות מעובדים, כגון חומרים משמרים, נוגדי חמצון ומייצבים. קטגוריות של תוספים הנמצאות רק במוצרים אולטרה-מעובדים כוללות כאלה המשמשים לחיקוי או לשיפור התכונות החושיות של מזונות או להסוות היבטים לא נעימים של המוצר הסופי. תוספים אלה כוללים צבעים וצבעים אחרים, מייצבי צבע; חומרי טעם, משפרי טעם, ממתיקים שאינם סוכרים; ועזרי עיבוד כגון חומרים להגברת פחמן, מיצוק, הגדלת תפיחה ונוגד תפיחה, חומרים להפחתת הקצפה, מונע התגיישות וזיגוג, מתחלבים, חומרים מקצרים וחומרי לחות.",
+  "guide_nova_explanations_arg3_title": "עיבוד שלא ניתן לעשות בבית",
+  "guide_nova_explanations_arg3_text": "רצפי תהליכים רבים משמשים לשילוב המרכיבים הרבים בדרך כלל וליצירת המוצר הסופי (ומכאן 'מעובד במיוחד'). התהליכים כוללים מספר תהליכים שאין להם מקבילות מקומיות, כגון הידרוגנציה והידרוליזה, שיחול ויציקה, ועיבוד מקדים לטיגון.",
+  "guide_nova_explanations_arg4_title": "ההיבטים הטורפניים והפיננסיים של עיבוד אולטרה-",
+  "guide_nova_explanations_arg4_text": "המטרה הכוללת של עיבוד אולטרה-מעובד היא ליצור מוצרי מזון ממותגים, נוחים (עמידים, מוכנים לצריכה), אטרקטיביים (טעימים במיוחד) ורווחיים ביותר (מרכיבים זולים) שנועדו להחליף את כל קבוצות המזון האחרות. מוצרי מזון אולטרה-מעובדים ארוזים בדרך כלל בצורה אטרקטיבית ומשווקים באופן אינטנסיבי.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "תצוגה מקדימה",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "כללי",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "מחירים",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "ניהול העדפות המחירים שלך",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "פרויקט עובדות המזון הפתוחות",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "לתרום",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "תרגמו, שפרו את הכלים שלנו…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "לְחַבֵּר",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "צרו קשר, או עקבו אחרינו ברשתות החברתיות",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "הגשת תרומה",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "עזרו לנו ליידע מיליוני צרכנים ברחבי העולם",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "עזרה ותמיכה",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "שו״ת",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "קבל תשובות לשאלות שלך",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "התנתקתי",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "תודה שאתה אחד החברים שלנו!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "מוצרים שהשתנו",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "נוספו מחירים",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "ראה את כל הסטטיסטיקות",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "חפש {provider} עבור \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "חפש הגדרה (למשל, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "נגישות: הצג אמוג'י",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "נגישות: הסרת צבעים",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "מוצרים",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "על אודות",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "מידע משפטי",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "תנאי שימוש, מדיניות פרטיות ועוד",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "תנאי שימוש",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "אזכורים משפטיים",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "מדיניות פרטיות",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "רישיונות",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "אודות האפליקציה",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "מידע טכני, מידע למפתחים ועוד",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "פרטים",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "מספר גרסה",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "סוֹרֵק",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "חנות האפליקציות",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "הגדרות מערכת",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "גישה לקוד המקור",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "ולהתחיל להשפיע על מיליונים",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "הוספת מחירים",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "הפצת הבשורה",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "טיפים",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "גלו את ה-Nutri-Score החדש",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "באתר האינטרנט של Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "ניהול החשבון שלי",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "שנה את הסיסמה שלי",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "אזור סכנה",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "כל התרומות שלך יאבדו",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "תרומות",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "הגדרות אפליקציה",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "דרך ניסיונית מאוד לסרוק מוצרים במצב לא מקוון",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "רענן את כל המוצרים מהשרת",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "אנא הימנעו מלעשות זאת אלא אם כן הדבר הכרחי לחלוטין",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "מצב הדגמה",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "הוספת כרטיסים לסורק",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "מוסיף 3 מוצרים לדוגמה לסורק",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "מנחה פולקסונומי",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "ניסויי נגישות",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "מבחר מוצרים מרובים במחירים",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "לוחות ידע שהוזמנו על ידי המשתמש",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "גישה זמנית לחיפוש מיקום",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "השוואה זו לצד זו עבור 2 או 3 מוצרים",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ייבוא רשימת מוצרים",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "ציונים ומתודולוגיות",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "גלה כיצד מחושב ה-Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "גלו את השינויים העיקריים במתודולוגיה",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "לגלות עוד על המיזם",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "גלה עובדות על אוכל פתוח",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "שאלות נפוצות - שאלות נפוצות",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "עמותת \"עובדות על אוכל פתוח\"",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "פרטים",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "קבל עדכוני קהילה",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "הישארו מעודכנים עם חדשות האפליקציה והקהילה",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "עקבו אחרינו ברשתות החברתיות",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "הבלוג של עובדות המזון הפתוחות",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "קבלו את החדשות האחרונות, ברגע שהן קורות",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "קבל עזרה מהקהילה",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "עזרו לנו לשפר את האפליקציה",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "שלח לנו מידע על ניפוי שגיאות",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "שלחו לנו אימייל עם מידע מפורט על ניפוי שגיאות",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "שלחו לנו משוב על האפליקציה",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "עזרו לעצב את עתיד האפליקציה",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "השתתף בסקר האפליקציה",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "עזרו לנו להבין מה עלינו לבנות בהמשך",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "אנשי מקצוע",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "לגמרי בחינם, מבטיח נתונים מדויקים עבור 500 אפליקציות ומיליוני צרכנים. שירות עצמי, תואם ל-PIM או לגיליונות אלקטרוניים (XLSX) שלך.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "צרו קשר כדי להתחיל",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "מידע לעתונאים",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "קבלו את כל החומר הדרוש לכם לדוח שלכם",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "צרו קשר לקבלת שאלות מהתקשורת או כדי לעדכן אותנו בדיווח שלכם",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "הפוך למתנדב פעיל",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "פיתוח, תקשורת, עיצוב… כל סוג של התנדבות או מומחיות יתקבלו בברכה!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "גלו כמה מהדרכים הרבות בהן תוכלו לתרום",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "פיתוח אפליקציות מובייל",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "למד כיצד לתרום לפיתוח תוכנה",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "בניות לא יציבות יומיות, תכונות חדשות לגמרי",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "הרחיב את הקהילה המקומית שלך",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "עזרה בתרגומי תוכנה, תוכן וניתוח מרכיבים",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "הכנו תבנית קטנה שתעזור לכם :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "צעדים פשוטים להגדלת שקיפות המזון במדינתך",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "איכות נתונים",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "הצטרפו לצוות איכות הנתונים",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "הצטרפו למאמצינו להבטיח שמאגר הנתונים יהיה שלם ומדויק",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 מוצרים נוספו",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "מוצרים חדשים שהוספתי ל-Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "מוצרים שאני צריך להשלים",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "כל המוצרים הלא גמורים",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "מוצרים שתוכלו לעזור להם להשלים",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "עזרו לחשב את ה-Nutri-Score וה-Green-Score במדינתכם",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "מחירים שתרמתי",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "תגי מחיר וקבלות",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "צלם תמונות של הקבלות שלך וסרוק את הברקודים הנלווים",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "צלם תמונות של מחירים בחנות",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "המחירים החדשים ביותר",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "המחירים האחרונים שנוספו על ידי קהילת Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "התורמים עם המחירים הגבוהים ביותר",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "מדדי מחיר פתיחה",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "עקבו אחר התפתחות הפרויקט",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "דרכים לתרום",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "אשר מחירים שנוספו בעצמך או על יד אחרים, בעזרת בינה מלאכותית",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "הוסף במהירות קבלות רבות או תמונות של מדפים מגליל הצילום שלך",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "אתגרים חודשיים",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "השתתפו במשימות נושאיות חודשיות כדי לאסוף מחירים",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "החזירו את נתוני הנאמנות שלכם",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "למד כיצד לבקש את הנתונים שלך",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "התאם אישית את האפליקציה",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "תרמו לפרויקט",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "דרכים פשוטות לעזור לפתוח עובדות מזון",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "מתודולוגיות ניקוד, עזרה ועוד על הפרויקט",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "קבלת ההצעה",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "האימות נכשל, לא ניתן לאחזר הוכחות",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "אנא הפעל מחדש את האפליקציה כדי להחיל את השינויים.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ממשק גרפי",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "כְּלֵי תִקְשׁוֹרֶת",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "פיתוח",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "מעבדות עובדות מזון פתוחות",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "חשבון",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "הביאו עובדות פתוחות על מזון לשפה שלכם",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "הירשמו לגרסת אלפא של האפליקציה",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "תרומות ונתוני מוצר",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "אל תציג פולקסונומיה",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "חשבון",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

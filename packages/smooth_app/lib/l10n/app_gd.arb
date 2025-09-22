@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Faigh cothrom air feartan deuchainneach agus innealan leasachaidh",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Sgòr Uaine A",
+  "environmental_score_b_new": "Sgòr Uaine B",
+  "environmental_score_c_new": "Sgòr Uaine C",
+  "environmental_score_d_new": "Sgòr Uaine D",
+  "environmental_score_e_new": "Sgòr Uaine E",
+  "environmental_score_unknown_new": "Sgòr Uaine Neo-aithnichte",
+  "environmental_score_not_applicable_new": "Chan eil Sgòr Uaine iomchaidh",
+  "nova_group_generic_new": "Biadhan air an giullachd gu mòr - buidhnean NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Faodaidh a h-uile saoranach ar cuideachadh le bhith a’ cruinneachadh agus a’ structaradh an fhiosrachaidh a tha an làthair air toraidhean no a ghabhas a thoirt a-mach bhuapa, leithid fiosrachadh air pacaigeadh: Mission Emballages: clàr-stuth co-obrachail mòr-sgèile de phacaigeadh airson a h-uile toradh bìdh (ann am Fraingis)",
   "guide_greenscore_transparency_arg2_title": "Mar as urrainn do luchd-saothrachaidh cuideachadh",
   "guide_greenscore_transparency_arg2_text": "Faodaidh luchd-saothrachaidh am fiosrachadh aca a chuir thugainn gu dìreach tron àrd-ùrlar an-asgaidh againn do luchd-dèanaimh.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Dè an toradh a tha nas fheàrr airson a’ phlanaid?",
+  "guide_greenscore_better_product_arg1_title": "Faodaidh e bhith duilich innse",
+  "guide_greenscore_better_product_arg1_text": "’S e taghadh biadh seasmhach aon de na rudan as cumhachdaiche as urrainn dhuinn a dhèanamh airson na gnàth-shìde, leis gu bheil **an siostam bìdh cruinneil againn an urra ri còrr is cairteal de na sgaoilidhean gasa taigh-glainne uile**.\n(Stòr: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Tha an cumhachd agad!",
+  "guide_greenscore_better_product_arg2_text": "Is e an deagh naidheachd gu bheil seo a’ toirt dhuinn dòigh chumhachdach air atharrachadh a chruthachadh.\n**Bidh gach aon againn ag ithe timcheall air 1,000 biadh gach bliadhna**. Sin 1,000 cothrom airson **àm ri teachd nas fheàrr a thaghadh airson a’ phlanaid**!",
+  "guide_greenscore_better_product_arg3_title": "A’ cuideachadh le bhith cunntachail agus a’ co-dhùnadh",
+  "guide_greenscore_better_product_arg3_text": "Faodaidh taghadh biadh seasmhach a bhith a’ faireachdainn iom-fhillte. Tha bileagan troimh-chèile agus gu tric chan eil fiosrachadh ann. Chaidh an Sgòr Uaine a chruthachadh gus a dhèanamh sìmplidh, a’ toirt dhut rangachadh àrainneachdail **soilleir**, **stèidhichte air saidheans**, agus **follaiseach** airson toraidhean bìdh, dìreach far a bheil feum agad air: fhad ‘s a tha thu a’ ceannach.",
+  "guide_greenscore_better_product_arg4_title": "Follaiseachd",
+  "guide_greenscore_better_product_arg4_text": "Eu-coltach ri bileagan seilbhe, tha àireamhachadh an Sgòr Uaine **gu tur fosgailte** agus faodar a **dhearbhachadh le duine sam bith**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Dè a th’ ann an ultra-phròiseasadh?",
+  "guide_nova_what_is_nova_paragraph1": "Bidh buidhnean NOVA ag innse dhut mu ìre giollachd bìdh.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Leigidh seòrsachadh NOVA le biadhan a bhith air an seòrsachadh ann an **4 buidhnean** stèidhichte air an **ìre de ghiullachd gnìomhachais** (biadhan air an giullachd gu ìre bheag no gun phròiseasadh, grìtheidean còcaireachd, biadhan air an giullachd, biadhan air an giullachd gu mòr).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Suaicheantasan NOVA",
+  "guide_nova_groups_title": "Na 4 buidhnean NOVA",
+  "guide_nova_groups_intro": "Tha 4 buidhnean NOVA ann, agus is e am buidheann trioblaideach Buidheann 4 - Biadhan air an giullachd gu mòr.",
+  "guide_nova_groups_arg1_title": "Biadhan air an giullachd gu ìre bheag no gun phròiseasadh",
+  "guide_nova_groups_arg1_text": "Is e biadhan neo-phròiseasaichte (no nàdarra) na pàirtean a ghabhas ithe de lusan (sìol, measan, duilleagan, gasan, freumhaichean) no bheathaichean (fèithean, sgeadachaidhean, uighean, bainne), a bharrachd air fungasan, algaich, agus uisge, às deidh dhaibh a bhith air an sgaradh bhon nàdar.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Tha grìtheidean còcaireachd giullaichte, leithid olan, ìm, siùcar agus salann, nan stuthan a tha air an toirt bho bhiadhan Buidheann 1 no bhon nàdar tro phròiseasan a tha a’ toirt a-steach brùthadh, grinneachadh, bleith, muilneachadh agus tiormachadh.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Bidh biadhan giullaichte, leithid glasraich ann am botail, iasg ann an tionaichean, measan ann an siorup, càiseagan, agus aran ùr-dhèanta, air an dèanamh sa mhòr-chuid le bhith a’ cur salann, ola, siùcar, no stuthan eile bho Bhuidheann 2 gu biadhan Buidheann 1. Tha pròiseasan a’ toirt a-steach diofar dhòighean glèidhteachais no còcaireachd, agus a thaobh aran is càise, coipeadh gun deoch làidir. Tha dà no trì tàthchuid anns a’ mhòr-chuid de bhiadhan giullaichte agus tha iad aithnichte mar dhreachan atharraichte de bhiadhan Buidheann 1. Faodar an ithe leotha fhèin no, nas trice, ann an co-bhonn ri biadhan eile.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Chan e dìreach biadhan atharraichte a th’ ann am biadhan air an giullachd gu mòr, leithid deochan bog, greimean-bìdh pacaichte milis no blasta, toraidhean feòla ath-chruthaichte, agus soithichean reòta ro-ullaichte, ach foirmlean air an dèanamh sa mhòr-chuid no gu tur bho stuthan a tha air an toirt bho bhiadhan agus stuthan cur-ris, le glè bheag de bhiadh Buidheann 1 slàn. Mar as trice bidh grìtheidean anns na foirmlean sin a’ toirt a-steach an fheadhainn a lorgar ann am biadhan giullaichte cuideachd, leithid siùcaran, olan, geir no salann. Ach, tha stòran lùtha agus beathachaidh eile ann an toraidhean air an giullachd gu mòr nach eilear a’ cleachdadh mar as trice ann an ullachaidhean còcaireachd. Tha cuid dhiubh sin air an toirt a-mach gu dìreach bho bhiadhan, leithid casein, lactos, meadhg-bhìdh, agus gluten.",
+  "guide_nova_explanations_title": "Na duilgheadasan le ultra-phròiseasadh",
+  "guide_nova_explanations_arg1_title": "Giullachd anabarrach de ghrìtheidean bìdh",
+  "guide_nova_explanations_arg1_text": "Tha mòran dhiubh air an toirt bho bhith a’ giullachd phàirtean bìdh a bharrachd, leithid olan hydrogenated no interesterified, pròtainean hydrolyzed, pròtain soy air a sgaradh, maltodextrin, siùcar inverted, agus siorup arbhair àrd-fructose.",
+  "guide_nova_explanations_arg2_title": "Stuthan a bharrachd a tha a’ dol nas fhaide na sàbhailteachd bìdh fìor-ghlan",
+  "guide_nova_explanations_arg2_text": "Am measg nan stuthan cur-ris ann am biadhan air an giullachd gu mòr tha cuid a thathas a’ cleachdadh ann am biadhan air an giullachd cuideachd, leithid stuthan-gleidhidh, stuthan-dìona antioxidants, agus stabilizers. Am measg nan clasaichean de stuthan cur-ris a lorgar ann am bathar air an giullachd gu mòr a-mhàin tha an fheadhainn a thathas a’ cleachdadh gus feartan mothachaidh biadhan ath-aithris no a neartachadh no gus taobhan mì-thlachdmhor den toradh deireannach fhalach. Tha na stuthan cur-ris sin a’ toirt a-steach dathan agus dathan eile, stabilizers dath; blasan, luchd-àrdachaidh blas, milsearan neo-shiùcair; agus taicean giullachd leithid riochdairean carbonating, daingneachaidh, bulking agus anti-bulking, riochdairean dì-fhoaming, anti-caking agus glazing, emulsifiers, sequestrants, agus humectants.",
+  "guide_nova_explanations_arg3_title": "Giullachd nach urrainn dhut a dhèanamh aig an taigh",
+  "guide_nova_explanations_arg3_text": "Bithear a’ cleachdadh iomadh sreath de phròiseasan gus na grìtheidean, a bhios mar as trice mòran, a chur còmhla agus an toradh deireannach a chruthachadh (mar sin ‘air a phròiseasadh gu mòr’). Tha grunn phròiseasan anns na pròiseasan aig nach eil co-ionannachdan dachaigheil, leithid hydrogenation agus hydrolysation, eas-tharraing agus molltair, agus ro-phròiseasadh airson friogais.",
+  "guide_nova_explanations_arg4_title": "Na taobhan creachaidh is ionmhais a tha an lùib ultra-phròiseasadh",
+  "guide_nova_explanations_arg4_text": "Is e prìomh adhbhar giollachd-bhìdh toraidhean bìdh branndaichte, goireasach (maireannach, deiseil airson ithe), tarraingeach (ro-bhlasta) agus air leth prothaideach (tàthchuid aig prìs ìseal) a chruthachadh, air an dealbhadh gus a h-uile buidheann bìdh eile a chuir às. Mar as trice bidh toraidhean bìdh air an giollachd-bhìdh air am pacadh ann an dòigh tharraingeach agus air am margaidheachd gu dian.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Stiùirich na roghainnean prìsean agad",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Pròiseact Fiosrachadh Bidhe Fosgailte",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Eadar-theangaich, leasaich na h-innealan againn…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Ceangail",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Cuir fios thugainn, no lean sinn air na meadhanan sòisealta",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Cuidich sinn gus fiosrachadh a thoirt do mhilleanan de luchd-cleachdaidh air feadh an t-saoghail",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Cobhair & Taic",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Faigh freagairtean do na ceistean agad",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Air logadh a-mach",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Tapadh leibh airson a bhith nad aon de na buill againn!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Seall a h-uile staitistig",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Lorg {provider} airson \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Lorg suidheachadh (m.e. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Ruigsinneachd: Seall emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Ruigsinneachd: Thoir air falbh dathan",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Fiosrachadh laghail",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Teirmichean cleachdaidh, poileasaidh prìobhaideachd, agus barrachd",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Ceadan",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Mu dheidhinn an aplacaid",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Fiosrachadh teicnigeach, fiosrachadh luchd-leasachaidh, agus barrachd",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Àireamh an tionndaidh",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Sganair",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Bùth aplacaidean",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Roghainnean an t-siostaim",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Faigh cothrom air a’ chòd thùsail",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Agus tòisich a’ toirt buaidh air milleanan",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Molaidhean",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Faigh a-mach an Nutri-Score ùr",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Air làrach-lìn Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Stiùirich mo chunntas",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Atharraich am facal-faire agam",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Sòn cunnart",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Thèid na tabhartasan agad uile a chall",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Roghainnean an aplacaid",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Dòigh gu math deuchainneach airson toraidhean a sganadh far-loidhne",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Ùraich a h-uile toradh bhon fhrithealaiche",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Feuch an seachain thu sin a dhèanamh mura h-eil feum air",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Modh taisbeanaidh",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Cuir cairtean ris an sganair",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Cuir 3 toraidhean sampall ris an sganair",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Neach-aoigheachd Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Deuchainnean ruigsinneachd",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Taghadh ioma-thoraidhean airson prìsean",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Pannalan eòlais air an òrdachadh leis an neach-cleachdaidh",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Cothrom sealach air rannsachadh àite",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Coimeas taobh ri taobh airson 2 no 3 toraidhean",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Ion-phortadh liosta thoraidhean",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Sgòran & modhan-obrach",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Faigh a-mach mar a thèid an Nutri-Score obrachadh a-mach",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Faigh a-mach na prìomh atharrachaidhean air an dòigh-obrach",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Faigh a-mach Fiosrachadh mu Bhiadh Fosgailte",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Ceistean Bitheanta - Ceistean Bitheanta",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "NGO Fiosrachadh Biadh Fosgailte",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Faigh ùrachaidhean coimhearsnachd",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Fuirich fiosrachail leis an aplacaid agus naidheachdan coimhearsnachd",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Gabh pàirt le bhith an làthair aig aon de na tachartasan brìgheil againn",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Lean sinn air na meadhanan sòisealta",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Am blog Fiosrachadh Biadh Fosgailte",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Faigh na naidheachdan as ùire, cho luath ‘s a thachras iad",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Faigh cobhair bhon choimhearsnachd",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Cuidich sinn le bhith a’ leasachadh an aplacaid",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Cuir fiosrachadh dì-bhugachaidh thugainn",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Cuir post-d thugainn le fiosrachadh mionaideach mu dhì-bhugachadh",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Cuir fios-air-ais thugainn mun aplacaid",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Cuidich le bhith a’ cumadh àm ri teachd an aplacaid",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Gabh an sgrùdadh air an aplacaid",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Cuidich sinn le bhith a’ tuigsinn dè bu chòir dhuinn a thogail an ath rud",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Proifeiseantaich",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Gu tur an-asgaidh, a’ dèanamh cinnteach à dàta ceart airson 500 aplacaid & milleanan de luchd-cleachdaidh. Fèin-sheirbheis, co-chòrdail ris a’ PIM no na duilleagan-clèithe agad (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Cuir fios thugainn gus tòiseachadh",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Faigh a h-uile stuth a dh’ fheumas tu airson an aithisg agad",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Cuir fios thugainn airson ceistean bhon phreas no gus innse dhuinn mun aithisg agad",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Bi nad shaor-thoileach gnìomhach",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Leasachadh, Conaltradh, Dealbhadh… tha fàilte air seòrsa sam bith de obair shaor-thoileach no eòlas!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Faigh a-mach cuid de na iomadh dòigh anns an urrainn dhut tabhartas a thoirt seachad",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Leasachadh aplacaidean gluasadach",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Ionnsaich mar a chuireas tu ri leasachadh bathar-bog",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Togalaichean neo-sheasmhach làitheil, feartan ùra",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Fàs do choimhearsnachd ionadail",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Cobhair le bathar-bog, susbaint, eadar-theangachaidhean mion-sgrùdaidh tàthchuid",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Tha sinn air beagan teamplaid ullachadh gus do chuideachadh :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Ceumannan sìmplidh gus follaiseachd bìdh a leasachadh anns an dùthaich agad",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Thig còmhla ris an sgioba càileachd dàta",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Thig còmhla rinn gus dèanamh cinnteach gu bheil an stòr-dàta coileanta agus ceart",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 bathar air a chur ris",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Toraidhean ùra a chuir mi ri Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Toraidhean a dh’ fheumas mi a chrìochnachadh",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "A h-uile toradh neo-choileanta",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Toraidhean as urrainn dhut cuideachadh le bhith gan crìochnachadh",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Cuidich le bhith ag obrachadh a-mach an Nutri-Score & Green-Score anns an dùthaich agad",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prìsean a chuir mi ris",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Tagaichean prìsean agus cuidhteasan",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Gabh dealbhan de na cuidhteasan agad agus sgan na còdan-barra co-cheangailte riutha",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Tog dealbhan de phrìsean ann am bùth",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Prìsean as ùire",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Na prìsean as ùire air an cur ris leis a’ choimhearsnachd Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Luchd-tabhartais leis na prìsean as àirde",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Meatairean Prìs Fosgailte",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Lean mean-fhàs a’ phròiseict",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Dòighean air tabhartas a thoirt seachad",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Dearbhaich prìsean a chuir thu fhèin no daoine eile ris, le cuideachadh bho AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Cuir mòran cuidhteasan no dealbhan de sgeilpichean bhon rolla camara agad ris gu sgiobalta",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Dùbhlain mhìosail",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Gabh pàirt ann an quests cuspaireil mìosail gus prìsean a chruinneachadh",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Faigh air ais an dàta dìlseachd agad",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Ionnsaich mar a dh'iarras tu an dàta agad",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Gnàthaich an aplacaid",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Cuir ris a’ phròiseact",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Dòighean sìmplidh airson cuideachadh le Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Modhan-obrach sgòraidh, cobhair, agus barrachd mun phròiseact",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Gabh ris a' mholadh",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Dh’fhàillig dearbhadh, cha ghabh dearbhaidhean fhaighinn",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Ath-thòisich an aplacaid gus na h-atharrachaidhean a chur an sàs.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Eadar-aghaidh grafaigeach",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Meadhanan",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Obair-lannan Fiosrachaidh Bidhe Fosgailte",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Thoir Fiosrachadh Biadh Fosgailte don chànan agad",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Clàraich airson an dreach alpha den aplacaid",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Tabhartasan & Dàta toraidh",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Na seall Folkonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

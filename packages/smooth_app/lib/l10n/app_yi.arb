@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "צוטריט צו עקספּערימענטאַלע פֿעיִטשערז און אַנטוויקלונג מכשירים",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "גרין-סקאָר א",
+  "environmental_score_b_new": "גרין-סקאָר ב",
+  "environmental_score_c_new": "גרין-סקאָר C",
+  "environmental_score_d_new": "גרין-סקאָר ד",
+  "environmental_score_e_new": "גרין-סקאָר E",
+  "environmental_score_unknown_new": "אומבאַקאַנט גרין-סקאָר",
+  "environmental_score_not_applicable_new": "גרין-סקאָר איז נישט אָנווענדלעך",
+  "nova_group_generic_new": "אולטרא-פארארבעטע עסנווארג - NOVA גרופעס",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "אַלע בירגער קענען אונדז העלפֿן זאַמלען און סטרוקטורירן די אינפֿאָרמאַציע וואָס איז פֿאַראַן אויף פּראָדוקטן אָדער וואָס קען מען פֿון זיי אַרויסנעמען, ווי למשל אינפֿאָרמאַציע אויף פֿאַרפּאַקונג: מיסיע עמבאַלאַדזשעס: אַ גרויס-מאָסשטאַביגער קאָלאַבאָראַטיווער אינווענטאַר פֿון פֿאַרפּאַקונג פֿאַר אַלע עסן פּראָדוקטן (אין פֿראַנצייזיש)",
   "guide_greenscore_transparency_arg2_title": "ווי פאַבריקאַנטן קענען העלפֿן",
   "guide_greenscore_transparency_arg2_text": "פאַבריקאַנטן קענען אונדז שיקן זייער אינפֿאָרמאַציע גלייך דורך אונדזער פריי פּלאַטפאָרמע פֿאַר פּראָדוצירער.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "וועלכע פּראָדוקט איז בעסער פֿאַרן פּלאַנעט?",
+  "guide_greenscore_better_product_arg1_title": "עס קען זיין שווער צו זאָגן",
+  "guide_greenscore_better_product_arg1_text": "אויסקלויבן נאכhalטיגע עסן איז איינע פון די שטארקסטע זאכן וואס מיר קענען טון פארן קלימאט, ווייל **אונדזער גלאבאלע עסן סיסטעם איז פאראנטווארטלעך פאר איבער א פערטל פון אלע גרין־הויז גאזן אויסשטויסן**.\n(מקור: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "דו האסט די מאַכט!",
+  "guide_greenscore_better_product_arg2_text": "די גוטע נייעס איז אז דאס גיט אונז א שטארקן וועג צו שאפן ענדערונגען.\n**יעדער פון אונז עסט ארום 1,000 מאלצייטן יעדעס יאר**. דאס איז 1,000 געלעגנהייטן צו **קלייבן א בעסערע צוקונפט פארן פלאנעט**!",
+  "guide_greenscore_better_product_arg3_title": "העלפט צו זיין פאַראַנטוואָרטלעך און באַשליסן",
+  "guide_greenscore_better_product_arg3_text": "אויסקלויבן נאכhalטיגע עסן קען פילן קאמפליצירט. עטיקעטן זענען פארwirrend און אינפארמאציע פעלט אפט. דער גרין-סקאָר איז באשאפן געווארן צו מאכן עס פשוט, געבענדיג אייך א **קלארע**, **וויסנשאפט-באזירטע**, און **טראַנספּאַרענטע** ענווייראָמענטאַלע שאַץ פאר עסן פּראָדוקטן, פּונקט וואו איר דאַרפט עס: בשעת איר קויפט איין.",
+  "guide_greenscore_better_product_arg4_title": "טראַנספּאַרענץ",
+  "guide_greenscore_better_product_arg4_text": "אנדערש ווי אייגענע לייבלס, איז די גרין-סקאָר קאַלקולאַציע **גאָר אָפן** און קען ווערן **וועריפֿיצירט דורך ווער עס יז**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "וואָס איז אולטראַ-פּראַסעסינג?",
+  "guide_nova_what_is_nova_paragraph1": "די NOVA גרופּעס אינפאָרמירן אייך וועגן דעם מדרגה פון עסן פאַראַרבעטונג.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "די NOVA קלאַסיפֿיקאַציע ערלויבט די קאַטעגאָריזאַציע פֿון עסנוואַרג אין **4 גרופּעס** באַזירט אויף זייער **גראַד פֿון אינדוסטריעלער פּראָצעסירונג** (מינימאַל פּראָצעסירטע אָדער נישט פּראָצעסירטע עסנוואַרג, קולינאַרישע אינגרעדיענטן, פּראָצעסירטע עסנוואַרג, אולטראַ-פּראָצעסירטע עסנוואַרג).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "די NOVA לאָגאָס",
+  "guide_nova_groups_title": "די 4 NOVA גרופּעס",
+  "guide_nova_groups_intro": "עס זענען דא 4 NOVA גרופּעס, די פּראָבלעמאַטישע איז גרופּע 4 - אולטראַ-פּראַסעסט פודז.",
+  "guide_nova_groups_arg1_title": "מינימאַל פּראַסעסט אָדער נישט פּראַסעסט פודז",
+  "guide_nova_groups_arg1_text": "נישט-פארארבעטע (אדער נאטירלעכע) עסנווארג זענען די עסבארע טיילן פון פלאנצן (זאמען, פרוכטן, בלעטער, שטאמען, ווארצלען) אדער בעלי חיים (מוסקלען, אפפאל, אייער, מילך), ווי אויך פונגי, אַלדזשי, און וואסער, נאכדעם וואס זיי ווערן אפגעטיילט פון דער נאטור.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "פּראָצעסירטע קולינאַרישע אינגרעדיענטן, ווי אָילס, פּוטער, צוקער און זאַלץ, זענען סובסטאַנצן וואָס שטאַמען פֿון גרופּע 1 עסנוואַרג אָדער פֿון דער נאַטור דורך פּראָצעסן וואָס אַרייַננעמען דריקן, ראַפֿינירן, מאָלן, פֿילן און טריקענען.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "פּראָצעסירטע עסנוואַרג, ווי למשל פלעשל גרינסן, קאָנסערווירטע פֿיש, פֿרוכטן אין סירופּ, קעז, און פֿריש געמאַכטע ברויטן, ווערן הויפּטזעכלעך געמאַכט דורך צולייגן זאַלץ, אויל, צוקער, אָדער אַנדערע סובסטאַנצן פֿון גרופּע 2 צו גרופּע 1 עסנוואַרג. פּראָצעסן אַרייַננעמען פֿאַרשידענע קאָנסערוואַציע אָדער קאָכן מעטאָדן, און אין פֿאַל פֿון ברויטן און קעז, נישט-אַלקאָהאָלישע פֿערמענטאַציע. רובֿ פּראָצעסירטע עסנוואַרג האָבן צוויי אָדער דריי ינגרידיאַנץ און זענען דערקענט ווי מאָדיפֿיצירטע ווערסיעס פֿון גרופּע 1 עסנוואַרג. זיי קענען געגעסן ווערן אַליין אָדער, מער געוויינטלעך, אין קאָמבינאַציע מיט אַנדערע עסנוואַרג.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "אולטרא-פארארבעטע עסנווארג, ווי ווייכע געטראנקען, זיסע אדער געזאלצענע פארפאקטע נאש, רעקאנסטיטואירטע פלייש פראדוקטן, און פאר-צוגעגרייטע פארפרוירענע געריכטן, זענען נישט נאר מאדיפיצירטע עסנווארג נאר פארמולאציעס געמאכט מערסטנס אדער אינגאנצן פון סובסטאנצן וואס שטאמען פון עסנווארג און צוגאבן, מיט ווייניג ביז קיין גאנצע גרופע 1 עסנווארג. די אינהאלטן אין די פארמולאציעס שליסן געווענליך איין די וואס געפינען זיך אויך אין פארארבעטע עסנווארג, ווי צוקער, אויל, פעטן, אדער זאלץ. אבער, אולטרא-פארארבעטע פראדוקטן אנטהאלטן אויך אנדערע קוועלער פון ענערגיע און נוטריענטן וואס ווערן נישט געווענליך גענוצט אין קולינארישע צוגרייטונגען. עטלעכע פון זיי ווערן גלייך עקסטראקטירט פון עסנווארג, ווי קאסעין, לאקטאז, וויי, און גלוטען.",
+  "guide_nova_explanations_title": "די פראבלעמען מיט אולטרא-פראסעסינג",
+  "guide_nova_explanations_arg1_title": "עקסטרעמע פּראַסעסינג פון עסנוואַרג ינגרידיאַנץ",
+  "guide_nova_explanations_arg1_text": "פילע שטאַמען פֿון ווײַטערדיקער פֿאַראַרבעטונג פֿון עסן־באַשטאַנדן, ווי הידראָגענירטע אָדער אינטערעסטעריפֿיצירטע אָילס, הידראָליזירטע פּראָטעאינען, סוי־פּראָטעין־איזאָלאַט, מאַלטאָדעקסטרין, ינווערט־צוקער, און הויך־פֿרוקטאָזע־קאָרן־סירופ.",
+  "guide_nova_explanations_arg2_title": "אַדיטיוון וואָס גייען ווייטער ווי ריין עסן זיכערקייט",
+  "guide_nova_explanations_arg2_text": "צוגאבן אין אולטרא-פראצעסירטע עסנווארג שליסן איין עטליכע וואס ווערן אויך גענוצט אין פראצעסירטע עסנווארג, ווי למשל קאנסערוואנטן, אנטיאקסידאנטן, און סטאביליזירער. קלאסן פון צוגאבן וואס מען געפינט נאר אין אולטרא-פראצעסירטע פראדוקטן שליסן איין די וואס ווערן גענוצט צו נאכמאכן אדער פארבעסערן די סענסארישע אייגנשאפטן פון עסנווארג אדער צו באהאלטן נישט-געשמאקע אספעקטן פון דעם ענדגילטיגן פראדוקט. די צוגאבן שליסן איין פארבן און אנדערע פארבן, קאליר סטאביליזירער; פלייווערס, טעם פארשטארקערס, נישט-צוקער זיסשטאפן; און פראצעסירונג הילף-מיטלען ווי קארבאנירן, פארשטארקן, פארגרעסערן און אנטי-פארגרעסערן אגענטן, דע-שוים, אנטי-קלאפן און גלייזינג אגענטן, עמולסיפיערס, סעקוועסטראנטן, און הוימעקטאנטן.",
+  "guide_nova_explanations_arg3_title": "באַאַרבעטונג וואָס איר קענט נישט טאָן אין שטוב",
+  "guide_nova_explanations_arg3_text": "א סך סיקווענצן פון פּראָצעסן ווערט גענוצט צו קאָמבינירן די געוויינטלעך פילע אינגרעדיענטן און צו שאַפֿן דעם לעצטן פּראָדוקט (דעריבער 'אולטראַ-פּראָצעסירט'). די פּראָצעסן אַרייַננעמען עטלעכע אָן קיין היגע עקוויוואַלענטן, אַזאַ ווי הידראָגענאַציע און הידראָליזאַציע, יקסטרוזשאַן און פורעם, און פאַר-פּראָצעסירונג פֿאַר פּרעגלען.",
+  "guide_nova_explanations_arg4_title": "די ראָב־ און פינאַנציעלע אַספּעקטן פון אולטראַ־פּראַסעסינג",
+  "guide_nova_explanations_arg4_text": "דער הויפּט ציל פון אולטראַ-פּראַסעסינג איז צו שאַפֿן בראַנדיד, באַקוועם (דויערהאפט, גרייט צו קאָנסומירן), אַטראַקטיוו (היפּער-פּאַסיקע) און העכסט פּראָפיטאַבלע (נידעריק-קאָסט ינגרידיאַנץ) עסנוואַרג פּראָדוקטן דיזיינד צו פאַרבייַטן אַלע אנדערע עסנוואַרג גרופּעס. אולטראַ-פּראַסעסט עסנוואַרג פּראָדוקטן זענען געוויינטלעך פּאַקידזשד אַטראַקטיוולי און פֿאַרקויפֿט אינטענסיוו.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "פאַרוואַלטן אייערע פּרייז פּרעפֿערענצן",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "דאס אָפֿענע עסן פֿאַקטן פּראָיעקט",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "איבערזעצן, פֿאַרבעסערן אונדזערע מכשירים…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "פֿאַרבינדן",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "קאָנטאַקט אונדז, אָדער פֿאָלגט אונדז אויף סאָציאַלע מידיאַ",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "העלפט אונדז אינפאָרמירן מיליאָנען קאָנסומערס אַרום דער וועלט",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "הילף און שטיצע",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "באַקומען ענטפֿערס צו אייערע פֿראַגעס",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "אויסגעלאָגט",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "א דאנק אייך פארן זיין איינער פון אונדזערע מיטגלידער!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "זען אַלע סטאַטיסטיק",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "זוכן {provider} פֿאַר \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "זוכן אַ סעטינג (למשל נוטרי-סקאָר)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "צוטריטלעכקייט: ווייזן עמאָדזשי",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "צוטריטלעכקייט: אַראָפּנעמען פארבן",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "לעגאַלע אינפֿאָרמאַציע",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "באַניץ־באַדינגונגען, פּריוואַטקייט־פּאָליטיק, און מער",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ליצענצן",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "וועגן דער אַפּ",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "טעכנישע אינפֿאָרמאַציע, דעוועלאָפּער אינפֿאָרמאַציע, און מער",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "ווערסיע נומער",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "סקאַנער",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "אַפּ סטאָר",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "סיסטעם סעטטינגס",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "צוטריט דעם קוואל קאוד",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "און אָנהייבן מאַכן אַן השפּעה פֿאַר מיליאָנען",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "עצות",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "אַנטדעקן דעם נײַעם נוטרי-סקאָר",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "אויף דער וועבזייטל פון Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "פאַרוואַלטן מיין חשבון",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "טוישן מיין פּאַראָל",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "געפאַר זאָנע",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "אַלע אייערע ביישטייערונגען וועלן פאַרלוירן גיין",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "אַפּ סעטטינגס",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "זייער עקספּערימענטאַל וועג צו סקענען פּראָדוקטן אָפפליין",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "דערפרישן אַלע פּראָדוקטן פֿון סערווער",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "ביטע פֿאַרמײַדט דאָס צו טאָן סײַדן עס איז אַבסאָלוט נייטיק",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "דעמאָ מאָדע",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "לייג צו קארטלעך צום סקענער",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "לייגט צו 3 מוסטער פּראָדוקטן צום סקאַנער",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "פאָלקאָנאָמיע באַלעבאָס",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "צוטריטלעכקייט עקספּערימענטן",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "אויסוואל פון פארשידענע פראדוקטן פאר פרייזן",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "באַניצער באַשטעלט וויסן פּאַנאַלז",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "צייטווייליקער צוטריט צו לאקאציע זוכן",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "זייַט ביי זייַט פאַרגלייַך פֿאַר 2 אָדער 3 פּראָדוקטן",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "פּראָדוקט ליסטע אימפארט",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "סקאָרס און מעטאָדאָלאָגיעס",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "אַנטדעקן ווי דער נוטרי-סקאָר ווערט אויסגערעכנט",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "אַנטדעקן די הויפּט ענדערונגען אין דער מעטאָדאָלאָגיע",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "אַנטדעקן אָפֿענע פֿוטער פֿאַקטן",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "אָפֿט געשטעלטע פֿראַגעס - אָפֿט געשטעלטע פֿראַגעס",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "די אָפֿענע פֿוד פֿאַקטן נישט-רעגירונגס אָרגאַניזאַציע",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "באַקומען קהילה דערהייַנטיקונגען",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "בלייבט אין דער לופּ מיט אַפּ און קהילה נייעס",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "נעמט זיך אנטייל דורך באטייליקן זיך אין איינעם פון אונדזערע ווירטועלע געשעענישן",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "פֿאָלגט אונדז אויף סאָציאַלע מידיאַ",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "דער אפענער עסן פאקטן בלאג",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "באַקומט די לעצטע נייעס, ווי זיי פּאַסירן",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "באַקומען הילף פֿון דער קהילה",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "העלפט אונדז פֿאַרבעסערן די אַפּ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "שיקט אונדז דיבאַג אינפֿאָרמאַציע",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "שיקט אונדז אַן אימעיל מיט דעטאַלירטע דיבאַגינג אינפֿאָרמאַציע",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "שיקט אונדז באַמערקונגען וועגן דער אַפּ",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "העלפט אויספארמען די צוקונפט פון דער אפליקאציע",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "נעמט די אַפּ אַנקעטע",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "העלפט אונדז פֿאַרשטיין וואָס מיר זאָלן בויען ווייטער",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "פּראָפעסיאָנאַלן",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "גאָר פריי, גאַראַנטירט פּינקטלעכע דאַטן פֿאַר 500 אַפּפּס און מיליאָנען קאָנסומערס. זעלבסט-סערוויס, קאָמפּאַטיבל מיט דיין PIM אָדער ספּרעדשיטס (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "קומט אין קאָנטאַקט צו אָנהייבן",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "באַקומען אַלע מאַטעריאַל וואָס איר דאַרפֿן פֿאַר דיין באַריכט",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "קומט אין קאָנטאַקט פֿאַר פּרעסע פֿראַגעס אָדער צו לאָזן אונדז וויסן וועגן דיין באַריכט",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ווערט אַן אַקטיווער וואָלאָנטיר",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "אַנטוויקלונג, קאָמוניקאַציע, דיזיין… יעדע סאָרט פון וואַלאַנטירינג אָדער עקספּערטיז איז באַגריסן!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "אַנטדעקן עטלעכע פון די פילע וועגן ווי איר קענט ביישטייערן",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "מאָביל אַפּ אַנטוויקלונג",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "לערנט זיך ווי אזוי צו ביישטייערן צו ווייכווארג אנטוויקלונג",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "טעגלעכע נישט-סטאַבילע בויען, גאָר נייע פֿעיִקייטן",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "וואַקסן אייער לאָקאַלע קהילה",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "הילף מיט ווייכווארג, אינהאַלט, איבערזעצונגען פון אינגרעדיענטן אנאליז",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "מיר האָבן צוגעגרייט אַ קליין מוסטער צו העלפֿן אײַך :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "פּשוטע טריט צו וואַקסן עסן טראַנספּעראַנסי אין דיין לאַנד",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "שליסט זיך אן אין דער דאַטן קוואַליטעט מאַנשאַפֿט",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "קומט מיט אין אונדזער מי צו זיכער מאַכן אַז די דאַטאַבייס איז גאַנץ און פּינקטלעך",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 פּראָדוקטן צוגעגעבן",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "נייע פּראָדוקטן וואָס איך האָב צוגעגעבן צו Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "פּראָדוקטן וואָס איך דאַרף צו פֿאַרענדיקן",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "אַלע אומפארענדיקטע פּראָדוקטן",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "פּראָדוקטן וואָס איר קענט העלפֿן פֿאַרענדיקן",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "העלפט אויסרעכענען דעם נוטרי-סקאָר און גרין-סקאָר אין אייער לאַנד",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "פרייזן וואָס איך האָב בייגעטראָגן",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "פרייז טאַגעס און קוויטלעך",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "נעמט בילדער פון אייערע קוויטלעך און סקענט פארבונדענע באַרקאָדס",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "נעמט בילדער פון פרייזן אין א געשעפט",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "נייעסטע פרייזן",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "לעצטע פרייזן צוגעגעבן דורך די אפענע פרייזן קהילה",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ביישטייערער מיט די מערסטע פרייזן",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "עפֿענען פּרייַז מעטריקס",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "פֿאָלגט די עוואָלוציע פֿון דעם פּראָיעקט",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "וועגן צו ביישטייערן",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "באַשטעטיקן פרייזן צוגעגעבן דורך זיך אָדער אַנדערע, מיט דער הילף פון קינסטלעכער אינטעליגענץ",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "לייג שנעל צו פילע קוויטלעך אדער בילדער פון שעלוועס פון דיין קאַמעראַ ראָל",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "מאָנטליכע טשאַלאַנדזשיז",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "באַטייליקן זיך אין מאָנטלעכע טעמאַטישע קוועסץ צו זאַמלען פּרייזן",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "באַקומען צוריק אייערע לויאַליטי דאַטן",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "לערנט זיך ווי אזוי צו בעטן אייערע דאטן",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "פּערסאָנאַליזירן די אַפּ",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ביישטייערן צום פּראָיעקט",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "פּשוטע וועגן צו העלפֿן עפֿענען פֿוד פֿאַקטן",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "סקאָר מעטאָדאָלאָגיעס, הילף, און מער וועגן דעם פּראָיעקט",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "אָננעמען דעם פֿאָרשלאָג",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "אויטענטיפֿיקאַציע דורכגעפֿאַלן, נישט געקענט ברענגען באַווײַזן",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "ביטע ריסטאַרט די אַפּ צו צולייגן די ענדערונגען.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "גראַפֿישע צובינד",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "מעדיע",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "עפֿענע עסן פאַקטן לאַבאָראַטאָריעס",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ברענגט אפענע עסן פאקטן צו אייער שפראך",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "רעגיסטרירט זיך אין דער אלפא ווערסיע פון דער אפליקאציע",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ביישטייערונגען און פּראָדוקט דאַטן",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ווײַזט נישט פֿאָלקסאָנאָמיע",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -2358,7 +2358,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'የሙከራ ባህሪያትን እና የልማት መሳሪያዎችን ይድረሱ';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3977,29 +3977,28 @@ class AppLocalizationsAm extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'አረንጓዴ-ውጤት ኤ';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'አረንጓዴ-ውጤት ቢ';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'አረንጓዴ-ውጤት ሲ';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'አረንጓዴ-ውጤት ዲ';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'አረንጓዴ-ውጤት ኢ';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'ያልታወቀ አረንጓዴ-ውጤት';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'አረንጓዴ-ውጤት ተፈጻሚ አይሆንም';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'እጅግ በጣም የተቀነባበሩ ምግቦች - NOVA ቡድኖች';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4354,132 +4353,127 @@ class AppLocalizationsAm extends AppLocalizations {
       'አምራቾች መረጃቸውን በቀጥታ በአምራቾቻችን በነፃ መድረክ በኩል ሊልኩልን ይችላሉ።';
 
   @override
-  String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+  String get guide_greenscore_better_product_title => 'የትኛው ምርት ለፕላኔቱ የተሻለ ነው?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'ለመናገር አስቸጋሪ ሊሆን ይችላል';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'ቀጣይነት ያለው ምግብ መምረጥ ለአየር ንብረት ልናደርጋቸው ከምንችላቸው በጣም ሀይለኛ ነገሮች አንዱ ነው፣ ምክንያቱም ** የአለም አቀፍ የምግብ ስርዓታችን ከሩብ በላይ ለሚሆኑት የሙቀት አማቂ ጋዝ ልቀቶች ተጠያቂ ነው።\n(ምንጭ፡ Poore & Nemecek, Science, 2018)';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'ጉልበት አለህ!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'ጥሩ ዜናው ይህ ለውጥ ለመፍጠር ኃይለኛ መንገድ ይሰጠናል.\n**እያንዳንዳችን በዓመት ወደ 1,000 ገደማ ምግብ እንበላለን**። ለፕላኔቷ የተሻለ የወደፊት ሁኔታን ለመምረጥ 1,000 እድሎች ነው ***!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'ተጠያቂ ለመሆን እና ለመወሰን ይረዳል';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'ዘላቂ ምግብን መምረጥ ውስብስብነት ሊሰማው ይችላል. መለያዎች ግራ የሚያጋቡ ናቸው እና መረጃ ብዙ ጊዜ ይጎድላል። አረንጓዴው ነጥብ ቀላል ለማድረግ የተፈጠረ ሲሆን ይህም **ግልጽ******በሳይንስ ላይ የተመሰረተ** እና **ግልጽ የሆነ** የምግብ ምርቶች በሚፈልጉበት ቦታ ይሰጥዎታል፡ ሲገዙ።';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'ግልጽነት';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'ከባለቤትነት መለያዎች በተለየ የአረንጓዴው ነጥብ ስሌት **ሙሉ በሙሉ ክፍት ነው** እና **በማንኛውም ሰው ሊረጋገጥ ይችላል**።';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'ultra-processing ምንድን ነው?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'የNOVA ቡድኖች ስለ ምግብ ሂደት ደረጃ ያሳውቁዎታል።';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'የNOVA ምደባ በ **4 ቡድኖች** በኢንዱስትሪ ሂደት ደረጃቸው** (በትንሹ የተቀነባበሩ ወይም ያልተመረቱ ምግቦች፣ የምግብ እቃዎች፣ የተጨማዱ ምግቦች፣ እጅግ በጣም የተቀነባበሩ ምግቦች) ላይ ተመስርተው ምግቦችን በ **4 ቡድኖች ለመከፋፈል ያስችላል።';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'የ NOVA አርማዎች';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4ቱ የ NOVA ቡድኖች';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 የNOVA ቡድኖች አሉ፣ ችግሩ ያለው ቡድን 4 - እጅግ በጣም የተቀነባበሩ ምግቦች ናቸው።';
 
   @override
-  String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+  String get guide_nova_groups_arg1_title => 'በትንሹ የተሰሩ ወይም ያልተዘጋጁ ምግቦች';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'ያልተቀነባበሩ (ወይም ተፈጥሯዊ) ምግቦች ከተፈጥሮ ከተነጠሉ በኋላ የሚበሉት የእፅዋት ክፍሎች (ዘሮች፣ ፍራፍሬ፣ ቅጠሎች፣ ግንዶች፣ ሥሮች) ወይም እንስሳት (ጡንቻ፣ ፎል፣ እንቁላል፣ ወተት) እንዲሁም ፈንገሶች፣ አልጌ እና ውሃ ናቸው።';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'እንደ ዘይት፣ ቅቤ፣ ስኳር እና ጨው ያሉ የተቀነባበሩ የምግብ አዘገጃጀቶች ከቡድን 1 ምግቦች ወይም ከተፈጥሮ የሚመነጩት በመጫን፣ በማጣራት፣ መፍጨት፣ መፍጨት እና ማድረቅን በሚያካትቱ ሂደቶች ነው።';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'እንደ የታሸጉ አትክልቶች፣ የታሸጉ አሳዎች፣ በሽሮፕ ውስጥ ያሉ ፍራፍሬዎች፣ አይብ እና አዲስ የተሰሩ ዳቦዎች በዋነኛነት የሚዘጋጁት ጨው፣ ዘይት፣ ስኳር እና ሌሎች ንጥረ ነገሮችን ከቡድን 2 ወደ ቡድን 1 በመጨመር ነው። ሂደቶች የተለያዩ የመቆያ ወይም የማብሰያ ዘዴዎችን ያካትታሉ, እና በዳቦ እና አይብ ሁኔታ, አልኮል-አልባ መፍላት. አብዛኛዎቹ የተቀነባበሩ ምግቦች ሁለት ወይም ሶስት ንጥረ ነገሮች አሏቸው እና እንደ የተሻሻሉ የቡድን 1 ምግቦች ስሪቶች ይታወቃሉ። እነሱ በራሳቸው ሊበሉ ወይም, በተለምዶ, ከሌሎች ምግቦች ጋር በማጣመር ሊበሉ ይችላሉ.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'እጅግ በጣም የተቀነባበሩ ምግቦች፣ እንደ ለስላሳ መጠጦች፣ ጣፋጭ ወይም ጣፋጭ የታሸጉ መክሰስ፣ እንደገና የተዋሃዱ የስጋ ውጤቶች እና ቀድመው የተዘጋጁ የቀዘቀዙ ምግቦች የተሻሻሉ ምግቦች ብቻ ሳይሆኑ በአብዛኛው ወይም ሙሉ በሙሉ ከምግብ እና ተጨማሪ ንጥረ ነገሮች የተገኙ ቀመሮች ናቸው፣ ምንም ያልተነካ የቡድን 1 ምግብ። በእነዚህ ቀመሮች ውስጥ ያሉ ንጥረ ነገሮች እንደ ስኳር፣ ዘይት፣ ቅባት ወይም ጨው ባሉ በተዘጋጁ ምግቦች ውስጥ የሚገኙትንም ያካትታሉ። ነገር ግን፣ እጅግ በጣም የተቀነባበሩ ምርቶች ሌሎች የኃይል ምንጮችን እና በተለምዶ ለምግብ ዝግጅት ውስጥ ጥቅም ላይ ያልዋሉ ንጥረ ምግቦችን ይዘዋል ። ከእነዚህ ውስጥ አንዳንዶቹ እንደ ካሴይን፣ ላክቶስ፣ whey እና ግሉተን ካሉ ምግቦች በቀጥታ ይወጣሉ።';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'ከ ultra-processing ጋር ያሉ ችግሮች';
 
   @override
-  String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+  String get guide_nova_explanations_arg1_title => 'የምግብ ንጥረ ነገሮችን በጣም ማቀነባበር';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'ብዙዎቹ እንደ ሃይድሮጂን ወይም ወለድ ዘይቶች፣ ሃይድሮላይድድ ፕሮቲኖች፣ የአኩሪ አተር ፕሮቲን ማግለል፣ ማልቶዴክስትሪን፣ ኢንቬንት ስኳር እና ከፍተኛ-ፍሩክቶስ የበቆሎ ሽሮፕ ካሉ የምግብ ንጥረ ነገሮች ተጨማሪ ሂደት የተገኙ ናቸው።';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'ከንጹህ የምግብ ደህንነት በላይ የሆኑ ተጨማሪዎች';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'እጅግ በጣም በተቀነባበሩ ምግቦች ውስጥ ያሉ ተጨማሪዎች አንዳንዶቹ በተዘጋጁ ምግቦች ውስጥም ጥቅም ላይ የሚውሉ እንደ መከላከያዎች፣ አንቲኦክሲደንትስ እና ማረጋጊያዎች ያካትታሉ። እጅግ በጣም በተቀነባበሩ ምርቶች ውስጥ ብቻ የሚገኙት ተጨማሪዎች ምድቦች የምግብን የስሜት ህዋሳትን ለመኮረጅ ወይም ለማሻሻል ወይም የመጨረሻውን ምርት የማይወደዱ ገጽታዎችን ለመደበቅ የሚያገለግሉ ናቸው። እነዚህ ተጨማሪዎች ማቅለሚያዎች እና ሌሎች ቀለሞች, የቀለም ማረጋጊያዎች; ጣዕም, ጣዕም ማሻሻያ, ስኳር ያልሆኑ ጣፋጭ ምግቦች; እና እንደ ካርቦንዳይቲንግ፣ ማጠናከሪያ፣ የጅምላ እና ፀረ-ጅምላ ወኪሎች፣ የአረፋ ማስወገጃ፣ ፀረ-ኬኪንግ እና ግላዚንግ ወኪሎች፣ ኢሚልሲፋየሮች፣ ሴኬስትራንት እና ሆሚክታንትስ ያሉ የማቀነባበሪያ እርዳታዎች።';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'በማቀነባበር እርስዎ ቤት ውስጥ ማድረግ አይችሉም';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'ብዙ ተከታታይ ሂደቶች አብዛኛውን ጊዜ ብዙ ንጥረ ነገሮችን በማጣመር እና የመጨረሻውን ምርት ለመፍጠር ጥቅም ላይ ይውላሉ (ስለዚህ \'እጅግ በጣም የተቀነባበረ\')። ሂደቶቹ እንደ ሃይድሮጂን እና ሃይድሮላይዜሽን፣ ማስወጣት እና መቅረጽ እና ለመጥበስ ቅድመ-ሂደትን የመሳሰሉ ምንም አይነት የቤት ውስጥ አቻ የሌላቸውን ያካትታሉ።';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'የ ultra-processing አዳኝ እና የገንዘብ ገጽታዎች';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'የ ultra-processing አጠቃላይ ዓላማ ሁሉንም ሌሎች የምግብ ቡድኖችን ለማፈናቀል የተነደፉ ብራንድ ያላቸው ፣ ምቹ (የሚበረክት ፣ ለመጠጣት ዝግጁ) ፣ ማራኪ (ከፍተኛ-የሚወደድ) እና ከፍተኛ ትርፋማ (ዝቅተኛ ዋጋ ያላቸው ንጥረ ነገሮች) የምግብ ምርቶችን መፍጠር ነው። እጅግ በጣም የተቀነባበሩ የምግብ ምርቶች በአብዛኛው በማራኪ የታሸጉ እና በከፍተኛ ሁኔታ ለገበያ ይቀርባሉ።';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4970,46 +4964,44 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'የዋጋ ምርጫዎችዎን ያስተዳድሩ';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'ክፍት የምግብ እውነታዎች ፕሮጀክት';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => 'ተርጉም፣ መሳሪያዎቻችንን አሻሽል…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'ተገናኝ';
 
   @override
-  String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+  String get preferences_connect_subtitle => 'ያግኙን ወይም በማህበራዊ ሚዲያ ላይ ይከተሉን።';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'በአለም ዙሪያ በሚሊዮን የሚቆጠሩ ሸማቾችን እንድናሳውቅ ያግዙን።';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'እገዛ እና ድጋፍ';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'ለጥያቄዎችዎ መልስ ያግኙ';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'ወጥቷል';
 
   @override
-  String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+  String get preferences_app_bar_message => 'ከአባሎቻችን አንዱ ስለሆኑ እናመሰግናለን!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5018,24 +5010,21 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'ሁሉንም ስታቲስቲክስ ይመልከቱ';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return '$provider \"$keyword\" ፈልግ';
   }
 
   @override
-  String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+  String get preferences_app_bar_search_hint => 'መቼት ፈልግ (ለምሳሌ Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'ተደራሽነት፡ ስሜት ገላጭ ምስል አሳይ';
 
   @override
-  String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+  String get preferences_accessibility_remove_colors => 'ተደራሽነት: ቀለሞችን ያስወግዱ';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5044,11 +5033,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'የህግ መረጃ';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'የአጠቃቀም ውል፣ የግላዊነት ፖሊሲ እና ሌሎችም።';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5060,36 +5049,35 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'ፍቃዶች';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'ስለ መተግበሪያው';
 
   @override
-  String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+  String get preferences_about_app_subtitle => 'ቴክኒካዊ መረጃ፣ የገንቢ መረጃ እና ሌሎችም።';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'የስሪት ቁጥር';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'ስካነር';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'የመተግበሪያ መደብር';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'የስርዓት ቅንብሮች';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'የምንጭ ኮዱን ይድረሱ';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'እና በሚሊዮኖች ለሚቆጠሩ ሰዎች ተጽእኖ መፍጠር ይጀምሩ';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5098,117 +5086,116 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'ጠቃሚ ምክሮች';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'አዲሱን Nutri-Score ያግኙ';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'በክፍት የምግብ እውነታዎች ድህረ ገጽ ላይ';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'መለያዬን አስተዳድር';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'የይለፍ ቃሌን ቀይር';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'አደገኛ ዞን';
 
   @override
-  String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+  String get preferences_account_deletion_subtitle => 'ሁሉም የእርስዎ አስተዋጽዖዎች ይጠፋሉ';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'የመተግበሪያ ቅንብሮች';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'ከመስመር ውጭ ምርቶችን ለመቃኘት በጣም የሙከራ መንገድ';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'ሁሉንም ምርቶች ከአገልጋዩ ያድሱ';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'በጣም አስፈላጊ ካልሆነ በስተቀር እባክዎ ያንን ከማድረግ ይቆጠቡ';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'የማሳያ ሁነታ';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => 'ካርዶችን ወደ ስካነር ያክሉ';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      '3 ናሙና ምርቶችን ወደ ስካነር ያክላል';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy አስተናጋጅ';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'የተደራሽነት ሙከራዎች';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'ባለብዙ-ምርቶች ለዋጋ ምርጫ';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'በተጠቃሚ የታዘዙ የእውቀት ፓነሎች';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'የአካባቢ ፍለጋ ጊዜያዊ መዳረሻ';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'ለ 2 ወይም 3 ምርቶች ጎን ለጎን ማነፃፀር';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'የምርት ዝርዝር ማስመጣት';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'ውጤቶች እና ዘዴዎች';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Nutri-Score እንዴት እንደሚሰላ ይወቁ';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'በአሰራር ዘዴው ላይ ዋና ለውጦችን ያግኙ';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'ክፍት የምግብ እውነታዎችን ያግኙ';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'ተደጋጋሚ ጥያቄዎች - ተዘውትረው የሚጠየቁ ጥያቄዎች';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'ክፍት የምግብ እውነታዎች መንግሥታዊ ያልሆነ ድርጅት';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'የማህበረሰብ ዝመናዎችን ያግኙ';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'ከመተግበሪያ እና ከማህበረሰብ ዜና ጋር እንደተገናኙ ይቆዩ';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5216,217 +5203,204 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'ከምናባዊ ዝግጅቶቻችን በአንዱ በመገኘት ይሳተፉ';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+  String get preferences_connect_social_media_title => 'በማህበራዊ ሚዲያ ላይ ይከተሉን።';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'ክፍት የምግብ እውነታዎች ብሎግ';
 
   @override
-  String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+  String get preferences_connect_blog_subtitle => 'እንደሚከሰቱ የቅርብ ጊዜ ዜናዎችን ያግኙ';
 
   @override
-  String get preferences_connect_community_help_title =>
-      'Get help from the community';
+  String get preferences_connect_community_help_title => 'ከማህበረሰቡ እርዳታ ያግኙ';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title => 'መተግበሪያውን እንድናሻሽል ያግዙን።';
 
   @override
-  String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+  String get preferences_connect_debug_info_title => 'የማረም መረጃ ላኩልን።';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'ዝርዝር የማረሚያ መረጃ የያዘ ኢሜይል ላኩልን።';
 
   @override
-  String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+  String get preferences_connect_feedback_title => 'ስለ መተግበሪያው ግብረመልስ ይላኩልን።';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'የመተግበሪያውን የወደፊት ሁኔታ ለመቅረጽ ያግዙ';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'የመተግበሪያ ዳሰሳውን ይውሰዱ';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'ቀጥሎ ምን መገንባት እንዳለብን እንድንረዳ እርዳን';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'ባለሙያዎች';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'ሙሉ በሙሉ ነፃ፣ ለ500 መተግበሪያዎች እና በሚሊዮኖች ለሚቆጠሩ ሸማቾች ትክክለኛ መረጃን ያረጋግጣል። የራስ አገልግሎት፣ ከእርስዎ PIM ወይም የተመን ሉህ (XLSX) ጋር ተኳሃኝ';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'ለመጀመር ተገናኝ';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'ለሪፖርትዎ የሚያስፈልጉዎትን ነገሮች በሙሉ ያግኙ';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'ለጋዜጣዊ ጥያቄዎች ያነጋግሩ ወይም ስለ ሪፖርትዎ ለእኛ ያሳውቁን።';
 
   @override
-  String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+  String get preferences_contribute_active_volunteer_title => 'ንቁ ፈቃደኛ ሁን';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'ልማት፣ ኮሙኒኬሽን፣ ዲዛይን… ማንኛውም አይነት በጎ ፈቃደኝነት ወይም እውቀት በደስታ ይቀበላሉ!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'አስተዋጽዖ ማድረግ ከሚችሉባቸው በርካታ መንገዶች መካከል አንዳንዶቹን ያግኙ';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => 'የሞባይል መተግበሪያ ልማት';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'ለሶፍትዌር ልማት እንዴት አስተዋፅዖ ማድረግ እንደሚችሉ ይወቁ';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'ዕለታዊ ያልተረጋጉ ግንባታዎች፣ አዲስ ባህሪያት';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'የአካባቢዎን ማህበረሰብ ያሳድጉ';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'በሶፍትዌር፣ ይዘቶች፣ የንጥረ ነገር ትንተና ትርጉሞች እገዛ';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'እርስዎን ለመርዳት ትንሽ አብነት አዘጋጅተናል :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'በአገርዎ ውስጥ የምግብ ግልፅነትን ለማሳደግ ቀላል እርምጃዎች';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'የውሂብ ጥራት ቡድኑን ይቀላቀሉ';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'የመረጃ ቋቱ የተሟላ እና ትክክለኛ መሆኑን ለማረጋገጥ ጥረታችንን ይቀላቀሉ';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title => '0 ምርቶች ታክለዋል';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ወደ ክፈት የምግብ እውነታዎች ያከልኳቸው አዳዲስ ምርቶች';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'ለማጠናቀቅ የሚያስፈልጉኝ ምርቶች';
 
   @override
-  String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+  String get preferences_contributions_all_incomplete_title => 'ሁሉም ያልተሟሉ ምርቶች';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'ሊረዷቸው የሚችሏቸው ምርቶች ለማጠናቀቅ';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'በአገርዎ ያለውን Nutri-Score እና Green-Score ለማስላት ያግዙ';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'ያበረከትኳቸው ዋጋዎች';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'የዋጋ መለያዎች እና ደረሰኞች';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'የእርስዎን ደረሰኞች ፎቶዎች ያንሱ እና ተዛማጅ ባርኮዶችን ይቃኙ';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'በአንድ ሱቅ ውስጥ የዋጋ ፎቶዎችን ያንሱ';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'አዳዲስ ዋጋዎች';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'በክፍት ዋጋዎች ማህበረሰብ የታከሉ የቅርብ ጊዜ ዋጋዎች';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'ብዙ ዋጋ ያላቸው አስተዋጽዖ አበርካቾች';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'የዋጋ መለኪያዎችን ይክፈቱ';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'የፕሮጀክቱን ዝግመተ ለውጥ ተከተል';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'የማዋጣት መንገዶች';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'በ AI እገዛ በራስዎ ወይም በሌሎች የተጨመሩትን ዋጋዎች ያረጋግጡ';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'ከካሜራ ጥቅልዎ ብዙ ደረሰኞችን ወይም የመደርደሪያ ፎቶዎችን በፍጥነት ያክሉ';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'ወርሃዊ ፈተናዎች';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'ዋጋዎችን ለመሰብሰብ በወርሃዊ ጭብጥ ተልዕኮዎች ውስጥ ይሳተፉ';
 
   @override
-  String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+  String get preferences_prices_loyalty_data_title => 'የታማኝነት ውሂብዎን መልሰው ያግኙ';
 
   @override
-  String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+  String get preferences_prices_gdpr_subtitle => 'የእርስዎን ውሂብ እንዴት እንደሚጠይቁ ይወቁ';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'መተግበሪያውን ያብጁ';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'ለፕሮጀክቱ አስተዋፅኦ ያድርጉ';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'የምግብ እውነታዎችን ለመክፈት የሚረዱ ቀላል መንገዶች';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'ስለ ፕሮጀክቱ ዘዴዎች፣ እገዛ እና ሌሎችንም አስቆጥሩ';
 
   @override
   String get product_edit_robotoff_positive_button => 'ጥቆማ ተቀበል';
@@ -5474,40 +5448,38 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'ለውጦቹን ተግባራዊ ለማድረግ እባክዎ መተግበሪያውን እንደገና ያስጀምሩ።';
 
   @override
-  String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+  String get preferences_app_settings_graphical_interface_title => 'ግራፊክ በይነገጽ';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'ሚዲያ';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'የምግብ እውነታዎች ቤተሙከራዎችን ይክፈቱ';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'ክፍት የምግብ እውነታዎችን ወደ ቋንቋዎ አምጡ';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'በመተግበሪያው የአልፋ ስሪት ውስጥ ይመዝገቡ';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => 'አስተዋጽዖ እና የምርት ውሂብ';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Folksonomy አታሳይ';
 
   @override
   String get preferences_account_title => 'Account';

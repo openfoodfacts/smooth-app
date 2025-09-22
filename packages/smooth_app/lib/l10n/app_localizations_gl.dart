@@ -2360,7 +2360,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Acceder a funcións experimentais e ferramentas de desenvolvemento';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3980,7 +3980,7 @@ class AppLocalizationsGl extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Puntuación verde A';
 
   @override
   String get environmental_score_b_new => 'Green-Score B';
@@ -3995,14 +3995,15 @@ class AppLocalizationsGl extends AppLocalizations {
   String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Puntuación verde descoñecida';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'A puntuación verde non é aplicable';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Alimentos ultraprocesados - Grupos NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4366,134 +4367,133 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Que produto é mellor para o planeta?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Pode ser difícil de dicir';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Escoller alimentos sostibles é unha das cousas máis poderosas que podemos facer polo clima, xa que **o noso sistema alimentario mundial é responsable de máis dun cuarto de todas as emisións de gases de efecto invernadoiro**.\n(Fonte: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Ti tes o poder!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'A boa noticia é que isto nos dá unha poderosa maneira de crear un cambio.\n**Cada un de nós come arredor de 1.000 comidas ao ano**. Iso son 1.000 oportunidades para **escoller un futuro mellor para o planeta**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Axuda a ser responsable e a decidir';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Escoller alimentos sostibles pode resultar complexo. As etiquetas son confusas e a miúdo falta información. A Green-Score creouse para simplificar as cousas, dándoche unha cualificación ambiental **clara**, **baseada na ciencia** e **transparente** para os produtos alimenticios, xusto onde a necesitas: mentres fas a compra.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Transparencia';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'A diferenza das etiquetas propietarias, o cálculo da puntuación verde é **completamente aberto** e calquera pode **verificalo**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Que é o ultraprocesamento?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Os grupos de NOVA infórmanche sobre o nivel de procesamento de alimentos.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'A clasificación NOVA permite a categorización dos alimentos en **4 grupos** segundo o seu **grao de procesamento industrial** (alimentos minimamente procesados ou non procesados, ingredientes culinarios, alimentos procesados e alimentos ultraprocesados).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Os logotipos de NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Os 4 grupos NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Hai 4 grupos NOVA, sendo o problemático o Grupo 4: alimentos ultraprocesados.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Alimentos minimamente procesados ou non procesados';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Os alimentos non procesados (ou naturais) son as partes comestibles das plantas (sementes, froitos, follas, talos, raíces) ou dos animais (músculo, vísceras, ovos, leite), así como os fungos, as algas e a auga, despois de seren separados da natureza.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Os ingredientes culinarios procesados, como os aceites, a manteiga, o azucre e o sal, son substancias derivadas de alimentos do Grupo 1 ou da natureza mediante procesos que inclúen o prensado, o refinado, a moenda, a moenda e o secado.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Os alimentos procesados, como as verduras envasadas, o peixe enlatado, as froitas en almíbar, os queixos e os pans acabados de facer, elabóranse principalmente engadindo sal, aceite, azucre ou outras substancias do Grupo 2 aos alimentos do Grupo 1. Os procesos inclúen varios métodos de conservación ou cocción e, no caso dos pans e os queixos, a fermentación non alcohólica. A maioría dos alimentos procesados teñen dous ou tres ingredientes e recoñécense como versións modificadas dos alimentos do Grupo 1. Pódense comer sós ou, máis habitualmente, en combinación con outros alimentos.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Os alimentos ultraprocesados, como os refrescos, os aperitivos envasados doces ou salgados, os produtos cárnicos reconstituídos e os pratos conxelados prepreparados, non son simplemente alimentos modificados, senón formulacións feitas maioritariamente ou totalmente con substancias derivadas de alimentos e aditivos, con poucos ou ningún alimento do Grupo 1 intacto. Os ingredientes destas formulacións adoitan incluír os que tamén se atopan nos alimentos procesados, como azucres, aceites, graxas ou sal. Non obstante, os produtos ultraprocesados tamén conteñen outras fontes de enerxía e nutrientes que non se usan habitualmente nas preparacións culinarias. Algúns destes extráense directamente dos alimentos, como a caseína, a lactosa, o soro de leite e o glute.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Os problemas co ultraprocesamento';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Procesamento extremo de ingredientes alimentarios';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Moitos derivan do procesamento posterior de constituíntes alimentarios, como aceites hidroxenados ou interesterificados, proteínas hidrolizadas, illado de proteína de soia, maltodextrina, azucre invertido e xarope de millo con alto contido en frutosa.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Aditivos que van máis alá da pura seguridade alimentaria';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Entre os aditivos presentes nos alimentos ultraprocesados inclúense algúns que tamén se empregan nos alimentos procesados, como os conservantes, os antioxidantes e os estabilizantes. Entre as clases de aditivos que só se atopan nos produtos ultraprocesados inclúense os que se empregan para imitar ou mellorar as calidades sensoriais dos alimentos ou para disimular aspectos desagradables do produto final. Estes aditivos inclúen colorantes e outras cores, estabilizantes da cor; aromas, potenciadores do sabor, edulcorantes sen azucre; e auxiliares de procesamento como axentes carbonatantes, reafirmantes, dadores de volume e antivolumen, axentes antiespumantes, antiaglomerantes e de glaseado, emulsionantes, secuestrantes e humectantes.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Procesamento que non podes facer na casa';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Emprégase unha multitude de secuencias de procesos para combinar os ingredientes, que adoitan ser moitos, e crear o produto final (de aí o denominan \"ultraprocesado\"). Entre os procesos inclúense varios sen equivalentes domésticos, como a hidroxenación e a hidrolización, a extrusión e o moldeo, e o preprocesamento para fritura.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Os aspectos depredadores e financeiros do ultraprocesamento';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'O obxectivo xeral do ultraprocesamento é crear produtos alimenticios de marca, prácticos (duradeiros, listos para consumir), atractivos (hiperpalatables) e altamente rendibles (ingredientes de baixo custo) deseñados para desprazar a todos os demais grupos de alimentos. Os produtos alimenticios ultraprocesados adoitan envasarse de forma atractiva e comercializarse de forma intensiva.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://gl.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4975,52 +4975,54 @@ class AppLocalizationsGl extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Xeral';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Xestiona as túas preferencias de prezos';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'O proxecto Open Food Facts';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Colaborar';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Traducir, mellorar as nosas ferramentas…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Conectar';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Ponte en contacto connosco ou síguenos nas redes sociais';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Axúdanos a informar a millóns de consumidores de todo o mundo';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Axuda e asistencia';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Obtén respostas ás túas preguntas';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Sesión pechada';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Grazas por ser un dos nosos membros!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5029,40 +5031,40 @@ class AppLocalizationsGl extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Ver todas as estatísticas';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Busca $provider por \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Buscar unha configuración (por exemplo, Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Accesibilidade: Mostrar emojis';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Accesibilidade: Eliminar cores';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Sobre';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Información legal';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Condicións de uso, política de privacidade e moito máis';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Condicións de uso';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5071,155 +5073,160 @@ class AppLocalizationsGl extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Licenzas';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Acerca da aplicación';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Información técnica, información para desenvolvedores e moito máis';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Información';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Número de versión';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Escáner';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Tenda de aplicacións';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Configuración do sistema';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Acceder ao código fonte';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'E comeza a causar impacto en millóns de persoas';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Difunda';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Consellos';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Descubra a nova Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'No sitio web Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Xestionar a miña conta';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Cambiar o meu contrasinal';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Zona de perigo';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Todas as túas contribucións perderanse';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => 'Aportes';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title =>
+      'Configuración da aplicación';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Un xeito moi experimental de dixitalizar produtos sen conexión';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Actualizar todos os produtos do servidor';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Por favor, evita facelo a menos que sexa absolutamente necesario';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Modo de demostración';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Engadir tarxetas ao escáner';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Engade 3 produtos de mostra ao escáner';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Anfitrión de folcsonomía';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Experimentos de accesibilidade';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Selección de varios produtos por prezos';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Paneis de coñecemento ordenados polo usuario';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Acceso temporal á busca de localizacións';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Comparación en paralelo para 2 ou 3 produtos';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Importación da lista de produtos';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Puntuacións e metodoloxías';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Descubra como se calcula a Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Descubra os principais cambios na metodoloxía';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => 'Descubre o proxecto';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Descubra datos sobre comida aberta';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'Preguntas frecuentes - Preguntas frecuentes';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'A ONG Open Food Facts';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Información';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Recibir actualizacións da comunidade';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Mantente ao día das novas da aplicación e da comunidade';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5227,217 +5234,221 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Participa asistindo a un dos nosos eventos virtuais';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Síguenos nas redes sociais';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'O blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Recibe as últimas novas, segundo vaian ocorrendo';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Obtén axuda da comunidade';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Axúdanos a mellorar a aplicación';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Envíanos información de depuración';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Envíanos un correo electrónico con información detallada sobre a depuración';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Envíanos comentarios sobre a aplicación';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Axuda a dar forma ao futuro da aplicación';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Fai a enquisa da aplicación';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Axúdanos a comprender que debemos construír a continuación';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Profesionais';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Totalmente gratuíto, garante datos precisos para 500 aplicacións e millóns de consumidores. Autoservizo, compatible co teu PIM ou follas de cálculo (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Ponte en contacto para comezar';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'Prensa';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Obtén todo o material que necesitas para o teu informe';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Ponte en contacto para consultas de prensa ou para informarnos sobre o teu informe';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Convértete nun voluntario activo';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Desenvolvemento, Comunicación, Deseño… calquera tipo de voluntariado ou experiencia é benvida!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Descubre algunhas das moitas maneiras nas que podes contribuír';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Desenvolvemento de aplicacións móbiles';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Aprende a contribuír ao desenvolvemento de software';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Compilacións inestables diarias, novas funcionalidades';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Fai medrar a túa comunidade local';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Axuda con software, contidos, traducións de análises de ingredientes';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Preparamos un pequeno modelo para axudarche :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Pasos sinxelos para aumentar a transparencia alimentaria no teu país';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Únete ao equipo de calidade de datos';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Únete ao noso esforzo para garantir que a base de datos estea completa e sexa precisa';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 produtos engadidos';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Novos produtos que engadín a Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Produtos que teño que completar';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Todos os produtos incompletos';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Produtos que podes axudar a completar';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Axuda a calcular a puntuación Nutri e a puntuación Green no teu país';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'Prezos que aportei';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Etiquetas de prezos e recibos';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Fai fotos dos teus recibos e escanea os códigos de barras asociados';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Fai fotos dos prezos nunha tenda';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Prezos máis recentes';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Últimos prezos engadidos pola comunidade Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Colaboradores con máis prezos';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title =>
+      'Métricas de prezo de apertura';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Segue a evolución do proxecto';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Formas de contribuír';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Confirma os prezos engadidos por ti ou por outras persoas, coa axuda da IA';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Engade rapidamente moitos recibos ou fotos de estantes do teu rolo de cámara';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Desafíos mensuais';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Participa en misións temáticas mensuais para conseguir prezos';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Reclama os teus datos de fidelización';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Aprende a solicitar os teus datos';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Personaliza a aplicación';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Contribuír ao proxecto';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Formas sinxelas de axudar a abrir información sobre alimentos';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Metodoloxías de puntuación, axuda e moito máis sobre o proxecto';
 
   @override
   String get product_edit_robotoff_positive_button => 'Aceptar suxestión';
@@ -5487,40 +5498,40 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Reinicia a aplicación para aplicar os cambios.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Interface gráfica';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Medios de comunicación';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Desenvolvemento';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorios abertos de información sobre alimentos';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Trae Open Food Facts á túa lingua';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Rexístrate na versión alfa da aplicación';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Contribucións e datos do produto';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Non mostrar folcsonomía';
 
   @override
   String get preferences_account_title => 'Account';

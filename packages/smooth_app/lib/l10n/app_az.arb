@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Eksperimental xüsusiyyətlərə və inkişaf alətlərinə daxil olun",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Yaşıl xal A",
+  "environmental_score_b_new": "Yaşıl xal B",
+  "environmental_score_c_new": "Yaşıl xal C",
+  "environmental_score_d_new": "Yaşıl xal D",
+  "environmental_score_e_new": "Yaşıl xal E",
+  "environmental_score_unknown_new": "Naməlum Yaşıl Hesab",
+  "environmental_score_not_applicable_new": "Yaşıl-Xal tətbiq edilmir",
+  "nova_group_generic_new": "Ultra işlənmiş qidalar - NOVA qrupları",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Bütün vətəndaşlar qablaşdırma haqqında məlumat kimi məhsullarda mövcud olan və ya onlardan çıxarıla bilən məlumatları toplamaqda və strukturlaşdırmaqda bizə kömək edə bilər: Missiya Emballages: bütün ərzaq məhsulları üçün qablaşdırmanın genişmiqyaslı birgə inventarlaşdırılması (Fransız dilində)",
   "guide_greenscore_transparency_arg2_title": "İstehsalçılar necə kömək edə bilər",
   "guide_greenscore_transparency_arg2_text": "İstehsalçılar öz məlumatlarını birbaşa istehsalçılar üçün pulsuz platformamız vasitəsilə bizə göndərə bilərlər.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Hansı məhsul planet üçün daha yaxşıdır?",
+  "guide_greenscore_better_product_arg1_title": "Bunu demək çətin ola bilər",
+  "guide_greenscore_better_product_arg1_text": "Davamlı qida seçimi iqlim üçün edə biləcəyimiz ən güclü şeylərdən biridir, çünki **qlobal qida sistemimiz bütün istixana qazları emissiyalarının dörddə birindən çoxuna cavabdehdir**.\n(Mənbə: Poore & Nemecek, Elm, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Gücün var!",
+  "guide_greenscore_better_product_arg2_text": "Yaxşı xəbər budur ki, bu, bizə dəyişiklik yaratmaq üçün güclü bir yol verir.\n**Hər birimiz hər il təxminən 1000 yemək yeyirik**. Bu, **planet üçün daha yaxşı bir gələcək seçmək** üçün 1000 fürsətdir!",
+  "guide_greenscore_better_product_arg3_title": "Məsuliyyətli olmağa və qərar verməyə kömək edir",
+  "guide_greenscore_better_product_arg3_text": "Davamlı qida seçimi kompleks hiss edə bilər. Etiketlər çaşdırıcıdır və məlumat tez-tez çatışmır. Green-Score bunu sadə etmək üçün yaradılmışdır, sizə ərzaq məhsulları üçün **aydın**, **elmə əsaslanan** və **şəffaf** ekoloji reytinq verir, sizə lazım olan yerdə: alış-veriş edərkən.",
+  "guide_greenscore_better_product_arg4_title": "Şəffaflıq",
+  "guide_greenscore_better_product_arg4_text": "Mülkiyyət etiketlərindən fərqli olaraq, Yaşıl Xal hesablanması **tamamilə açıqdır** və **hər kəs tərəfindən təsdiqlənə bilər**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ultra emal nədir?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA qrupları sizə qida emalı səviyyəsi haqqında məlumat verir.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA təsnifatı qidaları **sənaye emal dərəcəsinə** (minimum işlənmiş və ya emal olunmamış qidalar, kulinariya inqrediyentləri, emal olunmuş qidalar, ultra emal olunmuş qidalar) əsasən **4 qrupa** təsnif etməyə imkan verir.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA loqoları",
+  "guide_nova_groups_title": "4 NOVA qrupu",
+  "guide_nova_groups_intro": "4 NOVA qrupu var, problemli qrup 4-cü qrup - Ultra emal olunmuş qidalardır.",
+  "guide_nova_groups_arg1_title": "Minimum işlənmiş və ya işlənməmiş qidalar",
+  "guide_nova_groups_arg1_text": "İşlənməmiş (və ya təbii) qidalar bitkilərin (toxumların, meyvələrin, yarpaqların, gövdələrin, köklərin) və ya heyvanların (əzələ, sakatat, yumurta, süd), həmçinin göbələklərin, yosunların və suyun təbiətdən ayrıldıqdan sonra yeyilə bilən hissələridir.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Yağlar, yağlar, şəkər və duz kimi emal edilmiş kulinariya inqrediyentləri 1-ci qrup qidalardan və ya təbiətdən presləmə, emalı, üyüdülmə, öğütmə və qurutma kimi proseslər vasitəsilə əldə edilən maddələrdir.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Şişelenmiş tərəvəzlər, balıq konservləri, şərbətdə meyvələr, pendirlər və təzə hazırlanmış çörəklər kimi işlənmiş qidalar, ilk növbədə, 2-ci qrupdan 1-ci qrup qidalara duz, yağ, şəkər və ya digər maddələrin əlavə edilməsi ilə hazırlanır. Proseslərə müxtəlif konservləşdirmə və ya bişirmə üsulları, çörək və pendirdə isə alkoqolsuz fermentasiya daxildir. Əksər işlənmiş qidalar iki və ya üç inqrediyentdən ibarətdir və 1-ci qrup qidaların dəyişdirilmiş variantları kimi tanınır. Onlar tək başına və ya daha çox digər qidalarla birlikdə yeyilə bilər.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Alkoqolsuz içkilər, şirin və ya ləzzətli qablaşdırılmış qəlyanaltılar, sulandırılmış ət məhsulları və əvvəlcədən hazırlanmış dondurulmuş qablar kimi ultra işlənmiş qidalar sadəcə dəyişdirilmiş qidalar deyil, həm də əsasən və ya tamamilə qida və əlavələrdən əldə edilən maddələrdən hazırlanmış, 1-ci Qrup qidasına çox az və ya heç bir toxunulmazlıq gətirməyən formulalardır. Bu formulalardakı inqrediyentlər adətən şəkər, yağlar, yağlar və ya duz kimi işlənmiş qidalarda olanları da əhatə edir. Bununla belə, həddindən artıq emal edilmiş məhsullar kulinariya hazırlıqlarında adətən istifadə olunmayan digər enerji mənbələrini və qida maddələrini də ehtiva edir. Bunlardan bəziləri kazein, laktoza, zərdab və qlüten kimi qidalardan birbaşa çıxarılır.",
+  "guide_nova_explanations_title": "Ultra emal ilə bağlı problemlər",
+  "guide_nova_explanations_arg1_title": "Qida inqrediyentlərinin həddindən artıq emalı",
+  "guide_nova_explanations_arg1_text": "Bir çoxları hidrogenləşdirilmiş və ya faizləşdirilmiş yağlar, hidrolizə edilmiş zülallar, soya proteini izolatı, maltodekstrin, invert şəkər və yüksək fruktozalı qarğıdalı siropu kimi qida komponentlərinin sonrakı emalından əldə edilir.",
+  "guide_nova_explanations_arg2_title": "Təmiz qida təhlükəsizliyindən kənara çıxan əlavələr",
+  "guide_nova_explanations_arg2_text": "Ultra işlənmiş qidalardakı əlavələrə konservantlar, antioksidantlar və stabilizatorlar kimi emal olunmuş qidalarda da istifadə edilən bəzi əlavələr daxildir. Yalnız ultra emal olunmuş məhsullarda olan əlavələr siniflərinə qidaların hissiyyat keyfiyyətlərini təqlid etmək və ya artırmaq və ya son məhsulun xoşagəlməz cəhətlərini gizlətmək üçün istifadə olunanlar daxildir. Bu əlavələrə boyalar və digər rənglər, rəng stabilizatorları daxildir; tatlar, ləzzət artırıcılar, şəkərsiz tatlandırıcılar; və karbonatlaşdırıcı, bərkidici, həcmləndirici və toplaşmaya qarşı vasitələr, köpükdən təmizləyici, qatlanmaya qarşı və şüşələmə agentləri, emulqatorlar, sekvestrlər və nəmləndiricilər kimi emal vasitələri.",
+  "guide_nova_explanations_arg3_title": "Evdə emal edə bilməzsiniz",
+  "guide_nova_explanations_arg3_text": "Adətən bir çox inqrediyentləri birləşdirmək və son məhsulu (buna görə də “ultra-işlənmiş”) yaratmaq üçün çoxlu proseslər ardıcıllığından istifadə olunur. Proseslərə hidrogenləşdirmə və hidrolizləşmə, ekstruziya və qəlibləmə və qızartma üçün ilkin emal kimi yerli ekvivalentləri olmayan bir neçə proses daxildir.",
+  "guide_nova_explanations_arg4_title": "Ultra emalın yırtıcı və maliyyə aspektləri",
+  "guide_nova_explanations_arg4_text": "Ultra emalın ümumi məqsədi bütün digər qida qruplarını sıxışdırmaq üçün nəzərdə tutulmuş markalı, rahat (davamlı, istehlaka hazır), cəlbedici (hiper dadlı) və yüksək gəlirli (az qiymətli maddələr) qida məhsulları yaratmaqdır. Ultra emal edilmiş qida məhsulları adətən cəlbedici şəkildə qablaşdırılır və intensiv şəkildə bazara çıxarılır.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Qiymət seçimlərinizi idarə edin",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Açıq Qida Faktları layihəsi",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tərcümə edin, alətlərimizi təkmilləşdirin…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Qoşun",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Əlaqə saxlayın və ya sosial mediada bizi izləyin",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Dünyadakı milyonlarla istehlakçıya məlumat verməkdə bizə kömək edin",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Yardım və Dəstək",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Suallarınıza cavab alın",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Çıxdı",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Üzvlərimizdən biri olduğunuz üçün təşəkkür edirik!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Bütün statistikaya baxın",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} üçün \"{keyword}\" axtarın",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Parametrləri axtarın (məsələn, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Əlçatanlıq: Emoji göstərin",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Əlçatanlıq: Rəngləri silin",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Haqqında",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Hüquqi məlumat",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "İstifadə şərtləri, məxfilik siyasəti və s",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lisenziyalar",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Proqram haqqında",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Texniki məlumat, tərtibatçı məlumatı və s",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Məlumat",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versiya nömrəsi",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Proqram mağazası",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistem parametrləri",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Mənbə koduna daxil olun",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Və milyonlarla insana təsir etməyə başlayın",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Məsləhətlər",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Yeni Nutri-Score-u kəşf edin",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts saytında",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Hesabımı idarə et",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Parolumu dəyişin",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Təhlükəli zona",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Bütün töhfələriniz itiriləcək",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Proqram parametrləri",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Məhsulları oflayn skan etməyin çox eksperimental yolu",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Serverdən bütün məhsulları yeniləyin",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Zəhmət olmasa, çox zərurət olmadıqca bunu etməkdən çəkinin",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo rejimi",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Skanerə kartları əlavə edin",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Skanerə 3 nümunə məhsul əlavə edir",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomiya aparıcısı",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Əlçatanlıq təcrübələri",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Qiymətlər üçün çoxlu məhsul seçimi",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "İstifadəçinin sifariş etdiyi bilik panelləri",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Məkan axtarışına müvəqqəti giriş",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 və ya 3 məhsul üçün yan-yana müqayisə",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Məhsul siyahısı idxalı",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Ballar və metodologiyalar",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score-un necə hesablandığını kəşf edin",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Metodologiyada əsas dəyişiklikləri kəşf edin",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Açıq Qida Faktlarını kəşf edin",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Tez-tez verilən suallar",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Açıq Qida Faktları QHT",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Məlumat",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "İcma yeniləmələrini əldə edin",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Proqram və icma xəbərləri ilə əlaqədə qalın",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Virtual tədbirlərimizdən birində iştirak etməklə siz də iştirak edin",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Bizi sosial mediada izləyin",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Açıq Qida Faktları bloqu",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Ən son xəbərləri əldə edin",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Cəmiyyətdən kömək alın",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Proqramı təkmilləşdirməkdə bizə kömək edin",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Sazlama məlumatını bizə göndərin",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Ətraflı sazlama məlumatı ilə bizə e-poçt göndərin",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Tətbiq haqqında bizə rəy göndərin",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Proqramın gələcəyini formalaşdırmağa kömək edin",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Tətbiq sorğusunda iştirak edin",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Bundan sonra nə qurmalı olduğumuzu anlamağa kömək edin",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Peşəkarlar",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Tamamilə pulsuz, 500 proqram və milyonlarla istehlakçı üçün dəqiq məlumat təmin edir. PIM və ya cədvəllərinizə uyğun olan özünə xidmət (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Başlamaq üçün əlaqə saxlayın",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Hesabatınız üçün lazım olan bütün materialları əldə edin",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Mətbuat sorğuları üçün əlaqə saxlayın və ya hesabatınız haqqında bizə bildirin",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Aktiv könüllü olun",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "İnkişaf, Ünsiyyət, Dizayn… istənilən növ könüllülük və ya təcrübə alqışlanır!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Töhfə verə biləcəyiniz bir çox yoldan bəzilərini kəşf edin",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobil proqram inkişafı",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Proqram təminatının inkişafına necə töhfə verməyi öyrənin",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Gündəlik qeyri-sabit quruluşlar, yeni xüsusiyyətlər",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Yerli icmanızı inkişaf etdirin",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Proqram təminatı, məzmun, inqrediyent təhlili tərcümələri ilə kömək edin",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Sizə kömək etmək üçün kiçik bir şablon hazırlamışıq :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Ölkənizdə qida şəffaflığını artırmaq üçün sadə addımlar",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Məlumat keyfiyyəti komandasına qoşulun",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Verilənlər bazasının tam və dəqiq olmasını təmin etmək üçün səylərimizə qoşulun",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 məhsul əlavə edildi",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Open Food Facts-a əlavə etdiyim yeni məhsullar",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Tamamlamalı olduğum məhsullar",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Bütün natamam məhsullar",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Tamamlamağa kömək edə biləcəyiniz məhsullar",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ölkənizdə Nutri-Score və Green-Score-u hesablamağa kömək edin",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Mən töhfə verdiyim qiymətlər",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Qiymət etiketləri və qəbzlər",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Qəbzlərinizin fotoşəkillərini çəkin və əlaqəli barkodları skan edin",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Mağazada qiymətlərin fotoşəkillərini çəkin",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Ən yeni qiymətlər",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Açıq Qiymətlər icması tərəfindən əlavə edilən son qiymətlər",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Ən çox qiymətə sahib olanlar",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Açıq Qiymət ölçüləri",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Layihənin təkamülünü izləyin",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Töhfə vermə yolları",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI köməyi ilə özünüz və ya başqaları tərəfindən əlavə edilmiş qiymətləri təsdiqləyin",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Tezliklə kamera rulonuzdan çoxlu qəbz və ya rəflərin fotoşəkillərini əlavə edin",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Aylıq çətinliklər",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Qiymətləri toplamaq üçün aylıq tematik tapşırıqlarda iştirak edin",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Loyallıq məlumatlarınızı geri alın",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Məlumatlarınızı necə tələb edəcəyinizi öyrənin",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Proqramı fərdiləşdirin",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Layihəyə töhfə verin",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Açıq Qida Faktlarına kömək etməyin sadə yolları",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Hesab metodologiyaları, yardım və layihə haqqında daha çox",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Təklifi qəbul edin",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Doğrulama uğursuz oldu, sübutları əldə etmək mümkün olmadı",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Dəyişiklikləri tətbiq etmək üçün proqramı yenidən başladın.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Qrafik interfeys",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Qida Faktları Laboratoriyalarını açın",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Açıq Qida Faktlarını dilinizə gətirin",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Proqramın alfa versiyasında qeydiyyatdan keçin",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Töhfələr və Məhsul datası",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomiya göstərməyin",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

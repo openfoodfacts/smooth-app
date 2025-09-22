@@ -2323,8 +2323,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get dev_preferences_screen_title => '개발자 모드';
 
   @override
-  String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+  String get dev_preferences_screen_subtitle => '실험적 기능 및 개발 도구에 액세스하세요';
 
   @override
   String get dev_preferences_reset_onboarding_title => '온보딩 다시 시작';
@@ -3924,32 +3923,31 @@ class AppLocalizationsKo extends AppLocalizations {
       'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => '친환경 점수';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => '그린 스코어 A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => '그린 스코어 B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => '그린 스코어 C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => '그린 스코어 D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => '그린 스코어 E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => '알 수 없는 그린 스코어';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'Green-Score는 적용되지 않습니다';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => '초가공식품 - NOVA 그룹';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4303,132 +4301,123 @@ class AppLocalizationsKo extends AppLocalizations {
       '제조업체는 우리의 생산자를 위한 무료 플랫폼을 통해 직접 정보를 보낼 수 있습니다.';
 
   @override
-  String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+  String get guide_greenscore_better_product_title => '어떤 제품이 지구에 더 좋을까요?';
 
   @override
-  String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+  String get guide_greenscore_better_product_arg1_title => '말하기 어려울 수 있습니다';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      '지속 가능한 음식을 선택하는 것은 우리가 기후를 위해 할 수 있는 가장 강력한 일 중 하나입니다. **우리의 글로벌 식량 시스템은 모든 온실 가스 배출량의 4분의 1 이상을 차지합니다**.\n(출처: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => '당신에게 힘이 있어요!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      '좋은 소식은 이것이 우리에게 변화를 만들어낼 강력한 방법을 제공한다는 것입니다.\n**우리는 각자 매년 약 1,000끼의 식사를 합니다.** 이는 **지구의 더 나은 미래를 선택할 수 있는** 1,000번의 기회입니다!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      '책임감을 갖고 결정하는 데 도움이 됩니다.';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      '지속 가능한 식품을 선택하는 것은 복잡하게 느껴질 수 있습니다. 라벨은 헷갈리고 정보는 종종 누락됩니다. 그린스코어는 이러한 과정을 간소화하기 위해 만들어졌으며, 식품에 대한 **명확하고**, **과학에 기반하며**, **투명한** 환경 등급을 쇼핑하는 순간에 바로 확인할 수 있도록 설계되었습니다.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => '투명도';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      '독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
-  String get guide_nova_title => 'Ultra-processed foods';
+  String get guide_nova_title => '가공 식품';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => '초고처리란 무엇인가?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA 그룹에서는 식품 가공 수준에 대해 알려드립니다.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA 분류는 **산업적 가공 정도**(최소한 가공 또는 비가공 식품, 요리 재료, 가공 식품, 고도 가공 식품)에 따라 식품을 **4가지 그룹**으로 분류할 수 있도록 합니다.';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVA 로고';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4개의 NOVA 그룹';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'NOVA 그룹은 4개로 구성되어 있는데, 문제가 되는 그룹은 4그룹 - 초가공식품입니다.';
 
   @override
-  String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+  String get guide_nova_groups_arg1_title => '최소한으로 가공되거나 가공되지 않은 식품';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      '가공되지 않은(또는 천연) 식품은 자연에서 분리된 식물(씨앗, 과일, 잎, 줄기, 뿌리)이나 동물(근육, 내장, 달걀, 우유)의 먹을 수 있는 부분, 그리고 균류, 조류, 물입니다.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => '가공 식품 재료';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      '기름, 버터, 설탕, 소금과 같은 가공된 요리 재료는 1군 식품에서 유래하거나 압착, 정제, 분쇄, 제분, 건조 등의 공정을 거쳐 자연에서 얻은 물질입니다.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => '가공 식품';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      '병입된 채소, 통조림 생선, 시럽에 절인 과일, 치즈, 갓 만든 빵과 같은 가공식품은 주로 2군에서 1군 식품에 속하는 소금, 기름, 설탕 또는 기타 물질을 첨가하여 만들어집니다. 이러한 가공 과정에는 다양한 보존 또는 조리 방법이 포함되며, 빵과 치즈의 경우 무알코올 발효가 사용됩니다. 대부분의 가공식품은 두세 가지 재료를 사용하며, 1군 식품의 변형된 형태로 인식됩니다. 이러한 식품은 단독으로 섭취하거나, 더 일반적으로는 다른 식품과 함께 섭취할 수 있습니다.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+  String get guide_nova_groups_arg4_title => '가공 식품';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      '청량음료, 달콤하거나 짭짤한 포장 스낵, 재구성 육류 제품, 조리된 냉동 식품과 같은 초가공 식품은 단순한 변형 식품이 아니라, 식품 및 첨가물에서 추출한 성분을 대부분 또는 전적으로 사용하여 제조된 제품이며, 1군 식품은 거의 또는 전혀 함유되어 있지 않습니다. 이러한 제품에는 일반적으로 설탕, 기름, 지방 또는 소금과 같이 가공식품에서 발견되는 성분이 포함됩니다. 그러나 초가공 식품에는 일반적으로 요리에 사용되지 않는 다른 에너지원과 영양소도 포함되어 있습니다. 이러한 성분 중 일부는 카제인, 유당, 유청, 글루텐과 같이 식품에서 직접 추출됩니다.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => '초고속 처리의 문제점';
 
   @override
-  String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+  String get guide_nova_explanations_arg1_title => '식품 재료의 극한 가공';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      '많은 식품 성분을 수소화 또는 인터에스터화한 오일, 가수분해 단백질, 대두 단백질 분리물, 말토덱스트린, 전화당, 고과당 옥수수 시럽 등 추가 가공하여 얻은 것입니다.';
 
   @override
-  String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+  String get guide_nova_explanations_arg2_title => '단순한 식품안전을 넘어선 첨가물';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      '초가공 식품의 첨가제에는 방부제, 항산화제, 안정제 등 가공식품에도 사용되는 첨가제가 포함됩니다. 초가공 제품에만 사용되는 첨가제에는 식품의 관능적 품질을 모방하거나 향상시키거나 최종 제품의 불쾌한 부분을 가리는 데 사용되는 첨가제가 포함됩니다. 이러한 첨가제에는 염료 및 기타 색소, 색상 안정제, 향료, 풍미 증진제, 무설탕 감미료, 그리고 탄산화제, 경화제, 팽창제 및 팽창 방지제, 소포제, 고결 방지제 및 광택제, 유화제, 금속이온봉쇄제, 보습제와 같은 가공 보조제가 포함됩니다.';
 
   @override
-  String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+  String get guide_nova_explanations_arg3_title => '집에서 할 수 없는 처리';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '일반적으로 많은 재료들을 조합하고 최종 제품(즉, \'초가공\')을 만들기 위해 여러 공정이 사용됩니다. 이러한 공정에는 수소화 및 가수분해, 압출 및 성형, 그리고 튀김 전처리 등 국내에서는 찾아볼 수 없는 여러 공정이 포함됩니다.';
 
   @override
-  String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+  String get guide_nova_explanations_arg4_title => '초가공의 약탈적 측면과 재정적 측면';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '초가공 식품의 전반적인 목적은 브랜드 인지도가 높고, 편리하며(내구성이 뛰어나고, 바로 섭취할 수 있으며), 매력적이며(매우 맛있으며), 수익성이 높은(저렴한 재료 사용) 식품을 개발하여 다른 모든 식품군을 대체하는 것입니다. 초가공 식품은 일반적으로 매력적인 포장과 집중적인 마케팅을 통해 판매됩니다.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4912,251 +4901,232 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => '일반';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => '가격 선호도를 관리하세요';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => '오픈 푸드 팩츠 프로젝트';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => '기여하기';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => '번역하고 도구를 개선하세요…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => '연결하다';
 
   @override
-  String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+  String get preferences_connect_subtitle => '문의하시거나 소셜 미디어에서 팔로우하세요';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      '전 세계 수백만 명의 소비자에게 정보를 제공하는 데 도움을 주세요.';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => '도움말 및 지원';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => '질문에 대한 답변을 받으세요';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => '로그아웃됨';
 
   @override
-  String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+  String get preferences_app_bar_message => '우리 회원이 되어주셔서 감사합니다!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => '수정된 제품';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => '모든 통계 보기';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return '$provider 에서 \"$keyword\"을 검색하세요';
   }
 
   @override
-  String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+  String get preferences_app_bar_search_hint => '설정 검색(예: Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => '접근성: 이모티콘 표시';
 
   @override
-  String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+  String get preferences_accessibility_remove_colors => '접근성: 색상 제거';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => '제품';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => '정보';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => '법률 정보';
 
   @override
-  String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+  String get preferences_legal_information_subtitle => '이용 약관, 개인정보 보호정책 등';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => '이용 약관';
 
   @override
-  String get preferences_legal_mentions => 'Legal mentions';
+  String get preferences_legal_mentions => '법률상의 언급';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => '라이센스';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => '앱에 대하여';
 
   @override
-  String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+  String get preferences_about_app_subtitle => '기술 정보, 개발자 정보 등';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => '정보';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => '버전 번호';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => '스캐너';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => '앱스토어';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => '시스템 설정';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => '소스 코드에 접근하세요';
 
   @override
-  String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+  String get preferences_source_code_subtitle => '그리고 수백만 명에게 영향을 미치기 시작하세요';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => '제품 보완';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => '팁';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => '새로운 Nutri-Score를 만나보세요';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+  String get preferences_on_off_website_subtitle => 'Open Food Facts 웹사이트에서';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => '내 계정 관리';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => '내 비밀번호를 변경하세요';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => '위험 구역';
 
   @override
-  String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+  String get preferences_account_deletion_subtitle => '귀하의 모든 기여가 손실됩니다.';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => '기여';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => '앱 설정';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      '오프라인에서 제품을 스캔하는 매우 실험적인 방법';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      '서버에서 모든 제품을 새로 고침합니다';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      '절대적으로 필요하지 않는 한 그렇게 하지 마십시오.';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => '데모 모드';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => '스캐너에 카드 추가';
 
   @override
-  String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+  String get preferences_dev_mode_add_cards_subtitle => '스캐너에 샘플 제품 3개를 추가합니다.';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => '폴크소노미 호스트';
 
   @override
-  String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+  String get preferences_dev_mode_accessibility_experiments_title => '접근성 실험';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      '다양한 제품 선택 가격';
 
   @override
-  String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+  String get preferences_dev_mode_user_ordered_kp_title => '사용자가 주문한 지식 패널';
 
   @override
-  String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+  String get preferences_dev_mode_location_search_title => '위치 검색에 대한 임시 액세스';
 
   @override
-  String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+  String get preferences_dev_mode_comparison_title => '2~3개 제품을 나란히 비교해보세요';
 
   @override
-  String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+  String get preferences_dev_mode_product_list_import_title => '제품 목록 가져오기';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => '점수 및 방법론';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Nutri-Score가 어떻게 계산되는지 알아보세요';
 
   @override
-  String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+  String get preferences_faq_nutriscore_v2_subtitle => '방법론의 주요 변경 사항을 알아보세요';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => '프로젝트보세요';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => '공개 식품 정보를 알아보세요';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - 자주 묻는 질문';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => '오픈 푸드 팩츠 NGO';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => '정보';
 
   @override
-  String get preferences_connect_community_updates_title =>
-      'Get community updates';
+  String get preferences_connect_community_updates_title => '커뮤니티 업데이트 받기';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      '앱과 커뮤니티 뉴스를 최신 상태로 유지하세요';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5164,217 +5134,196 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      '당사의 가상 이벤트 중 하나에 참석하여 참여하세요.';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+  String get preferences_connect_social_media_title => '소셜 미디어에서 우리를 팔로우하세요';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => '오픈 푸드 팩츠 블로그';
 
   @override
-  String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+  String get preferences_connect_blog_subtitle => '최신 뉴스를 실시간으로 받아보세요';
 
   @override
-  String get preferences_connect_community_help_title =>
-      'Get help from the community';
+  String get preferences_connect_community_help_title => '커뮤니티로부터 도움을 받으세요';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title => '앱 개선에 도움을 주세요';
 
   @override
-  String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+  String get preferences_connect_debug_info_title => '디버그 정보를 보내주세요';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      '자세한 디버깅 정보가 포함된 이메일을 보내주세요.';
 
   @override
-  String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+  String get preferences_connect_feedback_title => '앱에 대한 피드백을 보내주세요';
 
   @override
-  String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+  String get preferences_connect_feedback_subtitle => '앱의 미래를 형성하는 데 도움을 주세요';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => '앱 설문조사에 참여하세요';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      '우리가 다음에 무엇을 만들어야 할지 이해하도록 도와주세요';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => '전문가';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      '완전 무료이며, 500개 앱과 수백만 명의 소비자에게 정확한 데이터를 제공합니다. PIM 또는 스프레드시트(XLSX)와 호환되는 셀프 서비스입니다.';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => '시작하려면 연락하세요';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => '프레스';
 
   @override
-  String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+  String get preferences_connect_press_page_subtitle => '보고서에 필요한 모든 자료를 얻으세요';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      '언론 문의나 보고서에 대한 정보를 알려주시려면 연락해 주세요.';
 
   @override
-  String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+  String get preferences_contribute_active_volunteer_title => '활동적인 자원봉사자가 되세요';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      '개발, 커뮤니케이션, 디자인… 모든 종류의 자원봉사나 전문지식을 환영합니다!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      '여러분이 기여할 수 있는 다양한 방법을 알아보세요';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => '모바일 앱 개발';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      '소프트웨어 개발에 기여하는 방법을 알아보세요';
 
   @override
-  String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+  String get preferences_contribute_alpha_subtitle => '매일 불안정한 빌드, 새로운 기능';
 
   @override
-  String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+  String get preferences_contribute_local_community_title => '지역 사회를 성장시키세요';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      '소프트웨어, 콘텐츠, 성분 분석 번역 지원';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      '여러분을 돕기 위해 작은 템플릿을 준비했습니다 :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      '귀하의 국가에서 식량 투명성을 높이기 위한 간단한 단계';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      '데이터 품질 팀에 합류하세요';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      '데이터베이스가 완전하고 정확한지 확인하기 위한 노력에 동참해 주세요.';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title => '0개의 제품이 추가되었습니다';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Open Food Facts에 추가한 새로운 제품';
 
   @override
-  String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+  String get preferences_contributions_to_be_completed_title => '내가 완성해야 할 제품';
 
   @override
-  String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+  String get preferences_contributions_all_incomplete_title => '모든 미완성 제품';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      '당신이 완성하는 데 도움을 줄 수 있는 제품';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      '귀하의 국가에서 Nutri-Score 및 Green-Score를 계산하는 데 도움이 됩니다.';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => '내가 기여한 가격';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => '가격표와 영수증';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      '영수증 사진을 찍고 관련 바코드를 스캔하세요';
 
   @override
-  String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+  String get preferences_prices_add_price_tags_subtitle => '가게의 가격 사진을 찍어보세요';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => '최신 가격';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Price 커뮤니티에서 추가한 최신 가격';
 
   @override
-  String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+  String get preferences_prices_top_contributors_title => '가장 많은 가격을 제시한 기여자';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => '오픈 가격 지표';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => '프로젝트의 진행 상황을 살펴보세요';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => '기여 방법';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'AI의 도움으로 자신이나 다른 사람이 추가한 가격을 확인하세요.';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      '카메라 롤에서 많은 영수증이나 선반 사진을 빠르게 추가하세요';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => '월간 챌린지';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      '월별 주제별 퀘스트에 참여하여 가격을 수집하세요';
 
   @override
-  String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+  String get preferences_prices_loyalty_data_title => '충성도 데이터를 회수하세요';
 
   @override
-  String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+  String get preferences_prices_gdpr_subtitle => '데이터를 요청하는 방법을 알아보세요';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => '앱 사용자 지정';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => '프로젝트에 기여하다';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Facts를 돕는 간단한 방법';
 
   @override
-  String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+  String get preferences_page_faq_subtitle => '점수 방법론, 도움말 및 프로젝트에 대한 추가 정보';
 
   @override
   String get product_edit_robotoff_positive_button => '제안 수락';
@@ -5421,42 +5370,37 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_proof_error => '인증에 실패하여 증명을 가져올 수 없습니다.';
 
   @override
-  String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+  String get restart_to_apply_message => '변경 사항을 적용하려면 앱을 다시 시작하세요.';
 
   @override
-  String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+  String get preferences_app_settings_graphical_interface_title => '그래픽 인터페이스';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => '메디아';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => '개발';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+  String get preferences_page_open_food_facts_labs_title => '오픈 푸드 팩츠 랩스';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => '계정';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      '공개 식품 정보를 귀하의 언어로 제공하세요';
 
   @override
-  String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+  String get preferences_contribute_enroll_alpha => '앱의 알파 버전에 등록하세요';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => '기여 및 제품 데이터';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Folksonomy를 표시하지 마십시오';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => '계정';
 }

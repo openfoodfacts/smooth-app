@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Bigihîjin taybetmendiyên ceribandinî û amûrên pêşveçûnê",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Dane",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Kesk-Pûana A",
+  "environmental_score_b_new": "Kesk-Xala B",
+  "environmental_score_c_new": "Kesk-Score C",
+  "environmental_score_d_new": "Kesk-Xala D",
+  "environmental_score_e_new": "Kesk-Score E",
+  "environmental_score_unknown_new": "Xala Kesk a Nenas",
+  "environmental_score_not_applicable_new": "Kesk-Pûan nayê sepandin",
+  "nova_group_generic_new": "Xwarinên pir-pêvajoyî - komên NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Hemû welatî dikarin ji bo berhevkirin û rêkxistina agahiyên li ser berheman an jî agahiyên ku ji wan têne derxistin, wek mînak agahiyên li ser pakêtan, alîkariya me bikin: Mission Emballages: envantereke hevkar a berfireh a pakêtan ji bo hemû berhemên xwarinê (bi Fransî)",
   "guide_greenscore_transparency_arg2_title": "Çawa hilberîner dikarin bibin alîkar",
   "guide_greenscore_transparency_arg2_text": "Hilberîner dikarin agahiyên xwe rasterast bi rêya platforma me ya belaş ji bo hilberîneran ji me re bişînin.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Kîjan berhem ji bo gerstêrkê çêtir e?",
+  "guide_greenscore_better_product_arg1_title": "Ew dikare dijwar be ku meriv bibêje",
+  "guide_greenscore_better_product_arg1_text": "Hilbijartina xwarina domdar yek ji tiştên herî bi bandor e ku em dikarin ji bo avhewayê bikin, ji ber ku **sîstema me ya xwarinê ya gerdûnî berpirsiyarê zêdetirî çaryeka hemî emisyonên gazên serayê ye**.\n(Çavkanî: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Tu xwedî hêz î!",
+  "guide_greenscore_better_product_arg2_text": "Mizgîniya baş ew e ku ev rêyek bihêz dide me ku em guhertinê biafirînin.\n**Her yek ji me her sal nêzîkî 1,000 xwarinan dixwe**. Ev 1,000 derfet in ji bo **hilbijartina paşerojek çêtir ji bo gerstêrkê**!",
+  "guide_greenscore_better_product_arg3_title": "Alîkarî dike ku berpirsiyar be û biryar bide",
+  "guide_greenscore_better_product_arg3_text": "Hilbijartina xwarina domdar dikare tevlihev xuya bike. Etîket tevlihev in û agahî pir caran wenda ne. Pûana Kesk ji bo hêsankirina wê hat afirandin, û ji bo hilberên xwarinê rêjeyek jîngehê ya **zelal**, **zanist-bingeha**, û **şefaf** dide we, tam li cihê ku hûn hewce ne: dema ku hûn dikirin.",
+  "guide_greenscore_better_product_arg4_title": "Şefafî",
+  "guide_greenscore_better_product_arg4_text": "Berevajî etîketên taybet, hesabkirina Green-Score **bi tevahî vekirî** ye û dikare ji hêla **her kesî** ve were verast kirin.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ultra-proseskirin çi ye?",
+  "guide_nova_what_is_nova_paragraph1": "Grûpên NOVA we di derbarê asta hilberandina xwarinê de agahdar dikin.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Dabeşkirina NOVA rê dide dabeşkirina xwarinan di nav **4 koman** de li gorî **pileya hilberîna wan a pîşesaziyê** (xwarinên kêm-pêvajoyî an ne-pêvajoyî, malzemeyên kulîneriyê, xwarinên pêvajoyî, xwarinên pir-pêvajoyî).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logoyên NOVA",
+  "guide_nova_groups_title": "4 komên NOVA",
+  "guide_nova_groups_intro": "4 komên NOVA hene, ya pirsgirêkdar Koma 4 - Xwarinên Ultra-pêvajoyî ye.",
+  "guide_nova_groups_arg1_title": "Xwarinên kêm pêvajokirî an ne pêvajokirî",
+  "guide_nova_groups_arg1_text": "Xwarinên nepêvajoyî (an xwezayî) beşên xwarinê yên nebatan (tov, fêkî, pel, qurm, reh) an jî heywanan (masûlke, rûvî, hêk, şîr), û her weha fungî, alg û av in, piştî ku ji xwezayê têne veqetandin.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Malzemeyên kulîner ên pêvajoyî, wek rûn, rûn, şekir û xwê, made ne ku ji xwarinên Koma 1 an jî ji xwezayê bi rêya pêvajoyên wekî pêlkirin, rafinandin, hûrkirin, hûrkirin û zuwakirinê têne wergirtin.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Xwarinên pêvajokirî, wek sebzeyên şûşeyî, masiyên konservekirî, fêkiyên di şerbetê de, penîr û nanên teze hatine çêkirin, bi piranî bi zêdekirina xwê, rûn, şekir, an madeyên din ji Koma 2 li xwarinên Koma 1 têne çêkirin. Pêvajo rêbazên cûrbecûr ên parastin an pijandinê, û di rewşa nan û penîr de, fermentasyona bê alkol vedihewîne. Piraniya xwarinên pêvajokirî du an sê malzemeyan hene û wekî guhertoyên guhertî yên xwarinên Koma 1 têne nas kirin. Ew dikarin bi serê xwe an jî, bi gelemperî, bi xwarinên din re werin xwarin.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Xwarinên pir-pêvajoyî, wek vexwarinên nerm, xwarinên şîrîn an şor ên pakêtkirî, berhemên goşt ên ji nû ve hatine çêkirin, û xwarinên cemidî yên pêşwext amadekirî, ne tenê xwarinên guhertî ne, lê formulasyonên ku bi piranî an bi tevahî ji madeyên ji xwarin û lêzêdekirinê hatine çêkirin in, û xwarina Koma 1-ê ya bêkêmasî pir kêm e an tune ye. Malzemeyên di van formulasyonan de bi gelemperî yên ku di xwarinên pêvajoyî de jî têne dîtin, wek şekir, rûn, rûn, an xwê, dihewîne. Lêbelê, berhemên pir-pêvajoyî çavkaniyên din ên enerjî û xurekan jî dihewînin ku bi gelemperî di amadekariyên xwarinçêkirinê de nayên bikar anîn. Hin ji van rasterast ji xwarinan têne derxistin, wek kazeîn, laktoz, whey û gluten.",
+  "guide_nova_explanations_title": "Pirsgirêkên bi ultra-proseskirinê re",
+  "guide_nova_explanations_arg1_title": "Pêvajoyek zêde ya pêkhateyên xwarinê",
+  "guide_nova_explanations_arg1_text": "Gelek ji wan ji pêvajoya bêtir a pêkhateyên xwarinê tên wergirtin, wek rûnên hîdrojenkirî an jî interesterîfkirî, proteînên hîdrolîzkirî, îzolekirina proteîna soyayê, maltodekstrîn, şekirê berevajî, û şerbeta ceh a bi fruktoza bilind.",
+  "guide_nova_explanations_arg2_title": "Zêdekerên ku ji ewlehiya xwarinê ya saf wêdetir diçin",
+  "guide_nova_explanations_arg2_text": "Ji lêzêdekerên di xwarinên pir-pêvajoyî de hin madeyên ku di xwarinên pêvajoyî de jî têne bikar anîn hene, wek parêzker, antîoksîdan û stabîlîzator. Çînên lêzêdekerên ku tenê di hilberên pir-pêvajoyî de têne dîtin, ewên ku ji bo teqlîdkirin an baştirkirina taybetmendiyên hestî yên xwarinan an jî ji bo veşartina aliyên ne xweş ên hilbera dawîn têne bikar anîn in. Van lêzêdekeran boyax û rengên din, stabîlîzatorên rengan; tehmxweşker, zêdekerên tehmxweşker, şîrînkerên bê şekir; û alîkarên pêvajoyê yên wekî ajanên karbonkirin, hişkkirin, qelewkirin û dijî-qelewkirinê, ajanên rakirina kefê, dijî-kokbûn û şûştinê, emulsîfier, veqetandek û şilker hene.",
+  "guide_nova_explanations_arg3_title": "Pêvajoyên ku hûn nekarin li malê bikin",
+  "guide_nova_explanations_arg3_text": "Ji bo tevlihevkirina malzemeyan bi gelemperî gelek rêze pêvajoyan têne bikar anîn û hilbera dawîn (ji ber vê yekê 'pir-pêvajoyî') tê afirandin. Pêvajoyan çend pêvajoyên bêyî hevberên navxweyî vedihewîne, wekî hîdrojenasyon û hîdrolîzasyon, derxistin û qalibkirin, û pêş-pêvajoyîkirina ji bo sorkirinê.",
+  "guide_nova_explanations_arg4_title": "Aliyên nêçîrvan û darayî yên ultra-proseskirinê",
+  "guide_nova_explanations_arg4_text": "Armanca giştî ya ultra-proseskirinê ew e ku berhemên xwarinê yên bi marqe, hêsan (mayînde, amade ne ji bo vexwarinê), balkêş (pir xweş) û pir qezenckar (malzemeyên erzan) biafirînin ku ji bo cîhê hemû komên xwarinên din hatine çêkirin. Berhemên xwarinê yên ultra-proseskirî bi gelemperî bi rengek balkêş têne pakêt kirin û bi giranî têne bazar kirin.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Tercîhên bihayên xwe birêve bibin",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projeya Rastiyên Xwarinê yên Vekirî",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Wergerîne, amûrên me baştir bike…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Bihevgirêdan",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Têkilî bi me re bikin, an jî li ser medyaya civakî bişopînin",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Ji bo agahdarkirina bi mîlyonan xerîdaran li çaraliyê cîhanê, alîkariya me bikin",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Alîkarî û Piştgirî",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Bersivên pirsên xwe bistînin",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Derketî",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Spas ji bo ku hûn yek ji endamên me ne!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Hemû statîstîkan bibîne",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Li {provider} ji bo \"{keyword}\" bigere",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Li mîhengekê bigere (mînak Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Gihîştin: Emojiyan nîşan bide",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Gihîştin: Rengan jê bibe",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Li_ser",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Agahiyên yasayî",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Mercên Bikaranînê, Siyaseta Nepenîtiyê, û hwd.",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lîsans",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Derbarê sepanê de",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Agahiyên teknîkî, agahdariya pêşdebiran, û hêj bêtir",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Agahî",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Hejmara guhertoyê",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Dikana sepanan",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Mîhengên sîstemê",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Bigihîje koda çavkaniyê",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Û dest bi bandorkirina li ser mîlyonan bike",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Serişte",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Nutri-Score-a nû kifş bikin",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Li ser malpera Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Hesabê min birêve bibe",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Şîfreya min biguherîne",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Herêma xetereyê",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Hemû beşdariyên te wê winda bibin",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Mîhengên sepanê",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Rêbazek pir ceribandinî ji bo şopandina hilberan negirêdayî",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Hemû berheman ji serverê nûve bike",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Ji kerema xwe heya ku bi tevahî ne hewce be, ji vê yekê dûr bisekinin",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Moda Demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Kartan li skanerê zêde bikin",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "3 berhemên nimûne li skanerê zêde dike",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Pêşkêşvanê Folksonomiyê",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Ceribandinên gihîştinê",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Hilbijartina pir-berheman ji bo bihayên",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panelên zanînê yên ku ji hêla bikarhêner ve hatine rêzkirin",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Gihîştina demkî bo lêgerîna cihê",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Berawirdkirina mil bi mil ji bo 2 an 3 hilberan",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Importkirina lîsteya berheman",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Pûan û rêbaz",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Bibînin ka Nutri-Score çawa tê hesibandin",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Guhertinên sereke yên di metodolojiyê de kifş bikin",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Rastiyên Xwarinê yên Vekirî Vedîtin",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Pirsên Pir tên Pirsîn - Pirsên Pir tên Pirsîn",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Agahî",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Nûvekirinên civakê bistînin",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Bi nûçeyên sepanê û civakê re di nav têkiliyê de bimînin",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Bi beşdarbûna yek ji bûyerên me yên virtual beşdar bibin",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Li ser medyaya civakî me bişopînin",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Bloga Rastiyên Xwarinê yên Vekirî",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Nûçeyên herî dawî bistînin, gava ku ew diqewimin",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Ji civakê alîkariyê werbigire",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Ji bo baştirkirina sepanê alîkariya me bikin",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Agahiyên debugkirinê ji me re bişînin",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "E-nameyek bi agahdariya berfireh a çareserkirina çewtiyan ji me re bişînin",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Derbarê sepanê de nirxandinên xwe ji me re bişînin",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Alîkariya şekildana pêşeroja sepanê bikin",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Anketa sepanê bigirin",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Ji me re bibin alîkar ku em fêm bikin ka divê em çi ava bikin",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Pispor",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Bi tevahî belaş e, daneyên rast ji bo 500 sepanan û bi mîlyonan xerîdaran peyda dike. Xizmeta xweser, lihevhatî ye bi PIM an pelên hesabê (XLSX) yên we re.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Ji bo destpêkirinê têkilî daynin",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Hemû materyalên pêwîst ji bo raporê peyda bikin",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Ji bo lêpirsînên çapemeniyê an jî ji bo ku hûn di derbarê raporê de agahdar bikin bi me re têkilî daynin",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Bibe xwebexşek çalak",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Pêşveçûn, Ragihandin, Sêwirandin… her cure xebata dilxwazî an pisporî bi xêr hatî ye!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Hin ji gelek awayên ku hûn dikarin beşdar bibin kifş bikin",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Pêşxistina sepanên mobîl",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Fêr bibe ka meriv çawa beşdarî pêşkeftina nermalavê dibe",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Avakirinên rojane yên nearam, taybetmendiyên nû",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Civaka xwe ya herêmî mezin bikin",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Alîkarî bi wergerên nermalavê, naverokê, analîza pêkhateyan re",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Me ji bo alîkariya te şabloneke biçûk amade kiriye :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Gavên hêsan ji bo zêdekirina şefafiyeta xwarinê li welatê we",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Tevlî tîma kalîteya daneyan bibin",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Ji bo ku hûn daneyên xwe temam û rast bikin, beşdarî hewldana me bibin",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 berhem hatin zêdekirin",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Berhemên nû yên ku min li Open Food Facts zêde kirin",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Berhemên ku ez hewce dikim ku temam bikim",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Hemû berhemên netemam",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Berhemên ku hûn dikarin ji we re bibin alîkar ku hûn wan temam bikin",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Ji bo hesabkirina Nutri-Score û Green-Score li welatê we alîkarî bikin",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Bihayên ku min beşdarî kirine",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Etîketên bihayê û fatûreyan",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Wêneyên fatûreyên xwe bigirin û barkodên têkildar bişopînin",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Li firoşgehekê wêneyên bihayan bigirin",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Bihayên herî nû",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Beşdarên bi bihayên herî zêde",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrîkên Bihayê Vekirî",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Pêşveçûna projeyê bişopînin",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Rêbazên beşdarbûnê",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Bi alîkariya AI, bihayên ku ji hêla we an yên din ve hatine zêdekirin piştrast bikin",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Zû gelek wergirtin an wêneyên refan ji rola kameraya xwe zêde bikin",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Pêşbaziyên mehane",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Ji bo berhevkirina bihayan beşdarî lêgerînên tematîk ên mehane bibin",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Agahiyên dilsoziya xwe ji nû ve bistînin",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Fêr bibe ka meriv çawa daneyên xwe daxwaz dike",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Sepanê kesane bike",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Beşdarî projeyê bibin",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Rêbazên hêsan ji bo alîkariya Rastiyên Xwarinê yên Vekirî",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Rêbazên xaldanê, alîkarî û bêtir li ser projeyê",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Pêşniyarê qebûl bike",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Rastkirin bi ser neket, delîl nehatin wergirtin",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Ji kerema xwe sepanê ji nû ve bidin destpêkirin da ku guhertinan bicîh bînin.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Navrûya grafîkî",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Medya",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Laboratuarên Agahiyên Xwarinê yên Vekirî",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Rastiyên Xwarinê yên Vekirî bînin zimanê xwe",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Li guhertoya alpha ya sepanê qeyd bikin",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Daneyên Beşdarî û Berheman",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomiyê nîşan nede",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

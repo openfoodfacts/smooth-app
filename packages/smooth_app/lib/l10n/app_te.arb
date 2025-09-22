@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "ఉత్పత్తులు పూర్తవుతాయి",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "ప్రయోగాత్మక లక్షణాలు మరియు అభివృద్ధి సాధనాలను యాక్సెస్ చేయండి",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "గ్రీన్-స్కోర్ A",
+  "environmental_score_b_new": "గ్రీన్-స్కోర్ బి",
+  "environmental_score_c_new": "గ్రీన్-స్కోర్ సి",
+  "environmental_score_d_new": "గ్రీన్-స్కోర్ D",
+  "environmental_score_e_new": "గ్రీన్-స్కోర్ E",
+  "environmental_score_unknown_new": "తెలియని గ్రీన్-స్కోర్",
+  "environmental_score_not_applicable_new": "గ్రీన్-స్కోర్ వర్తించదు",
+  "nova_group_generic_new": "అల్ట్రా-ప్రాసెస్డ్ ఆహారాలు - NOVA సమూహాలు",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ఉత్పత్తులపై ఉన్న లేదా వాటి నుండి తీసుకోగల సమాచారాన్ని సేకరించి, నిర్మాణం చేయడంలో అన్ని పౌరులు మాకు సహాయపడగలరు, ఉదాహరణకు ప్యాకేజింగ్ సమాచారం: మిషన్ ఎంబాలేజెస్: అన్ని ఆహార ఉత్పత్తుల కోసం ప్యాకేజింగ్ యొక్క పెద్ద-స్థాయి సహకార జాబితా (ఫ్రెంచ్‌లో)",
   "guide_greenscore_transparency_arg2_title": "తయారీదారులు ఎలా సహాయపడగలరు",
   "guide_greenscore_transparency_arg2_text": "తయారీదారులు మా ఉచిత ఉత్పత్తిదారుల వేదిక ద్వారా తమ సమాచారాన్ని మాకు నేరుగా పంపవచ్చు.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "గ్రహానికి ఏ ఉత్పత్తి మంచిది?",
+  "guide_greenscore_better_product_arg1_title": "చెప్పడం కష్టం కావచ్చు",
+  "guide_greenscore_better_product_arg1_text": "**మన ప్రపంచ ఆహార వ్యవస్థ మొత్తం గ్రీన్‌హౌస్ వాయు ఉద్గారాలలో నాలుగింట ఒక వంతుకు పైగా బాధ్యత వహిస్తుంది** కాబట్టి, స్థిరమైన ఆహారాన్ని ఎంచుకోవడం అనేది వాతావరణం కోసం మనం చేయగలిగే అత్యంత శక్తివంతమైన పనులలో ఒకటి.\n(మూలం: పూర్ & నెమెసెక్, సైన్స్, 2018).",
+  "guide_greenscore_better_product_arg2_title": "మీకు శక్తి ఉంది!",
+  "guide_greenscore_better_product_arg2_text": "శుభవార్త ఏమిటంటే ఇది మార్పును సృష్టించడానికి మనకు శక్తివంతమైన మార్గాన్ని అందిస్తుంది.\n**మనలో ప్రతి ఒక్కరూ ప్రతి సంవత్సరం 1,000 భోజనం తింటాము**. అంటే **గ్రహం కోసం మంచి భవిష్యత్తును ఎంచుకోవడానికి** 1,000 అవకాశాలు!",
+  "guide_greenscore_better_product_arg3_title": "బాధ్యతాయుతంగా ఉండటానికి మరియు నిర్ణయం తీసుకోవడానికి సహాయపడుతుంది",
+  "guide_greenscore_better_product_arg3_text": "స్థిరమైన ఆహారాన్ని ఎంచుకోవడం సంక్లిష్టంగా అనిపించవచ్చు. లేబుల్‌లు గందరగోళంగా ఉంటాయి మరియు సమాచారం తరచుగా కనిపించదు. గ్రీన్-స్కోర్‌ను సులభతరం చేయడానికి రూపొందించారు, మీకు అవసరమైన చోట: మీరు షాపింగ్ చేస్తున్నప్పుడు ఆహార ఉత్పత్తులకు **స్పష్టమైన**, **సైన్స్ ఆధారిత** మరియు **పారదర్శక** పర్యావరణ రేటింగ్‌ను అందిస్తారు.",
+  "guide_greenscore_better_product_arg4_title": "పారదర్శకత",
+  "guide_greenscore_better_product_arg4_text": "యాజమాన్య లేబుల్‌ల మాదిరిగా కాకుండా, గ్రీన్-స్కోర్ గణన **పూర్తిగా తెరిచి ఉంటుంది** మరియు ఎవరైనా **ధృవీకరించవచ్చు**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "అల్ట్రా ప్రాసెసింగ్ అంటే ఏమిటి?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA గ్రూపులు ఆహార ప్రాసెసింగ్ స్థాయి గురించి మీకు తెలియజేస్తాయి.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA వర్గీకరణ ఆహారాలను వాటి **పారిశ్రామిక ప్రాసెసింగ్ స్థాయి** (కనీసంగా ప్రాసెస్ చేయబడిన లేదా ప్రాసెస్ చేయని ఆహారాలు, పాక పదార్థాలు, ప్రాసెస్ చేయబడిన ఆహారాలు, అల్ట్రా-ప్రాసెస్ చేయబడిన ఆహారాలు) ఆధారంగా **4 గ్రూపులుగా** వర్గీకరించడానికి అనుమతిస్తుంది.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA లోగోలు",
+  "guide_nova_groups_title": "4 NOVA సమూహాలు",
+  "guide_nova_groups_intro": "4 NOVA గ్రూపులు ఉన్నాయి, వాటిలో సమస్యాత్మకమైనది గ్రూప్ 4 - అల్ట్రా-ప్రాసెస్డ్ ఫుడ్స్.",
+  "guide_nova_groups_arg1_title": "కనిష్టంగా ప్రాసెస్ చేయబడిన లేదా ప్రాసెస్ చేయని ఆహారాలు",
+  "guide_nova_groups_arg1_text": "ప్రకృతి నుండి వేరు చేయబడిన తర్వాత మొక్కలు (విత్తనాలు, పండ్లు, ఆకులు, కాండం, వేర్లు) లేదా జంతువులు (కండరాలు, మలిన పదార్థాలు, గుడ్లు, పాలు), అలాగే శిలీంధ్రాలు, ఆల్గే మరియు నీరు వంటి తినదగిన భాగాలను ప్రాసెస్ చేయని (లేదా సహజ) ఆహారాలు అంటారు.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "నూనెలు, వెన్న, చక్కెర మరియు ఉప్పు వంటి ప్రాసెస్ చేయబడిన పాక పదార్థాలు గ్రూప్ 1 ఆహారాల నుండి లేదా ప్రకృతి నుండి నొక్కడం, శుద్ధి చేయడం, గ్రైండింగ్ చేయడం, మిల్లింగ్ చేయడం మరియు ఎండబెట్టడం వంటి ప్రక్రియల ద్వారా తీసుకోబడిన పదార్థాలు.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "ప్రాసెస్ చేయబడిన ఆహారాలు, బాటిల్ కూరగాయలు, డబ్బాలో ఉంచిన చేపలు, సిరప్‌లో పండ్లు, చీజ్‌లు మరియు తాజాగా తయారుచేసిన బ్రెడ్‌లు వంటివి ప్రధానంగా గ్రూప్ 2 నుండి గ్రూప్ 1 ఆహారాలకు ఉప్పు, నూనె, చక్కెర లేదా ఇతర పదార్థాలను జోడించడం ద్వారా తయారు చేయబడతాయి. ప్రక్రియలలో వివిధ సంరక్షణ లేదా వంట పద్ధతులు ఉంటాయి మరియు బ్రెడ్‌లు మరియు చీజ్ విషయంలో, ఆల్కహాల్ లేని కిణ్వ ప్రక్రియ ఉంటుంది. చాలా ప్రాసెస్ చేయబడిన ఆహారాలు రెండు లేదా మూడు పదార్థాలను కలిగి ఉంటాయి మరియు గ్రూప్ 1 ఆహారాల యొక్క సవరించిన వెర్షన్‌లుగా గుర్తించబడతాయి. వాటిని విడిగా లేదా సాధారణంగా ఇతర ఆహారాలతో కలిపి తినవచ్చు.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "అల్ట్రా-ప్రాసెస్డ్ ఆహారాలు, శీతల పానీయాలు, తీపి లేదా రుచికరమైన ప్యాక్ చేసిన స్నాక్స్, పునర్నిర్మించిన మాంసం ఉత్పత్తులు మరియు ముందే తయారుచేసిన ఘనీభవించిన వంటకాలు, కేవలం సవరించిన ఆహారాలు కాదు, కానీ ఆహారాలు మరియు సంకలనాల నుండి తీసుకోబడిన పదార్థాల నుండి ఎక్కువగా లేదా పూర్తిగా తయారు చేయబడిన సూత్రీకరణలు, గ్రూప్ 1 ఆహారంలో చెక్కుచెదరకుండా ఉంటాయి. ఈ సూత్రీకరణలలోని పదార్థాలు సాధారణంగా చక్కెరలు, నూనెలు, కొవ్వులు లేదా ఉప్పు వంటి ప్రాసెస్ చేసిన ఆహారాలలో కనిపించే వాటిని కలిగి ఉంటాయి. అయితే, అల్ట్రా-ప్రాసెస్డ్ ఉత్పత్తులు సాధారణంగా పాక తయారీలో ఉపయోగించని ఇతర శక్తి వనరులు మరియు పోషకాలను కూడా కలిగి ఉంటాయి. వీటిలో కొన్ని నేరుగా కేసైన్, లాక్టోస్, పాలవిరుగుడు మరియు గ్లూటెన్ వంటి ఆహారాల నుండి సంగ్రహించబడతాయి.",
+  "guide_nova_explanations_title": "అల్ట్రా-ప్రాసెసింగ్‌తో సమస్యలు",
+  "guide_nova_explanations_arg1_title": "ఆహార పదార్థాల తీవ్ర ప్రాసెసింగ్",
+  "guide_nova_explanations_arg1_text": "హైడ్రోజనేటెడ్ లేదా ఇంటరెస్టరైఫైడ్ నూనెలు, హైడ్రోలైజ్డ్ ప్రోటీన్లు, సోయా ప్రోటీన్ ఐసోలేట్, మాల్టోడెక్స్ట్రిన్, ఇన్వర్ట్ షుగర్ మరియు అధిక-ఫ్రక్టోజ్ కార్న్ సిరప్ వంటి ఆహార భాగాలను మరింత ప్రాసెస్ చేయడం ద్వారా చాలా వరకు ఉత్పన్నమవుతాయి.",
+  "guide_nova_explanations_arg2_title": "స్వచ్ఛమైన ఆహార భద్రతకు మించిన సంకలనాలు",
+  "guide_nova_explanations_arg2_text": "అల్ట్రా-ప్రాసెస్డ్ ఆహారాలలోని సంకలనాలు ప్రాసెస్ చేయబడిన ఆహారాలలో కూడా ఉపయోగించబడతాయి, ఉదాహరణకు ప్రిజర్వేటివ్‌లు, యాంటీఆక్సిడెంట్లు మరియు స్టెబిలైజర్‌లు. అల్ట్రా-ప్రాసెస్డ్ ఉత్పత్తులలో మాత్రమే కనిపించే సంకలనాల తరగతులలో ఆహారాల ఇంద్రియ లక్షణాలను అనుకరించడానికి లేదా మెరుగుపరచడానికి లేదా తుది ఉత్పత్తి యొక్క అసహ్యకరమైన అంశాలను దాచిపెట్టడానికి ఉపయోగిస్తారు. ఈ సంకలనాలలో రంగులు మరియు ఇతర రంగులు, రంగు స్టెబిలైజర్‌లు; రుచులు, రుచి పెంచేవి, చక్కెర లేని స్వీటెనర్‌లు; మరియు కార్బోనేటింగ్, గట్టిపడటం, బల్కింగ్ మరియు యాంటీ-బల్కింగ్ ఏజెంట్లు, డీ-ఫోమింగ్, యాంటీ-కేకింగ్ మరియు గ్లేజింగ్ ఏజెంట్లు, ఎమల్సిఫైయర్లు, సీక్వెస్ట్రాంట్లు మరియు హ్యూమెక్టెంట్లు వంటి ప్రాసెసింగ్ సహాయాలు ఉన్నాయి.",
+  "guide_nova_explanations_arg3_title": "మీరు ఇంట్లో చేయలేని ప్రాసెసింగ్",
+  "guide_nova_explanations_arg3_text": "సాధారణంగా అనేక పదార్థాలను కలపడానికి మరియు తుది ఉత్పత్తిని సృష్టించడానికి అనేక ప్రక్రియల శ్రేణిని ఉపయోగిస్తారు (అందుకే 'అల్ట్రా-ప్రాసెస్డ్'). ఈ ప్రక్రియలలో దేశీయ సమానమైనవి లేని అనేక ప్రక్రియలు ఉన్నాయి, ఉదాహరణకు హైడ్రోజనేషన్ మరియు జలవిశ్లేషణ, ఎక్స్‌ట్రాషన్ మరియు అచ్చు, మరియు వేయించడానికి ముందస్తు ప్రాసెసింగ్.",
+  "guide_nova_explanations_arg4_title": "అల్ట్రా-ప్రాసెసింగ్ యొక్క దోపిడీ మరియు ఆర్థిక అంశాలు",
+  "guide_nova_explanations_arg4_text": "అల్ట్రా-ప్రాసెసింగ్ యొక్క మొత్తం ఉద్దేశ్యం ఏమిటంటే, బ్రాండెడ్, సౌకర్యవంతమైన (మన్నికైన, తినడానికి సిద్ధంగా), ఆకర్షణీయమైన (అధిక-రుచికరమైన) మరియు అధిక లాభదాయకమైన (తక్కువ-ధర పదార్థాలు) ఆహార ఉత్పత్తులను అన్ని ఇతర ఆహార సమూహాలను స్థానభ్రంశం చేయడానికి రూపొందించడం. అల్ట్రా-ప్రాసెసింగ్ చేయబడిన ఆహార ఉత్పత్తులు సాధారణంగా ఆకర్షణీయంగా ప్యాక్ చేయబడతాయి మరియు విస్తృతంగా మార్కెట్ చేయబడతాయి.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "సాధారణం",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "మీ ధరల ప్రాధాన్యతలను నిర్వహించండి",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ప్రాజెక్ట్",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "అనువదించండి, మా సాధనాలను మెరుగుపరచండి…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "కనెక్ట్",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "సోషల్ మీడియాలో మమ్మల్ని సంప్రదించండి లేదా అనుసరించండి",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ప్రపంచవ్యాప్తంగా లక్షలాది మంది వినియోగదారులకు తెలియజేయడంలో మాకు సహాయపడండి.",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "సహాయం & మద్దతు",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "మీ ప్రశ్నలకు సమాధానాలు పొందండి",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "లాగ్ అవుట్ అయ్యారు",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "మా సభ్యులలో ఒకరిగా ఉన్నందుకు ధన్యవాదాలు!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "అన్ని గణాంకాలను చూడండి",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" కోసం {provider} శోధించండి",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "సెట్టింగ్ కోసం శోధించండి (ఉదా. న్యూట్రి-స్కోర్)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "యాక్సెసిబిలిటీ: ఎమోజిని చూపించు",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "యాక్సెసిబిలిటీ: రంగులను తీసివేయండి",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "గురించి",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "చట్టపరమైన సమాచారం",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "ఉపయోగ నిబంధనలు, గోప్యతా విధానం మరియు మరిన్ని",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "లైసెన్స్‌లు",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "యాప్ గురించి",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "సాంకేతిక సమాచారం, డెవలపర్ సమాచారం మరియు మరిన్ని",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "వెర్షన్ సంఖ్య",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "స్కానర్",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "యాప్ స్టోర్",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "సిస్టమ్ సెట్టింగ్‌లు",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "సోర్స్ కోడ్‌ను యాక్సెస్ చేయండి",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "మరియు లక్షలాది మందిపై ప్రభావం చూపడం ప్రారంభించండి",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "చిట్కాలు",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "కొత్త న్యూట్రి-స్కోర్‌ను కనుగొనండి",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ వెబ్‌సైట్‌లో",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "నా ఖాతాను నిర్వహించు",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "నా పాస్‌వర్డ్‌ను మార్చు",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "ప్రమాద ప్రాంతం",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "మీ సహకారాలన్నీ పోతాయి.",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "యాప్ సెట్టింగ్‌లు",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ఉత్పత్తులను ఆఫ్‌లైన్‌లో స్కాన్ చేయడానికి చాలా ప్రయోగాత్మక మార్గం",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "సర్వర్ నుండి అన్ని ఉత్పత్తులను రిఫ్రెష్ చేయండి",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "ఖచ్చితంగా అవసరమైతే తప్ప అలా చేయకుండా ఉండండి.",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "డెమో మోడ్",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "స్కానర్‌కు కార్డ్‌లను జోడించండి",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "స్కానర్‌కు 3 నమూనా ఉత్పత్తులను జోడిస్తుంది.",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ఫోక్సోనమీ హోస్ట్",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "యాక్సెసిబిలిటీ ప్రయోగాలు",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "ధరల కోసం బహుళ-ఉత్పత్తుల ఎంపిక",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "యూజర్ ఆర్డర్ చేసిన నాలెడ్జ్ ప్యానెల్‌లు",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "స్థాన శోధనకు తాత్కాలిక యాక్సెస్",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 లేదా 3 ఉత్పత్తులకు పక్కపక్కనే పోలిక",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ఉత్పత్తి జాబితా దిగుమతి",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "స్కోర్‌లు & పద్ధతులు",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "న్యూట్రి-స్కోర్ ఎలా గణించబడుతుందో కనుగొనండి",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "పద్ధతిలో ప్రధాన మార్పులను కనుగొనండి",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "ఓపెన్ ఫుడ్ వాస్తవాలను కనుగొనండి",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "తరచుగా అడిగే ప్రశ్నలు - తరచుగా అడిగే ప్రశ్నలు",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "ది ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ NGO",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "కమ్యూనిటీ నవీకరణలను పొందండి",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "యాప్ మరియు కమ్యూనిటీ వార్తలతో లూప్‌లో ఉండండి",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "మా వర్చువల్ ఈవెంట్‌లలో ఒకదానికి హాజరు కావడం ద్వారా పాల్గొనండి",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "సోషల్ మీడియాలో మమ్మల్ని అనుసరించండి",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ బ్లాగ్",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "తాజా వార్తలను అవి జరిగిన వెంటనే పొందండి",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "కమ్యూనిటీ నుండి సహాయం పొందండి",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "యాప్‌ను మెరుగుపరచడంలో మాకు సహాయపడండి",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "మాకు డీబగ్ సమాచారాన్ని పంపండి",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "వివరణాత్మక డీబగ్గింగ్ సమాచారంతో మాకు ఇమెయిల్ పంపండి.",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "యాప్ గురించి మాకు అభిప్రాయాన్ని పంపండి",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "యాప్ భవిష్యత్తును రూపొందించడంలో సహాయపడండి",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "యాప్ సర్వేలో పాల్గొనండి",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "మనం తర్వాత ఏమి నిర్మించాలో అర్థం చేసుకోవడానికి మాకు సహాయపడండి.",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "నిపుణులు",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "పూర్తిగా ఉచితం, 500 యాప్‌లు & మిలియన్ల మంది వినియోగదారులకు ఖచ్చితమైన డేటాను నిర్ధారిస్తుంది. స్వీయ-సేవ, మీ PIM లేదా స్ప్రెడ్‌షీట్‌లతో అనుకూలంగా ఉంటుంది (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ప్రారంభించడానికి సంప్రదించండి",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "మీ నివేదికకు అవసరమైన అన్ని విషయాలను పొందండి",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "పత్రికా విచారణల కోసం లేదా మీ నివేదిక గురించి మాకు తెలియజేయడానికి సంప్రదించండి",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "చురుకైన స్వచ్ఛంద సేవకుడిగా అవ్వండి",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "అభివృద్ధి, కమ్యూనికేషన్, డిజైన్… ఏ రకమైన స్వచ్ఛంద సేవ లేదా నైపుణ్యం అయినా స్వాగతించబడుతుంది!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "మీరు సహకరించగల అనేక మార్గాలలో కొన్నింటిని కనుగొనండి",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "మొబైల్ యాప్ అభివృద్ధి",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "సాఫ్ట్‌వేర్ అభివృద్ధికి ఎలా తోడ్పడాలో తెలుసుకోండి",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "రోజువారీ అస్థిర నిర్మాణాలు, సరికొత్త లక్షణాలు",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "మీ స్థానిక సంఘాన్ని పెంచుకోండి",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "సాఫ్ట్‌వేర్, కంటెంట్‌లు, పదార్థాల విశ్లేషణ అనువాదాలకు సహాయం",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "మీకు సహాయం చేయడానికి మేము ఒక చిన్న టెంప్లేట్‌ను సిద్ధం చేసాము :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "మీ దేశంలో ఆహార పారదర్శకతను పెంచడానికి సులభమైన దశలు",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "డేటా నాణ్యత బృందంలో చేరండి",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "డేటాబేస్ పూర్తిగా మరియు ఖచ్చితమైనదని నిర్ధారించుకోవడానికి మా ప్రయత్నంలో చేరండి.",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 ఉత్పత్తులు జోడించబడ్డాయి",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ కు నేను జోడించిన కొత్త ఉత్పత్తులు",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "నేను పూర్తి చేయాల్సిన ఉత్పత్తులు",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "అన్ని అసంపూర్ణ ఉత్పత్తులు",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "మీరు పూర్తి చేయడానికి సహాయపడే ఉత్పత్తులు",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "మీ దేశంలో న్యూట్రి-స్కోర్ & గ్రీన్-స్కోర్‌ను లెక్కించడంలో సహాయం చేయండి",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "నేను అందించిన ధరలు",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "ధర ట్యాగ్‌లు మరియు రసీదులు",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "మీ రసీదుల ఫోటోలను తీయండి మరియు సంబంధిత బార్‌కోడ్‌లను స్కాన్ చేయండి",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "దుకాణంలో ధరల ఫోటోలను తీయండి",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "తాజా ధరలు",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ఓపెన్ ప్రైసెస్ కమ్యూనిటీ జోడించిన తాజా ధరలు",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "అత్యధిక ధరలతో సహకారులు",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "ఓపెన్ ధర మెట్రిక్స్",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ప్రాజెక్ట్ యొక్క పరిణామాన్ని అనుసరించండి",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "సహకరించడానికి మార్గాలు",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI సహాయంతో మీరు లేదా ఇతరులు జోడించిన ధరలను నిర్ధారించండి.",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "మీ కెమెరా రోల్ నుండి అనేక రసీదులు లేదా అల్మారాల ఫోటోలను త్వరగా జోడించండి",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "నెలవారీ సవాళ్లు",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "ధరలను సేకరించడానికి నెలవారీ నేపథ్య అన్వేషణలలో పాల్గొనండి",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "మీ లాయల్టీ డేటాను తిరిగి పొందండి",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "మీ డేటాను ఎలా అభ్యర్థించాలో తెలుసుకోండి",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "యాప్‌ను అనుకూలీకరించండి",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ప్రాజెక్టుకు సహకరించండి",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "సహాయపడే సులభమైన మార్గాలు ఆహార వాస్తవాలను తెరవండి",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "ప్రాజెక్ట్ గురించి స్కోర్ పద్ధతులు, సహాయం మరియు మరిన్ని",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "సూచనను ఆమోదించండి",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "ప్రామాణీకరణ విఫలమైంది, రుజువులను పొందలేకపోయింది.",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "మార్పులను వర్తింపజేయడానికి దయచేసి యాప్‌ను పునఃప్రారంభించండి.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "గ్రాఫికల్ ఇంటర్ఫేస్",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "మీడియా",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ల్యాబ్స్",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ని మీ భాషలోకి తీసుకురండి",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "యాప్ యొక్క ఆల్ఫా వెర్షన్‌లో నమోదు చేసుకోండి",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "సహకారాలు & ఉత్పత్తి డేటా",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ఫోక్సోనమీ చూపించవద్దు",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

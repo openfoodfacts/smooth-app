@@ -2384,7 +2384,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Prístup k experimentálnym funkciám a vývojovým nástrojom';
 
   @override
   String get dev_preferences_reset_onboarding_title =>
@@ -4013,32 +4013,33 @@ class AppLocalizationsSk extends AppLocalizations {
       'Nutri-Score sa nedá použiť (nový výpočet)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'Eko-skóre';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Zelené skóre A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Zelené skóre B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Zelené skóre C';
 
   @override
   String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Zelené skóre E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Neznáme zelené skóre';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Green-Score sa nepoužije';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Ultraspracované potraviny - skupiny NOVA';
 
   @override
   String get nova_group_1 => 'Skupina NOVA 1';
@@ -4399,131 +4400,129 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Ktorý produkt je lepší pre planétu?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Môže byť ťažké povedať';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Výber udržateľných potravín je jednou z najsilnejších vecí, ktoré môžeme urobiť pre klímu, pretože **náš globálny potravinový systém je zodpovedný za viac ako štvrtinu všetkých emisií skleníkových plynov**.\n(Zdroj: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Máš moc!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Dobrou správou je, že nám to dáva silný spôsob, ako dosiahnuť zmenu.\n**Každý z nás zje približne 1 000 jedál ročne**. To je 1 000 príležitostí **vybrať si lepšiu budúcnosť pre planétu**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Pomáha byť zodpovedný a rozhodovať sa';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Výber udržateľných potravín sa môže zdať zložitý. Etikety sú mätúce a informácie často chýbajú. Green-Score bol vytvorený, aby to zjednodušil a poskytol vám **jasné**, **vedecky podložené** a **transparentné** environmentálne hodnotenie potravinárskych výrobkov priamo tam, kde ho potrebujete: počas nakupovania.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Transparentnosť';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Na rozdiel od proprietárnych značiek je výpočet Green-Score **úplne otvorený** a môže ho **overiť ktokoľvek**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
-  String get guide_nova_title => 'Ultra-processed foods';
+  String get guide_nova_title => 'Ultra spracované potraviny';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Čo je ultraprocesovanie?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Skupiny NOVA vás informujú o úrovni spracovania potravín.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Klasifikácia NOVA umožňuje kategorizáciu potravín do **4 skupín** na základe ich **stupňa priemyselného spracovania** (minimálne spracované alebo nespracované potraviny, kulinárske prísady, spracované potraviny, ultraspracované potraviny).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Logá NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 skupiny NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Existujú 4 skupiny NOVA, pričom problematickou je skupina 4 – Ultraspracované potraviny.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Minimálne spracované alebo nespracované potraviny';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Nespracované (alebo prírodné) potraviny sú jedlé časti rastlín (semená, plody, listy, stonky, korene) alebo zvierat (svaly, vnútornosti, vajcia, mlieko), ako aj húb, rias a vody po oddelení od prírody.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => 'Spracované kulinárske prísady';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Spracované kulinárske prísady, ako sú oleje, maslo, cukor a soľ, sú látky získané z potravín skupiny 1 alebo z prírody prostredníctvom procesov, ktoré zahŕňajú lisovanie, rafináciu, mletie, mletie a sušenie.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Spracované jedlá';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Spracované potraviny, ako napríklad balená zelenina, konzervované ryby, ovocie v sirupe, syry a čerstvo upečený chlieb, sa vyrábajú predovšetkým pridaním soli, oleja, cukru alebo iných látok zo skupiny 2 do potravín skupiny 1. Procesy zahŕňajú rôzne metódy konzervácie alebo varenia a v prípade chleba a syra nealkoholickú fermentáciu. Väčšina spracovaných potravín má dve alebo tri zložky a sú rozpoznateľné ako upravené verzie potravín skupiny 1. Môžu sa konzumovať samostatne alebo, častejšie, v kombinácii s inými potravinami.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+  String get guide_nova_groups_arg4_title => 'Ultra spracované potraviny';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ultraspracované potraviny, ako sú nealkoholické nápoje, sladké alebo slané balené pochutiny, rekonštituované mäsové výrobky a predpripravené mrazené jedlá, nie sú len modifikované potraviny, ale receptúry vyrobené prevažne alebo výlučne z látok odvodených z potravín a prísad, s malým alebo žiadnym obsahom intaktných potravín skupiny 1. Zložky v týchto receptúrach zvyčajne zahŕňajú tie, ktoré sa nachádzajú aj v spracovaných potravinách, ako sú cukry, oleje, tuky alebo soľ. Ultraspracované výrobky však obsahujú aj iné zdroje energie a živín, ktoré sa bežne nepoužívajú v kulinárskych prípravách. Niektoré z nich sa priamo extrahujú z potravín, ako je kazeín, laktóza, srvátka a lepok.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Problémy s ultraprocesovaním';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Extrémne spracovanie potravinárskych zložiek';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Mnohé pochádzajú z ďalšieho spracovania zložiek potravín, ako sú hydrogenované alebo interesterifikované oleje, hydrolyzované bielkoviny, izolát sójových bielkovín, maltodextrín, invertný cukor a kukuričný sirup s vysokým obsahom fruktózy.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Prísady, ktoré idú nad rámec čistej bezpečnosti potravín';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Medzi prísady v ultraspracovaných potravinách patria niektoré, ktoré sa používajú aj v spracovaných potravinách, ako sú konzervačné látky, antioxidanty a stabilizátory. Medzi triedy prísad, ktoré sa nachádzajú iba v ultraspracovaných výrobkoch, patria tie, ktoré sa používajú na napodobnenie alebo zlepšenie senzorických vlastností potravín alebo na zamaskovanie nechutných aspektov konečného výrobku. Medzi tieto prísady patria farbivá a iné farby, stabilizátory farieb, arómy, zvýrazňovače chuti, necukrové sladidlá a pomocné látky pri spracovaní, ako sú sýtiace, spevňujúce, objemové a protihrudkujúce činidlá, odpeňovacie, protihrudkujúce a leštiace činidlá, emulgátory, sekvestranty a zvlhčovadlá.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Spracovanie, ktoré doma nezvládnete';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Na kombinovanie zvyčajne veľkého množstva zložiek a vytvorenie konečného produktu (odtiaľ „ultra spracovaný“) sa používa množstvo postupov. Medzi tieto procesy patrí niekoľko procesov, ktoré nemajú domáce ekvivalenty, ako je hydrogenácia a hydrolýza, extrúzia a tvarovanie a predbežné spracovanie na vyprážanie.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Predátorské a finančné aspekty ultraprocesovania';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Celkovým cieľom ultraspracovania je vytvoriť značkové, pohodlné (trvanlivé, pripravené na konzumáciu), atraktívne (hyperchutné) a vysoko ziskové (lacné zložky) potravinárske výrobky určené na nahradenie všetkých ostatných skupín potravín. Ultraspracované potraviny sú zvyčajne atraktívne balené a intenzívne predávané.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -5013,52 +5012,54 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Potvrdenie';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Všeobecné';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'Ceny';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Spravujte svoje cenové preferencie';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Projekt Otvorené fakty o jedle';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Prispieť';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Prekladajte, vylepšite naše nástroje…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Pripojiť';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Kontaktujte nás alebo nás sledujte na sociálnych sieťach';
 
   @override
-  String get preferences_support_title => 'Make a donation';
+  String get preferences_support_title => 'Prispieť';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Pomôžte nám informovať milióny spotrebiteľov na celom svete';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Pomoc a podpora';
 
   @override
-  String get preferences_faq_title => 'FAQ';
+  String get preferences_faq_title => 'Často kladené otázky';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Získajte odpovede na svoje otázky';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Odhlásený/á';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Ďakujeme, že ste jedným z našich členov!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5067,415 +5068,423 @@ class AppLocalizationsSk extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Zobraziť všetky štatistiky';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Hľadať $provider pre výraz „$keyword“';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Vyhľadajte nastavenie (napr. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Prístupnosť: Zobraziť emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Prístupnosť: Odstrániť farby';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => 'Výrobky';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'O';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Právne informácie';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Podmienky používania, zásady ochrany osobných údajov a ďalšie';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Podmienky používania';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Zásady ochrany osobných údajov';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Licencie';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'O aplikácii';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Technické informácie, informácie pre vývojárov a ďalšie';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Informácia';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Číslo verzie';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Skener';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Obchod s aplikáciami';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Systémové nastavenia';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Prístup k zdrojovému kódu';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'A začnite pôsobiť na milióny ľudí';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Dokončite produkty';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Tipy';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Objavte nový Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Na webovej stránke Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Spravovať môj účet';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Zmeniť moje heslo';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Nebezpečná zóna';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Všetky vaše príspevky budú stratené';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => 'Príspevky';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Nastavenia aplikácie';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Veľmi experimentálny spôsob skenovania produktov offline';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Obnoviť všetky produkty zo servera';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Prosím, vyhnite sa tomu, pokiaľ to nie je absolútne nevyhnutné';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Demo režim';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Pridajte karty do skenera';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Pridá do skenera 3 vzorové produkty';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Hostiteľ folksonomie';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Experimenty s prístupnosťou';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Výber viacerých produktov za rôzne ceny';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Používateľom zoradené znalostné panely';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Dočasný prístup k vyhľadávaniu polohy';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Porovnanie 2 alebo 3 produktov vedľa seba';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Import zoznamu produktov';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'Skóre a metodiky';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Zistite, ako sa vypočítava Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Objavte hlavné zmeny v metodike';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => 'Objavte projekt';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Objavte fakty o otvorenom jedle';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'Často kladené otázky - Často kladené otázky';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Mimovládna organizácia Open Food Facts';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Informácia';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Získajte aktualizácie komunity';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Zostaňte v obraze s novinkami z aplikácie a komunity';
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Prihláste sa na odber nášho komunitného kalendára';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Zapojte sa účasťou na jednom z našich virtuálnych podujatí';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Sledujte nás na sociálnych sieťach';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Otvorené fakty o jedle';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Získajte najnovšie správy hneď, ako sa dejú';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Získajte pomoc od komunity';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Pomôžte nám vylepšiť aplikáciu';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Pošlite nám informácie o ladení';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Pošlite nám e-mail s podrobnými informáciami o ladení';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Pošlite nám spätnú väzbu k aplikácii';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Pomôžte formovať budúcnosť aplikácie';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title =>
+      'Zúčastnite sa prieskumu aplikácie';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Pomôžte nám pochopiť, čo by sme mali ďalej budovať';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Profesionáli';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Úplne zadarmo, zaisťuje presné údaje pre 500 aplikácií a milióny spotrebiteľov. Samoobsluha, kompatibilná s vaším PIM alebo tabuľkami (XLSX).';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Kontaktujte nás a začnite';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'Média';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Získajte všetky materiály, ktoré potrebujete pre svoju správu';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Kontaktujte nás v prípade tlačových otázok alebo ak chcete informovať o svojej správe';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Staňte sa aktívnym dobrovoľníkom';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Vývoj, komunikácia, dizajn… akýkoľvek druh dobrovoľníctva alebo odbornosti je vítaný!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Objavte niektoré z mnohých spôsobov, ako môžete prispieť';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Vývoj mobilných aplikácií';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Naučte sa, ako prispieť k vývoju softvéru';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Denne nestabilné zostavenia, úplne nové funkcie';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Rozvíjajte svoju miestnu komunitu';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Pomoc so softvérom, obsahom a prekladmi analýz zložiek';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Pripravili sme pre vás malú šablónu, ktorá vám s tým pomôže :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Jednoduché kroky k zvýšeniu transparentnosti potravín vo vašej krajine';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Kvalita údajov';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Pridajte sa k tímu pre kvalitu údajov';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Pridajte sa k nášmu úsiliu zabezpečiť, aby databáza bola úplná a presná';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      'Pridaných 0 produktov';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Nové produkty, ktoré som pridal do Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Produkty, ktoré potrebujem dokončiť';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Všetky neúplné produkty';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Produkty, ktoré môžete pomôcť dokončiť';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Pomôžte vypočítať Nutri-Score a Green-Score vo vašej krajine';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Ceny, ktoré som prispel/a';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Cenovky a účtenky';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Odfoťte si účtenky a naskenujte príslušné čiarové kódy';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Odfoťte si ceny v obchode';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Najnovšie ceny';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Najnovšie ceny pridané komunitou Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Prispievatelia s najvyššími cenami';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Metriky otvorenej ceny';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'Sledujte vývoj projektu';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Spôsoby, ako prispieť';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Potvrďte ceny, ktoré ste pridali vy alebo iní, pomocou umelej inteligencie';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Rýchlo pridajte viacero účteniek alebo fotografií políc z vášho fotoaparátu';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Mesačné výzvy';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Zúčastnite sa mesačných tematických úloh a zbierajte ceny';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Získajte späť svoje údaje o vernostnom programe';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Zistite, ako požiadať o svoje údaje';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Prispôsobte si aplikáciu';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Prispejte k projektu';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Jednoduché spôsoby, ako pomôcť Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Metodiky hodnotenia, pomoc a ďalšie informácie o projekte';
 
   @override
   String get product_edit_robotoff_positive_button => 'Prijať návrh';
@@ -5525,41 +5534,41 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Reštartujte aplikáciu, aby sa zmeny prejavili.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Grafické rozhranie';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Médiá';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Vývoj';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Otvorené laboratóriá faktov o potravinách';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Prineste fakty o otvorených potravinách do svojho jazyka';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Zaregistrujte sa do alfa verzie aplikácie';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Príspevky a údaje o produktoch';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Nezobrazovať folksonomiu';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Účet';
 }

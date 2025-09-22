@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -55,15 +56,7 @@ class PreferencesPage extends StatelessWidget {
             ? LoggedInAppBar(userId: userId)
             : const LoggedOutAppBar(),
         cards: <PreferenceCard>[
-          PreferenceCard(
-            title: appLocalizations.contribute,
-            gridView: true,
-            tiles: <PreferenceTile>[
-              _buildPricesContributionTile(context, appLocalizations),
-              _buildHungerGamesTile(context),
-              _buildCompleteProductsTile(context, appLocalizations),
-            ],
-          ),
+          _buildContributeCard(context, appLocalizations),
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
@@ -106,15 +99,34 @@ class PreferencesPage extends StatelessWidget {
   }
 
   // Contribute section
+  PreferenceCard _buildContributeCard(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
+
+    return PreferenceCard(
+      title: appLocalizations.contribute,
+      gridView: true,
+      tiles: <PreferenceTile>[
+        _buildPricesContributionTile(context, appLocalizations, autoSizeGroup),
+        _buildHungerGamesTile(context, autoSizeGroup),
+        _buildCompleteProductsTile(context, appLocalizations, autoSizeGroup),
+      ],
+    );
+  }
+
   SquarePreferenceTile _buildPricesContributionTile(
     BuildContext context,
     AppLocalizations appLocalizations,
+    AutoSizeGroup autoSizeGroup,
   ) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_add_prices,
       illustration: SvgPicture.asset(
         'assets/preferences/prices_contribution.svg',
       ),
+      autoSizeGroup: autoSizeGroup,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(
@@ -131,12 +143,16 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  SquarePreferenceTile _buildHungerGamesTile(BuildContext context) {
+  SquarePreferenceTile _buildHungerGamesTile(
+    BuildContext context,
+    AutoSizeGroup autoSizeGroup,
+  ) {
     return SquarePreferenceTile(
       title: 'Hunger Games',
       illustration: SvgPicture.asset(
         'assets/preferences/hunger_games_contribution.svg',
       ),
+      autoSizeGroup: autoSizeGroup,
       onTap: () async {
         AnalyticsHelper.trackEvent(AnalyticsEvent.hungerGameOpened);
 
@@ -152,12 +168,14 @@ class PreferencesPage extends StatelessWidget {
   SquarePreferenceTile _buildCompleteProductsTile(
     BuildContext context,
     AppLocalizations appLocalizations,
+    AutoSizeGroup autoSizeGroup,
   ) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_complete_products,
       illustration: SvgPicture.asset(
         'assets/preferences/products_contribution.svg',
       ),
+      autoSizeGroup: autoSizeGroup,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(

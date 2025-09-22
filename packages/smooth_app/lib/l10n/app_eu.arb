@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Eman izena barneko alfa bertsioan",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Jakin barneko alfa bertsioarekin, baliteke datuak guztiz galtzea eta aplikazioa erabilezin bihurtzea edozein unetan.",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Osatu beharreko produktuak",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Sartu funtzio esperimentalak eta garapen tresnak",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Datuak",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score ezezaguna",
+  "environmental_score_not_applicable_new": "Green-Score ez da aplikagarria",
+  "nova_group_generic_new": "Ultraprozesatutako elikagaiak - NOVA taldeak",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Herritar guztiek lagun diezagukete produktuetan dagoen edo horietatik ondoriozta daitekeen informazioa biltzen eta egituratzen, hala nola ontziei buruzko informazioa: Emballages Misioa: elikagai-produktu guztien ontzien inbentario kolaboratibo handia (frantsesez)",
   "guide_greenscore_transparency_arg2_title": "Nola lagundu dezaketen fabrikatzaileek",
   "guide_greenscore_transparency_arg2_text": "Fabrikatzaileek beren informazioa zuzenean bidal diezagukete ekoizleentzako doako plataformaren bidez.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Zein produktu da hobea planetarentzat?",
+  "guide_greenscore_better_product_arg1_title": "Zaila izan daiteke esatea",
+  "guide_greenscore_better_product_arg1_text": "Janari jasangarria aukeratzea klimaren alde egin dezakegun gauzarik indartsuenetako bat da, **gure munduko elikagai-sistema berotegi-efektuko gasen isurien laurden baten erantzule baita**.\n(Iturria: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Zuk daukazu boterea!",
+  "guide_greenscore_better_product_arg2_text": "Berri ona da honek aldaketak sortzeko modu indartsua ematen digula.\n**Gutako bakoitzak 1.000 otordu inguru jaten ditu urtero**. Hori 1.000 aukera dira **planetarentzat etorkizun hobea aukeratzeko**!",
+  "guide_greenscore_better_product_arg3_title": "Arduratsua izaten eta erabakitzen laguntzen du",
+  "guide_greenscore_better_product_arg3_text": "Janari jasangarria aukeratzea konplexua iruditu daiteke. Etiketak nahasgarriak dira eta informazioa askotan falta da. Green-Score sortu zen hori errazteko, elikagai produktuen ingurumen-balorazio **argi**, **zientzian oinarritutako** eta **gardena** emanez, behar duzun lekuan bertan: erosketak egiten dituzun bitartean.",
+  "guide_greenscore_better_product_arg4_title": "Gardentasuna",
+  "guide_greenscore_better_product_arg4_text": "Etiketa jabedunen aldean, Green-Score kalkulua **guztiz irekia** da eta edonork **egiaztatu** dezake.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Zer da ultraprozesamendua?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA taldeek elikagaien prozesamendu-mailaren berri ematen dizute.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA sailkapenak elikagaiak **4 talde**tan sailkatzea ahalbidetzen du, **prozesatze industrialaren mailaren** arabera (gutxienez prozesatutako edo prozesatu gabeko elikagaiak, sukaldaritza-osagaiak, prozesatutako elikagaiak, ultra-prozesatutako elikagaiak).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA logotipoak.",
+  "guide_nova_groups_title": "4 NOVA taldeak",
+  "guide_nova_groups_intro": "4 NOVA talde daude, arazoa sortzen duena 4. taldea da - Ultra-prozesatutako elikagaiak.",
+  "guide_nova_groups_arg1_title": "Gutxienez prozesatutako edo prozesatu gabeko elikagaiak",
+  "guide_nova_groups_arg1_text": "Prozesatu gabeko (edo elikagai naturalak) landareen (haziak, fruituak, hostoak, zurtoinak, sustraiak) edo animalien (giharrak, erraiak, arrautzak, esnea) atal jangarriak dira, baita onddoak, algak eta ura ere, naturatik bereizi ondoren.",
+  "guide_nova_groups_arg2_title": "Sukaldaritzako osagaiak prozesatu",
+  "guide_nova_groups_arg2_text": "Sukaldaritzako osagai prozesatuak, hala nola olioak, gurina, azukrea eta gatza, 1. taldeko elikagaietatik edo naturatik eratorritako substantziak dira, prentsatzea, fintzea, ehotzea, fresatzea eta lehortzea barne hartzen dituzten prozesuen bidez.",
+  "guide_nova_groups_arg3_title": "Prozesatutako jakiak",
+  "guide_nova_groups_arg3_text": "Prozesatutako elikagaiak, hala nola botilatutako barazkiak, kontserbak dituen arraina, almibarretan dauden frutak, gaztak eta ogi freskoak, batez ere 2. taldeko elikagaiei gatza, olioa, azukrea edo beste substantzia batzuk gehituz egiten dira 1. taldeko elikagaiei. Prozesuek hainbat kontserbazio edo sukaldaritza metodo barne hartzen dituzte, eta ogien eta gaztaren kasuan, hartzidura ez-alkoholikoa. Prozesatutako elikagai gehienek bi edo hiru osagai dituzte eta 1. taldeko elikagaien bertsio aldatu gisa ezagutzen dira. Beren kabuz edo, ohikoagoa dena, beste elikagai batzuekin konbinatuta jan daitezke.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ultraprozesatutako elikagaiak, hala nola freskagarriak, gozoak edo gaziak diren pintxoak, haragi-produktu birkonposatuak eta aurrez prestatutako plater izoztuak, ez dira soilik elikagai eraldatuak, baizik eta elikagaietatik eta gehigarrietatik eratorritako substantziekin egindako formulazioak, gehienbat edo osorik, 1. taldeko elikagai osorik gabe. Formulazio horietako osagaien artean, normalean, elikagai prozesatuetan ere aurkitzen direnak daude, hala nola azukreak, olioak, gantzak edo gatza. Hala ere, ultraprozesatutako produktuek sukaldaritza-prestaketetan normalean erabiltzen ez diren beste energia eta mantenugai iturri batzuk ere badituzte. Horietako batzuk zuzenean elikagaietatik ateratzen dira, hala nola kaseina, laktosa, gazura eta glutena.",
+  "guide_nova_explanations_title": "Ultraprozesamenduaren arazoak",
+  "guide_nova_explanations_arg1_title": "Elikagaien osagaien prozesamendu zorrotza",
+  "guide_nova_explanations_arg1_text": "Asko elikagaien osagaien prozesamendu gehiagotik eratorriak dira, hala nola hidrogenatutako edo interesterifikatutako olioak, hidrolizatutako proteinak, soja proteina isolatua, maltodextrina, azukre alderantzikatua eta fruktosa handiko arto almibarra.",
+  "guide_nova_explanations_arg2_title": "Elikagaien segurtasun hutsa baino haratago doazen gehigarriak",
+  "guide_nova_explanations_arg2_text": "Ultraprozesatutako elikagaietako gehigarrien artean, prozesatutako elikagaietan ere erabiltzen diren batzuk daude, hala nola kontserbatzaileak, antioxidatzaileak eta egonkortzaileak. Ultraprozesatutako produktuetan bakarrik aurkitzen diren gehigarrien klaseen artean, elikagaien zentzumen-ezaugarriak imitatu edo hobetzeko edo azken produktuaren alderdi desatseginak ezkutatzeko erabiltzen direnak daude. Gehigarri horien artean daude koloratzaileak eta beste kolore batzuk, kolore-egonkortzaileak; zaporeak, zapore-indartzaileak, azukrerik gabeko edulkoratzaileak; eta prozesatzeko laguntzaileak, hala nola karbonatatzaileak, sendotzaileak, bolumen-emaileak eta bolumen-kontrakoak, apar-kentzaileak, antiaglomeratzaileak eta glaseatzaileak, emultsionatzaileak, sekuestratzaileak eta hezetzaileak.",
+  "guide_nova_explanations_arg3_title": "Etxean egin ezin duzun prozesamendua",
+  "guide_nova_explanations_arg3_text": "Osagai ugari konbinatzeko eta azken produktua sortzeko prozesu-segida ugari erabiltzen dira (horregatik 'ultra-prozesatua'). Prozesu horien artean, etxeko baliokiderik ez duten hainbat daude, hala nola hidrogenazioa eta hidrolizazioa, estrusioa eta moldekatzea, eta frijitzeko aurre-prozesatzea.",
+  "guide_nova_explanations_arg4_title": "Ultraprozesamenduaren alderdi harrapariak eta finantzarioak",
+  "guide_nova_explanations_arg4_text": "Ultraprozesamenduaren helburu nagusia markako, erosoko (iraunkorrak, kontsumitzeko prest), erakargarriak (hiper-ahogozoak) eta oso errentagarriak (kostu baxuko osagaiak) diren elikagaiak sortzea da, gainerako elikagai-talde guztiak ordezkatzeko diseinatuta. Ultraprozesatutako elikagaiak normalean modu erakargarrian ontziratzen dira eta modu intentsiboan merkaturatzen dira.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Orokorra",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Kudeatu zure prezioen lehentasunak",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Elikagaien Datu Irekiak proiektua",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Ekarpena egin",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Itzuli, hobetu gure tresnak…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Konektatu",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Jarri gurekin harremanetan, edo jarraitu gaitzazu sare sozialetan",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Lagundu iezaguzu mundu osoko milioika kontsumitzaile informatzen",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Laguntza eta euskarria",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Lortu zure galderei erantzunak",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Saioa itxita",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Eskerrik asko gure kide izateagatik!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Ikusi estatistika guztiak",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Bilatu {provider} \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Bilatu ezarpen bat (adibidez, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Irisgarritasuna: Erakutsi emojiak",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Irisgarritasuna: Kendu koloreak",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produktuak",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Honi buruz",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Lege-informazioa",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Erabilera baldintzak, pribatutasun politika eta gehiago",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Erabilera baldintzak",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lizentziak",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Aplikazioari buruz",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Informazio teknikoa, garatzaileentzako informazioa eta gehiago",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informazioa",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Bertsio zenbakia",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Eskanerra",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Aplikazio-denda",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistemaren ezarpenak",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Iturburu-kodera sartu",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Eta milioika pertsonengan eragina izaten hasi",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Produktuak bete",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "aholkuak",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Ezagutu Nutri-Score berria",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts webgunean",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Kudeatu nire kontua",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Aldatu nire pasahitza",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Arrisku-eremua",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Zure ekarpen guztiak galduko dira",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Ekarpenak",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Aplikazioaren ezarpenak",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Produktuak lineaz kanpo eskaneatzeko modu oso esperimentala",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Freskatu produktu guztiak zerbitzaritik",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Mesedez, saihestu hori egitea guztiz beharrezkoa ez bada",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo modua",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Gehitu txartelak eskanerrera",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "3 lagin produktu gehitzen dizkio eskanerrari",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomia ostalaria",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Irisgarritasun esperimentuak",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Produktu anitzeko aukeraketa prezioen arabera",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Erabiltzaileak ordenatutako ezagutza-panelak",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Kokapen bilaketarako aldi baterako sarbidea",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 edo 3 produkturen alboz alboko konparaketa",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Produktuen zerrenda inportatzea",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Puntuazioak eta metodologiak",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ezagutu nola kalkulatzen den Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Metodologian izandako aldaketa nagusiak ezagutu",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Ezagutu Janari Irekien Datuak",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Maiz egiten diren galderak - FAQ",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Open Food Facts GKEa",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informazioa",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Jaso komunitatearen eguneraketak",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Egon eguneratuta aplikazioaren eta komunitatearen berriekin",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Parte hartu gure ekitaldi birtualetako batean parte hartuz",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Jarrai gaitzazu sare sozialetan",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Elikagaien Datu Irekien bloga",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Jaso azken berriak, gertatzen diren heinean",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Lortu laguntza komunitatetik",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Lagundu iezaguzu aplikazioa hobetzen",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Bidali iezaguzu arazketa-informazioa",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Bidali mezu elektroniko bat arazketa-informazio zehatzarekin",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Bidali iezaguzu aplikazioari buruzko iritzia",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Lagundu aplikazioaren etorkizuna moldatzen",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Egin aplikazioaren inkesta",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Lagundu iezaguzu hurrengoan zer eraiki behar dugun ulertzen",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionalak",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Guztiz doakoa, 500 aplikazio eta milioika kontsumitzailerentzako datu zehatzak bermatzen ditu. Autozerbitzua, zure PIM edo kalkulu-orriekin (XLSX) bateragarria.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Jarri gurekin harremanetan hasteko",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Prentsa",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Lortu zure txostenerako behar duzun material guztia",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Jarri gurekin harremanetan prentsa-kontsultetarako edo zure txostenaren berri emateko",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Boluntario aktibo bihurtu",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Garapena, Komunikazioa, Diseinua… edozein boluntariotza edo esperientzia mota ongi etorria da!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Ezagutu laguntzeko modu ugari batzuk",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mugikorretarako aplikazioen garapena",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Ikasi software garapenean nola lagundu",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Eguneroko eraikuntza ezegonkorrak, funtzio berri-berriak",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Hazi zure tokiko komunitatea",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Laguntza softwarearekin, edukiekin, osagaien analisiekin itzulpenekin",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Txantiloi txiki bat prestatu dugu laguntzeko :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Zure herrialdean elikagaien gardentasuna handitzeko urrats errazak",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Batu zaitez datuen kalitate taldeari",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Batu zaitez gure ahaleginari datu-basea osoa eta zehatza dela ziurtatzeko",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 produktu gehitu dira",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Open Food Facts-era gehitu ditudan produktu berriak",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Osatu behar ditudan produktuak",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Produktu osatugabe guztiak",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Lagun zaitzakezun produktuak osatzen",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Lagundu zure herrialdeko Nutri-Score eta Green-Score kalkulatzen",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Nik eman ditudan prezioak",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Prezio-etiketak eta ordainagiriak",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Atera zure ordainagirien argazkiak eta eskaneatu lotutako barra-kodeak",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Denda bateko prezioen argazkiak atera",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Prezio berrienak",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Open Prices komunitateak gehitutako azken prezioak",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Prezio gehien dituzten kolaboratzaileak",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Irekitze Prezioaren neurketak",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Jarrai ezazu proiektuaren bilakaera",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Ekartzeko moduak",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Berretsi zuk edo beste batzuek gehitutako prezioak, IAren laguntzarekin",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Gehitu azkar ordainagiri edo apaletako argazki asko zure kamera-erroilutik",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Hileroko erronkak",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Parte hartu hileroko gaikako bilaketan prezioak biltzeko",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Berreskuratu zure leialtasun datuak",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Ikasi zure datuak nola eskatu",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Pertsonalizatu aplikazioa",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Lagundu proiektuari",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Janari Informazio Irekia laguntzeko modu errazak",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Puntuazio metodologiak, laguntza eta proiektuari buruzko gehiago",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Onartu iradokizuna",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikazioak huts egin du, ezin dira frogak lortu",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Aldaketak aplikatzeko, berrabiarazi aplikazioa.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Interfaze grafikoa",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Komunikabideak",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Garapena",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Elikagaien Datuen Laborategi Irekiak",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Kontua",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Ekarri Janari Informazio Irekia zure hizkuntzara",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Eman izena aplikazioaren alfa bertsioan",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Ekarpenak eta produktuen datuak",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ez erakutsi folksonomia",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Kontua",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

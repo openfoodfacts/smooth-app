@@ -2383,7 +2383,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Akses fitur eksperimental dan alat pengembangan';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Mulai ulang orientasi';
@@ -4014,29 +4014,29 @@ class AppLocalizationsId extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Skor Hijau A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Skor Hijau B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Skor Hijau C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Skor Hijau D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Skor Hijau E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Skor Hijau Tidak Diketahui';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Skor Hijau tidak berlaku';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'Makanan ultra-olahan - Grup NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Kelompok 1';
@@ -4396,131 +4396,130 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Produk mana yang lebih baik untuk planet ini?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Sulit untuk mengatakannya';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Memilih makanan berkelanjutan adalah salah satu hal paling hebat yang dapat kita lakukan untuk iklim, karena **sistem pangan global kita bertanggung jawab atas lebih dari seperempat dari seluruh emisi gas rumah kaca**.\n(Sumber: Poore & Nemecek, Science, 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'Anda punya kekuatan!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Kabar baiknya adalah ini memberi kita cara ampuh untuk menciptakan perubahan.\n**Kita masing-masing makan sekitar 1.000 kali setiap tahun**. Itu berarti 1.000 kesempatan untuk **memilih masa depan yang lebih baik bagi planet ini**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Membantu untuk bertanggung jawab dan memutuskan';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Memilih makanan berkelanjutan bisa terasa rumit. Labelnya membingungkan dan informasinya seringkali hilang. Green-Score diciptakan untuk menyederhanakannya, memberikan Anda peringkat lingkungan yang **jelas**, **berbasis sains**, dan **transparan** untuk produk makanan, tepat di tempat yang Anda butuhkan: saat Anda berbelanja.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Transparansi';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Tidak seperti label hak milik, perhitungan Green-Score **sepenuhnya terbuka** dan dapat **diverifikasi oleh siapa saja**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/skor-hijau';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
-  String get guide_nova_title => 'Ultra-processed foods';
+  String get guide_nova_title => 'Makanan ultraproses';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Apa itu ultra-processing?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Kelompok NOVA memberi tahu Anda tentang tingkat pengolahan makanan.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Klasifikasi NOVA memungkinkan pengkategorian makanan menjadi **4 kelompok** berdasarkan **derajat pemrosesan industrinya** (makanan yang diproses minimal atau tidak diproses, bahan kuliner, makanan olahan, makanan ultra-olahan).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Logo NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 grup NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Ada 4 kelompok NOVA, yang bermasalah adalah Kelompok 4 - Makanan ultra-olahan.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Makanan yang diproses minimal atau tidak diproses';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Makanan yang tidak diolah (atau alami) adalah bagian tanaman yang dapat dimakan (biji-bijian, buah-buahan, daun-daun, batang-batang, akar-akar) atau hewan (otot, jeroan, telur, susu), serta jamur, alga, dan air, setelah dipisahkan dari alam.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => 'Bahan - bahan kuliner olahan';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Bahan kuliner olahan, seperti minyak, mentega, gula, dan garam, merupakan zat yang berasal dari makanan Kelompok 1 atau dari alam melalui proses yang mencakup pengepresan, pemurnian, penggilingan, penggilingan, dan pengeringan.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Makanan olahan';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Makanan olahan, seperti sayuran dalam botol, ikan kaleng, buah dalam sirup, keju, dan roti segar, umumnya dibuat dengan menambahkan garam, minyak, gula, atau zat lain dari makanan Golongan 2 ke makanan Golongan 1. Prosesnya mencakup berbagai metode pengawetan atau pemasakan, dan untuk roti dan keju, fermentasi non-alkohol. Sebagian besar makanan olahan memiliki dua atau tiga bahan dan dapat dikenali sebagai versi modifikasi dari makanan Golongan 1. Makanan ini dapat dimakan begitu saja atau, lebih umum, dikombinasikan dengan makanan lain.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+  String get guide_nova_groups_arg4_title => 'Makanan ultraproses';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Makanan ultra-olahan, seperti minuman ringan, camilan kemasan manis atau gurih, produk daging olahan, dan makanan beku siap saji, bukan sekadar makanan yang dimodifikasi, melainkan formulasi yang sebagian besar atau seluruhnya terbuat dari zat yang berasal dari makanan dan zat aditif, dengan sedikit atau tanpa bahan pangan utuh Golongan 1. Bahan-bahan dalam formulasi ini biasanya mencakup bahan-bahan yang juga terdapat dalam makanan olahan, seperti gula, minyak, lemak, atau garam. Namun, produk ultra-olahan juga mengandung sumber energi dan nutrisi lain yang biasanya tidak digunakan dalam olahan kuliner. Beberapa di antaranya diekstraksi langsung dari makanan, seperti kasein, laktosa, whey, dan gluten.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Masalah dengan ultra-processing';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Pemrosesan bahan makanan secara ekstrem';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Banyak yang berasal dari pemrosesan lebih lanjut bahan makanan, seperti minyak terhidrogenasi atau interesterifikasi, protein terhidrolisis, isolat protein kedelai, maltodekstrin, gula invert, dan sirup jagung fruktosa tinggi.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Aditif yang melampaui keamanan pangan murni';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Zat aditif dalam makanan ultra-olahan mencakup beberapa zat yang juga digunakan dalam makanan olahan, seperti pengawet, antioksidan, dan penstabil. Jenis zat aditif yang hanya ditemukan dalam produk ultra-olahan mencakup zat yang digunakan untuk meniru atau meningkatkan kualitas sensoris makanan atau untuk menyamarkan aspek yang tidak menyenangkan dari produk akhir. Zat aditif ini meliputi pewarna dan pewarna lainnya, penstabil warna; perisa, penguat rasa, pemanis non-gula; dan bahan pembantu pengolahan seperti bahan karbonasi, pengeras, penggembur, dan anti-pengembun, bahan pencegah busa, anti-caking, dan pengglasir, pengemulsi, sekuestran, dan humektan.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Pemrosesan yang tidak dapat Anda lakukan di rumah';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Berbagai rangkaian proses digunakan untuk menggabungkan bahan-bahan yang biasanya banyak dan menghasilkan produk akhir (sehingga disebut \'ultra-proses\'). Proses-proses ini mencakup beberapa proses yang belum ada padanannya di dalam negeri, seperti hidrogenasi dan hidrolisis, ekstrusi dan pencetakan, serta pra-pemrosesan untuk penggorengan.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Aspek predator dan finansial dari ultra-processing';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Tujuan utama ultra-proses adalah menciptakan produk pangan bermerek, praktis (tahan lama, siap konsumsi), menarik (sangat lezat), dan sangat menguntungkan (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok pangan lainnya. Produk pangan ultra-proses biasanya dikemas secara menarik dan dipasarkan secara intensif.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -5009,469 +5008,478 @@ class AppLocalizationsId extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Bukti';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Umum';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'Harga';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Kelola preferensi harga Anda';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Proyek Fakta Makanan Terbuka';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Berkontribusi';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Terjemahkan, tingkatkan alat kami…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Menghubungkan';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Hubungi kami, atau Ikuti kami di media sosial';
 
   @override
-  String get preferences_support_title => 'Make a donation';
+  String get preferences_support_title => 'Berikan donasi';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Bantu kami memberi informasi kepada jutaan konsumen di seluruh dunia';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Bantuan & Dukungan';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle =>
+      'Dapatkan jawaban atas pertanyaan Anda';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Keluar';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Terima kasih telah menjadi salah satu anggota kami!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified =>
+      'Produk - produk yang dimodifikasi';
 
   @override
-  String get preferences_app_bar_prices_added => 'Prices added';
+  String get preferences_app_bar_prices_added => 'Harga ditambahkan';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Lihat semua statistik';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Cari $provider untuk \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Cari pengaturan (misalnya Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Aksesibilitas: Tampilkan emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Aksesibilitas: Hapus warna';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => 'Produk - produk';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Tentang';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Informasi hukum';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Ketentuan penggunaan, kebijakan privasi, dan lainnya';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Syarat Penggunaan';
 
   @override
-  String get preferences_legal_mentions => 'Legal mentions';
+  String get preferences_legal_mentions => 'Penyebutan hukum';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Kebijakan privasi';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Lisensi';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Tentang aplikasi';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Informasi teknis, informasi pengembang, dan lainnya';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Informasi';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Nomor versi';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Pemindai';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Toko aplikasi';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Pengaturan sistem';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Akses kode sumber';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Dan mulailah membuat dampak bagi jutaan orang';
 
   @override
-  String get preferences_add_prices => 'Add prices';
+  String get preferences_add_prices => 'Tambahkan harga';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Produk-produk lengkap';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Kiat';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Temukan Nutri-Score yang baru';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Di situs web Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Kelola akun saya';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Ubah kata sandi saya';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Zona bahaya';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Semua kontribusi Anda akan hilang';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => 'Kontribusi';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Pengaturan aplikasi';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Cara yang sangat eksperimental untuk memindai produk secara offline';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Segarkan semua produk dari server';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Harap hindari melakukan hal itu kecuali benar-benar diperlukan';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Mode demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Tambahkan kartu ke pemindai';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Menambahkan 3 produk sampel ke pemindai';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Pembawa acara Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Eksperimen aksesibilitas';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Pilihan multi-produk untuk harga';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Panel pengetahuan yang dipesan pengguna';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Akses sementara ke pencarian lokasi';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Perbandingan berdampingan untuk 2 atau 3 produk';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Impor daftar produk';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'Skor & metodologi';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Temukan bagaimana Nutri-Score dihitung';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Temukan perubahan utama pada metodologi';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => 'Temukan proyeknya';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Temukan Fakta Makanan Terbuka';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'FAQ - Pertanyaan yang Sering Diajukan';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'LSM Open Food Facts';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Informasi';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Dapatkan pembaruan komunitas';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Tetap ikuti perkembangan berita aplikasi dan komunitas';
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Berlangganan ke kalender komunitas kami';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Berpartisipasilah dengan menghadiri salah satu acara virtual kami';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Ikuti kami di media sosial';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Fakta Makanan Terbuka';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Dapatkan berita terbaru, saat itu terjadi';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Dapatkan bantuan dari komunitas';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Bantu kami meningkatkan aplikasi';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Kirimkan kami informasi debug';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Kirimkan kami email dengan informasi debugging terperinci';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Kirimkan masukan kepada kami tentang aplikasi ini';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Bantu membentuk masa depan aplikasi';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Ikuti survei aplikasi';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Bantu kami memahami apa yang harus kami bangun selanjutnya';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Profesional';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Sepenuhnya gratis, memastikan data akurat untuk 500 aplikasi & jutaan konsumen. Layanan mandiri, kompatibel dengan PIM atau spreadsheet Anda (XLSX).';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Hubungi kami untuk memulai';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'Pers';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Dapatkan semua materi yang Anda butuhkan untuk laporan Anda';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Hubungi kami untuk pertanyaan pers atau untuk memberi tahu kami tentang laporan Anda';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Menjadi relawan aktif';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Pengembangan, Komunikasi, Desain… segala jenis kesukarelaan atau keahlian diterima!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Temukan beberapa cara Anda dapat berkontribusi';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Pengembangan aplikasi seluler';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Pelajari cara berkontribusi pada pengembangan perangkat lunak';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Build tidak stabil harian, fitur baru';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Kembangkan komunitas lokal Anda';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Bantuan dengan perangkat lunak, konten, terjemahan analisis bahan';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Kami telah menyiapkan templat kecil untuk membantu Anda :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Langkah sederhana untuk menumbuhkan transparansi pangan di negara Anda';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Kualitas data';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Bergabunglah dengan tim kualitas data';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Bergabunglah dengan upaya kami untuk memastikan database lengkap dan akurat';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 produk ditambahkan';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Produk baru yang saya tambahkan ke Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Produk yang perlu saya selesaikan';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Semua produk tidak lengkap';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Produk yang dapat Anda bantu selesaikan';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Bantu hitung Nutri-Score & Green-Score di negara Anda';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Harga yang saya kontribusikan';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Label harga dan tanda terima';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Ambil foto tanda terima Anda dan pindai kode batang terkait';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Ambil foto harga di toko';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Harga terbaru';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Harga terbaru yang ditambahkan oleh komunitas Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Kontributor dengan harga terbanyak';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Metrik Harga Terbuka';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'Ikuti perkembangan proyek';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Cara berkontribusi';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Konfirmasikan harga yang ditambahkan oleh Anda sendiri atau orang lain, dengan bantuan AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Tambahkan banyak tanda terima atau foto rak dari rol kamera Anda dengan cepat';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Tantangan bulanan';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Berpartisipasilah dalam misi tematik bulanan untuk mengumpulkan hadiah';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Dapatkan kembali data loyalitas Anda';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Pelajari cara meminta data Anda';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Sesuaikan aplikasi';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Berkontribusi pada proyek';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Cara sederhana untuk membantu Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Metodologi skor, bantuan, dan informasi lebih lanjut tentang proyek ini';
 
   @override
   String get product_edit_robotoff_positive_button => 'Terima saran';
@@ -5521,41 +5529,40 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Silakan mulai ulang aplikasi untuk menerapkan perubahan.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Antarmuka grafis';
 
   @override
   String get preferences_app_settings_media_title => 'Media';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Pengembangan';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorium Fakta Makanan Terbuka';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Akun';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Hadirkan Open Food Facts ke bahasa Anda';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Daftar di versi alfa aplikasi';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => 'Kontribusi & Data Produk';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Jangan tampilkan Folksonomy';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Akun';
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "പരീക്ഷണാത്മക സവിശേഷതകളും വികസന ഉപകരണങ്ങളും ആക്‌സസ് ചെയ്യുക",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "ഗ്രീൻ-സ്കോർ എ",
+  "environmental_score_b_new": "ഗ്രീൻ-സ്കോർ ബി",
+  "environmental_score_c_new": "ഗ്രീൻ-സ്കോർ സി",
+  "environmental_score_d_new": "ഗ്രീൻ-സ്കോർ ഡി",
+  "environmental_score_e_new": "ഗ്രീൻ-സ്കോർ ഇ",
+  "environmental_score_unknown_new": "അജ്ഞാതമായ ഗ്രീൻ-സ്കോർ",
+  "environmental_score_not_applicable_new": "ഗ്രീൻ-സ്കോർ ബാധകമല്ല.",
+  "nova_group_generic_new": "അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ - നോവ ഗ്രൂപ്പുകൾ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "ഉൽപ്പന്നങ്ങളിൽ അടങ്ങിയിരിക്കുന്നതോ അവയിൽ നിന്ന് അനുമാനിക്കാവുന്നതോ ആയ വിവരങ്ങൾ ശേഖരിക്കാനും ഘടനാപരമായി ക്രമീകരിക്കാനും എല്ലാ പൗരന്മാർക്കും ഞങ്ങളെ സഹായിക്കാനാകും, ഉദാഹരണത്തിന് പാക്കേജിംഗിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ: മിഷൻ എംബാലേജുകൾ: എല്ലാ ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്കുമുള്ള പാക്കേജിംഗിന്റെ വലിയ തോതിലുള്ള സഹകരണ ഇൻവെന്ററി (ഫ്രഞ്ചിൽ)",
   "guide_greenscore_transparency_arg2_title": "നിർമ്മാതാക്കൾക്ക് എങ്ങനെ സഹായിക്കാനാകും",
   "guide_greenscore_transparency_arg2_text": "നിർമ്മാതാക്കൾക്ക് ഞങ്ങളുടെ നിർമ്മാതാക്കൾക്കായുള്ള സൗജന്യ പ്ലാറ്റ്‌ഫോം വഴി അവരുടെ വിവരങ്ങൾ നേരിട്ട് ഞങ്ങൾക്ക് അയയ്ക്കാൻ കഴിയും.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "ഏത് ഉൽപ്പന്നമാണ് ഗ്രഹത്തിന് നല്ലത്?",
+  "guide_greenscore_better_product_arg1_title": "പറയാൻ പ്രയാസമായിരിക്കും",
+  "guide_greenscore_better_product_arg1_text": "**നമ്മുടെ ആഗോള ഭക്ഷ്യ സമ്പ്രദായം മൊത്തം ഹരിതഗൃഹ വാതക ഉദ്‌വമനത്തിന്റെ നാലിലൊന്നിലധികം ഉത്തരവാദിയായതിനാൽ** കാലാവസ്ഥയ്‌ക്കായി നമുക്ക് ചെയ്യാൻ കഴിയുന്ന ഏറ്റവും ശക്തമായ കാര്യങ്ങളിൽ ഒന്നാണ് സുസ്ഥിര ഭക്ഷണം തിരഞ്ഞെടുക്കുന്നത്.\n(ഉറവിടം: പൂറെ & നെമെസെക്, സയൻസ്, 2018).",
+  "guide_greenscore_better_product_arg2_title": "നിങ്ങൾക്ക് ശക്തിയുണ്ട്!",
+  "guide_greenscore_better_product_arg2_text": "നല്ല വാർത്ത എന്തെന്നാൽ, മാറ്റം സൃഷ്ടിക്കുന്നതിനുള്ള ശക്തമായ ഒരു മാർഗം ഇത് നമുക്ക് നൽകുന്നു.\n**നമ്മൾ ഓരോരുത്തരും എല്ലാ വർഷവും ഏകദേശം 1,000 ഭക്ഷണം കഴിക്കുന്നു**. അതായത് **ഗ്രഹത്തിന് മികച്ച ഭാവി തിരഞ്ഞെടുക്കാനുള്ള** 1,000 അവസരങ്ങൾ!",
+  "guide_greenscore_better_product_arg3_title": "ഉത്തരവാദിത്തമുള്ളവരായിരിക്കാനും തീരുമാനമെടുക്കാനും സഹായിക്കുന്നു",
+  "guide_greenscore_better_product_arg3_text": "സുസ്ഥിര ഭക്ഷണം തിരഞ്ഞെടുക്കുന്നത് സങ്കീർണ്ണമായി തോന്നാം. ലേബലുകൾ ആശയക്കുഴപ്പമുണ്ടാക്കുന്നതും പലപ്പോഴും വിവരങ്ങൾ കാണാത്തതുമാണ്. നിങ്ങൾക്ക് ആവശ്യമുള്ളിടത്ത്: ഷോപ്പിംഗ് നടത്തുമ്പോൾ തന്നെ, ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്ക് **വ്യക്തമായ**, **ശാസ്ത്രാധിഷ്ഠിത**, **സുതാര്യമായ** പാരിസ്ഥിതിക റേറ്റിംഗ് നൽകിക്കൊണ്ട്, കാര്യങ്ങൾ ലളിതമാക്കുന്നതിനാണ് ഗ്രീൻ-സ്കോർ സൃഷ്ടിച്ചിരിക്കുന്നത്.",
+  "guide_greenscore_better_product_arg4_title": "സുതാര്യത",
+  "guide_greenscore_better_product_arg4_text": "പ്രൊപ്രൈറ്ററി ലേബലുകളിൽ നിന്ന് വ്യത്യസ്തമായി, ഗ്രീൻ-സ്കോർ കണക്കുകൂട്ടൽ **പൂർണ്ണമായും തുറന്നിരിക്കുന്നു** കൂടാതെ ആർക്കും **പരിശോധിക്കാൻ കഴിയും**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "എന്താണ് അൾട്രാ പ്രോസസ്സിംഗ്?",
+  "guide_nova_what_is_nova_paragraph1": "ഭക്ഷ്യ സംസ്കരണത്തിന്റെ നിലവാരത്തെക്കുറിച്ച് NOVA ഗ്രൂപ്പുകൾ നിങ്ങളെ അറിയിക്കുന്നു.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "**വ്യാവസായിക സംസ്കരണത്തിന്റെ അളവ്** (കുറഞ്ഞ സംസ്കരിച്ചതോ സംസ്കരിക്കാത്തതോ ആയ ഭക്ഷണങ്ങൾ, പാചക ചേരുവകൾ, സംസ്കരിച്ച ഭക്ഷണങ്ങൾ, അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷണങ്ങൾ) അടിസ്ഥാനമാക്കി ഭക്ഷണങ്ങളെ **4 ഗ്രൂപ്പുകളായി** തരംതിരിക്കാൻ NOVA വർഗ്ഗീകരണം അനുവദിക്കുന്നു.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "നോവ ലോഗോകൾ",
+  "guide_nova_groups_title": "4 NOVA ഗ്രൂപ്പുകൾ",
+  "guide_nova_groups_intro": "4 NOVA ഗ്രൂപ്പുകളുണ്ട്, അതിൽ പ്രശ്‌നമുള്ളത് ഗ്രൂപ്പ് 4 ആണ് - അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ.",
+  "guide_nova_groups_arg1_title": "കുറഞ്ഞ അളവിൽ സംസ്കരിച്ചതോ സംസ്കരിക്കാത്തതോ ആയ ഭക്ഷണങ്ങൾ",
+  "guide_nova_groups_arg1_text": "സംസ്കരിക്കാത്ത (അല്ലെങ്കിൽ പ്രകൃതിദത്ത) ഭക്ഷണങ്ങൾ സസ്യങ്ങളുടെ (വിത്തുകൾ, പഴങ്ങൾ, ഇലകൾ, തണ്ടുകൾ, വേരുകൾ) അല്ലെങ്കിൽ മൃഗങ്ങളുടെ (പേശികൾ, പുറംതൊലി, മുട്ടകൾ, പാൽ), അതുപോലെ ഫംഗസ്, ആൽഗകൾ, വെള്ളം എന്നിവയുടെ ഭക്ഷ്യയോഗ്യമായ ഭാഗങ്ങളാണ്. പ്രകൃതിയിൽ നിന്ന് വേർപെടുത്തിയ ശേഷം ഇവ ഉപയോഗിക്കപ്പെടുന്നു.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "എണ്ണകൾ, വെണ്ണ, പഞ്ചസാര, ഉപ്പ് തുടങ്ങിയ സംസ്കരിച്ച പാചക ചേരുവകൾ ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളിൽ നിന്നോ പ്രകൃതിയിൽ നിന്നോ ഉരുത്തിരിഞ്ഞ പദാർത്ഥങ്ങളാണ്, അമർത്തൽ, ശുദ്ധീകരിക്കൽ, പൊടിക്കൽ, മില്ലിങ്, ഉണക്കൽ എന്നിവ ഇതിൽ ഉൾപ്പെടുന്നു.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "കുപ്പിയിലാക്കിയ പച്ചക്കറികൾ, ടിന്നിലടച്ച മത്സ്യം, സിറപ്പിലുള്ള പഴങ്ങൾ, ചീസുകൾ, പുതുതായി ഉണ്ടാക്കിയ ബ്രെഡുകൾ എന്നിവ പോലുള്ള സംസ്കരിച്ച ഭക്ഷണങ്ങൾ പ്രധാനമായും ഉപ്പ്, എണ്ണ, പഞ്ചസാര അല്ലെങ്കിൽ ഗ്രൂപ്പ് 2 ൽ നിന്നുള്ള ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളിലെ മറ്റ് വസ്തുക്കൾ എന്നിവ ചേർത്താണ് നിർമ്മിക്കുന്നത്. വിവിധ സംരക്ഷണ രീതികൾ അല്ലെങ്കിൽ പാചക രീതികൾ പ്രക്രിയകളിൽ ഉൾപ്പെടുന്നു, കൂടാതെ ബ്രെഡുകളുടെയും ചീസിന്റെയും കാര്യത്തിൽ, നോൺ-ആൽക്കഹോളിക് ഫെർമെന്റേഷൻ ഉൾപ്പെടുന്നു. മിക്ക സംസ്കരിച്ച ഭക്ഷണങ്ങളിലും രണ്ടോ മൂന്നോ ചേരുവകളുണ്ട്, കൂടാതെ ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളുടെ പരിഷ്കരിച്ച പതിപ്പുകളായി തിരിച്ചറിയാൻ കഴിയും. അവ സ്വന്തമായി കഴിക്കാം അല്ലെങ്കിൽ സാധാരണയായി മറ്റ് ഭക്ഷണങ്ങളുമായി സംയോജിപ്പിച്ച് കഴിക്കാം.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "സോഫ്റ്റ് ഡ്രിങ്കുകൾ, മധുരമുള്ളതോ രുചികരമോ ആയ പായ്ക്ക് ചെയ്ത ലഘുഭക്ഷണങ്ങൾ, പുനർനിർമ്മിച്ച മാംസ ഉൽപ്പന്നങ്ങൾ, മുൻകൂട്ടി തയ്യാറാക്കിയ ഫ്രോസൺ വിഭവങ്ങൾ എന്നിവ പോലുള്ള അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ കേവലം പരിഷ്കരിച്ച ഭക്ഷണങ്ങളല്ല, മറിച്ച് ഭക്ഷണങ്ങളിൽ നിന്നും അഡിറ്റീവുകളിൽ നിന്നും ഉരുത്തിരിഞ്ഞ വസ്തുക്കളിൽ നിന്ന് കൂടുതലോ പൂർണ്ണമായും നിർമ്മിച്ച ഫോർമുലേഷനുകളാണ്, ഗ്രൂപ്പ് 1 ഭക്ഷണത്തിന് കേടുപാടുകളൊന്നുമില്ല. ഈ ഫോർമുലേഷനുകളിലെ ചേരുവകളിൽ സാധാരണയായി പഞ്ചസാര, എണ്ണ, കൊഴുപ്പ് അല്ലെങ്കിൽ ഉപ്പ് പോലുള്ള സംസ്കരിച്ച ഭക്ഷണങ്ങളിൽ കാണപ്പെടുന്നവയും ഉൾപ്പെടുന്നു. എന്നിരുന്നാലും, അൾട്രാ-പ്രോസസ്ഡ് ഉൽപ്പന്നങ്ങളിൽ സാധാരണയായി പാചക തയ്യാറെടുപ്പുകളിൽ ഉപയോഗിക്കാത്ത ഊർജ്ജ സ്രോതസ്സുകളും പോഷകങ്ങളും അടങ്ങിയിരിക്കുന്നു. ഇവയിൽ ചിലത് കസീൻ, ലാക്ടോസ്, വേ, ഗ്ലൂറ്റൻ തുടങ്ങിയ ഭക്ഷണങ്ങളിൽ നിന്ന് നേരിട്ട് വേർതിരിച്ചെടുക്കുന്നു.",
+  "guide_nova_explanations_title": "അൾട്രാ പ്രോസസ്സിംഗിലെ പ്രശ്നങ്ങൾ",
+  "guide_nova_explanations_arg1_title": "ഭക്ഷ്യ ഘടകങ്ങളുടെ അമിതമായ സംസ്കരണം",
+  "guide_nova_explanations_arg1_text": "ഹൈഡ്രജനേറ്റഡ് അല്ലെങ്കിൽ ഇന്ററസ്റ്ററിഫൈഡ് എണ്ണകൾ, ഹൈഡ്രോലൈസ്ഡ് പ്രോട്ടീനുകൾ, സോയ പ്രോട്ടീൻ ഐസൊലേറ്റ്, മാൾട്ടോഡെക്സ്ട്രിൻ, ഇൻവെർട്ട് ഷുഗർ, ഉയർന്ന ഫ്രക്ടോസ് കോൺ സിറപ്പ് തുടങ്ങിയ ഭക്ഷ്യ ഘടകങ്ങളുടെ കൂടുതൽ സംസ്കരണത്തിൽ നിന്നാണ് ഇവയിൽ പലതും ഉരുത്തിരിഞ്ഞത്.",
+  "guide_nova_explanations_arg2_title": "ശുദ്ധമായ ഭക്ഷ്യ സുരക്ഷയ്ക്ക് അപ്പുറത്തേക്ക് പോകുന്ന അഡിറ്റീവുകൾ",
+  "guide_nova_explanations_arg2_text": "അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങളിലെ അഡിറ്റീവുകളിൽ പ്രിസർവേറ്റീവുകൾ, ആന്റിഓക്‌സിഡന്റുകൾ, സ്റ്റെബിലൈസറുകൾ എന്നിവ പോലുള്ളവ സംസ്കരിച്ച ഭക്ഷണങ്ങളിലും ഉപയോഗിക്കുന്നു. അൾട്രാ-പ്രോസസ്ഡ് ഉൽപ്പന്നങ്ങളിൽ മാത്രം കാണപ്പെടുന്ന അഡിറ്റീവുകളുടെ വിഭാഗങ്ങളിൽ ഭക്ഷണങ്ങളുടെ സെൻസറി ഗുണങ്ങൾ അനുകരിക്കാനോ വർദ്ധിപ്പിക്കാനോ അല്ലെങ്കിൽ അന്തിമ ഉൽപ്പന്നത്തിന്റെ രുചികരമല്ലാത്ത വശങ്ങൾ മറയ്ക്കാനോ ഉപയോഗിക്കുന്നവ ഉൾപ്പെടുന്നു. ഈ അഡിറ്റീവുകളിൽ ഡൈകളും മറ്റ് നിറങ്ങളും, കളർ സ്റ്റെബിലൈസറുകൾ; ഫ്ലേവറുകൾ, ഫ്ലേവർ എൻഹാൻസറുകൾ, പഞ്ചസാര ഇതര മധുരപലഹാരങ്ങൾ; കാർബണേറ്റിംഗ്, ഫിർമിംഗ്, ബൾക്കിംഗ്, ആന്റി-ബൾക്കിംഗ് ഏജന്റുകൾ, ഡി-ഫോമിംഗ്, ആന്റി-കേക്കിംഗ്, ഗ്ലേസിംഗ് ഏജന്റുകൾ, എമൽസിഫയറുകൾ, സീക്വെസ്ട്രാന്റുകൾ, ഹ്യൂമെക്റ്റന്റുകൾ എന്നിവ ഉൾപ്പെടുന്നു.",
+  "guide_nova_explanations_arg3_title": "വീട്ടിൽ ചെയ്യാൻ കഴിയാത്ത പ്രോസസ്സിംഗ്",
+  "guide_nova_explanations_arg3_text": "സാധാരണയായി പല ചേരുവകളും സംയോജിപ്പിച്ച് അന്തിമ ഉൽപ്പന്നം സൃഷ്ടിക്കുന്നതിന് (അതിനാൽ 'അൾട്രാ-പ്രോസസ്ഡ്') നിരവധി പ്രക്രിയകൾ ഉപയോഗിക്കുന്നു. ഹൈഡ്രജനേഷൻ, ഹൈഡ്രോലൈസേഷൻ, എക്സ്ട്രൂഷൻ, മോൾഡിംഗ്, ഫ്രൈയിംഗിനുള്ള പ്രീ-പ്രോസസ്സിംഗ് തുടങ്ങിയ ആഭ്യന്തര തുല്യതകളില്ലാത്ത നിരവധി പ്രക്രിയകൾ ഇതിൽ ഉൾപ്പെടുന്നു.",
+  "guide_nova_explanations_arg4_title": "അൾട്രാ പ്രോസസ്സിംഗിന്റെ ആക്രമണാത്മകവും സാമ്പത്തികവുമായ വശങ്ങൾ",
+  "guide_nova_explanations_arg4_text": "അൾട്രാ-പ്രോസസ്സിംഗിന്റെ മൊത്തത്തിലുള്ള ലക്ഷ്യം, മറ്റെല്ലാ ഭക്ഷ്യ ഗ്രൂപ്പുകളെയും മാറ്റിസ്ഥാപിക്കുന്നതിനായി രൂപകൽപ്പന ചെയ്ത ബ്രാൻഡഡ്, സൗകര്യപ്രദമായ (ഈടുനിൽക്കുന്ന, കഴിക്കാൻ തയ്യാറായ), ആകർഷകമായ (അമിത-സ്വാദിഷ്ടമായ) ഉയർന്ന ലാഭകരമായ (കുറഞ്ഞ വിലയുള്ള ചേരുവകൾ) ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സൃഷ്ടിക്കുക എന്നതാണ്. അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സാധാരണയായി ആകർഷകമായ രീതിയിൽ പാക്കേജുചെയ്യുകയും തീവ്രമായി വിപണനം ചെയ്യുകയും ചെയ്യുന്നു.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "നിങ്ങളുടെ വില മുൻഗണനകൾ കൈകാര്യം ചെയ്യുക",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് പ്രോജക്റ്റ്",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "വിവർത്തനം ചെയ്യുക, ഞങ്ങളുടെ ഉപകരണങ്ങൾ മെച്ചപ്പെടുത്തുക…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "ബന്ധിപ്പിക്കുക",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ഞങ്ങളെ ബന്ധപ്പെടുക, അല്ലെങ്കിൽ സോഷ്യൽ മീഡിയയിൽ ഞങ്ങളെ പിന്തുടരുക",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ലോകമെമ്പാടുമുള്ള ദശലക്ഷക്കണക്കിന് ഉപഭോക്താക്കളെ അറിയിക്കാൻ ഞങ്ങളെ സഹായിക്കൂ.",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "സഹായവും പിന്തുണയും",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "നിങ്ങളുടെ ചോദ്യങ്ങൾക്ക് ഉത്തരം നേടുക",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ലോഗ് ഔട്ട് ചെയ്തു",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ഞങ്ങളുടെ അംഗങ്ങളിൽ ഒരാളായതിന് നന്ദി!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "എല്ലാ സ്ഥിതിവിവരക്കണക്കുകളും കാണുക",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "\"{keyword}\" എന്നതിനായി {provider} തിരയുക.",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ഒരു ക്രമീകരണത്തിനായി തിരയുക (ഉദാ. ന്യൂട്രി-സ്കോർ)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "ഉപയോഗസഹായി: ഇമോജി കാണിക്കുക",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "പ്രവേശനക്ഷമത: നിറങ്ങൾ നീക്കം ചെയ്യുക",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "നിയമപരമായ വിവരങ്ങൾ",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "ഉപയോഗ നിബന്ധനകൾ, സ്വകാര്യതാ നയം, മറ്റും",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ലൈസൻസുകൾ",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "ആപ്പിനെക്കുറിച്ച്",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "സാങ്കേതിക വിവരങ്ങൾ, ഡെവലപ്പർ വിവരങ്ങൾ, മറ്റും",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "പതിപ്പ് നമ്പർ",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "സ്കാനർ",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "ആപ്പ് സ്റ്റോർ",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "സിസ്റ്റം ക്രമീകരണങ്ങൾ",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "സോഴ്‌സ് കോഡ് ആക്‌സസ് ചെയ്യുക",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "ദശലക്ഷക്കണക്കിന് ആളുകളുടെമേൽ സ്വാധീനം ചെലുത്താൻ തുടങ്ങുക.",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "നുറുങ്ങുകൾ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "പുതിയ ന്യൂട്രി-സ്കോർ കണ്ടെത്തൂ",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സ് വെബ്സൈറ്റിൽ",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "എന്റെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുക",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "എന്റെ പാസ്‌വേഡ് മാറ്റുക",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "അപകട മേഖല",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "നിങ്ങളുടെ എല്ലാ സംഭാവനകളും നഷ്ടപ്പെടും.",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "ആപ്പ് ക്രമീകരണങ്ങൾ",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "ഉൽപ്പന്നങ്ങൾ ഓഫ്‌ലൈനിൽ സ്കാൻ ചെയ്യുന്നതിനുള്ള വളരെ പരീക്ഷണാത്മക മാർഗം",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "സെർവറിൽ നിന്ന് എല്ലാ ഉൽപ്പന്നങ്ങളും പുതുക്കുക",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "അത്യാവശ്യമില്ലെങ്കിൽ ദയവായി അങ്ങനെ ചെയ്യുന്നത് ഒഴിവാക്കുക.",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "ഡെമോ മോഡ്",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "സ്കാനറിലേക്ക് കാർഡുകൾ ചേർക്കുക",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "സ്കാനറിലേക്ക് 3 സാമ്പിൾ ഉൽപ്പന്നങ്ങൾ ചേർക്കുന്നു.",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "ഫോക്സോണമി ഹോസ്റ്റ്",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "പ്രവേശനക്ഷമത പരീക്ഷണങ്ങൾ",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "വിലകൾക്കനുസരിച്ച് ഒന്നിലധികം ഉൽപ്പന്നങ്ങളുടെ തിരഞ്ഞെടുപ്പ്",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "ഉപയോക്തൃ ഓർഡർ ചെയ്ത വിജ്ഞാന പാനലുകൾ",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "ലൊക്കേഷൻ തിരയലിലേക്കുള്ള താൽക്കാലിക ആക്‌സസ്",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 അല്ലെങ്കിൽ 3 ഉൽപ്പന്നങ്ങൾക്ക് വശങ്ങളിലായി താരതമ്യം ചെയ്യുക",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "ഉൽപ്പന്ന ലിസ്റ്റ് ഇറക്കുമതി ചെയ്യുക",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "സ്കോറുകളും രീതിശാസ്ത്രങ്ങളും",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "ന്യൂട്രി-സ്കോർ എങ്ങനെ കണക്കാക്കുന്നുവെന്ന് കണ്ടെത്തുക",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "രീതിശാസ്ത്രത്തിലെ പ്രധാന മാറ്റങ്ങൾ കണ്ടെത്തുക",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "ഓപ്പൺ ഫുഡ് വസ്തുതകൾ കണ്ടെത്തുക",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "പതിവ് ചോദ്യങ്ങൾ - പതിവ് ചോദ്യങ്ങൾ",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "ദി ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് എൻ‌ജി‌ഒ",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "കമ്മ്യൂണിറ്റി അപ്‌ഡേറ്റുകൾ നേടുക",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "ആപ്പും കമ്മ്യൂണിറ്റി വാർത്തകളും ഉപയോഗിച്ച് ലൂപ്പിൽ തുടരുക",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "ഞങ്ങളുടെ വെർച്വൽ ഇവന്റുകളിൽ ഒന്നിൽ പങ്കെടുത്ത് അതിൽ പങ്കാളികളാകൂ.",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "സോഷ്യൽ മീഡിയയിൽ ഞങ്ങളെ പിന്തുടരുക",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ബ്ലോഗ്",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "ഏറ്റവും പുതിയ വാർത്തകൾ സംഭവിക്കുമ്പോൾ തന്നെ നേടൂ",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "കമ്മ്യൂണിറ്റിയിൽ നിന്ന് സഹായം നേടുക",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "ആപ്പ് മെച്ചപ്പെടുത്താൻ ഞങ്ങളെ സഹായിക്കൂ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "ഡീബഗ് വിവരങ്ങൾ ഞങ്ങൾക്ക് അയയ്ക്കുക",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "വിശദമായ ഡീബഗ്ഗിംഗ് വിവരങ്ങൾ അടങ്ങിയ ഒരു ഇമെയിൽ ഞങ്ങൾക്ക് അയയ്ക്കുക.",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "ആപ്പിനെക്കുറിച്ചുള്ള ഫീഡ്‌ബാക്ക് ഞങ്ങൾക്ക് അയയ്ക്കുക.",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "ആപ്പിന്റെ ഭാവി രൂപപ്പെടുത്താൻ സഹായിക്കൂ",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "ആപ്പ് സർവേയിൽ പങ്കെടുക്കൂ",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "അടുത്തതായി എന്ത് നിർമ്മിക്കണമെന്ന് മനസ്സിലാക്കാൻ ഞങ്ങളെ സഹായിക്കൂ.",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "പ്രൊഫഷണലുകൾ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "പൂർണ്ണമായും സൗജന്യം, 500 ആപ്പുകൾക്കും ദശലക്ഷക്കണക്കിന് ഉപഭോക്താക്കൾക്കും കൃത്യമായ ഡാറ്റ ഉറപ്പാക്കുന്നു. നിങ്ങളുടെ PIM അല്ലെങ്കിൽ സ്പ്രെഡ്ഷീറ്റുകളുമായി (XLSX) പൊരുത്തപ്പെടുന്ന സ്വയം സേവനം.",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ആരംഭിക്കാൻ ബന്ധപ്പെടുക",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "നിങ്ങളുടെ റിപ്പോർട്ടിന് ആവശ്യമായ എല്ലാ മെറ്റീരിയലുകളും നേടുക",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "പത്രക്കുറിപ്പ് അന്വേഷണങ്ങൾക്ക് അല്ലെങ്കിൽ നിങ്ങളുടെ റിപ്പോർട്ടിനെക്കുറിച്ച് ഞങ്ങളെ അറിയിക്കാൻ ബന്ധപ്പെടുക.",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "ഒരു സജീവ സന്നദ്ധപ്രവർത്തകനാകുക",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "വികസനം, ആശയവിനിമയം, രൂപകൽപ്പന… ഏത് തരത്തിലുള്ള സന്നദ്ധപ്രവർത്തനമോ വൈദഗ്ധ്യമോ സ്വാഗതം ചെയ്യുന്നു!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "നിങ്ങൾക്ക് സംഭാവന ചെയ്യാൻ കഴിയുന്ന നിരവധി മാർഗങ്ങളിൽ ചിലത് കണ്ടെത്തുക.",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "മൊബൈൽ ആപ്പ് വികസനം",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "സോഫ്റ്റ്‌വെയർ വികസനത്തിന് എങ്ങനെ സംഭാവന നൽകാമെന്ന് മനസിലാക്കുക",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "ദിവസേനയുള്ള അസ്ഥിരമായ ബിൽഡുകൾ, പുതിയ സവിശേഷതകൾ",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "നിങ്ങളുടെ പ്രാദേശിക സമൂഹത്തെ വളർത്തുക",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "സോഫ്റ്റ്‌വെയർ, ഉള്ളടക്കം, ചേരുവ വിശകലന വിവർത്തനങ്ങൾ എന്നിവയിൽ സഹായം.",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "നിങ്ങളെ സഹായിക്കാൻ ഞങ്ങൾ ഒരു ചെറിയ ടെംപ്ലേറ്റ് തയ്യാറാക്കിയിട്ടുണ്ട് :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "നിങ്ങളുടെ രാജ്യത്ത് ഭക്ഷ്യ സുതാര്യത വർദ്ധിപ്പിക്കുന്നതിനുള്ള ലളിതമായ ഘട്ടങ്ങൾ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "ഡാറ്റാ ഗുണനിലവാര ടീമിൽ ചേരുക",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "ഡാറ്റാബേസ് പൂർണ്ണവും കൃത്യവുമാണെന്ന് ഉറപ്പാക്കാൻ ഞങ്ങളുടെ ശ്രമത്തിൽ പങ്കുചേരുക.",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 ഉൽപ്പന്നങ്ങൾ ചേർത്തിട്ടില്ല",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "എനിക്ക് പൂർത്തിയാക്കേണ്ട ഉൽപ്പന്നങ്ങൾ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "എല്ലാ അപൂർണ്ണ ഉൽപ്പന്നങ്ങളും",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "നിങ്ങൾക്ക് പൂർത്തിയാക്കാൻ സഹായിക്കാനാകുന്ന ഉൽപ്പന്നങ്ങൾ",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "നിങ്ങളുടെ രാജ്യത്തെ ന്യൂട്രി-സ്കോറും ഗ്രീൻ-സ്കോറും കണക്കാക്കാൻ സഹായിക്കുക.",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ഞാൻ സംഭാവന ചെയ്ത വിലകൾ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "വില ടാഗുകളും രസീതുകളും",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "നിങ്ങളുടെ രസീതുകളുടെ ഫോട്ടോകൾ എടുത്ത് അനുബന്ധ ബാർകോഡുകൾ സ്കാൻ ചെയ്യുക",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ഒരു കടയിലെ വിലകളുടെ ഫോട്ടോകൾ എടുക്കുക",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "ഏറ്റവും പുതിയ വിലകൾ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ഏറ്റവും കൂടുതൽ വില ലഭിക്കുന്ന സംഭാവകർ",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "ഓപ്പൺ പ്രൈസ് മെട്രിക്‌സ്",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "പദ്ധതിയുടെ പരിണാമം പിന്തുടരുക",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "സംഭാവന ചെയ്യാനുള്ള വഴികൾ",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI യുടെ സഹായത്തോടെ, നിങ്ങളോ മറ്റുള്ളവരോ ചേർത്ത വിലകൾ സ്ഥിരീകരിക്കുക.",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "നിങ്ങളുടെ ക്യാമറ റോളിൽ നിന്ന് നിരവധി രസീതുകളോ ഷെൽഫുകളുടെ ഫോട്ടോകളോ വേഗത്തിൽ ചേർക്കുക.",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "പ്രതിമാസ വെല്ലുവിളികൾ",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "വിലകൾ ശേഖരിക്കുന്നതിന് പ്രതിമാസ തീമാറ്റിക് ക്വസ്റ്റുകളിൽ പങ്കെടുക്കുക",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "നിങ്ങളുടെ ലോയൽറ്റി ഡാറ്റ വീണ്ടെടുക്കുക",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "നിങ്ങളുടെ ഡാറ്റ എങ്ങനെ അഭ്യർത്ഥിക്കാമെന്ന് അറിയുക",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "ആപ്പ് ഇഷ്ടാനുസൃതമാക്കുക",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "പദ്ധതിയിലേക്ക് സംഭാവന ചെയ്യുക",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "പ്രോജക്റ്റിനെക്കുറിച്ചുള്ള രീതികൾ, സഹായം, മറ്റു കാര്യങ്ങൾ എന്നിവ സ്കോർ ചെയ്യുക.",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "നിർദ്ദേശം സ്വീകരിക്കുക",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "ആധികാരികത ഉറപ്പാക്കൽ പരാജയപ്പെട്ടു, തെളിവുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല.",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "മാറ്റങ്ങൾ പ്രയോഗിക്കാൻ ആപ്പ് പുനരാരംഭിക്കുക.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "ഗ്രാഫിക്കൽ ഇന്റർഫേസ്",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "മീഡിയ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ലാബുകൾ",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "ഓപ്പൺ ഫുഡ് വസ്തുതകൾ നിങ്ങളുടെ ഭാഷയിലേക്ക് കൊണ്ടുവരിക",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ആപ്പിന്റെ ആൽഫാ പതിപ്പിൽ എൻറോൾ ചെയ്യുക",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "സംഭാവനകളും ഉൽപ്പന്ന ഡാറ്റയും",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "ഫോക്സോണമി കാണിക്കരുത്",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

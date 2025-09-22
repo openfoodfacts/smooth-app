@@ -4299,10 +4299,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
-  String get guide_nova_title => 'Ultra-processed foods';
+  String get guide_nova_title =>
+      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
   String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
@@ -4334,21 +4335,22 @@ class AppLocalizationsZh extends AppLocalizations {
       'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => '加工的烹飪用食品';
 
   @override
   String get guide_nova_groups_arg2_text =>
       'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => '第三類： 加工食品';
 
   @override
   String get guide_nova_groups_arg3_text =>
       'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+  String get guide_nova_groups_arg4_title =>
+      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
   String get guide_nova_groups_arg4_text =>
@@ -4872,10 +4874,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_edit_robotoff_proof => '證明';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => '一般';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => '價格';
 
   @override
   String get preferences_prices_subtitle => 'Manage your prices preferences';
@@ -4884,7 +4886,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_card_project => 'The Open Food Facts project';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => '貢獻';
 
   @override
   String get preferences_contribute_subtitle => 'Translate, improve our tools…';
@@ -4897,7 +4899,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Reach out, or Follow us on social media';
 
   @override
-  String get preferences_support_title => 'Make a donation';
+  String get preferences_support_title => '捐款';
 
   @override
   String get preferences_support_subtitle =>
@@ -4907,7 +4909,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_card_help => 'Help & Support';
 
   @override
-  String get preferences_faq_title => 'FAQ';
+  String get preferences_faq_title => '常見問題';
 
   @override
   String get preferences_faq_subtitle => 'Get answers to your questions';
@@ -4946,10 +4948,10 @@ class AppLocalizationsZh extends AppLocalizations {
       'Accessibility: Remove colors';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => '产品';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => '關於';
 
   @override
   String get preferences_legal_information_title => 'Legal information';
@@ -4959,7 +4961,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Terms of use, privacy policy, and more';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => '使用条款';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -4978,7 +4980,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Technical information, developer information, and more';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => '資訊';
 
   @override
   String get preferences_version_number_title => 'Version number';
@@ -5029,7 +5031,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'All your contributions will be lost';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => '貢獻';
 
   @override
   String get preferences_dev_mode_app_settings_title => 'App settings';
@@ -5096,7 +5098,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Discover the main changes to the methodology';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => '探索項目';
 
   @override
   String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
@@ -5108,7 +5110,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => '資訊';
 
   @override
   String get preferences_connect_community_updates_title =>
@@ -5179,7 +5181,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Get in touch to get started';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => '傳媒';
 
   @override
   String get preferences_connect_press_page_subtitle =>
@@ -5400,7 +5402,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => '账户';
 
   @override
   String get preferences_contribute_translate_header =>
@@ -5419,5 +5421,5 @@ class AppLocalizationsZh extends AppLocalizations {
       'Do not show Folksonomy';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => '账户';
 }

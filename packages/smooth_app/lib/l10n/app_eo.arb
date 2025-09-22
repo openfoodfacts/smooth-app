@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Aliru eksperimentajn funkciojn kaj evoluigajn ilojn",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Verda-Poentaro A",
+  "environmental_score_b_new": "Verda-Poentaro B",
+  "environmental_score_c_new": "Verda-Poentaro C",
+  "environmental_score_d_new": "Verda-Poentaro D",
+  "environmental_score_e_new": "Verda-Poentaro E",
+  "environmental_score_unknown_new": "Nekonata Verda-Poentaro",
+  "environmental_score_not_applicable_new": "Verda-Poentaro ne aplikeblas",
+  "nova_group_generic_new": "Ultra-prilaboritaj manĝaĵoj - NOVA-grupoj",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Ĉiuj civitanoj povas helpi nin kolekti kaj strukturi la informojn, kiuj troviĝas sur produktoj aŭ kiujn oni povas dedukti el ili, kiel ekzemple informojn pri pakaĵoj: Misio Emballages: grandskala kunlabora inventaro de pakaĵoj por ĉiuj nutraĵaj produktoj (en la franca)",
   "guide_greenscore_transparency_arg2_title": "Kiel fabrikantoj povas helpi",
   "guide_greenscore_transparency_arg2_text": "Fabrikistoj povas sendi al ni siajn informojn rekte per nia senpaga platformo por produktantoj.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Kiu produkto estas pli bona por la planedo?",
+  "guide_greenscore_better_product_arg1_title": "Povas esti malfacile diri",
+  "guide_greenscore_better_product_arg1_text": "Elekti daŭripovan manĝaĵon estas unu el la plej potencaj aferoj, kiujn ni povas fari por la klimato, ĉar **nia tutmonda nutraĵsistemo respondecas pri pli ol kvarono de ĉiuj forcejgasaj emisioj**.\n(Fonto: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Vi havas la potencon!",
+  "guide_greenscore_better_product_arg2_text": "La bona novaĵo estas, ke ĉi tio donas al ni potencan manieron krei ŝanĝon.\n**Ĉiu el ni manĝas ĉirkaŭ 1000 manĝojn ĉiujare**. Tio estas 1000 ŝancoj **elekti pli bonan estontecon por la planedo**!",
+  "guide_greenscore_better_product_arg3_title": "Helpas esti respondeca kaj decidi",
+  "guide_greenscore_better_product_arg3_text": "Elekti daŭripovan manĝaĵon povas ŝajni komplika. Etikedoj estas konfuzaj kaj informoj ofte mankas. La Verda Poentaro estis kreita por simpligi ĝin, donante al vi **klaran**, **scienc-bazitan** kaj **travideblan** median rangigon por manĝaĵoj, ĝuste kie vi bezonas ĝin: dum vi aĉetas.",
+  "guide_greenscore_better_product_arg4_title": "Travidebleco",
+  "guide_greenscore_better_product_arg4_text": "Male al proprietaj etikedoj, la kalkulo de Green-Score estas **tute malferma** kaj povas esti **kontrolita de iu ajn**.",
+  "guide_greenscore_share_link": "https://eopenfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Kio estas ultra-prilaborado?",
+  "guide_nova_what_is_nova_paragraph1": "La NOVA-grupoj informas vin pri la nivelo de nutraĵprilaborado.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "La klasifiko NOVA permesas la kategoriigon de nutraĵoj en **4 grupojn** bazitajn sur ilia **grado de industria prilaborado** (minimume prilaboritaj aŭ neprilaboritaj nutraĵoj, kuirartaj ingrediencoj, prilaboritaj nutraĵoj, ultra-prilaboritaj nutraĵoj).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "La NOVA-emblemoj",
+  "guide_nova_groups_title": "La 4 NOVA-grupoj",
+  "guide_nova_groups_intro": "Ekzistas 4 NOVA-grupoj, la problema estas Grupo 4 - Ultra-prilaboritaj manĝaĵoj.",
+  "guide_nova_groups_arg1_title": "Minimume prilaboritaj aŭ neprilaboritaj manĝaĵoj",
+  "guide_nova_groups_arg1_text": "Neprilaboritaj (aŭ naturaj) manĝaĵoj estas la manĝeblaj partoj de plantoj (semoj, fruktoj, folioj, tigoj, radikoj) aŭ bestoj (muskoloj, buĉruboj, ovoj, lakto), same kiel fungoj, algoj kaj akvo, post apartigo de la naturo.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Prilaboritaj kuirartaj ingrediencoj, kiel ekzemple oleoj, butero, sukero kaj salo, estas substancoj derivitaj de Grupo 1 manĝaĵoj aŭ de la naturo per procezoj kiuj inkluzivas premadon, rafinadon, mueladon, mueladon kaj sekigadon.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Pretigitaj manĝaĵoj, kiel ekzemple botelitaj legomoj, konservitaj fiŝoj, fruktoj en siropo, fromaĝoj kaj freŝe faritaj panoj, estas ĉefe faritaj per aldono de salo, oleo, sukero aŭ aliaj substancoj el Grupo 2 al manĝaĵoj de Grupo 1. Procezoj inkluzivas diversajn konservadajn aŭ kuiradajn metodojn, kaj en la kazo de panoj kaj fromaĝo, senalkoholan fermentadon. Plej multaj pretigitaj manĝaĵoj havas du aŭ tri ingrediencojn kaj estas rekoneblaj kiel modifitaj versioj de manĝaĵoj de Grupo 1. Ili povas esti manĝataj solaj aŭ, pli ofte, kombine kun aliaj manĝaĵoj.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ultra-prilaboritaj manĝaĵoj, kiel ekzemple nealkoholaĵoj, dolĉaj aŭ bongustaj pakitaj manĝetoj, rekonstruitaj viandproduktoj kaj antaŭpreparitaj frostaj pladoj, ne estas nur modifitaj manĝaĵoj, sed formuloj faritaj plejparte aŭ tute el substancoj derivitaj de manĝaĵoj kaj aldonaĵoj, kun malmulte aŭ neniu sendifekta Grupo 1 manĝaĵo. Ingrediencoj en ĉi tiuj formuloj kutime inkluzivas tiujn ankaŭ troveblajn en prilaboritaj manĝaĵoj, kiel ekzemple sukeroj, oleoj, grasoj aŭ salo. Tamen, ultra-prilaboritaj produktoj ankaŭ enhavas aliajn fontojn de energio kaj nutraĵoj ne tipe uzataj en kuirartaj preparoj. Kelkaj el ĉi tiuj estas rekte ekstraktitaj el manĝaĵoj, kiel ekzemple kazeino, laktozo, selakto kaj gluteno.",
+  "guide_nova_explanations_title": "La problemoj kun ultra-prilaborado",
+  "guide_nova_explanations_arg1_title": "Ekstrema prilaborado de manĝaĵingrediencoj",
+  "guide_nova_explanations_arg1_text": "Multaj devenas de plia prilaborado de manĝeroj, kiel ekzemple hidrogenigitaj aŭ interesterigitaj oleoj, hidroligitaj proteinoj, sojproteina izolitaĵo, maltodekstrino, inversa sukero kaj maiza siropo kun alta fruktozo.",
+  "guide_nova_explanations_arg2_title": "Aldonaĵoj kiuj iras preter pura manĝaĵsekureco",
+  "guide_nova_explanations_arg2_text": "Aldonaĵoj en ultra-prilaboritaj manĝaĵoj inkluzivas kelkajn, kiuj ankaŭ estas uzataj en prilaboritaj manĝaĵoj, kiel ekzemple konserviloj, antioksidantoj kaj stabiligiloj. Klasoj de aldonaĵoj troveblaj nur en ultra-prilaboritaj produktoj inkluzivas tiujn uzatajn por imiti aŭ plibonigi la sensajn kvalitojn de manĝaĵoj aŭ por kaŝi nemanĝeblajn aspektojn de la fina produkto. Ĉi tiuj aldonaĵoj inkluzivas tinkturfarbojn kaj aliajn kolorojn, kolorstabiligilojn; gustojn, gustoplibonigilojn, ne-sukerajn dolĉigilojn; kaj prilaborajn helpaĵojn kiel ekzemple karbonigiloj, firmigiloj, volumigiloj kaj kontraŭ-volumigiloj, senŝaŭmigaj, kontraŭkunpremiĝaj kaj glazuraj agentoj, emulsiigiloj, sekvestrantoj kaj humidigiloj.",
+  "guide_nova_explanations_arg3_title": "Prilaborado, kiun vi ne povas fari hejme",
+  "guide_nova_explanations_arg3_text": "Amaso da sekvencoj de procezoj estas uzataj por kombini la kutime multajn ingrediencojn kaj krei la finan produkton (tial \"ultra-prilaborita\"). La procezoj inkluzivas plurajn sen hejmaj ekvivalentoj, kiel ekzemple hidratigo kaj hidrolizo, eltrudado kaj muldado, kaj antaŭprilaborado por fritado.",
+  "guide_nova_explanations_arg4_title": "La rabaj kaj financaj aspektoj de ultra-prilaborado",
+  "guide_nova_explanations_arg4_text": "La ĝenerala celo de ultra-prilaborado estas krei markitajn, oportunajn (daŭremajn, pretajn por konsumo), allogajn (hiper-bongustajn) kaj tre profitodonajn (malaltkostajn ingrediencojn) manĝaĵojn, desegnitajn por anstataŭigi ĉiujn aliajn nutraĵgrupojn. Ultra-prilaboritaj manĝaĵoj kutime estas alloge pakitaj kaj intense surmerkatigitaj.",
+  "guide_nova_share_link": "https://eopenfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Administru viajn preferojn pri prezoj",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "La projekto Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Kontribui",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Traduku, plibonigu niajn ilojn…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Konekti",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kontaktu nin, aŭ sekvu nin en sociaj retoj",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Helpu nin informi milionojn da konsumantoj tra la mondo",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Helpo kaj Subteno",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Ricevu respondojn al viaj demandoj",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Elsalutita",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Dankon pro esti unu el niaj membroj!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Vidu ĉiujn statistikojn",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Serĉu {provider} por \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Serĉu agordon (ekz. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Alirebleco: Montri emoji-ojn",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Alirebleco: Forigi kolorojn",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produktoj",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Pri la projekto",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Laŭleĝaj informoj",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Kondiĉoj de uzo, privateca politiko, kaj pli",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licencoj",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Pri la aplikaĵo",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Teknikaj informoj, informoj pri programistoj, kaj pli",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versionumero",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skanilo",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Aplikaĵvendejo",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistemo-agordoj",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Aliru la fontkodon",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Kaj komencu fari impreson por milionoj",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Kompletigu produktojn",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Konsiloj",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Malkovru la novan Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "En la retejo Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Administri mian konton",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Ŝanĝi mian pasvorton",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Danĝera zono",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Ĉiuj viaj kontribuoj perdiĝos",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Aplikaĵaj agordoj",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Tre eksperimenta maniero skani produktojn senkonekte",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Refreŝigi ĉiujn produktojn de la servilo",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Bonvolu eviti fari tion krom se absolute necese",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demonstraĵa reĝimo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Aldoni kartojn al skanilo",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Aldonas 3 specimenajn produktojn al la skanilo",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomia gastiganto",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Alireblecaj eksperimentoj",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Multprodukta elekto laŭ prezoj",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Uzanto-ordigitaj scio-paneloj",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Provizora aliro al lokserĉo",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Flanka komparo por 2 aŭ 3 produktoj",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Importado de produkta listo",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Poentaroj kaj metodologioj",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Malkovru kiel la Nutri-Poentaro estas kalkulata",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Malkovru la ĉefajn ŝanĝojn al la metodaro",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Esploru la projekton",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Malkovru Malfermajn Manĝaĵojn Faktojn",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Oftaj Demandoj - Oftaj Demandoj",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "La Malferma Manĝaĵa Faktoj NRO",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Ricevu komunumajn ĝisdatigojn",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Restu informita pri aplikaĵaj kaj komunumaj novaĵoj",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Partoprenu ĉeestante unu el niaj virtualaj eventoj",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Sekvu nin en sociaj retoj",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "La blogo Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Ricevu la plej novajn novaĵojn, tuj kiam ili okazas",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Ricevu helpon de la komunumo",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Helpu nin plibonigi la aplikaĵon",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Sendu al ni sencimigajn informojn",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Sendu al ni retpoŝton kun detalaj informoj pri sencimigo",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Sendu al ni rimarkojn pri la aplikaĵo",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Helpu formi la estontecon de la aplikaĵo",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Partoprenu la aplikaĵan enketon",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Helpu nin kompreni, kion ni devus konstrui poste",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesiuloj",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Tute senpaga, certigas precizajn datumojn por 500 aplikaĵoj kaj milionoj da konsumantoj. Memserva, kongrua kun via PIM aŭ kalkultabeloj (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kontaktu nin por komenci",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Akiru ĉiun materialon, kiun vi bezonas por via raporto",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kontaktu nin por gazetaraj demandoj aŭ por informi nin pri via raporto",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Fariĝu aktiva volontulo",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Disvolviĝo, Komunikado, Dezajno… ĉia ajn volontulado aŭ faka scio estas bonvena!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Malkovru kelkajn el la multaj manieroj, kiel vi povas kontribui",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Disvolviĝo de poŝtelefonaj aplikaĵoj",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Lernu kiel kontribui al programara disvolviĝo",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Ĉiutagaj malstabilaj konstruoj, tute novaj funkcioj",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kreskigu vian lokan komunumon",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Helpo pri programaro, enhavo, tradukoj de ingredienca analizo",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Ni pretigis malgrandan ŝablonon por helpi vin :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Simplaj paŝoj por kreskigi manĝaĵan travideblecon en via lando",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Aliĝu al la teamo pri datenkvalito",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Aliĝu al nia klopodo por certigi, ke la datumbazo estas kompleta kaj preciza",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 produktoj aldonitaj",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Novaj produktoj, kiujn mi aldonis al Malfermaj Manĝaĵaj Faktoj",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produktoj, kiujn mi bezonas kompletigi",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Ĉiuj nekompletaj produktoj",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produktoj, kiujn vi povas helpi kompletigi",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Helpu kalkuli la Nutri-Score kaj Green-Score en via lando",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prezoj, kiujn mi kontribuis",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Prezetikedoj kaj kvitancoj",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Fotu viajn kvitancoj kaj skanu rilatajn strekkodojn",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Fotu prezojn en vendejo",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Plej novaj prezoj",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Plej novaj prezoj aldonitaj de la komunumo Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Kontribuantoj kun la plej multaj prezoj",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Malfermaj Prezaj metrikoj",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sekvu la evoluon de la projekto",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Manieroj kontribui",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Konfirmu prezojn aldonitajn de vi mem aŭ de aliaj, per la helpo de artefarita inteligenteco",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Rapide aldonu multajn kvitancojn aŭ fotojn de bretoj el via fotilrulaĵo",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Ĉiumonataj defioj",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Partoprenu en ĉiumonataj temaj misioj por kolekti prezojn",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Reprenu viajn lojalecajn datumojn",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Lernu kiel peti viajn datumojn",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Personigu la aplikaĵon",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Kontribuu al la projekto",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Simplaj manieroj helpi Malfermi Manĝaĵajn Faktojn",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Poentaraj metodologioj, helpo, kaj pli pri la projekto",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Akcepti sugeston",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Aŭtentigo malsukcesis, ne eblis akiri pruvojn",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Bonvolu rekomenci la aplikaĵon por apliki la ŝanĝojn.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafika interfaco",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Amaskomunikiloj",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Malfermaj Laboratorioj pri Manĝaĵaj Faktoj",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Alportu Malfermajn Manĝaĵajn Informojn al via lingvo",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Registriĝu en la alfa-versio de la aplikaĵo",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Kontribuoj kaj Produktaj Datumoj",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ne montru folksonomion",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

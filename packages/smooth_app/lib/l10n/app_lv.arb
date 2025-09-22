@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produkta nosaukums jāpabeidz",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Piekļūstiet eksperimentālām funkcijām un izstrādes rīkiem",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Dati",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Zaļais vērtējums A",
+  "environmental_score_b_new": "Zaļais vērtējums B",
+  "environmental_score_c_new": "Zaļais vērtējums C",
+  "environmental_score_d_new": "Zaļais vērtējums D",
+  "environmental_score_e_new": "Zaļais rādītājs E",
+  "environmental_score_unknown_new": "Nezināms zaļais rādītājs",
+  "environmental_score_not_applicable_new": "Zaļais rādītājs nav piemērojams",
+  "nova_group_generic_new": "Ultraapstrādāti pārtikas produkti — NOVA grupas",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Visi iedzīvotāji var mums palīdzēt apkopot un strukturēt informāciju, kas atrodas uz produktiem vai ko var no tiem secināt, piemēram, informāciju uz iepakojuma: Mission Emballages: liela mēroga kopīga visu pārtikas produktu iepakojuma inventarizācija (franciski).",
   "guide_greenscore_transparency_arg2_title": "Kā ražotāji var palīdzēt",
   "guide_greenscore_transparency_arg2_text": "Ražotāji var nosūtīt mums savu informāciju tieši, izmantojot mūsu bezmaksas platformu ražotājiem.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Kurš produkts ir labāks planētai?",
+  "guide_greenscore_better_product_arg1_title": "To var būt grūti pateikt",
+  "guide_greenscore_better_product_arg1_text": "Ilgtspējīgas pārtikas izvēle ir viena no spēcīgākajām lietām, ko varam darīt klimata labā, jo **mūsu globālā pārtikas sistēma ir atbildīga par vairāk nekā ceturto daļu no visām siltumnīcefekta gāzu emisijām**.\n(Avots: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Tev ir spēks!",
+  "guide_greenscore_better_product_arg2_text": "Labā ziņa ir tā, ka tas dod mums spēcīgu veidu, kā radīt pārmaiņas.\n**Katrs no mums katru gadu apēd aptuveni 1000 ēdienreizes**. Tās ir 1000 iespējas **izvēlēties labāku nākotni planētai**!",
+  "guide_greenscore_better_product_arg3_title": "Palīdz būt atbildīgam un pieņemt lēmumus",
+  "guide_greenscore_better_product_arg3_text": "Ilgtspējīgas pārtikas izvēle var šķist sarežģīta. Etiķetes ir mulsinošas, un bieži vien trūkst informācijas. Green-Score sistēma tika izveidota, lai vienkāršotu šo procesu, sniedzot jums **skaidru**, **zinātniski pamatotu** un **caurspīdīgu** pārtikas produktu vides novērtējumu tieši tur, kur jums tas nepieciešams: iepirkšanās laikā.",
+  "guide_greenscore_better_product_arg4_title": "Caurspīdīgums",
+  "guide_greenscore_better_product_arg4_text": "Atšķirībā no patentētām etiķetēm, Green-Score aprēķins ir **pilnīgi atvērts** un to var **pārbaudīt jebkurš**.",
+  "guide_greenscore_share_link": "https://lv.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Kas ir ultraapstrāde?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA grupas informē jūs par pārtikas pārstrādes līmeni.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA klasifikācija ļauj iedalīt pārtikas produktus **4 grupās**, pamatojoties uz to **rūpnieciskās apstrādes pakāpi** (minimāli apstrādāti vai neapstrādāti pārtikas produkti, kulinārijas sastāvdaļas, pārstrādāti pārtikas produkti, īpaši pārstrādāti pārtikas produkti).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA logotipi",
+  "guide_nova_groups_title": "4 NOVA grupas",
+  "guide_nova_groups_intro": "Ir 4 NOVA grupas, no kurām problemātiskākā ir 4. grupa — īpaši pārstrādāti pārtikas produkti.",
+  "guide_nova_groups_arg1_title": "Minimāli apstrādāti vai neapstrādāti pārtikas produkti",
+  "guide_nova_groups_arg1_text": "Neapstrādāti (jeb dabīgi) pārtikas produkti ir ēdamas augu (sēklas, augļi, lapas, stublāji, saknes) vai dzīvnieku (muskuļi, subprodukti, olas, piens), kā arī sēnīšu, aļģu un ūdens daļas pēc atdalīšanas no dabas.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Pārstrādātas kulinārijas sastāvdaļas, piemēram, eļļas, sviests, cukurs un sāls, ir vielas, kas iegūtas no 1. grupas pārtikas produktiem vai no dabas, izmantojot procesus, kas ietver presēšanu, rafinēšanu, malšanu, malšanu un žāvēšanu.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Pārstrādāti pārtikas produkti, piemēram, dārzeņi pudelēs, zivju konservi, augļi sīrupā, sieri un svaigi cepta maize, galvenokārt tiek gatavoti, pievienojot sāli, eļļu, cukuru vai citas vielas no 2. grupas līdz 1. grupai. Procesi ietver dažādas konservēšanas vai gatavošanas metodes, un maizes un siera gadījumā - bezalkoholisko fermentāciju. Lielākajai daļai pārstrādātu pārtikas produktu ir divas vai trīs sastāvdaļas, un tos var atpazīt kā 1. grupas pārtikas produktu modificētas versijas. Tos var ēst atsevišķi vai, biežāk, kombinācijā ar citiem pārtikas produktiem.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Īpaši pārstrādāti pārtikas produkti, piemēram, bezalkoholiskie dzērieni, saldas vai sāļas iepakotas uzkodas, atjaunoti gaļas produkti un iepriekš sagatavoti saldēti ēdieni, nav tikai modificēti pārtikas produkti, bet gan preparāti, kas galvenokārt vai pilnībā izgatavoti no vielām, kas iegūtas no pārtikas produktiem un piedevām, un kuros ir maz vai nav neskartu 1. grupas pārtikas produktu. Šo preparātu sastāvdaļas parasti ietver tās, kas atrodamas arī pārstrādātos pārtikas produktos, piemēram, cukurus, eļļas, taukus vai sāli. Tomēr īpaši pārstrādāti produkti satur arī citus enerģijas avotus un uzturvielas, ko parasti neizmanto kulinārijas izstrādājumos. Daži no tiem ir tieši iegūti no pārtikas produktiem, piemēram, kazeīns, laktoze, sūkalas un glutēns.",
+  "guide_nova_explanations_title": "Problēmas ar ultraapstrādi",
+  "guide_nova_explanations_arg1_title": "Pārtikas sastāvdaļu ekstremāla apstrāde",
+  "guide_nova_explanations_arg1_text": "Daudzi no tiem ir iegūti, tālāk apstrādājot pārtikas sastāvdaļas, piemēram, hidrogenētas vai interesterificētas eļļas, hidrolizēti proteīni, sojas proteīna izolāts, maltodekstrīns, invertcukurs un augsta fruktozes kukurūzas sīrups.",
+  "guide_nova_explanations_arg2_title": "Piedevas, kas pārsniedz tikai pārtikas nekaitīguma prasības",
+  "guide_nova_explanations_arg2_text": "Ultraapstrādātu pārtikas produktu piedevas ietver dažas no tām, ko izmanto arī pārstrādātos pārtikas produktos, piemēram, konservantus, antioksidantus un stabilizatorus. Piedevu klases, kas atrodamas tikai ultraapstrādātos produktos, ietver tās, ko izmanto, lai atdarinātu vai uzlabotu pārtikas produktu sensorās īpašības vai maskētu galaprodukta nepatīkamās īpašības. Šīs piedevas ietver krāsvielas un citas krāsvielas, krāsu stabilizatorus; aromatizētājus, garšas pastiprinātājus, bezcukura saldinātājus; un pārstrādes palīglīdzekļus, piemēram, karbonizācijas, stingrības, apjoma un apjoma samazināšanas vielas, putu novēršanas, pretsalipes un glazūras vielas, emulgatorus, sekvestrantus un mitrinātājus.",
+  "guide_nova_explanations_arg3_title": "Apstrāde, ko nevar veikt mājās",
+  "guide_nova_explanations_arg3_text": "Lai apvienotu parasti daudzās sastāvdaļas un izveidotu galaproduktu (tādēļ “ultra apstrādātu”), tiek izmantota virkne procesu. Šie procesi ietver vairākus, kuriem nav līdzinieku vietējā tirgū, piemēram, hidrogenēšana un hidrolīze, ekstrūzija un formēšana, kā arī pirmapstrāde cepšanai.",
+  "guide_nova_explanations_arg4_title": "Ultraapstrādes plēsonīgie un finansiālie aspekti",
+  "guide_nova_explanations_arg4_text": "Ultraapstrādes vispārējais mērķis ir radīt firmas zīmola, ērtus (izturīgus, gatavus patēriņam), pievilcīgus (ļoti garšīgus) un ļoti ienesīgus (ar zemām sastāvdaļām) pārtikas produktus, kas paredzēti, lai aizstātu visas pārējās pārtikas grupas. Ultraapstrādāti pārtikas produkti parasti tiek pievilcīgi iepakoti un intensīvi tirgoti.",
+  "guide_nova_share_link": "https://lv.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Vispārīgs",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Pārvaldiet savas cenu preferences",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Atvērto pārtikas faktu projekts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Veicināt / atbalstīt",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tulkojiet, uzlabojiet mūsu rīkus…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Savienojuma izveide",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Sazinieties ar mums vai sekojiet mums sociālajos tīklos",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Palīdziet mums informēt miljoniem patērētāju visā pasaulē",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Palīdzība un atbalsts",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Saņemiet atbildes uz saviem jautājumiem",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Izrakstīts",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Paldies, ka esat viens no mūsu biedriem!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Skatīt visu statistiku",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Meklēt {provider} pēc \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Meklēt iestatījumu (piemēram, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Pieejamība: Rādīt emocijzīmes",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Pieejamība: Noņemt krāsas",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produkti",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Par",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Juridiskā informācija",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Lietošanas noteikumi, privātuma politika un citi noteikumi",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Izmantošanas noteikumi",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Tiesību pieminēšana",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licences",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Par lietotni",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Tehniskā informācija, informācija izstrādātājiem un cita informācija",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informācija",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versijas numurs",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skeneris",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Lietotņu veikals",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Sistēmas iestatījumi",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Piekļūstiet avota kodam",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Un sāciet ietekmēt miljoniem cilvēku",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Pastāsti pasaulei",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Padomi",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Atklājiet jauno Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Atvērto pārtikas faktu tīmekļa vietnē",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Pārvaldīt manu kontu",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Mainīt manu paroli",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Bīstamā zona",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Visi jūsu ieguldījumi tiks zaudēti",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Iemaksas",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Lietotnes iestatījumi",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Ļoti eksperimentāls veids, kā skenēt produktus bezsaistē",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Atsvaidzināt visus produktus no servera",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Lūdzu, izvairieties no tā, ja vien tas nav absolūti nepieciešams",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demonstrācijas režīms",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Pievienojiet kartes skenerim",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Pievieno skenerim 3 produktu paraugus",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy saimnieks",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Pieejamības eksperimenti",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Vairāku produktu izvēle pēc cenām",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Lietotāja sakārtoti zināšanu paneļi",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Pagaidu piekļuve atrašanās vietas meklēšanai",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 vai 3 produktu salīdzinājums blakus",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Produktu saraksta importēšana",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Rezultāti un metodoloģijas",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Uzziniet, kā tiek aprēķināts Nutri-Score rādītājs",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Atklājiet galvenās metodoloģijas izmaiņas",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Atklājiet projektu",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Atklājiet atklātos faktus par pārtiku",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "BUJ — bieži uzdotie jautājumi",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "NVO Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informācija",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Saņemiet kopienas atjauninājumus",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Esiet lietas kursā par lietotnes un kopienas jaunumiem",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Iesaistieties, apmeklējot kādu no mūsu virtuālajiem pasākumiem",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Sekojiet mums sociālajos tīklos",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Atvērto pārtikas faktu emuārs",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Saņemiet jaunākās ziņas, tiklīdz tās notiek",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Saņemiet palīdzību no kopienas",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Palīdziet mums uzlabot lietotni",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Nosūtiet mums atkļūdošanas informāciju",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Nosūtiet mums e-pastu ar detalizētu atkļūdošanas informāciju",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Sūtiet mums atsauksmes par lietotni",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Palīdziet veidot lietotnes nākotni",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Aizpildiet lietotnes aptauju",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Palīdziet mums saprast, ko mums vajadzētu būvēt tālāk",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionāļi",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Pilnīgi bez maksas, nodrošina precīzus datus 500 lietotnēm un miljoniem patērētāju. Pašapkalpošanās, saderīgs ar jūsu PIM vai izklājlapām (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Sazinieties ar mums, lai sāktu darbu",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Nospiediet",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Iegūstiet visus materiālus, kas nepieciešami jūsu ziņojumam",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Sazinieties ar mums, ja jums ir jautājumi presei vai vēlaties informēt mūs par savu ziņojumu",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Kļūsti par aktīvu brīvprātīgo",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Izstrāde, komunikācija, dizains… jebkāda veida brīvprātīgais darbs vai zināšanas ir laipni gaidītas!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Atklājiet dažus no daudzajiem veidiem, kā varat sniegt savu ieguldījumu",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobilo lietotņu izstrāde",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Uzziniet, kā dot savu ieguldījumu programmatūras izstrādē",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Ikdienas nestabilas versijas, pavisam jaunas funkcijas",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Attīstiet savu vietējo kopienu",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Palīdzība ar programmatūras, satura, sastāvdaļu analīzes tulkojumiem",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Esam sagatavojuši nelielu veidni, lai jums palīdzētu :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Vienkārši soļi, lai palielinātu pārtikas pārredzamību jūsu valstī",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Pievienojies datu kvalitātes komandai",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Pievienojieties mūsu centieniem nodrošināt datubāzes pilnīgumu un precizitāti",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "Pievienotas 0 preces",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Jauni produkti, ko pievienoju vietnei Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produkti, kas man jāpabeidz",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Visi nepabeigtie produkti",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produkti, kuru pabeigšanu varat palīdzēt",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Palīdziet aprēķināt Nutri-Score un Green-Score jūsu valstī",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Manas norādītās cenas",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Cenu zīmes un čeki",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Nofotografējiet savus čekus un noskenējiet saistītos svītrkodus",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Fotografējiet cenas veikalā",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Jaunākās cenas",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Jaunākās cenas, ko pievienojusi Open Prices kopiena",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Līdzstrādnieki ar visvairāk cenām",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Atvērt cenu metriku",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sekojiet līdzi projekta attīstībai",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Veidi, kā sniegt ieguldījumu",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Apstipriniet cenas, ko pievienojāt pats vai citi, izmantojot mākslīgo intelektu",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ātri pievienojiet daudzus čekus vai plauktu fotoattēlus no kameras saraksta",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Mēneša izaicinājumi",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Piedalieties ikmēneša tematiskajos uzdevumos, lai savāktu balvas",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Atgūt savus lojalitātes datus",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Uzziniet, kā pieprasīt savus datus",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Pielāgojiet lietotni",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Piedalīties projektā",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Vienkārši veidi, kā palīdzēt Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Vērtēšanas metodoloģijas, palīdzība un cita informācija par projektu",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Pieņemt ieteikumu",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikācija neizdevās, nevar izgūt pierādījumus",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Lūdzu, restartējiet lietotni, lai izmaiņas stātos spēkā.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafiskā saskarne",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Mediji",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Izstrāde",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Atvērtās pārtikas faktu laboratorijas",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Atvērtie pārtikas fakti jūsu valodā",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Reģistrējieties lietotnes alfa versijai",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Ieguldījumi un produktu dati",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Nerādīt folksonomu",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

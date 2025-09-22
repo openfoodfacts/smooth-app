@@ -2358,7 +2358,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Mynediad i nodweddion arbrofol ac offer datblygu';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3979,29 +3979,30 @@ class AppLocalizationsCy extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Sgôr Gwyrdd A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Sgôr Gwyrdd B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Sgôr Gwyrdd C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Sgôr Gwyrdd D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Sgôr Gwyrdd E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Sgôr Gwyrdd Anhysbys';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Nid yw Sgôr Gwyrdd yn berthnasol';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Bwydydd wedi\'u prosesu\'n uwch - grwpiau NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4364,134 +4365,133 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Pa gynnyrch sy\'n well i\'r blaned?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Gall fod yn anodd dweud';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Mae dewis bwyd cynaliadwy yn un o\'r pethau mwyaf pwerus y gallwn ei wneud dros yr hinsawdd, gan fod **ein system fwyd fyd-eang yn gyfrifol am dros chwarter o\'r holl allyriadau nwyon tŷ gwydr**.\n(Ffynhonnell: Poore a Nemecek, Science, 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'Mae gennych chi\'r pŵer!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Y newyddion da yw bod hyn yn rhoi ffordd bwerus inni greu newid.\n**Mae pob un ohonom yn bwyta tua 1,000 o brydau bob blwyddyn**. Dyna 1,000 o gyfleoedd i **ddewis dyfodol gwell i\'r blaned**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Yn helpu i fod yn gyfrifol a phenderfynu';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Gall dewis bwyd cynaliadwy deimlo\'n gymhleth. Mae labeli\'n ddryslyd ac mae gwybodaeth yn aml ar goll. Crëwyd y Sgôr Werdd i\'w gwneud yn syml, gan roi sgôr amgylcheddol **glir**, **seiliedig ar wyddoniaeth**, a **thryloyw** i chi ar gyfer cynhyrchion bwyd, yn union lle mae ei angen arnoch: wrth i chi siopa.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Tryloywder';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Yn wahanol i labeli perchnogol, mae cyfrifiad y Sgôr Werdd yn **hollol agored** a gellir ei **wirio gan unrhyw un**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://cy.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Beth yw uwch-brosesu?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Mae grwpiau NOVA yn rhoi gwybod i chi am lefel prosesu bwyd.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Mae dosbarthiad NOVA yn caniatáu categoreiddio bwydydd yn **4 grŵp** yn seiliedig ar eu **gradd o brosesu diwydiannol** (bwydydd sydd wedi\'u prosesu\'n lleiaf neu heb eu prosesu, cynhwysion coginio, bwydydd wedi\'u prosesu, bwydydd sydd wedi\'u prosesu\'n ormodol).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Logos NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Y 4 grŵp NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Mae 4 grŵp NOVA, a\'r un problemus yw Grŵp 4 - Bwydydd wedi\'u prosesu\'n ormodol.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Bwydydd sydd wedi\'u prosesu\'n lleiaf neu heb eu prosesu';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Bwydydd heb eu prosesu (neu naturiol) yw rhannau bwytadwy o blanhigion (hadau, ffrwythau, dail, coesynnau, gwreiddiau) neu anifeiliaid (cyhyrau, offal, wyau, llaeth), yn ogystal â ffyngau, algâu a dŵr, ar ôl cael eu gwahanu oddi wrth natur.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Mae cynhwysion coginio wedi\'u prosesu, fel olewau, menyn, siwgr a halen, yn sylweddau sy\'n deillio o fwydydd Grŵp 1 neu o natur trwy brosesau sy\'n cynnwys gwasgu, mireinio, malu, melino a sychu.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Mae bwydydd wedi\'u prosesu, fel llysiau mewn poteli, pysgod tun, ffrwythau mewn surop, cawsiau, a bara ffres, yn cael eu gwneud yn bennaf trwy ychwanegu halen, olew, siwgr, neu sylweddau eraill o fwydydd Grŵp 2 i fwydydd Grŵp 1. Mae prosesau\'n cynnwys amrywiol ddulliau cadw neu goginio, ac yn achos bara a chaws, eplesu di-alcohol. Mae gan y rhan fwyaf o fwydydd wedi\'u prosesu ddau neu dri chynhwysyn ac maent yn adnabyddadwy fel fersiynau wedi\'u haddasu o fwydydd Grŵp 1. Gellir eu bwyta ar eu pen eu hunain neu, yn fwy cyffredin, mewn cyfuniad â bwydydd eraill.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Nid bwydydd wedi\'u prosesu\'n ormodol, fel diodydd meddal, byrbrydau melys neu sawrus wedi\'u pecynnu, cynhyrchion cig wedi\'u hailgyfansoddi, a seigiau wedi\'u rhewi wedi\'u paratoi ymlaen llaw, yn fwydydd wedi\'u haddasu yn unig ond yn fformwleiddiadau a wneir yn bennaf neu\'n gyfan gwbl o sylweddau sy\'n deillio o fwydydd ac ychwanegion, gyda fawr ddim bwyd Grŵp 1 cyfan. Mae cynhwysion yn y fformwleiddiadau hyn fel arfer yn cynnwys y rhai a geir hefyd mewn bwydydd wedi\'u prosesu, fel siwgrau, olewau, brasterau neu halen. Fodd bynnag, mae cynhyrchion wedi\'u prosesu\'n ormodol hefyd yn cynnwys ffynonellau eraill o ynni a maetholion nad ydynt fel arfer yn cael eu defnyddio mewn paratoadau coginio. Mae rhai o\'r rhain yn cael eu tynnu\'n uniongyrchol o fwydydd, fel casein, lactos, maidd a glwten.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Y problemau gyda phrosesu uwch';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Prosesu eithafol o gynhwysion bwyd';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Mae llawer yn deillio o brosesu ymhellach o gydrannau bwyd, fel olewau hydrogenedig neu rhyng-esteriedig, proteinau wedi\'u hydrolyze, ynysu protein soi, maltodextrin, siwgr gwrthdro, a surop corn ffrwctos uchel.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Ychwanegion sy\'n mynd y tu hwnt i ddiogelwch bwyd pur';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Mae ychwanegion mewn bwydydd wedi\'u prosesu\'n ormodol yn cynnwys rhai a ddefnyddir hefyd mewn bwydydd wedi\'u prosesu, fel cadwolion, gwrthocsidyddion, a sefydlogwyr. Mae dosbarthiadau o ychwanegion a geir mewn cynhyrchion wedi\'u prosesu\'n ormodol yn unig yn cynnwys y rhai a ddefnyddir i efelychu neu wella rhinweddau synhwyraidd bwydydd neu i guddio agweddau annymunol y cynnyrch terfynol. Mae\'r ychwanegion hyn yn cynnwys llifynnau a lliwiau eraill, sefydlogwyr lliw; blasau, gwellawyr blas, melysyddion di-siwgr; a chymhorthion prosesu fel asiantau carboneiddio, cadarnhau, swmpio a gwrth-swmpio, asiantau dad-ewynnu, gwrth-geulo a gwydro, emwlsyddion, atafaelwyr, a lleithyddion.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Prosesu na allwch ei wneud gartref';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Defnyddir llu o ddilyniannau o brosesau i gyfuno\'r cynhwysion sydd fel arfer yn niferus ac i greu\'r cynnyrch terfynol (felly \'wedi\'i brosesu\'n uwch\'). Mae\'r prosesau\'n cynnwys sawl un heb unrhyw gyfwerth domestig, megis hydrogeniad a hydrolysiad, allwthio a mowldio, a rhagbrosesu ar gyfer ffrio.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Agweddau ysglyfaethus ac ariannol prosesu uwch-reolaidd';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i\'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi\'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi\'u prosesu\'n uwch-dechnolegol yn cael eu pecynnu\'n ddeniadol a\'u marchnata\'n ddwys.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://cy.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4979,46 +4979,46 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Rheoli eich dewisiadau prisiau';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Prosiect Ffeithiau Bwyd Agored';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => 'Cyfieithu, gwella ein hoffer…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Cysylltu';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Cysylltwch, neu dilynwch ni ar y cyfryngau cymdeithasol';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Helpwch ni i hysbysu miliynau o ddefnyddwyr ledled y byd';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Cymorth a Chefnogaeth';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Cael atebion i\'ch cwestiynau';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Wedi allgofnodi';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Diolch am fod yn un o\'n haelodau!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5027,24 +5027,23 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Gweld yr holl ystadegau';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Chwiliwch $provider am \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Chwiliwch am leoliad (e.e. Sgôr Maeth)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'Hygyrchedd: Dangos emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Hygyrchedd: Dileu lliwiau';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5053,11 +5052,11 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Gwybodaeth gyfreithiol';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Telerau defnyddio, polisi preifatrwydd, a mwy';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5069,36 +5068,36 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Trwyddedau';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Ynglŷn â\'r ap';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Gwybodaeth dechnegol, gwybodaeth am ddatblygwyr, a mwy';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Rhif fersiwn';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Sganiwr';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Siop apiau';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Gosodiadau system';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Mynediad i\'r cod ffynhonnell';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'A dechrau gwneud effaith ar filiynau';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5107,117 +5106,121 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Awgrymiadau';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Ar wefan Ffeithiau Bwyd Agored';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Rheoli fy nghyfrif';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Newid fy nghyfrinair';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Parth perygl';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Bydd eich holl gyfraniadau\'n cael eu colli';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Gosodiadau ap';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Ffordd arbrofol iawn o sganio cynhyrchion all-lein';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Adnewyddu pob cynnyrch o\'r gweinydd';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Osgowch wneud hynny oni bai bod hynny\'n gwbl angenrheidiol';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Modd demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Ychwanegu cardiau at y sganiwr';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Yn ychwanegu 3 chynnyrch sampl at y sganiwr';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Gwesteiwr Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Arbrofion hygyrchedd';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Dewis aml-gynhyrchion ar gyfer prisiau';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Paneli gwybodaeth a archebwyd gan ddefnyddwyr';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Mynediad dros dro i chwilio am leoliad';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Cymhariaeth ochr yn ochr ar gyfer 2 neu 3 chynnyrch';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Mewnforio rhestr cynnyrch';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Sgorau a methodolegau';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Darganfyddwch sut mae\'r Nutri-Score yn cael ei gyfrifo';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Darganfyddwch y prif newidiadau i\'r fethodoleg';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Darganfyddwch Ffeithiau Bwyd Agored';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'Cwestiynau Cyffredin - Cwestiynau Cyffredin';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Y NGO Ffeithiau Bwyd Agored';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Cael diweddariadau cymunedol';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Cadwch mewn cysylltiad â newyddion yr ap a\'r gymuned';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5225,217 +5228,219 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Cymerwch ran drwy fynychu un o\'n digwyddiadau rhithwir';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Dilynwch ni ar y cyfryngau cymdeithasol';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Ffeithiau Bwyd Agored';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Cael y newyddion diweddaraf, wrth iddyn nhw ddigwydd';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Cael cymorth gan y gymuned';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Helpwch ni i wella\'r ap';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Anfonwch wybodaeth dadfygio atom';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Anfonwch e-bost atom gyda gwybodaeth ddadfygio fanwl';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Anfonwch adborth atom am yr ap';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Helpu i lunio dyfodol yr ap';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Cymerwch yr arolwg ap';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Helpwch ni i ddeall beth ddylem ni ei adeiladu nesaf';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title =>
+      'Gweithwyr Proffesiynol';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Yn hollol rhad ac am ddim, yn sicrhau data cywir ar gyfer 500 o apiau a miliynau o ddefnyddwyr. Hunanwasanaeth, yn gydnaws â\'ch PIM neu daenlenni (XLSX)';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'Cysylltwch i ddechrau';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Cael yr holl ddeunydd sydd ei angen arnoch ar gyfer eich adroddiad';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Cysylltwch ag ymholiadau’r wasg neu i roi gwybod i ni am eich adroddiad';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Dewch yn wirfoddolwr gweithredol';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Datblygu, Cyfathrebu, Dylunio… mae croeso i unrhyw fath o wirfoddoli neu arbenigedd!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Darganfyddwch rai o\'r nifer o ffyrdd y gallwch gyfrannu';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Datblygu apiau symudol';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Dysgwch sut i gyfrannu at ddatblygu meddalwedd';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Adeiladau ansefydlog dyddiol, nodweddion newydd sbon';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Tyfwch eich cymuned leol';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Cymorth gyda meddalwedd, cynnwys, cyfieithiadau dadansoddi cynhwysion';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Rydyn ni wedi paratoi templed bach i\'ch helpu chi :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Camau syml i gynyddu tryloywder bwyd yn eich gwlad';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Ymunwch â\'r tîm ansawdd data';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Ymunwch â\'n hymdrech i sicrhau bod y gronfa ddata yn gyflawn ac yn gywir';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 cynnyrch wedi\'u hychwanegu';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Cynhyrchion newydd a ychwanegais at Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Cynhyrchion y mae angen i mi eu cwblhau';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Pob cynnyrch anghyflawn';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Cynhyrchion y gallwch chi helpu i\'w cwblhau';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Helpu i gyfrifo\'r Nutri-Score a\'r Green-Score yn eich gwlad';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'Prisiau a gyfrannais';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Tagiau pris a derbynebau';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Tynnwch luniau o\'ch derbynebau a sganiwch y codau bar cysylltiedig';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Tynnwch luniau o brisiau mewn siop';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Prisiau diweddaraf';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Prisiau diweddaraf wedi\'u hychwanegu gan y gymuned Prisiau Agored';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Cyfranwyr gyda\'r prisiau mwyaf';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Metrigau Pris Agored';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Dilynwch esblygiad y prosiect';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Ffyrdd o gyfrannu';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Cadarnhewch brisiau a ychwanegwyd gennych chi\'ch hun neu eraill, gyda chymorth AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Ychwanegwch lawer o dderbynebau neu luniau o silffoedd o\'ch rholyn camera yn gyflym';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Heriau misol';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Cymerwch ran mewn chwiliadau thematig misol i gasglu prisiau';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Adfer eich data teyrngarwch';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Dysgwch sut i ofyn am eich data';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Addasu\'r ap';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Cyfrannwch at y prosiect';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Ffyrdd syml o helpu Ffeithiau Bwyd Agored';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Methodolegau sgorio, cymorth, a mwy am y prosiect';
 
   @override
   String get product_edit_robotoff_positive_button => 'Derbyn yr awgrym';
@@ -5484,40 +5489,39 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Ailgychwynwch yr ap i gymhwyso\'r newidiadau.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Rhyngwyneb graffigol';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Cyfryngau';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Labordai Ffeithiau Bwyd Agored';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Dewch â Ffeithiau Bwyd Agored i\'ch iaith';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Cofrestrwch ar gyfer fersiwn alffa\'r ap';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => 'Cyfraniadau a data cynnyrch';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Peidiwch â dangos Sonomeg Gwerin';
 
   @override
   String get preferences_account_title => 'Account';

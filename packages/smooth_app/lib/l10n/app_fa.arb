@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "دسترسی به ویژگی‌های آزمایشی و ابزارهای توسعه",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "امتیاز سبز A",
+  "environmental_score_b_new": "گرین-امتیاز B",
+  "environmental_score_c_new": "گرین-اسکور C",
+  "environmental_score_d_new": "گرین-اسکورت D",
+  "environmental_score_e_new": "گرین-اسکور E",
+  "environmental_score_unknown_new": "امتیاز سبز ناشناخته",
+  "environmental_score_not_applicable_new": "امتیاز سبز قابل اجرا نیست",
+  "nova_group_generic_new": "غذاهای فوق فرآوری شده - گروه‌های NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "همه شهروندان می‌توانند به ما در جمع‌آوری و ساختاردهی اطلاعاتی که روی محصولات وجود دارد یا می‌توان از آنها استنباط کرد، مانند اطلاعات روی بسته‌بندی، کمک کنند: Mission Emballages: یک فهرست مشارکتی در مقیاس بزرگ از بسته‌بندی برای همه محصولات غذایی (به زبان فرانسه)",
   "guide_greenscore_transparency_arg2_title": "چگونه تولیدکنندگان می‌توانند کمک کنند",
   "guide_greenscore_transparency_arg2_text": "تولیدکنندگان می‌توانند اطلاعات خود را مستقیماً از طریق پلتفرم رایگان ما برای تولیدکنندگان برای ما ارسال کنند.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "کدام محصول برای کره زمین بهتر است؟",
+  "guide_greenscore_better_product_arg1_title": "تشخیصش سخته",
+  "guide_greenscore_better_product_arg1_text": "انتخاب غذای پایدار یکی از قدرتمندترین کارهایی است که می‌توانیم برای آب و هوا انجام دهیم، زیرا **سیستم غذایی جهانی ما مسئول بیش از یک چهارم کل انتشار گازهای گلخانه‌ای است**.\n(منبع: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "تو اختیار داری!",
+  "guide_greenscore_better_product_arg2_text": "خبر خوب این است که این به ما یک راه قدرتمند برای ایجاد تغییر می‌دهد.\n**هر یک از ما سالانه حدود ۱۰۰۰ وعده غذایی مصرف می‌کنیم**. این یعنی ۱۰۰۰ فرصت برای **انتخاب آینده‌ای بهتر برای سیاره زمین**!",
+  "guide_greenscore_better_product_arg3_title": "به مسئولیت پذیری و تصمیم گیری کمک می کند",
+  "guide_greenscore_better_product_arg3_text": "انتخاب غذای پایدار می‌تواند پیچیده به نظر برسد. برچسب‌ها گیج‌کننده هستند و اغلب اطلاعات کافی وجود ندارد. امتیاز سبز (Green-Score) برای ساده‌سازی این کار ایجاد شده است و به شما یک رتبه‌بندی زیست‌محیطی **شفاف**، **مبتنی بر علم** و **روشن** برای محصولات غذایی، درست در زمانی که به آن نیاز دارید، می‌دهد: هنگام خرید.",
+  "guide_greenscore_better_product_arg4_title": "شفافیت",
+  "guide_greenscore_better_product_arg4_text": "برخلاف برچسب‌های اختصاصی، محاسبه امتیاز سبز **کاملاً باز** است و هر کسی می‌تواند آن را **تأیید** کند.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "پردازش فوق العاده چیست؟",
+  "guide_nova_what_is_nova_paragraph1": "گروه‌های NOVA شما را در مورد سطح فرآوری مواد غذایی مطلع می‌کنند.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "طبقه‌بندی NOVA امکان دسته‌بندی غذاها را به **۴ گروه** بر اساس **میزان فرآوری صنعتی** آنها فراهم می‌کند (غذاهای با حداقل فرآوری یا فرآوری نشده، مواد اولیه آشپزی، غذاهای فرآوری شده، غذاهای فوق فرآوری شده).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "لوگوهای NOVA",
+  "guide_nova_groups_title": "چهار گروه NOVA",
+  "guide_nova_groups_intro": "چهار گروه NOVA وجود دارد که گروه مشکل‌ساز، گروه ۴ - غذاهای فوق فرآوری‌شده - است.",
+  "guide_nova_groups_arg1_title": "غذاهای کم فرآوری شده یا بدون فرآوری",
+  "guide_nova_groups_arg1_text": "غذاهای فرآوری نشده (یا طبیعی) به بخش‌های خوراکی گیاهان (دانه‌ها، میوه‌ها، برگ‌ها، ساقه‌ها، ریشه‌ها) یا حیوانات (ماهیچه، امعاء و احشاء، تخم‌مرغ، شیر) و همچنین قارچ‌ها، جلبک‌ها و آب، پس از جدا شدن از طبیعت گفته می‌شود.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "مواد اولیه فرآوری‌شده آشپزی، مانند روغن‌ها، کره، شکر و نمک، موادی هستند که از غذاهای گروه ۱ یا از طبیعت از طریق فرآیندهایی شامل پرس کردن، تصفیه، آسیاب کردن، آسیاب کردن و خشک کردن به دست می‌آیند.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "غذاهای فرآوری‌شده، مانند سبزیجات بطری‌شده، ماهی کنسروشده، میوه‌های شربت‌دار، پنیرها و نان‌های تازه، در درجه اول با اضافه کردن نمک، روغن، شکر یا سایر مواد از غذاهای گروه ۲ به غذاهای گروه ۱ تهیه می‌شوند. این فرآیندها شامل روش‌های مختلف نگهداری یا پخت و پز و در مورد نان و پنیر، تخمیر غیرالکلی است. اکثر غذاهای فرآوری‌شده دارای دو یا سه ماده تشکیل‌دهنده هستند و به عنوان نسخه‌های اصلاح‌شده غذاهای گروه ۱ قابل تشخیص هستند. آن‌ها را می‌توان به تنهایی یا معمولاً در ترکیب با سایر غذاها مصرف کرد.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "غذاهای فوق فرآوری شده، مانند نوشابه‌ها، تنقلات بسته‌بندی شده شیرین یا خوش طعم، فرآورده‌های گوشتی بازسازی شده و غذاهای منجمد از پیش آماده شده، صرفاً غذاهای اصلاح شده نیستند، بلکه فرمولاسیون‌هایی هستند که عمدتاً یا کاملاً از مواد مشتق شده از غذاها و افزودنی‌ها ساخته شده‌اند و غذای گروه ۱ دست نخورده در آنها وجود ندارد یا مقدار کمی از آنها در این فرمولاسیون‌ها یافت می‌شود. مواد تشکیل دهنده این فرمولاسیون‌ها معمولاً شامل موادی است که در غذاهای فرآوری شده نیز یافت می‌شوند، مانند قندها، روغن‌ها، چربی‌ها یا نمک. با این حال، محصولات فوق فرآوری شده همچنین حاوی منابع دیگری از انرژی و مواد مغذی هستند که معمولاً در آماده‌سازی‌های آشپزی استفاده نمی‌شوند. برخی از این منابع مستقیماً از غذاها استخراج می‌شوند، مانند کازئین، لاکتوز، آب پنیر و گلوتن.",
+  "guide_nova_explanations_title": "مشکلات پردازش فوق العاده",
+  "guide_nova_explanations_arg1_title": "فرآوری شدید مواد غذایی",
+  "guide_nova_explanations_arg1_text": "بسیاری از آنها از فرآوری بیشتر اجزای غذایی مانند روغن‌های هیدروژنه یا اینتراستریفی شده، پروتئین‌های هیدرولیز شده، ایزوله پروتئین سویا، مالتودکسترین، قند اینورت و شربت ذرت با فروکتوز بالا به دست می‌آیند.",
+  "guide_nova_explanations_arg2_title": "افزودنی‌هایی که فراتر از ایمنی مواد غذایی عمل می‌کنند",
+  "guide_nova_explanations_arg2_text": "افزودنی‌های موجود در غذاهای فوق فرآوری‌شده شامل برخی از افزودنی‌هایی هستند که در غذاهای فرآوری‌شده نیز استفاده می‌شوند، مانند مواد نگهدارنده، آنتی‌اکسیدان‌ها و تثبیت‌کننده‌ها. دسته‌هایی از افزودنی‌ها که فقط در محصولات فوق فرآوری‌شده یافت می‌شوند، شامل مواردی هستند که برای تقلید یا افزایش کیفیت حسی غذاها یا برای پنهان کردن جنبه‌های نامطلوب محصول نهایی استفاده می‌شوند. این افزودنی‌ها شامل رنگ‌ها و سایر رنگ‌ها، تثبیت‌کننده‌های رنگ؛ طعم‌دهنده‌ها، تقویت‌کننده‌های طعم، شیرین‌کننده‌های غیرقندی؛ و کمک‌فرآوری‌هایی مانند عوامل گازدارکننده، سفت‌کننده، حجیم‌کننده و ضدحجم‌کننده، عوامل ضدکف، ضدکلوخه شدن و لعاب‌دارکننده، امولسیفایرها، ترکیبات جداکننده رطوبت و مواد مرطوب‌کننده هستند.",
+  "guide_nova_explanations_arg3_title": "پردازش‌هایی که نمی‌توانید در خانه انجام دهید",
+  "guide_nova_explanations_arg3_text": "برای ترکیب معمولاً بسیاری از مواد اولیه و ایجاد محصول نهایی (از این رو «فوق فرآوری شده») از توالی‌های متعددی از فرآیندها استفاده می‌شود. این فرآیندها شامل چندین فرآیند بدون معادل داخلی مانند هیدروژناسیون و هیدرولیز، اکستروژن و قالب‌گیری و پیش‌پردازش برای سرخ کردن هستند.",
+  "guide_nova_explanations_arg4_title": "جنبه‌های غارتگرانه و مالی پردازش فوق‌العاده",
+  "guide_nova_explanations_arg4_text": "هدف کلی فرافرآوری، ایجاد محصولات غذایی برنددار، مناسب (بادوام، آماده مصرف)، جذاب (بسیار خوش‌طعم) و بسیار سودآور (با مواد اولیه کم‌هزینه) است که برای جایگزینی سایر گروه‌های غذایی طراحی شده‌اند. محصولات غذایی فرافرآوری شده معمولاً به صورت جذاب بسته‌بندی و به صورت فشرده به بازار عرضه می‌شوند.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "تنظیمات قیمت خود را مدیریت کنید",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "پروژه حقایق غذایی آزاد",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "ترجمه کنید، ابزارهای ما را بهبود بخشید…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "اتصال",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "با ما تماس بگیرید، یا ما را در شبکه‌های اجتماعی دنبال کنید",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "به ما در اطلاع رسانی به میلیون ها مصرف کننده در سراسر جهان کمک کنید",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "کمک و پشتیبانی",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "پاسخ سوالات خود را دریافت کنید",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "خارج از سیستم",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "از اینکه یکی از اعضای ما هستید متشکریم!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "مشاهده همه آمارها",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "جستجوی {provider} برای \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "جستجوی یک تنظیم (مثلاً Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "قابلیت دسترسی: نمایش ایموجی",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "دسترسی‌پذیری: حذف رنگ‌ها",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "درباره ما",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "اطلاعات حقوقی",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "شرایط استفاده، سیاست حفظ حریم خصوصی و موارد دیگر",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "مجوزها",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "درباره برنامه",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "اطلاعات فنی، اطلاعات توسعه‌دهنده و موارد دیگر",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "اطلاعات",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "شماره نسخه",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "اسکنر",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "فروشگاه اپلیکیشن",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "تنظیمات سیستم",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "دسترسی به کد منبع",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "و شروع به تأثیرگذاری بر میلیون‌ها نفر کنید",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "نکات",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "با نوتری-اسکور جدید آشنا شوید",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "در وب‌سایت حقایق غذایی آزاد",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "مدیریت حساب من",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "رمز عبورم را عوض کن",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "منطقه خطر",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "تمام کمک‌های شما از بین خواهد رفت",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "تنظیمات برنامه",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "روشی بسیار تجربی برای اسکن آفلاین محصولات",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "تمام محصولات را از سرور رفرش کنید",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "لطفا از انجام این کار خودداری کنید مگر اینکه کاملاً ضروری باشد",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "حالت نمایشی",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "اضافه کردن کارت به اسکنر",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "۳ نمونه محصول را به اسکنر اضافه می‌کند",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "میزبان فولکسونومی",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "آزمایش‌های دسترسی‌پذیری",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "انتخاب چند محصول برای قیمت‌ها",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "پنل‌های دانش سفارش داده شده توسط کاربر",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "دسترسی موقت به جستجوی مکان",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "مقایسه کنار هم برای ۲ یا ۳ محصول",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "وارد کردن لیست محصولات",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "نمرات و روش‌ها",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "نحوه محاسبه امتیاز تغذیه‌ای (Nutri-Score) را کشف کنید",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "تغییرات اصلی در روش‌شناسی را کشف کنید",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "حقایق غذایی آزاد را کشف کنید",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "سوالات متداول - سوالات متداول",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "سازمان مردم نهاد حقایق غذایی آزاد",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "اطلاعات",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "دریافت به‌روزرسانی‌های انجمن",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "از آخرین اخبار برنامه و انجمن مطلع شوید",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "با شرکت در یکی از رویدادهای مجازی ما، مشارکت کنید",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ما را در شبکه‌های اجتماعی دنبال کنید",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "وبلاگ حقایق غذای آزاد",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "آخرین اخبار را همزمان با وقوع دریافت کنید",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "از جامعه کمک بگیرید",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "به ما در بهبود برنامه کمک کنید",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "اطلاعات اشکال‌زدایی را برای ما ارسال کنید",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "برای ما ایمیلی حاوی اطلاعات دقیق اشکال‌زدایی ارسال کنید",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "نظرات خود را در مورد برنامه برای ما ارسال کنید",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "به شکل دادن به آینده‌ی اپلیکیشن کمک کنید",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "در نظرسنجی اپلیکیشن شرکت کنید",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "به ما کمک کنید تا بفهمیم در مرحله بعد چه چیزی باید بسازیم",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "متخصصان",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "کاملاً رایگان، داده‌های دقیق را برای ۵۰۰ برنامه و میلیون‌ها مصرف‌کننده تضمین می‌کند. سلف سرویس، سازگار با PIM یا صفحات گسترده شما (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "برای شروع همکاری تماس بگیرید",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "تمام مطالب مورد نیاز برای گزارش خود را تهیه کنید",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "برای سوالات مطبوعاتی یا اطلاع رسانی در مورد گزارش خود با ما تماس بگیرید",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "داوطلب فعال شوید",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "توسعه، ارتباطات، طراحی… از هر نوع داوطلبی یا تخصص استقبال می‌شود!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "برخی از راه‌های زیادی که می‌توانید مشارکت کنید را کشف کنید",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "توسعه اپلیکیشن موبایل",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "آشنایی با نحوه مشارکت در توسعه نرم‌افزار",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "بیلدهای ناپایدار روزانه، ویژگی‌های کاملاً جدید",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "جامعه محلی خود را رشد دهید",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "کمک در ترجمه نرم‌افزار، محتوا، تجزیه و تحلیل مواد تشکیل‌دهنده",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "ما یک الگوی کوچک برای کمک به شما آماده کرده‌ایم :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "گام‌های ساده برای افزایش شفافیت مواد غذایی در کشور شما",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "به تیم کیفیت داده بپیوندید",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "به تلاش ما برای اطمینان از کامل و دقیق بودن پایگاه داده بپیوندید",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 محصول اضافه شد",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "محصولات جدیدی که به Open Food Facts اضافه کردم",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "محصولاتی که باید تکمیل کنم",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "تمام محصولات ناقص",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "محصولاتی که می‌توانید در تکمیل آنها کمک کنید",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "به محاسبه امتیاز تغذیه‌ای و امتیاز سبز در کشور خود کمک کنید",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "قیمت‌هایی که من ارائه دادم",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "برچسب‌های قیمت و رسیدها",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "از رسیدهای خود عکس بگیرید و بارکدهای مربوطه را اسکن کنید",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "از قیمت‌ها در مغازه عکس بگیرید",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "جدیدترین قیمت‌ها",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "آخرین قیمت‌های اضافه شده توسط انجمن قیمت‌های باز",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "مشارکت‌کنندگان با بیشترین قیمت",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "معیارهای قیمت باز شدن",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "روند پیشرفت پروژه را دنبال کنید",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "راه‌های مشارکت",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "با کمک هوش مصنوعی، قیمت‌های اضافه شده توسط خودتان یا دیگران را تأیید کنید",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "به سرعت رسیدها یا عکس‌های قفسه‌ها را از گالری دوربین خود اضافه کنید",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "چالش‌های ماهانه",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "در ماموریت‌های موضوعی ماهانه برای جمع‌آوری قیمت‌ها شرکت کنید",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "داده‌های وفاداری خود را بازیابی کنید",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "یاد بگیرید چگونه داده‌های خود را درخواست کنید",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "سفارشی کردن برنامه",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "در پروژه مشارکت کنید",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "راه‌های ساده برای کمک به Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "روش‌های امتیازدهی، کمک و اطلاعات بیشتر در مورد پروژه",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "پیشنهاد را بپذیرید",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "احراز هویت ناموفق بود، نتوانست مدارک را دریافت کند",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "لطفا برای اعمال تغییرات، برنامه را مجدداً راه اندازی کنید.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "رابط گرافیکی",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "رسانه",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "آزمایشگاه‌های حقایق غذایی آزاد",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "حقایق غذایی آزاد را به زبان خود بیاورید",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ثبت نام در نسخه آلفای برنامه",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "مشارکت‌ها و داده‌های محصول",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "نمایش ندادن فولکسونومی",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

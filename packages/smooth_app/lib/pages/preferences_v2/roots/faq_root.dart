@@ -164,13 +164,15 @@ class FaqRoot extends PreferencesRoot {
 
   Widget _createLeadingIcon(String svg, {double? width}) {
     return SizedBox.square(
-      dimension: 2 * DEFAULT_ICON_SIZE,
-      child: Center(
-        child: SvgPicture.asset(
-          svg,
-          width: width ?? 2 * DEFAULT_ICON_SIZE,
-          package: AppHelper.APP_PACKAGE,
-        ),
+      dimension: width ?? 2 * DEFAULT_ICON_SIZE,
+      child: Row(
+        children: <Widget>[
+          SvgPicture.asset(
+            svg,
+            width: width ?? 2 * DEFAULT_ICON_SIZE,
+            package: AppHelper.APP_PACKAGE,
+          ),
+        ],
       ),
     );
   }

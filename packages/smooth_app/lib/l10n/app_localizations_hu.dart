@@ -2386,7 +2386,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Hozzáférés kísérleti funkciókhoz és fejlesztőeszközökhöz';
 
   @override
   String get dev_preferences_reset_onboarding_title =>
@@ -4019,10 +4019,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Zöld pontszám B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Zöld pontszám C';
 
   @override
   String get environmental_score_d_new => 'Green-Score D';
@@ -4031,14 +4031,15 @@ class AppLocalizationsHu extends AppLocalizations {
   String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Ismeretlen zöld pontszám';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'A Green-Score nem alkalmazható';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Ultrafeldolgozott élelmiszerek - NOVA csoportok';
 
   @override
   String get nova_group_1 => '1. NOVA-csoport';
@@ -4399,134 +4400,135 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Melyik termék jobb a bolygónak?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Nehéz lehet megmondani';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'A fenntartható élelmiszerek választása az egyik legerősebb dolog, amit a klímavédelemért tehetünk, mivel **globális élelmiszerrendszerünk az összes üvegházhatású gázkibocsátás több mint negyedéért felelős**.\n(Forrás: Poore és Nemecek, Science, 2018).';
 
   @override
   String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+      'Benned van a hatalom!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'A jó hír az, hogy ez egy erőteljes módot kínál a változásra.\n**Mindannyian körülbelül 1000 étkezést eszünk évente**. Ez 1000 lehetőség arra, hogy **jobb jövőt válasszunk a bolygó számára**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Segít felelősségteljesen dönteni';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'A fenntartható élelmiszerek kiválasztása bonyolultnak tűnhet. A címkék zavaróak lehetnek, és gyakran hiányoznak az információk. A Green-Score rendszert azért hozták létre, hogy egyszerűvé tegye a dolgot, és **egyértelmű**, **tudományosan megalapozott** és **átlátható** környezetvédelmi besorolást adjon az élelmiszertermékeknek, pont ott, ahol szüksége van rá: vásárlás közben.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Átláthatóság';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'A saját fejlesztésű címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
-  String get guide_nova_title => 'Ultra-processed foods';
+  String get guide_nova_title => 'Többszörösen feldolgozott élelmiszerek';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Mi az az ultrafeldolgozás?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'A NOVA csoportok tájékoztatják Önt az élelmiszer-feldolgozás szintjéről.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'A NOVA osztályozás lehetővé teszi az élelmiszerek **4 csoportba** sorolását az **ipari feldolgozás mértéke** alapján (minimálisan feldolgozott vagy feldolgozatlan élelmiszerek, kulináris összetevők, feldolgozott élelmiszerek, ultrafeldolgozott élelmiszerek).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'A NOVA logók';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'A 4 NOVA csoport';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 NOVA csoport létezik, a problémás a 4. csoport - Ultrafeldolgozott élelmiszerek.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Minimálisan feldolgozott vagy feldolgozatlan élelmiszerek';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'A feldolgozatlan (vagy természetes) élelmiszerek a növények (magvak, gyümölcsök, levelek, szárak, gyökerek) vagy az állatok (izom, belsőségek, tojás, tej), valamint a gombák, algák és a víz ehető részei, miután elválasztották őket a természettől.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => 'Feldolgozott összetevők';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'A feldolgozott kulináris összetevők, mint például az olajok, a vaj, a cukor és a só, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyek olyan eljárásokon keresztül származnak, mint a préselés, finomítás, őrlés, marás és szárítás.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Feldolgozott élelmiszerek';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'A feldolgozott élelmiszerek, mint például a konzerv zöldségek, a konzerv hal, a szirupban tartósított gyümölcsök, a sajtok és a frissen sült kenyerek, elsősorban só, olaj, cukor vagy más, a 2. és 1. csoportba tartozó anyagok hozzáadásával készülnek. Az eljárások magukban foglalják a különféle tartósítási vagy főzési módszereket, a kenyerek és sajtok esetében pedig az alkoholmentes erjesztést. A legtöbb feldolgozott élelmiszer két vagy három összetevőből áll, és felismerhető az 1. csoportba tartozó élelmiszerek módosított változataként. Önmagukban vagy – gyakrabban – más élelmiszerekkel kombinálva fogyaszthatók.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
+  String get guide_nova_groups_arg4_title =>
+      'Többszörösen feldolgozott élelmiszerek';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Az ultrafeldolgozott élelmiszerek, mint például az üdítőitalok, az édes vagy sós csomagolt snackek, a húskészítmények és az előre elkészített fagyasztott ételek, nem pusztán módosított élelmiszerek, hanem olyan készítmények, amelyek nagyrészt vagy teljes egészében élelmiszerekből és adalékanyagokból készülnek, kevés vagy semmilyen ép 1. csoportú élelmiszerrel. Ezekben a készítményekben általában olyan összetevők találhatók, amelyek a feldolgozott élelmiszerekben is megtalálhatók, például cukrok, olajok, zsírok vagy só. Az ultrafeldolgozott termékek azonban más energiaforrásokat és tápanyagokat is tartalmaznak, amelyeket általában nem használnak a kulináris készítményekben. Ezek közül néhányat közvetlenül élelmiszerekből vonnak ki, például kazeint, laktózt, tejsavót és glutént.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Az ultra-feldolgozással kapcsolatos problémák';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Az élelmiszer-összetevők extrém feldolgozása';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Sokuk élelmiszer-összetevők további feldolgozásából származik, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Adalékanyagok, amelyek túlmutatnak a puszta élelmiszerbiztonságon';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukba foglalják azokat, amelyeket az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, térfogatnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Otthon nem elvégezhető feldolgozás';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Számos folyamatsorozatot alkalmaznak a szokásosan sok összetevő kombinálására és a végtermék (innen ered az „ultrafeldolgozott”) előállítására. A folyamatok között több olyan is van, amelyeknek nincs hazai megfelelőjük, mint például a hidrogénezés és hidrolizálás, az extrudálás és formázás, valamint a sütéshez való előfeldolgozás.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Az ultrafeldolgozás ragadozó és pénzügyi vonatkozásai';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből álló) élelmiszertermékek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://hu.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Előnézet';
@@ -5012,469 +5014,480 @@ class AppLocalizationsHu extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Bizonylat';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => 'Általános';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'Árak';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Árbeállítások kezelése';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Az Open Food Facts projekt';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Hozzájárulás';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Fordítás, eszközeink fejlesztése…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Csatlakozás';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Keressen minket, vagy kövessen minket a közösségi médiában';
 
   @override
-  String get preferences_support_title => 'Make a donation';
+  String get preferences_support_title => 'Támogass';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Segítsen nekünk tájékoztatni több millió fogyasztót világszerte';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Súgó és támogatás';
 
   @override
-  String get preferences_faq_title => 'FAQ';
+  String get preferences_faq_title => 'GYIK';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Kapj választ a kérdéseidre';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Kijelentkezve';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Köszönjük, hogy tagjaink közé tartozol!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => 'Módosított termékek';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats =>
+      'Az összes statisztika megtekintése';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Keresés $provider kifejezésre: „$keyword”';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Beállítás keresése (pl. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Akadálymentesítés: Emojik megjelenítése';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Akadálymentesítés: Színek eltávolítása';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => 'Termékek';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Névjegy';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Jogi információk';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Felhasználási feltételek, adatvédelmi irányelvek és egyebek';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Felhasználási feltételek';
 
   @override
-  String get preferences_legal_mentions => 'Legal mentions';
+  String get preferences_legal_mentions => 'Jogi közlemény';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Adatvédelmi Irányelvek';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Licencek';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Az alkalmazásról';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Technikai információk, fejlesztői információk és egyebek';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Információ';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Verziószám';
 
   @override
   String get preferences_scanner_title => 'Scanner';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Alkalmazásbolt';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Rendszerbeállítások';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Hozzáférés a forráskódhoz';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'És kezdj el hatást gyakorolni milliók életére';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Termékek kiegészítése';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Tippek';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Fedezze fel az új Nutri-Score-t';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Az Open Food Facts weboldalon';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Fiókom kezelése';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Jelszó módosítása';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Veszélyes zóna';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Minden hozzájárulásod elveszik';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => 'Hozzájárulások';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Alkalmazásbeállítások';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Nagyon kísérleti módszer a termékek offline szkennelésére';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Az összes termék frissítése a szerverről';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Kérlek, kerüld ezt, kivéve, ha feltétlenül szükséges';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Demó mód';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Kártyák hozzáadása a szkennerhez';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      '3 mintaterméket ad a szkennerhez';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Folksonomy házigazda';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Akadálymentesítési kísérletek';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Több termék választéka árakon';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Felhasználó által rendezett tudáspanelek';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Ideiglenes hozzáférés a helymeghatározáshoz';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      '2 vagy 3 termék egymás melletti összehasonlítása';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Terméklista importálása';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Pontszámok és módszertanok';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Fedezze fel, hogyan számítják ki a Nutri-Score-t';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Ismerje meg a módszertan főbb változásait';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title =>
+      'Fedezze fel a projektet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Fedezze fel az Open Food Facts-et';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'GYIK - Gyakran Ismételt Kérdések';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Az Open Food Facts nem kormányzati szervezet';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Információ';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Közösségi frissítések fogadása';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Maradjon naprakész az alkalmazás és a közösség híreivel';
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Iratkozzon fel közösségi naptárunkra';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Csatlakozz virtuális eseményeink egyikéhez';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Kövess minket a közösségi médiában';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Az Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Értesülj a legfrissebb hírekről, amint történnek';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Kérjen segítséget a közösségtől';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Segítsen nekünk fejleszteni az alkalmazást';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Küldjön nekünk hibakeresési információkat';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Küldjön nekünk egy e-mailt részletes hibakeresési információkkal';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Visszajelzés küldése az alkalmazásról';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Segíts alakítani az alkalmazás jövőjét';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title =>
+      'Töltsd ki az alkalmazás kérdőívét';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Segíts megérteni, hogy mit kellene legközelebb építenünk';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Szakemberek';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Teljesen ingyenes, pontos adatokat biztosít 500 alkalmazás és több millió fogyasztó számára. Önkiszolgáló, kompatibilis a PIM-mel vagy táblázatokkal (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Lépjen kapcsolatba velünk a kezdéshez';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'Sajtó';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Szerezd meg az összes szükséges anyagot a jelentéshez';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Sajtómegkeresésekkel vagy a jelentéssel kapcsolatos információkkal forduljon hozzánk';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Legyen aktív önkéntes';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Fejlesztés, Kommunikáció, Design… bármilyen önkéntes munkát vagy szakértelmet szívesen látunk!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Fedezze fel a számos módot, ahogyan hozzájárulhat';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Mobilalkalmazás-fejlesztés';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Tanuld meg, hogyan járulhatsz hozzá a szoftverfejlesztéshez';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Napi instabil buildek, vadonatúj funkciók';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Növeld a helyi közösségedet';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Segítség szoftverek, tartalmak, összetevőelemzések fordításában';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Készítettünk egy kis sablont segítségül :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Egyszerű lépések az élelmiszer-átláthatóság növeléséhez az Ön országában';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Adatminőség';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Csatlakozz az adatminőségi csapathoz';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Csatlakozzon erőfeszítéseinkhez, hogy az adatbázis teljes és pontos legyen';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 termék hozzáadva';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Új termékek, amiket hozzáadtam az Open Food Facts oldalhoz';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Termékek, amiket el kell végeznem';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Minden befejezetlen termék';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Termékek, amelyek elkészítésében segíthetsz';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Segítsen kiszámítani az Ön országában érvényes Nutri-Score és Green-Score értékeket';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'Általam megadott árak';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Árcédulák és nyugták';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Készítsen fotókat a nyugtáiról, és olvassa be a hozzájuk tartozó vonalkódokat';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Készítsen fotókat az árakról egy üzletben';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Legújabb árak';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'A Nyílt Árak közössége által hozzáadott legújabb árak';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'A legtöbb árat kínáló közreműködők';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Nyílt ár mutatók';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Kövesd nyomon a projekt alakulását';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Hozzájárulási módok';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Mesterséges intelligencia segítségével erősítse meg az Ön vagy mások által hozzáadott árakat';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Gyorsan hozzáadhatsz sok nyugtát vagy polcfotót a kameratekercsből';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Havi kihívások';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Vegyen részt havi tematikus küldetésekben, hogy díjakat gyűjtsön';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Szerezd vissza hűségadataidat';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Tudja meg, hogyan kérheti adatait';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title =>
+      'Az alkalmazás testreszabása';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Hozzájárulás a projekthez';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Egyszerű módok az Open Food Facts segítésére';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Pontozási módszerek, segítség és további információk a projektről';
 
   @override
   String get product_edit_robotoff_positive_button => 'Javaslat elfogadása';
@@ -5524,41 +5537,41 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Kérjük, indítsa újra az alkalmazást a módosítások érvénybe léptetéséhez.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Grafikus felület';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Média';
 
   @override
-  String get preferences_about_app_development_title => 'Development';
+  String get preferences_about_app_development_title => 'Fejlesztés';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Nyílt Élelmiszerinformációs Laboratóriumok';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Fiók';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Hozd el a Nyílt Élelmiszerinformációkat a saját nyelvedre';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Regisztrálj az alkalmazás alfa verziójára';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Hozzájárulások és termékadatok';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Ne mutassa a Folksonomy-t';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Fiók';
 }

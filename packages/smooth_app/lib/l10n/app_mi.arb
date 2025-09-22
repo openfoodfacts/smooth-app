@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Whakauruhia nga waahanga whakamatautau me nga taputapu whanaketanga",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Kakariki-Score A",
+  "environmental_score_b_new": "Kakariki-Score B",
+  "environmental_score_c_new": "Kakariki-Score C",
+  "environmental_score_d_new": "Kakariki-Score D",
+  "environmental_score_e_new": "Kakariki-Score E",
+  "environmental_score_unknown_new": "Kaka-kaaka-Kakariki Kaore e mohiotia",
+  "environmental_score_not_applicable_new": "Karekau te Kakariki-Score e tika ana",
+  "nova_group_generic_new": "Nga kai tino tukatuka - nga roopu NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Ka taea e nga tangata whenua katoa te awhina i a tatou ki te kohikohi me te hanga i nga korero kei runga i nga hua, ka taea ranei te tango mai i a raatau, penei i nga korero mo te kohinga: Mission Emballages: he pukapuka mahi tahi nui mo te kohinga mo nga hua kai katoa (i te reo Wīwī)",
   "guide_greenscore_transparency_arg2_title": "Me pehea e taea ai e nga kaihanga te awhina",
   "guide_greenscore_transparency_arg2_text": "Ka taea e nga Kaihanga te tuku mai i a raatau korero ki a maatau na roto i ta maatau papaahi koreutu mo nga kaihanga.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Ko tehea hua te pai ake mo te ao?",
+  "guide_greenscore_better_product_arg1_title": "He uaua ki te korero",
+  "guide_greenscore_better_product_arg1_text": "Ko te kowhiri i te kai toiwhiua tetahi o nga mea tino kaha ka taea e tatou mo te ahuarangi, na te mea **kei a maatau punaha kai o te ao te kawenga mo te neke atu i te hauwha o nga tuku hau kati kati**.\n(Source: Poore & Nemecek, Pūtaiao, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Kei a koe te mana!",
+  "guide_greenscore_better_product_arg2_text": "Ko te rongo pai ko tenei ka homai he huarahi kaha ki te hanga huringa.\n**Ka kai tatou tata ki te 1,000 kai ia tau**. Koina te 1,000 whai waahi ki te **whiriwhiri i tetahi waahi pai ake mo te ao**!",
+  "guide_greenscore_better_product_arg3_title": "Ka awhina i te kawenga me te whakatau",
+  "guide_greenscore_better_product_arg3_text": "Ko te kowhiri i te kai toiwhiua he uaua. Kei te rangirua nga tapanga, ka ngaro nga korero. I hangaia te Green-Score kia ngawari ake, ka hoatu he tohu mo te taiao **marama**, **maataiiao**, me te **marama** mo nga hua kai, kei hea e hiahia ana koe: i a koe e hokohoko ana.",
+  "guide_greenscore_better_product_arg4_title": "Puataata",
+  "guide_greenscore_better_product_arg4_text": "Kare i rite ki nga tapanga rangatira, ko te tatauranga Kakariki-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "He aha te ultra-tukatuka?",
+  "guide_nova_what_is_nova_paragraph1": "Ko nga roopu NOVA e korero ana ki a koe mo te taumata o te tukatuka kai.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Ko te whakarōpūtanga NOVA ka taea te whakarōpū i nga kai ki roto i nga **4 roopu** i runga i to ratou **tohu o te tukatuka ahumahi** (te iti rawa o te tukatuka, o te kai karekau ranei, nga kai tunu kai, nga kai tukatuka, nga kai tino tukatuka).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Ko nga waitohu NOVA",
+  "guide_nova_groups_title": "Ko nga roopu NOVA e wha",
+  "guide_nova_groups_intro": "E 4 nga roopu NOVA, ko te raruraru ko te Rōpū 4 - Nga kai kua tukatukahia.",
+  "guide_nova_groups_arg1_title": "He iti rawa nga kai kua tukatukahia, kaore ano kia tukatukahia",
+  "guide_nova_groups_arg1_text": "Ko nga kai kaore i tukatukahia (maori ranei) ko nga waahanga kai o te tipu (nga kakano, hua, rau, kakau, pakiaka) kararehe ranei (he uaua, whea, hua, miraka), tae atu ki te harore, te pukohu me te wai, i muri i te wehenga mai i te taiao.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Ko nga kai kai tukatuka, penei i te hinu, te pata, te huka, me te tote, he matū i ahu mai i nga kai a te Rōpū 1, mai i te taiao ranei na roto i nga tikanga penei i te pehi, te para, te huri, te mira, me te whakamaroke.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Ko nga kai tukatuka, penei i nga huawhenua pounamu, nga ika kēne, nga hua o te tirikara, nga tiihi, me nga parāoa hou, ka mahia ma te taapiri i te tote, te hinu, te huka, me etahi atu matū mai i te Rōpū 2 ki te Rōpū 1 kai. Kei roto i nga mahinga nga momo tikanga tiaki, tunu kai ranei, a, mo te taro me te tiihi, ko te FERMENTATION kore-waipiro. Ko te nuinga o nga kai tukatuka e rua, e toru ranei nga kai, ka mohiohia he putanga whakarereke o nga kai Rōpū 1. Ka taea te kai i a raatau ake, i te nuinga ake, me te whakakotahi me etahi atu kai.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ko nga kai kua oti te tukatuka, penei i nga inu ngawari, nga paramanawa reka me nga paramanawa kua oti te takai, nga hua mīti kua oti te hanga, me nga rīhi tio kua oti te taka, ehara i te kai whakarerekē noa engari ko te hanga i te nuinga, i te katoa ranei mai i nga matū i ahu mai i nga kai me nga taapiri, he iti noa te kai o te Rōpū 1. Ko nga mea whakauru kei roto i enei hanganga ko te nuinga o nga mea ka kitea i roto i nga kai tukatuka, penei i te huka, te hinu, te ngako, te tote ranei. Heoi ano, kei roto ano i nga hua tino-tukatuka etahi atu puna o te kaha me nga matūkai kaore i te whakamahia i roto i nga mahi tunu kai. Ko etahi o enei ka tangohia tika mai i nga kai, penei i te casein, lactose, whey, me te gluten.",
+  "guide_nova_explanations_title": "Nga raruraru ki te tukatuka ultra",
+  "guide_nova_explanations_arg1_title": "Te tino tukatuka o nga kai kai",
+  "guide_nova_explanations_arg1_text": "He maha nga mea i ahu mai i te tukatuka ano o nga mea kai, penei i te hinu hauwai, i nga hinu whakahiahia ranei, nga pūmua hauwai, te wehea o te pūmua soy, te maltodextrin, te huka huri, me te tirikara witi-fructose teitei.",
+  "guide_nova_explanations_arg2_title": "Ko nga taapiri kei tua atu i te haumaru kai parakore",
+  "guide_nova_explanations_arg2_text": "Ko nga taapiri kei roto i nga kai tino tukatuka ko etahi e whakamahia ana i roto i nga kai tukatuka, penei i te whakamarumaru, te antioxidants, me te whakapumau. Ko nga karaehe o nga taapiri ka kitea anake i roto i nga hua tino tukatuka ko era e whakamahia ana hei tauira, hei whakarei ake ranei i nga ahuatanga o nga kai, hei huna ranei i nga ahuatanga o te hua whakamutunga. Ko enei taapiri ko nga tae me etahi atu tae, he whakapumau tae; nga mea kakara, te whakanui i te reka, te kai reka kore-huka; me nga awhina tukatuka penei i te warowai, te whakau, te pupuhi me te aukati i te pupuhi, te whakakore i te hukahuka, te aukati i te keke me te karaehe, te whakaemulsifiers, te whakahiato, me te humectants.",
+  "guide_nova_explanations_arg3_title": "Kare e taea e koe te mahi i te kainga",
+  "guide_nova_explanations_arg3_text": "He maha nga raupapa o nga tukanga e whakamahia ana ki te whakakotahi i nga kai maha me te hanga i te hua whakamutunga (no reira 'tukatuka-nui'). Kei roto i nga tukanga he maha nga mea karekau he orite o te kainga, penei i te hauwai me te hauwai, te tangohanga me te whakarewa, me te tukatuka i mua mo te parai.",
+  "guide_nova_explanations_arg4_title": "Ko nga ahuatanga kino me te putea o te tukatuka ultra",
+  "guide_nova_explanations_arg4_text": "Ko te kaupapa katoa o te tukatuka ultra ko te hanga parani, watea (te roa, kua rite ki te kai), ataahua (he tino reka) me te tino whai hua (nga kai iti-utu) i hangaia hei whakakore i nga roopu kai katoa. Ko nga hua kai kua oti te tukatuka i te nuinga o te waa he tino ataahua, ka kaha te maakete.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Whakahaerehia o hiahia utu",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ko te kaupapa Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Whakamaoritia, whakapai ake i a maatau taputapu…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Tūhono",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Totoro atu, whai mai ranei i a maatau i runga i nga paapori pāpori",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Awhina mai ki te whakamohio i nga miriona kaihoko huri noa i te ao",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Āwhina & Tautoko",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Tikina nga whakautu ki o patai",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Kua takiuru ki waho",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Mauruuru koe mo te noho ko tetahi o o maatau mema!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Tirohia nga tatauranga katoa",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Rapua {provider} mo \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Rapua he tautuhinga (hei tauira Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Te urunga: Whakaatuhia te emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Te urunga: Tango tae",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Nga korero ture",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Nga tikanga whakamahi, kaupapa here tūmataiti, me etahi atu",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Raihana",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Mō te taupānga",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Nga korero hangarau, nga korero kaiwhakawhanake, me etahi atu",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Tau putanga",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Matawai",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Toa taupānga",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Tautuhinga punaha",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Uru ki te waehere puna",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "A ka timata ki te whai paanga mo nga miriona",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tohutohu",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Tirohia te Nutri-Score hou",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "I runga i te paetukutuku Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Whakahaerehia taku kaute",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Hurihia taku kupuhipa",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Rohe mōrearea",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Ka ngaro katoa o koutou takoha",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Tautuhinga taupānga",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "He huarahi tino whakamatautau ki te matawai i nga hua tuimotu",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Tāmatahia ngā hua katoa mai i te tūmau",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Tena koa karohia te mahi ki te kore e tino tika",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Aratau Demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Tāpiri kāri ki te matawai",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Ka taapirihia nga hua tauira e 3 ki te matawai",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Kaihautu Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Nga whakamatautau urunga",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "He maha nga whiringa hua mo nga utu",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "I whakahauhia e te kaiwhakamahi nga panui matauranga",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Te urunga rangitahi ki te rapu waahi",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Whakataurite taha taha mo nga hua 2, 3 ranei",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Kawemai rarangi hua",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Nga kaute me nga tikanga",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Tirohia me pehea te tatau i te Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Tirohia nga huringa matua ki te tikanga",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Tirohia nga Meka Kai Tuwhera",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Uiuinga Uiuinga",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Ko te NGO Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Tikina nga whakahou hapori",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Noho i roto i te hononga ki te taupānga me te rongo hapori",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Whakauru ma te haere ki tetahi o a maatau huihuinga mariko",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "A pee mai ia matou i runga i nga paapori pāpori",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Tikina nga korero hou, i te wa e tupu ana",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Tikina he awhina mai i te hapori",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Awhina mai ki te whakapai ake i te taupānga",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Tukuna mai nga korero patuiro",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Tukuna mai he imeera me nga korero mo te patuiro",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Tukuna mai he urupare mo te taupānga",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Awhina ki te hanga i te heke mai o te taupānga",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Tangohia te rangahau taupānga",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Awhina mai ki a maatau ki te mohio ki nga mea hei hanga i muri mai",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Ngaio",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "He tino kore utu, ka whakarite i nga raraunga tika mo te 500 taupānga me te miriona o nga kaihoko. Mahi-whaiaro, he hototahi ki o PIM, ripanga ranei (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Whakapa atu ki te timata",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Tikina nga rauemi katoa e hiahia ana koe mo to ripoata",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Whakapa atu ki nga patai a te perehi, ki te whakamohio mai ranei mo to ripoata",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Hoko he tūao mātātoa",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Whanaketanga, Whakawhitiwhitinga, Hoahoa… he momo mahi tuuao, tohungatanga ranei ka mihia!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Tirohia etahi o nga huarahi maha ka taea e koe te koha",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Te whanaketanga taupānga pūkoro",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Akohia me pehea te koha ki te whanaketanga rorohiko",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Nga hanga koretake o ia ra, nga ahuatanga hou",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Whakanuia to hapori rohe",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Awhina i te rorohiko, i nga ihirangi, i nga whakamaoritanga tātaritanga whakauru",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Kua whakaritea e matou he tauira iti hei awhina i a koe :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Ko nga huarahi ngawari ki te whakatipu kai i to whenua",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Hono atu ki te roopu kounga raraunga",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Whakauru mai ki ta maatau mahi ki te whakarite kia oti, kia tika hoki te paataka raraunga",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 nga hua taapiri",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Ko nga hua hou i tapirihia e au ki te Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Nga hua me whakaoti e au",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Katoa nga hua kaore i oti",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Nga hua ka taea e koe te awhina ki te whakaoti",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Awhina ki te tatau i te Nutri-Score & Green-Score i to whenua",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Nga utu i hoatu e ahau",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Nga tohu utu me nga riki",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Tangohia nga whakaahua o o rihīti me te matawai i nga tohu paarua e pa ana",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Tangohia nga whakaahua o nga utu i roto i te toa",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Nga utu hou",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Ko nga utu hou kua taapirihia e te hapori Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Ko nga kaikoha me te nuinga o nga utu",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Whakatuwherahia nga inenga Utu",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Whaia te whanaketanga o te kaupapa",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Nga huarahi ki te koha",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Whakapumauhia nga utu kua taapirihia e koe, e etahi atu ranei, me te awhina a AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Hohoro te taapiri i nga rihīti maha, i nga whakaahua ranei o nga whata mai i to pukapuka kamera",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Nga wero o ia marama",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Me whai waahi ki nga rapu kaupapa mo ia marama ki te kohi utu",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Hokihia to raraunga pono",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Akohia me pehea te tono i o raraunga",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Whakaritehia te taupānga",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Toha ki te kaupapa",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Nga huarahi ngawari hei awhina i nga Meka Kai Tuwhera",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Nga tikanga kaute, awhina, me etahi atu mo te kaupapa",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Whakaaetia te whakaaro",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "I rahua te motuhēhēnga, kāore i taea te tiki tohu",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Tīmataria anō te taupānga hei whakamahi i ngā huringa.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Atanga whakairoiro",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Whakatuwherahia nga Waahanga Meka Kai",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Kawea mai nga Meka Kai Tuwhera ki to reo",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Whakauruhia ki te putanga alpha o te taupānga",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Nga takoha me nga raraunga hua",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Kaua e whakaatu Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Mont e darempred gant arc'hwelioù arnodel ha binvioù diorren",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Roadennoù",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Glas-Skor A",
+  "environmental_score_b_new": "Glas-Skor B",
+  "environmental_score_c_new": "Glas-Skor C",
+  "environmental_score_d_new": "Glas-Skor D",
+  "environmental_score_e_new": "Glas-Skor E",
+  "environmental_score_unknown_new": "Glas-Skor dianav",
+  "environmental_score_not_applicable_new": "N'eo ket arveret ar skor glas",
+  "nova_group_generic_new": "Boued dreist-treuzfurmet - strolladoù NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "An holl geodedourien a c’hell sikour ac’hanomp da zastum ha da frammañ an titouroù a zo war ar produioù pe a c’heller tennañ diwarno, evel titouroù diwar-benn an endalc’hadoù : Mission Emballages : un inventaire collaboratif à grand échelle des emballages pour tous les produits alimentaires (e galleg)",
   "guide_greenscore_transparency_arg2_title": "Penaos e c'hall ar c'henderc'herien sikour",
   "guide_greenscore_transparency_arg2_text": "Ar c'henderc'herien a c'hell kas deomp o titouroù war-eeun dre hor leurenn digoust evit ar broduerien.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Peseurt produ a zo gwelloc'h evit ar blanedenn ?",
+  "guide_greenscore_better_product_arg1_title": "Diaes e c'hell bezañ da lavarout",
+  "guide_greenscore_better_product_arg1_text": "Dibab boued padus zo unan eus an traoù pouezusañ a c'hellomp ober evit an hin, rak **hor reizhiad boued hollek a zo karget eus ouzhpenn ur c'hard eus an holl gazoù efed ti-gwer a vez skarzhet**.\n(Mammenn : Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Ar galloud hoc'h eus !",
+  "guide_greenscore_better_product_arg2_text": "Ar c'heloù mat eo e ro deomp un doare galloudus da grouiñ ar cheñchamant.\n**Pep hini ac'hanomp a zebr war-dro 1 000 pred bep bloaz**. Setu 1000 digarez evit **dibab un dazont gwelloc'h evit ar blanedenn** !",
+  "guide_greenscore_better_product_arg3_title": "Sikour a ra da vezañ karget ha da zivizout",
+  "guide_greenscore_better_product_arg3_text": "Dibab boued padus a c'hell bezañ kemplezh. Dister eo an tikedennoù ha mankout a ra an titouroù alies. Krouet eo bet ar Green-Score evit ma vefe aesoc'h, o reiñ deoc'h ur feur endro **sklaer**, **diazezet war ar skiantoù** ha **treuzwelus** evit ar produioù boued, e-lec'h m'ho peus ezhomm anezhañ : e-pad ma prenit.",
+  "guide_greenscore_better_product_arg4_title": "Treuzwelusterezh",
+  "guide_greenscore_better_product_arg4_text": "Er c'hontrol d'an tikedennoù perc'hennet, ar jediñ Green-Score a zo **digor penn-da-benn** ha gallout a ra bezañ **gwiriekaet gant piv bennak**.",
+  "guide_greenscore_share_link": "https://br.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Petra eo an ultra-treuzfurmiñ ?",
+  "guide_nova_what_is_nova_paragraph1": "Ar strolladoù NOVA a ginnig deoc'h al live treuzfurmiñ boued.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Gant ar renkadur NOVA e c'haller renkañ ar bouedoù e **4 strollad** diouzh o ** live treuzfurmadur greantel** (bouedoù treuzfurmet pe nann-treuzfurmet, elfennoù keginañ, boued treuzfurmet, boued dreist-treuzfurmet).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logoioù NOVA",
+  "guide_nova_groups_title": "Ar 4 strollad NOVA",
+  "guide_nova_groups_intro": "Pevar strollad NOVA zo, an hini diaesañ eo ar strollad 4 - boued treuzfurmet dreist-holl.",
+  "guide_nova_groups_arg1_title": "Boued treuzfurmet nebeut pe hep treuzfurmet",
+  "guide_nova_groups_arg1_text": "Ar boued nann-treuzfurmet (pe naturel) a zo lodennoù debret ar plant (hadoù, frouezh, delioù, kefoù, gwrizioù) pe loened (kigennoù, boued, vioù, laezh), hag ivez ar c'hoñkour, an algae, hag an dour, goude bezañ bet dispartiet diouzh an natur.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Elfennoù keginañ treuzfurmet, evel an eoul, an amann, ar sukr hag an holen, a zo danvezioù tennet eus bouedoù ar strollad 1 pe eus an natur dre argerzhioù a ya d'ober ar gwaskañ, ar puraat, ar malañ, ar moullañ hag ar sec'hañ.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Ar boued treuzfurmet, evel al legumaj e boutailhoù, ar pesked en ur c'hontener, ar frouezh e sirop, ar fourmaj hag ar baraoù nevez-fardet, a vez graet dreist-holl dre ouzhpennañ holen, eoul, sukr pe danvezioù all eus ar boued eus ar strollad 2 d'ar boued eus ar strollad 1. En argerzhioù e kaver meur a zoare da virout pe da boazhañ, hag evit ar baraoù hag ar fourmaj, ar goadur hep alkool. An darn vrasañ eus ar bouedoù treuzfurmet a zo daou pe dri elfenn enno hag anavezet e vezont evel stummoù kemmet eus bouedoù ar strollad 1. Debriñ a c'haller anezho o-unan pe, peurliesañ, asambles gant bouedoù all.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ar bouedoù treuzfurmet dreist-holl, evel an evajoù dous, ar boued-koad dous pe sall, ar produioù kig adkempennet, hag ar bouedoù skornet rakprenet, n'int ket bouedoù kemmet hepken met stummoù savet dreist-holl pe a-bezh diwar danvezioù tennet eus bouedoù ha danvezioù ouzhpenn, gant nebeut pe tamm boued ebet eus ar strollad 1. Elfennoù ar stummoù-se a vez kavet ivez e boued treuzfurmet, evel sukroù, eoul, greun pe holen. Koulskoude, ar produioù dreist-treuzfurmet a zo ivez enno fontoù energiezh ha bouedoù all na vezont ket implijet peurliesañ evit ar c'heginañ. Lod anezho a vez tennet war-eeun eus bouedoù, evel ar c'hazein, al laktoz, ar gwinieg hag ar gluten.",
+  "guide_nova_explanations_title": "Ar gudennoù gant an ultra-tretañ",
+  "guide_nova_explanations_arg1_title": "Treuzfurmiñ dreistordinal ar boued",
+  "guide_nova_explanations_arg1_text": "Kalz anezho a zeu eus ar c'henderc'hañ elfennoù boued, evel eouloù hidrogenet pe interesterifiet, proteinoù hidrolizet, digenvez protein soja, maltodekstrin, sukr treuzfurmet ha sirop maiz uhel-fruktoz.",
+  "guide_nova_explanations_arg2_title": "Ouzhpennadennoù a ya en tu all d'ar surentez boued glan",
+  "guide_nova_explanations_arg2_text": "Ouzhpennadennoù er boued treuzfurmet a zo lod a vez implijet ivez er boued treuzfurmet, evel gwarezourien, enepoksidantoù ha stabilaerien. Ar rummadoù ouzhpennadennoù a gaver er produioù treuzfurmet hepken a zo ar re a vez implijet evit heuliañ pe gwellaat perzhioù skiantel ar bouedoù pe evit kuzhat perzhioù dic'hoantaus ar produ diwezhañ. En o zouez emañ livioù ha livioù all, stabilaerien livioù ; blaz, kreñvaerien blaz, sukr hep sukr ; ha skoazelloù evit ar c'henderc'hañ evel ar c'harbonatañ, ar c'hreñvaat, ar c'hementad hag an enep-c'hwezhañ, an dic'hwezhañ, an enep-c'hrouiñ hag ar glazur, an emulsifieroù, ar sec'herien hag an humectantoù.",
+  "guide_nova_explanations_arg3_title": "Tretañ n'haller ket ober en ti",
+  "guide_nova_explanations_arg3_text": "Ur bern heuliadoù argerzhioù a vez implijet evit kendeuziñ an elfennoù niverus peurliesañ ha krouiñ ar produ diwezhañ (setu 'treuzfurmet'). En o zouez emañ meur a argerzh hep kevatal ebet, evel an hidrogenadur hag an hidrolizadur, an estrusiñ hag ar moullañ, hag ar rak-treuzfurmiñ evit ar fritañ.",
+  "guide_nova_explanations_arg4_title": "An elfennoù preizher hag arc'hantel eus an ultra-treuzfurmiñ",
+  "guide_nova_explanations_arg4_text": "Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket, aes (padus, prest da zebriñ), dedennus (tre-blev) ha gounezus-kenañ (elfennoù izel) savet evit dilec'hiañ an holl strolladoù boued all. Ar produioù boued ultra-treuzfurmet a vez paket en un doare dedennus ha marc'hataet kalz peurliesañ.",
+  "guide_nova_share_link": "https://br.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Merañ ho tibaboù prizioù",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ar raktres Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Kenoberiañ",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Troiñ, gwellaat hon ostilhoù…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Kevreañ",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kit e darempred ganeomp, pe heuliit ac'hanomp war ar mediaoù sokial",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Sikour ac'hanomp da gelaouiñ milionoù a implijerien dre ar bed",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Skoazell ha Skoazell",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Kaout respontoù d'ho koulennoù",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Digevreet",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Trugarez da vezañ unan eus hon izili !",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Gwelet an holl stadegoù",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Klask {provider} \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Klask un arventenn (da sk. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Mont e darempred : Diskouez an emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Aesaat : Dilemel al livioù",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produioù",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "A-zivout",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Titouroù lezennel",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Termenoù implij, politikerezh prevezded, hag all",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Termenoù Implij",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Titouroù lezennel",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Aotreoù",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Diwar-benn an arload",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Titouroù teknikel, titouroù diwar-benn an diorroerien, ha muioc'h c'hoazh",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Titouroù",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Niverenn stumm",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Stal arloadoù",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Arventennoù ar reizhiad",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Mont d'ar c'hod orin",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Ha kregiñ da ober un efed war milionoù a dud",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Kuzulioù",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Dizoloit ar Nutri-Score nevez",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "War lec'hienn Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Merañ ma c'hont",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Cheñchit ma ger-tremen",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Takad dañjerus",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Kollet e vo ho holl skoazelloù",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Arventennoù an arload",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Un doare arnodel-kenañ da skaniñ ar produioù ezlinenn",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Freskaat an holl broduioù diwar ar servijer",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Mar plij, chomit hep ober kement-se nemet pa vez ret-holl",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Mod demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ouzhpennañ kartennoù d'ar skanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Ouzhpennañ a ra 3 skouer produ d'ar skanner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Aozer folksonomiezh",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Arnodoù war an aesaat",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Dibab liesprodu evit ar prizioù",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panelloù gouiziegezh urzhiet gant an implijer",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Mont da glask lec'hiadur evit ur pennadig",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Keñveriañ skoaz-ouzh-skoaz evit 2 pe 3 produ",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Enporzhiañ roll ar produioù",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Skoroù ha doareoù",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Dizoloit penaos e vez jedet ar Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Dizoloit ar c'hemmoù pennañ er metodologiezh",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Dizoleiñ ar raktres",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Dizoloit fedoù diwar-benn ar boued digor",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Goulennoù alies",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "An ONG Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Titouroù",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Kaout titouroù diwar-benn ar gumuniezh",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Chomit war evezh gant keleier an arloadoù hag ar gumuniezh",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Kemer perzh en ur gemer perzh en unan eus hon abadennoù niverel",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Heuliit ac'hanomp war ar rouedadoù sokial",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ar blog Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Kemer ar c'heloù diwezhañ, evel ma c'hoarvezont",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Goulenn sikour digant ar gumuniezh",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Sikour ac'hanomp da wellaat an arload",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Kasit deomp titouroù diwar-benn an difaziañ",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Kasit deomp ur postel gant titouroù resis diwar-benn an difaziañ",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Kasit evezhiadennoù deomp diwar-benn an arload",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Sikour da stummañ dazont an arload",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Kemer perzh en enklask war an arload",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Sikour ac'hanomp da gompren ar pezh a rankomp sevel da c'houde",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Micherourien",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Digoust penn-da-benn, gwarantiñ a ra roadennoù reizh evit 500 arload ha milionoù a implijerien. Emservij, kempoell gant ho PIM pe ho follennoù jediñ (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kit e darempred ganeomp evit kregiñ",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Kazetennerien",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Kaout an holl dafar a rankit kaout evit ho danevell",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kit e darempred ganeomp evit goulennoù digant ar gazetennerien pe evit kelaouiñ ac'hanomp diwar-benn ho danevell",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Dont da vezañ ur youl vat oberiant",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Diorren, Kemennadenn, Tresañ… degemeret e vez kement seurt labour a-youl vat pe arbennigouriezh !",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Dizoloit lod eus an doareoù niverus ma c'hallit kemer perzh",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Diorren arloadoù hezoug",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Deskiñ penaos kemer perzh e sevel meziantoù",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Savadurioù distabil pemdeziek, perzhioù nevez-flamm",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kreskiñ ho kumuniezh lec'hel",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Sikour gant ar meziantoù, an endalc'hadoù, an troidigezhioù dielfennañ elfennoù",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Prientet hon eus ur patrom bihan evit sikour ac'hanoc'h :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Pazennoù simpl evit kreskiñ an treuzwelusterezh boued en ho bro",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Kemer perzh e skipailh kalite ar roadennoù",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Kemer perzh en hor striv evit ma vo klok ha reizh an diaz roadennoù",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 produ ouzhpennet",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Produioù nevez am eus ouzhpennet da Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produioù am eus ezhomm da echuiñ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "An holl broduioù diglok",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produioù a c'hallit sikour da gas da benn",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Sikour da jediñ ar Skor Nutri hag ar Skor Glas en ho bro",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prizioù am eus kinniget",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Tikedennoù prizioù ha resevoù",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Tennañ luc'hskeudennoù eus ho teuliadoù ha skannañ ar c'hodoù barrennoù stag outo",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Tennañ luc'hskeudennoù eus ar prizioù en ur stal",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Prizioù nevesañ",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Prizioù diwezhañ ouzhpennet gant ar gumuniezh Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Kenlabourerien gant ar muiañ a brizioù",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Meizadoù priz digor",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Heuliañ emdroadur ar raktres",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Doareoù da gemer perzh",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Kadarnaat ar prizioù ouzhpennet ganeoc'h pe gant tud all, gant skoazell an IA",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ouzhpennit buan meur a ziviz pe luc'hskeudennoù eus ar stalieroù eus ho roll kamera",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Taolioù-arnod miziek",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Kemer perzh e klaskoù temoù bep miz evit dastum ar prizioù",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Adtapout ho roadennoù fealded",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Deskit penaos goulenn ho roadennoù",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Personelaat an arload",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Kemer perzh er raktres",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Doareoù simpl da sikour Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Doareoù priziañ, skoazell, ha muioc'h c'hoazh diwar-benn ar raktres",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Degemer ar c'hinnig",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "C'hwitet en deus an gwiriekaat, n'haller ket adtapout ar brouennoù",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Adloc'hit an arload evit lakaat ar c'hemmoù da dalvezout.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Etrefas grafek",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Mediaoù",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Diorren",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Labouradegoù digor war ar fedoù boued",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Degas fedoù boued digor d'ho yezh",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "En em enskrivit e stumm alfa an arload",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Roadennoù ar c'hinnigoù hag ar produ",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Arabat diskouez ar Folksonomiezh",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -107,9 +107,12 @@ abstract class PreferencesRoot extends StatelessWidget {
   }
 
   Widget buildSearchResults(BuildContext context, List<PreferenceTile> tiles) {
+    final ThemeData theme = Theme.of(context);
+
     return SliverList.separated(
       itemBuilder: (BuildContext context, int index) => tiles[index],
-      separatorBuilder: (BuildContext context, _) => const Divider(),
+      separatorBuilder: (BuildContext context, _) =>
+          Divider(color: theme.dividerColor),
       itemCount: tiles.length,
     );
   }
@@ -170,10 +173,10 @@ abstract class PreferencesRoot extends StatelessWidget {
       slivers: <Widget>[
         buildAppBar(context),
         SliverPadding(
-          padding: const EdgeInsetsDirectional.only(
+          padding: EdgeInsetsDirectional.only(
             top: LARGE_SPACE,
-            start: MEDIUM_SPACE,
-            end: MEDIUM_SPACE,
+            start: displayTiles ? 0.0 : MEDIUM_SPACE,
+            end: displayTiles ? 0.0 : MEDIUM_SPACE,
             bottom: MEDIUM_SPACE,
           ),
           sliver: displayTiles

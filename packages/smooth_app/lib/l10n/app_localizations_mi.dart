@@ -2359,7 +2359,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Whakauruhia nga waahanga whakamatautau me nga taputapu whanaketanga';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3982,29 +3982,30 @@ class AppLocalizationsMi extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Kakariki-Score A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Kakariki-Score B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Kakariki-Score C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Kakariki-Score D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Kakariki-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new =>
+      'Kaka-kaaka-Kakariki Kaore e mohiotia';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Karekau te Kakariki-Score e tika ana';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'Nga kai tino tukatuka - nga roopu NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4367,131 +4368,130 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Ko tehea hua te pai ake mo te ao?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'He uaua ki te korero';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Ko te kowhiri i te kai toiwhiua tetahi o nga mea tino kaha ka taea e tatou mo te ahuarangi, na te mea **kei a maatau punaha kai o te ao te kawenga mo te neke atu i te hauwha o nga tuku hau kati kati**.\n(Source: Poore & Nemecek, Pūtaiao, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Kei a koe te mana!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Ko te rongo pai ko tenei ka homai he huarahi kaha ki te hanga huringa.\n**Ka kai tatou tata ki te 1,000 kai ia tau**. Koina te 1,000 whai waahi ki te **whiriwhiri i tetahi waahi pai ake mo te ao**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Ka awhina i te kawenga me te whakatau';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Ko te kowhiri i te kai toiwhiua he uaua. Kei te rangirua nga tapanga, ka ngaro nga korero. I hangaia te Green-Score kia ngawari ake, ka hoatu he tohu mo te taiao **marama**, **maataiiao**, me te **marama** mo nga hua kai, kei hea e hiahia ana koe: i a koe e hokohoko ana.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Puataata';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Kare i rite ki nga tapanga rangatira, ko te tatauranga Kakariki-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'He aha te ultra-tukatuka?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Ko nga roopu NOVA e korero ana ki a koe mo te taumata o te tukatuka kai.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Ko te whakarōpūtanga NOVA ka taea te whakarōpū i nga kai ki roto i nga **4 roopu** i runga i to ratou **tohu o te tukatuka ahumahi** (te iti rawa o te tukatuka, o te kai karekau ranei, nga kai tunu kai, nga kai tukatuka, nga kai tino tukatuka).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Ko nga waitohu NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Ko nga roopu NOVA e wha';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'E 4 nga roopu NOVA, ko te raruraru ko te Rōpū 4 - Nga kai kua tukatukahia.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'He iti rawa nga kai kua tukatukahia, kaore ano kia tukatukahia';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Ko nga kai kaore i tukatukahia (maori ranei) ko nga waahanga kai o te tipu (nga kakano, hua, rau, kakau, pakiaka) kararehe ranei (he uaua, whea, hua, miraka), tae atu ki te harore, te pukohu me te wai, i muri i te wehenga mai i te taiao.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Ko nga kai kai tukatuka, penei i te hinu, te pata, te huka, me te tote, he matū i ahu mai i nga kai a te Rōpū 1, mai i te taiao ranei na roto i nga tikanga penei i te pehi, te para, te huri, te mira, me te whakamaroke.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Ko nga kai tukatuka, penei i nga huawhenua pounamu, nga ika kēne, nga hua o te tirikara, nga tiihi, me nga parāoa hou, ka mahia ma te taapiri i te tote, te hinu, te huka, me etahi atu matū mai i te Rōpū 2 ki te Rōpū 1 kai. Kei roto i nga mahinga nga momo tikanga tiaki, tunu kai ranei, a, mo te taro me te tiihi, ko te FERMENTATION kore-waipiro. Ko te nuinga o nga kai tukatuka e rua, e toru ranei nga kai, ka mohiohia he putanga whakarereke o nga kai Rōpū 1. Ka taea te kai i a raatau ake, i te nuinga ake, me te whakakotahi me etahi atu kai.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ko nga kai kua oti te tukatuka, penei i nga inu ngawari, nga paramanawa reka me nga paramanawa kua oti te takai, nga hua mīti kua oti te hanga, me nga rīhi tio kua oti te taka, ehara i te kai whakarerekē noa engari ko te hanga i te nuinga, i te katoa ranei mai i nga matū i ahu mai i nga kai me nga taapiri, he iti noa te kai o te Rōpū 1. Ko nga mea whakauru kei roto i enei hanganga ko te nuinga o nga mea ka kitea i roto i nga kai tukatuka, penei i te huka, te hinu, te ngako, te tote ranei. Heoi ano, kei roto ano i nga hua tino-tukatuka etahi atu puna o te kaha me nga matūkai kaore i te whakamahia i roto i nga mahi tunu kai. Ko etahi o enei ka tangohia tika mai i nga kai, penei i te casein, lactose, whey, me te gluten.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Nga raruraru ki te tukatuka ultra';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Te tino tukatuka o nga kai kai';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'He maha nga mea i ahu mai i te tukatuka ano o nga mea kai, penei i te hinu hauwai, i nga hinu whakahiahia ranei, nga pūmua hauwai, te wehea o te pūmua soy, te maltodextrin, te huka huri, me te tirikara witi-fructose teitei.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Ko nga taapiri kei tua atu i te haumaru kai parakore';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Ko nga taapiri kei roto i nga kai tino tukatuka ko etahi e whakamahia ana i roto i nga kai tukatuka, penei i te whakamarumaru, te antioxidants, me te whakapumau. Ko nga karaehe o nga taapiri ka kitea anake i roto i nga hua tino tukatuka ko era e whakamahia ana hei tauira, hei whakarei ake ranei i nga ahuatanga o nga kai, hei huna ranei i nga ahuatanga o te hua whakamutunga. Ko enei taapiri ko nga tae me etahi atu tae, he whakapumau tae; nga mea kakara, te whakanui i te reka, te kai reka kore-huka; me nga awhina tukatuka penei i te warowai, te whakau, te pupuhi me te aukati i te pupuhi, te whakakore i te hukahuka, te aukati i te keke me te karaehe, te whakaemulsifiers, te whakahiato, me te humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Kare e taea e koe te mahi i te kainga';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'He maha nga raupapa o nga tukanga e whakamahia ana ki te whakakotahi i nga kai maha me te hanga i te hua whakamutunga (no reira \'tukatuka-nui\'). Kei roto i nga tukanga he maha nga mea karekau he orite o te kainga, penei i te hauwai me te hauwai, te tangohanga me te whakarewa, me te tukatuka i mua mo te parai.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Ko nga ahuatanga kino me te putea o te tukatuka ultra';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Ko te kaupapa katoa o te tukatuka ultra ko te hanga parani, watea (te roa, kua rite ki te kai), ataahua (he tino reka) me te tino whai hua (nga kai iti-utu) i hangaia hei whakakore i nga roopu kai katoa. Ko nga hua kai kua oti te tukatuka i te nuinga o te waa he tino ataahua, ka kaha te maakete.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4982,46 +4982,47 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Whakahaerehia o hiahia utu';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Ko te kaupapa Open Food Facts';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Whakamaoritia, whakapai ake i a maatau taputapu…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Tūhono';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Totoro atu, whai mai ranei i a maatau i runga i nga paapori pāpori';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Awhina mai ki te whakamohio i nga miriona kaihoko huri noa i te ao';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Āwhina & Tautoko';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Tikina nga whakautu ki o patai';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Kua takiuru ki waho';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Mauruuru koe mo te noho ko tetahi o o maatau mema!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5030,24 +5031,24 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats =>
+      'Tirohia nga tatauranga katoa';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Rapua $provider mo \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Rapua he tautuhinga (hei tauira Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Te urunga: Whakaatuhia te emoji';
 
   @override
-  String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+  String get preferences_accessibility_remove_colors => 'Te urunga: Tango tae';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5056,11 +5057,11 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Nga korero ture';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Nga tikanga whakamahi, kaupapa here tūmataiti, me etahi atu';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5072,36 +5073,36 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Raihana';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Mō te taupānga';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Nga korero hangarau, nga korero kaiwhakawhanake, me etahi atu';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Tau putanga';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Matawai';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Toa taupānga';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Tautuhinga punaha';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Uru ki te waehere puna';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'A ka timata ki te whai paanga mo nga miriona';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5110,117 +5111,120 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Tohutohu';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Tirohia te Nutri-Score hou';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'I runga i te paetukutuku Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Whakahaerehia taku kaute';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Hurihia taku kupuhipa';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Rohe mōrearea';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Ka ngaro katoa o koutou takoha';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Tautuhinga taupānga';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'He huarahi tino whakamatautau ki te matawai i nga hua tuimotu';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Tāmatahia ngā hua katoa mai i te tūmau';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Tena koa karohia te mahi ki te kore e tino tika';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Aratau Demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Tāpiri kāri ki te matawai';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Ka taapirihia nga hua tauira e 3 ki te matawai';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Kaihautu Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Nga whakamatautau urunga';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'He maha nga whiringa hua mo nga utu';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'I whakahauhia e te kaiwhakamahi nga panui matauranga';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Te urunga rangitahi ki te rapu waahi';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Whakataurite taha taha mo nga hua 2, 3 ranei';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Kawemai rarangi hua';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Nga kaute me nga tikanga';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Tirohia me pehea te tatau i te Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Tirohia nga huringa matua ki te tikanga';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Tirohia nga Meka Kai Tuwhera';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - Uiuinga Uiuinga';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Ko te NGO Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Tikina nga whakahou hapori';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Noho i roto i te hononga ki te taupānga me te rongo hapori';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5228,217 +5232,222 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Whakauru ma te haere ki tetahi o a maatau huihuinga mariko';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'A pee mai ia matou i runga i nga paapori pāpori';
 
   @override
   String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Tikina nga korero hou, i te wa e tupu ana';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Tikina he awhina mai i te hapori';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Awhina mai ki te whakapai ake i te taupānga';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Tukuna mai nga korero patuiro';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Tukuna mai he imeera me nga korero mo te patuiro';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Tukuna mai he urupare mo te taupānga';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Awhina ki te hanga i te heke mai o te taupānga';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title =>
+      'Tangohia te rangahau taupānga';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Awhina mai ki a maatau ki te mohio ki nga mea hei hanga i muri mai';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Ngaio';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'He tino kore utu, ka whakarite i nga raraunga tika mo te 500 taupānga me te miriona o nga kaihoko. Mahi-whaiaro, he hototahi ki o PIM, ripanga ranei (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Whakapa atu ki te timata';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Tikina nga rauemi katoa e hiahia ana koe mo to ripoata';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Whakapa atu ki nga patai a te perehi, ki te whakamohio mai ranei mo to ripoata';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Hoko he tūao mātātoa';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Whanaketanga, Whakawhitiwhitinga, Hoahoa… he momo mahi tuuao, tohungatanga ranei ka mihia!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Tirohia etahi o nga huarahi maha ka taea e koe te koha';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Te whanaketanga taupānga pūkoro';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Akohia me pehea te koha ki te whanaketanga rorohiko';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Nga hanga koretake o ia ra, nga ahuatanga hou';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Whakanuia to hapori rohe';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Awhina i te rorohiko, i nga ihirangi, i nga whakamaoritanga tātaritanga whakauru';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Kua whakaritea e matou he tauira iti hei awhina i a koe :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Ko nga huarahi ngawari ki te whakatipu kai i to whenua';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Hono atu ki te roopu kounga raraunga';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Whakauru mai ki ta maatau mahi ki te whakarite kia oti, kia tika hoki te paataka raraunga';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 nga hua taapiri';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Ko nga hua hou i tapirihia e au ki te Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Nga hua me whakaoti e au';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Katoa nga hua kaore i oti';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Nga hua ka taea e koe te awhina ki te whakaoti';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Awhina ki te tatau i te Nutri-Score & Green-Score i to whenua';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Nga utu i hoatu e ahau';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Nga tohu utu me nga riki';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Tangohia nga whakaahua o o rihīti me te matawai i nga tohu paarua e pa ana';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Tangohia nga whakaahua o nga utu i roto i te toa';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Nga utu hou';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Ko nga utu hou kua taapirihia e te hapori Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Ko nga kaikoha me te nuinga o nga utu';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title =>
+      'Whakatuwherahia nga inenga Utu';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Whaia te whanaketanga o te kaupapa';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Nga huarahi ki te koha';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Whakapumauhia nga utu kua taapirihia e koe, e etahi atu ranei, me te awhina a AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Hohoro te taapiri i nga rihīti maha, i nga whakaahua ranei o nga whata mai i to pukapuka kamera';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Nga wero o ia marama';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Me whai waahi ki nga rapu kaupapa mo ia marama ki te kohi utu';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Hokihia to raraunga pono';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Akohia me pehea te tono i o raraunga';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Whakaritehia te taupānga';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'Toha ki te kaupapa';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Nga huarahi ngawari hei awhina i nga Meka Kai Tuwhera';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Nga tikanga kaute, awhina, me etahi atu mo te kaupapa';
 
   @override
   String get product_edit_robotoff_positive_button => 'Whakaaetia te whakaaro';
@@ -5488,11 +5497,11 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Tīmataria anō te taupānga hei whakamahi i ngā huringa.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Atanga whakairoiro';
 
   @override
   String get preferences_app_settings_media_title => 'Media';
@@ -5502,26 +5511,26 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Whakatuwherahia nga Waahanga Meka Kai';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Kawea mai nga Meka Kai Tuwhera ki to reo';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Whakauruhia ki te putanga alpha o te taupānga';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Nga takoha me nga raraunga hua';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Kaua e whakaatu Folksonomy';
 
   @override
   String get preferences_account_title => 'Account';

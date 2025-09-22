@@ -2311,8 +2311,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dev_preferences_screen_title => '開発者モード';
 
   @override
-  String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+  String get dev_preferences_screen_subtitle => '実験的な機能と開発ツールにアクセスする';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'オンボーディングをやり直す';
@@ -3890,29 +3889,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'グリーンスコアA';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'グリーンスコアB';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'グリーンスコアC';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'グリーンスコアD';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'グリーンスコアE';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => '不明なグリーンスコア';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'グリーンスコアは適用されません';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => '超加工食品 - NOVAグループ';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4262,132 +4260,122 @@ class AppLocalizationsJa extends AppLocalizations {
       'メーカーは、当社の生産者向け無料プラットフォームを通じて、直接情報をお送りいただけます。';
 
   @override
-  String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+  String get guide_greenscore_better_product_title => 'どちらの製品が地球にとって良いのでしょうか?';
 
   @override
-  String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+  String get guide_greenscore_better_product_arg1_title => '判断するのは難しいかもしれない';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      '持続可能な食品を選択することは、気候のために私たちができる最も強力なことの1つです。**世界の食料システムは、温室効果ガス排出量の4分の1以上を占めています**。\n(出典: Poore & Nemecek、Science、2018)。';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'あなたには力がある！';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      '良いニュースは、これが変化を生み出す強力な手段となるということです。\n**私たちは一人当たり年間約1,000食を食べます**。それは**地球にとってより良い未来を選ぶ**機会が1,000回あるということです！';
 
   @override
-  String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+  String get guide_greenscore_better_product_arg3_title => '責任感と決断力を高める';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      '持続可能な食品を選ぶのは、複雑に感じることがあります。ラベルは分かりにくく、情報が不足していることも少なくありません。グリーンスコアは、この状況をシンプルにするために開発されました。食品の**明確**で**科学に基づいた**、**透明性のある**環境評価を、必要な時に、つまり買い物中に提供します。';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => '透明性';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      '独自のラベルとは異なり、グリーン スコアの計算は **完全にオープン** であり、**誰でも検証できます**。';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => '超処理とは何ですか?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'NOVA グループは食品加工のレベルについてお知らせします。';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA 分類では、**工業的加工の程度** (最小限に加工された食品または未加工の食品、料理の材料、加工食品、超加工食品) に基づいて食品を **4 つのグループ** に分類できます。';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'NOVAのロゴ';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4つのNOVAグループ';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'NOVA グループは 4 つありますが、問題となるのはグループ 4 の超加工食品です。';
 
   @override
-  String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+  String get guide_nova_groups_arg1_title => '加工が最小限か未加工の食品';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      '加工されていない（または自然な）食品とは、自然から分離された植物（種子、果実、葉、茎、根）または動物（筋肉、内臓、卵、牛乳）の食用部分、および菌類、藻類、水です。';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => '加工された料理の材料';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      '油、バター、砂糖、塩などの加工された料理の材料は、圧縮、精製、粉砕、製粉、乾燥などのプロセスを通じてグループ 1 の食品または自然から得られる物質です。';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => '加工食品';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      '瓶詰め野菜、缶詰の魚、シロップ漬けの果物、チーズ、焼きたてのパンなどの加工食品は、主にグループ2の食品に塩、油、砂糖などの物質を加えて作られています。加工工程には、様々な保存方法や調理方法、そしてパンやチーズの場合は非アルコール発酵が含まれます。ほとんどの加工食品は2つまたは3つの材料から成り、グループ1の食品の改良版として認識されています。加工食品は単独で食べることもできますが、より一般的には他の食品と組み合わせて食べることもできます。';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      '超加工食品（ソフトドリンク、甘味または塩味の包装スナック、再生肉製品、調理済み冷凍食品など）は、単に加工食品であるだけでなく、グループ1の食品をほとんど、あるいは全く含まず、食品由来の物質や添加物から大部分または完全に作られた調合物です。これらの調合物に含まれる成分には、砂糖、油脂、脂肪、塩など、加工食品にも含まれるものが多く含まれています。しかし、超加工食品には、通常の料理には用いられないエネルギー源や栄養素も含まれています。これらの中には、カゼイン、乳糖、ホエイ、グルテンなど、食品から直接抽出されたものもあります。';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => '超処理の問題点';
 
   @override
-  String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+  String get guide_nova_explanations_arg1_title => '食品原料の極端な加工';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      '多くは、水素化油やエステル交換油、加水分解タンパク質、大豆タンパク質分離物、マルトデキストリン、転化糖、高果糖コーンシロップなど、食品成分のさらなる加工から得られます。';
 
   @override
-  String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+  String get guide_nova_explanations_arg2_title => '純粋な食品安全性を超えた添加物';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      '超加工食品に含まれる添加物には、保存料、酸化防止剤、安定剤など、加工食品にも使用されているものが含まれます。超加工食品にのみ含まれる添加物には、食品の官能特性を模倣または強化したり、最終製品の不快な側面を隠したりするために使用されるものが含まれます。これらの添加物には、染料などの着色料、色安定剤、香料、風味増強剤、非糖類甘味料、そして炭酸化剤、固化剤、増量剤、膨張防止剤、消泡剤、固結防止剤、光沢剤、乳化剤、金属イオン封鎖剤、保湿剤などの加工助剤が含まれます。';
 
   @override
-  String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+  String get guide_nova_explanations_arg3_title => '自宅ではできない処理';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '通常、多くの材料を組み合わせ、最終製品を作るために、多数の工程が重ねられます（そのため「超加工」と呼ばれます）。これらの工程には、水素化、加水分解、押し出し、成形、揚げるための前処理など、国内では同等の工程が存在しないものもいくつか含まれています。';
 
   @override
-  String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+  String get guide_nova_explanations_arg4_title => '超加工の略奪的かつ経済的側面';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '超加工の全体的な目的は、ブランド力があり、利便性（耐久性があり、すぐに食べられる）、魅力（非常に美味しい）、そして収益性（低コストの原材料）に優れた食品を製造し、他のすべての食品群に取って代わることです。超加工食品は通常、魅力的なパッケージで包装され、集中的に販売されます。';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4871,251 +4859,230 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_edit_robotoff_proof => 'Proof';
 
   @override
-  String get preferences_card_general => 'General';
+  String get preferences_card_general => '全般';
 
   @override
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => '価格設定を管理する';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'オープンフードファクトプロジェクト';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => '貢献する';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => '翻訳してツールを改善しましょう…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => '接続する';
 
   @override
-  String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+  String get preferences_connect_subtitle => 'ご連絡いただくか、ソーシャルメディアでフォローしてください';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
-  String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+  String get preferences_support_subtitle => '世界中の何百万人もの消費者に情報を提供するのにご協力ください';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'ヘルプとサポート';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => '質問への回答を得る';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'ログアウトしました';
 
   @override
-  String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+  String get preferences_app_bar_message => '私たちのメンバーになっていただきありがとうございます！';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => '製品が変更されました';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'すべての統計を見る';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return '$provider で「$keyword」を検索';
   }
 
   @override
-  String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+  String get preferences_app_bar_search_hint => '設定を検索する（例：Nutri-Score）';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'アクセシビリティ: 絵文字を表示';
 
   @override
-  String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+  String get preferences_accessibility_remove_colors => 'アクセシビリティ: 色を削除する';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => '製品';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'アプリについて';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => '法的情報';
 
   @override
-  String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+  String get preferences_legal_information_subtitle => '利用規約、プライバシーポリシーなど';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => '利用規約';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'プライバシーポリシー';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'ライセンス';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'アプリについて';
 
   @override
-  String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+  String get preferences_about_app_subtitle => '技術情報、開発者情報など';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => '情報';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'バージョン番号';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'スキャナー';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'アプリストア';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'システム設定';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'ソースコードにアクセスする';
 
   @override
-  String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+  String get preferences_source_code_subtitle => 'そして何百万人もの人々に影響を与え始める';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => '製品情報を完成させる';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'ヒント';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => '新しいNutri-Scoreをご覧ください';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+  String get preferences_on_off_website_subtitle => 'オープンフードファクトのウェブサイト';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'アカウントを管理する';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'パスワードを変更する';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => '危険地帯';
 
   @override
-  String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+  String get preferences_account_deletion_subtitle => 'あなたの貢献はすべて失われます';
 
   @override
-  String get preferences_contributions_title => 'Contributions';
+  String get preferences_contributions_title => '貢献';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'アプリの設定';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'オフラインで製品をスキャンする非常に実験的な方法';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'サーバーからすべての製品を更新します';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      '絶対に必要な場合を除き、そうしないでください';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'デモモード';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => 'スキャナーにカードを追加する';
 
   @override
-  String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+  String get preferences_dev_mode_add_cards_subtitle => 'スキャナーに3つのサンプル製品を追加します';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => 'フォークソノミーホスト';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'アクセシビリティ実験';
 
   @override
-  String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+  String get preferences_dev_mode_multi_products_selection_title => '価格の複数製品選択';
 
   @override
-  String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+  String get preferences_dev_mode_user_ordered_kp_title => 'ユーザーが注文したナレッジパネル';
 
   @override
-  String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+  String get preferences_dev_mode_location_search_title => '場所検索への一時アクセス';
 
   @override
-  String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+  String get preferences_dev_mode_comparison_title => '2つまたは3つの製品を並べて比較する';
 
   @override
-  String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+  String get preferences_dev_mode_product_list_import_title => '製品リストのインポート';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'スコアと方法論';
 
   @override
-  String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+  String get preferences_faq_nutriscore_subtitle => 'Nutri-Scoreの計算方法をご覧ください';
 
   @override
-  String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+  String get preferences_faq_nutriscore_v2_subtitle => '方法論の主な変更点を確認する';
 
   @override
-  String get preferences_faq_discover_project_title => 'Discover the project';
+  String get preferences_faq_discover_project_title => 'プロジェクトを見つける';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'オープンフードファクトを発見';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - よくある質問';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'オープンフードファクトNGO';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => '情報';
 
   @override
-  String get preferences_connect_community_updates_title =>
-      'Get community updates';
+  String get preferences_connect_community_updates_title => 'コミュニティの最新情報を入手する';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'アプリとコミュニティのニュースを常にチェック';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5123,217 +5090,190 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'バーチャルイベントに参加して、ぜひご参加ください';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+  String get preferences_connect_social_media_title => 'ソーシャルメディアでフォローしてください';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'オープンフードファクトブログ';
 
   @override
-  String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+  String get preferences_connect_blog_subtitle => '最新ニュースをすぐに入手';
 
   @override
-  String get preferences_connect_community_help_title =>
-      'Get help from the community';
+  String get preferences_connect_community_help_title => 'コミュニティから助けを得る';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title => 'アプリの改善にご協力ください';
 
   @override
-  String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+  String get preferences_connect_debug_info_title => 'デバッグ情報を送信してください';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      '詳細なデバッグ情報を記載したメールをお送りください';
 
   @override
-  String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+  String get preferences_connect_feedback_title => 'アプリに関するフィードバックをお送りください';
 
   @override
-  String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+  String get preferences_connect_feedback_subtitle => 'アプリの未来を形作るのを手伝ってください';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'アプリのアンケートにご協力ください';
 
   @override
-  String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+  String get preferences_connect_survey_subtitle => '次に何を構築すべきかを理解するのにご協力ください';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'プロフェッショナル';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      '完全に無料で、500のアプリと数百万人の消費者の正確なデータを提供します。セルフサービスで、PIMまたはスプレッドシート（XLSX）と互換性があります。';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'まずはお問い合わせください';
 
   @override
-  String get preferences_connect_press_title => 'Press';
+  String get preferences_connect_press_title => 'プレス';
 
   @override
-  String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+  String get preferences_connect_press_page_subtitle => 'レポートに必要な資料をすべて入手';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      '報道関係のお問い合わせやレポートのお知らせは、こちらまでご連絡ください。';
 
   @override
-  String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+  String get preferences_contribute_active_volunteer_title => '積極的にボランティアになる';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      '開発、コミュニケーション、デザイン… あらゆる種類のボランティアや専門知識を歓迎します!';
 
   @override
-  String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+  String get preferences_contribute_how_to_subtitle => '貢献できる様々な方法をご紹介します';
 
   @override
-  String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+  String get preferences_contribute_mobile_dev_title => 'モバイルアプリ開発';
 
   @override
-  String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+  String get preferences_contribute_sw_dev_subtitle => 'ソフトウェア開発に貢献する方法を学ぶ';
 
   @override
-  String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+  String get preferences_contribute_alpha_subtitle => '毎日の不安定なビルド、新機能';
 
   @override
-  String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+  String get preferences_contribute_local_community_title => '地域社会を成長させましょう';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'ソフトウェア、コンテンツ、成分分析の翻訳支援';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      '役に立つ小さなテンプレートを用意しました :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'あなたの国で食品の透明性を高めるための簡単なステップ';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
-  String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+  String get preferences_contribute_data_quality_team_title => 'データ品質チームに参加する';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'データベースの完全性と正確性を確保するための私たちの取り組みにご参加ください';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title => '0 件の商品が追加されました';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Open Food Factsに追加した新製品';
 
   @override
-  String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+  String get preferences_contributions_to_be_completed_title => '完了する必要がある製品';
 
   @override
-  String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+  String get preferences_contributions_all_incomplete_title => 'すべての不完全な製品';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      '完成にご協力いただける製品';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'あなたの国のNutri-ScoreとGreen-Scoreの計算にご協力ください';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => '私が寄付した価格';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => '値札と領収書';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'レシートの写真を撮り、関連するバーコードをスキャンします';
 
   @override
-  String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+  String get preferences_prices_add_price_tags_subtitle => '店内の価格を写真に撮る';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => '最新価格';
 
   @override
-  String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+  String get preferences_prices_newest_subtitle => 'オープン価格コミュニティによって追加された最新の価格';
 
   @override
-  String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+  String get preferences_prices_top_contributors_title => '最も多くの価格を提示した貢献者';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => '始値指標';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'プロジェクトの進捗を追跡する';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => '貢献する方法';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'AIの助けを借りて、自分や他の人によって追加された価格を確認します';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'カメラロールからたくさんの領収書や棚の写真を素早く追加できます';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => '毎月のチャレンジ';
 
   @override
-  String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+  String get preferences_prices_challenges_subtitle => '毎月のテーマ別クエストに参加して賞品を集める';
 
   @override
-  String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+  String get preferences_prices_loyalty_data_title => 'ロイヤルティデータを取り戻す';
 
   @override
-  String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+  String get preferences_prices_gdpr_subtitle => 'データのリクエスト方法を学ぶ';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'アプリをカスタマイズする';
 
   @override
-  String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+  String get preferences_page_contribute_project_title => 'プロジェクトに貢献する';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Factsを支援する簡単な方法';
 
   @override
-  String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+  String get preferences_page_faq_subtitle => 'スコアリングの方法論、ヘルプ、プロジェクトの詳細';
 
   @override
   String get product_edit_robotoff_positive_button => '提案を受け入れる';
@@ -5380,42 +5320,38 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_proof_error => '認証に失敗しました。証明を取得できません';
 
   @override
-  String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+  String get restart_to_apply_message => '変更を適用するにはアプリを再起動してください。';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'グラフィカルインターフェース';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'メディア';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+  String get preferences_page_open_food_facts_labs_title => 'オープンフードファクトラボ';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'アカウント';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Open Food Factsをあなたの言語で';
 
   @override
-  String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+  String get preferences_contribute_enroll_alpha => 'アプリのアルファ版に登録する';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => '貢献と製品データ';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Folksonomyを表示しない';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'アカウント';
 }

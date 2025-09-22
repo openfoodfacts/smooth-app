@@ -2358,7 +2358,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Fumana likarolo tsa liteko le lisebelisoa tsa ntlafatso';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3994,14 +3994,16 @@ class AppLocalizationsSt extends AppLocalizations {
   String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new =>
+      'Ntho e sa tsejoeng ea Green-Score';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Green-Score ha e sebetse';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Lijo tse entsoeng ka bongata - lihlopha tsa NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4364,131 +4366,129 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Ke sehlahisoa sefe se molemo bakeng sa polanete?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Ho ka ba thata ho bolela';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Ho khetha lijo tse tšoarellang ke e \'ngoe ea lintho tse matla ka ho fetisisa tseo re ka li etsang bakeng sa boemo ba leholimo, kaha **tsamaiso ea rona ea lijo lefatšeng ka bophara e ikarabella bakeng sa kotara eohle ea likhase tse futhumatsang lefatše**.\n(Mohloli: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'U na le matla!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Litaba tse monate ke hore sena se re fa mokhoa o matla oa ho theha phetoho.\n**E mong le e mong oa rona o ja lijo tse ka bang 1,000 selemo se seng le se seng **. Eo ke menyetla e 1,000 ea ho **ho khetha bokamoso bo betere bakeng sa polanete**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'E thusa ho ba le boikarabelo le ho etsa qeto';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Ho khetha lijo tse tšoarellang ho ka utloahala ho rarahane. Lileibole lia ferekanya \'me hangata litaba ha li eo. Green-Score e bōpiloe ho etsa hore e be bonolo, ho u fa ** e hlakileng **, ** e thehiloeng ho saense **, le ** e pepeneneng ** lintlha tsa tikoloho bakeng sa lihlahisoa tsa lijo, moo u li hlokang teng: ha u ntse u reka.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Ponaletso';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Ho fapana le lileibole tsa mong\'a ntlo, lipalo tsa Green-Score li ** bulehile ka botlalo ** \'me li ka ** netefatsoa ke mang kapa mang**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Ultra-processing ke eng?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Lihlopha tsa NOVA li u tsebisa ka boemo ba ho lokisa lijo.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Sehlopha sa NOVA se lumella ho aroloa ha lijo ka ** lihlopha tse 4 ** ho ipapisitsoe le ** degree ea ts\'ebetso ea indasteri ** (lijo tse sa sebelisoang kapa tse sa sebetsoang hanyane, lisebelisoa tsa culinary, lijo tse lokisitsoeng, lijo tse fetisitsoeng haholo).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Li-logos tsa NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Lihlopha tse 4 tsa NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Ho na le lihlopha tse 4 tsa NOVA, bothata e le Sehlopha sa 4 - Lijo tse entsoeng ka mokhoa o phahameng.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Lijo tse sa sebetsoang hanyane kapa tse sa sebetsoang';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Lijo tse sa sebelisoang (kapa tsa tlhaho) ke likarolo tse jeoang tsa limela (lipeo, litholoana, makhasi, stems, metso) kapa liphoofolo (mesifa, offal, mahe, lebese), hammoho le li-fungus, algae le metsi, ka mor\'a hore li arohane le tlhaho.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Metsoako ea lijo tse phehiloeng, tse kang oli, botoro, tsoekere le letsoai, ke lintho tse nkiloeng lijong tsa Sehlopha sa 1 kapa ho tloha tlhahong ka mekhoa e kenyelletsang ho hatella, ho hloekisa, ho sila, ho sila le ho omisa.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Lijo tse phehiloeng, tse kang meroho e ka libotlolong, tlhapi e ka makotikoting, litholoana tse sirapong, lichisi, le bohobe bo sa tsoa etsoa, li etsoa haholo-holo ka ho tšela letsoai, oli, tsoekere, kapa lintho tse ling ho tloha ho Sehlopha sa 2 ho ea ho lijo tsa Sehlopha sa 1. Mekhoa e kenyelletsa mekhoa e fapaneng ea ho boloka kapa ea ho pheha, \'me tabeng ea bohobe le chisi, ho belisoa ho se nang joala. Lijo tse ngata tse phehiloeng li na le metsoako e \'meli kapa e meraro\' me li tsejoa e le mefuta e fetotsoeng ea lijo tsa Sehlopha sa 1. Li ka jeoa ka botsona kapa, hangata, li kopane le lijo tse ling.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Lijo tse entsoeng ka mokhoa o fetelletseng, joalo ka lino-mapholi, li-snacks tse paketeng tse monate kapa tse hlabosang, lihlahisoa tsa nama tse tsosolositsoeng, le lijana tse hatselitsoeng tse seng li lokisitsoe, ha se lijo tse fetotsoeng empa li entsoe haholo kapa ka ho felletseng ka lintho tse nkiloeng lijong le litlatsetso, ntle le lijo tsa Sehlopha sa 1. Metsoako ea metsoako ena hangata e kenyelletsa le tse fumanoang lijong tse phehiloeng, tse kang tsoekere, oli, mafura kapa letsoai. Leha ho le joalo, lihlahisoa tsa ultra-processed li boetse li na le mehloli e meng ea matla le limatlafatsi tse sa sebelisoeng ka mokhoa o tloaelehileng oa ho pheha. Tse ling tsa tsona li ntšoa ka ho toba lijong, tse kang casein, lactose, whey, le gluten.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Mathata a ultra-processing';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Ts\'ebetso e feteletseng ea metsoako ea lijo';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Tse ngata li tsoa ho ts\'ebetso e tsoelang pele ea likarolo tsa lijo, joalo ka oli ea hydrogenated kapa interesterified, liprotheine tsa hydrolyzed, soy protein isolate, maltodextrin, tsoekere e kenang le sirapo ea poone e nang le fructose e ngata.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Li-additives tse fetang tšireletseho ea lijo tse hloekileng';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Li-additives lijong tse fetisitsoeng ka ho fetesisa li kenyelletsa tse ling tse sebelisoang lijong tse phehiloeng, joalo ka li-preservative, li-antioxidants le li-stabilizers. Mefuta ea li-additives e fumanoang feela lihlahisoa tse entsoeng ka ho fetisisa e kenyelletsa tse sebelisetsoang ho etsisa kapa ho ntlafatsa makhabane a lijo kapa ho pata likarolo tse sa latsoeheng tsa sehlahisoa sa ho qetela. Li-additives tsena li kenyelletsa li-dyes le mebala e meng, li-stabilizers tsa mebala; litatso, li-flavor enhancers, tse se nang tsoekere; le lithuso tsa ho sebetsa tse kang carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, le humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Ha u khone ho sebetsa lapeng';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Letoto la tatellano ea lits\'ebetso li sebelisoa ho kopanya metsoako eo hangata e leng ngata le ho etsa sehlahisoa sa ho qetela (ka hona \'ultra-processed\'). Ts\'ebetso e kenyelletsa tse \'maloa tse se nang lisebelisoa tsa lapeng, joalo ka hydrogenation le hydrolysation, extrusion le moulding, le pele ho ts\'ebetso ea ho halika.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Likarolo tse mpe le tsa lichelete tsa ultra-processing';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Morero o akaretsang oa ts\'ebetso ea morao-rao ke ho theha lihlahisoa tsa lijo tse nang le lebitso, tse loketseng (tse tšoarellang, tse loketseng ho jeoa), tse khahlehang (li-hyper-latable) le tse fanang ka chelete e ngata (lisebelisoa tsa theko e tlase) tse etselitsoeng ho tlosa lihlopha tse ling tsohle tsa lijo. Hangata lihlahisoa tsa lijo tse entsoeng ka mokhoa o phahameng ka ho fetesisa li pakoa ka mokhoa o khahlang le ho rekisoa ka matla.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4979,46 +4979,48 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Laola likhetho tsa hau tsa litheko';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Morero oa Open Food Facts';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Fetolela, ntlafatsa lisebelisoa tsa rona…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Hokela';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Fumana, kapa U re latele mecheng ea litaba tsa sechaba';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Re thuse ho tsebisa limilione tsa bareki lefatšeng ka bophara';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Thuso & Tšehetso';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Fumana likarabo tsa lipotso tsa hau';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'E tsoa';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Kea u leboha ka ho ba e mong oa litho tsa rona!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5027,24 +5029,24 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Sheba lipalo-palo kaofela';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Batla $provider bakeng sa \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Batla litlhophiso (mohlala, Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Ho fihlella: Bontša emoji';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Ho fihlella: Tlosa mebala';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5053,11 +5055,11 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Boitsebiso ba molao';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Melao ea tšebeliso, leano la lekunutu, le tse ling';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5069,36 +5071,36 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Lilaesense';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Mabapi le app';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Lintlha tsa tekheniki, lintlha tsa moqapi, le tse ling';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Nomoro ea phetolelo';
 
   @override
   String get preferences_scanner_title => 'Scanner';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'App Store';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Litlhophiso tsa sistimi';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Fumana khoutu ea mohloli';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      '\'Me u qale ho etsa tšusumetso ho limilione';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5107,117 +5109,119 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Malebela';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Fumana Nutri-Score e ncha';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Webosaeteng ea Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Laola akhaonte yaka';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Fetola password ea ka';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Sebaka sa kotsi';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Lithuso tsohle tsa hau li tla lahleha';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Litlhophiso tsa app';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Mokhoa oa liteko haholo oa ho hlahloba lihlahisoa ntle le inthanete';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Hlahisa lihlahisoa tsohle ho tsoa ho seva';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Ka kopo qoba ho etsa joalo ntle le haeba ho hlokahala';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Mokhoa oa demo';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Kenya likarete ho scanner';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'E eketsa lihlahisoa tse 3 ho sekena';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Moamoheli oa Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Liteko tsa phihlello';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Khetho ea lihlahisoa tse ngata bakeng sa litheko';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Mosebelisi o laetse liphanele tsa tsebo';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Phihlello ea nakoana ea ho batla sebaka';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Papiso ea mahlakore bakeng sa lihlahisoa tse 2 kapa tse 3';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Ho kenya lenane la lihlahisoa';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'Lintlha le mekhoa';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Fumana hore na Nutri-Score e baloa joang';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Fumana liphetoho tse kholo tsa mokhoa';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Fumana Lintlha tsa Open Food';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - Lipotso Tse Botsoang Hangata';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'NGO ea Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Fumana lintlha tsa sechaba';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Lula u tseba litaba tsa app le sechaba';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5225,217 +5229,223 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Kenya letsoho ka ho ea ho e \'ngoe ea liketsahalo tsa rona tse fumanehang marang-rang';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Re latele mecheng ea litaba tsa sechaba';
 
   @override
   String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Fumana litaba tsa morao-rao, ha li ntse li etsahala';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Fumana thuso ho sechaba';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Re thuse ho ntlafatsa app';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Re romelle lintlha tsa ho rarolla bothata';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Re romelle lengolo-tsoibila le nang le lintlha tse felletseng tsa ho lokisa liphoso';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Re romelle maikutlo mabapi le sesebelisoa';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Thusa ho theha bokamoso ba sesebelisoa';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Etsa tlhahlobo ea app';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Re thuse ho utloisisa seo re lokelang ho se haha nakong e tlang';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Litsebi';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'E lokolohile ka botlalo, e netefatsa lintlha tse nepahetseng bakeng sa lits\'ebetso tse 500 le limilione tsa bareki. Ho itšebeletsa, ho tsamaellana le PIM ea hau kapa li-spreadsheet (XLSX)';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'Ikopanye le ho qala';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Fumana lisebelisoa tsohle tseo u li hlokang bakeng sa tlaleho ea hau';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Ikopanye bakeng sa lipotso tsa boralitaba kapa ho re tsebisa ka tlaleho ea hau';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Eba moithaopi ea mafolofolo';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Nts\'etsopele, Puisano, Moralo… mofuta ofe kapa ofe oa boithaopo kapa botsebi oa amoheloa!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Fumana tse ling tsa litsela tse ngata tseo u ka kenyang letsoho ka tsona';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Ntlafatso ea app ea mobile';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Ithute ho kenya letsoho ntlafatsong ea software';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Mehaho e sa tsitsang ea letsatsi le letsatsi, likarolo tse ncha';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Holisa sechaba sa heno';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Thuso ka software, likahare, liphetolelo tsa tlhahlobo ea lisebelisoa';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Re lokiselitse template e nyane ho u thusa :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Mehato e bonolo ea ho holisa ponaletso ea lijo naheng ea heno';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Kena le sehlopha sa boleng ba data';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Kopana le boiteko ba rona ho netefatsa hore database e phethehile ebile e nepahetse';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 lihlahisoa tse kentsoeng';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Lihlahisoa tse ncha tseo ke li kentseng ho Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Lihlahisoa tseo ke hlokang ho li tlatsa';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Lihlahisoa tsohle tse sa fellang';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Lihlahisoa tseo u ka u thusang ho li tlatsa';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Thusa ho khomphutha Nutri-Score & Green-Score naheng ea heno';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Litheko ke kentse letsoho';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Litekete tsa theko le lirisiti';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Nka linepe tsa lirisiti tsa hau \'me u hlahlobe libarcode tse amanang le tsona';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Nka linepe tsa litheko lebenkeleng';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title =>
+      'Litheko tse ncha ka ho fetisisa';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Litheko tsa morao-rao tse kentsoeng ke sechaba sa Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Batšehetsi ba nang le litheko tse ngata';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Bula Litefiso tsa metrics';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Latela tsoelopele ea morero';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title =>
+      'Mekhoa ea ho kenya letsoho';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Netefatsa litheko tse ekelitsoeng ke uena kapa ba bang, ka thuso ea AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Kenya lirisiti tse ngata kapa linepe tsa lishelefo ka potlako ho tsoa moqolong oa khamera ea hau';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title =>
+      'Mathata a khoeli le khoeli';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Kenya letsoho mesebetsing ea khoeli le khoeli ea ho bokella litheko';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Batla hape lintlha tsa hau tsa botšepehi';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Ithute mokhoa oa ho kopa data ea hau';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Iketsetse sesebelisoa';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Kenya letsoho morerong ona';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Mekhoa e bonolo ea ho thusa Bula Lintlha tsa Lijo';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Lintlha tsa mekhoa, thuso, le tse ling ka morero';
 
   @override
   String get product_edit_robotoff_positive_button => 'Amohela tlhahiso';
@@ -5485,14 +5495,14 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Ka kopo qala sesebelisoa hape ho sebelisa liphetoho.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Sebopeho sa setšoantšo';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Mecha ea litaba';
 
   @override
   String get preferences_about_app_development_title => 'Development';
@@ -5506,19 +5516,19 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tlisa Lintlha tse Bulehileng tsa Lijo puong ea hau';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Ingolise ho mofuta oa alpha oa sesebelisoa';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Menehelo & Lintlha tsa Sehlahisoa';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'U se ke ua bontša Folksonomy';
 
   @override
   String get preferences_account_title => 'Account';

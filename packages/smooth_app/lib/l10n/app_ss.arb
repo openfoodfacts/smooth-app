@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Finyelela timphawu tekuhlola kanye nemathuluzi ekutfutfukisa",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Liphuzu leliluhlata A",
+  "environmental_score_b_new": "Sikolo lesiluhlata B",
+  "environmental_score_c_new": "Sikolo lesiluhlata C",
+  "environmental_score_d_new": "Liphuzu leliluhlata D",
+  "environmental_score_e_new": "Liphuzu leliluhlata E",
+  "environmental_score_unknown_new": "Sikolo-lesiluhlata lesingatiwa",
+  "environmental_score_not_applicable_new": "Liphuzu leliluhlata alisebenti",
+  "nova_group_generic_new": "Kudla lokucubunguliwe kakhulu - emacembu e-NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Tonkhe takhamuti tingasisita kutsi sibutsele ndzawonye futsi sihlele lwati lolukhona kumikhicito noma lolungatsatfwa kuyo, njengelwati ngekupakisha: Mission Emballages: luhlu lolukhulu lwekubambisana lwekupakisha yonkhe imikhicito yekudla (ngesiFulentshi)",
   "guide_greenscore_transparency_arg2_title": "Indlela bakhiciti labangasita ngayo .",
   "guide_greenscore_transparency_arg2_text": "Abakhiciti bangasitfumelela lwati lwabo ngco ngepulatifomu yetfu yamahhala yebakhiciti.",
-  "guide_greenscore_share_link": "https://fr.emaciniso ekudla lavulekile.org/emaphuzu-laluhlata",
+  "guide_greenscore_better_product_title": "Ngumuphi umkhicito loncono kuleplanethi?",
+  "guide_greenscore_better_product_arg1_title": "Kungaba matima kutjela",
+  "guide_greenscore_better_product_arg1_text": "Kukhetsa kudla lokusimeme ngulenye yetintfo letinemandla kakhulu lesingakwenta ngesimo selitulu, njengoba **luhlelo lwetfu lwekudla lwemhlaba wonkhe lunesibopho sekukhicita ngetulu kwekota yawo onkhe emagesi e-greenhouse**.\n(Umtfombo: Lophuyile & Nemecek, Isayensi, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Wena unawo emandla!",
+  "guide_greenscore_better_product_arg2_text": "Tindzaba letimnandzi kutsi loku kusinika indlela lenemandla yekudala lushintjo.\n**Ngamunye wetfu udla kudla lokulinganiselwa ku-1,000 njalo ngemnyaka**. Lawo ngematfuba langu-1,000 ekutsi **ukhetse likusasa lelincono leplanethi**!",
+  "guide_greenscore_better_product_arg3_title": "Kuyasita kutsi ube nemtfwalo futsi uncume .",
+  "guide_greenscore_better_product_arg3_text": "Kukhetsa kudla lokusimeme kungativa kuyinkimbinkimbi. Emalebuli ayadida futsi lwati luvame kungabi khona. I-Green-Score yadalwa kwenta kutsi kube melula, ikunikete **silinganiso semvelo lesicacile**, **lesisekelwe kusayensi**, kanye **lesicacile** semikhicito yekudla, khona lapho uyidzinga khona: ngesikhatsi utsenga.",
+  "guide_greenscore_better_product_arg4_title": "Kubeka tintfo ebaleni",
+  "guide_greenscore_better_product_arg4_text": "Ngalokwehlukile kumalebuli emphahla, kubalwa kwe-Green-Score **kuvulekile ngalokuphelele** futsi kungacinisekiswa **ngunobe ngubani**.",
+  "guide_greenscore_share_link": "https://si.emaciniso ekudla lavulekile.org/emaphuzu-laluhlata",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Yini kucubungula kakhulu?",
+  "guide_nova_what_is_nova_paragraph1": "Emacembu eNOVA akwatisa ngelizinga lekucubungula kudla.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Lokuhlukaniswa kwe NOVA kuvumela kuhlukaniswa kwekudla kube ngemacembu langu **4** ngekuya nge **lizinga lekucubungula kwawo etimbonini** (kudla lokucubungulwe kancane noma lokungakacubungulwa, tintfo tekupheka, kudla lokucubungulwe, kudla lokucubungulwe kakhulu).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Timphawu te-NOVA",
+  "guide_nova_groups_title": "Emacembu langu-4 e-NOVA",
+  "guide_nova_groups_intro": "Kukhona emacembu langu 4 eNOVA, leyo lenenkinga yi Group 4 - Kudla lokucubunguliwe kakhulu.",
+  "guide_nova_groups_arg1_title": "Kudla lokuphekwe kancane noma lokungakaphekwe",
+  "guide_nova_groups_arg1_text": "Kudla lokungakalungiswa (noma kwemvelo) tincenye letidliwako tetitjalo (tinhlanyelo, titselo, emacembe, ticu, timphandze) noma tilwane (imisipha, i-offal, emacandza, lubisi), kanye ne fungi, algae, kanye nemanti, ngemuva kwekuhlukaniswa nemvelo.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Tintfo letilungisiwe tekupheka, njengemafutsa, ibhotela, shukela, kanye neluswayi, tintfo letisuselwa ekudleni kweLicembu 1 noma kusuka emvelweni ngetinchubo letifaka ekhatsi kucindzetela, kucolisa, kugaya, kugaya, kanye nekomisa.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Kudla lokuphekiwe, njengetibhidvo letisemabhodleleni, imfishi lefakwe emathinini, titselo letisesiraphu, emashizi, kanye nesinkhwa lesisandza kwentiwa, kwentiwa kakhulu ngekufaka luswayi, emafutsa, shukela, noma letinye tintfo kusuka ekudleni kweLicembu 2 kuya kuLicembu 1. Tinchubo tifaka tindlela letehlukene tekulondvolota noma tekupheka, futsi esimeni sesinkhwa kanye nashizi, kubiliswa lokungekho tjwala. Kudla lokuningi lokucubunguliwe kunetintfo letimbili noma letintsatfu futsi kuyabonakala njengetinhlobo letiguculwe tekudla kweLicembu 1. Tingadliwa todvwa noma, ngalokuvamile, tihlanganiswe nalokunye kudla.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Kudla lokucubungulwe kakhulu, njengetiphuzo letinongotelako, kudla lokuncane lokupakishiwe lokumnandzi noma lokunongotelako, imikhicito yenyama lephindze yakhiwe, kanye netidlo letilungiswe ngaphambilini letifriziwe, akusiko nje kudla lokuguculwe kepha kwakheka lokwentiwe kakhulu noma ngalokuphelele kusuka etintfweni letisuselwa ekudleni kanye nekwengeteka, ngekudla lokuncane noma lokute Group1 . Titsako letikuletinhlobo tivame kufaka ekhatsi leto letitfolakala ekudleni lokucubunguliwe, njengashukela, emafutsa, emafutsa, noma luswayi. Nomakunjalo, imikhicito lecubungulwe kakhulu iphindze ibe naleminye imitfombo yemandla kanye nemanutrients langakavami kusetjentiswa ekulungiseleleni kwekupheka. Letinye taletintfo titsatfwa ngco ekudleni, njenge-casein, i-lactose, i-whey, ne-gluten.",
+  "guide_nova_explanations_title": "Tinkinga tekucubungula kakhulu",
+  "guide_nova_explanations_arg1_title": "Kucubungula kakhulu titsako tekudla",
+  "guide_nova_explanations_arg1_text": "Letinyenti titsatfwa ngekucubungula lokunyenti kwetintfo tekudla, njengemafutsa lane hydrogen noma lanesitsakatelo, emaprotein lane hydrogen, emaprotein e soy isolate, imaltodextrin, shukela logucukile, kanye nesiraphu yemabele lene fructose lesetulu.",
+  "guide_nova_explanations_arg2_title": "Tintfo letingetiwe letidlula kuphepha kwekudla lokuhlantekile",
+  "guide_nova_explanations_arg2_text": "Tintfo letingetiwe ekudleni lokucubunguliwe kakhulu tifaka ekhatsi letinye letiphindze tisetjentiswe ekudleni lokucubunguliwe, njengetintfo letilondvolotako, ema-antioxidants, kanye neticinisa. Emakilasi etintfo letingetiwe letitfolakala kuphela kumikhicito lecubungulwe kakhulu afaka ekhatsi leto letisetjentiselwa kulingisa noma kutfutfukisa timfanelo tetinzwa tekudla noma kufihla tincenye letingajabulisi temkhicito wekugcina. Letintfo letingetiwe tifaka ekhatsi emadayi kanye naleminye imibala, tintfo leticinisa imibala; tinongo, tintfo letikhutsata kunambitseka, tintfo letingashukela; kanye netinsita tekucubungula letifana nekukhipha icarbonate, kucinisa, kukhulisa kanye nekulwa nekukhulisa, kukhipha igwebu, kulwa nekukheka kanye nekugcobisa, tintfo letihlanganisako, tintfo letifaka emanti, kanye netintfo letifaka emanti.",
+  "guide_nova_explanations_arg3_title": "Kucubungula longeke ukwati kukwenta ekhaya .",
+  "guide_nova_explanations_arg3_text": "Incumbi yekulandzelana kwetinchubo isetjentiswa kuhlanganisa tintfo letivame kuba tiningi kanye nekwakha umkhicito wekugcina (ngako ‘ultra-processed’). Letinchubo tifaka letiningi letite letilinganako tasekhaya, njenge hydrogenation kanye ne hydrolysis, kukhipha kanye nekubumba, kanye nekucubungula ngaphambi kwekuthosa.",
+  "guide_nova_explanations_arg4_title": "Tincenye tekudla kanye netetimali tekucubungula kakhulu",
+  "guide_nova_explanations_arg4_text": "Inhloso jikelele ye ultra-processing kwenta imikhicito yekudla leneluphawu, lelula (lehlala sikhatsi lesidze, lekulungele kudliwa), lekhangako (hyper-palatable) kanye nenzuzo lenkhulu (titsako letibita kancane) leyentelwe kususa onkhe lamanye emacembu ekudla. Imikhicito yekudla lecubunguliwe kakhulu ivame kupakishwa ngendlela lekhangako futsi itsengiswe kakhulu.",
+  "guide_nova_share_link": "https://si.emaciniso ekudla lavulekile.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Lawula tintsengo takho lotikhetsako",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Iphrojekthi yemaciniso ekudla lokuvulekile",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Humusha, tfutfukisa emathulusi etfu…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Hlanganisa",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Finyelela, noma Silandzele etindzabeni tekuchumana",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Sisite satise tigidzi tebatsengisi emhlabeni wonkhe",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Lusito & Kwesekela",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Tfola timphendvulo temibuto yakho",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Ngiphumile",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Siyabonga ngekuba ngulelinye lemalunga etfu!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Bona tonkhe tibalo",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Sesha {provider} ngekutsi \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Sesha lokusethwako (sib. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Kufinyeleleka: Khombisa i-emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Kufinyeleleka: Susa imibala",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Lwati lwemtsetfo",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Imigomo yekusebentisa, inchubomgomo yetimfihlo, kanye nalokunye",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Emalayisensi",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Mayelana ne-app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Lwati lwebuchwepheshe, lwati lwemsunguli, kanye nalokunye",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Inombolo yengucuko",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Sikena",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Sitolo setinhlelo tekusebenta",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Tilungiselelo teluhlelo",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Finyelela ikhodi yemtfombo",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Futsi ucale kwenta umtselela kutigidzi",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Emathipu",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Tfola i-Nutri-Score lensha",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Lawula i-akhawunti yami",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Shintja iphasiwedi yami",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Indzawo leyingoti",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Yonkhe iminikelo yakho itawulahleka .",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Emasethingi e-app",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Indlela yekuhlola kakhulu yekuskena imikhicito ngaphandle kwe-inthanethi",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Vuselela yonkhe imikhicito kusuka kuseva",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Sicela ungakwenti loko ngaphandle nangabe kudzingeka kakhulu .",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Imodi yekubonisa",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ngeta emakhadi ku-scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Kwengeta imikhicito lemitsatfu yesampula kulesikena",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Umsingatsi webantfu",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Kuhlolwa kwekufinyeleleka",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Kukhetsa imikhicito leminyenti ngemanani",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Emaphaneli elwati la-odwe ngumsebentisi",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Kufinyelela kwesikhashana ekufuneni indzawo",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Kucatsanisa eceleni kwemikhicito lemibili nobe lemitsatfu",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Kungeniswa kweluhlu lwemikhicito",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Emaphuzu & tindlela tekusebenta",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Tfola kutsi i-Nutri-Score ibalwa njani",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Tfola tingucuko letinkhulu kulendlela yekusebenta .",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Tfola Emaciniso Ekudla Lavulekile",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Imibuto Levame Kubutwa",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "I-NGO yeMaciniso Ekudla Lokuvulekile",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Tfola lwati lolusha lwemmango",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Hlala wati nge-app kanye netindzaba temmango",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Silandzele etindzabeni tekuchumana",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ibhulogi Yemaciniso Ekudla Lokuvulekile",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Tfola tindzaba takamuva, njengobe tenteka",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Tfola lusito emmangweni",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Sisite sitfutfukise le-app",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Sitfumelele lwati lwekulungisa emaphutsa",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Sitfumelele i-imeyili lenelwati lolubanti lwekulungisa emaphutsa",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Sitfumele umbono mayelana ne-app",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Sita kubumba likusasa le-app",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Tfola inhlolovo ye-app",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Sisite sivisise kutsi yini lokufanele sakhe ngemuva kwaloko",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Bangcweti",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Mahhala ngalokuphelele, kucinisekisa idatha lenembile yetinhlelo tekusebenta letingu-500 & tigidzi tebatsengisi. Kutisebentela, kuhambisana ne-PIM yakho noma emaspredishithi (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Titsintse kute ucale",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Tfola tonkhe tintfo lotidzingako tembiko wakho .",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Titsintse kute utfole imibuto yetindzaba noma usatise ngembiko wakho",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Yiba ngumsebenti wekutitsandzela lokhutsele",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Intfutfuko, Kukhulumisana, Kuklama… noma ngabe nguyiphi inhlobo yekutitsandzela noma bungcweti yamukelekile!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Tfola letinye tetindlela letinyenti longafaka sandla ngato .",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Kutfutfukiswa kwe-app yeselula",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Fundza kutsi ungafaka njani sandla ekwakhiweni kwesoftware",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Kwakha lokungasimami kwamalanga onkhe, timphawu letinsha",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Khulisa ummango wakho",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Lusito nge-software, lokucuketfwe, emahumusho ekuhlatiya titsako",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Silungiselele ithempulethi lencane yekukusita :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Tinyatselo letilula tekukhulisa kusebenta ngalokusebaleni kwekudla eveni lakho",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Hlanganyela nelicembu lelizinga ledatha",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Hlanganyela nemtamo wetfu wekucinisekisa kutsi i-database iphelele futsi inembile",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 imikhicito lengetiwe",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Imikhicito lemisha lengiyifakile ku-Open Food Facts .",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Imikhicito lengidzinga kuyigcwalisa",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Yonkhe imikhicito lengakapheleli",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Imikhicito longasita kutsi uyigcwalise",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Sita kubala i-Nutri-Score & i-Green-Score eveni lakini",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Intsengo lenginikele ngayo",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Emathegi emanani kanye nemarisidi",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Tfola titfombe temarisidi akho bese uskena emabhakhodi lahlobene nawo",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Tfola titfombe temanani esitolo",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Intsengo lemisha kakhulu",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Intsengo yakamuva lengetiwe ngummango we-Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Labafaka sandla labanemanani lamanyenti",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Vula emamethrikhi emanani",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Landzela kugucuka kwephrojekthi",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Tindlela tekunikela",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Cinisekisa emanani langetiwe nguwe noma ngulabanye, ngekusitwa yi-AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ngekushesha faka emarisidi lamanyenti noma titfombe temashelufu kusuka ku-roll yakho yekhamera",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Tinsayeya tenyanga",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Hlanganyela emibuzweni lenetihloko njalo ngenyanga kute uhlanganise emanani",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Buyisa imininingwane yakho yekwetsembeka",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Fundza kutsi ungayicela njani idatha yakho",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Yenta ngendlela loyifunako",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Nikela kulephrojekthi",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Tindlela letilula tekusita Vula Emaciniso Ekudla .",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Tindlela tekubeka emaphuzu, lusito, kanye nalokunye lokunyenti ngalephrojekthi",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Yemukela siphakamiso",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Kucinisekisa kwehlulekile, akukhoni kutfola bufakazi",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Sicela ucale kabusha i-app kute usebentise tingucuko.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Sikhombisi-mbono",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Abetindzaba",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Vula Emalabs Emaciniso Ekudla",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Letsa Emaciniso Ekudla Lavulekile elulwimini lwakho",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Bhalisa ku-alpha version ye-app",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Iminikelo & Imininingwane yemkhicito",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ungakhombisi iFolksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

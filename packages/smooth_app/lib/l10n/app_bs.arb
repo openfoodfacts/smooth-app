@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Pristup eksperimentalnim funkcijama i alatima za razvoj",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Zelena ocjena A",
+  "environmental_score_b_new": "Zelena ocjena B",
+  "environmental_score_c_new": "Zeleni rezultat C",
+  "environmental_score_d_new": "Zeleni rezultat D",
+  "environmental_score_e_new": "Zelena ocjena E",
+  "environmental_score_unknown_new": "Nepoznati zeleni rezultat",
+  "environmental_score_not_applicable_new": "Zeleni rezultat nije primjenjiv",
+  "nova_group_generic_new": "Ultra-prerađena hrana - NOVA grupe",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Svi građani nam mogu pomoći u prikupljanju i strukturiranju informacija koje se nalaze na proizvodima ili koje se iz njih mogu zaključiti, kao što su informacije o ambalaži: Mission Emballages: veliki kolaborativni popis ambalaže za sve prehrambene proizvode (na francuskom)",
   "guide_greenscore_transparency_arg2_title": "Kako proizvođači mogu pomoći",
   "guide_greenscore_transparency_arg2_text": "Proizvođači nam mogu poslati svoje podatke direktno putem naše besplatne platforme za proizvođače.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Koji je proizvod bolji za planetu?",
+  "guide_greenscore_better_product_arg1_title": "Teško je reći",
+  "guide_greenscore_better_product_arg1_text": "Odabir održive hrane jedna je od najmoćnijih stvari koje možemo učiniti za klimu, budući da je **naš globalni prehrambeni sistem odgovoran za više od četvrtine svih emisija stakleničkih plinova**.\n(Izvor: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Imaš moć!",
+  "guide_greenscore_better_product_arg2_text": "Dobra vijest je da nam ovo pruža moćan način da stvorimo promjenu.\n**Svako od nas pojede oko 1.000 obroka svake godine**. To je 1.000 prilika da **izaberemo bolju budućnost za planetu**!",
+  "guide_greenscore_better_product_arg3_title": "Pomaže u preuzimanju odgovornosti i donošenju odluka",
+  "guide_greenscore_better_product_arg3_text": "Odabir održive hrane može se činiti složenim. Etikete su zbunjujuće, a informacije često nedostaju. Zeleni rezultat je kreiran da bi to pojednostavio, dajući vam **jasnu**, **naučno zasnovanu** i **transparentnu** ekološku ocjenu za prehrambene proizvode, upravo tamo gdje vam je potrebna: dok kupujete.",
+  "guide_greenscore_better_product_arg4_title": "Transparentnost",
+  "guide_greenscore_better_product_arg4_text": "Za razliku od vlasničkih oznaka, izračun Green-Scorea je **potpuno otvoren** i može ga **provjeriti bilo ko**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Šta je ultra-procesiranje?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA grupe vas informišu o nivou obrade hrane.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA klasifikacija omogućava kategorizaciju hrane u **4 grupe** na osnovu njihovog **stepena industrijske obrade** (minimalno prerađena ili neprerađena hrana, kulinarski sastojci, prerađena hrana, ultra-prerađena hrana).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA logotipi",
+  "guide_nova_groups_title": "4 NOVA grupe",
+  "guide_nova_groups_intro": "Postoje 4 NOVA grupe, a problematična je Grupa 4 - Ultra-prerađena hrana.",
+  "guide_nova_groups_arg1_title": "Minimalno prerađena ili neprerađena hrana",
+  "guide_nova_groups_arg1_text": "Neprerađena (ili prirodna) hrana su jestivi dijelovi biljaka (sjemenke, plodovi, lišće, stabljike, korijenje) ili životinja (mišići, iznutrice, jaja, mlijeko), kao i gljive, alge i voda, nakon što su odvojeni od prirode.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Prerađeni kulinarski sastojci, poput ulja, maslaca, šećera i soli, su tvari dobivene iz namirnica Grupe 1 ili iz prirode kroz procese koji uključuju presovanje, rafiniranje, mljevenje, mljevenje i sušenje.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Prerađena hrana, kao što su povrće u teglama, riba u konzervi, voće u sirupu, sirevi i svježe pečeni hljebovi, prvenstveno se proizvode dodavanjem soli, ulja, šećera ili drugih supstanci iz Grupe 2 u hranu Grupe 1. Procesi uključuju različite metode konzerviranja ili kuhanja, a u slučaju hljeba i sira, bezalkoholnu fermentaciju. Većina prerađene hrane ima dva ili tri sastojka i prepoznatljiva je kao modificirane verzije hrane Grupe 1. Mogu se jesti samostalno ili, češće, u kombinaciji s drugom hranom.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Ultra-prerađena hrana, kao što su bezalkoholna pića, slatki ili slani pakirani grickalice, rekonstituirani mesni proizvodi i prethodno pripremljena smrznuta jela, nisu samo modificirana hrana, već formulacije napravljene uglavnom ili u potpunosti od supstanci dobivenih iz hrane i aditiva, s malo ili nimalo netaknute hrane Grupe 1. Sastojci u ovim formulacijama obično uključuju one koji se nalaze i u prerađenoj hrani, kao što su šećeri, ulja, masti ili sol. Međutim, ultra-prerađeni proizvodi također sadrže druge izvore energije i hranjivih tvari koje se obično ne koriste u kulinarskim pripremama. Neki od njih se direktno ekstrahiraju iz hrane, kao što su kazein, laktoza, sirutka i gluten.",
+  "guide_nova_explanations_title": "Problemi s ultra-procesiranjem",
+  "guide_nova_explanations_arg1_title": "Ekstremna obrada sastojaka hrane",
+  "guide_nova_explanations_arg1_text": "Mnogi se dobijaju daljnjom preradom sastojaka hrane, kao što su hidrogenirana ili interesterificirana ulja, hidrolizirani proteini, izolat sojinih proteina, maltodekstrin, invertni šećer i kukuruzni sirup s visokim udjelom fruktoze.",
+  "guide_nova_explanations_arg2_title": "Aditivi koji idu dalje od čiste sigurnosti hrane",
+  "guide_nova_explanations_arg2_text": "Aditivi u ultra-prerađenoj hrani uključuju neke koji se također koriste u prerađenoj hrani, kao što su konzervansi, antioksidansi i stabilizatori. Klase aditiva koji se nalaze samo u ultra-prerađenim proizvodima uključuju one koji se koriste za imitiranje ili poboljšanje senzornih kvaliteta hrane ili za prikrivanje neukusnih aspekata konačnog proizvoda. Ovi aditivi uključuju boje i druge boje, stabilizatore boja; arome, pojačivače okusa, zaslađivače bez šećera; i pomoćna sredstva za preradu kao što su karbonizatori, učvršćivači, sredstva za povećanje i smanjenje volumena, sredstva za uklanjanje pjene, sredstva protiv zgrudnjavanja i glaziranje, emulgatori, sekvestranti i humektanti.",
+  "guide_nova_explanations_arg3_title": "Obrada koju ne možete obaviti kod kuće",
+  "guide_nova_explanations_arg3_text": "Za kombinovanje obično mnogih sastojaka i stvaranje konačnog proizvoda (otuda i 'ultra-obrađen') koristi se mnoštvo nizova procesa. Procesi uključuju nekoliko koji nemaju domaće ekvivalente, kao što su hidrogenacija i hidrolizacija, ekstruzija i oblikovanje, te prethodna obrada za prženje.",
+  "guide_nova_explanations_arg4_title": "Predatorski i finansijski aspekti ultra-obrade",
+  "guide_nova_explanations_arg4_text": "Opća svrha ultra-prerade je stvaranje brendiranih, praktičnih (izdržljivih, spremnih za konzumaciju), atraktivnih (hiper-ukusnih) i visoko profitabilnih (jeftini sastojci) prehrambenih proizvoda dizajniranih da istisnu sve ostale grupe hrane. Ultra-prerađeni prehrambeni proizvodi obično su atraktivno pakirani i intenzivno se plasiraju na tržište.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Upravljajte svojim postavkama cijena",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projekt Otvorene činjenice o hrani",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Prevedite, poboljšajte naše alate…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Poveži se",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kontaktirajte nas ili pratite nas na društvenim mrežama",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Pomozite nam da informišemo milione potrošača širom svijeta",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Pomoć i podrška",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Dobijte odgovore na svoja pitanja",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Odjavljen/a",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Hvala vam što ste jedan od naših članova!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Pogledajte sve statistike",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Pretraži {provider} za \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Pretražite postavku (npr. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Pristupačnost: Prikaži emotikone",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Pristupačnost: Ukloni boje",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Pravne informacije",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Uslovi korištenja, politika privatnosti i još mnogo toga",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licence",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "O aplikaciji",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Tehničke informacije, informacije za programere i još mnogo toga",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Broj verzije",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skener",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Prodavnica aplikacija",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Postavke sistema",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Pristupite izvornom kodu",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "I počnite da utičete na milione",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Savjeti",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Otkrijte novi Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Na web stranici Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Upravljaj mojim računom",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Promijeni moju lozinku",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Opasna zona",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Svi vaši doprinosi će biti izgubljeni",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Postavke aplikacije",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Vrlo eksperimentalan način skeniranja proizvoda van mreže",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Osvježi sve proizvode sa servera",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Molim vas, izbjegavajte to osim ako nije apsolutno neophodno",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo način rada",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Dodajte kartice u skener",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Dodaje 3 uzorka proizvoda skeneru",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Domaćin folksonomije",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Eksperimenti s pristupačnošću",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Izbor više proizvoda po cijenama",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Korisnički naručeni paneli znanja",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Privremeni pristup pretraživanju lokacije",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Uporedna analiza za 2 ili 3 proizvoda",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Uvoz liste proizvoda",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Rezultati i metodologije",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Otkrijte kako se izračunava Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Otkrijte glavne promjene u metodologiji",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Otkrijte projekat",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Otkrijte činjenice o otvorenoj hrani",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "ČPP - Često postavljana pitanja",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Nevladina organizacija Otvorene činjenice o hrani",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Primajte novosti iz zajednice",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Ostanite u toku s novostima iz aplikacije i zajednice",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Uključite se posjetom jednom od naših virtualnih događaja",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Pratite nas na društvenim mrežama",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blog Otvorene činjenice o hrani",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Primajte najnovije vijesti čim se dese",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Zatražite pomoć od zajednice",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Pomozite nam da poboljšamo aplikaciju",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Pošaljite nam informacije o otklanjanju grešaka",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Pošaljite nam e-poruku s detaljnim informacijama o otklanjanju grešaka",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Pošaljite nam povratne informacije o aplikaciji",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Pomozite u oblikovanju budućnosti aplikacije",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Popunite anketu o aplikaciji",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Pomozite nam da shvatimo šta bismo trebali sljedeće izgraditi",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionalci",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Potpuno besplatno, osigurava tačne podatke za 500 aplikacija i milione potrošača. Samouslužno, kompatibilno s vašim PIM-om ili proračunskim tablicama (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kontaktirajte nas da biste započeli",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Pritisnite",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Pribavite sav materijal koji vam je potreban za vaš izvještaj",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kontaktirajte nas za upite medija ili da nas obavijestite o vašem izvještaju",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Postanite aktivni volonter",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Razvoj, komunikacija, dizajn… svaka vrsta volontiranja ili stručnosti je dobrodošla!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Otkrijte neke od mnogih načina na koje možete doprinijeti",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Razvoj mobilnih aplikacija",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Naučite kako doprinijeti razvoju softvera",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Dnevno nestabilne verzije, potpuno nove funkcije",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Razvijajte svoju lokalnu zajednicu",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Pomoć sa softverom, sadržajem, prevodima analiza sastojaka",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Pripremili smo mali šablon da vam pomognemo :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Jednostavni koraci za povećanje transparentnosti hrane u vašoj zemlji",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Pridružite se timu za kvalitet podataka",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Pridružite se našem nastojanju da osigurate da je baza podataka potpuna i tačna",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "Dodano 0 proizvoda",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Novi proizvodi koje sam dodao/la na Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Proizvodi koje trebam dovršiti",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Svi nepotpuni proizvodi",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Proizvodi koje možete pomoći u kompletiranju",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Pomozite u izračunavanju Nutri-Score i Green-Score u vašoj zemlji",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Cijene koje sam doprinio/doprinijela",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Cjenovnike i račune",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Fotografišite svoje račune i skenirajte povezane barkodove",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Fotografišite cijene u prodavnici",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Najnovije cijene",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Najnovije cijene koje je dodala zajednica Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Saradnici s najvećim cijenama",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrike cijene otvaranja",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Pratite razvoj projekta",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Načini doprinosa",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Potvrdite cijene koje ste dodali vi ili drugi, uz pomoć umjetne inteligencije",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Brzo dodajte više računa ili fotografija polica iz svojih fotografija",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Mjesečni izazovi",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Učestvujte u mjesečnim tematskim zadacima kako biste prikupili nagrade",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Povratite svoje podatke o lojalnosti",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Naučite kako zatražiti svoje podatke",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Prilagodite aplikaciju",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Doprinesite projektu",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Jednostavni načini da pomognete Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologije bodovanja, pomoć i više o projektu",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Prihvati prijedlog",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikacija nije uspjela, nije moguće preuzeti dokaze",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Molimo vas da ponovo pokrenite aplikaciju da biste primijenili promjene.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafički interfejs",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Mediji",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Otvoreni laboratoriji za informacije o hrani",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Prenesite činjenice o otvorenoj hrani na svoj jezik",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Prijavite se za alfa verziju aplikacije",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Doprinosi i podaci o proizvodu",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ne prikazuj Folksonomiju",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "เข้าถึงคุณลักษณะเชิงทดลองและเครื่องมือการพัฒนา",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "ข้อมูล",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "กรีนสกอร์ เอ",
+  "environmental_score_b_new": "กรีนสกอร์ บี",
+  "environmental_score_c_new": "กรีนสกอร์ ซี",
+  "environmental_score_d_new": "กรีนสกอร์ ดี",
+  "environmental_score_e_new": "กรีนสกอร์ อี",
+  "environmental_score_unknown_new": "กรีนสกอร์ที่ไม่รู้จัก",
+  "environmental_score_not_applicable_new": "คะแนนสีเขียวไม่สามารถใช้งานได้",
+  "nova_group_generic_new": "อาหารแปรรูปขั้นสูง - กลุ่ม NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "พลเมืองทุกคนสามารถช่วยเรารวบรวมและจัดโครงสร้างข้อมูลที่มีอยู่ในผลิตภัณฑ์หรือที่สามารถอนุมานได้จากผลิตภัณฑ์ เช่น ข้อมูลเกี่ยวกับบรรจุภัณฑ์: ภารกิจ Emballages: การสำรวจสินค้าคงคลังบรรจุภัณฑ์ขนาดใหญ่สำหรับผลิตภัณฑ์อาหารทั้งหมด (ภาษาฝรั่งเศส)",
   "guide_greenscore_transparency_arg2_title": "ผู้ผลิตสามารถช่วยได้อย่างไร",
   "guide_greenscore_transparency_arg2_text": "ผู้ผลิตสามารถส่งข้อมูลของตนมาให้เราโดยตรงผ่านแพลตฟอร์มฟรีสำหรับผู้ผลิตของเรา",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/คะแนนสีเขียว",
+  "guide_greenscore_better_product_title": "ผลิตภัณฑ์ใดดีต่อโลกมากกว่ากัน?",
+  "guide_greenscore_better_product_arg1_title": "มันอาจจะยากที่จะบอก",
+  "guide_greenscore_better_product_arg1_text": "การเลือกอาหารที่ยั่งยืนถือเป็นหนึ่งในสิ่งที่ทรงพลังที่สุดที่เราสามารถทำได้เพื่อสภาพภูมิอากาศ เนื่องจาก **ระบบอาหารทั่วโลกของเรามีส่วนรับผิดชอบต่อการปล่อยก๊าซเรือนกระจกมากกว่าหนึ่งในสี่**\n(ที่มา: Poore & Nemecek, Science, 2018)",
+  "guide_greenscore_better_product_arg2_title": "คุณมีอำนาจ!",
+  "guide_greenscore_better_product_arg2_text": "ข่าวดีก็คือ นี่เป็นหนทางอันทรงพลังในการสร้างการเปลี่ยนแปลง\n**เราแต่ละคนรับประทานอาหารประมาณ 1,000 มื้อต่อปี** นั่นคือโอกาส 1,000 ครั้งในการเลือก **อนาคตที่ดีกว่าให้กับโลก**!",
+  "guide_greenscore_better_product_arg3_title": "ช่วยให้มีความรับผิดชอบและตัดสินใจ",
+  "guide_greenscore_better_product_arg3_text": "การเลือกอาหารที่ยั่งยืนอาจดูซับซ้อน ฉลากอาจสร้างความสับสนและมักขาดข้อมูล Green-Score ออกแบบมาเพื่อให้ใช้งานง่าย ช่วยให้คุณได้รับการจัดอันดับด้านสิ่งแวดล้อมที่ **ชัดเจน** **อิงวิทยาศาสตร์** และ **โปร่งใส** สำหรับผลิตภัณฑ์อาหาร ตรงจุดที่คุณต้องการ: ขณะที่คุณกำลังเลือกซื้อ",
+  "guide_greenscore_better_product_arg4_title": "ความโปร่งใส",
+  "guide_greenscore_better_product_arg4_text": "ต่างจากฉลากที่เป็นกรรมสิทธิ์ การคำนวณ Green-Score นั้น **เปิดกว้างอย่างสมบูรณ์** และใครๆ ก็สามารถ **ตรวจสอบได้**",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/คะแนนสีเขียว",
+  "guide_nova_title": "อาหารที่ผ่านการแปรรูประดับสูง",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ultra Processing คืออะไร?",
+  "guide_nova_what_is_nova_paragraph1": "กลุ่ม NOVA แจ้งให้คุณทราบเกี่ยวกับระดับของการแปรรูปอาหาร",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "การจำแนกประเภท NOVA ช่วยให้สามารถจำแนกอาหารออกเป็น **4 กลุ่ม** ตาม **ระดับการแปรรูปทางอุตสาหกรรม** (อาหารที่ผ่านการแปรรูปน้อยที่สุดหรือไม่ได้แปรรูป ส่วนผสมในการปรุงอาหาร อาหารแปรรูป อาหารแปรรูปอย่างมาก)",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "โลโก้ NOVA",
+  "guide_nova_groups_title": "กลุ่ม NOVA ทั้ง 4 กลุ่ม",
+  "guide_nova_groups_intro": "มีกลุ่ม NOVA อยู่ 4 กลุ่ม โดยกลุ่มที่เป็นปัญหาคือกลุ่มที่ 4 ซึ่งเป็นอาหารแปรรูปขั้นสูง",
+  "guide_nova_groups_arg1_title": "อาหารที่ผ่านการแปรรูปน้อยที่สุดหรือไม่ได้แปรรูป",
+  "guide_nova_groups_arg1_text": "อาหารที่ไม่ผ่านการแปรรูป (หรือจากธรรมชาติ) คือส่วนที่รับประทานได้ของพืช (เมล็ด ผลไม้ ใบ ลำต้น ราก) หรือสัตว์ (กล้ามเนื้อ เครื่องใน ไข่ นม) เช่นเดียวกับเชื้อรา สาหร่าย และน้ำ หลังจากแยกออกจากธรรมชาติ",
+  "guide_nova_groups_arg2_title": "เครื่องปรุงอาหารที่ผ่านการแปรรูป",
+  "guide_nova_groups_arg2_text": "ส่วนผสมอาหารแปรรูป เช่น น้ำมัน เนย น้ำตาล และเกลือ เป็นสารที่ได้มาจากอาหารกลุ่ม 1 หรือจากธรรมชาติ โดยผ่านกระบวนการต่างๆ เช่น การกด การกลั่น การบด การโม่ และการอบแห้ง",
+  "guide_nova_groups_arg3_title": "อาหารแปรรูป",
+  "guide_nova_groups_arg3_text": "อาหารแปรรูป เช่น ผักบรรจุขวด ปลากระป๋อง ผลไม้ในน้ำเชื่อม ชีส และขนมปังสด ส่วนใหญ่ผลิตโดยการเติมเกลือ น้ำมัน น้ำตาล หรือสารอื่นๆ จากกลุ่ม 2 ลงในอาหารกลุ่ม 1 กระบวนการต่างๆ ประกอบด้วยวิธีการถนอมอาหารหรือการปรุงอาหารที่หลากหลาย และในกรณีของขนมปังและชีส จะมีการหมักแบบไม่มีแอลกอฮอล์ อาหารแปรรูปส่วนใหญ่มีส่วนผสมสองหรือสามอย่าง และเป็นที่รู้จักในฐานะอาหารกลุ่ม 1 ที่ผ่านการดัดแปลง ซึ่งสามารถรับประทานเดี่ยวๆ หรือโดยทั่วไปแล้วสามารถรับประทานร่วมกับอาหารอื่นๆ ได้",
+  "guide_nova_groups_arg4_title": "อาหารที่ผ่านการแปรรูประดับสูง",
+  "guide_nova_groups_arg4_text": "อาหารแปรรูปขั้นสูง เช่น น้ำอัดลม ขนมขบเคี้ยวบรรจุหีบห่อทั้งรสหวานและรสเค็ม ผลิตภัณฑ์เนื้อสัตว์แปรรูป และอาหารแช่แข็งสำเร็จรูป ไม่เพียงแต่เป็นอาหารแปรรูปเท่านั้น แต่ยังเป็นสูตรที่ผลิตจากสารต่างๆ ที่ได้จากอาหารและสารเติมแต่งเป็นส่วนใหญ่หรือทั้งหมด โดยแทบไม่มีหรือไม่มีอาหารกลุ่ม 1 ที่สมบูรณ์ ส่วนผสมในสูตรเหล่านี้มักประกอบด้วยส่วนผสมที่พบในอาหารแปรรูป เช่น น้ำตาล น้ำมัน ไขมัน หรือเกลือ อย่างไรก็ตาม ผลิตภัณฑ์แปรรูปขั้นสูงยังมีแหล่งพลังงานและสารอาหารอื่นๆ ที่ปกติแล้วไม่ได้ใช้ในการปรุงอาหาร บางชนิดสกัดโดยตรงจากอาหาร เช่น เคซีน แลคโตส เวย์ และกลูเตน",
+  "guide_nova_explanations_title": "ปัญหาของการประมวลผลขั้นสูง",
+  "guide_nova_explanations_arg1_title": "การแปรรูปส่วนผสมอาหารแบบสุดขั้ว",
+  "guide_nova_explanations_arg1_text": "สารหลายชนิดได้มาจากการแปรรูปส่วนประกอบอาหารเพิ่มเติม เช่น น้ำมันไฮโดรจิเนตหรืออินเทอร์เอริฟายด์ โปรตีนไฮโดรไลซ์ โปรตีนแยกจากถั่วเหลือง มอลโตเดกซ์ทริน น้ำตาลอินเวิร์ต และน้ำเชื่อมข้าวโพดฟรุกโตสสูง",
+  "guide_nova_explanations_arg2_title": "สารเติมแต่งที่เหนือกว่าความปลอดภัยด้านอาหารอย่างแท้จริง",
+  "guide_nova_explanations_arg2_text": "สารเติมแต่งในอาหารแปรรูปขั้นสูงประกอบด้วยสารบางชนิดที่ใช้ในอาหารแปรรูป เช่น สารกันบูด สารต้านอนุมูลอิสระ และสารให้ความคงตัว สารเติมแต่งประเภทที่พบเฉพาะในผลิตภัณฑ์แปรรูปขั้นสูง ได้แก่ สารที่ใช้เพื่อเลียนแบบหรือเพิ่มคุณภาพทางประสาทสัมผัสของอาหาร หรือเพื่อปกปิดส่วนที่ไม่น่ารับประทานของผลิตภัณฑ์ขั้นสุดท้าย สารเติมแต่งเหล่านี้ประกอบด้วยสีย้อมและสีอื่นๆ สารให้ความคงตัวของสี วัตถุแต่งกลิ่นรส สารเพิ่มรสชาติ สารให้ความหวานที่ไม่ใช่น้ำตาล และสารช่วยในกระบวนการแปรรูป เช่น สารให้คาร์บอเนต สารเพิ่มความแน่น สารเพิ่มปริมาณ และสารป้องกันการเพิ่มปริมาณ สารลดฟอง สารป้องกันการจับตัวเป็นก้อนและสารเคลือบ อิมัลซิไฟเออร์ สารจับตัว และสารเพิ่มความชื้น",
+  "guide_nova_explanations_arg3_title": "การประมวลผลที่คุณไม่สามารถทำที่บ้านได้",
+  "guide_nova_explanations_arg3_text": "มีการใช้กระบวนการหลายขั้นตอนเพื่อผสมผสานส่วนผสมต่างๆ ที่มักจะมีอยู่เป็นจำนวนมากเข้าด้วยกัน และสร้างสรรค์ผลิตภัณฑ์ขั้นสุดท้าย (จึงเรียกว่า \"กระบวนการแปรรูปขั้นสูง\") กระบวนการเหล่านี้ประกอบด้วยกระบวนการหลายอย่างที่ไม่มีกระบวนการเทียบเท่าในประเทศ เช่น ไฮโดรจิเนชันและไฮโดรไลเซชัน การอัดรีดและการขึ้นรูป และกระบวนการเตรียมการก่อนทอด",
+  "guide_nova_explanations_arg4_title": "ด้านล่าเหยื่อและการเงินของการประมวลผลขั้นสูง",
+  "guide_nova_explanations_arg4_text": "วัตถุประสงค์โดยรวมของการแปรรูปขั้นสูง (Ultra-Processing) คือการสร้างผลิตภัณฑ์อาหารที่มีตราสินค้า สะดวก (ทนทาน พร้อมบริโภค) น่าดึงดูด (น่ารับประทานมาก) และสร้างกำไรสูง (ใช้วัตถุดิบราคาถูก) ซึ่งออกแบบมาเพื่อแทนที่กลุ่มอาหารอื่นๆ ทั้งหมด ผลิตภัณฑ์อาหารแปรรูปขั้นสูงมักมีบรรจุภัณฑ์ที่สวยงามและจำหน่ายอย่างแพร่หลาย",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "จัดการการตั้งค่าราคาของคุณ",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "โครงการ Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "ร่วมสนับสนุน",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "แปลปรับปรุงเครื่องมือของเรา…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "เชื่อมต่อ",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "ติดต่อเราหรือติดตามเราบนโซเชียลมีเดีย",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "ช่วยเราแจ้งข้อมูลให้ผู้บริโภคหลายล้านคนทั่วโลกทราบ",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "ความช่วยเหลือและการสนับสนุน",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "รับคำตอบสำหรับคำถามของคุณ",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "ออกจากระบบ",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "ขอขอบคุณที่คุณเป็นหนึ่งในสมาชิกของเรา!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "ดูสถิติทั้งหมด",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "ค้นหา {provider} สำหรับ \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "ค้นหาการตั้งค่า (เช่น Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "การเข้าถึง: แสดงอีโมจิ",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "การเข้าถึง: ลบสีออก",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "ผลิตภัณฑ์",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "ข้อมูลทางกฎหมาย",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "เงื่อนไขการใช้งาน นโยบายความเป็นส่วนตัว และอื่นๆ",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "ข้อกำหนดการใช้งาน",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "ใบอนุญาต",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "เกี่ยวกับแอป",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "ข้อมูลทางเทคนิค ข้อมูลนักพัฒนา และอื่นๆ",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "ข้อมูล",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "หมายเลขเวอร์ชัน",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "สแกนเนอร์",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "แอปสโตร์",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "การตั้งค่าระบบ",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "เข้าถึงโค้ดต้นฉบับ",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "และเริ่มสร้างผลกระทบให้กับคนนับล้าน",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "ลงข้อมูลผลิตภัณฑ์อาหาร",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "เคล็ดลับ",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "ค้นพบ Nutri-Score ใหม่",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "บนเว็บไซต์ Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "จัดการบัญชีของฉัน",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "เปลี่ยนรหัสผ่านของฉัน",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "เขตอันตราย",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "เงินบริจาคของคุณทั้งหมดจะสูญหาย",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "การมีส่วนร่วม",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "การตั้งค่าแอป",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "วิธีการทดลองในการสแกนผลิตภัณฑ์แบบออฟไลน์",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "รีเฟรชผลิตภัณฑ์ทั้งหมดจากเซิร์ฟเวอร์",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "โปรดหลีกเลี่ยงการทำเช่นนั้นเว้นแต่จำเป็นจริงๆ",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "โหมดสาธิต",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "เพิ่มบัตรเข้าเครื่องสแกน",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "เพิ่มผลิตภัณฑ์ตัวอย่าง 3 รายการลงในเครื่องสแกน",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "พิธีกรโฟล์คโซโนมี",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "การทดลองการเข้าถึง",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "การเลือกผลิตภัณฑ์หลายรายการตามราคา",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "แผงความรู้ที่ผู้ใช้สั่ง",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "การเข้าถึงการค้นหาตำแหน่งที่ตั้งชั่วคราว",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "การเปรียบเทียบแบบเคียงข้างกันสำหรับผลิตภัณฑ์ 2 หรือ 3 รายการ",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "การนำเข้ารายการสินค้า",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "คะแนนและวิธีการ",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "ค้นพบวิธีการคำนวณ Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "ค้นพบการเปลี่ยนแปลงหลักของวิธีการ",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "ค้นพบโครงการ",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "ค้นพบข้อเท็จจริงเกี่ยวกับ Open Food",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "คำถามที่พบบ่อย",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "องค์กรพัฒนาเอกชน Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "ข้อมูล",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "รับการอัปเดตจากชุมชน",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "ติดตามข่าวสารเกี่ยวกับแอปและชุมชน",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "มีส่วนร่วมโดยเข้าร่วมกิจกรรมเสมือนจริงของเรา",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "ติดตามเราบนโซเชียลมีเดีย",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "บล็อก Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "รับข่าวสารล่าสุดทันทีที่เกิดขึ้น",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "รับความช่วยเหลือจากชุมชน",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "ช่วยเราปรับปรุงแอพ",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "ส่งข้อมูลการดีบักให้เรา",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "ส่งอีเมลถึงเราพร้อมข้อมูลการแก้ไขข้อบกพร่องโดยละเอียด",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "ส่งคำติชมเกี่ยวกับแอปให้เรา",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "ช่วยกำหนดอนาคตของแอป",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "ทำแบบสำรวจแอป",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "ช่วยให้เราเข้าใจว่าเราควรสร้างอะไรต่อไป",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "ผู้เชี่ยวชาญ",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "ฟรีทั้งหมด รับประกันข้อมูลที่แม่นยำสำหรับแอป 500 รายการและผู้บริโภคหลายล้านคน บริการตนเอง ใช้งานได้กับ PIM หรือสเปรดชีต (XLSX) ของคุณ",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "ติดต่อเพื่อเริ่มต้น",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "กด",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "รับข้อมูลทั้งหมดที่คุณต้องการสำหรับรายงานของคุณ",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "ติดต่อสอบถามข้อมูลข่าวสารหรือแจ้งรายงานของคุณให้เราทราบ",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "มาเป็นอาสาสมัครที่กระตือรือร้น",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "การพัฒนา การสื่อสาร การออกแบบ… ยินดีต้อนรับอาสาสมัครหรือความเชี่ยวชาญทุกประเภท!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "ค้นพบวิธีต่างๆ มากมายที่คุณสามารถมีส่วนร่วมได้",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "การพัฒนาแอปพลิเคชันมือถือ",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "เรียนรู้วิธีการมีส่วนร่วมในการพัฒนาซอฟต์แวร์",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "การสร้างที่ไม่เสถียรทุกวัน คุณสมบัติใหม่ล่าสุด",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "ขยายชุมชนท้องถิ่นของคุณ",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "ช่วยเหลือด้านซอฟต์แวร์ เนื้อหา การวิเคราะห์ส่วนผสม และการแปล",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "เราได้เตรียมเทมเพลตเล็กๆ น้อยๆ ไว้เพื่อช่วยคุณ :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "ขั้นตอนง่ายๆ ในการสร้างความโปร่งใสด้านอาหารในประเทศของคุณ",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "เข้าร่วมทีมคุณภาพข้อมูล",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "เข้าร่วมความพยายามของเราเพื่อให้แน่ใจว่าฐานข้อมูลมีความสมบูรณ์และถูกต้อง",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "เพิ่มสินค้า 0 รายการ",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "ผลิตภัณฑ์ใหม่ที่ฉันเพิ่มลงใน Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "สินค้าที่ฉันต้องการทำเสร็จ",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "สินค้าไม่สมบูรณ์ทั้งหมด",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "ผลิตภัณฑ์ที่คุณสามารถช่วยทำให้เสร็จสมบูรณ์",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "ช่วยคำนวณคะแนน Nutri-Score และ Green-Score ในประเทศของคุณ",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "ราคาที่ผมร่วมสมทบ",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "ป้ายราคาและใบเสร็จ",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "ถ่ายรูปใบเสร็จของคุณและสแกนบาร์โค้ดที่เกี่ยวข้อง",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "ถ่ายรูปราคาสินค้าภายในร้าน",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "ราคาล่าสุด",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "ราคาล่าสุดที่เพิ่มโดยชุมชนราคาเปิด",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "ผู้ร่วมสมทบที่มีราคาสูงสุด",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "เมตริกราคาเปิด",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "ติดตามพัฒนาการของโครงการ",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "ช่องทางการมีส่วนร่วม",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "ยืนยันราคาที่คุณหรือผู้อื่นเพิ่มด้วยความช่วยเหลือของ AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "เพิ่มใบเสร็จหรือรูปถ่ายของชั้นวางจากม้วนฟิล์มกล้องของคุณได้อย่างรวดเร็ว",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "ความท้าทายรายเดือน",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "เข้าร่วมภารกิจตามธีมรายเดือนเพื่อสะสมราคา",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "เรียกคืนข้อมูลความภักดีของคุณ",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "เรียนรู้วิธีการขอข้อมูลของคุณ",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "ปรับแต่งแอป",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "ร่วมสนับสนุนโครงการ",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "วิธีง่ายๆ ที่จะช่วย Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "วิธีการให้คะแนน ความช่วยเหลือ และอื่นๆ เกี่ยวกับโครงการ",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "ยอมรับข้อเสนอแนะ",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "การตรวจสอบสิทธิ์ล้มเหลว ไม่สามารถดึงหลักฐานได้",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "โปรดรีสตาร์ทแอปเพื่อใช้การเปลี่ยนแปลง",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "อินเทอร์เฟซแบบกราฟิก",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "สื่อ",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "เปิดข้อมูลอาหารในห้องปฏิบัติการ",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "นำ Open Food Facts มาสู่ภาษาของคุณ",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "ลงทะเบียนในเวอร์ชันอัลฟ่าของแอป",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "ข้อมูลการสนับสนุนและผลิตภัณฑ์",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "อย่าแสดง Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

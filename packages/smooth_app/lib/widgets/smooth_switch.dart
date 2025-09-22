@@ -6,7 +6,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothSwitch extends StatefulWidget {
-  SmoothSwitch({
+  const SmoothSwitch({
     required this.value,
     required this.onChanged,
     this.size,
@@ -16,7 +16,7 @@ class SmoothSwitch extends StatefulWidget {
     this.backgroundActiveColor,
     this.backgroundInactiveColor,
     super.key,
-  }) : assert(size == null || (size.width >= 52.0 && size.height >= 30.0));
+  });
 
   final bool value;
   final ValueChanged<bool> onChanged;

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Mynediad i nodweddion arbrofol ac offer datblygu",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Sgôr Gwyrdd A",
+  "environmental_score_b_new": "Sgôr Gwyrdd B",
+  "environmental_score_c_new": "Sgôr Gwyrdd C",
+  "environmental_score_d_new": "Sgôr Gwyrdd D",
+  "environmental_score_e_new": "Sgôr Gwyrdd E",
+  "environmental_score_unknown_new": "Sgôr Gwyrdd Anhysbys",
+  "environmental_score_not_applicable_new": "Nid yw Sgôr Gwyrdd yn berthnasol",
+  "nova_group_generic_new": "Bwydydd wedi'u prosesu'n uwch - grwpiau NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Gall pob dinesydd ein helpu i gasglu a strwythuro'r wybodaeth sydd ar gael ar gynhyrchion neu y gellir ei chasglu ohonynt, fel gwybodaeth ar becynnu: Mission Emballages: rhestr eiddo gydweithredol ar raddfa fawr o becynnu ar gyfer pob cynnyrch bwyd (yn Ffrangeg)",
   "guide_greenscore_transparency_arg2_title": "Sut gall gweithgynhyrchwyr helpu",
   "guide_greenscore_transparency_arg2_text": "Gall gweithgynhyrchwyr anfon eu gwybodaeth atom yn uniongyrchol drwy ein platfform am ddim i gynhyrchwyr.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Pa gynnyrch sy'n well i'r blaned?",
+  "guide_greenscore_better_product_arg1_title": "Gall fod yn anodd dweud",
+  "guide_greenscore_better_product_arg1_text": "Mae dewis bwyd cynaliadwy yn un o'r pethau mwyaf pwerus y gallwn ei wneud dros yr hinsawdd, gan fod **ein system fwyd fyd-eang yn gyfrifol am dros chwarter o'r holl allyriadau nwyon tŷ gwydr**.\n(Ffynhonnell: Poore a Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Mae gennych chi'r pŵer!",
+  "guide_greenscore_better_product_arg2_text": "Y newyddion da yw bod hyn yn rhoi ffordd bwerus inni greu newid.\n**Mae pob un ohonom yn bwyta tua 1,000 o brydau bob blwyddyn**. Dyna 1,000 o gyfleoedd i **ddewis dyfodol gwell i'r blaned**!",
+  "guide_greenscore_better_product_arg3_title": "Yn helpu i fod yn gyfrifol a phenderfynu",
+  "guide_greenscore_better_product_arg3_text": "Gall dewis bwyd cynaliadwy deimlo'n gymhleth. Mae labeli'n ddryslyd ac mae gwybodaeth yn aml ar goll. Crëwyd y Sgôr Werdd i'w gwneud yn syml, gan roi sgôr amgylcheddol **glir**, **seiliedig ar wyddoniaeth**, a **thryloyw** i chi ar gyfer cynhyrchion bwyd, yn union lle mae ei angen arnoch: wrth i chi siopa.",
+  "guide_greenscore_better_product_arg4_title": "Tryloywder",
+  "guide_greenscore_better_product_arg4_text": "Yn wahanol i labeli perchnogol, mae cyfrifiad y Sgôr Werdd yn **hollol agored** a gellir ei **wirio gan unrhyw un**.",
+  "guide_greenscore_share_link": "https://cy.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Beth yw uwch-brosesu?",
+  "guide_nova_what_is_nova_paragraph1": "Mae grwpiau NOVA yn rhoi gwybod i chi am lefel prosesu bwyd.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Mae dosbarthiad NOVA yn caniatáu categoreiddio bwydydd yn **4 grŵp** yn seiliedig ar eu **gradd o brosesu diwydiannol** (bwydydd sydd wedi'u prosesu'n lleiaf neu heb eu prosesu, cynhwysion coginio, bwydydd wedi'u prosesu, bwydydd sydd wedi'u prosesu'n ormodol).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logos NOVA",
+  "guide_nova_groups_title": "Y 4 grŵp NOVA",
+  "guide_nova_groups_intro": "Mae 4 grŵp NOVA, a'r un problemus yw Grŵp 4 - Bwydydd wedi'u prosesu'n ormodol.",
+  "guide_nova_groups_arg1_title": "Bwydydd sydd wedi'u prosesu'n lleiaf neu heb eu prosesu",
+  "guide_nova_groups_arg1_text": "Bwydydd heb eu prosesu (neu naturiol) yw rhannau bwytadwy o blanhigion (hadau, ffrwythau, dail, coesynnau, gwreiddiau) neu anifeiliaid (cyhyrau, offal, wyau, llaeth), yn ogystal â ffyngau, algâu a dŵr, ar ôl cael eu gwahanu oddi wrth natur.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Mae cynhwysion coginio wedi'u prosesu, fel olewau, menyn, siwgr a halen, yn sylweddau sy'n deillio o fwydydd Grŵp 1 neu o natur trwy brosesau sy'n cynnwys gwasgu, mireinio, malu, melino a sychu.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Mae bwydydd wedi'u prosesu, fel llysiau mewn poteli, pysgod tun, ffrwythau mewn surop, cawsiau, a bara ffres, yn cael eu gwneud yn bennaf trwy ychwanegu halen, olew, siwgr, neu sylweddau eraill o fwydydd Grŵp 2 i fwydydd Grŵp 1. Mae prosesau'n cynnwys amrywiol ddulliau cadw neu goginio, ac yn achos bara a chaws, eplesu di-alcohol. Mae gan y rhan fwyaf o fwydydd wedi'u prosesu ddau neu dri chynhwysyn ac maent yn adnabyddadwy fel fersiynau wedi'u haddasu o fwydydd Grŵp 1. Gellir eu bwyta ar eu pen eu hunain neu, yn fwy cyffredin, mewn cyfuniad â bwydydd eraill.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Nid bwydydd wedi'u prosesu'n ormodol, fel diodydd meddal, byrbrydau melys neu sawrus wedi'u pecynnu, cynhyrchion cig wedi'u hailgyfansoddi, a seigiau wedi'u rhewi wedi'u paratoi ymlaen llaw, yn fwydydd wedi'u haddasu yn unig ond yn fformwleiddiadau a wneir yn bennaf neu'n gyfan gwbl o sylweddau sy'n deillio o fwydydd ac ychwanegion, gyda fawr ddim bwyd Grŵp 1 cyfan. Mae cynhwysion yn y fformwleiddiadau hyn fel arfer yn cynnwys y rhai a geir hefyd mewn bwydydd wedi'u prosesu, fel siwgrau, olewau, brasterau neu halen. Fodd bynnag, mae cynhyrchion wedi'u prosesu'n ormodol hefyd yn cynnwys ffynonellau eraill o ynni a maetholion nad ydynt fel arfer yn cael eu defnyddio mewn paratoadau coginio. Mae rhai o'r rhain yn cael eu tynnu'n uniongyrchol o fwydydd, fel casein, lactos, maidd a glwten.",
+  "guide_nova_explanations_title": "Y problemau gyda phrosesu uwch",
+  "guide_nova_explanations_arg1_title": "Prosesu eithafol o gynhwysion bwyd",
+  "guide_nova_explanations_arg1_text": "Mae llawer yn deillio o brosesu ymhellach o gydrannau bwyd, fel olewau hydrogenedig neu rhyng-esteriedig, proteinau wedi'u hydrolyze, ynysu protein soi, maltodextrin, siwgr gwrthdro, a surop corn ffrwctos uchel.",
+  "guide_nova_explanations_arg2_title": "Ychwanegion sy'n mynd y tu hwnt i ddiogelwch bwyd pur",
+  "guide_nova_explanations_arg2_text": "Mae ychwanegion mewn bwydydd wedi'u prosesu'n ormodol yn cynnwys rhai a ddefnyddir hefyd mewn bwydydd wedi'u prosesu, fel cadwolion, gwrthocsidyddion, a sefydlogwyr. Mae dosbarthiadau o ychwanegion a geir mewn cynhyrchion wedi'u prosesu'n ormodol yn unig yn cynnwys y rhai a ddefnyddir i efelychu neu wella rhinweddau synhwyraidd bwydydd neu i guddio agweddau annymunol y cynnyrch terfynol. Mae'r ychwanegion hyn yn cynnwys llifynnau a lliwiau eraill, sefydlogwyr lliw; blasau, gwellawyr blas, melysyddion di-siwgr; a chymhorthion prosesu fel asiantau carboneiddio, cadarnhau, swmpio a gwrth-swmpio, asiantau dad-ewynnu, gwrth-geulo a gwydro, emwlsyddion, atafaelwyr, a lleithyddion.",
+  "guide_nova_explanations_arg3_title": "Prosesu na allwch ei wneud gartref",
+  "guide_nova_explanations_arg3_text": "Defnyddir llu o ddilyniannau o brosesau i gyfuno'r cynhwysion sydd fel arfer yn niferus ac i greu'r cynnyrch terfynol (felly 'wedi'i brosesu'n uwch'). Mae'r prosesau'n cynnwys sawl un heb unrhyw gyfwerth domestig, megis hydrogeniad a hydrolysiad, allwthio a mowldio, a rhagbrosesu ar gyfer ffrio.",
+  "guide_nova_explanations_arg4_title": "Agweddau ysglyfaethus ac ariannol prosesu uwch-reolaidd",
+  "guide_nova_explanations_arg4_text": "Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi'u prosesu'n uwch-dechnolegol yn cael eu pecynnu'n ddeniadol a'u marchnata'n ddwys.",
+  "guide_nova_share_link": "https://cy.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Rheoli eich dewisiadau prisiau",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Prosiect Ffeithiau Bwyd Agored",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Cyfieithu, gwella ein hoffer…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Cysylltu",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Cysylltwch, neu dilynwch ni ar y cyfryngau cymdeithasol",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Helpwch ni i hysbysu miliynau o ddefnyddwyr ledled y byd",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Cymorth a Chefnogaeth",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Cael atebion i'ch cwestiynau",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Wedi allgofnodi",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Diolch am fod yn un o'n haelodau!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Gweld yr holl ystadegau",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Chwiliwch {provider} am \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Chwiliwch am leoliad (e.e. Sgôr Maeth)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Hygyrchedd: Dangos emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Hygyrchedd: Dileu lliwiau",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Gwybodaeth gyfreithiol",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Telerau defnyddio, polisi preifatrwydd, a mwy",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Trwyddedau",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Ynglŷn â'r ap",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Gwybodaeth dechnegol, gwybodaeth am ddatblygwyr, a mwy",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Rhif fersiwn",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Sganiwr",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Siop apiau",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Gosodiadau system",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Mynediad i'r cod ffynhonnell",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "A dechrau gwneud effaith ar filiynau",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Awgrymiadau",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Darganfyddwch y Sgôr Maeth newydd",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Ar wefan Ffeithiau Bwyd Agored",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Rheoli fy nghyfrif",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Newid fy nghyfrinair",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Parth perygl",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Bydd eich holl gyfraniadau'n cael eu colli",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Gosodiadau ap",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Ffordd arbrofol iawn o sganio cynhyrchion all-lein",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Adnewyddu pob cynnyrch o'r gweinydd",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Osgowch wneud hynny oni bai bod hynny'n gwbl angenrheidiol",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Modd demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ychwanegu cardiau at y sganiwr",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Yn ychwanegu 3 chynnyrch sampl at y sganiwr",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Gwesteiwr Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Arbrofion hygyrchedd",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Dewis aml-gynhyrchion ar gyfer prisiau",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Paneli gwybodaeth a archebwyd gan ddefnyddwyr",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Mynediad dros dro i chwilio am leoliad",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Cymhariaeth ochr yn ochr ar gyfer 2 neu 3 chynnyrch",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Mewnforio rhestr cynnyrch",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Sgorau a methodolegau",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Darganfyddwch sut mae'r Nutri-Score yn cael ei gyfrifo",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Darganfyddwch y prif newidiadau i'r fethodoleg",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Darganfyddwch Ffeithiau Bwyd Agored",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Cwestiynau Cyffredin - Cwestiynau Cyffredin",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Y NGO Ffeithiau Bwyd Agored",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Cael diweddariadau cymunedol",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Cadwch mewn cysylltiad â newyddion yr ap a'r gymuned",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Cymerwch ran drwy fynychu un o'n digwyddiadau rhithwir",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Dilynwch ni ar y cyfryngau cymdeithasol",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Blog Ffeithiau Bwyd Agored",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Cael y newyddion diweddaraf, wrth iddyn nhw ddigwydd",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Cael cymorth gan y gymuned",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Helpwch ni i wella'r ap",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Anfonwch wybodaeth dadfygio atom",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Anfonwch e-bost atom gyda gwybodaeth ddadfygio fanwl",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Anfonwch adborth atom am yr ap",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Helpu i lunio dyfodol yr ap",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Cymerwch yr arolwg ap",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Helpwch ni i ddeall beth ddylem ni ei adeiladu nesaf",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Gweithwyr Proffesiynol",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Yn hollol rhad ac am ddim, yn sicrhau data cywir ar gyfer 500 o apiau a miliynau o ddefnyddwyr. Hunanwasanaeth, yn gydnaws â'ch PIM neu daenlenni (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Cysylltwch i ddechrau",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Cael yr holl ddeunydd sydd ei angen arnoch ar gyfer eich adroddiad",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Cysylltwch ag ymholiadau’r wasg neu i roi gwybod i ni am eich adroddiad",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Dewch yn wirfoddolwr gweithredol",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Datblygu, Cyfathrebu, Dylunio… mae croeso i unrhyw fath o wirfoddoli neu arbenigedd!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Darganfyddwch rai o'r nifer o ffyrdd y gallwch gyfrannu",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Datblygu apiau symudol",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Dysgwch sut i gyfrannu at ddatblygu meddalwedd",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Adeiladau ansefydlog dyddiol, nodweddion newydd sbon",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Tyfwch eich cymuned leol",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Cymorth gyda meddalwedd, cynnwys, cyfieithiadau dadansoddi cynhwysion",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Rydyn ni wedi paratoi templed bach i'ch helpu chi :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Camau syml i gynyddu tryloywder bwyd yn eich gwlad",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Ymunwch â'r tîm ansawdd data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Ymunwch â'n hymdrech i sicrhau bod y gronfa ddata yn gyflawn ac yn gywir",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 cynnyrch wedi'u hychwanegu",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Cynhyrchion newydd a ychwanegais at Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Cynhyrchion y mae angen i mi eu cwblhau",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Pob cynnyrch anghyflawn",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Cynhyrchion y gallwch chi helpu i'w cwblhau",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Helpu i gyfrifo'r Nutri-Score a'r Green-Score yn eich gwlad",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prisiau a gyfrannais",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Tagiau pris a derbynebau",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Tynnwch luniau o'ch derbynebau a sganiwch y codau bar cysylltiedig",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Tynnwch luniau o brisiau mewn siop",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Prisiau diweddaraf",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Prisiau diweddaraf wedi'u hychwanegu gan y gymuned Prisiau Agored",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Cyfranwyr gyda'r prisiau mwyaf",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrigau Pris Agored",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Dilynwch esblygiad y prosiect",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Ffyrdd o gyfrannu",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Cadarnhewch brisiau a ychwanegwyd gennych chi'ch hun neu eraill, gyda chymorth AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Ychwanegwch lawer o dderbynebau neu luniau o silffoedd o'ch rholyn camera yn gyflym",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Heriau misol",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Cymerwch ran mewn chwiliadau thematig misol i gasglu prisiau",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Adfer eich data teyrngarwch",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Dysgwch sut i ofyn am eich data",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Addasu'r ap",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Cyfrannwch at y prosiect",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Ffyrdd syml o helpu Ffeithiau Bwyd Agored",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Methodolegau sgorio, cymorth, a mwy am y prosiect",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Derbyn yr awgrym",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Methodd y dilysu, ni ellid nôl profion",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Ailgychwynwch yr ap i gymhwyso'r newidiadau.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Rhyngwyneb graffigol",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Cyfryngau",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Labordai Ffeithiau Bwyd Agored",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Dewch â Ffeithiau Bwyd Agored i'ch iaith",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Cofrestrwch ar gyfer fersiwn alffa'r ap",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Cyfraniadau a data cynnyrch",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Peidiwch â dangos Sonomeg Gwerin",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Eksperimental xususiyatlar va ishlab chiqish vositalariga kirish",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Maʻlumot",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Yashil ball A",
+  "environmental_score_b_new": "Yashil ball - B",
+  "environmental_score_c_new": "Yashil ball C",
+  "environmental_score_d_new": "Yashil ball D",
+  "environmental_score_e_new": "Yashil ball E",
+  "environmental_score_unknown_new": "Noma'lum yashil ball",
+  "environmental_score_not_applicable_new": "Yashil ball qo'llanilmaydi",
+  "nova_group_generic_new": "Ultra qayta ishlangan ovqatlar - NOVA guruhlari",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Barcha fuqarolar bizga mahsulotlarda mavjud bo'lgan yoki ulardan xulosa chiqarish mumkin bo'lgan ma'lumotlarni to'plash va tuzishda yordam berishi mumkin, masalan, qadoqlash haqidagi ma'lumotlar: Mission Emballages: barcha oziq-ovqat mahsulotlari uchun qadoqlashning keng ko'lamli hamkorlikdagi inventarizatsiyasi (frantsuz tilida)",
   "guide_greenscore_transparency_arg2_title": "Ishlab chiqaruvchilar qanday yordam berishi mumkin",
   "guide_greenscore_transparency_arg2_text": "Ishlab chiqaruvchilar o'z ma'lumotlarini to'g'ridan-to'g'ri ishlab chiqaruvchilar uchun bepul platformamiz orqali yuborishlari mumkin.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Qaysi mahsulot sayyora uchun yaxshiroq?",
+  "guide_greenscore_better_product_arg1_title": "Buni aytish qiyin bo'lishi mumkin",
+  "guide_greenscore_better_product_arg1_text": "Barqaror oziq-ovqat mahsulotlarini tanlash biz iqlim uchun qila oladigan eng kuchli ishlardan biridir, chunki **global oziq-ovqat tizimimiz barcha issiqxona gazlari chiqindilarining to'rtdan bir qismiga mas'uldir**.\n(Manba: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Sizda kuch bor!",
+  "guide_greenscore_better_product_arg2_text": "Yaxshi xabar shundaki, bu bizga o'zgarishlarni yaratishning kuchli usulini beradi.\n**Har birimiz yiliga taxminan 1000 marta ovqatlanamiz**. Bu **sayyora uchun yaxshiroq kelajakni tanlash uchun** 1000 ta imkoniyat!",
+  "guide_greenscore_better_product_arg3_title": "Mas'uliyat va qaror qabul qilishga yordam beradi",
+  "guide_greenscore_better_product_arg3_text": "Barqaror oziq-ovqat tanlash murakkab tuyulishi mumkin. Yorliqlar chalkash va ma'lumotlar ko'pincha etishmayapti. Green-Score buni soddalashtirish uchun yaratilgan boʻlib, sizga oziq-ovqat mahsulotlari uchun **aniq**, **fanga asoslangan** va **shaffof** atrof-muhit reytingini beradi, kerakli joyda: xarid qilayotganingizda.",
+  "guide_greenscore_better_product_arg4_title": "Shaffoflik",
+  "guide_greenscore_better_product_arg4_text": "Xususiy yorliqlardan farqli o'laroq, Green-Score hisobi **to'liq ochiq** va **har kim tomonidan tasdiqlanishi mumkin**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Ultra ishlov berish nima?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA guruhlari sizga oziq-ovqat mahsulotlarini qayta ishlash darajasi haqida ma'lumot beradi.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "NOVA tasnifi oziq-ovqat mahsulotlarini **sanoatda qayta ishlash darajasiga** (minimal qayta ishlangan yoki qayta ishlanmagan ovqatlar, pazandalik ingredientlari, qayta ishlangan ovqatlar, o'ta qayta ishlangan oziq-ovqatlar) qarab **4 guruhga** toifalash imkonini beradi.",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "NOVA logotiplari",
+  "guide_nova_groups_title": "4 NOVA guruhi",
+  "guide_nova_groups_intro": "4 ta NOVA guruhi mavjud, muammoli guruh 4 - Ultra qayta ishlangan ovqatlar.",
+  "guide_nova_groups_arg1_title": "Minimal qayta ishlangan yoki qayta ishlanmagan ovqatlar",
+  "guide_nova_groups_arg1_text": "Qayta ishlanmagan (yoki tabiiy) oziq-ovqatlar o'simliklarning (urug'lar, mevalar, barglar, poya, ildizlar) yoki hayvonlarning (mushaklar, sakatat, tuxum, sut), shuningdek, zamburug'lar, suv o'tlari va suvning tabiatdan ajratilgandan so'ng qutulish mumkin bo'lgan qismlaridir.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Yog ', sariyog ', shakar va tuz kabi qayta ishlangan pazandalik ingredientlari 1-guruh oziq-ovqatlaridan yoki tabiatdan presslash, tozalash, maydalash, maydalash va quritishni o'z ichiga olgan jarayonlar orqali olingan moddalardir.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Qayta ishlangan oziq-ovqatlar, masalan, shishaga solingan sabzavotlar, baliq konservalari, siropdagi mevalar, pishloqlar va yangi tayyorlangan nonlar, birinchi navbatda, 2-guruhdan 1-guruhga tuz, yog', shakar yoki boshqa moddalarni qo'shish orqali tayyorlanadi. Jarayonlar turli xil saqlash yoki pishirish usullarini, non va pishloqda esa alkogolsiz fermentatsiyani o'z ichiga oladi. Ko'pgina qayta ishlangan ovqatlar ikki yoki uchta ingredientdan iborat bo'lib, ular 1-guruh oziq-ovqatlarining o'zgartirilgan versiyalari sifatida tan olinadi. Ular mustaqil ravishda yoki, odatda, boshqa ovqatlar bilan birgalikda iste'mol qilinishi mumkin.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Alkogolsiz ichimliklar, shirin yoki sho‘r qadoqlangan atıştırmalıklar, qayta ishlangan go‘sht mahsulotlari va oldindan tayyorlangan muzlatilgan idishlar kabi o‘ta qayta ishlangan oziq-ovqatlar nafaqat o‘zgartirilgan oziq-ovqatlar, balki asosan yoki to‘liq oziq-ovqat va qo‘shimchalardan olingan moddalardan tayyorlangan formulalar bo‘lib, 1-guruhdagi buzilmagan yoki umuman buzilmagan oziq-ovqatlardir. Ushbu formulalardagi ingredientlar odatda shakar, yog'lar, yog'lar yoki tuz kabi qayta ishlangan oziq-ovqatlarda mavjud bo'lgan moddalarni o'z ichiga oladi. Shu bilan birga, ultra-qayta ishlangan mahsulotlar odatda oshpazlik preparatlarida ishlatilmaydigan boshqa energiya manbalarini va ozuqa moddalarini ham o'z ichiga oladi. Ulardan ba'zilari to'g'ridan-to'g'ri kazein, laktoza, zardob va kleykovina kabi oziq-ovqatlardan olinadi.",
+  "guide_nova_explanations_title": "Ultra-qayta ishlash bilan bog'liq muammolar",
+  "guide_nova_explanations_arg1_title": "Oziq-ovqat tarkibiy qismlarini haddan tashqari qayta ishlash",
+  "guide_nova_explanations_arg1_text": "Ko'pchilik oziq-ovqat tarkibiy qismlarini, masalan, gidrogenlangan yoki qiziqtiriladigan yog'lar, gidrolizlangan oqsillar, soya oqsili izolati, maltodekstrin, invert shakar va yuqori fruktozali makkajo'xori siropi kabi keyingi qayta ishlash natijasida olingan.",
+  "guide_nova_explanations_arg2_title": "Sof oziq-ovqat xavfsizligidan tashqariga chiqadigan qo'shimchalar",
+  "guide_nova_explanations_arg2_text": "Qayta ishlangan oziq-ovqat mahsulotlariga qo'shimchalar, konservantlar, antioksidantlar va stabilizatorlar kabi qayta ishlangan oziq-ovqatlarda ham qo'llaniladigan qo'shimchalarni o'z ichiga oladi. Faqat o'ta qayta ishlangan mahsulotlarda mavjud bo'lgan qo'shimchalar sinflariga oziq-ovqatning hissiy xususiyatlarini taqlid qilish yoki yaxshilash yoki yakuniy mahsulotning yoqimsiz tomonlarini yashirish uchun ishlatiladigan qo'shimchalar kiradi. Ushbu qo'shimchalar orasida bo'yoqlar va boshqa ranglar, rang stabilizatorlari mavjud; tatlar, lazzat kuchaytirgichlar, shakarsiz tatlandırıcılar; va qayta ishlash uchun yordamchi vositalar, masalan, karbonatlantiruvchi, qattiqlashtiruvchi, ko'pikli va ko'pikli moddalar, ko'pikni yo'qotuvchi, to'planishga qarshi va sirlash vositalari, emulsifikatorlar, sekvestrlar va namlovchi moddalar.",
+  "guide_nova_explanations_arg3_title": "Qayta ishlashni siz uyda qila olmaysiz",
+  "guide_nova_explanations_arg3_text": "Odatda ko'plab ingredientlarni birlashtirish va yakuniy mahsulotni (shuning uchun \"o'ta qayta ishlangan\") yaratish uchun ko'plab jarayonlar ketma-ketligi qo'llaniladi. Jarayonlarga gidrogenatsiya va gidrolizlash, ekstruziya va qoliplash, qovurish uchun oldindan ishlov berish kabi mahalliy ekvivalentlari bo'lmagan bir nechta jarayonlar kiradi.",
+  "guide_nova_explanations_arg4_title": "Ultra-qayta ishlashning yirtqich va moliyaviy jihatlari",
+  "guide_nova_explanations_arg4_text": "Ultra-qayta ishlashning umumiy maqsadi boshqa barcha oziq-ovqat guruhlarini siqib chiqarishga mo'ljallangan markali, qulay (bardoshli, iste'mol qilishga tayyor), jozibali (giper mazali) va yuqori rentabellikga ega (arzon ingredientlar) oziq-ovqat mahsulotlarini yaratishdir. Ultra qayta ishlangan oziq-ovqat mahsulotlari odatda jozibali tarzda qadoqlanadi va intensiv ravishda sotiladi.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Narxlar sozlamalarini boshqaring",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Ochiq oziq-ovqat faktlari loyihasi",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Tarjima qiling, asboblarimizni yaxshilang…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Ulanish",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Biz bilan bog'laning yoki bizni ijtimoiy tarmoqlarda kuzatib boring",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Dunyo bo'ylab millionlab iste'molchilarni xabardor qilishimizga yordam bering",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Yordam va qo‘llab-quvvatlash",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Savollaringizga javob oling",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Hisobdan chiqdi",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Bizning a'zolarimizdan biri bo'lganingiz uchun tashakkur!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Barcha statistikani ko'ring",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "{provider} uchun \"{keyword}\" uchun qidiruv",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Sozlamani qidiring (masalan, Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Foydalanish imkoniyati: kulgichlarni ko‘rsatish",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Foydalanish imkoniyati: ranglarni olib tashlang",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Ma’lumot",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Yuridik ma'lumotlar",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Foydalanish shartlari, maxfiylik siyosati va boshqalar",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Litsenziyalar",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Ilova haqida",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Texnik ma'lumotlar, ishlab chiquvchi ma'lumotlari va boshqalar",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Versiya raqami",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skaner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Ilovalar do'koni",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Tizim sozlamalari",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Manba kodiga kirish",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Va millionlab odamlarga ta'sir qilishni boshlang",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Maslahatlar",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Yangi Nutri-Score bilan tanishing",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Open Food Facts veb-saytida",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Hisobimni boshqaring",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Parolimni o'zgartiring",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Xavfli zona",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Barcha hissalaringiz yo'qoladi",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Ilova sozlamalari",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Mahsulotlarni oflayn skanerlashning juda eksperimental usuli",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Serverdagi barcha mahsulotlarni yangilang",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Iltimos, zarurat bo'lmasa, buni qilishdan qoching",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo rejimi",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Skanerga kartalar qo'shing",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Skanerga 3 ta namunali mahsulotni qo'shadi",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomiya uy egasi",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Foydalanish uchun tajribalar",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Narxlar uchun ko'p mahsulot tanlovi",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Foydalanuvchi tomonidan buyurtma qilingan bilim panellari",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Joylashuvni qidirishga vaqtinchalik kirish",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 yoki 3 ta mahsulot uchun yonma-yon taqqoslash",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Mahsulotlar roʻyxatini import qilish",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Ballar va metodologiyalar",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score qanday hisoblanishini bilib oling",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Metodologiyadagi asosiy o'zgarishlar bilan tanishing",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Loyihani koʻzdan kechirish",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Ochiq oziq-ovqat faktlari bilan tanishing",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "Tez-tez so'raladigan savollar - tez-tez so'raladigan savollar",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Ochiq oziq-ovqat faktlari nodavlat tashkiloti",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Hamjamiyat yangiliklarini oling",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Ilova va hamjamiyat yangiliklaridan xabardor bo'ling",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Virtual tadbirlarimizdan birida ishtirok eting",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Bizni ijtimoiy tarmoqlarda kuzatib boring",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Ochiq oziq-ovqat faktlari blogi",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Eng so'nggi yangiliklarni ular sodir bo'lganda oling",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Jamiyatdan yordam oling",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Ilovani yaxshilashga yordam bering",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Bizga disk raskadrovka ma'lumotlarini yuboring",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Batafsil disk raskadrovka ma'lumotlari bilan bizga elektron pochta xabarini yuboring",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Ilova haqida bizga fikr-mulohaza yuboring",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Ilovaning kelajagini shakllantirishga yordam bering",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Ilova so'rovnomasida qatnashing",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Keyinchalik nima qurishimiz kerakligini tushunishimizga yordam bering",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Professionallar",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Mutlaqo bepul, 500 ta ilova va millionlab iste'molchilar uchun aniq ma'lumotlarni ta'minlaydi. O'z-o'ziga xizmat ko'rsatish, PIM yoki elektron jadvallar bilan mos keladi (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Boshlash uchun bog'laning",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Hisobotingiz uchun barcha kerakli materiallarni oling",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Matbuot so'rovlari yoki hisobotingiz haqida bizga xabar berish uchun bog'laning",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Faol ko'ngilli bo'ling",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Rivojlanish, aloqa, dizayn… har qanday ko'ngillilik yoki tajriba mamnuniyat bilan qabul qilinadi!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Hissa qilishingiz mumkin bo'lgan ko'plab usullarni kashf eting",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobil ilovalarni ishlab chiqish",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Dasturiy ta'minotni ishlab chiqishga qanday hissa qo'shishni o'rganing",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Kundalik beqaror tuzilmalar, yangi xususiyatlar",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Mahalliy hamjamiyatingizni rivojlantiring",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Dasturiy ta'minot, tarkib, ingredientlarni tahlil qilish tarjimalari bilan yordam bering",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Biz sizga yordam berish uchun kichik shablon tayyorladik :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Mamlakatingizda oziq-ovqat shaffofligini oshirish uchun oddiy qadamlar",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Ma'lumot sifati jamoasiga qo'shiling",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Ma'lumotlar bazasi to'liq va aniq bo'lishini ta'minlash uchun bizning sa'y-harakatlarimizga qo'shiling",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 ta mahsulot qoʻshildi",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Men Open Food Facts-ga qo'shgan yangi mahsulotlar",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Men bajarishim kerak bo'lgan mahsulotlar",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Barcha to'liq bo'lmagan mahsulotlar",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "To'ldirishga yordam beradigan mahsulotlar",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Mamlakatingizda Nutri-Score va Green-Score-ni hisoblashda yordam bering",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Men hissa qo'shgan narxlar",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Narx belgilari va kvitansiyalar",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Kvitansiyalaringizni suratga oling va tegishli shtrix-kodlarni skanerlang",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Do'konda narxlarni suratga oling",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Eng yangi narxlar",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Ochiq narxlar hamjamiyati tomonidan qo'shilgan so'nggi narxlar",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Eng koʻp narxga ega boʻlgan hissa qoʻshuvchilar",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Ochiq narx ko'rsatkichlari",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Loyihaning rivojlanishini kuzatib boring",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Hissa qo'shish usullari",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "AI yordamida o'zingiz yoki boshqalar qo'shgan narxlarni tasdiqlang",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Kamera roligidan javonlarning ko'plab kvitansiyalari yoki fotosuratlarini tezda qo'shing",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Oylik qiyinchiliklar",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Narxlarni yig'ish uchun oylik tematik kvestlarda ishtirok eting",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Sodiqlik maʼlumotlarini qaytarib oling",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Maʼlumotlaringizni soʻrashni oʻrganing",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Ilovani moslashtiring",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Loyihaga hissa qo'shing",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Ochiq oziq-ovqat faktlariga yordam berishning oddiy usullari",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Loyiha haqida ball metodologiyalari, yordam va boshqalar",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Taklifni qabul qiling",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Autentifikatsiya amalga oshmadi, dalillarni olib bo‘lmadi",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "O'zgarishlarni qo'llash uchun ilovani qayta ishga tushiring.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafik interfeys",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "OAV",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Oziq-ovqat faktlari laboratoriyasini oching",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Ochiq oziq-ovqat faktlarini tilingizga olib keling",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Ilovaning alfa versiyasida ro'yxatdan o'ting",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Hissalar va mahsulot maʼlumotlari",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Folksonomiyani ko'rsatmang",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

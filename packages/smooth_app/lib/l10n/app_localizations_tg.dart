@@ -2358,7 +2358,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Дастрасӣ ба хусусиятҳои таҷрибавӣ ва воситаҳои рушд';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3979,29 +3979,30 @@ class AppLocalizationsTg extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Сабз-хол А';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Холи сабз B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Холи сабз C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Холи сабз Д';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Холи сабз Э';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Холи сабзи номаълум';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Сабз-хол истифода намешавад';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Хӯрокҳои ултра коркардшуда - гурӯҳҳои NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4361,131 +4362,129 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Кадом маҳсулот барои сайёра беҳтар аст?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Гуфтан душвор буда метавонад';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Интихоби ғизои устувор яке аз пурқувваттарин корҳое мебошад, ки мо барои иқлим карда метавонем, зеро **системаи ҷаҳонии озуқавории мо барои зиёда аз чоряки партовҳои газҳои гулхонаӣ масъул аст**.\n(Манбаъ: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Шумо қудрат доред!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Хабари хуш ин аст, ки ин ба мо роҳи тавонои эҷоди тағирот медиҳад.\n**Ҳар яки мо ҳар сол тақрибан 1000 хӯрок мехӯрем**. Ин 1000 имконият барои **интихоби ояндаи беҳтари сайёра** аст!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Барои масъулиятшиносӣ ва тасмимгирӣ кӯмак мекунад';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Интихоби ғизои устувор метавонад душвор бошад. Тамғакоғазҳо иштибоҳ мекунанд ва аксар вақт маълумот намерасад. Green-Score барои содда кардани он сохта шудааст, ки ба шумо рейтинги экологии **равшан**, **ба илм асосёфта** ва **шаффоф**-ро барои маҳсулоти хӯрокворӣ дар ҳамон ҷое, ки ба шумо лозим аст, медиҳад: ҳангоми харид кардан.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Шаффофият';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Баръакси тамғакоғазҳои хусусӣ, ҳисоби Green-Score **комилан кушода аст** ва метавонад **аз ҷониби ҳар кас тасдиқ карда шавад**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Ультра-коркард чист?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Гурӯҳҳои NOVA ба шумо дар бораи сатҳи коркарди ғизо маълумот медиҳанд.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Таснифи NOVA имкон медиҳад, ки хӯрокҳо аз рӯи **дараҷаи коркарди саноатӣ** ба **4 гурӯҳ** гурӯҳбандӣ карда шаванд (хӯрокҳои ҳадди аққал коркардшуда ё коркарднашуда, ингредиентҳои кулинарӣ, хӯрокҳои коркардшуда, хӯрокҳои ултра коркардшуда).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Логотипҳои NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 гурӯҳи НОВА';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      '4 гурӯҳи NOVA вуҷуд доранд, ки мушкилиашон гурӯҳи 4 - ғизои ултра коркардшуда мебошад.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Хӯрокҳои ҳадди аққал коркардшуда ё коркарднашуда';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Ғизоҳои коркарднашуда (ё табиӣ) қисмҳои хӯрдани растанӣ (тухмҳо, меваҳо, баргҳо, пояҳо, решаҳо) ё ҳайвонот (мушакҳо, ҳашаротҳо, тухмҳо, шир), инчунин занбӯруғҳо, алафҳо ва об пас аз ҷудо шудан аз табиат мебошанд.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Компонентҳои коркардшудаи пухтупаз, ба монанди равған, равған, шакар ва намак, моддаҳое мебошанд, ки аз хӯрокҳои гурӯҳи 1 ё аз табиат тавассути равандҳое, ки пресскунӣ, тозакунӣ, дастос кардан, резиши ва хушккуниро дар бар мегиранд, ҳосил мешаванд.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Хӯрокҳои коркардшуда, аз қабили сабзавоти шишагӣ, консерваҳои моҳӣ, меваҳо дар шарбат, панир ва нонҳои тару тоза, пеш аз ҳама бо илова кардани намак, равған, шакар ё дигар моддаҳои ғизои гурӯҳи 2 ба гурӯҳи 1 тайёр карда мешаванд. Равандҳо усулҳои гуногуни нигоҳдорӣ ё пухтупазро дар бар мегиранд ва дар мавриди нон ва панир, ферментатсияи ғайриспиртӣ. Аксари хӯрокҳои коркардшуда ду ё се компонент доранд ва ҳамчун версияҳои тағирёфтаи хӯрокҳои гурӯҳи 1 шинохта мешаванд. Онҳоро мустақилона ё бештар дар якҷоягӣ бо дигар хӯрокҳо истеъмол кардан мумкин аст.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Хӯрокҳои аз ҳад коркардшуда, аз қабили нӯшокиҳои спиртӣ, газакҳои бастабандии ширин ё болаззат, маҳсулоти гӯштии барқароршуда ва хӯрокҳои яхкардаи пешакӣ тайёршуда на танҳо хӯрокҳои тағирёфта, балки формулаҳое мебошанд, ки асосан ё пурра аз моддаҳои аз хӯрокҳо ва иловаҳо ҳосилшуда, бо кам ё тамоман бетағйири ғизои Гурӯҳи 1 сохта шудаанд. Компонентҳои ин формулаҳо одатан ҷузъҳоеро дар бар мегиранд, ки дар ғизоҳои коркардшуда, ба монанди қанд, равғанҳо, равғанҳо ё намак мавҷуданд. Бо вуҷуди ин, маҳсулоти ултра коркардшуда инчунин дорои дигар манбаъҳои энергия ва маводи ғизоӣ мебошанд, ки маъмулан дар тайёр кардани пухтупаз истифода намешаванд. Баъзе аз онҳо мустақиман аз хӯрокҳо, аз қабили казеин, лактоза, зардоб ва глютен истихроҷ карда мешаванд.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Мушкилот бо коркарди ултра';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Коркарди шадиди компонентҳои ғизо';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Бисёре аз онҳо аз коркарди минбаъдаи ҷузъҳои хӯрокворӣ, ба монанди равғанҳои гидрогеншуда ё манфиатдор, сафедаҳои гидролизшуда, изоляти протеини соя, мальтодекстрин, шакар инверт ва шарбати ҷуворимаккаи дорои фруктоза гирифта мешаванд.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Иловаҳо, ки аз доираи амнияти озуқаворӣ берунтаранд';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Иловаҳо дар хӯрокҳои ултра коркардшуда баъзеҳо дар бар мегиранд, ки инчунин дар хӯрокҳои коркардшуда истифода мешаванд, ба монанди консервантҳо, антиоксидантҳо ва стабилизаторҳо. Синфҳои иловагиҳое, ки танҳо дар маҳсулоти ултра коркардшуда мавҷуданд, дохил мешаванд, ки барои тақлид ё баланд бардоштани сифатҳои ҳассосии ғизо ё пинҳон кардани ҷанбаҳои нописанди маҳсулоти ниҳоӣ истифода мешаванд. Ба ин иловаҳо рангҳо ва рангҳои дигар, стабилизаторҳои ранг дохил мешаванд; маззаҳо, беҳтаркунандаи мазза, ширинкунандаҳои ғайришакар; ва ёрирасони коркард, аз қабили агентҳои карбонаткунӣ, мустаҳкамкунӣ, ҳаҷм ва зидди ҳаҷм, агентҳои кафккунӣ, зидди қаҳваранг ва шишабандӣ, эмульгаторҳо, секвестрҳо ва намӣ.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Коркард, ки шумо наметавонед дар хона кор кунед';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Якчанд пайдарпайии равандҳо барои муттаҳид кардани компонентҳои маъмулан ва эҷоди маҳсулоти ниҳоӣ (аз ин рӯ, \"ултракоркардшуда\") истифода мешаванд. Равандҳо якчанд равандҳоро дар бар мегиранд, ки муодили ватанӣ надоранд, ба монанди гидрогенизатсия ва гидролизизатсия, экструзия ва қолибсозӣ ва коркарди пешакӣ барои пухтан.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Ҷанбаҳои дарранда ва молиявии коркарди ултра';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Мақсади умумии коркарди ултра-коркард аз он иборат аст, ки маҳсулоти бренди, қулай (устувор, барои истеъмол омода), ҷолиб (гипер хушбӯй) ва сердаромад (компонентҳои камхарҷ), ки барои иваз кардани ҳама гурӯҳҳои дигари ғизо пешбинӣ шудаанд. Маҳсулоти хӯроквории ултра коркардшуда одатан ба таври ҷолиб бастабандӣ карда мешаванд ва ба таври интенсивӣ ба фурӯш бароварда мешаванд.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4976,46 +4975,48 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Афзалиятҳои нархҳои худро идора кунед';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Лоиҳаи Далелҳои озуқавории кушод';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Асбобҳои моро…тарҷума кунед, такмил диҳед';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Пайваст кунед';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Ба мо муроҷиат кунед ё дар шабакаҳои иҷтимоӣ пайравӣ кунед';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Ба мо кӯмак кунед, ки миллионҳо истеъмолкунандагонро дар саросари ҷаҳон огоҳ созем';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Кӯмак ва дастгирӣ';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Ба саволҳои худ ҷавоб гиред';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Баромадан';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Ташаккур ба шумо барои яке аз аъзоёни мо будан!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5024,24 +5025,24 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Ҳама оморҳоро бубинед';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Ҷустуҷӯи $provider барои \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Ҷустуҷӯи танзимот (масалан, Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Дастрасӣ: Нишон додани эмодзи';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Дастрасӣ: Рангҳоро нест кунед';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5050,11 +5051,11 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Маълумоти ҳуқуқӣ';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Шартҳои истифода, сиёсати махфият ва ғайра';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5066,36 +5067,36 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Иҷозатномаҳо';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Дар бораи барнома';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Маълумоти техникӣ, маълумоти таҳиякунанда ва ғайра';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Рақами версия';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Сканер';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Дӯкони барномаҳо';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Танзимоти система';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Ба рамзи манбаъ дастрасӣ пайдо кунед';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Ва ба миллионҳо таъсир расонидан оғоз кунед';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5104,117 +5105,120 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Маслиҳатҳо';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Nutri-Score-и навро кашф кунед';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Дар вебсайти Open Facts Food';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Ҳисоби маро идора кунед';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Пароли маро иваз кунед';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Минтақаи хатарнок';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Ҳама саҳмҳои шумо гум мешаванд';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Танзимоти барнома';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Роҳи хеле таҷрибавии скан кардани маҳсулот дар офлайн';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Ҳама маҳсулотро аз сервер навсозӣ кунед';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Лутфан, аз ин кор худдорӣ кунед, агар комилан зарур бошад';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Ҳолати намоишӣ';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Кортҳоро ба сканер илова кунед';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Ба сканер 3 маҳсулоти намунавӣ илова мекунад';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title => 'Мизбони фолксономй';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Таҷрибаҳои дастрасӣ';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Интихоби маҳсулоти гуногун барои нархҳо';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Панелҳои дониши корбар фармоиш додаанд';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Дастрасии муваққатӣ ба ҷустуҷӯи макон';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Муқоисаи паҳлӯ ба 2 ё 3 маҳсулот';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Воридоти рӯйхати маҳсулот';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Холҳо ва методология';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Бифаҳмед, ки чӣ тавр Nutri-Score ҳисоб карда мешавад';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Тағироти асосии методологияро кашф кунед';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Далелҳои ғизои кушодро кашф кунед';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'FAQ - Саволҳои зуд-зуд додашаванда';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Ташкилоти ҷамъиятии \"Фактҳои озуқавории кушод\"';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Навсозиҳои ҷомеаро гиред';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Бо хабарҳои барнома ва ҷомеа бохабар бошед';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5222,217 +5226,221 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Бо иштирок дар яке аз чорабиниҳои виртуалии мо иштирок кунед';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Моро дар шабакаҳои иҷтимоӣ пайравӣ кунед';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Блоги Open Facts Food';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Хабарҳои охиринро, ки онҳо рӯй медиҳанд, гиред';
 
   @override
-  String get preferences_connect_community_help_title =>
-      'Get help from the community';
+  String get preferences_connect_community_help_title => 'Аз ҷомеа кӯмак гиред';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Ба мо кӯмак кунед, ки барномаро такмил диҳед';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Маълумоти ислоҳиро ба мо фиристед';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Ба мо паёми электронӣ фиристед, ки маълумоти муфассали ислоҳи ислоҳро дар бар мегирад';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Дар бораи барнома ба мо фикру мулоҳиза фиристед';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Дар ташаккули ояндаи барнома кӯмак кунед';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Пурсиши барномаро гиред';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Ба мо кӯмак кунед, ки мо дар оянда чӣ бояд созем';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Мутахассисон';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Тамоман ройгон, маълумоти дақиқро барои 500 барнома ва миллионҳо истеъмолкунандагон таъмин мекунад. Худхизматрасонӣ, ки бо PIM ё ҷадвалҳои электронии шумо (XLSX) мувофиқ аст';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Барои оғоз кардан дар тамос шавед';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Ҳама маводеро, ки барои гузориши худ лозим аст, гиред';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Барои дархостҳои матбуотӣ тамос гиред ё дар бораи гузориши худ ба мо хабар диҳед';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Волонтёри фаъол шавед';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Рушд, муошират, тарроҳӣ… ҳама гуна ихтиёрӣ ё таҷриба истиқбол карда мешавад!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Баъзе аз роҳҳои зиёдеро, ки шумо метавонед саҳм гузошта метавонед, кашф кунед';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Таҳияи барномаи мобилӣ';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Бифаҳмед, ки чӣ гуна саҳм гузоштан дар таҳияи нармафзор';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Сохтмони ноустувори ҳаррӯза, хусусиятҳои нав';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Ҷомеаи маҳаллии худро афзоиш диҳед';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Кӯмак бо нармафзор, мундариҷа, тарҷумаҳои таҳлили компонентҳо';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Мо як қолаби хурде омода кардем, то ба шумо кӯмак расонад :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Қадамҳои оддӣ барои рушди шаффофияти ғизо дар кишвари шумо';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Ба дастаи сифати маълумот ҳамроҳ шавед';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Ба кӯшишҳои мо ҳамроҳ шавед, то базаи маълумот пурра ва дақиқ бошад';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      '0 маҳсулот илова карда шуд';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Маҳсулоти наве, ки ман ба Facts Open Food илова кардам';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Маҳсулоте, ки ман бояд анҷом диҳам';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Ҳама маҳсулоти нопурра';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Маҳсулоте, ки шумо метавонед ба анҷом расонед';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Барои ҳисоб кардани Nutri-Score & Green-Score дар кишвари худ кӯмак кунед';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Нархҳое, ки ман саҳм гузоштам';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle =>
+      'Нишонаҳои нарх ва квитансияҳо';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Квитансияҳои худро аксбардорӣ кунед ва штрих-кодҳои алоқамандро скан кунед';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Нархҳоро дар мағоза аксбардорӣ кунед';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Нархҳои навтарин';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Нархҳои охирин аз ҷониби ҷомеаи Open Prices илова карда шудаанд';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Саҳмгузорон бо нархҳои бештар';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title =>
+      'Нишондиҳандаҳои нархҳои кушода';
 
   @override
   String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+      'Таҳаввулоти лоиҳаро пайгирӣ кунед';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Роҳҳои саҳмгузорӣ';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Бо ёрии AI нархҳоеро, ки худатон ё дигарон илова кардаанд, тасдиқ кунед';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Аз рол камераи худ бисёр квитансияҳо ё аксҳои рафҳоро зуд илова кунед';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Мушкилоти моҳона';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Барои ҷамъоварии нархҳо дар квестҳои мавзӯӣ ҳармоҳа иштирок кунед';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Маълумоти вафодории худро барқарор кунед';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Омӯзед, ки чӣ тавр дархост кардани маълумоти шумо';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Барномаро танзим кунед';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Дар лоиҳа саҳм гузоред';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Роҳҳои оддии кӯмак ба Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Методологияҳо, кӯмак ва ғайра дар бораи лоиҳа';
 
   @override
   String get product_edit_robotoff_positive_button => 'Пешниҳод қабул кунед';
@@ -5482,40 +5490,40 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Лутфан барномаро бозоғоз намоед, то тағиротро татбиқ кунед.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Интерфейси графикӣ';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'ВАО';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Лабораторияҳои далелҳои ғизоро кушоед';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Далелҳои озуқавории кушодро ба забони худ биёред';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Дар версияи алфа-и барнома номнавис шавед';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Саҳмҳо ва маълумоти маҳсулот';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Фолксономияро нишон надихед';
 
   @override
   String get preferences_account_title => 'Account';

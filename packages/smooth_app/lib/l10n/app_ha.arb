@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Samun damar abubuwan gwaji da kayan aikin haɓakawa",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score Ba a sani ba",
+  "environmental_score_not_applicable_new": "Green-Score bai dace ba",
+  "nova_group_generic_new": "Abincin da aka sarrafa sosai - ƙungiyoyin NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Duk 'yan ƙasa za su iya taimaka mana mu tattara da tsara bayanan da ke kan samfuran ko waɗanda za a iya fitar da su daga gare su, kamar bayanai kan marufi: Ofishin Jakadancin: babban marufi na haɗin gwiwa na marufi don duk samfuran abinci (a cikin Faransanci)",
   "guide_greenscore_transparency_arg2_title": "Yadda masana'anta zasu iya taimakawa",
   "guide_greenscore_transparency_arg2_text": "Masu kera za su iya aiko mana da bayanansu kai tsaye ta dandalin mu na kyauta don masu samarwa.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Wane samfur ne mafi kyau ga duniya?",
+  "guide_greenscore_better_product_arg1_title": "Yana iya zama da wuya a faɗi",
+  "guide_greenscore_better_product_arg1_text": "Zaɓin abinci mai ɗorewa yana ɗaya daga cikin abubuwan da za mu iya yi don yanayin yanayi, kamar yadda ** tsarin abincin mu na duniya yana da alhakin sama da kashi ɗaya bisa huɗu na duk hayaƙin gurɓataccen iska **.\n(Madogararsa: Poore & Nemecek, Kimiyya, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Kuna da iko!",
+  "guide_greenscore_better_product_arg2_text": "Labari mai dadi shine wannan yana ba mu hanya mai ƙarfi don ƙirƙirar canji.\n**Kowanenmu yana cin abinci kusan 1,000 duk shekara**. Wannan shine damar 1,000 don ** zaɓi mafi kyawun makoma ga duniyar duniyar ***!",
+  "guide_greenscore_better_product_arg3_title": "Taimaka don zama alhakin da yanke shawara",
+  "guide_greenscore_better_product_arg3_text": "Zaɓin abinci mai ɗorewa yana iya jin rikitarwa. Alamun suna da ruɗani kuma yawancin bayanai suna ɓacewa. An ƙirƙiri Green-Score don sauƙaƙe shi, yana ba ku ** bayyananne ***, ** tushen kimiyya ***, da ** madaidaicin ƙimar muhalli don samfuran abinci, daidai inda kuke buƙata: yayin siyayya.",
+  "guide_greenscore_better_product_arg4_title": "Bayyana gaskiya",
+  "guide_greenscore_better_product_arg4_text": "Ba kamar alamun mallakar mallaka ba, lissafin Green-Score ** gaba ɗaya buɗe yake ** kuma kowa zai iya tabbatar da shi **.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Menene ultra-processing?",
+  "guide_nova_what_is_nova_paragraph1": "Ƙungiyoyin NOVA suna sanar da ku game da matakin sarrafa abinci.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Rarraba NOVA yana ba da damar rarraba abinci zuwa ƙungiyoyin 4 ** dangane da ** digiri na sarrafa masana'antu ** (mafi ƙarancin sarrafawa ko abincin da ba a sarrafa su ba, kayan dafa abinci, abinci mai sarrafa, abinci mai sarrafa gaske).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Tambarin NOVA",
+  "guide_nova_groups_title": "Kungiyoyin NOVA guda 4",
+  "guide_nova_groups_intro": "Akwai ƙungiyoyin NOVA guda 4, matsala ɗaya ita ce Rukuni na 4 - Abincin da aka sarrafa sosai.",
+  "guide_nova_groups_arg1_title": "Mafi ƙarancin sarrafawa ko abincin da ba a sarrafa shi ba",
+  "guide_nova_groups_arg1_text": "Abincin da ba a sarrafa shi ba (ko na halitta) su ne sassan tsire-tsire ( iri, 'ya'yan itace, ganye, mai tushe, tushen) ko dabbobi (tsokoki, ƙwai, qwai, madara), da fungi, algae, da ruwa, bayan an raba su da yanayi.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "Abubuwan da aka sarrafa na dafuwa, kamar mai, man shanu, sukari, da gishiri, abubuwa ne waɗanda aka samo daga abinci na rukuni na 1 ko kuma daga yanayi ta hanyoyin da suka haɗa da latsawa, tacewa, niƙa, niƙa, da bushewa.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "Abincin da aka sarrafa, kamar kayan lambu na kwalba, kifin gwangwani, 'ya'yan itace a cikin syrup, cuku, da kuma sabbin burodi, ana yin su da farko ta hanyar ƙara gishiri, mai, sukari, ko wasu abubuwa daga rukuni na 2 zuwa abinci na rukuni na 1. Tsari sun haɗa da tsare-tsare daban-daban ko hanyoyin dafa abinci, kuma a cikin yanayin biredi da cuku, fermentation maras giya. Yawancin abincin da aka sarrafa suna da sinadirai biyu ko uku kuma ana iya gane su azaman gyare-gyaren nau'ikan abinci na rukuni na 1. Ana iya cinye su da kansu ko kuma, yawanci, tare da sauran abinci.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "Abincin da aka sarrafa sosai, irin su abubuwan sha mai laushi, kayan ciye-ciye masu daɗi ko kayan ciye-ciye, kayan nama da aka sake ginawa, da daskararrun jita-jita da aka riga aka shirya, ba abinci ne kawai aka gyara ba amma tsarin da aka yi galibi ko gabaɗaya daga abubuwan da aka samo daga abinci da ƙari, ba tare da ƙarancin abinci na rukuni na 1 ba. Sinadaran da ke cikin waɗannan sifofin yawanci sun haɗa da waɗanda kuma ake samu a cikin abinci da aka sarrafa, kamar sukari, mai, mai, ko gishiri. Koyaya, samfuran da aka sarrafa su ma sun ƙunshi wasu hanyoyin samar da kuzari da abubuwan gina jiki waɗanda ba a saba amfani da su ba a cikin shirye-shiryen dafa abinci. Wasu daga cikin waɗannan ana fitar dasu kai tsaye daga abinci, kamar casein, lactose, whey, da gluten.",
+  "guide_nova_explanations_title": "Matsaloli tare da ultra-processing",
+  "guide_nova_explanations_arg1_title": "Tsananin sarrafa kayan abinci",
+  "guide_nova_explanations_arg1_text": "Yawancin ana samun su daga ƙarin sarrafa abubuwan abinci, irin su hydrogenated ko mai ban sha'awa, sunadaran hydrolyzed, ware furotin soya, maltodextrin, invert sugar, da babban fructose masara syrup.",
+  "guide_nova_explanations_arg2_title": "Additives da suka wuce tsaftataccen amincin abinci",
+  "guide_nova_explanations_arg2_text": "Abubuwan da ake ƙarawa a cikin abincin da aka sarrafa su sun haɗa da wasu waɗanda kuma ake amfani da su a cikin abincin da aka sarrafa, kamar su abubuwan kiyayewa, antioxidants, da stabilizers. Azuzuwan abubuwan ƙari da aka samu kawai a cikin samfuran da aka sarrafa su sun haɗa da waɗanda aka yi amfani da su don yin koyi ko haɓaka halayen abinci ko kuma canza ɓangarori marasa kyau na samfurin ƙarshe. Wadannan additives sun haɗa da dyes da sauran launuka, masu daidaita launi; abubuwan dandano, masu haɓaka dandano, masu zaƙi waɗanda ba masu sukari ba; da kayan aikin sarrafawa kamar carbonating, firming, bulking da anti-bulking agents, de-foaming, anti-caking da glazing jamiái, emulsifiers, sequestrants, da humectants.",
+  "guide_nova_explanations_arg3_title": "Sarrafa ba za ku iya yi a gida ba",
+  "guide_nova_explanations_arg3_text": "Ana amfani da ɗimbin jerin matakai don haɗa yawancin sinadirai masu yawa da ƙirƙirar samfur na ƙarshe (saboda haka 'masu sarrafa sosai'). Hanyoyin sun haɗa da da yawa ba tare da daidaitattun gida ba, irin su hydrogenation da hydrolysation, extrusion da gyare-gyare, da pre-processing don soya.",
+  "guide_nova_explanations_arg4_title": "Abubuwan da ba a iya gani ba da kudi na ultra-processing",
+  "guide_nova_explanations_arg4_text": "Babban manufar aiwatar da matsananciyar aiki shine ƙirƙirar alama, dacewa (mai ɗorewa, shirye don cinyewa), kyakkyawa (mai daɗi mai daɗi) da riba mai fa'ida (kayan abinci masu ƙarancin farashi) samfuran abinci waɗanda aka tsara don korar duk sauran rukunin abinci. Kayan abinci da aka sarrafa sosai yawanci ana tattara su cikin kayatarwa kuma ana sayar da su sosai.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Sarrafa zaɓin farashin ku",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Aikin Buɗaɗɗen Bayanan Abinci",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Fassara, inganta kayan aikin mu…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Haɗa",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Ku biyo mu, ko Ku biyo mu a social media",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Taimaka mana sanar da miliyoyin masu amfani a duk duniya",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Taimako & Taimako",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Samu amsoshin tambayoyinku",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "An fita",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Na gode don kasancewa ɗaya daga cikin membobinmu!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Duba duk kididdiga",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Nemo {provider} don \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Nemo saitin (misali Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Dama: Nuna emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Samun damar: Cire launuka",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Bayanin doka",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Sharuɗɗan amfani, manufofin keɓantawa, da ƙari",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lasisi",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Game da app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Bayanin fasaha, bayanin haɓakawa, da ƙari",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Lambar sigar",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App Store",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Saitunan tsarin",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Shiga lambar tushe",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Kuma fara yin tasiri ga miliyoyin",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tips",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Gano sabon Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "A kan Buɗaɗɗen Bayanan Bayanan Abinci",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Sarrafa asusuna",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Canja kalmar sirri ta",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Yankin haɗari",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Duk gudummawar ku za a rasa",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Saitunan app",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Hanyar gwaji sosai don bincika samfuran layi",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Sake sabunta duk samfuran daga uwar garken",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Da fatan za a guji yin hakan sai dai idan ya zama dole",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Yanayin demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Ƙara katunan zuwa na'urar daukar hotan takardu",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Yana ƙara samfuran samfuri 3 zuwa na'urar daukar hotan takardu",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Mai masaukin baki na Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Gwajin samun dama",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Zaɓin samfura da yawa don farashi",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Fanonin ilimin da aka ba da umarnin mai amfani",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Samun dama ga binciken wuri na ɗan lokaci",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Kwatancen gefe da gefe don samfuran 2 ko 3",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "shigo da lissafin samfur",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Maki & hanyoyin",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Gano yadda ake lissafin Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Gano manyan canje-canje ga hanya",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Gano Buɗe Bayanan Abinci",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Tambayoyin da ake yawan yi",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Budaddiyar Facts Food Facts NGO",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Samo sabuntawar al'umma",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Ci gaba da kasancewa tare da app da labaran al'umma",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Shiga ta hanyar halartar ɗaya daga cikin abubuwan da suka faru na kama-da-wane",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Ku biyo mu a kafafen sada zumunta",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "Budaddiyar Bayanan Abinci",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Samu sabbin labarai, kamar yadda suke faruwa",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Nemo taimako daga al'umma",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Taimaka mana inganta app",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Aiko mana da bayanin kuskure",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Aiko mana da imel tare da cikakkun bayanan gyara kuskure",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Aiko mana da ra'ayi game da app",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Taimaka tsara makomar app ɗin",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Ɗauki binciken app",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Taimaka mana fahimtar abin da ya kamata mu gina na gaba",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Masu sana'a",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Gabaɗaya kyauta, yana tabbatar da ingantattun bayanai don ƙa'idodi 500 & miliyoyin masu amfani. Sabis na kai, mai dacewa da PIM ko maƙunsar bayanai (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Tuntuɓi don farawa",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Sami duk abubuwan da kuke buƙata don rahoton ku",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Tuntuɓi don tambayoyin manema labarai ko don sanar da mu game da rahoton ku",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Zama mai aikin sa kai",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Ci gaba, Sadarwa, Zane… kowane irin aikin sa kai ko gwaninta ana maraba da shi!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Gano wasu hanyoyi da yawa da zaku iya ba da gudummawa",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Ci gaban aikace-aikacen wayar hannu",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Koyi yadda ake ba da gudummawa ga haɓaka software",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Gina marasa kwanciyar hankali na yau da kullun, sabbin abubuwa",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Haɓaka yankin ku",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Taimako tare da software, abun ciki, fassarorin bincike na kayan masarufi",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Mun shirya ƙaramin samfuri don taimaka muku :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Sauƙaƙan matakai don haɓaka gaskiyar abinci a ƙasarku",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Shiga ƙungiyar ingancin bayanai",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Haɗa ƙoƙarinmu don tabbatar da cikakkun bayanai kuma cikakke ne",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 an ƙara samfuran",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Sabbin samfura na ƙara zuwa Buɗe Bayanan Abinci",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Kayayyakin da nake buƙatar kammalawa",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Duk samfuran da basu cika ba",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Samfuran da zaku iya taimakawa cikawa",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Taimaka lissafin Nutri-Score & Green-Score a cikin ƙasar ku",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Farashin da na bayar",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Alamomin farashin da rasit",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Ɗauki hotunan rasit ɗin ku kuma bincika lambobin barde masu alaƙa",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Ɗauki hotuna na farashi a cikin shago",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Sabbin farashin",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Sabbin farashin da jama'ar Buɗaɗɗen Farashin suka ƙara",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Masu ba da gudummawa tare da mafi yawan farashi",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Buɗe ma'aunin farashi",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Bi juyin halittar aikin",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Hanyoyin ba da gudummawa",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Tabbatar da farashin da kanku ko wasu suka ƙara, tare da taimakon AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Da sauri ƙara rasitoci da yawa ko hotuna na shelves daga nadi na kamara",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Kalubalen wata-wata",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Shiga cikin tambayoyin jigo na kowane wata don karɓar farashi",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Maida bayanan amincin ku",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Koyi yadda ake neman bayanan ku",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Keɓance ƙa'idar",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Ba da gudummawa ga aikin",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Hanyoyi masu sauƙi don taimakawa Buɗe Bayanan Abinci",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Maki hanyoyin, taimako, da ƙari game da aikin",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Karɓi shawara",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "Tabbatarwa ya gaza, ya kasa debo hujjoji",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Da fatan za a sake kunna app don amfani da canje-canje.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Zane-zane dubawa",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Mai jarida",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Bude Bayanan Bayanan Abinci",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Kawo Budaddiyar Bayanan Abinci zuwa harshenka",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Yi rijista a cikin nau'in alpha na app",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Gudunmawa & Bayanan Samfura",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Kar a nuna Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }

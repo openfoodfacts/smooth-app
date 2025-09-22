@@ -2357,7 +2357,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Fikia vipengele vya majaribio na zana za ukuzaji';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -3978,29 +3978,29 @@ class AppLocalizationsSw extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Alama ya Kijani A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Alama ya Kijani B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Alama ya Kijani C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Alama ya Kijani D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Alama ya Kijani E';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Alama ya Kijani Isiyojulikana';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+  String get environmental_score_not_applicable_new => 'Green-Alama haitumiki';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'Vyakula vilivyosindikwa zaidi - vikundi vya NOVA';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4363,131 +4363,131 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Ni bidhaa gani bora kwa sayari?';
 
   @override
   String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+      'Inaweza kuwa ngumu kusema';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Kuchagua chakula endelevu ni mojawapo ya mambo yenye nguvu zaidi tunaweza kufanya kwa ajili ya hali ya hewa, kwani **mfumo wetu wa chakula duniani unawajibika kwa zaidi ya robo ya uzalishaji wote wa gesi chafuzi**.\n(Chanzo: Poore & Nemecek, Sayansi, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Una nguvu!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Habari njema ni kwamba hii inatupa njia nzuri ya kuunda mabadiliko.\n**Kila mmoja wetu hula karibu milo 1,000 kila mwaka**. Hizo ni fursa 1,000 za **kuchagua mustakabali bora wa sayari**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Inasaidia kuwajibika na kuamua';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Kuchagua chakula endelevu kunaweza kuhisi kuwa ngumu. Lebo zinachanganya na habari mara nyingi hukosekana. Alama ya Kijani iliundwa ili kurahisisha, kukupa ukadiriaji wa **wazi**, **kulingana na sayansi**, na **wazi** wa mazingira kwa bidhaa za chakula, pale unapohitaji: unaponunua.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Uwazi';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'Tofauti na lebo za wamiliki, hesabu ya Alama ya Kijani ni **imefunguliwa kabisa** na inaweza **kuthibitishwa na mtu yeyote**.';
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title =>
+      'Usindikaji wa hali ya juu ni nini?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'Vikundi vya NOVA vinakujulisha kuhusu kiwango cha usindikaji wa chakula.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'Uainishaji wa NOVA unaruhusu kuainishwa kwa vyakula katika **makundi 4** kulingana na **shahada zao za usindikaji wa viwandani** (vyakula vilivyosindikwa au ambavyo havijachakatwa, viambato vya upishi, vyakula vilivyochakatwa, vyakula vilivyosindikwa zaidi).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'Nembo za NOVA';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => 'Vikundi 4 vya NOVA';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Kuna vikundi 4 vya NOVA, moja ya shida ikiwa ni Kundi la 4 - Vyakula vilivyosindikwa sana.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Vyakula vilivyosindikwa kidogo au visivyochakatwa';
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Vyakula visivyochakatwa (au asili) ni sehemu zinazoweza kuliwa za mimea (mbegu, matunda, majani, shina, mizizi) au wanyama (misuli, offal, mayai, maziwa), pamoja na kuvu, mwani, na maji, baada ya kutengwa na asili.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Viungo vya upishi vilivyochakatwa, kama vile mafuta, siagi, sukari, na chumvi, ni vitu vinavyotokana na vyakula vya Kundi la 1 au kutoka kwa asili kupitia michakato inayojumuisha kukandamiza, kusafisha, kusaga, kusaga na kukausha.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
+      'Vyakula vilivyosindikwa, kama vile mboga za chupa, samaki wa makopo, matunda kwenye sharubati, jibini, na mikate iliyotengenezwa upya, kimsingi hutengenezwa kwa kuongeza chumvi, mafuta, sukari, au vitu vingine kutoka Kundi la 2 hadi la Kundi la 1. Michakato ni pamoja na njia mbalimbali za kuhifadhi au kupika, na katika kesi ya mikate na jibini, fermentation isiyo ya pombe. Vyakula vingi vilivyochakatwa vina viambato viwili au vitatu na vinatambulika kama matoleo yaliyorekebishwa ya vyakula vya Kundi la 1. Wanaweza kuliwa peke yao au, kawaida zaidi, pamoja na vyakula vingine.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Vyakula vilivyochakatwa sana, kama vile vinywaji baridi, vitafunio vitamu au vitamu vilivyopakiwa, bidhaa za nyama zilizotengenezwa upya, na vyakula vilivyogandishwa vilivyotayarishwa awali, si vyakula vilivyorekebishwa tu bali ni michanganyiko inayotengenezwa kwa wingi au kabisa kutokana na vitu vinavyotokana na vyakula na viungio, pamoja na chakula cha Kundi 1 kidogo kabisa. Viungo katika uundaji huu kwa kawaida hujumuisha vile vinavyopatikana pia katika vyakula vilivyochakatwa, kama vile sukari, mafuta, mafuta, au chumvi. Hata hivyo, bidhaa zilizosindikwa zaidi pia zina vyanzo vingine vya nishati na virutubisho ambavyo hazitumiwi kwa kawaida katika maandalizi ya upishi. Baadhi ya hizi hutolewa moja kwa moja kutoka kwa vyakula, kama vile casein, lactose, whey, na gluten.';
 
   @override
   String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+      'Matatizo ya usindikaji wa hali ya juu';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Usindikaji mkubwa wa viungo vya chakula';
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Nyingi zinatokana na usindikaji zaidi wa viambajengo vya chakula, kama vile mafuta ya hidrojeni au ya kuvutia, protini za hidrolisisi, kutenganisha protini ya soya, maltodextrin, sukari ya kubadilisha, na sharubati ya mahindi yenye fructose.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Viungio vinavyoenda zaidi ya usalama wa chakula safi';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Viungio katika vyakula vilivyochakatwa zaidi ni pamoja na vingine ambavyo hutumika pia katika vyakula vilivyochakatwa, kama vile vihifadhi, viondoa sumu mwilini, na vidhibiti. Aina za viungio vinavyopatikana tu katika bidhaa zilizochakatwa zaidi ni pamoja na zile zinazotumiwa kuiga au kuboresha sifa za hisia za vyakula au kuficha vipengele visivyopendeza vya bidhaa ya mwisho. Viongezeo hivi ni pamoja na rangi na rangi nyingine, vidhibiti vya rangi; ladha, viboreshaji vya ladha, vitamu visivyo na sukari; na vifaa vya usindikaji kama vile kaboni, uimarishaji, bulking na mawakala wa kuzuia bulking, de-povu, anti-caking na ukaushaji mawakala, emulsifiers, sequestrants, na humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Usindikaji hauwezi kufanya nyumbani';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      'Misururu mingi ya michakato hutumika kuchanganya viambato vingi vya kawaida na kuunda bidhaa ya mwisho (kwa hivyo \'iliyochakatwa zaidi\'). Michakato hiyo ni pamoja na kadhaa bila vilinganishi vya nyumbani, kama vile utiaji hidrojeni na uhaidrolisisi, utoboaji na ukingo, na uchakataji wa awali kwa kukaanga.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Vipengele vya unyanyasaji na kifedha vya usindikaji wa hali ya juu';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Madhumuni ya jumla ya usindikaji wa hali ya juu ni kuunda bidhaa za chakula zenye chapa, zinazofaa (zinazodumu, tayari kutumika), zinazovutia (zinazopendeza) na zenye faida kubwa (za bei ya chini) zilizoundwa kuondoa vikundi vingine vyote vya chakula. Bidhaa za chakula zilizochakatwa kwa kiwango cha juu huwekwa kwenye vifurushi vya kuvutia na kuuzwa kwa kasi.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4978,46 +4978,46 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle => 'Dhibiti mapendeleo yako ya bei';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project => 'Mradi wa Open Food Facts';
 
   @override
   String get preferences_contribute_title => 'Contribute';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle => 'Tafsiri, boresha zana zetu…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Unganisha';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Wasiliana nasi, au Tufuate kwenye mitandao ya kijamii';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Tusaidie kuwafahamisha mamilioni ya watumiaji duniani kote';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Usaidizi na Usaidizi';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Pata majibu ya maswali yako';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Umetoka nje';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Asante kwa kuwa mmoja wa wanachama wetu!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5026,37 +5026,35 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Tazama takwimu zote';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Tafuta $provider kwa \"$keyword\"';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Tafuta mpangilio (km Nutri-Score)';
 
   @override
-  String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+  String get preferences_accessibility_show_emoji => 'Ufikivu: Onyesha emoji';
 
   @override
-  String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+  String get preferences_accessibility_remove_colors => 'Ufikiaji: Ondoa rangi';
 
   @override
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'Kuhusu';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Taarifa za kisheria';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Masharti ya matumizi, sera ya faragha na zaidi';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5068,155 +5066,159 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Leseni';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'Kuhusu programu';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Maelezo ya kiufundi, maelezo ya msanidi programu, na zaidi';
 
   @override
   String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Nambari ya toleo';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Kichanganuzi';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Duka la programu';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Mipangilio ya mfumo';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Fikia msimbo wa chanzo';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'Na anza kuleta athari kwa mamilioni';
 
   @override
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Bidhaa Zote';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Vidokezo';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Gundua Nutri-Alama mpya';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Kwenye tovuti ya Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Dhibiti akaunti yangu';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Badilisha nenosiri langu';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Eneo la hatari';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Michango yako yote itapotea';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title =>
+      'Mipangilio ya programu';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Njia ya majaribio sana ya kuchanganua bidhaa nje ya mtandao';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Onyesha upya bidhaa zote kutoka kwa seva';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Tafadhali epuka kufanya hivyo isipokuwa lazima kabisa';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Hali ya onyesho';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title =>
+      'Ongeza kadi kwenye kichanganuzi';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Huongeza sampuli za bidhaa 3 kwenye kichanganuzi';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'mwenyeji wa Folksonomy';
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Majaribio ya ufikivu';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Uteuzi wa bidhaa nyingi kwa bei';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Vidirisha vya muhtasari vilivyoagizwa na mtumiaji';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Ufikiaji wa muda wa utafutaji wa eneo';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Ulinganisho wa kando kwa bidhaa 2 au 3';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Uingizaji wa orodha ya bidhaa';
 
   @override
-  String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+  String get preferences_faq_scores_methodologies_title => 'Alama na mbinu';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Gundua jinsi Nutri-Score inavyokokotwa';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Gundua mabadiliko kuu ya mbinu';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Gundua Ukweli wa Chakula cha Wazi';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title =>
+      'Maswali Yanayoulizwa Mara Kwa Mara - Maswali Yanayoulizwa Mara Kwa Mara';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'NGO ya Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Pata masasisho ya jumuiya';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Endelea kupata habari kuhusu programu na habari za jumuiya';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5224,217 +5226,217 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Jihusishe kwa kuhudhuria mojawapo ya matukio yetu ya mtandaoni';
 
   @override
   String get preferences_connect_social_media_title =>
-      'Follow us on social media';
+      'Tufuate kwenye mitandao ya kijamii';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blogu ya Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Pata habari za hivi punde, kadri zinavyotokea';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Pata usaidizi kutoka kwa jamii';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Tusaidie kuboresha programu';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Tutumie maelezo ya utatuzi';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Tutumie barua pepe yenye maelezo ya kina ya utatuzi';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Tutumie maoni kuhusu programu';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Saidia kuunda mustakabali wa programu';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Chukua uchunguzi wa programu';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Tusaidie kuelewa tunachopaswa kujenga baadaye';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Wataalamu';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Bila malipo kabisa, huhakikisha data sahihi kwa programu 500 na mamilioni ya watumiaji. Huduma ya kibinafsi, inayooana na PIM au lahajedwali zako (XLSX)';
 
   @override
-  String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+  String get preferences_connect_pro_email_subtitle => 'Wasiliana ili kuanza';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Pata nyenzo zote unazohitaji kwa ripoti yako';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Wasiliana na waandishi wa habari kwa maswali au utufahamishe kuhusu ripoti yako';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Kuwa mfanyakazi wa kujitolea anayefanya kazi';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Maendeleo, Mawasiliano, Usanifu… aina yoyote ya kujitolea au utaalam inakaribishwa!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Gundua baadhi ya njia nyingi unazoweza kuchangia';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Maendeleo ya programu ya rununu';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Jifunze jinsi ya kuchangia katika ukuzaji wa programu';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Miundo isiyo thabiti ya kila siku, vipengele vipya kabisa';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Kuza jumuiya yako ya ndani';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Usaidizi wa programu, yaliyomo, tafsiri za uchanganuzi wa viambato';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Tumekuandalia kiolezo kidogo kukusaidia :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Hatua rahisi za kukuza uwazi wa chakula katika nchi yako';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Jiunge na timu ya ubora wa data';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Jiunge na juhudi zetu ili kuhakikisha hifadhidata ni kamili na sahihi';
 
   @override
-  String get preferences_contributions_new_products_title => '0 products added';
+  String get preferences_contributions_new_products_title =>
+      'Bidhaa 0 zimeongezwa';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Bidhaa mpya nilizoongeza kwenye Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Bidhaa ninazohitaji kukamilisha';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Bidhaa zote ambazo hazijakamilika';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Bidhaa unazoweza kusaidia kukamilisha';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Saidia kukokotoa Nutri-Score & Green-Score katika nchi yako';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle => 'Bei nilizochangia';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Lebo za bei na risiti';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Piga picha za stakabadhi zako na uchanganue misimbopau inayohusishwa';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Piga picha za bei dukani';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Bei mpya zaidi';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Wachangiaji walio na bei nyingi zaidi';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Fungua vipimo vya Bei';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'Fuata maendeleo ya mradi';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Njia za kuchangia';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Thibitisha bei zilizoongezwa na wewe mwenyewe au wengine, kwa usaidizi wa AI';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Ongeza kwa haraka risiti nyingi au picha za rafu kutoka kwa orodha ya kamera yako';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Changamoto za kila mwezi';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Shiriki katika mapambano ya mada ya kila mwezi ili kukusanya bei';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Rejesha data yako ya uaminifu';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Jifunze jinsi ya kuomba data yako';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Geuza kukufaa programu';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Changia kwenye mradi';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Njia rahisi za kusaidia Fungua Ukweli wa Chakula';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Mbinu za alama, usaidizi, na zaidi kuhusu mradi';
 
   @override
   String get product_edit_robotoff_positive_button => 'Kubali pendekezo';
@@ -5484,40 +5486,39 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Tafadhali anzisha upya programu ili kutekeleza mabadiliko.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Kiolesura cha mchoro';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Vyombo vya habari';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Fungua Maabara ya Ukweli wa Chakula';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Leta Ukweli wa Chakula Huria kwa lugha yako';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Jiandikishe katika toleo la alpha la programu';
 
   @override
-  String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+  String get preferences_dev_mode_section_data => 'Data ya Michango na Bidhaa';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Usionyeshe Folksonomy';
 
   @override
   String get preferences_account_title => 'Account';

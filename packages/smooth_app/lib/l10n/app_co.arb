@@ -370,8 +370,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Donate to Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Enroll in internal alpha version",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -2149,6 +2147,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Accede à e funzioni sperimentali è à l'arnesi di sviluppu",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Restart onboarding",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2621,12 +2623,7 @@
   "dev_mode_section_news": "News provider configuration",
   "dev_mode_section_product_page": "Product page",
   "dev_mode_section_ui": "User Interface",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Experimental features",
-  "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Exclude Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -3791,15 +3788,15 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Unknown Green Score",
-  "environmental_score_not_applicable": "Green Score is not applicable",
-  "nova_group_generic": "Ultra-processing - NOVA groups",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Puntuazione Verde Scunnisciuta",
+  "environmental_score_not_applicable_new": "U puntu verde ùn hè micca applicabile",
+  "nova_group_generic_new": "Alimenti ultra-trasfurmati - gruppi NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3945,7 +3942,50 @@
   "guide_greenscore_transparency_arg1_text": "Tutti i citadini ci ponu aiutà à raccoglie è strutturà l'infurmazioni prisenti nantu à i prudutti o chì si ponu deduce da elli, cum'è l'infurmazioni nantu à l'imballaggi: Mission Emballages: un inventariu collaborativu à grande scala di l'imballaggi per tutti i prudutti alimentari (in francese)",
   "guide_greenscore_transparency_arg2_title": "Cumu i pruduttori ponu aiutà",
   "guide_greenscore_transparency_arg2_text": "I pruduttori ponu mandà ci e so informazioni direttamente per mezu di a nostra piattaforma gratuita per i pruduttori.",
-  "guide_greenscore_share_link": "https://fr.openfoodfacts.org/green-score",
+  "guide_greenscore_better_product_title": "Chì pruduttu hè megliu per u pianeta?",
+  "guide_greenscore_better_product_arg1_title": "Pò esse difficiule à dì",
+  "guide_greenscore_better_product_arg1_text": "Sceglie un alimentu sustenibile hè una di e cose più putenti chì pudemu fà per u clima, postu chì **u nostru sistema alimentariu mundiale hè rispunsevule di più di un quartu di tutte l'emissioni di gas serra**.\n(Fonte: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Avete u putere!",
+  "guide_greenscore_better_product_arg2_text": "A bona nutizia hè chì questu ci dà un modu putente per creà u cambiamentu.\n**Ognunu di noi manghja circa 1.000 pasti ogni annu**. Sò 1.000 opportunità per **sceglie un avvene megliu per u pianeta**!",
+  "guide_greenscore_better_product_arg3_title": "Aiuta à esse rispunsevule è à decide",
+  "guide_greenscore_better_product_arg3_text": "Sceglie un alimentu sustenibile pò sembrà cumplessu. L'etichette sò cunfuse è l'infurmazioni sò spessu mancanti. U Green-Score hè statu creatu per simplificà e cose, dendu vi una valutazione ambientale **chjara**, **basata nantu à a scienza** è **trasparente** per i prudutti alimentari, ghjustu induve ne avete bisognu: mentre fate a spesa.",
+  "guide_greenscore_better_product_arg4_title": "Trasparenza",
+  "guide_greenscore_better_product_arg4_text": "À u cuntrariu di l'etichette pruprietarie, u calculu di u Green-Score hè **cumpletamente apertu** è pò esse **verificatu da qualchissia**.",
+  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
+  "guide_nova_title": "Ultra-processed foods",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Chì ghjè l'ultra-processamentu?",
+  "guide_nova_what_is_nova_paragraph1": "I gruppi NOVA vi informanu nantu à u livellu di trasfurmazione alimentaria.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "A classificazione NOVA permette a categurizazione di l'alimenti in **4 gruppi** secondu u so **gradu di trasfurmazione industriale** (alimenti minimamente trasfurmati o micca trasfurmati, ingredienti culinarii, alimenti trasfurmati, alimenti ultra-trasfurmati).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "I loghi di NOVA",
+  "guide_nova_groups_title": "I 4 gruppi NOVA",
+  "guide_nova_groups_intro": "Ci sò 4 gruppi NOVA, quellu problematicu essendu u Gruppu 4 - Alimenti ultra-trasfurmati.",
+  "guide_nova_groups_arg1_title": "Alimenti minimamente trasfurmati o micca trasfurmati",
+  "guide_nova_groups_arg1_text": "L'alimenti micca trasfurmati (o naturali) sò e parti comestibili di e piante (semi, frutti, foglie, steli, radiche) o di l'animali (musculi, frattaglie, ova, latte), è ancu i funghi, l'alghe è l'acqua, dopu esse stati separati da a natura.",
+  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_text": "L'ingredienti culinarii trasfurmati, cum'è l'olii, u burru, u zuccheru è u sale, sò sustanze derivate da alimenti di u Gruppu 1 o da a natura per mezu di prucessi chì includenu a pressatura, a raffinazione, a macinazione, a fresatura è l'asciugatura.",
+  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_text": "L'alimenti trasfurmati, cum'è i ligumi in buttiglia, u pesciu in scatula, a frutta in sciroppu, i casgi è i pani appena fatti, sò principalmente fatti aghjunghjendu sale, oliu, zuccheru o altre sustanze da l'alimenti di u Gruppu 2 à l'alimenti di u Gruppu 1. I prucessi includenu diversi metudi di cunservazione o di cottura, è in u casu di pani è casgi, a fermentazione senza alcolu. A maiò parte di l'alimenti trasfurmati anu dui o trè ingredienti è sò ricunnisciuti cum'è versioni mudificate di l'alimenti di u Gruppu 1. Puderanu esse manghjati da soli o, più cumunimenti, in cumbinazione cù altri alimenti.",
+  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_text": "L'alimenti ultra-trasfurmati, cum'è e bibite analcoliche, i spuntini imballati dolci o salati, i prudutti di carne ricostituiti è i piatti surgelati pre-preparati, ùn sò micca solu alimenti mudificati, ma formulazioni fatte principalmente o interamente da sustanzi derivati da alimenti è additivi, cù pocu o micca alimentu di u Gruppu 1 intattu. L'ingredienti in queste formulazioni includenu di solitu quelli chì si trovanu ancu in l'alimenti trasfurmati, cum'è zuccheri, olii, grassi o sale. Tuttavia, i prudutti ultra-trasfurmati cuntenenu ancu altre fonti d'energia è nutrienti chì ùn sò micca tipicamente aduprate in e preparazioni culinarie. Alcuni di questi sò estratti direttamente da l'alimenti, cum'è a caseina, u lattosiu, u sieru di latte è u glutine.",
+  "guide_nova_explanations_title": "I prublemi cù l'ultra-processamentu",
+  "guide_nova_explanations_arg1_title": "Trasfurmazione estrema di ingredienti alimentari",
+  "guide_nova_explanations_arg1_text": "Molti sò derivati da l'ulteriore trasfurmazione di i custituenti alimentari, cum'è l'olii idrogenati o interesterificati, e proteine idrolizzate, l'isolatu di proteine di soia, a maltodestrina, u zuccheru invertitu è u sciroppu di mais à altu cuntenutu di fruttosio.",
+  "guide_nova_explanations_arg2_title": "Additivi chì vanu oltre a pura sicurezza alimentaria",
+  "guide_nova_explanations_arg2_text": "L'additivi in l'alimenti ultra-trasfurmati includenu alcuni chì sò ancu usati in l'alimenti trasfurmati, cum'è cunservanti, antioxidanti è stabilizzanti. E classi di additivi truvati solu in i prudutti ultra-trasfurmati includenu quelli usati per imità o migliurà e qualità sensoriali di l'alimenti o per dissimulà aspetti sgradevoli di u pruduttu finale. Quessi additivi includenu coloranti è altri culori, stabilizzanti di culore; aromi, esaltatori di sapidità, edulcoranti senza zuccheru; è aiuti di trasfurmazione cum'è agenti carbonanti, rassodanti, volumizzanti è anti-volume, agenti antischiuma, antiagglomeranti è glassanti, emulsionanti, sequestranti è umettanti.",
+  "guide_nova_explanations_arg3_title": "Prucessu chì ùn pudete micca fà in casa",
+  "guide_nova_explanations_arg3_text": "Una mansa di sequenze di prucessi hè aduprata per cumminà l'ingredienti, di solitu numerosi, è per creà u pruduttu finale (dunque \"ultra-trasfurmatu\"). I prucessi includenu parechji senza equivalenti domestichi, cum'è l'idrogenazione è l'idrolisazione, l'estrusione è u stampaggio, è a pre-trasfurmazione per a frittura.",
+  "guide_nova_explanations_arg4_title": "L'aspetti predatori è finanziarii di l'ultra-processamentu",
+  "guide_nova_explanations_arg4_text": "U scopu generale di l'ultra-trasfurmazione hè di creà prudutti alimentari di marca, pratichi (durevuli, pronti à cunsumà), attraenti (iper-appetibili) è assai redditizi (ingredienti à bassu costu) cuncepiti per rimpiazzà tutti l'altri gruppi alimentari. I prudutti alimentari ultra-trasfurmati sò generalmente imballati in modu attraente è cummercializati intensivamente.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4528,6 +4568,538 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "General",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Prices",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Gestite e vostre preferenze di prezzi",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "U prugettu Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Contribute",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_contribute_subtitle": "Traduce, migliurà i nostri strumenti…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Cunnette",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Cuntattateci, o seguiteci nantu à e rete suciale",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Make a donation",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Aiutateci à informà milioni di cunsumatori in u mondu sanu",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Aiutu è Supportu",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Uttene risposte à e vostre dumande",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Disconnessu",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Grazie per esse unu di i nostri membri!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Vede tutte e statistiche",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Cerca {provider} per \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Cerca un paràmetru (per esempiu Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Accessibilità: Mostra l'emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Accessibilità: Eliminate i culori",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Products",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "About",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Infurmazioni ghjuridiche",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Cundizioni d'usu, pulitica di privacy, è più",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Terms of use",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_privacy_policy": "Privacy policy",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licenze",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "À propositu di l'app",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Infurmazioni tecniche, infurmazioni per i sviluppatori è assai di più",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Information",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Numeru di versione",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Scanner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "App store",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Impostazioni di u sistema",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Accede à u codice surghjente",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "È cuminciate à fà un impattu per milioni",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Complete products",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Cunsiglii",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Scuprite u novu Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Nant'à u situ web Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Gestisce u mo contu",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_change_password_title": "Cambià a mo password",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Zona di periculu",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Tutti i vostri cuntributi saranu persi",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Contributions",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Impostazioni di l'app",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Un modu assai sperimentale per scansà i prudutti fora di linea",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Aggiorna tutti i prudutti da u servitore",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Per piacè evitate di fà què, salvu chì sia assolutamente necessariu",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Modu di dimustrazione",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Aghjunghje carte à u scanner",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Aghjusta 3 prudutti di mostra à u scanner",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Ospite di folcsonomia",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Esperimenti d'accessibilità",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Selezzione di parechji prudutti per i prezzi",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Pannelli di cunniscenza urdinati da l'utilizatori",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Accessu tempurale à a ricerca di locu",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Cunfrontu fiancu à fiancu per 2 o 3 prudutti",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Impurtazione di a lista di prudutti",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Puntuazioni è metodologie",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Scuprite cumu si calcula u Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Scuprite i principali cambiamenti à a metodologia",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Discover the project",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Scuprite i fatti nantu à l'alimentazione aperta",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Dumande Frequenti",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "L'ONG Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Information",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Ricevi aggiornamenti di a cumunità",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "State infurmati nantu à e nutizie di l'app è di a cumunità",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Implicatevi assistendu à unu di i nostri eventi virtuali",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_social_media_title": "Seguiteci nantu à e rete suciale",
+  "@preferences_connect_social_media_title": {
+    "description": "Title for social media card"
+  },
+  "preferences_connect_blog_title": "U bloggu Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Ricevi l'ultime nutizie, appena accadunu",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Uttene aiutu da a cumunità",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Aiutateci à migliurà l'app",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Mandateci l'infurmazioni di debug",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Mandateci un email cù infurmazioni dettagliate di debugging",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Mandateci feedback nantu à l'app",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Aiutate à furmà u futuru di l'app",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Fate l'inchiesta di l'app",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Aiutaci à capisce ciò chì duvemu custruisce dopu",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Prufessiunali",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Tutalmente gratuitu, garantisce dati precisi per 500 app è milioni di cunsumatori. Self-service, cumpatibile cù u vostru PIM o fogli di calculu (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Cuntattateci per cumincià",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Press",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Uttene tuttu u materiale chì avete bisognu per u vostru rapportu",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Cuntattateci per dumande di stampa o per fà ci sapè di u vostru rapportu",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Diventate un vuluntariu attivu",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Sviluppu, Comunicazione, Design… ogni tipu di vuluntariatu o di cumpetenza hè benvenuta!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Scuprite alcuni di i numerosi modi in cui pudete cuntribuisce",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Sviluppu di applicazioni mobili",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Amparate cumu cuntribuisce à u sviluppu di software",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Custruzzioni instabili ogni ghjornu, funziunalità nove di zecca",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Cresce a vostra cumunità lucale",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Aiutu cù u software, i cuntenuti, e traduzioni di l'analisi di l'ingredienti",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Avemu preparatu un picculu mudellu per aiutà vi :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Passi simplici per cresce a trasparenza alimentaria in u vostru paese",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Data quality",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Unisciti à a squadra di qualità di i dati",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Unisciti à u nostru sforzu per assicurà chì a basa di dati sia cumpleta è precisa",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_new_products_title": "0 prudutti aghjunti",
+  "@preferences_contributions_new_products_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Novi prudutti chì aghju aghjuntu à Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added tile"
+  },
+  "preferences_contributions_to_be_completed_title": "Prodotti chì aghju bisognu di compie",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Tutti i prudutti incompleti",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Prodotti chì pudete aiutà à compie",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Aiutate à calculà u Nutri-Score è u Green-Score in u vostru paese",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Prezzi chì aghju cuntribuitu",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Etichette di prezzu è ricevute",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Pigliate foto di e vostre ricevute è scansionate i codici à barre associati",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Pigliate ritratti di i prezzi in un magazinu",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Prezzi più recenti",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Ultimi prezzi aghjunti da a cumunità Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "I cuntributori cù u più grande numeru di prezzi",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metriche di u prezzu d'apertura",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Segui l'evoluzione di u prugettu",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Modi per cuntribuisce",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Cunfirmate i prezzi aghjunti da voi stessu o da altri, cù l'aiutu di l'IA",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Aghjunghjite rapidamente parechje ricevute o foto di scaffali da u vostru rullu fotograficu",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Sfide mensili",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Participà à missioni tematiche mensili per raccoglie prezzi",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Ripigliate i vostri dati di fideltà",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Amparate cumu dumandà i vostri dati",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Persunalizà l'app",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Cuntribuisce à u prugettu",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Modi simplici per aiutà à apre i fatti alimentari",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologie di puntuazione, aiutu è più nantu à u prugettu",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Accetta a suggerimentu",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4607,5 +5179,47 @@
   "prices_proof_error": "L'autentificazione hà fiascatu, ùn hè micca pussibule di ottene prove",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "restart_to_apply_message": "Per piacè riavviate l'applicazione per applicà i cambiamenti.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Interfaccia grafica",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Development",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Laboratorii Aperti di Fatti Alimentari",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Account",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Purtate Open Food Facts in a vostra lingua",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Iscriviti à a versione alfa di l'app",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Cuntribuzioni è dati di u produttu",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ùn mustrà micca a folcsonomia",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Account",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
   }
 }
