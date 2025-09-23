@@ -2291,7 +2291,7 @@
   "prices_app_button": "Ir para a aplicação Preços",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Usaremos IA em suas provas para extrair preços.",
   "prices_bulk_proof_upload_community_switch": "Permitir que a comunidade valide os preços extraídos pela IA.",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
@@ -4340,7 +4340,7 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
-  "product_page_tab_folksonomy": "Folksonomy",
+  "product_page_tab_folksonomy": "Folksonomia",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
@@ -4456,7 +4456,7 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Com desconto",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4524,15 +4524,15 @@
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Moedas",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Anos",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Preços e provas por fonte",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4540,7 +4540,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplicativo móvel",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
