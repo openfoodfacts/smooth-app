@@ -5615,7 +5615,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratoires ouverts de données sur les aliments';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Compte';
