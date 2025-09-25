@@ -58,7 +58,7 @@
   "@stop": {},
   "finish": "Finish",
   "@finish": {},
-  "calculate": "Calculate",
+  "calculate": "Arvuta",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
@@ -80,51 +80,51 @@
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Very good match",
+  "match_very_good": "Väga hea vaste",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Good match",
+  "match_good": "Hea vaste",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "Poor match",
+  "match_poor": "Kehv vaste",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "May not match",
+  "match_may_not": "Ei pruugi sobida",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
-  "match_does_not": "Does not match",
+  "match_does_not": "Ei sobi",
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Unknown match",
+  "match_unknown": "Vaste pole teada",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Very good match",
+  "match_short_very_good": "Väga hea vaste",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Good match",
+  "match_short_good": "Hea vaste",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "Poor match",
+  "match_short_poor": "Kehv vaste",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "May not match",
+  "match_short_may_not": "Ei pruugi sobida",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
-  "match_short_does_not": "Does not match",
+  "match_short_does_not": "Ei sobi",
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Unknown match",
+  "match_short_unknown": "Vaste pole teada",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -171,7 +171,7 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Please enter username or e-mail",
+  "login_page_username_or_email": "Palun sisesta kasutajanimi või e-posti aadress",
   "login_page_password_error_empty": "Palun sisesta salasõna",
   "create_account": "Create account",
   "@create_account": {
@@ -242,11 +242,11 @@
   "sign_up_page_email_hint": "E-posti aadress",
   "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Invalid e-mail",
-  "sign_up_page_username_hint": "Username: Publicly visible",
+  "sign_up_page_username_hint": "Kasutajanimi: avalikult nähtav",
   "sign_up_page_username_error_empty": "Palun sisesta kasutajanimi",
   "sign_up_page_username_error_invalid": "Palun sisesta kehtiv kasutajanimi",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
-  "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+  "sign_up_page_username_description": "Kasutajanimi ei tohi sisaldada tühikuid, suurtähti ega erimärke.",
+  "sign_up_page_username_length_invalid": "Kasutajanimi ei tohi olla pikem, kui {value} tähemärki",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -284,7 +284,7 @@
   "sign_up_page_producer_hint": "Tootja või kaubamärk",
   "sign_up_page_producer_error_empty": "Palun sisesta tootja või kaubamärgi nimi",
   "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-  "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
+  "sign_up_page_user_name_already_used": "See kasutajanimi on juba olemas, palun vali mõni teine.",
   "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
   "sign_up_page_provide_valid_email": "Please provide a valid email address.",
   "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
@@ -465,7 +465,7 @@
   "ranking_tab_all": "Kõik",
   "ranking_subtitle_match_yes": "A great match for you",
   "ranking_subtitle_match_no": "Very poor match",
-  "ranking_subtitle_match_maybe": "Unknown match",
+  "ranking_subtitle_match_maybe": "Vaste pole teada",
   "refresh_with_new_preferences": "Refresh the list with your new preferences",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -704,7 +704,7 @@
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "And some basic data…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_done_msg": "{username}, suur tänu kaastöö eest!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -4756,7 +4756,7 @@
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
   },
-  "preferences_change_password_title": "Muuda minu parooli",
+  "preferences_change_password_title": "Muuda minu salasõna",
   "@preferences_change_password_title": {
     "description": "Title for the preferences change password tile"
   },
