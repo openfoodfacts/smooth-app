@@ -80,7 +80,7 @@
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Sehr guter Treffer",
+  "match_very_good": "Sehr gute Übereinstimmung",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
@@ -92,7 +92,7 @@
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Weicht möglicherweise ab",
+  "match_may_not": "Stimmt möglicherweise nicht überein",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
@@ -100,11 +100,11 @@
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Unbekannte Übereinstimmung",
+  "match_unknown": "Unbekanntes Produkt",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Sehr guter Treffer",
+  "match_short_very_good": "Sehr gute Übereinstimmung",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
@@ -116,7 +116,7 @@
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Weicht möglicherweise ab",
+  "match_short_may_not": "Stimmt möglicherweise nicht überein",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
@@ -124,7 +124,7 @@
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Unbekannte Übereinstimmung",
+  "match_short_unknown": "Unbekanntes Produkt",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -137,7 +137,7 @@
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
+  "whatIsOff": "OpenFoodFacts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
@@ -155,7 +155,7 @@
   },
   "server_error_open_new_issue": "Keine Serverantwort! Sie können ein Problem unter dem folgenden Link melden.",
   "@user_management": {},
-  "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
+  "sign_in_text": "Melden Sie sich bei Ihrem OpenFoodFacts Konto an, um Ihre Beiträge speichern zu können",
   "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
   "password_lost_incorrect_credentials": "Diese E-Mail-Adresse oder dieser Benutzername existiert nicht. Bitte überprüfen Sie Ihre Anmeldedaten.",
   "password_lost_server_unavailable": "Zurzeit kommt es auf unseren Servern zu Verzögerungen, für die wir uns entschuldigen. Bitte versuchen Sie es später noch einmal.",
@@ -232,7 +232,7 @@
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "Registrierung…",
+  "sign_up_page_action_doing_it": "Anmeldung",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
@@ -260,7 +260,7 @@
   "sign_up_page_confirm_password_hint": "Passwort bestätigen",
   "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie Ihr Passwort",
   "sign_up_page_confirm_password_error_invalid": "Passwörter stimmen nicht überein",
-  "sign_up_page_agree_text": "Ich akzeptiere die Open Food Facts",
+  "sign_up_page_agree_text": "Ich stimme OpenFoodFacts zu",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
   },
@@ -283,11 +283,11 @@
   "sign_up_page_producer_checkbox": "Ich bin Lebensmittelproduzent",
   "sign_up_page_producer_hint": "Hersteller/Marke",
   "sign_up_page_producer_error_empty": "Bitte geben Sie einen Hersteller oder Markennamen ein",
-  "sign_up_page_subscribe_checkbox": "Ich möchte den Newsletter von Open Food Facts abonnieren (Er kann jederzeit wieder abbestellt werden)",
+  "sign_up_page_subscribe_checkbox": "Ich möchte den Newsletter von OpenFoodFacts abonnieren (Er kann jederzeit wieder abbestellt werden)",
   "sign_up_page_user_name_already_used": "Der Benutzername existiert bereits. Bitte wählen Sie einen anderen Benutzernamen.",
   "sign_up_page_email_already_exists": "existiert bereits. Melden Sie sich bei diesem Konto an oder versuchen Sie es mit einer anderen E-Mail-Adresse.",
   "sign_up_page_provide_valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-  "sign_up_page_server_busy": "Es tut uns sehr leid, wir haben technische Schwierigkeiten, Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.",
+  "sign_up_page_server_busy": "Es tut uns sehr leid, dass wir haben technische Schwierigkeiten Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.",
   "settingsTitle": "Einstellungen",
   "@settingsTitle": {
     "description": "The title of the Settings page"
@@ -328,7 +328,7 @@
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
-  "support": "Support",
+  "support": "Kundenservice",
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
@@ -343,7 +343,7 @@
   "@legalNotices": {
     "description": "A link to open the legal notices on the website"
   },
-  "privacy_policy": "Datenschutzrichtlinie",
+  "privacy_policy": "Datenschutzrichtlinien",
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
@@ -360,19 +360,19 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "Der Code für jedes Open Food Facts-Produkt ist auf GitHub verfügbar. Sie können den Code (Open Source) gerne wiederverwenden und uns dabei helfen, ihn für alle auf der ganzen Welt zu verbessern.",
+  "contribute_develop_text": "Der Code für jedes OpenFoodFacts Produkt ist auf GitHub verfügbar. Sie können den Code (Open Source) gerne wiederverwenden und uns dabei helfen, ihn für alle auf der ganzen Welt zu verbessern.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.",
+  "contribute_develop_text_2": "Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "Entwicklermodus?",
   "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
   "contribute_donate_title": "Spenden",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Spenden Sie für Open Food Facts",
+  "contribute_donate_header": "Spenden Sie an Open Food Facts",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha_warning": "Bitte beachten Sie, dass bei der internen Alpha-Version ein vollständiger Datenverlust möglich ist und die App jederzeit unbrauchbar werden kann!",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
+  "contribute_improve_ProductsToBeCompleted": "Zu vervollständigende Produkte",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
@@ -380,7 +380,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "Die Datenbank ist der Kern des Projekts. Sie können einfach und schnell helfen. Sie können die mobile App für Ihr Telefon herunterladen und Produkte hinzufügen oder verbessern.\n\nAuf der anderen Seite bietet die Webseite Open Food Facts viele Möglichkeiten, einen Beitrag zu leisten: ",
+  "contribute_improve_text": "Die Datenbank ist der Kern des Projekts. Sie können einfach und schnell helfen. Sie können die mobile App für Ihr Telefon herunterladen und Produkte hinzufügen oder verbessern.\n\nAuf der anderen Seite bietet die OpenFoodFacts Website viele Möglichkeiten, einen Beitrag zu leisten: ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "Übersetzen",
   "@contribute_translate_header": {
@@ -394,14 +394,14 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. Open Food Facts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.",
+  "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. OpenFoodFacts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!",
+  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!",
   "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
   "@contribute_share_header": {},
-  "contribute_share_content": "Ich möchte Ihnen die App Open Food Facts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
+  "contribute_share_content": "Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -465,7 +465,7 @@
   "ranking_tab_all": "Alle",
   "ranking_subtitle_match_yes": "Eine gute Wahl für Sie",
   "ranking_subtitle_match_no": "Sehr schlechte Übereinstimmung",
-  "ranking_subtitle_match_maybe": "Unbekannte Übereinstimmung",
+  "ranking_subtitle_match_maybe": "Unbekanntes Produkt",
   "refresh_with_new_preferences": "Aktualisieren Sie die Liste mit Ihren neuen Einstellungen",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -475,7 +475,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Profil",
+  "profile_navbar_label": "Gemeinschaft",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -4688,7 +4688,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_privacy_policy": "Datenschutzrichtlinie",
+  "preferences_privacy_policy": "Datenschutzrichtlinien",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
   },
