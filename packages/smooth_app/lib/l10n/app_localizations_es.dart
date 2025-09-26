@@ -613,7 +613,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Actualizado con tus nuevas preferencias';
 
   @override
-  String get profile_navbar_label => 'Perfil';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Escanear';

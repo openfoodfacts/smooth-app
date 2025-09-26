@@ -58,7 +58,7 @@
   "@stop": {},
   "finish": "Finish",
   "@finish": {},
-  "calculate": "Calculate",
+  "calculate": "Arvuta",
   "@calculate": {
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
@@ -80,51 +80,51 @@
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "Very good match",
+  "match_very_good": "Väga hea vaste",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Good match",
+  "match_good": "Hea vaste",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "Poor match",
+  "match_poor": "Kehv vaste",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "May not match",
+  "match_may_not": "Ei pruugi sobida",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
-  "match_does_not": "Does not match",
+  "match_does_not": "Ei sobi",
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Unknown match",
+  "match_unknown": "Vaste pole teada",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "Very good match",
+  "match_short_very_good": "Väga hea vaste",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Good match",
+  "match_short_good": "Hea vaste",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "Poor match",
+  "match_short_poor": "Kehv vaste",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "May not match",
+  "match_short_may_not": "Ei pruugi sobida",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
-  "match_short_does_not": "Does not match",
+  "match_short_does_not": "Ei sobi",
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Unknown match",
+  "match_short_unknown": "Vaste pole teada",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -156,9 +156,9 @@
   "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
   "@user_management": {},
   "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-  "incorrect_credentials": "Incorrect username or password.",
-  "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-  "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+  "incorrect_credentials": "Vale kasutajanimi või salasõna.",
+  "password_lost_incorrect_credentials": "Seda e-posti aadressi või kasutajanime pole olemas. Palun kontrolli oma sisselogimisandmeid.",
+  "password_lost_server_unavailable": "Meie serverite töö on hetkel aeglasevõitu ja vabandame selle pärast. Palun proovi hiljem uuesti.",
   "login": "Login",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
@@ -171,7 +171,7 @@
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
-  "login_page_username_or_email": "Please enter username or e-mail",
+  "login_page_username_or_email": "Palun sisesta kasutajanimi või e-posti aadress",
   "login_page_password_error_empty": "Palun sisesta salasõna",
   "create_account": "Create account",
   "@create_account": {
@@ -197,8 +197,8 @@
   "@sign_out_confirmation": {
     "description": "Pop up title: Reassuring if the user really want to sign out"
   },
-  "password": "Password",
-  "forgot_password": "Forgot password",
+  "password": "Salasõna",
+  "forgot_password": "Unustasin salasõna",
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
@@ -206,16 +206,16 @@
   "@view_profile": {
     "description": "Button label: For to show your account"
   },
-  "reset_password": "Reset password",
+  "reset_password": "Lähtesta salasõna",
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-  "username_or_email": "Username or e-mail",
+  "reset_password_explanation_text": "Unustatud salasõna puhil sisesta oma kasutajanimi või e-posti aadress ning saad juhised salasõna lähtestamiseks. Igaks juhuks ära unusta kontrollida e-kirjade rämpsposti kausta.",
+  "username_or_email": "Kasutajanimi või e-posti aadress",
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+  "reset_password_done": "Sinu kasutajakontoga seotud e-posti aadressile on saadetud e-kiri salasõna lähtestamise lingiga. Kui sa kirja kohe ei leia, siis vaata ka e-kirjade rämpsposti kausta",
   "send_reset_password_mail": "Muuda salasõna",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -242,11 +242,11 @@
   "sign_up_page_email_hint": "E-posti aadress",
   "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Invalid e-mail",
-  "sign_up_page_username_hint": "Username: Publicly visible",
+  "sign_up_page_username_hint": "Kasutajanimi: avalikult nähtav",
   "sign_up_page_username_error_empty": "Palun sisesta kasutajanimi",
   "sign_up_page_username_error_invalid": "Palun sisesta kehtiv kasutajanimi",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
-  "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+  "sign_up_page_username_description": "Kasutajanimi ei tohi sisaldada tühikuid, suurtähti ega erimärke.",
+  "sign_up_page_username_length_invalid": "Kasutajanimi ei tohi olla pikem, kui {value} tähemärki",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -254,12 +254,12 @@
       }
     }
   },
-  "sign_up_page_password_hint": "Password",
+  "sign_up_page_password_hint": "Salasõna",
   "sign_up_page_password_error_empty": "Palun sisesta salasõna",
   "sign_up_page_password_error_invalid": "Palun sisesta kehtiv salasõna (vähemalt 6 tähemärki)",
   "sign_up_page_confirm_password_hint": "Kinnita salasõna",
-  "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-  "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+  "sign_up_page_confirm_password_error_empty": "Palun korda salasõna",
+  "sign_up_page_confirm_password_error_invalid": "Salasõnad ei klapi",
   "sign_up_page_agree_text": "I agree to the Open Food Facts",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
@@ -284,7 +284,7 @@
   "sign_up_page_producer_hint": "Tootja või kaubamärk",
   "sign_up_page_producer_error_empty": "Palun sisesta tootja või kaubamärgi nimi",
   "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-  "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
+  "sign_up_page_user_name_already_used": "See kasutajanimi on juba olemas, palun vali mõni teine.",
   "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
   "sign_up_page_provide_valid_email": "Please provide a valid email address.",
   "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
@@ -352,7 +352,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Contribute",
+  "contribute": "Tee kaastööd",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -372,7 +372,7 @@
   "@contribute_donate_header": {},
   "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Tooted, mida täiendada",
+  "contribute_improve_ProductsToBeCompleted": "Tooted, mida saad täiendada",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
@@ -399,7 +399,7 @@
   "contribute_translate_text_2": "Translations is one of the key tasks of the project",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_share_header": "Jaga Open Food Factsi oma sõpradega",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
   "@contribute_share_content": {
@@ -465,7 +465,7 @@
   "ranking_tab_all": "Kõik",
   "ranking_subtitle_match_yes": "A great match for you",
   "ranking_subtitle_match_no": "Very poor match",
-  "ranking_subtitle_match_maybe": "Unknown match",
+  "ranking_subtitle_match_maybe": "Vaste pole teada",
   "refresh_with_new_preferences": "Refresh the list with your new preferences",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -475,7 +475,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Profile",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -704,7 +704,7 @@
   "new_product_title_pictures": "New product",
   "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "And some basic data…",
-  "new_product_done_msg": "Thanks for your contribution “{username}”!",
+  "new_product_done_msg": "{username}, suur tänu kaastöö eest!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -969,7 +969,7 @@
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
-  "homepage_main_card_search_field_hint": "Search for a product",
+  "homepage_main_card_search_field_hint": "Otsi toodet",
   "homepage_main_card_search_field_tooltip": "Start search",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
@@ -1078,7 +1078,7 @@
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
-  "country_chooser_label": "Please choose a country",
+  "country_chooser_label": "Palun vali riik",
   "@country_chooser_label": {
     "description": "Label shown above a selector where the user can select their country (in the preferences)"
   },
@@ -1086,7 +1086,7 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "You have just changed countries.",
+  "country_change_message": "Sa just vahetasid riiki.",
   "@country_change_message": {
     "description": "Message stating the change of countries"
   },
@@ -1104,15 +1104,15 @@
       }
     }
   },
-  "onboarding_country_chooser_label": "Please choose a country:",
+  "onboarding_country_chooser_label": "Palun vali riik:",
   "@onboarding_country_chooser_label": {
     "description": "The label shown above a selector where the user can select their country (in the onboarding)"
   },
-  "country_chooser_label_from_settings": "Your country",
+  "country_chooser_label_from_settings": "Sinu riik",
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Some environmental features are location-specific",
+  "country_selection_explanation": "Mõned keskkonnaomadused on asukohapõhised",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
@@ -1249,7 +1249,7 @@
   "blog": "Blog",
   "faq": "FAQ",
   "discover": "Avasta",
-  "how_to_contribute": "How to Contribute",
+  "how_to_contribute": "Kuidas saad osaleda",
   "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
@@ -1596,7 +1596,7 @@
   "@edit_product_form_item_add_action_emb_code": {
     "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
   },
-  "edit_product_form_item_add_action_country": "Add a new country",
+  "edit_product_form_item_add_action_country": "Lisa uus riik",
   "@edit_product_form_item_add_action_country": {
     "description": "Tooltip to show when the user long presses the (+) button on a country"
   },
@@ -1744,11 +1744,11 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Riik",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
-  "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+  "edit_product_form_item_countries_hint": "Sisesta riik (nt: Eesti)",
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
@@ -2675,7 +2675,7 @@
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Products I edited",
+  "user_search_informer_title": "Minu muudetud tooted",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
@@ -2745,7 +2745,7 @@
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
-  "categorize_products_country_title": "Help categorize products in your country",
+  "categorize_products_country_title": "Aita tooteid oma riigis kategoriseerida",
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
@@ -3066,7 +3066,7 @@
   "@user_list_all_title": {
     "description": "Title about the user lists in the user preferences"
   },
-  "user_list_all_empty": "Create your first list",
+  "user_list_all_empty": "Koosta oma esimene loend",
   "@user_list_all_empty": {
     "description": "Small message when there are no user lists"
   },
@@ -3085,7 +3085,7 @@
   "@add_list_label": {
     "description": "Label for the add list button"
   },
-  "open_food_preferences_tooltip": "Edit your food preferences",
+  "open_food_preferences_tooltip": "Muuda oma toidueelistusi",
   "@open_food_preferences_tooltip": {
     "description": "Tooltip (message displayed on long press) to open the user food preferences"
   },
@@ -3221,7 +3221,7 @@
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
   "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+  "search_product_filter_visibility_subtitle": "Vali otsingusait: Open Food Facts, Open Beauty Facts, Open Pet Food Facts või Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -3259,11 +3259,11 @@
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "Your country",
+  "country_picker_label": "Sinu riik",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "Sinu vääring",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3323,11 +3323,11 @@
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+  "scan_product_loading_unresponsive": "Jätkuvalt otsime seda toodet.\nKas soovid otsingut uuesti alustada?",
   "@scan_product_loading_unresponsive": {
     "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_restart_button": "Restart search",
+  "scan_product_loading_restart_button": "Alusta otsingut uuesti",
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
@@ -3396,7 +3396,7 @@
   "@image_edit_url_error": {
     "description": "Error message, when editing image fails, due to missing url."
   },
-  "user_picture_source_remember": "Remember my choice",
+  "user_picture_source_remember": "Jäta minu valik meelde",
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
@@ -3415,7 +3415,7 @@
       "count": {}
     }
   },
-  "show_password": "Show Password",
+  "show_password": "Näita salasõna",
   "@show_password": {
     "description": "Show hidden password in password field"
   },
@@ -3732,7 +3732,7 @@
       }
     }
   },
-  "country_selector_title": "Select your country:",
+  "country_selector_title": "Vali oma riik:",
   "@country_selector_title": {
     "description": "Label written as the title of the dialog to select the user country"
   },
@@ -4584,11 +4584,11 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Contribute",
+  "preferences_contribute_title": "Tee kaastööd",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_contribute_subtitle": "Tõlkige, täiustage oma tööriistu…",
+  "preferences_contribute_subtitle": "Tõlgi, täiustage oma tarvikuid…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
@@ -4736,7 +4736,7 @@
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
-  "preferences_complete_products": "Complete products",
+  "preferences_complete_products": "Täienda tooteandmeid",
   "@preferences_complete_products": {
     "description": "Title for the preferences complete products contribution tile"
   },
@@ -4756,7 +4756,7 @@
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
   },
-  "preferences_change_password_title": "Muuda minu parooli",
+  "preferences_change_password_title": "Muuda minu salasõna",
   "@preferences_change_password_title": {
     "description": "Title for the preferences change password tile"
   },
@@ -4952,7 +4952,7 @@
   "@preferences_contribute_skill_pool_subtitle": {
     "description": "Subtitle for skill pool tile"
   },
-  "preferences_contribute_how_to_subtitle": "Avastage mõned paljudest viisidest, kuidas saate panustada",
+  "preferences_contribute_how_to_subtitle": "Avasta mõned paljudest viisidest, kuidas saad osaleda",
   "@preferences_contribute_how_to_subtitle": {
     "description": "Subtitle for how to contribute tile"
   },
@@ -4960,7 +4960,7 @@
   "@preferences_contribute_mobile_dev_title": {
     "description": "Title for mobile app development card"
   },
-  "preferences_contribute_sw_dev_subtitle": "Siit saad teada, kuidas tarkvaraarendusse panustada",
+  "preferences_contribute_sw_dev_subtitle": "Siit saad teada, kuidas osaleda tarkvaraarenduses",
   "@preferences_contribute_sw_dev_subtitle": {
     "description": "Subtitle for software development tile"
   },
@@ -4976,11 +4976,11 @@
   "@preferences_contribute_translate_subtitle": {
     "description": "Subtitle for translate tile"
   },
-  "preferences_contribute_share_subtitle": "Oleme teile abiks väikese malli ette valmistanud :-)",
+  "preferences_contribute_share_subtitle": "Oleme abiks sulle väikese malli ette valmistanud :-)",
   "@preferences_contribute_share_subtitle": {
     "description": "Subtitle for share tile"
   },
-  "preferences_contribute_country_subtitle": "Lihtsad sammud toidu läbipaistvuse suurendamiseks teie riigis",
+  "preferences_contribute_country_subtitle": "Lihtsad sammud toidu läbipaistvuse suurendamiseks sinu riigis",
   "@preferences_contribute_country_subtitle": {
     "description": "Subtitle for improve country tile"
   },
@@ -5020,7 +5020,7 @@
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
-  "preferences_prices_user_prices_subtitle": "Minu panustatud hinnad",
+  "preferences_prices_user_prices_subtitle": "Minu lisatud hinnad",
   "@preferences_prices_user_prices_subtitle": {
     "description": "Subtitle for user prices tile"
   },
@@ -5056,7 +5056,7 @@
   "@preferences_prices_metrics_subtitle": {
     "description": "Subtitle for price metrics tile"
   },
-  "preferences_prices_ways_contribute_title": "Panustamise viisid",
+  "preferences_prices_ways_contribute_title": "Osalemise viisid",
   "@preferences_prices_ways_contribute_title": {
     "description": "Title for ways to contribute card"
   },
@@ -5088,7 +5088,7 @@
   "@preferences_page_customize_app_title": {
     "description": "Title for the customize app card on preferences page"
   },
-  "preferences_page_contribute_project_title": "Panusta projekti",
+  "preferences_page_contribute_project_title": "Tee sellele projektile kaastööd",
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
@@ -5204,11 +5204,11 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Tooge avatud toidufaktid oma keelde",
+  "preferences_contribute_translate_header": "Tõlgi Open Food Facts oma keelde",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "preferences_contribute_enroll_alpha": "Registreeru rakenduse alfaversioonile",
+  "preferences_contribute_enroll_alpha": "Registreeru rakenduse alfaversiooni kasutajaks",
   "@preferences_contribute_enroll_alpha": {},
   "preferences_dev_mode_section_data": "Kaastööd ja tooteandmed",
   "@preferences_dev_mode_section_data": {

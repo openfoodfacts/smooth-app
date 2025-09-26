@@ -597,7 +597,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeni tercihlerle yeniden yüklendi';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Topluluk';
 
   @override
   String get scan_navbar_label => 'Tara';

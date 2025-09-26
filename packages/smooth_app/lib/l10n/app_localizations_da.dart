@@ -594,7 +594,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Genindlæst med de nye præferencer';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Fællesskab';
 
   @override
   String get scan_navbar_label => 'Skan';
