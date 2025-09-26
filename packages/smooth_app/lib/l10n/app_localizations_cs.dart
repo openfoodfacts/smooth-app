@@ -600,7 +600,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Znovu načteno s vašimi novými předvolbami';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Komunita';
 
   @override
   String get scan_navbar_label => 'Skenovat';

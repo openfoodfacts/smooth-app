@@ -604,7 +604,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Перезагружено с вашими новыми настройками';
 
   @override
-  String get profile_navbar_label => 'Профиль';
+  String get profile_navbar_label => 'Сообщество';
 
   @override
   String get scan_navbar_label => 'Сканировать';

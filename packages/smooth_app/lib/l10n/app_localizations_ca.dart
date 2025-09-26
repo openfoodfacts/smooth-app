@@ -603,7 +603,7 @@ class AppLocalizationsCa extends AppLocalizations {
       'Recarregat amb les teves noves preferències';
 
   @override
-  String get profile_navbar_label => 'Perfil';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Escàner';
