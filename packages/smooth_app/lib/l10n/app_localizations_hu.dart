@@ -604,7 +604,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'Újratöltve az új preferenciáival';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Leolvasás';

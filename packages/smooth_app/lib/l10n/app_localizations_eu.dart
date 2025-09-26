@@ -596,7 +596,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Reloaded with your new preferences';
 
   @override
-  String get profile_navbar_label => 'Profila';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Eskaneatu';

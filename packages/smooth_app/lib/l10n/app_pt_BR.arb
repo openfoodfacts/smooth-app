@@ -159,7 +159,7 @@
   "incorrect_credentials": "Nome do usuário ou senha incorretos.",
   "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
   "password_lost_server_unavailable": "Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.",
-  "login": "Nome de usuário",
+  "login": "Login",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ajude a melhorar o Open Food Facts no seu país",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -405,7 +405,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Contribua com preços solicitando uma exportação GDPR dos dados dos seus cartões de fidelidade",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -475,7 +475,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Perfil",
+  "profile_navbar_label": "Comunidade",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -772,7 +772,7 @@
   "score_add_missing_ingredients": "Adicionar ingredientes que faltam",
   "score_add_missing_packaging_image": "Adicionar imagem de embalagem que falta",
   "score_add_missing_nutrition_facts": "Adicionar informações nutricionais que faltam",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Adicionar traços ausentes de produtos",
   "score_add_missing_product_category": "Selecionar uma categoria",
   "score_add_missing_precise_product_category": "Selecione uma categoria mais precisa",
   "score_add_missing_product_countries": "Adicionar países que faltam de produtos",
@@ -1604,7 +1604,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Adicionar novo traço",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1816,7 +1816,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Insira um traço (ex.: Soja)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2289,12 +2289,12 @@
   },
   "prices_app_dev_mode_flag": "Atalho para a aplicação Preços na página do produto",
   "prices_app_button": "Ir para a aplicação Preços",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_select": "Adicionar etiquetas de preço diretamente da galeria",
+  "prices_bulk_proof_upload_warning": "Depois de selecionar as imagens, você não poderá editá-las!",
+  "prices_bulk_proof_upload_warning_ai": "Usaremos IA em suas provas para extrair preços.",
   "prices_bulk_proof_upload_community_switch": "Permitir que a comunidade valide os preços extraídos pela IA.",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_subtitle": "Várias etiquetas de preço",
+  "prices_bulk_proof_upload_title": "Envio de provas em massa",
   "prices_bulk_proof_upload_step_selecting": "Selecionando arquivos",
   "prices_bulk_proof_upload_step_starting": "Iniciando o upload",
   "prices_bulk_proof_upload_step_copying": "Copiando localmente o arquivo #{index}/{count}",
@@ -2720,7 +2720,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Assistente de contribuição de preços",
   "prices_validation_assistant": "Assistente de validação de preço",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2729,7 +2729,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Adicionar várias provas",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2845,7 +2845,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Antes de validar, certifique-se de adicionar uma tradução apenas **se o idioma estiver presente na embalagem**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -2935,35 +2935,35 @@
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Insira **todas as marcas do produto**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Marca principal",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "A **marca principal**, geralmente exibida claramente na embalagem frontal, deve ser **inserida primeiro**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Outras marcas",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Quando vendido **por uma grande empresa**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** é vendido pela **Danone**",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Quando vendido com a marca **traduzida em vários idiomas**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** às vezes aparece como **Val Nature**",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -2977,23 +2977,23 @@
   },
   "quantity": "Quantidade e peso",
   "add_basic_details_quantity_hint": "Introduza o peso e se necessário a quantidade (ex.: 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_product_quantity_help_title": "Boas práticas: quantidade",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "Copie o valor indicado no produto e **não se esqueça das unidades**.",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230g** ou **230 g**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (para 6 ovos)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(para um produto com 3 caixas, cada uma de 150g)",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3744,11 +3744,11 @@
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
-  "language_selector_section_selected": "Selected languages",
+  "language_selector_section_selected": "Idiomas selecionados",
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "Frequentemente usados",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3814,7 +3814,7 @@
   "contact_title_press_page": "Página de imprensa",
   "contact_title_press_email": "Contactos de imprensa",
   "contact_title_newsletter": "Inscreva-se na nossa newsletter",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Assine o calendário da nossa comunidade",
   "hunger_games_loading_line1": "Por favor, dê-nos alguns segundos…",
   "hunger_games_loading_line2": "Estamos a descarregar as perguntas!",
   "hunger_games_error_label": "Ups! Algo correu mal... e não conseguimos carregar as perguntas.",
@@ -3883,8 +3883,8 @@
   "guide_nutriscore_v2_new_logo_text": "A partir de agora, o logotipo pode exibir a menção \"**Novo cálculo**\" para esclarecer que este é realmente o novo cálculo.",
   "guide_nutriscore_v2_new_logo_image_caption": "O logotipo do novo Nutri-Score",
   "guide_nutriscore_v2_where_title": "Onde encontrar o novo cálculo do Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "O Nutri-Score é aplicado em 7 países: França, Alemanha, Bélgica, Espanha, Luxemburgo, Holanda e Suíça.",
+  "guide_nutriscore_v2_where_paragraph2": "Os fabricantes têm no máximo **2 anos** após a assinatura do decreto **para substituir** o cálculo antigo pelo novo.",
   "guide_nutriscore_v2_where_paragraph3": "Sem esperar, você **já encontrará no aplicativo OpenFoodFacts** o novo cálculo, inclusive caso os fabricantes não tenham atualizado a pontuação.",
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação projetada para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultraprocessados** (também presente no aplicativo).",
@@ -4296,15 +4296,15 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Exportar",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Importar",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
-  "product_footer_action_barcode": "View barcode",
+  "product_footer_action_barcode": "Ver código de barras",
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
@@ -4312,11 +4312,11 @@
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
-  "product_footer_action_open_website": "Open website",
+  "product_footer_action_open_website": "Visitar site",
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Denunciar",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4324,7 +4324,7 @@
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
-  "product_footer_action_data_quality_tags": "Data quality",
+  "product_footer_action_data_quality_tags": "Qualidade dos dados",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
@@ -4340,11 +4340,11 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
-  "product_page_tab_folksonomy": "Folksonomy",
+  "product_page_tab_folksonomy": "Folksonomia",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "prices_products_list_length_many_pages": "Principais {pageSize} produtos (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
     "placeholders": {
@@ -4356,31 +4356,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Está gostando do aplicativo?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Poderia ser melhor",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Nada mal",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Adoro!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Ajude-nos a melhorar nosso aplicativo",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Se você tiver alguns minutos, responda a este formulário para que **possamos melhorar em atualizações futuras**:",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Responder ao formulário",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4388,19 +4388,19 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "NOVO: você pode extrair os nutrientes da imagem automaticamente!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Extrair agora",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
+  "nutrition_facts_extract_succesful": "Extração concluída com sucesso",
   "@nutrition_facts_extract_succesful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "Falha ao extrair nutrientes da imagem",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4408,11 +4408,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Estatísticas",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Estatísticas de preços",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4456,7 +4456,7 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Com desconto",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4524,15 +4524,15 @@
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Moedas",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Anos",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Preços e provas por fonte",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4540,7 +4540,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplicativo móvel",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4552,15 +4552,15 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Última atualização em",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Ocorreu um erro ao carregar as estatísticas.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Pergunta respondida!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
@@ -4868,7 +4868,7 @@
   "@preferences_connect_newsletter_subtitle": {
     "description": "Subtitle for newsletter tile"
   },
-  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "preferences_connect_community_calendar_title": "Assine o calendário da nossa comunidade",
   "@preferences_connect_community_calendar_title": {
     "description": "Title for community calendar tile"
   },
@@ -4984,7 +4984,7 @@
   "@preferences_contribute_country_subtitle": {
     "description": "Subtitle for improve country tile"
   },
-  "preferences_contribute_data_quality_title": "Data quality",
+  "preferences_contribute_data_quality_title": "Qualidade dos dados",
   "@preferences_contribute_data_quality_title": {
     "description": "Title for data quality card"
   },

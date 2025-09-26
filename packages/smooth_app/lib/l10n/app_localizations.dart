@@ -1412,7 +1412,7 @@ abstract class AppLocalizations {
   /// BottomNavigationBarLabel: For the profile and personal preferences page
   ///
   /// In en, this message translates to:
-  /// **'Profile'**
+  /// **'Community'**
   String get profile_navbar_label;
 
   /// BottomNavigationBarLabel: For the scanning of products

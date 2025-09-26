@@ -603,7 +603,7 @@ class AppLocalizationsBe extends AppLocalizations {
       'Перазагружана з вашымі новымі перавагамі';
 
   @override
-  String get profile_navbar_label => 'Профіль';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Сканаваць';

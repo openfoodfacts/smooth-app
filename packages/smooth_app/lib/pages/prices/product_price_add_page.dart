@@ -49,10 +49,6 @@ class ProductPriceAddPage extends StatefulWidget {
     }
 
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
-    final List<OsmLocation> osmLocations = await priceAddHelper.getLocations();
-    if (!context.mounted) {
-      return;
-    }
 
     final Currency currency = priceAddHelper.getCurrency();
 
@@ -63,7 +59,6 @@ class ProductPriceAddPage extends StatefulWidget {
         builder: (BuildContext context) => ProductPriceAddPage(
           PriceModel(
             proofType: proofType,
-            locations: osmLocations,
             initialProduct: product,
             currency: currency,
             multipleProducts: multipleProducts,
@@ -139,11 +134,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                       const PriceDateCard(),
                       const SizedBox(height: LARGE_SPACE),
                       PriceLocationCard(
-                        onLocationChanged:
-                            (OsmLocation? oldLocation, OsmLocation location) =>
-                                PriceAddHelper(
-                                  context,
-                                ).updateCurrency(oldLocation, location, model),
+                        onLocationChanged: (OsmLocation location) =>
+                            PriceAddHelper(
+                              context,
+                            ).updateCurrency(location, model),
                       ),
                       const SizedBox(height: LARGE_SPACE),
                       const PriceCurrencyCard(),

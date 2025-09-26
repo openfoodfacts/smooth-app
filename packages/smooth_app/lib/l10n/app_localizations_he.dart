@@ -582,7 +582,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get reloaded_with_new_preferences => 'נטען מחדש עם ההעדפות החדשות שלך';
 
   @override
-  String get profile_navbar_label => 'פרופיל';
+  String get profile_navbar_label => 'קהילה';
 
   @override
   String get scan_navbar_label => 'סריקה';

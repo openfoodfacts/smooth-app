@@ -594,7 +594,7 @@ class AppLocalizationsNe extends AppLocalizations {
       'Reloaded with your new preferences';
 
   @override
-  String get profile_navbar_label => 'Profile';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'स्क्यान गर्नुहोस्';

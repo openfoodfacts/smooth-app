@@ -601,7 +601,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'Презаредено с новите ти предпочитания';
 
   @override
-  String get profile_navbar_label => 'Профил';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Сканирай';

@@ -40,16 +40,11 @@ class ProofBulkAddPage extends StatefulWidget {
     }
 
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
-    final List<OsmLocation> osmLocations = await priceAddHelper.getLocations();
-    if (!context.mounted) {
-      return null;
-    }
 
     final Currency currency = priceAddHelper.getCurrency();
 
     return PriceModel(
       proofType: ProofType.priceTag,
-      locations: osmLocations,
       currency: currency,
       multipleProducts: true,
       readyForPriceTagValidation:
@@ -114,11 +109,8 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
                   const PriceDateCard(),
                   const SizedBox(height: LARGE_SPACE),
                   PriceLocationCard(
-                    onLocationChanged:
-                        (OsmLocation? oldLocation, OsmLocation location) =>
-                            PriceAddHelper(
-                              context,
-                            ).updateCurrency(oldLocation, location, model),
+                    onLocationChanged: (OsmLocation location) =>
+                        PriceAddHelper(context).updateCurrency(location, model),
                   ),
                   const SizedBox(height: LARGE_SPACE),
                   const PriceCurrencyCard(),
