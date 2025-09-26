@@ -603,7 +603,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Znova načítané s vašimi novými preferenciami';
 
   @override
-  String get profile_navbar_label => 'Účet';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Skenovať';

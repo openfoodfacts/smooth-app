@@ -604,7 +604,7 @@ class AppLocalizationsLt extends AppLocalizations {
       'Iš naujo įkeltas su naujomis nuostatomis';
 
   @override
-  String get profile_navbar_label => 'Profilis';
+  String get profile_navbar_label => 'Bendruomenė';
 
   @override
   String get scan_navbar_label => 'Skenuoti';

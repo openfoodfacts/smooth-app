@@ -598,7 +598,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Opnieuw geladen met uw nieuwe voorkeuren';
 
   @override
-  String get profile_navbar_label => 'Profiel';
+  String get profile_navbar_label => 'Gemeenschap';
 
   @override
   String get scan_navbar_label => 'Scan';

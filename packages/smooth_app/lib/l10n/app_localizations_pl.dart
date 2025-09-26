@@ -604,7 +604,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Odświeżono z nowymi preferencjami';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Skanuj';

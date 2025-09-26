@@ -591,7 +591,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'Reloaded with your new preferences';
 
   @override
-  String get profile_navbar_label => 'الملف الشخصي';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'مسح';

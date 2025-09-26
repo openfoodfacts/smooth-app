@@ -578,7 +578,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reloaded_with_new_preferences => '新しい好みの設定で再読み込みしました';
 
   @override
-  String get profile_navbar_label => 'プロフィール';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'スキャン';
