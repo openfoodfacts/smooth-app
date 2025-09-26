@@ -66,11 +66,35 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">OsmLocation? get location =&gt; proof?.location?.osmId != null
     ? OsmLocation.fromPrice(proof!.location!)
-    : _locations!.firstOrNull;</code></pre>
+    : _location;</code></pre>
 </section>
 
 </section>
 
+
+        
+<section id="setter">
+
+<section class="multi-line-signature">
+  <span class="returntype">void</span>
+  <span class="name ">location=</span><span class="signature">(<wbr><span class="parameter" id="location=-param-location"><span class="type-annotation">dynamic</span> <span class="parameter-name">location</span></span>)</span>
+  
+
+</section>
+
+
+
+
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">set location(final OsmLocation location) {
+  _hasChanged = true;
+  _location = location;
+  notifyListeners();
+}</code></pre>
+</section>
+
+</section>
 
   </div> <!-- /.main-content -->
 
@@ -110,7 +134,6 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/hasImage.html">hasImage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/length.html">length</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/location.html">location</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/locations.html">locations</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/multipleProducts.html">multipleProducts</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proof.html">proof</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proofType.html">proofType</a></li>

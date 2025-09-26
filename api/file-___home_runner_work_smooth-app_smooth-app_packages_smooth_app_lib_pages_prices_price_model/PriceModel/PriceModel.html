@@ -50,7 +50,6 @@
 
     <section class="multi-line-signature">
       <span class="name ">PriceModel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-proofType">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proofType</span>, </span></li>
-<li><span class="parameter" id="-param-locations"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">locations</span>, </span></li>
 <li><span class="parameter" id="-param-currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">currency</span>, </span></li>
 <li><span class="parameter" id="-param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>, </span></li>
 <li><span class="parameter" id="-param-initialProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialProduct</span>, </span></li>
@@ -66,7 +65,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PriceModel({
   required final ProofType proofType,
-  required final List&lt;OsmLocation&gt;? locations,
   required final Currency currency,
   required this.multipleProducts,
   final PriceMetaProduct? initialProduct,
@@ -76,7 +74,6 @@
      _proofType = proofType,
      _date = DateTime.now(),
      _currency = currency,
-     _locations = locations,
      _readyForPriceTagValidation = readyForPriceTagValidation,
      _priceAmountModels = &lt;PriceAmountModel&gt;[
        if (initialProduct != null) PriceAmountModel(product: initialProduct),
@@ -122,7 +119,6 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/hasImage.html">hasImage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/length.html">length</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/location.html">location</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/locations.html">locations</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/multipleProducts.html">multipleProducts</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proof.html">proof</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/proofType.html">proofType</a></li>

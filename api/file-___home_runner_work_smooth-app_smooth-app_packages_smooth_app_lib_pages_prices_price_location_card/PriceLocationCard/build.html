@@ -98,7 +98,13 @@ Widget build(BuildContext context) {
                   .read&lt;LocalDatabase&gt;();
               final List&lt;SearchLocationPreloadedItem&gt; preloadedList =
                   &lt;SearchLocationPreloadedItem&gt;[];
-              for (final OsmLocation osmLocation in model.locations!) {
+              final List&lt;OsmLocation&gt; locations = await DaoOsmLocation(
+                localDatabase,
+              ).getAll();
+              if (!context.mounted) {
+                return;
+              }
+              for (final OsmLocation osmLocation in locations) {
                 preloadedList.add(
                   SearchLocationPreloadedItem(osmLocation, popFirst: false),
                 );
@@ -121,11 +127,8 @@ Widget build(BuildContext context) {
                 localDatabase,
               );
               await daoOsmLocation.put(osmLocation);
-              final List&lt;OsmLocation&gt; newOsmLocations = await daoOsmLocation
-                  .getAll();
-              model.locations = newOsmLocations;
 
-              onLocationChanged.call(location, model.location!);
+              onLocationChanged.call(osmLocation);
             },
     ),
   );

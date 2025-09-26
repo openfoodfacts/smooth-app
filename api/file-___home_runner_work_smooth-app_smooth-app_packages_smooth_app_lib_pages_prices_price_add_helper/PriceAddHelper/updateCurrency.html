@@ -52,8 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">updateCurrency</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="updateCurrency-param-oldLocation"><span class="type-annotation">dynamic</span> <span class="parameter-name">oldLocation</span>, </span></li>
-<li><span class="parameter" id="updateCurrency-param-location"><span class="type-annotation">dynamic</span> <span class="parameter-name">location</span>, </span></li>
+<span class="name ">updateCurrency</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="updateCurrency-param-location"><span class="type-annotation">dynamic</span> <span class="parameter-name">location</span>, </span></li>
 <li><span class="parameter" id="updateCurrency-param-model"><span class="type-annotation">dynamic</span> <span class="parameter-name">model</span></span></li>
 </ol>)
 
@@ -66,11 +65,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; updateCurrency(
-  OsmLocation? oldLocation,
-  OsmLocation location,
-  PriceModel model,
-) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; updateCurrency(OsmLocation location, PriceModel model) async {
+  model.location = location;
   if (location.countryCode == null) {
     return;
   }
@@ -154,7 +150,6 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_add_helper/PriceAddHelper/check.html">check</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_add_helper/PriceAddHelper/doesAcceptWarning.html">doesAcceptWarning</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_add_helper/PriceAddHelper/getCurrency.html">getCurrency</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_add_helper/PriceAddHelper/getLocations.html">getLocations</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_add_helper/PriceAddHelper/updateCurrency.html">updateCurrency</a></li>

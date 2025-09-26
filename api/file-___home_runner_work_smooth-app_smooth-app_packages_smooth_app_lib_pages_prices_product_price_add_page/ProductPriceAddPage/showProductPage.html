@@ -82,10 +82,6 @@
   }
 
   final PriceAddHelper priceAddHelper = PriceAddHelper(context);
-  final List&lt;OsmLocation&gt; osmLocations = await priceAddHelper.getLocations();
-  if (!context.mounted) {
-    return;
-  }
 
   final Currency currency = priceAddHelper.getCurrency();
 
@@ -96,7 +92,6 @@
       builder: (BuildContext context) =&gt; ProductPriceAddPage(
         PriceModel(
           proofType: proofType,
-          locations: osmLocations,
           initialProduct: product,
           currency: currency,
           multipleProducts: multipleProducts,
