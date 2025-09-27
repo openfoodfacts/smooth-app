@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -473,6 +474,7 @@ class _ProductListPageState extends State<ProductListPage>
     final List<String> barcodes,
     final LocalDatabase localDatabase,
   ) async {
+    const int pageSize = 20;
     bool fresh = true;
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
@@ -481,22 +483,24 @@ class _ProductListPageState extends State<ProductListPage>
       ).getProductTypes(barcodes);
       for (final MapEntry<ProductType, List<String>> entry
           in productTypes.entries) {
-        final SearchResult searchResult =
-            await SearchProductsManager.searchProducts(
-              ProductQuery.getReadUser(),
-              ProductRefresher().getBarcodeListQueryConfiguration(
-                entry.value,
-                language,
-              ),
-              uriHelper: ProductQuery.getUriProductHelper(
-                productType: entry.key,
-              ),
-              type: SearchProductsType.live,
-            );
-        final List<Product>? freshProducts = searchResult.products;
-        if (freshProducts == null) {
-          fresh = false;
-        } else {
+        final int length = entry.value.length;
+        for (int i = 0; i < length; i += pageSize) {
+          final List<String> page = entry.value.sublist(
+            i,
+            min(length, i + pageSize),
+          );
+          final SearchResult
+          searchResult = await SearchProductsManager.searchProducts(
+            ProductQuery.getReadUser(),
+            ProductRefresher().getBarcodeListQueryConfiguration(page, language),
+            uriHelper: ProductQuery.getUriProductHelper(productType: entry.key),
+            type: SearchProductsType.live,
+          );
+          final List<Product>? freshProducts = searchResult.products;
+          if (freshProducts == null) {
+            fresh = false;
+            break;
+          }
           await DaoProduct(
             localDatabase,
           ).putAll(freshProducts, language, productType: entry.key);
