@@ -600,7 +600,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Перезавантажено з вашими новими налаштуваннями';
 
   @override
-  String get profile_navbar_label => 'Профіль';
+  String get profile_navbar_label => 'Спільнота';
 
   @override
   String get scan_navbar_label => 'Сканувати';

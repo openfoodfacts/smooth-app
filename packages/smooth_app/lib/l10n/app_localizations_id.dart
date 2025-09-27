@@ -599,7 +599,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Dimuat ulang dengan preferensi baru Anda';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Komunitas';
 
   @override
   String get scan_navbar_label => 'Pindai';

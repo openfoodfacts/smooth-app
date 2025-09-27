@@ -574,7 +574,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reloaded_with_new_preferences => '重新加载新的偏好设置';
 
   @override
-  String get profile_navbar_label => '個人檔案';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => '掃描';

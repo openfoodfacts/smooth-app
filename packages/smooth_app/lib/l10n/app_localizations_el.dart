@@ -605,7 +605,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επαναφορτώθηκε με τις νέες σας προτιμήσεις';
 
   @override
-  String get profile_navbar_label => 'Προφίλ';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Σάρωση';

@@ -579,7 +579,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reloaded_with_new_preferences => '새로운 기본 설정으로 다시 로드됨';
 
   @override
-  String get profile_navbar_label => '프로필';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => '스캔';
@@ -4040,7 +4040,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get guide_title => 'Guide';
+  String get guide_title => '가이드';
 
   @override
   String get guide_share_label => '공유하기';
@@ -4055,11 +4055,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
+      'Nutri-Score는 **식품의 영양적 품질**에 대한 정보를 제공하는 하는 로고입니다.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
+      '색상 코드는 가장 건강한 제품을 나타내는 짙은 녹색(**A**)부터 덜 건강한 제품을 나타내는 짙은 빨간색(**E**)까지 다양합니다.';
 
   @override
   String get guide_nutriscore_v2_nutriscore_a_caption =>
@@ -4094,7 +4094,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
+      '**너무 달거나** **너무 짠** 제품은 **평가가 더 낮아집니다**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
@@ -4120,8 +4120,7 @@ class AppLocalizationsKo extends AppLocalizations {
       'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
-  String get guide_nutriscore_v2_new_logo_image_caption =>
-      'The logo of the new Nutri-Score';
+  String get guide_nutriscore_v2_new_logo_image_caption => '새로운 Nutri-Score 로고';
 
   @override
   String get guide_nutriscore_v2_where_title =>
@@ -4140,7 +4139,7 @@ class AppLocalizationsKo extends AppLocalizations {
       'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
+  String get guide_nutriscore_v2_unchanged_title => '변하지 않는 것';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
@@ -4148,7 +4147,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'For manufacturers, the display of the Nutri-Score **remains optional**.';
+      '제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.';
 
   @override
   String get guide_nutriscore_v2_share_link =>

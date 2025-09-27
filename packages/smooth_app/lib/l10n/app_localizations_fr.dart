@@ -611,7 +611,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Rechargé avec vos nouvelles préférences';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Communauté';
 
   @override
   String get scan_navbar_label => 'Scanner';
@@ -5615,7 +5615,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratoires ouverts de données sur les aliments';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Compte';

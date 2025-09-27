@@ -599,7 +599,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ricaricato con le nuove preferenze';
 
   @override
-  String get profile_navbar_label => 'Profilo';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Analizza';
