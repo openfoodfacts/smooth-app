@@ -2404,9 +2404,9 @@
   },
   "prices_entry_menu_open_product_prices": "Voir tous les prix du produit",
   "prices_entry_menu_open_proof": "Voir la preuve",
-  "prices_entry_menu_my_prices": "Voir mes autres tarifs",
+  "prices_entry_menu_my_prices": "Voir mes autres prix",
   "prices_entry_menu_author_prices": "Voir d'autres prix de l'auteur",
-  "prices_entry_menu_shop_prices": "Voir les autres prix de la boutique",
+  "prices_entry_menu_shop_prices": "Voir les autres prix de ce magasin",
   "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2543,7 +2543,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
+  "prices_button_count_price": "{count,plural, =0{Aucun prix} =1{Un prix} other{{count} prix}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
