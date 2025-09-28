@@ -155,7 +155,7 @@ class AppSettingsRoot extends PreferencesRoot {
         context: context,
         selected: selectedCurrency,
       ),
-      trailing: icons.Edit(color: iconColor),
+      trailing: icons.Edit(color: iconColor, size: 18.0),
     );
   }
 
@@ -244,6 +244,7 @@ class AppSettingsRoot extends PreferencesRoot {
     UserPreferences userPreferences,
   ) {
     return TogglePreferenceTile(
+      leading: const icons.Sort(),
       title: appLocalizations.search_product_filter_visibility_title,
       subtitleText: appLocalizations.search_product_filter_visibility_subtitle,
       state: userPreferences.searchProductTypeFilterVisible,

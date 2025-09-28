@@ -127,7 +127,7 @@ class MultipleChoicesTile<T> extends PreferenceTile {
           onChanged?.call(res);
         }
       },
-      trailing: const icons.Edit(),
+      trailing: const icons.Edit(size: 18.0),
     );
   }
 

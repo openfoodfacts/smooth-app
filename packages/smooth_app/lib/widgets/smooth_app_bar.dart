@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A custom [AppBar] with an action mode.
 /// If [action mode] is true, please provide at least an [actionModeTitle].
@@ -136,6 +139,9 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidget = const SmoothBackButton();
     }
 
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
     return AppBar(
       leading: leadingWidget,
       automaticallyImplyLeading: automaticallyImplyLeading,
@@ -144,7 +150,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
               title: title!,
               subTitle: subTitle,
               titleTextStyle: titleTextStyle,
-              color: foregroundColor,
+              color: foregroundColor ?? Colors.white,
             )
           : null,
       actions: actions,
@@ -154,10 +160,12 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       notificationPredicate:
           notificationPredicate ?? defaultScrollNotificationPredicate,
       shadowColor: shadowColor,
-      surfaceTintColor:
-          backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
-      backgroundColor: backgroundColor,
-      foregroundColor: foregroundColor,
+      backgroundColor:
+          backgroundColor ??
+          (context.lightTheme()
+              ? extension.primaryBlack
+              : extension.primaryUltraBlack),
+      foregroundColor: foregroundColor ?? Colors.white,
       iconTheme: iconTheme,
       actionsIconTheme: actionsIconTheme,
       primary: primary,
@@ -282,14 +290,14 @@ class _AppBarTitle extends StatelessWidget {
               (titleTextStyle ??
                       AppBarTheme.of(context).titleTextStyle ??
                       theme.appBarTheme.titleTextStyle?.copyWith(
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ) ??
                       theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ) ??
                       const TextStyle(
                         fontSize: 20.0,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ))
                   .copyWith(color: color),
           child: title,
@@ -309,4 +317,25 @@ class _AppBarTitle extends StatelessWidget {
       ],
     );
   }
+}
+
+class SmoothEmptyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SmoothEmptyAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return SizedBox.expand(
+      child: ColoredBox(
+        color: context.lightTheme()
+            ? extension.primaryBlack
+            : extension.primaryUltraBlack,
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.zero;
 }

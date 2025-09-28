@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
@@ -11,9 +12,8 @@ import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
-import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class PreferencesRootSearchController extends SearchHelper {
   PreferencesRootSearchController();
@@ -52,36 +52,37 @@ class PreferencesRootSearchController extends SearchHelper {
 /// query.
 /// The search query is performed deep in the widget tree.
 abstract class PreferencesRoot extends StatelessWidget {
-  const PreferencesRoot({
-    super.key,
-    this.title,
-    this.customAppBar,
-    this.changeStatusBarBrightness,
-  }) : assert(
-         title != null || customAppBar != null,
-         'Either title or customAppBar must be provided',
-       );
+  const PreferencesRoot({super.key, this.title, this.customAppBar})
+    : assert(
+        title != null || customAppBar != null,
+        'Either title or customAppBar must be provided',
+      );
 
   final String? title;
   final Widget? customAppBar;
-  final bool? changeStatusBarBrightness;
 
   List<PreferenceCard> getCards(BuildContext context);
 
-  Widget getBottom(BuildContext context) => EMPTY_WIDGET;
+  WidgetBuilder? getHeader() => null;
+
+  WidgetBuilder? getFooter() => null;
 
   List<ExternalSearchPreferenceTile> getExternalSearchTiles(
     BuildContext context,
   ) => <ExternalSearchPreferenceTile>[];
 
-  Widget buildAppBar(BuildContext context) =>
-      customAppBar ??
-      SliverPinnedHeader(
-        child: SmoothTopBar2(
-          title: title!,
-          leadingAction: SmoothLeadingAction.back,
-        ),
-      );
+  Widget buildAppBar(BuildContext context) {
+    if (customAppBar != null) {
+      return customAppBar!;
+    }
+
+    return SliverPinnedHeader(
+      child: SmoothAppBar(
+        title: Text(title!),
+        leading: const SmoothBackButton(),
+      ),
+    );
+  }
 
   List<PreferenceTile> searchTiles(BuildContext context, String query) {
     final List<PreferenceTile> matchingTiles = <PreferenceTile>[];
@@ -131,23 +132,11 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget buildScaffold(BuildContext context, Widget content) {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
-
     return SmoothScaffold(
-      changeStatusBarBrightness: changeStatusBarBrightness ?? true,
       backgroundColor: !context.darkTheme()
           ? themeExtension.primaryLight
           : null,
-      body: Stack(
-        children: <Widget>[
-          content,
-          PositionedDirectional(
-            bottom: 0.0,
-            end: 0.0,
-            start: 0.0,
-            child: getBottom(context),
-          ),
-        ],
-      ),
+      body: content,
     );
   }
 
@@ -169,20 +158,33 @@ abstract class PreferencesRoot extends StatelessWidget {
       ];
     }
 
+    final WidgetBuilder? header = getHeader();
+    final WidgetBuilder? footer = getFooter();
+
     final Widget content = CustomScrollView(
       slivers: <Widget>[
         buildAppBar(context),
+        if (header != null) SliverToBoxAdapter(child: header.call(context)),
         SliverPadding(
           padding: EdgeInsetsDirectional.only(
             top: LARGE_SPACE,
             start: displayTiles ? 0.0 : MEDIUM_SPACE,
             end: displayTiles ? 0.0 : MEDIUM_SPACE,
-            bottom: MEDIUM_SPACE,
+            bottom: VERY_LARGE_SPACE,
           ),
           sliver: displayTiles
               ? buildSearchResults(context, tiles)
               : buildCardsList(context, getCards(context)),
         ),
+        if (footer != null) ...<Widget>[
+          SliverFillRemaining(
+            fillOverscroll: false,
+            hasScrollBody: false,
+            child: Column(
+              children: <Widget>[const Spacer(), footer.call(context)],
+            ),
+          ),
+        ],
       ],
     );
 

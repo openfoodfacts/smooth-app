@@ -75,15 +75,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       value: upToDateProduct,
       child: SmoothScaffold2(
         backgroundColor: lightTheme ? extension.primaryLight : null,
-        brightness: Brightness.light,
         topBar: SmoothTopBar2(
           title: AppLocalizations.of(context).edit_product_label,
           subTitle: '$productName, $productBrands',
           leadingAction: SmoothLeadingAction.back,
-          backgroundColor: lightTheme
-              ? extension.primaryBlack
-              : extension.primaryUltraBlack,
-          foregroundColor: lightTheme ? Colors.white : null,
+          theme: SmoothTopBar2Theme.dark,
           elevationColor: lightTheme ? Colors.black54 : Colors.white12,
           elevationOnScroll: false,
           productType: upToDateProduct.productType,
@@ -113,7 +109,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 ),
               ),
               _ListTitleItem(
-                leading: const Icon(Icons.add_a_photo_rounded),
+                leading: const icons.Camera.add(),
                 title: appLocalizations.edit_product_form_item_photos_title,
                 subtitle:
                     appLocalizations.edit_product_form_item_photos_subtitle,
@@ -283,7 +279,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       titles.add(element.getTitle(appLocalizations));
     }
     return _ListTitleItem(
-      leading: const Icon(Icons.interests),
+      leading: const icons.Shapes(),
       title: titles.join(', '),
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(

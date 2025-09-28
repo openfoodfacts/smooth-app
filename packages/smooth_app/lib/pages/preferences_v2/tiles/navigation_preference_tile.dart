@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
@@ -23,17 +21,11 @@ class NavigationPreferenceTile extends PreferenceTile {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
     return PreferenceTile(
       icon: icon,
       leading: leading,
       title: title,
       subtitleText: subtitleText,
-      trailing: icons.Chevron.right(
-        size: 14.0,
-        color: context.lightTheme() ? theme.primaryColor : Colors.white,
-      ),
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(

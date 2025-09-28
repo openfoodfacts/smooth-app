@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_history_view.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -82,6 +83,7 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ],
         child: SmoothScaffold(
+          appBar: const SmoothEmptyAppBar(),
           body: Column(
             children: <Widget>[
               ValueNotifierListener<SearchHelper, SearchQuery?>(

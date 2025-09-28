@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
@@ -22,7 +23,7 @@ class ProductHeaderDelegate extends SliverPersistentHeaderDelegate {
     : assert(statusBarHeight >= 0.0);
 
   final double statusBarHeight;
-  final ProductPageBackButton? backButtonType;
+  final BackButtonType? backButtonType;
 
   @override
   Widget build(
@@ -46,7 +47,7 @@ class ProductHeaderDelegate extends SliverPersistentHeaderDelegate {
 class _ProductHeader extends StatefulWidget {
   const _ProductHeader({this.backButtonType});
 
-  final ProductPageBackButton? backButtonType;
+  final BackButtonType? backButtonType;
 
   @override
   State<_ProductHeader> createState() => _ProductHeaderState();
@@ -96,7 +97,7 @@ class _ProductHeaderState extends State<_ProductHeader> {
                           ),
                           child: Row(
                             children: <Widget>[
-                              _ProductHeaderBackButton(
+                              SmoothBackButton(
                                 backButtonType: widget.backButtonType,
                               ),
                               Expanded(
@@ -169,48 +170,6 @@ class _ProductHeaderState extends State<_ProductHeader> {
         ),
       );
     }
-  }
-}
-
-class _ProductHeaderBackButton extends StatelessWidget {
-  const _ProductHeaderBackButton({this.backButtonType});
-
-  final ProductPageBackButton? backButtonType;
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      value: MaterialLocalizations.of(context).backButtonTooltip,
-      excludeSemantics: true,
-      button: true,
-      child: SizedBox(
-        width: 56.0,
-        child: Tooltip(
-          message: MaterialLocalizations.of(context).backButtonTooltip,
-          child: InkWell(
-            customBorder: const CircleBorder(),
-            onTap: () {
-              Navigator.of(context).maybePop();
-            },
-            child: SizedBox.expand(
-              child: backButtonType == ProductPageBackButton.minimize
-                  ? const icons.Chevron.down(size: 16.0)
-                  : const Padding(
-                      padding: EdgeInsetsDirectional.all(8.0),
-                      child: DecoratedBox(
-                        decoration: ShapeDecoration(
-                          shape: CircleBorder(
-                            side: BorderSide(color: Colors.white),
-                          ),
-                        ),
-                        child: icons.Arrow.left(size: 16.0),
-                      ),
-                    ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
 
@@ -392,19 +351,6 @@ class _ProductCompatibilityScore extends StatelessWidget {
       90.0,
       (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
     );
-  }
-}
-
-enum ProductPageBackButton {
-  back,
-  minimize;
-
-  static ProductPageBackButton? byName(String? type) {
-    return switch (type) {
-      'back' => ProductPageBackButton.back,
-      'minimize' => ProductPageBackButton.minimize,
-      _ => null,
-    };
   }
 }
 

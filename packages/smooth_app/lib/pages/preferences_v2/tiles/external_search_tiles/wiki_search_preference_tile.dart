@@ -4,7 +4,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/exte
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class WikiSearchPreferenceTile extends ExternalSearchPreferenceTile {
-  WikiSearchPreferenceTile() : super(icon: const icons.Countries().icon);
+  const WikiSearchPreferenceTile() : super(icon: const icons.Countries());
 
   @override
   String buildTitle(BuildContext context, String keyword) =>

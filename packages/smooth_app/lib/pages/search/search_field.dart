@@ -245,7 +245,7 @@ class SearchBarIcon extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: context.lightTheme()
-              ? theme.primaryDark
+              ? theme.primaryBlack
               : theme.secondaryVibrant,
           shape: BoxShape.circle,
         ),

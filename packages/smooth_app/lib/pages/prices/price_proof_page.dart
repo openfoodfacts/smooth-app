@@ -10,7 +10,11 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a proof.
@@ -39,6 +43,56 @@ class _PriceProofPageState extends State<PriceProofPage> {
       ProductQuery.getLocaleString(),
     ).add_Hms();
     return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.user_search_proof_title),
+        subTitle: Text(dateFormat.format(widget.proof.created)),
+        actions: <Widget>[
+          IconButton(
+            tooltip: appLocalizations.prices_website_button,
+            icon: const icons.ExternalLink(size: 20.0),
+            onPressed: () async => LaunchUrlHelper.launchURL(_getUrl(true)),
+          ),
+        ],
+      ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Positioned.fill(
+            child: SmoothInteractiveViewer(
+              child: Center(
+                child: Image.network(
+                  _getUrl(false),
+                  fit: BoxFit.cover,
+                  loadingBuilder:
+                      (
+                        BuildContext context,
+                        Widget child,
+                        ImageChunkEvent? loadingProgress,
+                      ) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return Center(
+                          child: SizedBox(
+                            width: double.maxFinite,
+                            height: double.maxFinite,
+                            child: Image.network(
+                              _getUrl(true),
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        );
+                      },
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional.topCenter,
+            child: _PriceProofCounter(count: widget.proof.priceCount),
+          ),
+        ],
+      ),
       floatingActionButton: _existingPrices == null
           ? null
           : FloatingActionButton.extended(
@@ -66,46 +120,6 @@ class _PriceProofPageState extends State<PriceProofPage> {
                 );
               },
             ),
-      appBar: SmoothAppBar(
-        title: Text(appLocalizations.user_search_proof_title),
-        subTitle: Text(dateFormat.format(widget.proof.created)),
-        actions: <Widget>[
-          IconButton(
-            tooltip: appLocalizations.prices_app_button,
-            icon: const Icon(Icons.open_in_new),
-            onPressed: () async => LaunchUrlHelper.launchURL(_getUrl(true)),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Badge.count(
-          count: widget.proof.priceCount,
-          alignment: Alignment.topRight,
-          offset: const Offset(-MEDIUM_SPACE, MEDIUM_SPACE),
-          padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-          child: Image.network(
-            _getUrl(false),
-            fit: BoxFit.cover,
-            loadingBuilder:
-                (
-                  BuildContext context,
-                  Widget child,
-                  ImageChunkEvent? loadingProgress,
-                ) {
-                  if (loadingProgress == null) {
-                    return child;
-                  }
-                  return Center(
-                    child: SizedBox(
-                      width: double.maxFinite,
-                      height: double.maxFinite,
-                      child: Image.network(_getUrl(true), fit: BoxFit.contain),
-                    ),
-                  );
-                },
-          ),
-        ),
-      ),
     );
   }
 
@@ -132,5 +146,49 @@ class _PriceProofPageState extends State<PriceProofPage> {
     if (mounted) {
       setState(() {});
     }
+  }
+}
+
+class _PriceProofCounter extends StatelessWidget {
+  const _PriceProofCounter({required this.count});
+
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: extension.primaryBlack.withValues(alpha: 0.9),
+        borderRadius: const BorderRadius.vertical(
+          bottom: Radius.circular(12.0),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: MEDIUM_SPACE,
+          end: MEDIUM_SPACE,
+          top: SMALL_SPACE,
+          bottom: SMALL_SPACE,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 10.0,
+          children: <Widget>[
+            const icons.PriceTag(color: Colors.white),
+            Text(
+              appLocalizations.prices_button_count_price(count),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

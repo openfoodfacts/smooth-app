@@ -36,7 +36,6 @@ class GuidesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      brightness: Brightness.light,
       body: _GuidesPageBody(
         pageName: pageName,
         slivers: <Widget>[header, ...body, if (footer != null) footer!],

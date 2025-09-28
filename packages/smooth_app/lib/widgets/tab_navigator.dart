@@ -12,19 +12,11 @@ class TabNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget child;
-
-    switch (tabItem) {
-      case BottomNavigationTab.Profile:
-        child = PreferencesPage();
-        break;
-      case BottomNavigationTab.List:
-        child = const HistoryPage();
-        break;
-      case BottomNavigationTab.Scan:
-        child = const ScanPage();
-        break;
-    }
+    final Widget child = switch (tabItem) {
+      BottomNavigationTab.Profile => PreferencesPage(),
+      BottomNavigationTab.List => const HistoryPage(),
+      BottomNavigationTab.Scan => const ScanPage(),
+    };
 
     return Navigator(
       key: navigatorKey,

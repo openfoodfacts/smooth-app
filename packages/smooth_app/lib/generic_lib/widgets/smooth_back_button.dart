@@ -1,57 +1,70 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Displays an [IconButton] containing the platform-specific default
 /// back button icon.
 class SmoothBackButton extends StatelessWidget {
-  const SmoothBackButton({this.onPressed, this.iconColor, super.key});
+  const SmoothBackButton({
+    this.onPressed,
+    this.iconColor,
+    this.backButtonType,
+    super.key,
+  });
 
   final VoidCallback? onPressed;
   final Color? iconColor;
+  final BackButtonType? backButtonType;
 
   @override
   Widget build(BuildContext context) {
-    final MaterialLocalizations localizations = MaterialLocalizations.of(
-      context,
-    );
-
-    return Material(
-      type: MaterialType.transparency,
+    return Tooltip(
+      message: MaterialLocalizations.of(context).backButtonTooltip,
       child: Semantics(
-        value: localizations.backButtonTooltip,
-        button: true,
+        value: MaterialLocalizations.of(context).backButtonTooltip,
         excludeSemantics: true,
-        child: InkWell(
-          onTap: onPressed ?? () => Navigator.maybePop(context),
-          customBorder: const CircleBorder(),
-          child: Tooltip(
-            message: localizations.backButtonTooltip,
-            child: Padding(
-              padding: _iconPadding,
-              child: Icon(
-                ConstantIcons.backIcon,
-                color:
-                    iconColor ??
-                    (Theme.of(context).colorScheme.brightness ==
-                            Brightness.light
-                        ? Colors.black
-                        : Colors.white),
-              ),
+        button: true,
+        child: SizedBox(
+          width: kToolbarHeight,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: () {
+              Navigator.of(context).maybePop();
+            },
+            child: SizedBox.expand(
+              child: backButtonType == BackButtonType.minimize
+                  ? const icons.Chevron.down(size: 16.0)
+                  : Padding(
+                      padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                      child: DecoratedBox(
+                        decoration: ShapeDecoration(
+                          shape: CircleBorder(
+                            side: BorderSide(color: iconColor ?? Colors.white),
+                          ),
+                        ),
+                        child: icons.Arrow.left(
+                          size: 16.0,
+                          color: iconColor ?? Colors.white,
+                        ),
+                      ),
+                    ),
             ),
           ),
         ),
       ),
     );
   }
+}
 
-  /// The iOS/macOS icon requires a little padding to be well-centered
-  EdgeInsetsGeometry get _iconPadding {
-    if (Platform.isMacOS || Platform.isIOS) {
-      return const EdgeInsetsDirectional.only(end: 2.0);
-    } else {
-      return EdgeInsets.zero;
-    }
+enum BackButtonType {
+  back,
+  minimize;
+
+  static BackButtonType? byName(String? type) {
+    return switch (type) {
+      'back' => BackButtonType.back,
+      'minimize' => BackButtonType.minimize,
+      _ => null,
+    };
   }
 }

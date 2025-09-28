@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -54,12 +55,17 @@ class AppBarAuthenticationButton extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Icon(
-                          Icons.arrow_circle_right,
-                          color: lightTheme
+                        icons.CircledArrow.right(
+                          type: icons.CircledArrowType.normal,
+                          circleColor: lightTheme
                               ? themeExtension.primaryBlack
                               : Colors.white,
-                          size: 28.0,
+                          color: Colors.white,
+                          size: 20.0,
+                          padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: 6.0,
+                            vertical: 7.5,
+                          ),
                         ),
                       ],
                     ),
