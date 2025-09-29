@@ -3986,6 +3986,37 @@
   "guide_nova_explanations_arg4_title": "The predatory and financial aspects of ultra-processing",
   "guide_nova_explanations_arg4_text": "The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a collaborative, free, and open database of food products from around the world.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, we empower consumers to make informed choices and drive the food industry toward greater transparency.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_wikipedia_title": "Help Us Build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_wikipedia_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_tips_title": "Tips for Taking Great Photos",
+  "guide_open_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_food_facts_scores_title": "Help Us Build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
+  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
+  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

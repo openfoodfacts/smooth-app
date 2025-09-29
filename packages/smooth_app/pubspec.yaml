@@ -157,6 +157,11 @@ flutter:
     - assets/cacheTintable/
     - assets/guides/greenscore/
     - assets/guides/nova/
+    - assets/guides/open_beauty_facts/
+    - assets/guides/open_food_facts/
+    - assets/guides/open_prices/
+    - assets/guides/open_pet_food_facts/
+    - assets/guides/open_products_facts/
     - assets/metadata/
     - assets/misc/
     - assets/network/cert.pem

@@ -7,8 +7,10 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_food_facts.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -111,13 +113,14 @@ class FaqRoot extends PreferencesRoot {
   }
 
   // Discover Project section
-  UrlPreferenceTile _buildDiscoverOffTile(AppLocalizations appLocalizations) {
-    return UrlPreferenceTile(
+  NavigationPreferenceTile _buildDiscoverOffTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
       icon: Icons.travel_explore_outlined,
       title: appLocalizations.preferences_faq_discover_off_title,
-      url: ProductQuery.replaceSubdomain(
-        'https://world.openfoodfacts.org/discover',
-      ),
+      subtitleText: null,
+      target: const GuideOpenFoodFacts(),
     );
   }
 
