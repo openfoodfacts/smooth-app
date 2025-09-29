@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class GuideOpenFoodFacts extends StatelessWidget {
   const GuideOpenFoodFacts({super.key});
