@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_osm_location.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -21,11 +19,6 @@ class PriceAddHelper {
   const PriceAddHelper(this.context);
 
   final BuildContext context;
-
-  Future<List<OsmLocation>> getLocations() async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    return DaoOsmLocation(localDatabase).getAll();
-  }
 
   Currency getCurrency() {
     final UserPreferences userPreferences = context.read<UserPreferences>();
@@ -79,11 +72,8 @@ class PriceAddHelper {
     return true;
   }
 
-  Future<void> updateCurrency(
-    OsmLocation? oldLocation,
-    OsmLocation location,
-    PriceModel model,
-  ) async {
+  Future<void> updateCurrency(OsmLocation location, PriceModel model) async {
+    model.location = location;
     if (location.countryCode == null) {
       return;
     }

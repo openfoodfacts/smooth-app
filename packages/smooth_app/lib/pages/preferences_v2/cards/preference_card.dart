@@ -44,9 +44,11 @@ class PreferenceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double leadingMargin = 6.0;
+
     return SmoothCardWithRoundedHeader(
       leading: EMPTY_WIDGET,
-      leadingMargin: const EdgeInsetsDirectional.only(start: 6.0),
+      leadingMargin: const EdgeInsetsDirectional.only(start: leadingMargin),
       title: title,
       banner: bannerText != null
           ? Padding(
@@ -54,7 +56,7 @@ class PreferenceCard extends StatelessWidget {
               child: Text(bannerText!),
             )
           : null,
-      titleSpacing: MEDIUM_SPACE * 2,
+      titleSpacing: MEDIUM_SPACE * 2 - leadingMargin / 2,
       contentPadding: !gridView ? EdgeInsets.zero : null,
       clipBehavior: Clip.antiAlias,
       titleBackgroundColor:

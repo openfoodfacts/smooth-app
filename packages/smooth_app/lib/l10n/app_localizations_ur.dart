@@ -594,7 +594,7 @@ class AppLocalizationsUr extends AppLocalizations {
       'Reloaded with your new preferences';
 
   @override
-  String get profile_navbar_label => 'Profile';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'سکین';
@@ -4398,7 +4398,7 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get guide_greenscore_share_link =>
-      'https://fr.openfoodfacts.org/green-score';
+      'https://en.openfoodfacts.org/green-score';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -5049,7 +5049,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get preferences_app_settings_products => 'Products';
 
   @override
-  String get preferences_card_about => 'About';
+  String get preferences_card_about => 'کے بارے میں';
 
   @override
   String get preferences_legal_information_title => 'Legal information';

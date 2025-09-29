@@ -79,7 +79,7 @@ class _SearchFieldState extends State<SearchField> {
       _controller = TextEditingController();
     }
 
-    final TextStyle textStyle = SearchFieldUIHelper.textStyle(context);
+    final TextStyle textStyle = SearchFieldUIHelper.textStyle();
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
 
@@ -290,10 +290,7 @@ class SearchFieldUIHelper {
   static const EdgeInsetsGeometry SEARCH_BAR_PADDING =
       EdgeInsetsDirectional.only(start: 20.0, end: BALANCED_SPACE, bottom: 3.0);
 
-  static TextStyle textStyle(BuildContext context) {
-    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
-    return TextStyle(color: lightTheme ? Colors.black : Colors.white);
-  }
+  static TextStyle textStyle() => const TextStyle(color: Colors.black);
 
   static BoxDecoration decoration(BuildContext context) {
     final SmoothColorsThemeExtension theme = Theme.of(

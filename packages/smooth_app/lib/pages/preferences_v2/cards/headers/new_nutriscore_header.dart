@@ -74,7 +74,7 @@ class NewNutriscoreHeader extends StatelessWidget {
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
                               wordSpacing: 0.4,
                               letterSpacing: 0.25,
                             ),
@@ -143,7 +143,14 @@ class NewNutriscoreHeader extends StatelessWidget {
           bottom: MEDIUM_SPACE,
           right: LARGE_SPACE,
           child: Container(
-            padding: const EdgeInsets.all(SMALL_SPACE),
+            width: 32.0,
+            height: 32.0,
+            padding: const EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              bottom: SMALL_SPACE,
+              start: SMALL_SPACE,
+              end: SMALL_SPACE - 2.0,
+            ),
             decoration: BoxDecoration(
               color: Colors.black26,
               borderRadius: BorderRadius.circular(100.0),

@@ -30,7 +30,7 @@ dependencies:
   image_picker: 1.2.0
   l10n_countries: 1.2.0
   latlong2: 0.9.1
-  matomo_tracker: 6.0.0
+  matomo_tracker: 6.1.0
   package_info_plus: 8.3.1
   device_info_plus: 11.5.0
   permission_handler: 12.0.1
@@ -73,7 +73,7 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
-  file_picker: 10.3.2
+  file_picker: 10.3.3
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 

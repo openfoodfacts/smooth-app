@@ -119,7 +119,7 @@ class ProductPageTabBar extends StatelessWidget {
           prefix: _extractPrefix(product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
             padding: EdgeInsetsDirectional.zero,
-            itemCount: children.length - 1,
+            itemCount: children.length,
             itemBuilder: (BuildContext context, int index) => children[index],
           ),
         ),
