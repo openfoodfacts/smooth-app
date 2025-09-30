@@ -10,6 +10,8 @@ import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/guides/guide/guide_open_beauty_facts.dart';
 import 'package:smooth_app/pages/guides/guide/guide_open_food_facts.dart';
 import 'package:smooth_app/pages/guides/guide/guide_open_pet_food_facts.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_prices.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_products_facts.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -40,6 +42,8 @@ class FaqRoot extends PreferencesRoot {
           _buildDiscoverOffTile(context, appLocalizations),
           _buildDiscoverObfTile(context, appLocalizations),
           _buildDiscoverOpffTile(context, appLocalizations),
+          _buildDiscoverOpTile(context, appLocalizations),
+          _buildDiscoverOpfTile(context, appLocalizations),
           _buildHowToContributeTile(appLocalizations),
           _buildFaqTile(appLocalizations),
         ],
@@ -159,6 +163,38 @@ class FaqRoot extends PreferencesRoot {
       onTap: () => Navigator.of(context, rootNavigator: true).push(
         MaterialPageRoute<void>(
           builder: (BuildContext context) => const GuideOpenPetFoodFacts(),
+        ),
+      ),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: Icons.travel_explore_outlined,
+      title: appLocalizations.preferences_faq_discover_op_title,
+      subtitleText: null,
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideOpenPrices(),
+        ),
+      ),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpfTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: Icons.travel_explore_outlined,
+      title: appLocalizations.preferences_faq_discover_opf_title,
+      subtitleText: null,
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideOpenProductsFacts(),
         ),
       ),
     );

@@ -160,38 +160,35 @@ class _OpenFoodFactsSection4 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_open_food_facts_scores_title,
       content: <Widget>[
-        GuidesTitleWithText(
+        GuidesTitleContainer(
           title: appLocalizations.guide_open_food_facts_scores_arg1_title,
           icon: const icons.Salt(),
-          text: '',
-        ),
-        GuidesImage(
-          imagePath: SvgCache.getAssetsCacheForNutriscore(
-            NutriScoreValue.a,
-            true,
+          child: GuidesImage(
+            imagePath: SvgCache.getAssetsCacheForNutriscore(
+              NutriScoreValue.a,
+              true,
+            ),
+            caption: 'Click to learn more',
+            desiredWidthPercent: 0.30,
           ),
-          caption: 'Click to learn more',
-          desiredWidthPercent: 0.30,
         ),
-        GuidesTitleWithText(
+        GuidesTitleContainer(
           title: appLocalizations.guide_open_food_facts_scores_arg2_title,
           icon: const icons.Salt(),
-          text: '',
+          child: const GuidesImage(
+            imagePath: 'assets/guides/nova/nova_4.svg.vec',
+            caption: 'Click to learn more',
+            desiredWidthPercent: 0.1,
+          ),
         ),
-        const GuidesImage(
-          imagePath: 'assets/guides/nova/nova_4.svg.vec',
-          caption: 'Click to learn more',
-          desiredWidthPercent: 0.1,
-        ),
-        GuidesTitleWithText(
+        GuidesTitleContainer(
           title: appLocalizations.guide_open_food_facts_scores_arg3_title,
           icon: const icons.Salt(),
-          text: '',
-        ),
-        const GuidesImage(
-          imagePath: 'assets/guides/greenscore/greenscore_a_plus.svg.vec',
-          caption: 'Click to learn more',
-          desiredWidthPercent: 0.1,
+          child: const GuidesImage(
+            imagePath: 'assets/guides/greenscore/greenscore_a_plus.svg.vec',
+            caption: 'Click to learn more',
+            desiredWidthPercent: 0.1,
+          ),
         ),
       ],
     );

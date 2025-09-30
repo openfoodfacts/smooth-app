@@ -334,7 +334,7 @@ class GuidesTitleContainer extends StatelessWidget {
         end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: 15.0,
         children: <Widget>[
           _GuidesTextTitle(title: title, icon: icon),
