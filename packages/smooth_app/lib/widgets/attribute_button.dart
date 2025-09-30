@@ -108,7 +108,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                 currentImportanceId == importanceId
                     ? Icons.radio_button_checked
                     : Icons.radio_button_off,
-                color: extension.primaryBlack,
+                color: Theme.of(context).colorScheme.onSurface,
                 size: 32,
               ),
               title: AutoSizeText(
