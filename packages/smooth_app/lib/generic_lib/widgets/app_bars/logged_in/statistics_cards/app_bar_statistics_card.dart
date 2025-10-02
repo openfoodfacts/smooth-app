@@ -15,6 +15,7 @@ class AppBarStatisticsCard extends StatefulWidget {
     required this.imagePath,
     required this.description,
     required this.lazyCounter,
+    required this.onTap,
     this.autoSizeGroup,
     super.key,
   }) : assert(imagePath.isNotEmpty, 'imagePath must not be empty.'),
@@ -23,6 +24,7 @@ class AppBarStatisticsCard extends StatefulWidget {
   final String imagePath;
   final String description;
   final LazyCounter lazyCounter;
+  final VoidCallback onTap;
   final AutoSizeGroup? autoSizeGroup;
 
   @override
@@ -42,7 +44,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
 
     return InkWell(
       borderRadius: ROUNDED_BORDER_RADIUS,
-      onTap: () => _asyncLoad(),
+      onTap: widget.onTap,
       child: SizedBox(
         height: STATISTICS_CARD_HEIGHT,
         child: Material(
@@ -70,17 +72,22 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                             ),
                           ),
                         ),
-                        if (_loading)
-                          const SizedBox.square(
-                            dimension: 16.0,
-                            child: CircularProgressIndicator.adaptive(),
-                          )
-                        else
-                          const Icon(
-                            Icons.refresh,
-                            color: Colors.white,
-                            size: 16.0,
+                        InkWell(
+                          onTap: _loading ? null : _asyncLoad,
+                          child: Padding(
+                            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                            child: _loading
+                                ? const SizedBox.square(
+                                    dimension: 16.0,
+                                    child: CircularProgressIndicator.adaptive(),
+                                  )
+                                : const Icon(
+                                    Icons.refresh,
+                                    color: Colors.white,
+                                    size: 16.0,
+                                  ),
                           ),
+                        ),
                       ],
                     ),
                     Row(
