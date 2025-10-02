@@ -67,7 +67,7 @@ class ContributionsRoot extends PreferencesRoot {
   ) {
     return PreferenceTile(
       icon: Icons.add_circle_outline,
-      title: appLocalizations.preferences_contributions_new_products_title,
+      title: appLocalizations.user_search_contributor_title,
       subtitleText:
           appLocalizations.preferences_contributions_new_products_subtitle,
       padding: const EdgeInsetsDirectional.only(
