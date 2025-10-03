@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GuideOpenFoodFacts extends StatelessWidget {
@@ -103,10 +105,27 @@ class _OpenFoodFactsSection2 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_open_food_facts_wikipedia_title,
       content: <Widget>[
-        GuidesTitleWithText(
+        GuidesTitleContainer(
           icon: const icons.Milk.happy(),
           title: appLocalizations.guide_open_food_facts_wikipedia_arg1_title,
-          text: '',
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SmoothButtonWithArrow(
+                text: appLocalizations.guide_open_preferences_button_title,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          const UserPreferencesPage(
+                            type: PreferencePageType.FOOD,
+                          ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );

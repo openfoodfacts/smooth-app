@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
@@ -98,14 +99,25 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return GuidesParagraph(
       title: appLocalizations.guide_open_pet_food_facts_features_title,
       content: <Widget>[
-        GuidesTitleWithText(
+        GuidesTitleContainer(
           icon: const icons.Milk.happy(),
           title: appLocalizations.guide_open_pet_food_facts_features_arg1_title,
-          text: '',
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SmoothButtonWithArrow(
+                text: appLocalizations.guide_coming_soon_button_title,
+                onTap: null,
+                backgroundColor: theme.disabledColor,
+                arrowColor: theme.colorScheme.onSurface,
+              ),
+            ],
+          ),
         ),
       ],
     );
