@@ -230,7 +230,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       );
       insertParameters.add(lastUpdate);
       insertParameters.add(language.offTag);
-      insertParameters.add(productType.offTag);
+      insertParameters.add(product.productType?.offTag ?? productType.offTag);
     }
     await bulkManager.insert(
       bulkInsertable: this,
