@@ -106,7 +106,7 @@ class _OpenFoodFactsSection1 extends StatelessWidget {
   }
 }
 
-class _OpenFoodFactsSection2 extends StatelessWidget {
+/* class _OpenFoodFactsSection2 extends StatelessWidget {
   const _OpenFoodFactsSection2();
 
   @override
@@ -141,7 +141,7 @@ class _OpenFoodFactsSection2 extends StatelessWidget {
       ],
     );
   }
-}
+} */
 
 class _OpenFoodFactsSection3 extends StatelessWidget {
   const _OpenFoodFactsSection3();
