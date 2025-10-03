@@ -16,7 +16,6 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 class PriceModel with ChangeNotifier {
   PriceModel({
     required final ProofType proofType,
-    required final List<OsmLocation>? locations,
     required final Currency currency,
     required this.multipleProducts,
     final PriceMetaProduct? initialProduct,
@@ -26,7 +25,6 @@ class PriceModel with ChangeNotifier {
        _proofType = proofType,
        _date = DateTime.now(),
        _currency = currency,
-       _locations = locations,
        _readyForPriceTagValidation = readyForPriceTagValidation,
        _priceAmountModels = <PriceAmountModel>[
          if (initialProduct != null) PriceAmountModel(product: initialProduct),
@@ -74,7 +72,6 @@ class PriceModel with ChangeNotifier {
     _cropParameters = null;
     _proofType = proof.type!;
     _date = proof.date!;
-    _locations = null;
     _currency = proof.currency!;
     if (!init) {
       notifyListeners();
@@ -163,19 +160,17 @@ class PriceModel with ChangeNotifier {
   final DateTime today = DateTime.now();
   final DateTime firstDate = DateTime.utc(2020, 1, 1);
 
-  List<OsmLocation>? _locations;
+  OsmLocation? _location;
 
-  List<OsmLocation>? get locations => _locations;
-
-  set locations(final List<OsmLocation>? locations) {
+  set location(final OsmLocation location) {
     _hasChanged = true;
-    _locations = locations;
+    _location = location;
     notifyListeners();
   }
 
   OsmLocation? get location => proof?.location?.osmId != null
       ? OsmLocation.fromPrice(proof!.location!)
-      : _locations!.firstOrNull;
+      : _location;
 
   late Currency _currency;
 

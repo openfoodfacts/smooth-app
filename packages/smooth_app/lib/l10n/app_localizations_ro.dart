@@ -602,7 +602,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get reloaded_with_new_preferences => 'Reîncărcat cu noile preferințe';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Scanează';

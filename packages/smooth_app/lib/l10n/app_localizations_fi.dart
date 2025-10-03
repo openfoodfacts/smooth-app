@@ -597,7 +597,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get reloaded_with_new_preferences => 'Ladattu uusin asetuksin';
 
   @override
-  String get profile_navbar_label => 'Profiili';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Lue';

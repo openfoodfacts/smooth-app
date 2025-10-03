@@ -17,7 +17,7 @@ class ContributionStatisticsCard extends StatelessWidget {
     return AppBarStatisticsCard(
       imagePath: 'assets/preferences/ingredients.svg',
       description: appLocalizations.preferences_app_bar_products_modified,
-      lazyCounter: const LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
+      lazyCounter: const LazyCounterUserSearch(UserSearchType.INFORMER),
       autoSizeGroup: autoSizeGroup,
     );
   }

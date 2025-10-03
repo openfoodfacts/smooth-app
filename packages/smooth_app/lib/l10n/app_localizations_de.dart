@@ -104,7 +104,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get unknown => 'Unbekannt';
 
   @override
-  String get match_very_good => 'Sehr guter Treffer';
+  String get match_very_good => 'Sehr gute Übereinstimmung';
 
   @override
   String get match_good => 'Guter Treffer';
@@ -113,16 +113,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get match_poor => 'Schlechter Treffer';
 
   @override
-  String get match_may_not => 'Weicht möglicherweise ab';
+  String get match_may_not => 'Stimmt möglicherweise nicht überein';
 
   @override
   String get match_does_not => 'Stimmt nicht überein';
 
   @override
-  String get match_unknown => 'Unbekannte Übereinstimmung';
+  String get match_unknown => 'Unbekanntes Produkt';
 
   @override
-  String get match_short_very_good => 'Sehr guter Treffer';
+  String get match_short_very_good => 'Sehr gute Übereinstimmung';
 
   @override
   String get match_short_good => 'Guter Treffer';
@@ -131,13 +131,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get match_short_poor => 'Schlechter Treffer';
 
   @override
-  String get match_short_may_not => 'Weicht möglicherweise ab';
+  String get match_short_may_not => 'Stimmt möglicherweise nicht überein';
 
   @override
   String get match_short_does_not => 'Stimmt nicht überein';
 
   @override
-  String get match_short_unknown => 'Unbekannte Übereinstimmung';
+  String get match_short_unknown => 'Unbekanntes Produkt';
 
   @override
   String get licenses => 'Lizenzen';
@@ -150,7 +150,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get whatIsOff =>
-      'Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.';
+      'OpenFoodFacts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.';
 
   @override
   String get productDataUtility =>
@@ -170,7 +170,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sign_in_text =>
-      'Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können';
+      'Melden Sie sich bei Ihrem OpenFoodFacts Konto an, um Ihre Beiträge speichern zu können';
 
   @override
   String get incorrect_credentials => 'Ungültiger Benutzername oder Passwort.';
@@ -258,7 +258,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sign_up_page_action_button => 'Registrieren';
 
   @override
-  String get sign_up_page_action_doing_it => 'Registrierung…';
+  String get sign_up_page_action_doing_it => 'Anmeldung';
 
   @override
   String get sign_up_page_action_ok =>
@@ -323,7 +323,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Passwörter stimmen nicht überein';
 
   @override
-  String get sign_up_page_agree_text => 'Ich akzeptiere die Open Food Facts';
+  String get sign_up_page_agree_text => 'Ich stimme OpenFoodFacts zu';
 
   @override
   String get sign_up_page_terms_text =>
@@ -352,7 +352,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'Ich möchte den Newsletter von Open Food Facts abonnieren (Er kann jederzeit wieder abbestellt werden)';
+      'Ich möchte den Newsletter von OpenFoodFacts abonnieren (Er kann jederzeit wieder abbestellt werden)';
 
   @override
   String get sign_up_page_user_name_already_used =>
@@ -368,7 +368,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sign_up_page_server_busy =>
-      'Es tut uns sehr leid, wir haben technische Schwierigkeiten, Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.';
+      'Es tut uns sehr leid, dass wir haben technische Schwierigkeiten Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.';
 
   @override
   String get settingsTitle => 'Einstellungen';
@@ -404,7 +404,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Eine Liste aller Mitwirkenden an dieser App';
 
   @override
-  String get support => 'Support';
+  String get support => 'Kundenservice';
 
   @override
   String get support_join_slack => 'Bitte um Hilfe in unserem Slack-Kanal';
@@ -430,7 +430,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get legalNotices => 'Rechtliche Hinweise';
 
   @override
-  String get privacy_policy => 'Datenschutzrichtlinie';
+  String get privacy_policy => 'Datenschutzrichtlinien';
 
   @override
   String get about_this_app => 'Über diese App';
@@ -443,11 +443,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_develop_text =>
-      'Der Code für jedes Open Food Facts-Produkt ist auf GitHub verfügbar. Sie können den Code (Open Source) gerne wiederverwenden und uns dabei helfen, ihn für alle auf der ganzen Welt zu verbessern.';
+      'Der Code für jedes OpenFoodFacts Produkt ist auf GitHub verfügbar. Sie können den Code (Open Source) gerne wiederverwenden und uns dabei helfen, ihn für alle auf der ganzen Welt zu verbessern.';
 
   @override
   String get contribute_develop_text_2 =>
-      'Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.';
+      'Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.';
 
   @override
   String get contribute_develop_dev_mode_title => 'Entwicklermodus?';
@@ -460,7 +460,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get contribute_donate_title => 'Spenden';
 
   @override
-  String get contribute_donate_header => 'Spenden Sie für Open Food Facts';
+  String get contribute_donate_header => 'Spenden Sie an Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
@@ -468,14 +468,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Noch abzuschließende Produkte';
+      'Zu vervollständigende Produkte';
 
   @override
   String get contribute_improve_header => 'Verbessern';
 
   @override
   String get contribute_improve_text =>
-      'Die Datenbank ist der Kern des Projekts. Sie können einfach und schnell helfen. Sie können die mobile App für Ihr Telefon herunterladen und Produkte hinzufügen oder verbessern.\n\nAuf der anderen Seite bietet die Webseite Open Food Facts viele Möglichkeiten, einen Beitrag zu leisten: ';
+      'Die Datenbank ist der Kern des Projekts. Sie können einfach und schnell helfen. Sie können die mobile App für Ihr Telefon herunterladen und Produkte hinzufügen oder verbessern.\n\nAuf der anderen Seite bietet die OpenFoodFacts Website viele Möglichkeiten, einen Beitrag zu leisten: ';
 
   @override
   String get contribute_translate_header => 'Übersetzen';
@@ -488,7 +488,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. Open Food Facts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.';
+      'Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. OpenFoodFacts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.';
 
   @override
   String get contribute_translate_text_2 =>
@@ -496,7 +496,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!';
+      'Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!';
 
   @override
   String get contribute_share_header =>
@@ -504,7 +504,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_share_content =>
-      'Ich möchte Ihnen die App Open Food Facts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app';
+      'Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
@@ -595,7 +595,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ranking_subtitle_match_no => 'Sehr schlechte Übereinstimmung';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Unbekannte Übereinstimmung';
+  String get ranking_subtitle_match_maybe => 'Unbekanntes Produkt';
 
   @override
   String get refresh_with_new_preferences =>
@@ -606,7 +606,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Mit Ihren neuen Einstellungen neu geladen';
 
   @override
-  String get profile_navbar_label => 'Profil';
+  String get profile_navbar_label => 'Gemeinschaft';
 
   @override
   String get scan_navbar_label => 'Einlesen';
@@ -5158,7 +5158,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get preferences_legal_mentions => 'Rechtliche Hinweise';
 
   @override
-  String get preferences_privacy_policy => 'Datenschutzrichtlinie';
+  String get preferences_privacy_policy => 'Datenschutzrichtlinien';
 
   @override
   String get preferences_licenses => 'Lizenzen';

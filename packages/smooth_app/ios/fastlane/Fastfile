@@ -3,7 +3,7 @@ default_platform(:ios)
 
 before_all do
   xcodes(
-  version: '16.3',
+  version: '16.4',
   select_for_current_build_only: true,
   )
 end

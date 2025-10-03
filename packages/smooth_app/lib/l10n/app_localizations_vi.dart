@@ -597,7 +597,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get reloaded_with_new_preferences => 'Đã tải lại với các tùy chọn mới';
 
   @override
-  String get profile_navbar_label => 'Hồ sơ';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Quét';

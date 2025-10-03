@@ -79,7 +79,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get finish => 'Finish';
 
   @override
-  String get calculate => 'Calculate';
+  String get calculate => 'Arvuta';
 
   @override
   String get reset_food_prefs => 'Reset food preferences';
@@ -104,40 +104,40 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unknown => 'Unknown';
 
   @override
-  String get match_very_good => 'Very good match';
+  String get match_very_good => 'Väga hea vaste';
 
   @override
-  String get match_good => 'Good match';
+  String get match_good => 'Hea vaste';
 
   @override
-  String get match_poor => 'Poor match';
+  String get match_poor => 'Kehv vaste';
 
   @override
-  String get match_may_not => 'May not match';
+  String get match_may_not => 'Ei pruugi sobida';
 
   @override
-  String get match_does_not => 'Does not match';
+  String get match_does_not => 'Ei sobi';
 
   @override
-  String get match_unknown => 'Unknown match';
+  String get match_unknown => 'Vaste pole teada';
 
   @override
-  String get match_short_very_good => 'Very good match';
+  String get match_short_very_good => 'Väga hea vaste';
 
   @override
-  String get match_short_good => 'Good match';
+  String get match_short_good => 'Hea vaste';
 
   @override
-  String get match_short_poor => 'Poor match';
+  String get match_short_poor => 'Kehv vaste';
 
   @override
-  String get match_short_may_not => 'May not match';
+  String get match_short_may_not => 'Ei pruugi sobida';
 
   @override
-  String get match_short_does_not => 'Does not match';
+  String get match_short_does_not => 'Ei sobi';
 
   @override
-  String get match_short_unknown => 'Unknown match';
+  String get match_short_unknown => 'Vaste pole teada';
 
   @override
   String get licenses => 'Licences';
@@ -171,15 +171,15 @@ class AppLocalizationsEt extends AppLocalizations {
       'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials => 'Incorrect username or password.';
+  String get incorrect_credentials => 'Vale kasutajanimi või salasõna.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'Seda e-posti aadressi või kasutajanime pole olemas. Palun kontrolli oma sisselogimisandmeid.';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'Meie serverite töö on hetkel aeglasevõitu ja vabandame selle pärast. Palun proovi hiljem uuesti.';
 
   @override
   String get login => 'Login';
@@ -192,7 +192,8 @@ class AppLocalizationsEt extends AppLocalizations {
       'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email => 'Please enter username or e-mail';
+  String get login_page_username_or_email =>
+      'Palun sisesta kasutajanimi või e-posti aadress';
 
   @override
   String get login_page_password_error_empty => 'Palun sisesta salasõna';
@@ -217,27 +218,27 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'Password';
+  String get password => 'Salasõna';
 
   @override
-  String get forgot_password => 'Forgot password';
+  String get forgot_password => 'Unustasin salasõna';
 
   @override
   String get view_profile => 'View profile';
 
   @override
-  String get reset_password => 'Reset password';
+  String get reset_password => 'Lähtesta salasõna';
 
   @override
   String get reset_password_explanation_text =>
-      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
+      'Unustatud salasõna puhil sisesta oma kasutajanimi või e-posti aadress ning saad juhised salasõna lähtestamiseks. Igaks juhuks ära unusta kontrollida e-kirjade rämpsposti kausta.';
 
   @override
-  String get username_or_email => 'Username or e-mail';
+  String get username_or_email => 'Kasutajanimi või e-posti aadress';
 
   @override
   String get reset_password_done =>
-      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
+      'Sinu kasutajakontoga seotud e-posti aadressile on saadetud e-kiri salasõna lähtestamise lingiga. Kui sa kirja kohe ei leia, siis vaata ka e-kirjade rämpsposti kausta';
 
   @override
   String get send_reset_password_mail => 'Muuda salasõna';
@@ -275,7 +276,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint => 'Username: Publicly visible';
+  String get sign_up_page_username_hint => 'Kasutajanimi: avalikult nähtav';
 
   @override
   String get sign_up_page_username_error_empty => 'Palun sisesta kasutajanimi';
@@ -286,15 +287,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sign_up_page_username_description =>
-      'Username cannot contains spaces, caps or special characters.';
+      'Kasutajanimi ei tohi sisaldada tühikuid, suurtähti ega erimärke.';
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Username cannot exceed $value characters';
+    return 'Kasutajanimi ei tohi olla pikem, kui $value tähemärki';
   }
 
   @override
-  String get sign_up_page_password_hint => 'Password';
+  String get sign_up_page_password_hint => 'Salasõna';
 
   @override
   String get sign_up_page_password_error_empty => 'Palun sisesta salasõna';
@@ -308,11 +309,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Please confirm the password';
+      'Palun korda salasõna';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Passwords don\'t match';
+      'Salasõnad ei klapi';
 
   @override
   String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
@@ -347,7 +348,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'The user name already exists, please choose another username.';
+      'See kasutajanimi on juba olemas, palun vali mõni teine.';
 
   @override
   String get sign_up_page_email_already_exists =>
@@ -426,7 +427,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get about_this_app => 'About this app';
 
   @override
-  String get contribute => 'Contribute';
+  String get contribute => 'Tee kaastööd';
 
   @override
   String get contribute_sw_development => 'Software development';
@@ -457,7 +458,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Tooted, mida täiendada';
+      'Tooted, mida saad täiendada';
 
   @override
   String get contribute_improve_header => 'Täiendamine';
@@ -488,8 +489,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
-  String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+  String get contribute_share_header => 'Jaga Open Food Factsi oma sõpradega';
 
   @override
   String get contribute_share_content =>
@@ -583,7 +583,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Unknown match';
+  String get ranking_subtitle_match_maybe => 'Vaste pole teada';
 
   @override
   String get refresh_with_new_preferences =>
@@ -594,7 +594,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Reloaded with your new preferences';
 
   @override
-  String get profile_navbar_label => 'Profile';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Skanneeri';
@@ -885,7 +885,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return '$username, suur tänu kaastöö eest!';
   }
 
   @override
@@ -1206,7 +1206,7 @@ class AppLocalizationsEt extends AppLocalizations {
       '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'Otsi toodet';
 
   @override
   String get homepage_main_card_search_field_tooltip => 'Start search';
@@ -1349,13 +1349,13 @@ class AppLocalizationsEt extends AppLocalizations {
       'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'Please choose a country';
+  String get country_chooser_label => 'Palun vali riik';
 
   @override
   String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'Sa just vahetasid riiki.';
 
   @override
   String currency_auto_change_message(
@@ -1366,14 +1366,14 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'Palun vali riik:';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'Sinu riik';
 
   @override
   String get country_selection_explanation =>
-      'Some environmental features are location-specific';
+      'Mõned keskkonnaomadused on asukohapõhised';
 
   @override
   String get product_removed_comparison => 'Product removed from comparison';
@@ -1561,7 +1561,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get discover => 'Avasta';
 
   @override
-  String get how_to_contribute => 'How to Contribute';
+  String get how_to_contribute => 'Kuidas saad osaleda';
 
   @override
   String get hint_knowledge_panel_message =>
@@ -1853,7 +1853,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'Lisa uus riik';
 
   @override
   String get edit_product_form_item_add_action_category => 'Add a new category';
@@ -1984,11 +1984,11 @@ class AppLocalizationsEt extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Riik';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'Sisesta riik (nt: Eesti)';
 
   @override
   String get edit_product_form_item_countries_type => 'riik';
@@ -2958,7 +2958,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title => 'Products I edited';
+  String get user_search_informer_title => 'Minu muudetud tooted';
 
   @override
   String get user_search_photographer_title => 'Products I photographed';
@@ -3014,7 +3014,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'Aita tooteid oma riigis kategoriseerida';
 
   @override
   String get edit_product_action_retake_picture => 'Retake photo';
@@ -3317,7 +3317,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'Koosta oma esimene loend';
 
   @override
   String get product_list_select => 'Select a list';
@@ -3338,7 +3338,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip => 'Edit your food preferences';
+  String get open_food_preferences_tooltip => 'Muuda oma toidueelistusi';
 
   @override
   String get add_photo_button_label => 'Add photo';
@@ -3450,7 +3450,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
+      'Vali otsingusait: Open Food Facts, Open Beauty Facts, Open Pet Food Facts või Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -3486,10 +3486,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'Sinu riik';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Sinu vääring';
 
   @override
   String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
@@ -3544,10 +3544,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'Jätkuvalt otsime seda toodet.\nKas soovid otsingut uuesti alustada?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'Alusta otsingut uuesti';
 
   @override
   String get portion_calculator_description =>
@@ -3598,7 +3598,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'Jäta minu valik meelde';
 
   @override
   String get user_picture_source_ask => 'Ask each time';
@@ -3618,7 +3618,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'Näita salasõna';
 
   @override
   String get owner_field_info_title => 'Producer provided values';
@@ -3908,7 +3908,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get country_selector_title => 'Select your country:';
+  String get country_selector_title => 'Vali oma riik:';
 
   @override
   String get currency_selector_title => 'Select your currency:';
@@ -4982,11 +4982,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_card_project => 'Avatud toidufaktide projekt';
 
   @override
-  String get preferences_contribute_title => 'Contribute';
+  String get preferences_contribute_title => 'Tee kaastööd';
 
   @override
   String get preferences_contribute_subtitle =>
-      'Tõlkige, täiustage oma tööriistu…';
+      'Tõlgi, täiustage oma tarvikuid…';
 
   @override
   String get preferences_connect_title => 'Ühenda';
@@ -5100,7 +5100,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => 'Complete products';
+  String get preferences_complete_products => 'Täienda tooteandmeid';
 
   @override
   String get preferences_tips => 'Näpunäited';
@@ -5116,7 +5116,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_manage_account_title => 'Halda minu kontot';
 
   @override
-  String get preferences_change_password_title => 'Muuda minu parooli';
+  String get preferences_change_password_title => 'Muuda minu salasõna';
 
   @override
   String get preferences_danger_zone => 'Ohutsoon';
@@ -5300,7 +5300,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Avastage mõned paljudest viisidest, kuidas saate panustada';
+      'Avasta mõned paljudest viisidest, kuidas saad osaleda';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
@@ -5308,7 +5308,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Siit saad teada, kuidas tarkvaraarendusse panustada';
+      'Siit saad teada, kuidas osaleda tarkvaraarenduses';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
@@ -5324,11 +5324,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'Oleme teile abiks väikese malli ette valmistanud :-)';
+      'Oleme abiks sulle väikese malli ette valmistanud :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Lihtsad sammud toidu läbipaistvuse suurendamiseks teie riigis';
+      'Lihtsad sammud toidu läbipaistvuse suurendamiseks sinu riigis';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
@@ -5365,8 +5365,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Aita arvutada oma riigi Nutri-Score\'i ja Green-Score\'i';
 
   @override
-  String get preferences_prices_user_prices_subtitle =>
-      'Minu panustatud hinnad';
+  String get preferences_prices_user_prices_subtitle => 'Minu lisatud hinnad';
 
   @override
   String get preferences_prices_proofs_subtitle => 'Hinnasildid ja kviitungid';
@@ -5397,7 +5396,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_prices_metrics_subtitle => 'Jälgige projekti arengut';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Panustamise viisid';
+  String get preferences_prices_ways_contribute_title => 'Osalemise viisid';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
@@ -5426,7 +5425,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_page_customize_app_title => 'Rakenduse kohandamine';
 
   @override
-  String get preferences_page_contribute_project_title => 'Panusta projekti';
+  String get preferences_page_contribute_project_title =>
+      'Tee sellele projektile kaastööd';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
@@ -5505,11 +5505,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tooge avatud toidufaktid oma keelde';
+      'Tõlgi Open Food Facts oma keelde';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Registreeru rakenduse alfaversioonile';
+      'Registreeru rakenduse alfaversiooni kasutajaks';
 
   @override
   String get preferences_dev_mode_section_data => 'Kaastööd ja tooteandmed';

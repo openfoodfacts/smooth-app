@@ -605,7 +605,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Recarregado com suas novas preferências';
 
   @override
-  String get profile_navbar_label => 'Perfil';
+  String get profile_navbar_label => 'Comunidade';
 
   @override
   String get scan_navbar_label => 'Digitalizar';
@@ -5800,7 +5800,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.';
 
   @override
-  String get login => 'Nome de usuário';
+  String get login => 'Login';
 
   @override
   String get login_result_type_server_unreachable =>
@@ -5830,7 +5830,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'Ajude a melhorar o Open Food Facts no seu país';
 
   @override
   String get sign_out => 'Sair';
@@ -6122,7 +6122,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Contribua com preços solicitando uma exportação GDPR dos dados dos seus cartões de fidelidade';
 
   @override
   String get tap_to_answer => 'Toque aqui para responder a perguntas';
@@ -6221,7 +6221,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Recarregado com suas novas preferências';
 
   @override
-  String get profile_navbar_label => 'Perfil';
+  String get profile_navbar_label => 'Comunidade';
 
   @override
   String get scan_navbar_label => 'Digitalizar';
@@ -6608,7 +6608,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Adicionar informações nutricionais que faltam';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Adicionar traços ausentes de produtos';
 
   @override
   String get score_add_missing_product_category => 'Selecionar uma categoria';
@@ -7514,7 +7515,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Adicionar uma nova categoria';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Adicionar novo traço';
 
   @override
   String get edit_product_form_item_add_suggestion => 'Dê uma sugestão';
@@ -7710,7 +7711,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Insira um traço (ex.: Soja)';
 
   @override
   String get edit_product_form_item_categories_title => 'Categorias';
@@ -8176,25 +8177,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Adicionar etiquetas de preço diretamente da galeria';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Depois de selecionar as imagens, você não poderá editá-las!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-      'AI will run on your proofs to extract prices.';
+      'Usaremos IA em suas provas para extrair preços.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Permitir que a comunidade valide os preços extraídos pela IA.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Várias etiquetas de preço';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Envio de provas em massa';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Selecionando arquivos';
@@ -8661,7 +8662,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get all_search_prices_top_location_title => 'Lojas com mais preços';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant =>
+      'Assistente de contribuição de preços';
 
   @override
   String get prices_validation_assistant => 'Assistente de validação de preço';
@@ -8670,7 +8672,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_challenges_page => 'Desafios';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Adicionar várias provas';
 
   @override
   String get all_search_prices_top_location_single_title => 'Preços numa loja';
@@ -8769,7 +8771,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Antes de validar, certifique-se de adicionar uma tradução apenas **se o idioma estiver presente na embalagem**';
 
   @override
   String get add_basic_details_product_name_open_photo => 'Ver foto frontal';
@@ -8863,33 +8865,35 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Insira **todas as marcas do produto**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title =>
+      'Marca principal';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      'A **marca principal**, geralmente exibida claramente na embalagem frontal, deve ser **inserida primeiro**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title =>
+      'Outras marcas';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Quando vendido **por uma grande empresa**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel** é vendido pela **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Quando vendido com a marca **traduzida em vários idiomas**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Nature Valley** às vezes aparece como **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -8907,23 +8911,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Boas práticas: quantidade';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Copie o valor indicado no produto e **não se esqueça das unidades**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230g** ou **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (para 6 ovos)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150g**\n(para um produto com 3 caixas, cada uma de 150g)';
 
   @override
   String get barcode => 'Código de barras';
@@ -9603,10 +9607,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get language_selector_title => 'Selecione o seu idioma:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Idiomas selecionados';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used =>
+      'Frequentemente usados';
 
   @override
   String get action_delete_list => 'Eliminar';
@@ -9747,7 +9752,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get contact_title_newsletter => 'Inscreva-se na nossa newsletter';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar =>
+      'Assine o calendário da nossa comunidade';
 
   @override
   String get hunger_games_loading_line1 => 'Por favor, dê-nos alguns segundos…';
@@ -9871,11 +9877,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'O Nutri-Score é aplicado em 7 países: França, Alemanha, Bélgica, Espanha, Luxemburgo, Holanda e Suíça.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Os fabricantes têm no máximo **2 anos** após a assinatura do decreto **para substituir** o cálculo antigo pelo novo.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -10461,28 +10467,28 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Exportar';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'Importar';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Ver código de barras';
 
   @override
   String get product_footer_action_barcode_short => 'Código de barras';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Visitar site';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Denunciar';
 
   @override
   String get product_footer_action_contributor_guide => 'Ajuda';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Qualidade dos dados';
 
   @override
   String get product_page_tab_for_me => 'Para mim';
@@ -10494,61 +10500,62 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get product_page_tab_prices => 'Preços';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'Principais $pageSize produtos (total: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Está gostando do aplicativo?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Poderia ser melhor';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'Nada mal';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Adoro!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Ajude-nos a melhorar nosso aplicativo';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Se você tiver alguns minutos, responda a este formulário para que **possamos melhorar em atualizações futuras**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Responder ao formulário';
 
   @override
   String get app_review_feedback_modal_later => 'Perguntar depois';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'NOVO: você pode extrair os nutrientes da imagem automaticamente!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Extrair agora';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_succesful =>
+      'Extração concluída com sucesso';
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'Falha ao extrair nutrientes da imagem';
 
   @override
   String get prices_discount => 'Desconto';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Estatísticas';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Estatísticas de preços';
 
   @override
   String get prices_stats_prices_section => 'Preços';
@@ -10581,7 +10588,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_stats_with_category => 'Com uma categoria';
 
   @override
-  String get prices_stats_with_discount => 'With a discount';
+  String get prices_stats_with_discount => 'Com desconto';
 
   @override
   String get prices_stats_community => 'Comunidade';
@@ -10633,19 +10640,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Preços vinculados a uma etiqueta de preço';
 
   @override
-  String get prices_stats_currencies => 'Currencies';
+  String get prices_stats_currencies => 'Moedas';
 
   @override
-  String get prices_stats_years => 'Years';
+  String get prices_stats_years => 'Anos';
 
   @override
-  String get prices_stats_by_source_title => 'Prices and proofs per source';
+  String get prices_stats_by_source_title => 'Preços e provas por fonte';
 
   @override
   String get prices_stats_website => 'Site';
 
   @override
-  String get prices_stats_mobile_app => 'Mobile app';
+  String get prices_stats_mobile_app => 'Aplicativo móvel';
 
   @override
   String get prices_stats_api => 'API';
@@ -10654,14 +10661,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_stats_other => 'Outros';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Última atualização em';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'Ocorreu um erro ao carregar as estatísticas.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Pergunta respondida!';
 
   @override
   String get product_edit_robotoff_proof => 'Demonstração';
@@ -10921,7 +10928,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Assine o calendário da nossa comunidade';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -11033,7 +11040,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Passos simples para aumentar a transparência alimentar no seu país';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Qualidade dos dados';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
