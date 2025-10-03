@@ -32,7 +32,7 @@ dependencies:
   latlong2: 0.9.1
   matomo_tracker: 6.1.0
   package_info_plus: 8.3.1
-  device_info_plus: 11.5.0
+  device_info_plus: 12.1.0
   permission_handler: 12.0.1
   photo_view: 0.15.0
   uuid: 4.5.1
@@ -47,7 +47,7 @@ dependencies:
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 6.5.1
-  flutter_email_sender: 7.0.0
+  flutter_email_sender: 8.0.0
   flutter_native_splash: 2.4.6
   image: 4.5.4
   auto_size_text: 3.0.0
@@ -57,16 +57,16 @@ dependencies:
   collection: 1.19.1
   path: 1.9.1
   path_provider: 2.1.5
-  share_plus: 11.1.0
+  share_plus: 12.0.0
   fimber: 0.7.0
-  shimmer: ^3.0.0
+  shimmer: 3.0.0
   rive: 0.13.20
   webview_flutter: 4.13.0
-  webview_flutter_android: 4.8.2
+  webview_flutter_android: 4.10.3
   webview_flutter_wkwebview: 3.23.0
   flutter_custom_tabs: 2.4.0
   flutter_image_compress: 2.4.0
-  connectivity_plus: 6.1.5
+  connectivity_plus: 7.0.0
   dart_ping: 9.0.1
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
