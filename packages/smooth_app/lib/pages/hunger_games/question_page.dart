@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionsPage extends StatefulWidget {
   const QuestionsPage({this.product, this.questions});
@@ -114,7 +115,7 @@ class _QuestionsPageState extends State<QuestionsPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<_QuestionsAnsweredNotifier>(
       create: (BuildContext context) => _QuestionsAnsweredNotifier(),
-      child: Scaffold(
+      child: SmoothScaffold(
         appBar: AppBar(
           title: const Text('Hunger Games'),
           leading: IconButton(
