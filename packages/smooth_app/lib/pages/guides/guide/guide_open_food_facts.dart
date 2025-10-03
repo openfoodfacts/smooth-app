@@ -117,7 +117,7 @@ class _OpenFoodFactsSection2 extends StatelessWidget {
       title: appLocalizations.guide_open_food_facts_features_title,
       content: <Widget>[
         GuidesTitleContainer(
-          icon: const icons.Milk.happy(),
+          icon: const icons.Ingredients.alt(),
           title: appLocalizations.guide_open_food_facts_features_arg1_title,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

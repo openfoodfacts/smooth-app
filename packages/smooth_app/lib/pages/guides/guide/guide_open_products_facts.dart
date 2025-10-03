@@ -115,7 +115,7 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           text: appLocalizations.guide_open_products_facts_features_text,
         ),
         GuidesTitleWithText(
-          icon: const icons.Milk.happy(),
+          icon: const icons.Environment.alt(),
           title: appLocalizations.guide_open_products_facts_features_arg1_title,
           text: appLocalizations.guide_open_products_facts_features_arg1_text,
         ),
@@ -128,12 +128,18 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           },
         ),
         GuidesTitleWithText(
-          icon: const icons.Soda.happy(),
+          icon: const Icon(Icons.build, color: Colors.white),
           title: appLocalizations.guide_open_products_facts_features_arg2_title,
           text: appLocalizations.guide_open_products_facts_features_arg2_text,
         ),
+        GuidesImage(
+          imagePath:
+              'assets/guides/open_products_facts/reparability_index_9_3.svg',
+          caption: appLocalizations.guide_learn_more_subtitle,
+          desiredWidthPercent: 0.3,
+        ),
         GuidesTitleWithText(
-          icon: const icons.Salt(),
+          icon: const icons.Donate(),
           title: appLocalizations.guide_open_products_facts_features_arg3_title,
           text: appLocalizations.guide_open_products_facts_features_arg3_text,
         ),
