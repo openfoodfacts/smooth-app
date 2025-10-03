@@ -42,8 +42,8 @@ class FaqRoot extends PreferencesRoot {
           _buildDiscoverOffTile(context, appLocalizations),
           _buildDiscoverObfTile(context, appLocalizations),
           _buildDiscoverOpffTile(context, appLocalizations),
-          _buildDiscoverOpTile(context, appLocalizations),
           _buildDiscoverOpfTile(context, appLocalizations),
+          _buildDiscoverOpTile(context, appLocalizations),
           _buildHowToContributeTile(appLocalizations),
           _buildFaqTile(appLocalizations),
         ],
@@ -168,22 +168,6 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  PreferenceTile _buildDiscoverOpTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return PreferenceTile(
-      icon: Icons.travel_explore_outlined,
-      title: appLocalizations.preferences_faq_discover_op_title,
-      subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenPrices(),
-        ),
-      ),
-    );
-  }
-
   PreferenceTile _buildDiscoverOpfTile(
     BuildContext context,
     AppLocalizations appLocalizations,
@@ -195,6 +179,22 @@ class FaqRoot extends PreferencesRoot {
       onTap: () => Navigator.of(context, rootNavigator: true).push(
         MaterialPageRoute<void>(
           builder: (BuildContext context) => const GuideOpenProductsFacts(),
+        ),
+      ),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: Icons.travel_explore_outlined,
+      title: appLocalizations.preferences_faq_discover_op_title,
+      subtitleText: null,
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const GuideOpenPrices(),
         ),
       ),
     );

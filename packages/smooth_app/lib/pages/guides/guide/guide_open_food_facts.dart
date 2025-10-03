@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
+import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
+import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
@@ -21,7 +25,7 @@ class GuideOpenFoodFacts extends StatelessWidget {
       header: const _OpenFoodFactsHeader(),
       body: const <Widget>[
         _OpenFoodFactsSection1(),
-        _OpenFoodFactsSection2(),
+        // _OpenFoodFactsSection2(),
         _OpenFoodFactsSection3(),
         _OpenFoodFactsSection4(),
       ],
@@ -90,6 +94,13 @@ class _OpenFoodFactsSection1 extends StatelessWidget {
           text: appLocalizations
               .guide_open_food_facts_what_is_open_food_facts_paragraph2,
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          child: SvgPicture.asset(
+            'assets/guides/open_food_facts/chocolate-bar-eaten.svg',
+            width: 80.0,
+          ),
+        ),
       ],
     );
   }
@@ -103,11 +114,11 @@ class _OpenFoodFactsSection2 extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return GuidesParagraph(
-      title: appLocalizations.guide_open_food_facts_wikipedia_title,
+      title: appLocalizations.guide_open_food_facts_features_title,
       content: <Widget>[
         GuidesTitleContainer(
           icon: const icons.Milk.happy(),
-          title: appLocalizations.guide_open_food_facts_wikipedia_arg1_title,
+          title: appLocalizations.guide_open_food_facts_features_arg1_title,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -144,7 +155,7 @@ class _OpenFoodFactsSection3 extends StatelessWidget {
       content: <Widget>[
         GuidesTitleWithBulletPoints(
           title: appLocalizations.guide_open_food_facts_tips_arg1_title,
-          icon: const icons.Gears(),
+          icon: const Icon(Icons.thumb_down, size: 20.0, color: Colors.white),
           bulletPoints: <String>[
             appLocalizations.guide_open_food_facts_tips_arg1_text1,
             appLocalizations.guide_open_food_facts_tips_arg1_text2,
@@ -155,7 +166,7 @@ class _OpenFoodFactsSection3 extends StatelessWidget {
         ),
         GuidesTitleWithBulletPoints(
           title: appLocalizations.guide_open_food_facts_tips_arg2_title,
-          icon: const icons.Gears(),
+          icon: const Icon(Icons.thumb_up, size: 20.0, color: Colors.white),
           bulletPoints: <String>[
             appLocalizations.guide_open_food_facts_tips_arg2_text1,
             appLocalizations.guide_open_food_facts_tips_arg2_text2,
@@ -187,26 +198,47 @@ class _OpenFoodFactsSection4 extends StatelessWidget {
               NutriScoreValue.a,
               true,
             ),
-            caption: 'Click to learn more',
+            caption: appLocalizations.guide_learn_more_subtitle,
             desiredWidthPercent: 0.30,
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const GuideNutriscoreV2(),
+                ),
+              );
+            },
           ),
         ),
         GuidesTitleContainer(
           title: appLocalizations.guide_open_food_facts_scores_arg2_title,
           icon: const icons.Salt(),
-          child: const GuidesImage(
+          child: GuidesImage(
             imagePath: 'assets/guides/nova/nova_4.svg.vec',
-            caption: 'Click to learn more',
+            caption: appLocalizations.guide_learn_more_subtitle,
             desiredWidthPercent: 0.1,
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const GuideNOVA(),
+                ),
+              );
+            },
           ),
         ),
         GuidesTitleContainer(
           title: appLocalizations.guide_open_food_facts_scores_arg3_title,
           icon: const icons.Salt(),
-          child: const GuidesImage(
-            imagePath: 'assets/guides/greenscore/greenscore_a_plus.svg.vec',
-            caption: 'Click to learn more',
-            desiredWidthPercent: 0.1,
+          child: GuidesImage(
+            imagePath: 'assets/cache/green-score-a-plus.svg',
+            caption: appLocalizations.guide_learn_more_subtitle,
+            desiredWidthPercent: 0.30,
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const GuideGreenScore(),
+                ),
+              );
+            },
           ),
         ),
       ],

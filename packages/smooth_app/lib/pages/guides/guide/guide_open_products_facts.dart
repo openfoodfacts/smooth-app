@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GuideOpenProductsFacts extends StatelessWidget {
   const GuideOpenProductsFacts({super.key});
@@ -87,6 +89,13 @@ class _OpenProductsFactsSection1 extends StatelessWidget {
           text: appLocalizations
               .guide_open_products_facts_what_is_open_products_facts_paragraph2,
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          child: SvgPicture.asset(
+            'assets/guides/open_products_facts/washing-machine.svg',
+            width: 80.0,
+          ),
+        ),
       ],
     );
   }
@@ -109,6 +118,14 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           icon: const icons.Milk.happy(),
           title: appLocalizations.guide_open_products_facts_features_arg1_title,
           text: appLocalizations.guide_open_products_facts_features_arg1_text,
+        ),
+        GuidesImage(
+          imagePath: 'assets/guides/open_products_facts/impact_co2.svg',
+          caption: appLocalizations.guide_learn_more_subtitle,
+          desiredWidthPercent: 0.3,
+          onTap: () {
+            launchUrlString('https://impactco2.fr/');
+          },
         ),
         GuidesTitleWithText(
           icon: const icons.Soda.happy(),

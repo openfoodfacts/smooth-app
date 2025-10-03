@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GuideOpenPrices extends StatelessWidget {
@@ -103,15 +107,85 @@ class _OpenPricesSection2 extends StatelessWidget {
       title: appLocalizations.guide_open_prices_how_title,
       content: <Widget>[
         GuidesText(text: appLocalizations.guide_open_prices_how_paragraph1),
-        GuidesTitleWithText(
-          icon: const icons.Milk.happy(),
+        GuidesTitleContainer(
+          icon: const Icon(Icons.sell_outlined, color: Colors.white),
           title: appLocalizations.guide_open_prices_how_arg1_title,
-          text: '',
+          child: Column(
+            spacing: MEDIUM_SPACE,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: Image.network(
+                  'https://prices.openfoodfacts.org/img/0029/nCWeCVnpQJ.400.webp',
+                ),
+              ),
+              ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                  child: PreferenceTile(
+                    icon: Icons.sell_outlined,
+                    title: appLocalizations.prices_add_price_tags,
+                    subtitleText: appLocalizations
+                        .preferences_prices_add_price_tags_subtitle,
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      proofType: ProofType.priceTag,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        GuidesTitleWithText(
-          icon: const icons.Soda.happy(),
+        GuidesTitleContainer(
+          icon: const Icon(Icons.receipt_long_outlined, color: Colors.white),
           title: appLocalizations.guide_open_prices_how_arg2_title,
-          text: '',
+          child: Column(
+            spacing: MEDIUM_SPACE,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Image.network(
+                        'https://prices.openfoodfacts.org/img/0064/B7XwYylM6V.400.webp',
+                        fit: BoxFit.cover,
+                        height: 260.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                  child: PreferenceTile(
+                    icon: Icons.receipt_long_outlined,
+                    title: appLocalizations.prices_add_a_receipt,
+                    subtitleText: appLocalizations
+                        .preferences_prices_add_receipt_subtitle,
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      proofType: ProofType.receipt,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -136,7 +210,7 @@ class _OpenPricesSection3 extends StatelessWidget {
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_open_prices_why_arg2_title,
-          icon: const icons.Fish(),
+          icon: const icons.Location(),
           text: appLocalizations.guide_open_prices_why_arg2_text,
         ),
       ],

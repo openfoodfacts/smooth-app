@@ -3999,8 +3999,8 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_wikipedia_title": "Help Us Build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_wikipedia_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
   "guide_open_food_facts_tips_title": "Tips for Taking Great Photos",
   "guide_open_food_facts_tips_arg1_title": "Don’ts",
   "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
@@ -4032,6 +4032,7 @@
   },
   "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app !",
   "guide_open_pet_food_facts_tips_title": "Tips for Taking Great Photos",
   "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
   "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
@@ -4051,16 +4052,17 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts extends our mission to our furry friends! It's a database of pet food products for cats, dogs, and other companions.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of cosmetic products.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "We gather information on ingredients, nutritional analysis, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you understand what's in your personal care items. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances ? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app !",
   "guide_open_beauty_facts_tips_title": "Tips for Taking Great Photos",
   "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
   "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
@@ -4071,9 +4073,11 @@
   "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
   "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
   "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
   "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Developing a scoring system for pet food is not a priority right now. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics does not have a universally recognized, government-backed scoring system like the Nutri-Score. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://en.openfoodfacts.org/openbeautyfacts",
   "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
@@ -4094,15 +4098,15 @@
   "guide_open_prices_how_arg2_title": "Collect photos of receipts",
   "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to have a better understanding of how food prices vary geographically and in time.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over times",
-  "guide_open_prices_why_arg1_text": "Les produits trop sucrés ou trop salés verront leur note encore dégradée.",
+  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_text": "See the evolution of prices: shrinkflation, cheapflation, we can track them together!",
   "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "La note de certains poissons gras et des huiles riches en bonnes graisses va s’améliorer.",
+  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot the cheapest stores around you.",
   "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API. If you want to contribute prices at scale, please get in touch with us at contact@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API. If you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
@@ -4118,7 +4122,7 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to extend the life of objects by providing the circular solutions to maintain, repair, recycle their objects or give them a new owner.",
   "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
   "guide_open_products_facts_features_arg1_text": "Impact CO2 by French Environment Authority ADEME provides the carbon impact of many categories, make sure to categorize products precisely.",
   "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
@@ -4129,11 +4133,12 @@
   "guide_open_products_facts_information_text": "For such a wide range of items, the data we collect is flexible. To do that, we created the Folksonomy Engine.",
   "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: compatibility_with_5G_mobile_network: yes",
+  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
+  "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
