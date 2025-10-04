@@ -40,6 +40,7 @@ class LoggedInAppBarBody extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: ContributionStatisticsCard(
+                        userId: userId,
                         autoSizeGroup: autoSizeGroup,
                       ),
                     ),
