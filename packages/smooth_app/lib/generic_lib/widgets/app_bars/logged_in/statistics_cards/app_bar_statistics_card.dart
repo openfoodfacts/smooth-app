@@ -6,9 +6,9 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class AppBarStatisticsCard extends StatefulWidget {
   AppBarStatisticsCard({
@@ -32,8 +32,6 @@ class AppBarStatisticsCard extends StatefulWidget {
 }
 
 class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
-  bool _loading = false;
-
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension = context
@@ -72,21 +70,9 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: _loading ? null : _asyncLoad,
-                          child: Padding(
-                            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                            child: _loading
-                                ? const SizedBox.square(
-                                    dimension: 16.0,
-                                    child: CircularProgressIndicator.adaptive(),
-                                  )
-                                : const Icon(
-                                    Icons.refresh,
-                                    color: Colors.white,
-                                    size: 16.0,
-                                  ),
-                          ),
+                        const icons.Chevron.right(
+                          size: 14.0,
+                          color: Colors.white,
                         ),
                       ],
                     ),
@@ -113,33 +99,5 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
         ),
       ),
     );
-  }
-
-  Future<void> _asyncLoad() async {
-    if (_loading) {
-      return;
-    }
-    _loading = true;
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    if (mounted) {
-      setState(() {});
-    }
-    try {
-      final int? value = await widget.lazyCounter.getServerCount();
-      if (value != null) {
-        await widget.lazyCounter.setLocalCount(
-          value,
-          userPreferences,
-          notify: false,
-        );
-      }
-    } catch (e) {
-      Logs.e('Error loading data: $e');
-    } finally {
-      _loading = false;
-      if (mounted) {
-        setState(() {});
-      }
-    }
   }
 }
