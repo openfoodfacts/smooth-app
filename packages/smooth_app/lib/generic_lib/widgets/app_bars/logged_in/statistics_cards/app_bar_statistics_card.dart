@@ -10,7 +10,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-class AppBarStatisticsCard extends StatefulWidget {
+class AppBarStatisticsCard extends StatelessWidget {
   AppBarStatisticsCard({
     required this.imagePath,
     required this.description,
@@ -28,21 +28,16 @@ class AppBarStatisticsCard extends StatefulWidget {
   final AutoSizeGroup? autoSizeGroup;
 
   @override
-  State<StatefulWidget> createState() => _AppBarStatisticsCardState();
-}
-
-class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
-  @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
-    final int? count = widget.lazyCounter.getLocalCount(userPreferences);
+    final int? count = lazyCounter.getLocalCount(userPreferences);
 
     return InkWell(
       borderRadius: ROUNDED_BORDER_RADIUS,
-      onTap: widget.onTap,
+      onTap: onTap,
       child: SizedBox(
         height: STATISTICS_CARD_HEIGHT,
         child: Material(
@@ -51,7 +46,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
           child: Row(
             children: <Widget>[
               const SizedBox(width: MEDIUM_SPACE),
-              SvgPicture.asset(widget.imagePath, height: 32.0),
+              SvgPicture.asset(imagePath, height: 32.0),
               const SizedBox(width: MEDIUM_SPACE),
               Expanded(
                 child: Column(
@@ -80,8 +75,8 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                       children: <Widget>[
                         Expanded(
                           child: AutoSizeText(
-                            widget.description,
-                            group: widget.autoSizeGroup,
+                            description,
+                            group: autoSizeGroup,
                             minFontSize: 8.0,
                             softWrap: false,
                             maxLines: 1,
