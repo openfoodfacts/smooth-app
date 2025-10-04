@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/statistics_cards/app_bar_statistics_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
+import 'package:smooth_app/pages/prices/price_user_button.dart';
 
 class PricesStatisticsCard extends StatelessWidget {
   const PricesStatisticsCard({
@@ -22,6 +23,8 @@ class PricesStatisticsCard extends StatelessWidget {
       imagePath: 'assets/preferences/cash.svg',
       description: appLocalizations.preferences_app_bar_prices_added,
       lazyCounter: LazyCounterPrices(userId),
+      onTap: () async =>
+          PriceUserButton.showUserPrices(user: userId, context: context),
       autoSizeGroup: autoSizeGroup,
     );
   }
