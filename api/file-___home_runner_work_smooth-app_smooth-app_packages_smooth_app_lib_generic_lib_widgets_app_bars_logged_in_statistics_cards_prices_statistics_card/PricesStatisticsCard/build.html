@@ -77,6 +77,8 @@ Widget build(BuildContext context) {
     imagePath: &#39;assets&#47;preferences&#47;cash.svg&#39;,
     description: appLocalizations.preferences_app_bar_prices_added,
     lazyCounter: LazyCounterPrices(userId),
+    onTap: () async =&gt;
+        PriceUserButton.showUserPrices(user: userId, context: context),
     autoSizeGroup: autoSizeGroup,
   );
 }</code></pre>
