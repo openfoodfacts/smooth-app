@@ -2,7 +2,10 @@ setup_travis
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "16.4")
+  xcodes(
+  version: '16.4',
+  select_for_current_build_only: true,
+  )
 end
 
 platform :ios do
