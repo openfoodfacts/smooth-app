@@ -67,9 +67,7 @@ class PriceDataWidget extends StatelessWidget {
                       child: _PriceDataEntry(
                         icon: const icons.Clock.alt(size: 19.0),
                         label: DateFormat.yMd(locale).format(purchased),
-                        shortLabel: DateFormat.Md(
-                          locale,
-                        ).format(purchased),
+                        shortLabel: DateFormat.Md(locale).format(purchased),
                         labelStyle: const TextStyle(
                           fontWeight: FontWeight.w600,
                         ),
