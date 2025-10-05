@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -16,7 +17,6 @@ import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
@@ -213,8 +213,15 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
-              builder: (BuildContext context, GoRouterState state) =>
-                  PreferencesPage(),
+              builder: (BuildContext context, GoRouterState state) {
+                final String preferenceType =
+                    state.pathParameters['preferenceType']!;
+                return UserPreferencesPage(
+                  type: PreferencePageType.values.firstWhereOrNull(
+                    (PreferencePageType type) => type.name == preferenceType,
+                  ),
+                );
+              },
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
