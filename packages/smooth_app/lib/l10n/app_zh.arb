@@ -1559,7 +1559,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "如何输入“{value}”？",
+  "edit_product_form_item_help": "如何输入\"{value}\"？",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
