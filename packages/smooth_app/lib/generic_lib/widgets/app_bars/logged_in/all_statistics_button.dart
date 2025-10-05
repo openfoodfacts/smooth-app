@@ -16,7 +16,7 @@ class AllStatisticsButton extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final BorderRadius borderRadius = BorderRadius.circular(20.0);
+    const BorderRadius borderRadius = ROUNDED_BORDER_RADIUS;
 
     return Material(
       borderRadius: borderRadius,
