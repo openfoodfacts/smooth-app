@@ -3920,7 +3920,7 @@
   "guide_greenscore_lca_arg3_text1": "Changement climatique/empreinte carbone",
   "guide_greenscore_lca_arg3_text2": "Appauvrissement de la couche d'ozone",
   "guide_greenscore_lca_arg3_text3": "rayonnement ionisant",
-  "guide_greenscore_lca_arg3_text4": "Land",
+  "guide_greenscore_lca_arg3_text4": "Atterrir",
   "guide_greenscore_lca_arg3_text5": "Consommation d'eau et d'énergie",
   "guide_greenscore_lca_arg3_text6": "Pollution de l'air",
   "guide_greenscore_lca_arg3_text7": "Eau marine et eau douce (particules, acidification, eutrophisation)",
@@ -5221,5 +5221,14 @@
   "preferences_account_title": "Compte",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Ajouté le {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }
