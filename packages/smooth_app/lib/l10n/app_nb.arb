@@ -3985,7 +3985,7 @@
   "guide_nova_explanations_arg3_text": "En rekke prosesssekvenser brukes for å kombinere de vanligvis mange ingrediensene og for å lage sluttproduktet (derav «ultraprosessert»). Prosessene inkluderer flere uten innenlandske ekvivalenter, som hydrogenering og hydrolysering, ekstrudering og støping, og forbehandling for steking.",
   "guide_nova_explanations_arg4_title": "De rovlystne og økonomiske aspektene ved ultraprosessering",
   "guide_nova_explanations_arg4_text": "Det overordnede formålet med ultraprosessering er å skape merkevareprodukter som er praktiske (holdbare, klare til konsum), attraktive (hyper-velsmakende) og svært lønnsomme (lavkostingredienser) og er utformet for å erstatte alle andre matvaregrupper. Ultraprosesserte matvarer pakkes vanligvis attraktivt og markedsføres intensivt.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://no.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

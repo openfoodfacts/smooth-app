@@ -2728,7 +2728,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_entry_menu_open_proof => 'Voir la preuve';
 
   @override
-  String get prices_entry_menu_my_prices => 'Voir mes autres tarifs';
+  String get prices_entry_menu_my_prices => 'Voir mes autres prix';
 
   @override
   String get prices_entry_menu_author_prices =>
@@ -2736,7 +2736,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get prices_entry_menu_shop_prices =>
-      'Voir les autres prix de la boutique';
+      'Voir les autres prix de ce magasin';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2852,8 +2852,8 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Tous les $count prix',
-      one: 'Un seul prix',
+      other: '$count prix',
+      one: 'Un prix',
       zero: 'Aucun prix',
     );
     return '$_temp0';
