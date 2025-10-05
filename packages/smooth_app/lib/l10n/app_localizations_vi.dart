@@ -323,10 +323,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get sign_up_page_terms_text => 'điều khoản sử dụng và đóng góp';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4229,10 +4225,6 @@ class AppLocalizationsVi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Điểm sinh thái';
 
   @override
@@ -4418,10 +4410,6 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Thức ăn siêu chế biến';
 
   @override
@@ -4510,9 +4498,6 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Mục đích chung của siêu chế biến là tạo ra các sản phẩm thực phẩm có thương hiệu, tiện lợi (bền, dễ tiêu thụ), hấp dẫn (siêu ngon miệng) và có lợi nhuận cao (nguyên liệu giá rẻ) được thiết kế để thay thế tất cả các nhóm thực phẩm khác. Các sản phẩm thực phẩm siêu chế biến thường được đóng gói hấp dẫn và tiếp thị rầm rộ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

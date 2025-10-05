@@ -328,10 +328,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sign_up_page_terms_text => 'τους όρους χρήσης και συνεισφοράς';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://gr.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4296,10 +4292,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://gr.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4490,10 +4482,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Σε αντίθεση με τις ιδιόκτητες ετικέτες, ο υπολογισμός του Green-Score είναι **εντελώς ανοιχτός** και μπορεί να **επαληθευτεί από οποιονδήποτε**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Υπερεπεξεργασμένα τρόφιμα';
 
   @override
@@ -4582,9 +4570,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ο γενικός σκοπός της υπερεπεξεργασίας είναι η δημιουργία επώνυμων, βολικών (ανθεκτικών, έτοιμων προς κατανάλωση), ελκυστικών (υπερεύγευστων) και εξαιρετικά κερδοφόρων (χαμηλού κόστους συστατικά) τροφίμων, σχεδιασμένων να εκτοπίσουν όλες τις άλλες ομάδες τροφίμων. Τα υπερεπεξεργασμένα τρόφιμα συνήθως συσκευάζονται ελκυστικά και διατίθενται στην αγορά εντατικά.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Προεπισκόπηση';

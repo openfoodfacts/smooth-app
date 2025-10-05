@@ -5,6 +5,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GuideNutriscoreV2 extends StatelessWidget {
@@ -12,8 +13,6 @@ class GuideNutriscoreV2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     return GuidesPage(
       pageName: 'NutriscoreV2',
       header: const _NutriscoreHeader(),
@@ -26,7 +25,9 @@ class GuideNutriscoreV2 extends StatelessWidget {
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
-          shareUrl: appLocalizations.guide_nutriscore_v2_share_link,
+          shareUrl: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/nutriscore-v2',
+          ),
         ),
       ),
     );

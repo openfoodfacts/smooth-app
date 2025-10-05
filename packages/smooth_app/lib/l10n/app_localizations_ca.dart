@@ -326,10 +326,6 @@ class AppLocalizationsCa extends AppLocalizations {
   String get sign_up_page_terms_text => 'termes d\'ús i contribució';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://es-ca.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url =>
       'https://es-ca.openfoodfacts.org/donate-to-open-food-facts';
 
@@ -4259,10 +4255,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4452,10 +4444,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'A diferència de les etiquetes pròpies, el càlcul de Green-Score és **completament obert** i qualsevol persona pot **verificar-lo**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Aliments ultraprocessats';
 
   @override
@@ -4543,9 +4531,6 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L\'objectiu general de l\'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d\'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i comercialitzar-se intensivament.';
-
-  @override
-  String get guide_nova_share_link => 'https://ca.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

@@ -321,10 +321,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4204,10 +4200,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4399,10 +4391,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ngokungafani namalebula obunikazi, ukubala kwe-Green-Score **kuvulwe ngokuphelele** futhi **kungaqinisekiswa yinoma ubani**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4477,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Inhloso iyonke yokucubungula okuphezulu ukudala imikhiqizo yokudla ebhalwe uphawu, elula (ehlala isikhathi eside, elungele ukusetshenziswa), ekhangayo (e-hyper-flatable) futhi enenzuzo enkulu (izithako ezingabizi kakhulu) eklanyelwe ukususa wonke amanye amaqembu okudla. Imikhiqizo yokudla okucutshungulwe kakhulu ivamise ukupakishwa ngendlela ekhangayo futhi imakethwe kakhulu.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

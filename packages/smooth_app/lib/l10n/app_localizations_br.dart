@@ -321,10 +321,6 @@ class AppLocalizationsBr extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4207,10 +4203,6 @@ class AppLocalizationsBr extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsBr extends AppLocalizations {
       'Er c\'hontrol d\'an tikedennoù perc\'hennet, ar jediñ Green-Score a zo **digor penn-da-benn** ha gallout a ra bezañ **gwiriekaet gant piv bennak**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://br.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsBr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket, aes (padus, prest da zebriñ), dedennus (tre-blev) ha gounezus-kenañ (elfennoù izel) savet evit dilec\'hiañ an holl strolladoù boued all. Ar produioù boued ultra-treuzfurmet a vez paket en un doare dedennus ha marc\'hataet kalz peurliesañ.';
-
-  @override
-  String get guide_nova_share_link => 'https://br.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

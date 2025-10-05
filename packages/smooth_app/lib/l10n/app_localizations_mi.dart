@@ -321,10 +321,6 @@ class AppLocalizationsMi extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4209,10 +4205,6 @@ class AppLocalizationsMi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsMi extends AppLocalizations {
       'Kare i rite ki nga tapanga rangatira, ko te tatauranga Kakariki-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsMi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ko te kaupapa katoa o te tukatuka ultra ko te hanga parani, watea (te roa, kua rite ki te kai), ataahua (he tino reka) me te tino whai hua (nga kai iti-utu) i hangaia hei whakakore i nga roopu kai katoa. Ko nga hua kai kua oti te tukatuka i te nuinga o te waa he tino ataahua, ka kaha te maakete.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

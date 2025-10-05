@@ -326,10 +326,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sign_up_page_terms_text => 'podmínky použití a příspěvek';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://cz.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4229,10 +4225,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Pro výrobce zůstává zobrazení Nutri-Score **nepovinné**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world-cs.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Eco-score';
 
   @override
@@ -4417,10 +4409,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Na rozdíl od proprietárních značek je výpočet Green-Score **zcela otevřený** a může být **ověřen kýmkoli**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://cs.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra zpracované potraviny';
 
   @override
@@ -4508,9 +4496,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (levné ingredience) potravinářské výrobky určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.';
-
-  @override
-  String get guide_nova_share_link => 'https://cs.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Náhled';

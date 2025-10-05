@@ -321,10 +321,6 @@ class AppLocalizationsBm extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4208,10 +4204,6 @@ class AppLocalizationsBm extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsBm extends AppLocalizations {
       'A tɛ i n’a fɔ labeli propriétaires, Green-Score jatebɔ ye **da wuli pewu** wa a bɛ se ka **sɛgɛsɛgɛ mɔgɔ bɛɛ fɛ**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultra-processing kun bɛɛ ye ka dumunifɛnw dilan minnu tɔgɔ sɛbɛnnen don, minnu bɛ se ka mɛn, minnu bɛ mɛn, minnu bɛ se ka dun, minnu bɛ mɔgɔ ɲɛnajɛ (min ka di kosɛbɛ) ani minnu nafa ka bon kosɛbɛ (fɛn minnu musaka ka dɔgɔ) minnu dabɔra ka dumuni kulu tɔw bɛɛ bɔ u nɔ na. A ka c’a la, dumunifɛnw minnu dilannen don ni ultra-processed ye, olu bɛ kɛ pake kɔnɔ cogo la min bɛ mɔgɔ ɲɛnajɛ, wa u bɛ feere kosɛbɛ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.dumuniw dafalenw.org/nova';
 
   @override
   String get preview_badge => 'Preview';

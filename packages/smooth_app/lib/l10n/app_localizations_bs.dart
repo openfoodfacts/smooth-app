@@ -322,10 +322,6 @@ class AppLocalizationsBs extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4207,10 +4203,6 @@ class AppLocalizationsBs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4398,10 +4390,6 @@ class AppLocalizationsBs extends AppLocalizations {
       'Za razliku od vlasničkih oznaka, izračun Green-Scorea je **potpuno otvoren** i može ga **provjeriti bilo ko**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4488,9 +4476,6 @@ class AppLocalizationsBs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Opća svrha ultra-prerade je stvaranje brendiranih, praktičnih (izdržljivih, spremnih za konzumaciju), atraktivnih (hiper-ukusnih) i visoko profitabilnih (jeftini sastojci) prehrambenih proizvoda dizajniranih da istisnu sve ostale grupe hrane. Ultra-prerađeni prehrambeni proizvodi obično su atraktivno pakirani i intenzivno se plasiraju na tržište.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

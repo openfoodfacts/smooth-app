@@ -332,10 +332,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'conditions d\'utilisation et de contribution d\'Open Food Facts';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-fr.openfoodfacts.org/conditions-d-utilisation';
-
-  @override
   String get donate_url => 'https://donner.openfoodfacts.org/';
 
   @override
@@ -4300,10 +4296,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Pour les fabricants, l\'affichage du Nutri-Score **reste optionnel**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://fr.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4495,10 +4487,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Contrairement aux labels propriétaires, le calcul du Green-Score est **complètement ouvert** et peut être **vérifié par n\'importe qui**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Aliments ultra-transformés';
 
   @override
@@ -4587,9 +4575,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L\'objectif général de l\'ultratransformation est de créer des produits alimentaires de marque, pratiques (durables, prêts à consommer), attrayants (hyper appétissants) et très rentables (ingrédients à faible coût), destinés à supplanter tous les autres groupes alimentaires. Les produits alimentaires ultratransformés sont généralement emballés de manière attrayante et font l\'objet d\'une commercialisation intensive.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Aperçu';

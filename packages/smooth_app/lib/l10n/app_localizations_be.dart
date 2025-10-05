@@ -325,10 +325,6 @@ class AppLocalizationsBe extends AppLocalizations {
       'умовамі выкарыстання і ўнёску ў Open Food Facts';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4232,10 +4228,6 @@ class AppLocalizationsBe extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4423,10 +4415,6 @@ class AppLocalizationsBe extends AppLocalizations {
       'У адрозненне ад запатэнтаваных маркіровак, разлік Green-Score **цалкам адкрыты** і можа быць **правераны кім заўгодна**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4513,9 +4501,6 @@ class AppLocalizationsBe extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Агульная мэта ультраапрацоўкі — стварэнне брэндаваных, зручных (трывалых, гатовых да ўжывання), прывабных (вельмі смачных) і высокапрыбытковых (з недарагіх інгрэдыентаў) харчовых прадуктаў, прызначаных для выцяснення ўсіх іншых груп прадуктаў харчавання. Ультраапрацоўчаныя харчовыя прадукты звычайна прывабна ўпакоўваюцца і актыўна прадаюцца.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
