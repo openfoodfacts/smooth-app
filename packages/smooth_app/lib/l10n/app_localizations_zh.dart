@@ -5422,4 +5422,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get preferences_account_title => '账户';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Added on $created';
+  }
 }

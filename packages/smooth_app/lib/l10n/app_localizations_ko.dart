@@ -5402,4 +5402,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_account_title => '계정';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Added on $created';
+  }
 }
