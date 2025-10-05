@@ -1154,7 +1154,7 @@
   },
   "really_clear": "确定要删除此列表吗？",
   "@Plural": {},
-  "pct_match": "{percent}% 匹配度",
+  "pct_match": "{Percent}% 匹配度",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
@@ -1559,7 +1559,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "如何输入\"{value}\"？",
+  "edit_product_form_item_help": "如何输入“{value}”？",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
@@ -5221,5 +5221,14 @@
   "preferences_account_title": "账户",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "添加于 {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }
