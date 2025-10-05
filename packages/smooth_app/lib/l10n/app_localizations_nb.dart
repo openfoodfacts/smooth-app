@@ -4504,7 +4504,7 @@ class AppLocalizationsNb extends AppLocalizations {
       'Det overordnede formålet med ultraprosessering er å skape merkevareprodukter som er praktiske (holdbare, klare til konsum), attraktive (hyper-velsmakende) og svært lønnsomme (lavkostingredienser) og er utformet for å erstatte alle andre matvaregrupper. Ultraprosesserte matvarer pakkes vanligvis attraktivt og markedsføres intensivt.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://no.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -5539,4 +5539,9 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Konto';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Added on $created';
+  }
 }
