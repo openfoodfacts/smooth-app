@@ -69,7 +69,7 @@ class PriceDataWidget extends StatelessWidget {
                         label: DateFormat.yMd(locale).format(purchased),
                         shortLabel: DateFormat.Md(
                           locale,
-                        ).add_Hm().format(purchased),
+                        ).format(purchased),
                         labelStyle: const TextStyle(
                           fontWeight: FontWeight.w600,
                         ),
