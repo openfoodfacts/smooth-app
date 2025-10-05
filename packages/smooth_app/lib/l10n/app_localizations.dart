@@ -9570,6 +9570,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Account'**
   String get preferences_account_title;
+
+  /// Tooltip to show the timestamp on which price was added
+  ///
+  /// In en, this message translates to:
+  /// **'Added on {created}'**
+  String prices_adding_timestamp_tooltip(String created);
 }
 
 class _AppLocalizationsDelegate

@@ -34,6 +34,7 @@ class PriceDataWidget extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
     final String locale = Localizations.localeOf(context).toLanguageTag();
 
+    final DateTime purchased = price.date.toLocal();
     final DateTime created = price.created.toLocal();
 
     return DefaultTextStyle.merge(
@@ -58,15 +59,21 @@ class PriceDataWidget extends StatelessWidget {
                 spacing: VERY_SMALL_SPACE,
                 children: <Widget>[
                   Expanded(
-                    child: _PriceDataEntry(
-                      icon: const icons.Clock.alt(size: 19.0),
-                      label: DateFormat.yMd(locale).add_Hm().format(created),
-                      shortLabel: DateFormat.Md(
-                        locale,
-                      ).add_Hm().format(created),
-                      labelStyle: const TextStyle(fontWeight: FontWeight.w600),
-                      labelPadding: const EdgeInsetsDirectional.only(
-                        bottom: 2.5,
+                    child: Tooltip(
+                      message: appLocalizations.prices_adding_timestamp_tooltip(
+                        DateFormat.yMd(locale).add_Hm().format(created),
+                      ),
+                      enableFeedback: true,
+                      child: _PriceDataEntry(
+                        icon: const icons.Clock.alt(size: 19.0),
+                        label: DateFormat.yMd(locale).format(purchased),
+                        shortLabel: DateFormat.Md(locale).format(purchased),
+                        labelStyle: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                        labelPadding: const EdgeInsetsDirectional.only(
+                          bottom: 2.5,
+                        ),
                       ),
                     ),
                   ),

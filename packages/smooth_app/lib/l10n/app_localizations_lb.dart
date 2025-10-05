@@ -5530,4 +5530,9 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Added on $created';
+  }
 }
