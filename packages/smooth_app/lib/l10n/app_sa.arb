@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "स्थायिभोजनस्य चयनं जटिलं अनुभवितुं शक्नोति। लेबल् भ्रान्तिकारकं भवति, सूचना च प्रायः अभावः भवति । ग्रीन-स्कोर इत्यस्य निर्माणं सरलं कर्तुं कृतम्, यत् भवन्तं खाद्यपदार्थानाम् कृते **स्पष्टं**, **विज्ञान-आधारितं**, **पारदर्शकं** च पर्यावरण-रेटिंग् ददाति, यत्र भवतः आवश्यकता अस्ति: यदा भवन्तः शॉपिङ् कुर्वन्ति।",
   "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
   "guide_greenscore_better_product_arg4_text": "स्वामित्वलेबलस्य विपरीतम्, Green-Score गणना **पूर्णतया उद्घाटिता** अस्ति तथा च **केनापि सत्यापितुं शक्यते** ।",
-  "guide_greenscore_share_link": "https://hi.openfoodfacts.org/ग्रीन-स्कोर इति वृत्तान्तः",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "सामान्यतया अनेकानाम् अवयवानां संयोजनाय अन्तिम-उत्पादस्य (अतः 'अति-संसाधित') निर्माणार्थं प्रक्रियाणां क्रमानां बहुलतायाः उपयोगः भवति । प्रक्रियासु अनेकाः सन्ति येषां घरेलुसमतुल्यता नास्ति, यथा जलवायुकरणं जलविपाकं च, निष्कासनं, ढालनं च, भर्जनार्थं पूर्वप्रक्रियाकरणं च",
   "guide_nova_explanations_arg4_title": "अति-प्रक्रियाकरणस्य शिकारी-वित्तीय-पक्षाः",
   "guide_nova_explanations_arg4_text": "अति-प्रक्रियाकरणस्य समग्रं उद्देश्यं अन्येषां सर्वेषां खाद्यसमूहानां विस्थापनार्थं डिजाइनं कृत्वा ब्राण्ड्-कृतं, सुविधाजनकं (स्थायित्वं, उपभोगार्थं सज्जं), आकर्षकं (अति-स्वादयुक्तं) अत्यन्तं लाभप्रदं (कम-लाभयुक्तं घटकं) च खाद्यपदार्थानां निर्माणं भवति अल्ट्रा-प्रोसेस्ड् खाद्यपदार्थाः प्रायः आकर्षकरूपेण पैकेज्ड् भवन्ति, गहनतया च विपणनं कुर्वन्ति ।",
-  "guide_nova_share_link": "https://hi.openfoodfacts.org/nova इति वृत्तान्तः",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
