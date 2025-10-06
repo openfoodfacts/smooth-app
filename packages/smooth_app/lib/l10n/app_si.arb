@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. හරිත-ලකුණු නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.",
   "guide_greenscore_better_product_arg4_title": "විනිවිදභාවය",
   "guide_greenscore_better_product_arg4_text": "හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "සාමාන්‍යයෙන් බොහෝ අමුද්‍රව්‍ය ඒකාබද්ධ කර අවසාන නිෂ්පාදනය නිර්මාණය කිරීම සඳහා ක්‍රියාවලි අනුපිළිවෙලවල් රාශියක් භාවිතා කරනු ලැබේ (එබැවින් 'අතිශයින්ම සැකසූ'). හයිඩ්‍රජනීකරණය සහ ජල විච්ඡේදනය, නිස්සාරණය සහ අච්චු කිරීම සහ බැදීම සඳහා පූර්ව සැකසුම් වැනි ගෘහස්ථ සමානකම් නොමැති ක්‍රියාවලීන් කිහිපයක් මෙම ක්‍රියාවලීන්ට ඇතුළත් වේ.",
   "guide_nova_explanations_arg4_title": "අල්ට්‍රා-සැකසුම්කරණයේ කොල්ලකාරී සහ මූල්‍ය අංශ",
   "guide_nova_explanations_arg4_text": "අල්ට්‍රා-සැකසීමේ සමස්ත අරමුණ වන්නේ අනෙකුත් සියලුම ආහාර කාණ්ඩ විස්ථාපනය කිරීම සඳහා නිර්මාණය කර ඇති සන්නාමගත, පහසු (කල් පවතින, පරිභෝජනයට සූදානම්), ආකර්ශනීය (අධි-රසවත්) සහ ඉහළ ලාභදායී (අඩු වියදම් අමුද්‍රව්‍ය) ආහාර නිෂ්පාදන නිර්මාණය කිරීමයි. අල්ට්‍රා-සැකසූ ආහාර නිෂ්පාදන සාමාන්‍යයෙන් ආකර්ශනීය ලෙස ඇසුරුම් කර දැඩි ලෙස අලෙවි කරනු ලැබේ.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
