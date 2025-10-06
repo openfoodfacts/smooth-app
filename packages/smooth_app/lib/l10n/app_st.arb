@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Ho khetha lijo tse tšoarellang ho ka utloahala ho rarahane. Lileibole lia ferekanya 'me hangata litaba ha li eo. Green-Score e bōpiloe ho etsa hore e be bonolo, ho u fa ** e hlakileng **, ** e thehiloeng ho saense **, le ** e pepeneneng ** lintlha tsa tikoloho bakeng sa lihlahisoa tsa lijo, moo u li hlokang teng: ha u ntse u reka.",
   "guide_greenscore_better_product_arg4_title": "Ponaletso",
   "guide_greenscore_better_product_arg4_text": "Ho fapana le lileibole tsa mong'a ntlo, lipalo tsa Green-Score li ** bulehile ka botlalo ** 'me li ka ** netefatsoa ke mang kapa mang**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Letoto la tatellano ea lits'ebetso li sebelisoa ho kopanya metsoako eo hangata e leng ngata le ho etsa sehlahisoa sa ho qetela (ka hona 'ultra-processed'). Ts'ebetso e kenyelletsa tse 'maloa tse se nang lisebelisoa tsa lapeng, joalo ka hydrogenation le hydrolysation, extrusion le moulding, le pele ho ts'ebetso ea ho halika.",
   "guide_nova_explanations_arg4_title": "Likarolo tse mpe le tsa lichelete tsa ultra-processing",
   "guide_nova_explanations_arg4_text": "Morero o akaretsang oa ts'ebetso ea morao-rao ke ho theha lihlahisoa tsa lijo tse nang le lebitso, tse loketseng (tse tšoarellang, tse loketseng ho jeoa), tse khahlehang (li-hyper-latable) le tse fanang ka chelete e ngata (lisebelisoa tsa theko e tlase) tse etselitsoeng ho tlosa lihlopha tse ling tsohle tsa lijo. Hangata lihlahisoa tsa lijo tse entsoeng ka mokhoa o phahameng ka ho fetesisa li pakoa ka mokhoa o khahlang le ho rekisoa ka matla.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
