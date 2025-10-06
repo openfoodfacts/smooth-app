@@ -9,6 +9,9 @@ class AppLocalizationsTg extends AppLocalizations {
   AppLocalizationsTg([String locale = 'tg']) : super(locale);
 
   @override
+  String get app_name => 'Далелҳои озуқавориро кушоед';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Ҳисоби маро нест кунед';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Дар вебсайти Open Prices кушоед';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4208,6 @@ class AppLocalizationsTg extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4395,10 +4393,6 @@ class AppLocalizationsTg extends AppLocalizations {
       'Баръакси тамғакоғазҳои хусусӣ, ҳисоби Green-Score **комилан кушода аст** ва метавонад **аз ҷониби ҳар кас тасдиқ карда шавад**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4485,9 +4479,6 @@ class AppLocalizationsTg extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Мақсади умумии коркарди ултра-коркард аз он иборат аст, ки маҳсулоти бренди, қулай (устувор, барои истеъмол омода), ҷолиб (гипер хушбӯй) ва сердаромад (компонентҳои камхарҷ), ки барои иваз кардани ҳама гурӯҳҳои дигари ғизо пешбинӣ шудаанд. Маҳсулоти хӯроквории ултра коркардшуда одатан ба таври ҷолиб бастабандӣ карда мешаванд ва ба таври интенсивӣ ба фурӯш бароварда мешаванд.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4838,7 +4829,10 @@ class AppLocalizationsTg extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Истихроҷ ҷараён дорад…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Истихроҷ бомуваффақият';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,6 +4979,12 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Омори ман';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Асбобҳои моро…тарҷума кунед, такмил диҳед';
 
@@ -5064,6 +5064,10 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Facts Open Food - махзани маҳсулоти хӯрокворӣ **аз ҷониби ҳама, барои ҳама** сохта шудааст.\nШумо метавонед онро барои интихоби беҳтари ғизо истифода баред ва азбаски он **маълумоти кушода** аст, ҳар кас метавонад онро **бо ҳар мақсад** дубора истифода барад.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5116,6 +5120,9 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Ҳисоби маро идора кунед';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Ҳисоби худро идора кунед';
 
   @override
   String get preferences_change_password_title => 'Пароли маро иваз кунед';
@@ -5229,10 +5236,6 @@ class AppLocalizationsTg extends AppLocalizations {
       'Бо иштирок дар яке аз чорабиниҳои виртуалии мо иштирок кунед';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Моро дар шабакаҳои иҷтимоӣ пайравӣ кунед';
-
-  @override
   String get preferences_connect_blog_title => 'Блоги Open Facts Food';
 
   @override
@@ -5343,8 +5346,8 @@ class AppLocalizationsTg extends AppLocalizations {
       'Ба кӯшишҳои мо ҳамроҳ шавед, то базаи маълумот пурра ва дақиқ бошад';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 маҳсулот илова карда шуд';
+  String get preferences_contributions_products_added_title =>
+      'Маҳсулоти иловашуда';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5357,6 +5360,16 @@ class AppLocalizationsTg extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Ҳама маҳсулоти нопурра';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Нархҳои ман, далелҳои ман…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5489,6 +5502,36 @@ class AppLocalizationsTg extends AppLocalizations {
       'Аутентификатсия ноком шуд, далелҳоро дарёфт карда натавонист';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count аз $total далелҳо';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count аз $total саҳмгузорон';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count аз $total макон';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count маконҳо';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Лутфан барномаро бозоғоз намоед, то тағиротро татбиқ кунед.';
 
@@ -5530,6 +5573,6 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Илова карда шуд $created';
   }
 }

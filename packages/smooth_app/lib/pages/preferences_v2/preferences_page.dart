@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
@@ -11,7 +12,8 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences_v2/cards/headers/new_nutriscore_header.dart';
+import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
+import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/about_app_root.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/app_settings_root.dart';
@@ -33,7 +35,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class PreferencesPage extends StatelessWidget {
   @override
@@ -41,13 +44,8 @@ class PreferencesPage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     context.watch<UserManagementProvider>();
-    final ThemeData theme = Theme.of(context);
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
-
-    final Color iconColor = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -60,40 +58,51 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildFoodPreferencesTile(appLocalizations, iconColor),
-              _buildAppSettingsTile(appLocalizations, iconColor),
+              _buildFoodPreferencesTile(appLocalizations),
+              _buildAppSettingsTile(appLocalizations),
             ],
           ),
           PreferenceCard(
             title: appLocalizations.preferences_card_project,
             tiles: <PreferenceTile>[
-              _buildContributeProjectTile(appLocalizations, iconColor),
-              _buildSupportTile(appLocalizations, iconColor),
+              _buildContributeProjectTile(appLocalizations),
+              _buildSupportTile(appLocalizations),
             ],
           ),
           PreferenceCard(
             title: appLocalizations.preferences_card_help,
-            header: NewNutriscoreHeader(),
+            header: const NutriScoreV2Banner(),
             tiles: <PreferenceTile>[
-              _buildFaqTile(appLocalizations, iconColor),
-              _buildConnectTile(appLocalizations, iconColor),
+              _buildFaqTile(appLocalizations),
+              _buildConnectTile(appLocalizations),
             ],
           ),
           PreferenceCard(
             title: appLocalizations.preferences_card_about,
             tiles: <PreferenceTile>[
-              _buildLegalInformationTile(appLocalizations, iconColor),
-              _buildAboutAppTile(appLocalizations, iconColor),
+              _buildLegalInformationTile(appLocalizations),
               if (userPreferences.devMode > 0)
-                _buildDevModeTile(appLocalizations, iconColor),
+                _buildDevModeTile(
+                  appLocalizations,
+                  context.extension<SmoothColorsThemeExtension>().error,
+                ),
+              _buildAboutAppTile(appLocalizations),
             ],
           ),
         ],
-        externalSearchTiles: <ExternalSearchPreferenceTile>[
+        externalSearchTiles: const <ExternalSearchPreferenceTile>[
           WikiSearchPreferenceTile(),
           GithubSearchPreferenceTile(),
-          const ForumSearchPreferenceTile(),
+          ForumSearchPreferenceTile(),
         ],
+        footer: (_) => Consumer<PreferencesRootSearchController>(
+          builder: (_, PreferencesRootSearchController controller, _) {
+            if (controller.query?.isNotEmpty == true) {
+              return EMPTY_WIDGET;
+            }
+            return const SocialNetworksFooter();
+          },
+        ),
       ),
     );
   }
@@ -156,7 +165,7 @@ class PreferencesPage extends StatelessWidget {
       onTap: () async {
         AnalyticsHelper.trackEvent(AnalyticsEvent.hungerGameOpened);
 
-        await Navigator.of(context).push<int>(
+        await Navigator.of(context, rootNavigator: true).push<int>(
           MaterialPageRoute<int>(
             builder: (BuildContext context) => const QuestionsPage(),
           ),
@@ -195,10 +204,9 @@ class PreferencesPage extends StatelessWidget {
   // Customize App section
   NavigationPreferenceTile _buildFoodPreferencesTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.HappyToast(color: iconColor),
+      leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
       target: const UserPreferencesPage(type: PreferencePageType.FOOD),
@@ -207,10 +215,9 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildAppSettingsTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Personalization.alt(color: iconColor),
+      leading: const icons.Personalization.alt(size: 20.0),
       title: appLocalizations.myPreferences_settings_title,
       subtitleText: appLocalizations.myPreferences_settings_subtitle,
       root: AppSettingsRoot(title: appLocalizations.settings_app_app),
@@ -220,10 +227,9 @@ class PreferencesPage extends StatelessWidget {
   // Project section
   NavigationPreferenceTile _buildContributeProjectTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Contribute(color: iconColor),
+      leading: const icons.Contribute(),
       title: appLocalizations.preferences_page_contribute_project_title,
       subtitleText:
           appLocalizations.preferences_page_contribute_project_subtitle,
@@ -233,12 +239,9 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  UrlPreferenceTile _buildSupportTile(
-    AppLocalizations appLocalizations,
-    Color iconColor,
-  ) {
+  UrlPreferenceTile _buildSupportTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      leading: icons.Donate(color: iconColor),
+      leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
       url: appLocalizations.donate_url,
@@ -246,12 +249,9 @@ class PreferencesPage extends StatelessWidget {
   }
 
   // Help section
-  NavigationPreferenceTile _buildFaqTile(
-    AppLocalizations appLocalizations,
-    Color iconColor,
-  ) {
+  NavigationPreferenceTile _buildFaqTile(AppLocalizations appLocalizations) {
     return NavigationPreferenceTile(
-      leading: icons.Lifebuoy(color: iconColor),
+      leading: const icons.Lifebuoy(),
       title: appLocalizations.preferences_faq_subtitle,
       subtitleText: appLocalizations.preferences_page_faq_subtitle,
       root: FaqRoot(title: appLocalizations.preferences_faq_title),
@@ -260,10 +260,9 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildConnectTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Message.edit(color: iconColor),
+      leading: const icons.Message(),
       title: appLocalizations.preferences_connect_title,
       subtitleText: appLocalizations.preferences_connect_subtitle,
       root: ConnectRoot(title: appLocalizations.preferences_connect_title),
@@ -273,10 +272,9 @@ class PreferencesPage extends StatelessWidget {
   // About section
   NavigationPreferenceTile _buildLegalInformationTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Info(color: iconColor),
+      leading: const icons.Law(),
       title: appLocalizations.preferences_legal_information_title,
       subtitleText: appLocalizations.preferences_legal_information_subtitle,
       root: LegalInformationRoot(
@@ -287,10 +285,9 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildAboutAppTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Programming(color: iconColor),
+      leading: const icons.Info(),
       title: appLocalizations.preferences_about_app_title,
       subtitleText: appLocalizations.preferences_about_app_subtitle,
       root: AboutAppRoot(title: appLocalizations.preferences_about_app_title),
@@ -302,7 +299,7 @@ class PreferencesPage extends StatelessWidget {
     Color iconColor,
   ) {
     return NavigationPreferenceTile(
-      leading: icons.Lab(color: iconColor),
+      icon: const icons.DangerousZone(),
       title: appLocalizations.preferences_page_open_food_facts_labs_title,
       subtitleText: appLocalizations.dev_preferences_screen_subtitle,
       root: DevModeRoot(

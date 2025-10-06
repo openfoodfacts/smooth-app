@@ -10,6 +10,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
 import 'package:smooth_app/pages/hunger_games/question_answers_options.dart';
@@ -17,6 +19,7 @@ import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionsPage extends StatefulWidget {
@@ -85,9 +88,7 @@ class _QuestionsPageState extends State<QuestionsPage>
   }
 
   void _updateState(_RobotoffQuestionState state) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => setState(() => _state = state),
-    );
+    onNextFrame(() => setState(() => _state = state));
   }
 
   void _loadNextQuestions() {
@@ -116,10 +117,10 @@ class _QuestionsPageState extends State<QuestionsPage>
     return ChangeNotifierProvider<_QuestionsAnsweredNotifier>(
       create: (BuildContext context) => _QuestionsAnsweredNotifier(),
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: const Text('Hunger Games'),
-          leading: IconButton(
-            icon: const Icon(Icons.close),
+          leading: SmoothBackButton(
+            backButtonType: BackButtonType.minimize,
             onPressed: () => Navigator.of(context).pop(_questionsAnswered),
           ),
         ),

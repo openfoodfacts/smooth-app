@@ -8,15 +8,24 @@ class DefaultPreferencesRoot extends PreferencesRoot {
     required this.cards,
     super.customAppBar,
     this.externalSearchTiles = const <ExternalSearchPreferenceTile>[],
-    super.changeStatusBarBrightness = false,
+    this.header,
+    this.footer,
     super.key,
   });
 
   final List<PreferenceCard> cards;
   final List<ExternalSearchPreferenceTile> externalSearchTiles;
+  final WidgetBuilder? header;
+  final WidgetBuilder? footer;
 
   @override
   List<PreferenceCard> getCards(BuildContext context) => cards;
+
+  @override
+  WidgetBuilder? getFooter() => footer;
+
+  @override
+  WidgetBuilder? getHeader() => header;
 
   @override
   List<ExternalSearchPreferenceTile> getExternalSearchTiles(

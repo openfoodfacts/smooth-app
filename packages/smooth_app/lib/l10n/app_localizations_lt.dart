@@ -9,6 +9,9 @@ class AppLocalizationsLt extends AppLocalizations {
   AppLocalizationsLt([String locale = 'lt']) : super(locale);
 
   @override
+  String get app_name => 'Atviri maisto faktai';
+
+  @override
   String get sep => '';
 
   @override
@@ -326,10 +329,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'naudojimo ir įnašo sąlygomis';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-lt.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1716,7 +1715,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get account_delete => 'Ištrinti paskyrą';
 
   @override
-  String get account_deletion_subject => 'Naikinti mano paskyrą';
+  String get account_delete_title => 'Ištrinti mano paskyrą';
 
   @override
   String get user_profile => 'Paskyra';
@@ -2544,6 +2543,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Atidaryti svetainėje „Open Prices“';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4262,10 +4264,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4454,10 +4452,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Kitaip nei patentuotų etikečių atveju, „Green-Score“ skaičiavimas yra **visiškai atviras** ir jį gali **patvirtinti bet kas**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://lt.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4544,9 +4538,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Bendras ultraperdirbimo tikslas – kurti firminius, patogius (patvarius, paruoštus vartoti), patrauklius (itin skanius) ir labai pelningus (su pigiais ingredientais) maisto produktus, skirtus išstumti visas kitas maisto grupes. Ultraperdirbti maisto produktai paprastai yra patraukliai supakuoti ir intensyviai parduodami.';
-
-  @override
-  String get guide_nova_share_link => 'https://lt.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4904,7 +4895,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Gauti dabar';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Ištraukimas sėkmingas';
+  String get nutrition_facts_extract_in_progress => 'Vykdomas išgavimas…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ištraukimas sėkmingas';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5051,6 +5045,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get preferences_contribute_title => 'Prisidėti';
 
   @override
+  String get preferences_my_contributions_title => 'Mano indėlis';
+
+  @override
+  String get preferences_my_stats_title => 'Mano statistika';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Verskite, tobulinkite savo įrankius…';
 
@@ -5130,6 +5130,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      '„Open Food Facts“ yra maisto produktų duomenų bazė, **sukurta visų, skirta visiems**.\nJą galite naudoti norėdami priimti geresnius sprendimus dėl maisto produktų, o kadangi tai yra **atviri duomenys**, kiekvienas gali **ją pakartotinai naudoti bet kokiam tikslui**.';
+
+  @override
   String get preferences_privacy_policy => 'Privatumo politika';
 
   @override
@@ -5183,6 +5187,9 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Tvarkyti mano paskyrą';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Tvarkykite savo paskyrą';
 
   @override
   String get preferences_change_password_title => 'Keisti slaptažodį';
@@ -5298,10 +5305,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prisijunkite prie mūsų virtualių renginių';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Sekite mus socialiniuose tinkluose';
-
-  @override
   String get preferences_connect_blog_title => '„Open Food Facts“ tinklaraštis';
 
   @override
@@ -5414,8 +5417,8 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prisijunkite prie mūsų pastangų užtikrinti, kad duomenų bazė būtų išsami ir tiksli';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      'Pridėta 0 produktų';
+  String get preferences_contributions_products_added_title =>
+      'Pridėti produktai';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5428,6 +5431,16 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Visi nebaigti produktai';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Kainos';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Mano kainos';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Mano kainos, mano įrodymai…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5557,6 +5570,36 @@ class AppLocalizationsLt extends AppLocalizations {
       'Autentifikavimas nepavyko, negalima gauti įrodymų';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count iš $total įrodymų';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count įrodymai (-ų)';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count iš $total bendraautorių';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count bendraautoriai (-ių)';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count iš $total vietų';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count vietų';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Kad pakeitimai įsigaliotų, paleiskite programėlę iš naujo.';
 
@@ -5597,6 +5640,6 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Pridėta $created';
   }
 }

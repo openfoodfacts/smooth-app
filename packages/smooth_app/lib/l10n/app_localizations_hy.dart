@@ -9,6 +9,9 @@ class AppLocalizationsHy extends AppLocalizations {
   AppLocalizationsHy([String locale = 'hy']) : super(locale);
 
   @override
+  String get app_name => 'Բաց սննդի փաստեր';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Ջնջել իմ հաշիվը';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Բաց է Open Prices կայքում';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4204,10 +4206,6 @@ class AppLocalizationsHy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4396,10 +4394,6 @@ class AppLocalizationsHy extends AppLocalizations {
       'Ի տարբերություն սեփական պիտակների, Green-Score հաշվարկը **լիովին բաց** է և կարող է **ստուգվել ցանկացած անձի կողմից**:';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4487,9 +4481,6 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Գերմշակման ընդհանուր նպատակն է ստեղծել ապրանքանիշային, հարմար (ամուր, սպառման համար պատրաստ), գրավիչ (գերհամեղ) և բարձր եկամտաբեր (ցածր գնով բաղադրիչներ) սննդամթերք, որոնք նախատեսված են մյուս բոլոր սննդային խմբերը դուրս մղելու համար: Գերմշակված սննդամթերքը սովորաբար գրավիչ փաթեթավորվում է և ինտենսիվորեն շուկայավարվում:';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4840,7 +4831,11 @@ class AppLocalizationsHy extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress =>
+      'Արդյունահանումն ընթացքի մեջ է…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Արդյունահանումը հաջողվեց';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4987,6 +4982,12 @@ class AppLocalizationsHy extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Իմ վիճակագրությունը';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Թարգմանե՛ք, բարելավե՛ք մեր գործիքները…';
 
@@ -5067,6 +5068,10 @@ class AppLocalizationsHy extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Բաց սննդի փաստերը սննդամթերքի տվյալների շտեմարան է, **ստեղծված բոլորի կողմից, բոլորի համար**:\nԴուք կարող եք օգտագործել այն՝ սննդի ավելի լավ ընտրություն կատարելու համար, և քանի որ դա **բաց տվյալ** է, յուրաքանչյուրը կարող է **վերաօգտագործել այն ցանկացած նպատակով**:';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5118,6 +5123,9 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Կառավարել իմ հաշիվը';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Կառավարեք ձեր հաշիվը';
 
   @override
   String get preferences_change_password_title => 'Փոխել իմ գաղտնաբառը';
@@ -5233,10 +5241,6 @@ class AppLocalizationsHy extends AppLocalizations {
       'Մասնակցեք մեր վիրտուալ միջոցառումներից մեկին';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Հետևեք մեզ սոցիալական ցանցերում';
-
-  @override
   String get preferences_connect_blog_title => 'Բաց սննդի փաստերի բլոգ';
 
   @override
@@ -5348,8 +5352,8 @@ class AppLocalizationsHy extends AppLocalizations {
       'Միացե՛ք մեր ջանքերին՝ ապահովելու համար տվյալների բազայի ամբողջականությունն ու ճշգրտությունը';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      'Ավելացված է 0 ապրանք';
+  String get preferences_contributions_products_added_title =>
+      'Ավելացված ապրանքներ';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5362,6 +5366,16 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Բոլոր անավարտ ապրանքները';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Իմ գները, իմ ապացույցները…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5489,6 +5503,36 @@ class AppLocalizationsHy extends AppLocalizations {
       'Նույնականացումը ձախողվեց, ապացույցները հնարավոր չէ ստանալ';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count $total ապացույցներից';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count $total մասնակիցներից';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count $total տեղանքներից';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count վայրեր';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Խնդրում ենք վերագործարկել հավելվածը՝ փոփոխությունները կիրառելու համար։';
 
@@ -5530,6 +5574,6 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Ավելացված է $created-ին';
   }
 }

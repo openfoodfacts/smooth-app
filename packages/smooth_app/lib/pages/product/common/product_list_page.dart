@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -140,30 +141,6 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableRename = productList.listType == ProductListType.USER;
 
     return SmoothScaffold(
-      floatingActionButton: products.isEmpty
-          ? FloatingActionButton.extended(
-              icon: const Icon(CupertinoIcons.barcode),
-              label: Text(appLocalizations.product_list_empty_title),
-              onPressed: () =>
-                  ExternalScanCarouselManager.read(context).showSearchCard(),
-            )
-          : _selectionMode
-          ? null
-          : SmoothExpandableFloatingActionButton(
-              scrollController: _scrollController,
-              onPressed: () => setState(() => _selectionMode = true),
-              label: Text(
-                appLocalizations.user_lists_action_multi_select,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                ),
-              ),
-              icon: const Icon(Icons.checklist),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-            ),
       appBar: SmoothAppBar(
         centerTitle: false,
         actions: <Widget>[
@@ -304,6 +281,30 @@ class _ProductListPageState extends State<ProductListPage>
                   separatorBuilder: (BuildContext context, _) =>
                       const Divider(),
                 ),
+              ),
+            ),
+      floatingActionButton: products.isEmpty
+          ? FloatingActionButton.extended(
+              icon: const Icon(CupertinoIcons.barcode),
+              label: Text(appLocalizations.product_list_empty_title),
+              onPressed: () =>
+                  ExternalScanCarouselManager.read(context).showSearchCard(),
+            )
+          : _selectionMode
+          ? null
+          : SmoothExpandableFloatingActionButton(
+              scrollController: _scrollController,
+              onPressed: () => setState(() => _selectionMode = true),
+              label: Text(
+                appLocalizations.user_lists_action_multi_select,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
+                ),
+              ),
+              icon: const Icon(Icons.checklist),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
               ),
             ),
     );

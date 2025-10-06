@@ -22,6 +22,7 @@ import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Display of "Prices" for the preferences page.
 class UserPreferencesPrices extends AbstractUserPreferences {
@@ -117,7 +118,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
             builder: (BuildContext context) => const PricesLocationsPage(),
           ),
         ),
-        PriceButton.locationIconData,
+        const icons.Location().icon,
       ),
       _getListTile(
         appLocalizations.all_search_prices_top_product_title,

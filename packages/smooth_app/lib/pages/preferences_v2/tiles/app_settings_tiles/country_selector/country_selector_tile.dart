@@ -95,7 +95,7 @@ class CountrySelectorTile extends PreferenceTile {
                       ],
                     ),
                     onTap: () => _openCountrySelector(context),
-                    trailing: const icons.Edit(),
+                    trailing: const icons.Edit(size: 18.0),
                   );
                 },
               ),

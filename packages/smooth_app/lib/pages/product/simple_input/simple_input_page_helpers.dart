@@ -617,7 +617,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => null;
 
   @override
-  Widget getIcon() => const icons.ShoppingCart();
+  Widget getIcon() => const icons.Shopping.cart();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
@@ -806,7 +806,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget getIcon() => const Padding(
-    padding: EdgeInsetsDirectional.only(bottom: 2.0),
+    padding: EdgeInsetsDirectional.only(bottom: 0.5),
     child: icons.Factory(),
   );
 

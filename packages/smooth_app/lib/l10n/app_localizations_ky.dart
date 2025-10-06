@@ -9,6 +9,9 @@ class AppLocalizationsKy extends AppLocalizations {
   AppLocalizationsKy([String locale = 'ky']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Менин аккаунтумду жок кыл';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Open Prices веб-сайтында ачыңыз';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4208,6 @@ class AppLocalizationsKy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4398,10 +4396,6 @@ class AppLocalizationsKy extends AppLocalizations {
       'Проприетардык энбелгилерден айырмаланып, Green-Score эсептөөсү **толугу менен ачык** жана **ар ким тарабынан текшерилиши мүмкүн**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4488,9 +4482,6 @@ class AppLocalizationsKy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ультра кайра иштетүүнүн жалпы максаты – бренддүү, ыңгайлуу (узак, колдонууга даяр), жагымдуу (гипер даамдуу) жана жогорку рентабелдүү (арзан ингредиенттер) тамак-аш азыктарынын бардык башка тамак-аш топторун алмаштырууга багытталган. Ультра иштетилген тамак-аш азыктары, адатта, жагымдуу таңгакталган жана интенсивдүү сатылат.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4841,7 +4832,10 @@ class AppLocalizationsKy extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'казып алуу жүрүп жатат…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Чыгаруу ийгиликтүү болду';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4987,6 +4981,12 @@ class AppLocalizationsKy extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Менин статистикам';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Которуңуз, куралдарыбызды жакшыртыңыз…';
 
@@ -5066,6 +5066,10 @@ class AppLocalizationsKy extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts – бул **баары тарабынан, бардыгы үчүн** жасалган тамак-аш азыктарынын маалымат базасы.\nАны тамак-ашты жакшыраак тандоо үчүн колдонсоңуз болот жана ал **ачык маалымат** болгондуктан, ар ким **аны каалаган максатта кайра колдоно алат**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5117,6 +5121,10 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Менин аккаунтумду башкар';
+
+  @override
+  String get preferences_manage_account_tooltip =>
+      'Каттоо эсебиңизди башкарыңыз';
 
   @override
   String get preferences_change_password_title => 'Менин сырсөзүмдү өзгөрт';
@@ -5231,10 +5239,6 @@ class AppLocalizationsKy extends AppLocalizations {
       'Виртуалдык иш-чараларыбыздын бирине катышуу менен катышыңыз';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Бизди социалдык медиада ээрчиңиз';
-
-  @override
   String get preferences_connect_blog_title => 'Open Food Facts блогу';
 
   @override
@@ -5347,8 +5351,8 @@ class AppLocalizationsKy extends AppLocalizations {
       'База толук жана так болушу үчүн биздин күч-аракетибизге кошулуңуз';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 продукт кошулду';
+  String get preferences_contributions_products_added_title =>
+      'Кошулган өнүмдөр';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5361,6 +5365,16 @@ class AppLocalizationsKy extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Бардык толук эмес буюмдар';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Менин бааларым, менин далилдерим…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5491,6 +5505,36 @@ class AppLocalizationsKy extends AppLocalizations {
       'Аныктыгын текшерүү ишке ашкан жок, далилдерди алуу мүмкүн эмес';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$total далилдердин $count';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$total салым кошкондордун $count';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$total жерлерден $count';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count жерлер';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Өзгөртүүлөрдү колдонуу үчүн колдонмону өчүрүп күйгүзүңүз.';
 
@@ -5532,6 +5576,6 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '$createdкүнү кошулду';
   }
 }

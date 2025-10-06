@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Card that displays the date for price adding.
 class PriceDateCard extends StatelessWidget {
@@ -18,14 +19,14 @@ class PriceDateCard extends StatelessWidget {
 
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_date_subtitle,
-      leading: const Icon(Icons.calendar_month),
+      leading: const icons.Calendar(),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         horizontal: SMALL_SPACE,
         vertical: MEDIUM_SPACE,
       ),
       child: SmoothLargeButtonWithIcon(
         text: MaterialLocalizations.of(context).formatCompactDate(model.date),
-        leadingIcon: const Icon(Icons.calendar_month),
+        leadingIcon: const icons.Calendar(size: 18.0),
         onPressed: model.proof != null
             ? null
             : () async {

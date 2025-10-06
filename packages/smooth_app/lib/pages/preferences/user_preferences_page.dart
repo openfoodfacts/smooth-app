@@ -58,73 +58,64 @@ enum PreferencePageType {
     // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
     context.read<UserManagementProvider>();
 
-    switch (this) {
-      case PreferencePageType.ACCOUNT:
-        return UserPreferencesAccount(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.FOOD:
-        return UserPreferencesFood(
-          productPreferences: productPreferences,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.SETTINGS:
-        return UserPreferencesSettings(
-          themeProvider: themeProvider,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.DEV_MODE:
-        return UserPreferencesDevMode(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.CONTRIBUTE:
-        return UserPreferencesContribute(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.FAQ:
-        return UserPreferencesFaq(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.DONATION:
-        return UserPreferencesDonation(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.PRICES:
-        return UserPreferencesPrices(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.CONNECT:
-        return UserPreferencesConnect(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-    }
+    return switch (this) {
+      PreferencePageType.ACCOUNT => UserPreferencesAccount(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.FOOD => UserPreferencesFood(
+        productPreferences: productPreferences,
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.SETTINGS => UserPreferencesSettings(
+        themeProvider: themeProvider,
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.DEV_MODE => UserPreferencesDevMode(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.CONTRIBUTE => UserPreferencesContribute(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.FAQ => UserPreferencesFaq(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.DONATION => UserPreferencesDonation(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.PRICES => UserPreferencesPrices(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      PreferencePageType.CONNECT => UserPreferencesConnect(
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+    };
   }
 
   static List<PreferencePageType> getPreferencePageTypes(
@@ -140,6 +131,18 @@ enum PreferencePageType {
     PreferencePageType.CONNECT,
     if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
   ];
+
+  static PreferencePageType? fromTag(String? tag) {
+    if (tag == null) {
+      return null;
+    }
+    for (final PreferencePageType type in PreferencePageType.values) {
+      if (type.tag == tag) {
+        return type;
+      }
+    }
+    return null;
+  }
 }
 
 /// Preferences page: main or detailed.
@@ -260,9 +263,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     );
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
-      brightness: Theme.of(context).brightness == Brightness.light
-          ? Brightness.dark
-          : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: SmoothAppBar(title: Text(appBarTitle, maxLines: 2)),

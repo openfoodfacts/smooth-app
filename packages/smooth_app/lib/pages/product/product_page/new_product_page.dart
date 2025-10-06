@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
@@ -33,7 +34,7 @@ class ProductPage extends StatefulWidget {
   final Product product;
 
   final String? heroTag;
-  final ProductPageBackButton? backButton;
+  final BackButtonType? backButton;
 
   // When using a deep link the Hero animation shouldn't be used
   final bool withHeroAnimation;

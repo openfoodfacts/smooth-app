@@ -211,7 +211,7 @@ class DevModeRoot extends PreferencesRoot {
     UserPreferences userPreferences,
   ) {
     return PreferenceTile(
-      icon: Icons.temple_buddhist,
+      icon: const Icon(Icons.temple_buddhist),
       title: appLocalizations.dev_preferences_test_environment_title,
       subtitleText: appLocalizations.dev_preferences_test_environment_subtitle(
         ProductQuery.getTestUriProductHelper(

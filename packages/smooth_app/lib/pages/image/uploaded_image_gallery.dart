@@ -44,7 +44,6 @@ class UploadedImageGallery extends StatelessWidget {
 
     return SmoothScaffold(
       backgroundColor: Colors.black,
-      brightness: Brightness.light,
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_photo_select_existing_all_label),
         subTitle: Text(

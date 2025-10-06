@@ -9,6 +9,9 @@ class AppLocalizationsUk extends AppLocalizations {
   AppLocalizationsUk([String locale = 'uk']) : super(locale);
 
   @override
+  String get app_name => 'Відкриті факти про їжу';
+
+  @override
   String get sep => '';
 
   @override
@@ -323,10 +326,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'умови використання та внесок';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1708,7 +1707,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get account_delete => 'Видалити обліковий запис';
 
   @override
-  String get account_deletion_subject => 'Видалити мій обліковий запис';
+  String get account_delete_title => 'Видалити мій обліковий запис';
 
   @override
   String get user_profile => 'Обліковий запис';
@@ -2534,6 +2533,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Перейдіть у додаток Ціни';
+
+  @override
+  String get prices_website_button => 'Відкрити на веб-сайті Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4257,10 +4259,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'Для постачальників зображення Nutri-Score **залишається необов’язковим**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore';
-
-  @override
   String get guide_greenscore_title =>
       'Green-Score (показник впливу на довкілля)';
 
@@ -4448,10 +4446,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'На відміну від власних позначок, розрахунок Green-Score є **повністю відкритим** і може бути **перевірений будь-ким**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ультраоброблені продукти';
 
   @override
@@ -4538,9 +4532,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Загальна мета ультраобробки полягає у створенні брендованих, зручних (міцних, готових до вживання), привабливих (надто смачних) та високоприбуткових (з низькими витратами на інгредієнти) харчових продуктів, призначених для витіснення всіх інших груп продуктів харчування. Ультраоброблені харчові продукти зазвичай привабливо упаковуються та інтенсивно просуваються на ринку.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Попередній перегляд';
@@ -4893,7 +4884,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Видобути зараз';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Видобуток успішний';
+  String get nutrition_facts_extract_in_progress => 'Триває видобування…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Видобування успішне';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5042,6 +5036,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_contribute_title => 'Підтримати проєкт';
 
   @override
+  String get preferences_my_contributions_title => 'Мої внески';
+
+  @override
+  String get preferences_my_stats_title => 'Моя статистика';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Перекладайте, покращуйте наші інструменти…';
 
@@ -5122,6 +5122,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_legal_mentions => 'Юридичні згадки';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts – це база даних про харчові продукти, **створена всіма для всіх**.\nВи можете використовувати її, щоб робити кращий вибір продуктів харчування, а оскільки це **відкриті дані**, кожен може **повторно використовувати їх для будь-яких цілей**.';
+
+  @override
   String get preferences_privacy_policy => 'Політика конфіденційности';
 
   @override
@@ -5176,6 +5180,10 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get preferences_manage_account_title =>
       'Керувати моїм обліковим записом';
+
+  @override
+  String get preferences_manage_account_tooltip =>
+      'Керуйте своїм обліковим записом';
 
   @override
   String get preferences_change_password_title => 'Змінити мій пароль';
@@ -5291,10 +5299,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'Долучайтеся, відвідавши один із наших віртуальних заходів';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Слідкуйте за нами в соціальних мережах';
-
-  @override
   String get preferences_connect_blog_title => 'Блог «Факти про відкриту їжу»';
 
   @override
@@ -5407,7 +5411,8 @@ class AppLocalizationsUk extends AppLocalizations {
       'Приєднуйтесь до наших зусиль, щоб забезпечити повноту та точність бази даних';
 
   @override
-  String get preferences_contributions_new_products_title => 'Додано 0 товарів';
+  String get preferences_contributions_products_added_title =>
+      'Додані продукти';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5420,6 +5425,16 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Усі некомплектні продукти';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Ціни';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Мої ціни';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Мої ціни, мої докази…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5550,6 +5565,36 @@ class AppLocalizationsUk extends AppLocalizations {
       'Не вдалося пройти автентифікацію, неможливо отримати докази';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count з $total доказів';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count доказів';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count з $total учасників';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count учасників';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count з $total локацій';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count локацій';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Будь ласка, перезапустіть програму, щоб застосувати зміни.';
 
@@ -5590,6 +5635,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Додано $created';
   }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsJv extends AppLocalizations {
   AppLocalizationsJv([String locale = 'jv']) : super(locale);
 
   @override
+  String get app_name => 'Fakta Pangan Terbuka';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsJv extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Busak akunku';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Bukak ing situs web Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4205,10 +4207,6 @@ class AppLocalizationsJv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4396,10 +4394,6 @@ class AppLocalizationsJv extends AppLocalizations {
       'Ora kaya label kepemilikan, pitungan Green-Score **rampung mbukak** lan bisa **diverifikasi dening sapa wae**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4486,9 +4480,6 @@ class AppLocalizationsJv extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Tujuan sakabèhé saka ultra-processing yaiku kanggo nggawe produk pangan bermerek, trep (awet, siap dikonsumsi), menarik (hiper enak) lan duwe bathi (bahan murah) sing dirancang kanggo ngganti kabeh kelompok panganan liyane. Produk panganan sing wis diproses biasane dikemas kanthi apik lan dipasarake kanthi intensif.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4839,7 +4830,11 @@ class AppLocalizationsJv extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress =>
+      'Ekstraksi lagi ditindakake…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ekstraksi sukses';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,6 +4980,12 @@ class AppLocalizationsJv extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Statistikku';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Terjemahake, dandan alat kita…';
 
@@ -5065,6 +5066,10 @@ class AppLocalizationsJv extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts minangka database produk panganan **digawe dening kabeh wong, kanggo kabeh wong**.\nSampeyan bisa nggunakake kanggo nggawe pilihan pangan sing luwih apik, lan minangka ** data mbukak **, sapa bisa ** nggunakake maneh kanggo maksud apa wae **.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5117,6 +5122,9 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Atur akunku';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Atur akun sampeyan';
 
   @override
   String get preferences_change_password_title => 'Ganti sandi';
@@ -5230,10 +5238,6 @@ class AppLocalizationsJv extends AppLocalizations {
       'Melu melu ing salah sawijining acara virtual kita';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Tindakake kita ing media sosial';
-
-  @override
   String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
@@ -5342,8 +5346,8 @@ class AppLocalizationsJv extends AppLocalizations {
       'Gabung usaha kita kanggo mesthekake database lengkap lan akurat';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 produk ditambahake';
+  String get preferences_contributions_products_added_title =>
+      'Produk sing ditambahake';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5356,6 +5360,16 @@ class AppLocalizationsJv extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Kabeh produk sing ora lengkap';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Hargaku, buktiku…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5485,6 +5499,36 @@ class AppLocalizationsJv extends AppLocalizations {
   String get prices_proof_error => 'Otentikasi gagal, ora bisa njupuk bukti';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count saka $total bukti';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count saka $total kontributor';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count saka $total lokasi';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count lokasi';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Mangga miwiti maneh app kanggo ngetrapake owah-owahan.';
 
@@ -5525,6 +5569,6 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Ditambahake ing $created';
   }
 }

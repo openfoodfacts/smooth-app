@@ -3,9 +3,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Price Location display (no price data here).
 class PriceLocationWidget extends StatelessWidget {
@@ -17,7 +17,7 @@ class PriceLocationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String? title = getLocationTitle(location);
     return ListTile(
-      leading: const Icon(PriceButton.locationIconData),
+      leading: const icons.Location(),
       title: title == null
           ? null
           : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),

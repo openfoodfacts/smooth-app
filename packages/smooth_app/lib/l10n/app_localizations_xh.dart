@@ -9,6 +9,9 @@ class AppLocalizationsXh extends AppLocalizations {
   AppLocalizationsXh([String locale = 'xh']) : super(locale);
 
   @override
+  String get app_name => 'Vula Iinyaniso zokutya';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsXh extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Cima iakhawunti yam';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,10 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button =>
+      'Vula kwiwebhusayithi yamaxabiso avulekileyo';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4209,6 @@ class AppLocalizationsXh extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4399,6 @@ class AppLocalizationsXh extends AppLocalizations {
       'Ngokungafaniyo neelebhile zobunini, ukubalwa kweGreen-Score**kuvulwe ngokupheleleyo** kwaye **kunokuqinisekiswa nguye nabani na**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4490,9 +4485,6 @@ class AppLocalizationsXh extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Injongo iyonke ye-ultra-processing kukudala i-brand, elula (ehlala ixesha elide, ekulungele ukusetyenziswa), enomtsalane (i-hyper-palatable) kunye nenzuzo ephezulu (izithako ezinexabiso eliphantsi) iimveliso zokutya ezenzelwe ukususa onke amanye amaqela okutya. Iimveliso zokutya ezicutshungulwayo zidla ngokupakishwa ngendlela enomtsalane kwaye zithengiswe ngamandla.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4843,7 +4835,10 @@ class AppLocalizationsXh extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Ukutsalwa kuyaqhubeka…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ukutsalwa kuphumelele';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4989,6 +4984,12 @@ class AppLocalizationsXh extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Amanani am';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Guqulela, uphucule izixhobo zethu…';
 
@@ -5068,6 +5069,10 @@ class AppLocalizationsXh extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Vula Iinyaniso zoKutya yidatha yemveliso yokutya ** eyenziwe ngumntu wonke, kumntu wonke **.\nUnokuyisebenzisa ukwenza ukhetho olungcono lokutya, kwaye njengoko i-*idatha evulekileyo **, nabani na unako ** ukuphinda ayisebenzise nayiphi na injongo **.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5120,6 +5125,9 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Lawula iakhawunti yam';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Lawula iakhawunti yakho';
 
   @override
   String get preferences_change_password_title =>
@@ -5234,10 +5242,6 @@ class AppLocalizationsXh extends AppLocalizations {
       'Zibandakanye ngokuzimasa omnye wemisitho yethu ebonakalayo';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Silandele kwimidiya yoluntu';
-
-  @override
   String get preferences_connect_blog_title =>
       'Ibhlog yeeNkcukacha zoKutya ezivulekileyo';
 
@@ -5349,8 +5353,8 @@ class AppLocalizationsXh extends AppLocalizations {
       'Joyina umzamo wethu wokuqinisekisa ukuba uvimba weenkcukacha uphelele kwaye uchanekile';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 iimveliso ezongeziweyo';
+  String get preferences_contributions_products_added_title =>
+      'Iimveliso ezongeziweyo';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5363,6 +5367,16 @@ class AppLocalizationsXh extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Zonke iimveliso ezingaphelelanga';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Amaxabiso am, iziqinisekiso zam…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5494,6 +5508,36 @@ class AppLocalizationsXh extends AppLocalizations {
       'Ungqinisiso akuphumelelanga, akukwazanga ukufumana ubungqina';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count ye $total ubungqina';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count ye $total abaxhasi';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count ye $total iindawo';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count iindawo';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Nceda uqalise kwakhona usetyenziso ukuze ufake utshintsho.';
 
@@ -5535,6 +5579,6 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Yongezwe kwi $created';
   }
 }

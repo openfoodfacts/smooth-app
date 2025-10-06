@@ -9,6 +9,9 @@ class AppLocalizationsQu extends AppLocalizations {
   AppLocalizationsQu([String locale = 'qu']) : super(locale);
 
   @override
+  String get app_name => 'Kichasqa Mikhuy Chiqap Willakuykuna';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsQu extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Cuentayta chinkachiy';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Kichasqa Precios nisqa web nisqapi';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4208,10 +4210,6 @@ class AppLocalizationsQu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4404,10 +4402,6 @@ class AppLocalizationsQu extends AppLocalizations {
       'Mana propiedad etiquetakuna hinachu, Verde-Puntuación yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://qu.kichasqa mikhuykuna.org/verde-puntuación';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4496,10 +4490,6 @@ class AppLocalizationsQu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultra-procesamiento nisqapa tukuy ima munayninqa, markayuq, allin (unaypaq, mikuypaq listo), munay (hiper-palatable) hinaspa ancha gananciayuq (ingredientekuna pisi qullqiyuq) mikhuy rurukuna ruwaymi, llapan huk mikhuy huñukunata qarqunapaq ruwasqa. Ultra-procesado nisqa mikhuy rurukunaqa sumaqllatam paqueteasqa kanku, hinaspapas anchatam qhatunku.';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://qu.kichasqa mikhuykuna.org/nova nisqapi';
 
   @override
   String get preview_badge => 'Preview';
@@ -4850,7 +4840,10 @@ class AppLocalizationsQu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Extracción ruwakuchkan…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extracción exitosa';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4998,6 +4991,12 @@ class AppLocalizationsQu extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Estadísticas nisqaykuna';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Tikray, allinchay yanapakuyniyku…';
 
@@ -5077,6 +5076,10 @@ class AppLocalizationsQu extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Kichasqa Mikhuy Chiqap willakuykunaqa mikhuy rurukunap willay tantana wasim **llapa runap rurasqan, llapa runapaq**.\nAswan allin mikhuy akllanapaq llamk\'achiy atikunki, chaymanta **kichasqa willay** kasqanrayku, pipas **imapaqpas wakmanta llamk\'achiyta atin**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5129,6 +5132,9 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Cuentayta kamachiy';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Cuentaykita kamachiy';
 
   @override
   String get preferences_change_password_title => 'Contraseñayta tikray';
@@ -5244,10 +5250,6 @@ class AppLocalizationsQu extends AppLocalizations {
       'Huknin virtual ruwayniykuman rispa involucrakuy';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Qatiwayku redes sociales nisqapi';
-
-  @override
   String get preferences_connect_blog_title =>
       'Kichasqa Mikhuy Chiqap blog nisqa';
 
@@ -5359,8 +5361,8 @@ class AppLocalizationsQu extends AppLocalizations {
       'Willakuyniyku hunt\'asqa chaymanta chiqan kananpaq kallpachakusqaykuman hukllaway';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 rurukuna yapasqa';
+  String get preferences_contributions_products_added_title =>
+      'Yapachisqa rurukuna';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5373,6 +5375,16 @@ class AppLocalizationsQu extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Tukuy mana hunt’asqa rurukuna';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Preciosniy, pruebaykuna…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5506,6 +5518,36 @@ class AppLocalizationsQu extends AppLocalizations {
       'Chiqaqchayqa manam atirqanchu, pruebakunata mana apamuyta atispa';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count de $total pruebakuna';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count $total yanapakuqkunamanta';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count $total kitikunamanta';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count tarikuykuna';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Ama hina kaspa, appta wakmanta qallariy tikraykunata ruwanaykipaq.';
 
@@ -5548,6 +5590,6 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '${created}p\'unchawpi yapasqa';
   }
 }

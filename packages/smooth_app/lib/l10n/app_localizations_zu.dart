@@ -9,6 +9,9 @@ class AppLocalizationsZu extends AppLocalizations {
   AppLocalizationsZu([String locale = 'zu']) : super(locale);
 
   @override
+  String get app_name => 'Vula Amaqiniso Okudla';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1686,7 +1685,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Susa i-akhawunti yami';
 
   @override
   String get user_profile => 'Account';
@@ -2504,6 +2503,9 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Vula kuwebhusayithi ye-Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4204,10 +4206,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4399,10 +4397,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ngokungafani namalebula obunikazi, ukubala kwe-Green-Score **kuvulwe ngokuphelele** futhi **kungaqinisekiswa yinoma ubani**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4483,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Inhloso iyonke yokucubungula okuphezulu ukudala imikhiqizo yokudla ebhalwe uphawu, elula (ehlala isikhathi eside, elungele ukusetshenziswa), ekhangayo (e-hyper-flatable) futhi enenzuzo enkulu (izithako ezingabizi kakhulu) eklanyelwe ukususa wonke amanye amaqembu okudla. Imikhiqizo yokudla okucutshungulwe kakhulu ivamise ukupakishwa ngendlela ekhangayo futhi imakethwe kakhulu.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4842,7 +4833,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Ukukhishwa kuyaqhubeka…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ukukhipha kuphumelele';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4989,6 +4983,12 @@ class AppLocalizationsZu extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Izibalo zami';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Humusha, thuthukisa amathuluzi ethu…';
 
@@ -5068,6 +5068,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'I-Open Food Facts iyisizindalwazi semikhiqizo yokudla **eyenziwe yiwo wonke umuntu, yawo wonke umuntu**.\nUngayisebenzisa ukuze wenze ukukhetha okungcono kakhulu kokudla, futhi njengoba kuyi-**idatha evuliwe**, noma ubani angakwazi **ukuphinda ayisebenzisele noma iyiphi injongo**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5120,6 +5124,9 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Phatha i-akhawunti yami';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Phatha i-akhawunti yakho';
 
   @override
   String get preferences_change_password_title => 'Shintsha iphasiwedi yami';
@@ -5229,10 +5236,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Zibandakanye ngokuhambela omunye wemicimbi yethu ebonakalayo';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Silandele ezinkundleni zokuxhumana';
 
   @override
   String get preferences_connect_blog_title => 'Ibhulogi ye-Open Food Facts';
@@ -5347,8 +5350,8 @@ class AppLocalizationsZu extends AppLocalizations {
       'Joyina umzamo wethu wokuqinisekisa ukuthi isizindalwazi siphelele futhi sinembile';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 imikhiqizo engeziwe';
+  String get preferences_contributions_products_added_title =>
+      'Imikhiqizo engeziwe';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5361,6 +5364,16 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Yonke imikhiqizo engaphelele';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Izintengo zami, ubufakazi bami…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5493,6 +5506,36 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ukuqinisekisa kuhlulekile, ayikwazanga ukulanda ubufakazi';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total ubufakazi';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count kwabanikeli abangu- $total';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count kwezindawo ezingu- $total';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count izindawo';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Sicela uqale kabusha uhlelo lokusebenza ukuze usebenzise izinguquko.';
 
@@ -5534,6 +5577,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Kwengezwe kokuthi $created';
   }
 }

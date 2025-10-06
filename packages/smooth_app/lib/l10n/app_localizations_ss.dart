@@ -9,6 +9,9 @@ class AppLocalizationsSs extends AppLocalizations {
   AppLocalizationsSs([String locale = 'ss']) : super(locale);
 
   @override
+  String get app_name => 'Vula Emaciniso Ekudla';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Cisha i-akhawunti yami';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,10 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button =>
+      'Vula kuwebhusayithi yeManani Lavulekile .';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4208,10 +4211,6 @@ class AppLocalizationsSs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4405,10 +4404,6 @@ class AppLocalizationsSs extends AppLocalizations {
       'Ngalokwehlukile kumalebuli emphahla, kubalwa kwe-Green-Score **kuvulekile ngalokuphelele** futsi kungacinisekiswa **ngunobe ngubani**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://si.emaciniso ekudla lavulekile.org/emaphuzu-laluhlata';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,10 +4490,6 @@ class AppLocalizationsSs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Inhloso jikelele ye ultra-processing kwenta imikhicito yekudla leneluphawu, lelula (lehlala sikhatsi lesidze, lekulungele kudliwa), lekhangako (hyper-palatable) kanye nenzuzo lenkhulu (titsako letibita kancane) leyentelwe kususa onkhe lamanye emacembu ekudla. Imikhicito yekudla lecubunguliwe kakhulu ivame kupakishwa ngendlela lekhangako futsi itsengiswe kakhulu.';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://si.emaciniso ekudla lavulekile.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4849,7 +4840,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Kukhishwa kuyachubeka…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Kukhishwa kwaphumelela';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4997,6 +4991,12 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Tibalo tami';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Humusha, tfutfukisa emathulusi etfu…';
 
@@ -5076,6 +5076,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Emaciniso Ekudla Lavulekile yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5128,6 +5132,9 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Lawula i-akhawunti yakho';
 
   @override
   String get preferences_change_password_title => 'Shintja iphasiwedi yami';
@@ -5242,10 +5249,6 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Silandzele etindzabeni tekuchumana';
-
-  @override
   String get preferences_connect_blog_title =>
       'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
 
@@ -5357,8 +5360,8 @@ class AppLocalizationsSs extends AppLocalizations {
       'Hlanganyela nemtamo wetfu wekucinisekisa kutsi i-database iphelele futsi inembile';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 imikhicito lengetiwe';
+  String get preferences_contributions_products_added_title =>
+      'Imikhicito lengetiwe';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5371,6 +5374,16 @@ class AppLocalizationsSs extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Yonkhe imikhicito lengakapheleli';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Intsengo yami, bufakazi bami…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5503,6 +5516,36 @@ class AppLocalizationsSs extends AppLocalizations {
       'Kucinisekisa kwehlulekile, akukhoni kutfola bufakazi';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count ye $total bufakazi';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count we $total labafaka sandla';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count ye $total tindzawo';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count tindzawo';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Sicela ucale kabusha i-app kute usebentise tingucuko.';
 
@@ -5544,6 +5587,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Kwengetwe ku $created';
   }
 }

@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/prices_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -15,6 +16,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class ContributionsRoot extends PreferencesRoot {
   const ContributionsRoot({required super.title});
@@ -28,9 +30,7 @@ class ContributionsRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       PreferenceCard(
-        title: appLocalizations.contribute,
-        // Quick test to make Pierre happy
-        bannerText: appLocalizations.contribute_improve_text,
+        title: appLocalizations.preferences_my_contributions_title,
         tiles: <PreferenceTile>[
           _buildNewProductsTile(
             context,
@@ -52,8 +52,15 @@ class ContributionsRoot extends PreferencesRoot {
             userId,
           ),
           _buildAllIncompleteTile(context, appLocalizations, localDatabase),
-          _buildCategorizeProductsTile(appLocalizations),
         ],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_my_contributions_prices_title,
+        tiles: <PreferenceTile>[_buildMyPricesTile(context, appLocalizations)],
+      ),
+      PreferenceCard(
+        title: appLocalizations.preferences_contribute_title,
+        tiles: <PreferenceTile>[_buildCategorizeProductsTile(appLocalizations)],
       ),
     ];
   }
@@ -66,8 +73,8 @@ class ContributionsRoot extends PreferencesRoot {
     String userId,
   ) {
     return PreferenceTile(
-      icon: Icons.add_circle_outline,
-      title: appLocalizations.user_search_contributor_title,
+      icon: const icons.Milk.happy(),
+      title: appLocalizations.preferences_contributions_products_added_title,
       subtitleText:
           appLocalizations.preferences_contributions_new_products_subtitle,
       padding: const EdgeInsetsDirectional.only(
@@ -97,7 +104,7 @@ class ContributionsRoot extends PreferencesRoot {
     String userId,
   ) {
     return PreferenceTile(
-      icon: Icons.edit_outlined,
+      icon: const icons.Changes(size: 20.0),
       title: appLocalizations.user_search_informer_title,
       padding: const EdgeInsetsDirectional.only(
         start: LARGE_SPACE,
@@ -126,7 +133,7 @@ class ContributionsRoot extends PreferencesRoot {
     String userId,
   ) {
     return PreferenceTile(
-      icon: Icons.add_a_photo_outlined,
+      icon: const icons.Camera.happy(),
       title: appLocalizations.user_search_photographer_title,
       padding: const EdgeInsetsDirectional.only(
         start: LARGE_SPACE,
@@ -155,7 +162,7 @@ class ContributionsRoot extends PreferencesRoot {
     String userId,
   ) {
     return PreferenceTile(
-      icon: Icons.done,
+      icon: const icons.Incomplete(),
       title: appLocalizations.preferences_contributions_to_be_completed_title,
       padding: const EdgeInsetsDirectional.only(
         start: LARGE_SPACE,
@@ -183,7 +190,7 @@ class ContributionsRoot extends PreferencesRoot {
     LocalDatabase localDatabase,
   ) {
     return PreferenceTile(
-      icon: Icons.done_all,
+      icon: const icons.Eye.checkbox(),
       title: appLocalizations.preferences_contributions_all_incomplete_title,
       subtitleText:
           appLocalizations.preferences_contributions_all_incomplete_subtitle,
@@ -198,11 +205,34 @@ class ContributionsRoot extends PreferencesRoot {
     );
   }
 
+  PreferenceTile _buildMyPricesTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: const icons.PriceTag(),
+      title: appLocalizations.preferences_my_contributions_my_prices_title,
+      subtitleText:
+          appLocalizations.preferences_my_contributions_my_prices_subtitle,
+      onTap: () async => Navigator.of(context).push(
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) =>
+              ChangeNotifierProvider<PreferencesRootSearchController>(
+                create: (_) => PreferencesRootSearchController(),
+                child: PricesRoot(
+                  title: appLocalizations.preferences_prices_title,
+                ),
+              ),
+        ),
+      ),
+    );
+  }
+
   UrlPreferenceTile _buildCategorizeProductsTile(
     AppLocalizations appLocalizations,
   ) {
     return UrlPreferenceTile(
-      icon: Icons.new_label_outlined,
+      icon: const icons.Globe(),
       title: appLocalizations.categorize_products_country_title,
       subtitleText:
           appLocalizations.preferences_contributions_categorize_subtitle,

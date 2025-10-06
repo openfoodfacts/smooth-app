@@ -19,26 +19,29 @@ class SquarePreferenceTile extends PreferenceTile {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
-
     final bool lightTheme = context.lightTheme();
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: lightTheme
             ? themeExtension.primaryMedium
-            : const Color(0xFF333333),
-        borderRadius: ROUNDED_BORDER_RADIUS,
+            : themeExtension.primaryDark,
+        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
       ),
       child: Material(
         type: MaterialType.transparency,
         child: InkWell(
           onTap: onTap,
-          borderRadius: ROUNDED_BORDER_RADIUS,
+          borderRadius: const BorderRadius.all(Radius.circular(16.0)),
           child: Padding(
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+            padding: const EdgeInsetsDirectional.only(
+              top: MEDIUM_SPACE + 1.0,
+              bottom: MEDIUM_SPACE,
+              start: SMALL_SPACE,
+              end: SMALL_SPACE,
+            ),
             child: Column(
               spacing: SMALL_SPACE,
               children: <Widget>[
@@ -55,10 +58,7 @@ class SquarePreferenceTile extends PreferenceTile {
                           ),
                           borderRadius: BorderRadius.circular(100.0),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100.0),
-                          child: illustration,
-                        ),
+                        child: illustration,
                       ),
                     ),
                   ),
@@ -73,9 +73,10 @@ class SquarePreferenceTile extends PreferenceTile {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 15.0,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
+                            height: 1.35,
                             color: lightTheme
-                                ? theme.primaryColor
+                                ? themeExtension.primaryDark
                                 : Colors.white,
                           ),
                         ),

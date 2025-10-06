@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
@@ -154,7 +154,7 @@ class _SmoothGoRouter {
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.uri.queryParameters['heroTag'],
-                  backButton: ProductPageBackButton.byName(
+                  backButton: BackButtonType.byName(
                     state.uri.queryParameters['backButtonType'],
                   ),
                 );
@@ -213,15 +213,12 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
-              builder: (BuildContext context, GoRouterState state) {
-                final String preferenceType =
-                    state.pathParameters['preferenceType']!;
-                return UserPreferencesPage(
-                  type: PreferencePageType.values.firstWhereOrNull(
-                    (PreferencePageType type) => type.name == preferenceType,
+              builder: (BuildContext context, GoRouterState state) =>
+                  UserPreferencesPage(
+                    type: PreferencePageType.fromTag(
+                      state.pathParameters['preferenceType'],
+                    ),
                   ),
-                );
-              },
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
@@ -481,7 +478,7 @@ class AppRoutes {
     String barcode, {
     bool useHeroAnimation = true,
     String? heroTag = '',
-    ProductPageBackButton? backButtonType,
+    BackButtonType? backButtonType,
     ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
@@ -504,7 +501,7 @@ class AppRoutes {
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.tag}';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';

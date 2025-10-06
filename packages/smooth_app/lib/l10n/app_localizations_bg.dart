@@ -9,6 +9,9 @@ class AppLocalizationsBg extends AppLocalizations {
   AppLocalizationsBg([String locale = 'bg']) : super(locale);
 
   @override
+  String get app_name => 'Отворени факти за храната';
+
+  @override
   String get sep => '';
 
   @override
@@ -323,10 +326,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get sign_up_page_terms_text =>
       ' условията за ползване и принос на Open Food Facts';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://bg.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1709,7 +1708,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get account_delete => 'Изтриване на акаунт';
 
   @override
-  String get account_deletion_subject => 'Изтриване на моят профил';
+  String get account_delete_title => 'Изтриване на акаунта ми';
 
   @override
   String get user_profile => 'Профил';
@@ -2537,6 +2536,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Отворено на уебсайта „Отворени цени“';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4244,10 +4246,6 @@ class AppLocalizationsBg extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Зелен-Резултат';
 
   @override
@@ -4436,10 +4434,6 @@ class AppLocalizationsBg extends AppLocalizations {
       'За разлика от патентованите етикети, изчислението на Green-Score е **напълно отворено** и може да бъде **проверено от всеки**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Свръхпреработени храни';
 
   @override
@@ -4526,9 +4520,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Общата цел на ултрапреработката е да се създадат маркови, удобни (трайни, готови за консумация), атрактивни (свръхвкусни) и високорентабилни (с евтини съставки) хранителни продукти, предназначени да изместят всички останали хранителни групи. Ултрапреработените хранителни продукти обикновено са атрактивно опаковани и се предлагат на пазара интензивно.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4879,7 +4870,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Извличането е в ход…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Извличането е успешно';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5026,6 +5020,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get preferences_contribute_title => 'Допринеси';
 
   @override
+  String get preferences_my_contributions_title => 'Моите приноси';
+
+  @override
+  String get preferences_my_stats_title => 'Моите статистики';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Превеждайте, подобрете инструментите си…';
 
@@ -5105,6 +5105,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get preferences_legal_mentions => 'Правни споменавания';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts е база данни за хранителни продукти, **създадена от всички, за всички**.\nМожете да я използвате, за да правите по-добър избор на храна, и тъй като е **отворени данни**, всеки може да я **използва повторно за всякакви цели**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5157,6 +5161,9 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Управление на моя акаунт';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Управлявайте профила си';
 
   @override
   String get preferences_change_password_title => 'Промяна на паролата ми';
@@ -5269,10 +5276,6 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Включете се, като посетите едно от нашите виртуални събития';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Последвайте ни в социалните мрежи';
 
   @override
   String get preferences_connect_blog_title =>
@@ -5388,8 +5391,8 @@ class AppLocalizationsBg extends AppLocalizations {
       'Присъединете се към нашите усилия, за да гарантираме, че базата данни е пълна и точна';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 добавени продукта';
+  String get preferences_contributions_products_added_title =>
+      'Добавени продукти';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5402,6 +5405,16 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Всички непълни продукти';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Цени';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Моите цени';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Моите цени, моите доказателства…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5538,6 +5551,36 @@ class AppLocalizationsBg extends AppLocalizations {
       'Удостоверяването не бе успешно, не можаха да се получат доказателства';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count от $total доказателства';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count доказателства';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count от $total сътрудници';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count сътрудници';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count от $total местоположения';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count местоположения';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Моля, рестартирайте приложението, за да приложите промените.';
 
@@ -5578,6 +5621,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Добавено на $created';
   }
 }

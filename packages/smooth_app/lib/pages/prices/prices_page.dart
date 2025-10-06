@@ -34,7 +34,6 @@ class PricesPage extends StatelessWidget {
 
     return SmoothScaffold2(
       backgroundColor: lightTheme ? extension.primaryLight : null,
-      brightness: Brightness.light,
       topBar: SmoothTopBar2(
         leadingAction: SmoothLeadingAction.back,
         backgroundColor: lightTheme

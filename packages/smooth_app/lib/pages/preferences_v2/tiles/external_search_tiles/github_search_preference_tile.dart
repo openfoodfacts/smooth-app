@@ -4,7 +4,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/exte
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GithubSearchPreferenceTile extends ExternalSearchPreferenceTile {
-  GithubSearchPreferenceTile() : super(icon: const icons.GitHub().icon);
+  const GithubSearchPreferenceTile() : super(icon: const icons.GitHub());
 
   @override
   String buildTitle(BuildContext context, String keyword) =>

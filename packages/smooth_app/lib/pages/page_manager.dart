@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -151,7 +152,7 @@ class PageManagerState extends State<PageManager> {
     final int tabPosition = BottomNavigationTab.values.indexOf(tabItem);
 
     if (offstage && _loadedTabs[tabPosition] == false) {
-      return const SizedBox();
+      return EMPTY_WIDGET;
     } else if (!offstage) {
       _loadedTabs[tabPosition] = true;
     }

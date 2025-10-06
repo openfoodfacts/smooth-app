@@ -3,6 +3,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_currency_selector.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Card that displays the currency for price adding.
 class PriceCurrencyCard extends StatelessWidget {
@@ -13,7 +14,7 @@ class PriceCurrencyCard extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_currency_subtitle,
-      leading: const Icon(Icons.price_change),
+      leading: const icons.Currency(),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         horizontal: SMALL_SPACE,
         vertical: MEDIUM_SPACE,

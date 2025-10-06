@@ -9,6 +9,9 @@ class AppLocalizationsEt extends AppLocalizations {
   AppLocalizationsEt([String locale = 'et']) : super(locale);
 
   @override
+  String get app_name => 'Avatud toidufaktid';
+
+  @override
   String get sep => '';
 
   @override
@@ -320,10 +323,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Kustuta minu konto';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Avatud Open Prices\'i veebisaidil';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4204,10 +4206,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4395,10 +4393,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Erinevalt omandiõigusega kaitstud märgistest on rohelise skoori arvutus **täiesti avatud** ja seda saab **kõik** kontrollida.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4486,9 +4480,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ülitöötlemise üldine eesmärk on luua kaubamärgiga, mugavaid (vastupidavaid, tarbimisvalmis), atraktiivseid (ülimaitselisi) ja väga tulusaid (odavate koostisosadega) toiduaineid, mis on loodud kõigi teiste toidugruppide väljatõrjumiseks. Ülitöödeldud toiduained on tavaliselt atraktiivselt pakendatud ja turustatakse intensiivselt.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4839,7 +4830,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress =>
+      'Ekstraheerimine on pooleli…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ekstraheerimine õnnestus';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,6 +4980,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_contribute_title => 'Tee kaastööd';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Minu statistika';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Tõlgi, täiustage oma tarvikuid…';
 
@@ -5062,6 +5063,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts on toiduainete andmebaas, **mille on **loonud kõik ja kõigile**.\nSaate seda kasutada paremate toiduvalikute tegemiseks ja kuna tegemist on **avatud andmetega**, saab igaüks seda **mis tahes otstarbel taaskasutada**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5114,6 +5119,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Halda minu kontot';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Halda oma kontot';
 
   @override
   String get preferences_change_password_title => 'Muuda minu salasõna';
@@ -5227,10 +5235,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Osale ühel meie virtuaalsel üritusel';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Jälgi meid sotsiaalmeedias';
-
-  @override
   String get preferences_connect_blog_title => 'Avatud toidufaktide ajaveeb';
 
   @override
@@ -5342,7 +5346,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Liitu meie pingutustega, et tagada andmebaasi terviklikkus ja täpsus';
 
   @override
-  String get preferences_contributions_new_products_title => '0 toodet lisatud';
+  String get preferences_contributions_products_added_title => 'Lisatud tooted';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5355,6 +5359,16 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Kõik mittetäielikud tooted';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Minu hinnad, minu tõestused…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5483,6 +5497,36 @@ class AppLocalizationsEt extends AppLocalizations {
       'Autentimine ebaõnnestus, tõendite hankimine ebaõnnestus.';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count $total tõestusest';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count $total kaastöölisest';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count $total asukohast';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count asukohta';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Muudatuste rakendamiseks taaskäivitage rakendus.';
 
@@ -5523,6 +5567,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Lisatud $created';
   }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
+  String get app_name => 'Dades sobre aliments oberts';
+
+  @override
   String get sep => '';
 
   @override
@@ -324,10 +327,6 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'termes d\'ús i contribució';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://es-ca.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url =>
@@ -1714,7 +1713,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get account_delete => 'Elimina el compte';
 
   @override
-  String get account_deletion_subject => 'Suprimeix el meu compte';
+  String get account_delete_title => 'Suprimeix el meu compte';
 
   @override
   String get user_profile => 'Compte';
@@ -2541,6 +2540,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Obre al lloc web de Preus Oberts';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4259,10 +4261,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4452,10 +4450,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'A diferència de les etiquetes pròpies, el càlcul de Green-Score és **completament obert** i qualsevol persona pot **verificar-lo**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Aliments ultraprocessats';
 
   @override
@@ -4543,9 +4537,6 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L\'objectiu general de l\'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d\'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i comercialitzar-se intensivament.';
-
-  @override
-  String get guide_nova_share_link => 'https://ca.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4896,7 +4887,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Extracció en curs…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extracció correcta';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5043,6 +5037,12 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_contribute_title => 'Contribuir';
 
   @override
+  String get preferences_my_contributions_title => 'Les meves aportacions';
+
+  @override
+  String get preferences_my_stats_title => 'Les meves estadístiques';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Tradueix, millora les nostres eines…';
 
@@ -5124,6 +5124,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts és una base de dades de productes alimentaris **feta per tothom, per a tothom**.\nLa podeu utilitzar per prendre millors decisions alimentàries i, com que són **dades obertes**, tothom la pot **reutilitzar per a qualsevol propòsit**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5176,6 +5180,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Gestiona el meu compte';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Gestiona el teu compte';
 
   @override
   String get preferences_change_password_title => 'Canvia la meva contrasenya';
@@ -5290,10 +5297,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'Participa assistint a un dels nostres esdeveniments virtuals';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Segueix-nos a les xarxes socials';
-
-  @override
   String get preferences_connect_blog_title => 'El blog Open Food Facts';
 
   @override
@@ -5406,8 +5409,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Uneix-te al nostre esforç per garantir que la base de dades sigui completa i precisa';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 productes afegits';
+  String get preferences_contributions_products_added_title =>
+      'Productes afegits';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5420,6 +5423,16 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Tots els productes incomplets';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Preus';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Els meus preus, les meves proves…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5553,6 +5566,36 @@ class AppLocalizationsCa extends AppLocalizations {
       'L\'autenticació ha fallat, no s\'han pogut obtenir proves';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count de $total proves';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count de $total col·laboradors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count de $total ubicacions';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count ubicacions';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Reinicieu l\'aplicació per aplicar els canvis.';
 
@@ -5594,6 +5637,6 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Afegit a $created';
   }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsHt extends AppLocalizations {
   AppLocalizationsHt([String locale = 'ht']) : super(locale);
 
   @override
+  String get app_name => 'Enfòmasyon sou Manje Ouvè';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsHt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Efase kont mwen an';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Louvri sou sitwèb Open Prices la';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4202,10 +4204,6 @@ class AppLocalizationsHt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4393,10 +4391,6 @@ class AppLocalizationsHt extends AppLocalizations {
       'Kontrèman ak etikèt propriétaires yo, kalkil Green-Score la **konplètman ouvè** epi nenpòt moun ka **verifye li**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4483,9 +4477,6 @@ class AppLocalizationsHt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Objektif jeneral ultra-pwosesis la se kreye pwodui alimantè ki gen mak, pratik (dirab, pare pou konsome), atiran (ipè-gou) epi trè pwofitab (engredyan ki pa koute chè), ki fèt pou ranplase tout lòt gwoup alimantè yo. Pwodui alimantè ultra-pwosesis yo anjeneral anbale yon fason atiran epi yo vann yo yon fason entansif.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4836,7 +4827,10 @@ class AppLocalizationsHt extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Ekstraksyon an ap fèt…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ekstraksyon reyisi';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4982,6 +4976,12 @@ class AppLocalizationsHt extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Estatistik mwen yo';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Tradui, amelyore zouti nou yo…';
 
@@ -5059,6 +5059,10 @@ class AppLocalizationsHt extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts se yon baz done pwodui alimantè **fèt pa tout moun, pou tout moun**.\nOu ka itilize li pou fè pi bon chwa alimantè, epi kòm li se **done ouvè**, nenpòt moun ka **reitilize li pou nenpòt ki rezon**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5111,6 +5115,9 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Jere kont mwen an';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Jere kont ou';
 
   @override
   String get preferences_change_password_title => 'Chanje modpas mwen an';
@@ -5220,10 +5227,6 @@ class AppLocalizationsHt extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Patisipe nan youn nan evènman vityèl nou yo';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Swiv nou sou rezo sosyal yo';
 
   @override
   String get preferences_connect_blog_title =>
@@ -5339,7 +5342,8 @@ class AppLocalizationsHt extends AppLocalizations {
       'Patisipe nan efò nou pou asire baz done a konplè epi egzak.';
 
   @override
-  String get preferences_contributions_new_products_title => '0 pwodwi ajoute';
+  String get preferences_contributions_products_added_title =>
+      'Pwodwi ajoute yo';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5352,6 +5356,16 @@ class AppLocalizationsHt extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Tout pwodwi enkonplè yo';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Pri';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Pri mwen yo';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Pri mwen yo, prèv mwen yo…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5480,6 +5494,36 @@ class AppLocalizationsHt extends AppLocalizations {
       'Otantifikasyon an echwe, pa posib pou jwenn prèv yo.';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count nan $total prèv';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count prèv';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count nan $total kontribitè yo';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count kontribitè';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count nan $total kote yo ye a';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count kote yo ye';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Tanpri rekòmanse aplikasyon an pou aplike chanjman yo.';
 
@@ -5520,6 +5564,6 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Ajoute sou $created';
   }
 }
