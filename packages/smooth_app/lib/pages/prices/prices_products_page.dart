@@ -5,9 +5,12 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -94,6 +97,20 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
-    return SmoothCard(child: PriceProductWidget(item));
+    return SmoothCard(
+      child: InkWell(
+        onTap: () async => Navigator.of(context).push<void>(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel.product(
+                product: PriceMetaProduct.priceProduct(item),
+                context: context,
+              ),
+            ),
+          ),
+        ),
+        child: PriceProductWidget(item),
+      ),
+    );
   }
 }
