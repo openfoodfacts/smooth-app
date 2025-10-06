@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ટકાઉ ખોરાક પસંદ કરવાનું જટિલ લાગી શકે છે. લેબલ્સ ગૂંચવણભર્યા હોય છે અને ઘણીવાર માહિતી ખૂટે છે. ગ્રીન-સ્કોર તેને સરળ બનાવવા માટે બનાવવામાં આવ્યો હતો, જે તમને ખાદ્ય ઉત્પાદનો માટે **સ્પષ્ટ**, **વિજ્ઞાન-આધારિત** અને **પારદર્શક** પર્યાવરણીય રેટિંગ આપે છે, જ્યાં તમને તેની જરૂર હોય ત્યાં: જ્યારે તમે ખરીદી કરો છો.",
   "guide_greenscore_better_product_arg4_title": "પારદર્શિતા",
   "guide_greenscore_better_product_arg4_text": "માલિકીના લેબલોથી વિપરીત, ગ્રીન-સ્કોર ગણતરી **સંપૂર્ણપણે ખુલ્લી** છે** અને તેને **કોઈપણ વ્યક્તિ દ્વારા ચકાસી શકાય છે**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "સામાન્ય રીતે ઘણા ઘટકોને ભેગા કરવા અને અંતિમ ઉત્પાદન બનાવવા માટે (તેથી 'અલ્ટ્રા-પ્રોસેસ્ડ') પ્રક્રિયાઓના સમૂહનો ઉપયોગ થાય છે. આ પ્રક્રિયાઓમાં ઘણી બધી પ્રક્રિયાઓનો સમાવેશ થાય છે જેમાં કોઈ સ્થાનિક સમકક્ષ નથી, જેમ કે હાઇડ્રોજનેશન અને હાઇડ્રોલાઇઝેશન, એક્સટ્રુઝન અને મોલ્ડિંગ, અને ફ્રાઈંગ માટે પ્રી-પ્રોસેસિંગ.",
   "guide_nova_explanations_arg4_title": "અલ્ટ્રા-પ્રોસેસિંગના શિકારી અને નાણાકીય પાસાં",
   "guide_nova_explanations_arg4_text": "અલ્ટ્રા-પ્રોસેસિંગનો એકંદર હેતુ બ્રાન્ડેડ, અનુકૂળ (ટકાઉ, વપરાશ માટે તૈયાર), આકર્ષક (અતિ-સ્વાદિષ્ટ) અને અત્યંત નફાકારક (ઓછી કિંમતના ઘટકો) ખાદ્ય ઉત્પાદનો બનાવવાનો છે જે અન્ય તમામ ખાદ્ય જૂથોને સ્થાનાંતરિત કરવા માટે રચાયેલ છે. અલ્ટ્રા-પ્રોસેસ્ડ ખાદ્ય ઉત્પાદનો સામાન્ય રીતે આકર્ષક રીતે પેક કરવામાં આવે છે અને સઘન રીતે માર્કેટિંગ કરવામાં આવે છે.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
