@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "शाश्वत अन्न निवडणे गुंतागुंतीचे वाटू शकते. लेबल्स गोंधळात टाकणारे असतात आणि माहिती अनेकदा गहाळ असते. ग्रीन-स्कोअर हे सोपे करण्यासाठी तयार केले गेले आहे, जे तुम्हाला अन्न उत्पादनांसाठी **स्पष्ट**, **विज्ञान-आधारित** आणि **पारदर्शक** पर्यावरणीय रेटिंग देते, जिथे तुम्हाला त्याची आवश्यकता असते: तुम्ही खरेदी करताना.",
   "guide_greenscore_better_product_arg4_title": "पारदर्शकता",
   "guide_greenscore_better_product_arg4_text": "मालकीच्या लेबल्सच्या विपरीत, ग्रीन-स्कोअर गणना **पूर्णपणे खुली** आहे** आणि **कोणीही ती सत्यापित** करू शकते.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "सामान्यतः अनेक घटक एकत्र करण्यासाठी आणि अंतिम उत्पादन तयार करण्यासाठी (म्हणून 'अल्ट्रा-प्रक्रिया केलेले') अनेक प्रक्रियांचा वापर केला जातो. या प्रक्रियांमध्ये घरगुती समतुल्य नसलेल्या अनेक प्रक्रियांचा समावेश असतो, जसे की हायड्रोजनेशन आणि हायड्रोलायझेशन, एक्सट्रूजन आणि मोल्डिंग आणि तळण्यासाठी पूर्व-प्रक्रिया.",
   "guide_nova_explanations_arg4_title": "अल्ट्रा-प्रोसेसिंगचे शिकारी आणि आर्थिक पैलू",
   "guide_nova_explanations_arg4_text": "अल्ट्रा-प्रोसेसिंगचा एकंदर उद्देश म्हणजे ब्रँडेड, सोयीस्कर (टिकाऊ, वापरण्यास तयार), आकर्षक (अति-रुचिकर) आणि अत्यंत फायदेशीर (कमी किमतीचे घटक) अन्न उत्पादने तयार करणे जे इतर सर्व अन्न गटांना विस्थापित करण्यासाठी डिझाइन केलेले आहेत. अल्ट्रा-प्रोसेस्ड अन्न उत्पादने सहसा आकर्षकपणे पॅक केली जातात आणि त्यांची सघन विक्री केली जाते.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
