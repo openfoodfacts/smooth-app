@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Dumuni sabatili sugandili bɛ se ka kɛ i n’a fɔ a ka gɛlɛn. Labeliw bɛ mɔgɔ hakili ɲagami ani kunnafoniw tɛ sɔrɔ tuma caman na. Green-Score dabɔra walasa k’a nɔgɔya, ka sigida jateminɛ jɛlen di i ma, **science-based**, ani **transparent** dumunifɛnw na, i mago bɛ yɔrɔ min na yɛrɛ: k’i to sanni kɛ.",
   "guide_greenscore_better_product_arg4_title": "Kɛnɛyako",
   "guide_greenscore_better_product_arg4_text": "A tɛ i n’a fɔ labeli propriétaires, Green-Score jatebɔ ye **da wuli pewu** wa a bɛ se ka **sɛgɛsɛgɛ mɔgɔ bɛɛ fɛ**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Taabolo caman bɛ kɛ ka tugu ɲɔgɔn kɔ walasa ka fɛn caman fara ɲɔgɔn kan a ka c’a la ani ka fɛn laban dilan (o de kama ‘a bɛ kɛ kosɛbɛ’). O kɛcogo dɔw ye damadɔ ye minnu tɛ sokɔnɔna bɔɲɔgɔnko ye, i n’a fɔ hidrɔzɛni ni jibɔ, bɔli ni fɛn dilanni, ani ka kɔn ka baara kɛ walasa ka tobi.",
   "guide_nova_explanations_arg4_title": "Ultra-processing ka predatory ni wariko fanw",
   "guide_nova_explanations_arg4_text": "Ultra-processing kun bɛɛ ye ka dumunifɛnw dilan minnu tɔgɔ sɛbɛnnen don, minnu bɛ se ka mɛn, minnu bɛ mɛn, minnu bɛ se ka dun, minnu bɛ mɔgɔ ɲɛnajɛ (min ka di kosɛbɛ) ani minnu nafa ka bon kosɛbɛ (fɛn minnu musaka ka dɔgɔ) minnu dabɔra ka dumuni kulu tɔw bɛɛ bɔ u nɔ na. A ka c’a la, dumunifɛnw minnu dilannen don ni ultra-processed ye, olu bɛ kɛ pake kɔnɔ cogo la min bɛ mɔgɔ ɲɛnajɛ, wa u bɛ feere kosɛbɛ.",
-  "guide_nova_share_link": "https://en.dumuniw dafalenw.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
