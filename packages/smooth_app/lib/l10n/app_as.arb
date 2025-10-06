@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "বহনক্ষম খাদ্য বাছনি কৰাটো জটিল অনুভৱ হ’ব পাৰে। লেবেলবোৰ বিভ্ৰান্তিকৰ আৰু তথ্য প্ৰায়ে নোহোৱা হয়। গ্ৰীণ-স্ক'ৰ ইয়াক সহজ কৰিবলৈ সৃষ্টি কৰা হৈছে, আপোনাক খাদ্য সামগ্ৰীৰ বাবে এটা **স্পষ্ট**, **বিজ্ঞান-ভিত্তিক**, আৰু **স্বচ্ছ** পৰিৱেশ ৰেটিং দিয়ে, ঠিক য'ত আপুনি ইয়াৰ প্ৰয়োজন হয়: আপুনি বজাৰ কৰাৰ সময়ত।",
   "guide_greenscore_better_product_arg4_title": "স্বচ্ছতা",
   "guide_greenscore_better_product_arg4_text": "মালিকানাধীন লেবেলৰ দৰে নহয়, সেউজ-স্ক'ৰ গণনা **সম্পূৰ্ণভাৱে মুকলি** আৰু ইয়াক **যিকোনো ব্যক্তিয়ে পৰীক্ষা কৰিব পাৰে**।",
-  "guide_greenscore_share_link": "https://as.openfoodfacts.org/সেউজীয়া-স্ক'ৰ",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "সাধাৰণতে বহুতো উপাদান একত্ৰিত কৰিবলৈ আৰু চূড়ান্ত উৎপাদন (সেয়েহে ‘আল্ট্ৰা-প্ৰচেছড’) সৃষ্টি কৰিবলৈ বহুতো প্ৰক্ৰিয়াৰ ক্ৰমৰ ব্যৱহাৰ কৰা হয়। এই প্ৰক্ৰিয়াসমূহৰ ভিতৰত আছে কেইবাটাও ঘৰুৱা সমতুল্য নথকা, যেনে হাইড্ৰজেনেচন আৰু হাইড্ৰ'লাইজেচন, এক্সট্ৰুচন আৰু মল্ডিং, আৰু ভাজিৰ বাবে প্ৰি-প্ৰচেছিং।",
   "guide_nova_explanations_arg4_title": "আল্ট্ৰা-প্ৰচেছিঙৰ লুণ্ঠনকাৰী আৰু বিত্তীয় দিশ",
   "guide_nova_explanations_arg4_text": "আল্ট্ৰা-প্ৰচেছিঙৰ সামগ্ৰিক উদ্দেশ্য হৈছে আন সকলো খাদ্য গোটক স্থানচ্যুত কৰিব পৰাকৈ ডিজাইন কৰা ব্ৰেণ্ডেড, সুবিধাজনক (টেকসই, ব্যৱহাৰৰ বাবে সাজু), আকৰ্ষণীয় (অতি-স্বাদু) আৰু অতি লাভজনক (কম খৰচী উপাদান) খাদ্য সামগ্ৰী সৃষ্টি কৰা। আল্ট্ৰা-প্ৰচেছড খাদ্য সামগ্ৰী সাধাৰণতে আকৰ্ষণীয়ভাৱে পেকেজ কৰা হয় আৰু ইয়াৰ বজাৰ তীব্ৰভাৱে কৰা হয়।",
-  "guide_nova_share_link": "https://as.openfoodfacts.org/nova ৰ দ্বাৰা প্ৰকাশিত",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
