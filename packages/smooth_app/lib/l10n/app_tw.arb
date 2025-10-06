@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Aduan a ɛtra hɔ daa a wobɛpaw no betumi ayɛ te sɛ nea ɛyɛ den. Nkyerɛwde ahorow no yɛ basaa na nsɛm taa yera. Wɔyɛɛ Green-Score no sɛnea ɛbɛyɛ a ɛbɛyɛ mmerɛw, ama wo **nea ɛda adi pefee**, **egyina nyansahu so**, na **ɛda adi** nneɛma a atwa yɛn ho ahyia ho nkyerɛkyerɛmu a ɛfa nnuan ho, baabi a wuhia no ara: bere a woretɔ ade.",
   "guide_greenscore_better_product_arg4_title": "Nneɛma a wɔyɛ no pefee",
   "guide_greenscore_better_product_arg4_text": "Nea ɛnte sɛ proprietary labels no, Green-Score akontabuo no **bue koraa** na **obiara betumi **agye atom**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/asɛmfua a ɛyɛ ahabammono",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Wɔde akwan horow pii a ɛtoatoa so di dwuma de ka nneɛma a ɛtaa yɛ pii no bom na wɔyɛ ade a etwa to (enti ‘wɔayɛ no kɛse’). Nneɛma a wɔyɛ no bi ne pii a wonni ofie mu nneɛma a ɛne no sɛ, te sɛ hydrogenation ne hydrolysation, extrusion ne moulding, ne pre-processing de frying.",
   "guide_nova_explanations_arg4_title": "Nneɛma a ɛyɛ predatory ne sikasɛm afã horow a ɛwɔ ultra-processing mu",
   "guide_nova_explanations_arg4_text": "Atirimpɔw titiriw a ɛwɔ ultra-processing mu ne sɛ wɔbɛyɛ nnuan a wɔakyerɛw so, ɛyɛ mmerɛw (ɛtra hɔ kyɛ, ɛyɛ krado sɛ wobedi), ɛyɛ fɛ (ɛyɛ dɛ dodo) na mfaso wɔ so kɛse (nneɛma a ne bo nyɛ den) a wɔayɛ sɛ ɛbɛma wɔatu nnuan akuw afoforo nyinaa afi hɔ. Mpɛn pii no, wɔkyekyere nnuan a wɔayɛ no yiye kɛse wɔ ɔkwan a ɛyɛ fɛ so na wɔtɔn no kɛse.",
-  "guide_nova_share_link": "https://tw.bue aduan ho nsɛm.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
