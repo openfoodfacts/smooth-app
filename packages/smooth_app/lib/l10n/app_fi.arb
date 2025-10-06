@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-fi.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Mikä ei muutu",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on pistemäärä, joka on suunniteltu **mittaamaan ravintoarvoa**. Se **täydentää NOVA-ryhmää** **ultrajalostetuissa elintarvikkeissa** (sisältyy myös hakemukseen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.",
-  "guide_nutriscore_v2_share_link": "https://world-fi.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Kestävän ruoan valitseminen voi tuntua monimutkaiselta. Etiketit ovat hämmentäviä ja tiedot usein puuttuvat. Green-Score luotiin yksinkertaistamaan valintaa, antaen sinulle **selkeän**, **tieteeseen perustuvan** ja **läpinäkyvän** ympäristöluokituksen elintarvikkeille juuri siellä missä sitä tarvitset: ostoksilla ollessasi.",
   "guide_greenscore_better_product_arg4_title": "Läpinäkyvyys",
   "guide_greenscore_better_product_arg4_text": "Toisin kuin omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen**.",
-  "guide_greenscore_share_link": "https://fi.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultrajalostetut ruoat",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Useita prosessisarjoja käytetään yhdistämään tavallisesti monia ainesosia ja luomaan lopputuote (tästä syystä 'ultraprosessoitu'). Prosesseihin kuuluu useita, joille ei ole kotimaisia vastineita, kuten hydraus ja hydrolysointi, ekstruusio ja muovaus sekä esikäsittely paistamista varten.",
   "guide_nova_explanations_arg4_title": "Ultraprosessoinnin saalistushinnoittelu ja taloudelliset näkökohdat",
   "guide_nova_explanations_arg4_text": "Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä, käteviä (kestäviä, valmiita kuluttamaan), houkuttelevia (hypermaukkaita) ja erittäin kannattavia (edullisia ainesosia) elintarvikkeita, joiden on tarkoitus syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.",
-  "guide_nova_share_link": "https://fi.openfoodfacts.org/nova",
   "preview_badge": "Esikatselu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
