@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Verde-Puntuación nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.",
   "guide_greenscore_better_product_arg4_title": "Transparencia nisqa",
   "guide_greenscore_better_product_arg4_text": "Mana propiedad etiquetakuna hinachu, Verde-Puntuación yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.",
-  "guide_greenscore_share_link": "https://qu.kichasqa mikhuykuna.org/verde-puntuación",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Askha secuenciakuna ruwaykunata llamk'achinku chay aswanta achka ingredientekunata huñunapaq chaymanta qhipa ruruta ruwanapaq (chaymanta ‘ultra-procesado’). Chay ruwaykunaqa kanmi achka mana wasipi equivalenteyuq, ahinataq hidrogenación y hidrolización, extrusión y moldeo, hinallataq pre-procesamiento fría nisqapaq.",
   "guide_nova_explanations_arg4_title": "Ultra-procesamiento nisqapa aspectos predatorios y financieros nisqa",
   "guide_nova_explanations_arg4_text": "Ultra-procesamiento nisqapa tukuy ima munayninqa, markayuq, allin (unaypaq, mikuypaq listo), munay (hiper-palatable) hinaspa ancha gananciayuq (ingredientekuna pisi qullqiyuq) mikhuy rurukuna ruwaymi, llapan huk mikhuy huñukunata qarqunapaq ruwasqa. Ultra-procesado nisqa mikhuy rurukunaqa sumaqllatam paqueteasqa kanku, hinaspapas anchatam qhatunku.",
-  "guide_nova_share_link": "https://qu.kichasqa mikhuykuna.org/nova nisqapi",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
