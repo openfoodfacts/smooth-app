@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Sceglie un alimentu sustenibile pò sembrà cumplessu. L'etichette sò cunfuse è l'infurmazioni sò spessu mancanti. U Green-Score hè statu creatu per simplificà e cose, dendu vi una valutazione ambientale **chjara**, **basata nantu à a scienza** è **trasparente** per i prudutti alimentari, ghjustu induve ne avete bisognu: mentre fate a spesa.",
   "guide_greenscore_better_product_arg4_title": "Trasparenza",
   "guide_greenscore_better_product_arg4_text": "À u cuntrariu di l'etichette pruprietarie, u calculu di u Green-Score hè **cumpletamente apertu** è pò esse **verificatu da qualchissia**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Una mansa di sequenze di prucessi hè aduprata per cumminà l'ingredienti, di solitu numerosi, è per creà u pruduttu finale (dunque \"ultra-trasfurmatu\"). I prucessi includenu parechji senza equivalenti domestichi, cum'è l'idrogenazione è l'idrolisazione, l'estrusione è u stampaggio, è a pre-trasfurmazione per a frittura.",
   "guide_nova_explanations_arg4_title": "L'aspetti predatori è finanziarii di l'ultra-processamentu",
   "guide_nova_explanations_arg4_text": "U scopu generale di l'ultra-trasfurmazione hè di creà prudutti alimentari di marca, pratichi (durevuli, pronti à cunsumà), attraenti (iper-appetibili) è assai redditizi (ingredienti à bassu costu) cuncepiti per rimpiazzà tutti l'altri gruppi alimentari. I prudutti alimentari ultra-trasfurmati sò generalmente imballati in modu attraente è cummercializati intensivamente.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
