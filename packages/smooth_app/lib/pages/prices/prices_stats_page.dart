@@ -19,11 +19,15 @@ class PricesStatsPage extends StatefulWidget {
 }
 
 class _PricesStatsPageState extends State<PricesStatsPage> {
+  late final NumberFormat _numberFormat;
   MaybeError<PriceTotalStats>? _statsData;
 
   @override
   void initState() {
     super.initState();
+    _numberFormat = NumberFormat.decimalPattern(
+      ProductQuery.getLanguage().offTag,
+    );
     unawaited(_loadStats());
   }
 
@@ -42,6 +46,7 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(appLocalizations.prices_stats_title),
@@ -269,8 +274,8 @@ class _PricesStatsPageState extends State<PricesStatsPage> {
     }
 
     final String displayValue = denominator == null
-        ? value.toString()
-        : '$value / $denominator';
+        ? _numberFormat.format(value)
+        : '${_numberFormat.format(value)} / ${_numberFormat.format(denominator)}';
 
     return ListTile(title: Text(displayValue), subtitle: Text(description));
   }
