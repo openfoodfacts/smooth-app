@@ -5504,6 +5504,36 @@ class AppLocalizationsFa extends AppLocalizations {
       'احراز هویت ناموفق بود، نتوانست مدارک را دریافت کند';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'لطفا برای اعمال تغییرات، برنامه را مجدداً راه اندازی کنید.';
 

@@ -5568,6 +5568,36 @@ class AppLocalizationsNl extends AppLocalizations {
       'Authenticatie mislukt, kan geen bewijzen ophalen';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Start de app opnieuw op om de wijzigingen toe te passen.';
 

@@ -166,6 +166,18 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
       ),
     );
   }
+
+  @override
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return totalItems != null
+        ? appLocalizations.proofs_count_with_total(loadedItems, totalItems)
+        : appLocalizations.proof_count(loadedItems);
+  }
 }
 
 class _PriceProofListItem extends StatelessWidget {

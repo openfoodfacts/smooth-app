@@ -25,14 +25,11 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
 import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
+import 'package:smooth_app/pages/product/query_results_banner.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// A page that can be used like a screen, if [includeAppBar] is true.
 /// Otherwise, it can be embedded in another screen.
@@ -368,7 +365,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final StringBuffer messages = StringBuffer();
+
     String counting = appLocalizations.user_list_length(
       _model.supplier.partialProductList.totalSize,
     );
@@ -382,7 +379,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         }
       }
     }
-    messages.writeln(counting);
+
+    final List<String> messages = <String>[];
     final int? lastUpdate = _model.supplier.timestamp;
     if (lastUpdate != null) {
       final String lastTime =
@@ -390,50 +388,21 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             lastUpdate,
             context,
           );
-      messages.write('${appLocalizations.cached_results_from} $lastTime');
+      messages.add('${appLocalizations.cached_results_from} $lastTime');
     }
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme();
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
-      child: FractionallySizedBox(
-        widthFactor: 0.8,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: lightTheme
-                ? extension.primaryMedium
-                : extension.primaryBlack,
-            borderRadius: ANGULAR_BORDER_RADIUS,
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: TextWithBoldParts(
-                    text: messages.toString(),
-                    textAlign: TextAlign.center,
-                    textStyle: TextStyle(
-                      color: lightTheme ? Colors.black : Colors.white,
-                    ),
-                  ),
-                ),
-                if (pagedProductQuery.getWorldQuery() != null)
-                  _getIconButton(
-                    _getWorldAction(
-                      appLocalizations,
-                      worldQuery!,
-                      widget.includeAppBar,
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        ),
-      ),
+    return QueryResultsBanner(
+      mainText: counting,
+      extraLines: messages,
+      trailing: pagedProductQuery.getWorldQuery() != null
+          ? _getIconButton(
+              _getWorldAction(
+                appLocalizations,
+                worldQuery!,
+                widget.includeAppBar,
+              ),
+            )
+          : null,
     );
   }
 

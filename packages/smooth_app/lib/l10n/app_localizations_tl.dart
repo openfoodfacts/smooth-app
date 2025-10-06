@@ -5527,6 +5527,36 @@ class AppLocalizationsTl extends AppLocalizations {
       'Nabigo ang pagpapatotoo, hindi nakakuha ng mga patunay';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Mangyaring i-restart ang app upang ilapat ang mga pagbabago.';
 

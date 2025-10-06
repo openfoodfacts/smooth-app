@@ -135,4 +135,19 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
       ),
     );
   }
+
+  @override
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return totalItems != null
+        ? appLocalizations.prices_locations_count_with_total(
+            loadedItems,
+            totalItems,
+          )
+        : appLocalizations.prices_locations_count(loadedItems);
+  }
 }

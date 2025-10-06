@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
+import 'package:smooth_app/pages/product/query_results_banner.dart';
 
 /// A generic stateful widget for infinite scrolling lists that works with InfiniteScrollManager.
 class InfiniteScrollList<T> extends StatefulWidget {
@@ -88,7 +88,11 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   }
 
   String _getItemCount(BuildContext context) =>
-      widget.manager.formattedItemCount(context);
+      widget.manager.formattedItemCount(
+        context,
+        widget.manager.items.length,
+        widget.manager.totalItems,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +111,10 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     final List<Widget> children = <Widget>[];
 
     children.add(
-      SmoothCard(child: ListTile(title: Text(_getItemCount(context)))),
+      QueryResultsBanner(
+        mainText: _getItemCount(context),
+        margin: const EdgeInsetsDirectional.only(top: BALANCED_SPACE),
+      ),
     );
 
     for (final T item in widget.manager.items) {
@@ -117,7 +124,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     if (widget.manager.isLoading) {
       children.add(
         const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.0),
+          padding: EdgeInsetsDirectional.symmetric(vertical: LARGE_SPACE),
           child: Center(child: CircularProgressIndicator.adaptive()),
         ),
       );
@@ -125,6 +132,10 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
 
     children.add(const SizedBox(height: MINIMUM_TOUCH_SIZE * 2));
 
-    return ListView(controller: _scrollController, children: children);
+    return ListView.builder(
+      controller: _scrollController,
+      itemCount: children.length,
+      itemBuilder: (BuildContext context, int index) => children[index],
+    );
   }
 }

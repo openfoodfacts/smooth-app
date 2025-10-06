@@ -9559,6 +9559,42 @@ abstract class AppLocalizations {
   /// **'Authentication failed, unable to fetch proofs'**
   String get prices_proof_error;
 
+  /// Number of proofs
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} proofs'**
+  String proofs_count_with_total(int count, int total);
+
+  /// Number of proofs (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} proofs'**
+  String proof_count(int count);
+
+  /// Number of contributors
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} contributors'**
+  String contributors_count_with_total(int count, int total);
+
+  /// Number of contributors (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} contributors'**
+  String contributors_count(int count);
+
+  /// Number of locations
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} locations'**
+  String prices_locations_count_with_total(int count, int total);
+
+  /// Number of locations (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} locations'**
+  String prices_locations_count(int count);
+
   /// Message to restart the app to apply changes, used in the preferences screen
   ///
   /// In en, this message translates to:

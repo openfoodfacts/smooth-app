@@ -107,4 +107,19 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
       ),
     );
   }
+
+  @override
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return totalItems != null
+        ? appLocalizations.contributors_count_with_total(
+            loadedItems,
+            totalItems,
+          )
+        : appLocalizations.contributors_count(loadedItems);
+  }
 }
