@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ਟਿਕਾਊ ਭੋਜਨ ਚੁਣਨਾ ਗੁੰਝਲਦਾਰ ਲੱਗ ਸਕਦਾ ਹੈ। ਲੇਬਲ ਉਲਝਣ ਵਾਲੇ ਹੁੰਦੇ ਹਨ ਅਤੇ ਜਾਣਕਾਰੀ ਅਕਸਰ ਗੁੰਮ ਹੁੰਦੀ ਹੈ। ਗ੍ਰੀਨ-ਸਕੋਰ ਇਸਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਤੁਹਾਨੂੰ ਭੋਜਨ ਉਤਪਾਦਾਂ ਲਈ **ਸਪਸ਼ਟ**, **ਵਿਗਿਆਨ-ਅਧਾਰਤ**, ਅਤੇ **ਪਾਰਦਰਸ਼ੀ** ਵਾਤਾਵਰਣ ਰੇਟਿੰਗ ਦਿੰਦਾ ਹੈ, ਜਿੱਥੇ ਤੁਹਾਨੂੰ ਇਸਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ: ਜਦੋਂ ਤੁਸੀਂ ਖਰੀਦਦਾਰੀ ਕਰਦੇ ਹੋ।",
   "guide_greenscore_better_product_arg4_title": "ਪਾਰਦਰਸ਼ਤਾ",
   "guide_greenscore_better_product_arg4_text": "ਮਲਕੀਅਤ ਲੇਬਲਾਂ ਦੇ ਉਲਟ, ਗ੍ਰੀਨ-ਸਕੋਰ ਗਣਨਾ **ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੀ** ਹੈ** ਅਤੇ ਇਸਨੂੰ **ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੁਆਰਾ ਤਸਦੀਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ**।",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "ਆਮ ਤੌਰ 'ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਸਮੱਗਰੀਆਂ ਨੂੰ ਜੋੜਨ ਅਤੇ ਅੰਤਿਮ ਉਤਪਾਦ (ਇਸ ਲਈ 'ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ') ਬਣਾਉਣ ਲਈ ਪ੍ਰਕਿਰਿਆਵਾਂ ਦੇ ਕਈ ਕ੍ਰਮ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਪ੍ਰਕਿਰਿਆਵਾਂ ਵਿੱਚ ਕਈ ਘਰੇਲੂ ਸਮਾਨਤਾਵਾਂ ਤੋਂ ਬਿਨਾਂ ਸ਼ਾਮਲ ਹਨ, ਜਿਵੇਂ ਕਿ ਹਾਈਡ੍ਰੋਜਨੇਸ਼ਨ ਅਤੇ ਹਾਈਡ੍ਰੋਲਾਈਜ਼ੇਸ਼ਨ, ਐਕਸਟਰੂਜ਼ਨ ਅਤੇ ਮੋਲਡਿੰਗ, ਅਤੇ ਤਲ਼ਣ ਲਈ ਪ੍ਰੀ-ਪ੍ਰੋਸੈਸਿੰਗ।",
   "guide_nova_explanations_arg4_title": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਦੇ ਸ਼ਿਕਾਰੀ ਅਤੇ ਵਿੱਤੀ ਪਹਿਲੂ",
   "guide_nova_explanations_arg4_text": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਦਾ ਸਮੁੱਚਾ ਉਦੇਸ਼ ਬ੍ਰਾਂਡੇਡ, ਸੁਵਿਧਾਜਨਕ (ਟਿਕਾਊ, ਖਪਤ ਲਈ ਤਿਆਰ), ਆਕਰਸ਼ਕ (ਬਹੁਤ ਸੁਆਦੀ) ਅਤੇ ਬਹੁਤ ਜ਼ਿਆਦਾ ਲਾਭਦਾਇਕ (ਘੱਟ ਕੀਮਤ ਵਾਲੀਆਂ ਸਮੱਗਰੀਆਂ) ਭੋਜਨ ਉਤਪਾਦ ਬਣਾਉਣਾ ਹੈ ਜੋ ਹੋਰ ਸਾਰੇ ਭੋਜਨ ਸਮੂਹਾਂ ਨੂੰ ਵਿਸਥਾਪਿਤ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ। ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ ਉਤਪਾਦਾਂ ਨੂੰ ਆਮ ਤੌਰ 'ਤੇ ਆਕਰਸ਼ਕ ਢੰਗ ਨਾਲ ਪੈਕ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਤੀਬਰਤਾ ਨਾਲ ਮਾਰਕੀਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
