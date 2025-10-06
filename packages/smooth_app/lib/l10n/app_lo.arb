@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ການເລືອກອາຫານທີ່ຍືນຍົງສາມາດມີຄວາມຮູ້ສຶກສັບສົນ. ປ້າຍກຳກັບມີຄວາມສັບສົນ ແລະຂໍ້ມູນມັກຈະຂາດຫາຍໄປ. Green-Score ຖືກສ້າງຂຶ້ນເພື່ອເຮັດໃຫ້ມັນງ່າຍດາຍ, ໃຫ້ທ່ານ ** ຊັດເຈນ **, ** ວິທະຍາສາດໂດຍອີງໃສ່ **, ແລະ ** ໂປ່ງໃສ ** ການຈັດອັນດັບສິ່ງແວດລ້ອມສໍາລັບຜະລິດຕະພັນອາຫານ, ໃນບ່ອນທີ່ທ່ານຕ້ອງການ: ໃນຂະນະທີ່ທ່ານຊື້ເຄື່ອງ.",
   "guide_greenscore_better_product_arg4_title": "ຄວາມໂປ່ງໃສ",
   "guide_greenscore_better_product_arg4_text": "ບໍ່ຄືກັບປ້າຍກຳກັບທີ່ເປັນເຈົ້າຂອງ, ການຄຳນວນ Green-Score ແມ່ນ **ເປີດຢ່າງຄົບຖ້ວນ** ແລະສາມາດຖືກກວດສອບໄດ້ໂດຍທຸກຄົນ**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "ຂະບວນການຫຼາຍລຳດັບແມ່ນໃຊ້ເພື່ອສົມທົບສ່ວນປະກອບຫຼາຍອັນຕາມປົກກະຕິ ແລະສ້າງຜະລິດຕະພັນສຸດທ້າຍ (ເພາະສະນັ້ນ 'ການປຸງແຕ່ງພິເສດ'). ຂະບວນການດັ່ງກ່າວປະກອບມີຫຼາຍຂັ້ນຕອນທີ່ບໍ່ມີການທຽບເທົ່າພາຍໃນປະເທດ, ເຊັ່ນ: ການສ້າງໄຮໂດຣເຈນແລະ hydrolysation, extrusion ແລະ molding, ແລະການປຸງແຕ່ງກ່ອນສໍາລັບການ frying.",
   "guide_nova_explanations_arg4_title": "ດ້ານການລ້າ ແລະດ້ານການເງິນຂອງການປະມວນຜົນແບບພິເສດ",
   "guide_nova_explanations_arg4_text": "ຈຸດປະສົງໂດຍລວມຂອງການປຸງແຕ່ງແບບພິເສດແມ່ນເພື່ອສ້າງຍີ່ຫໍ້, ສະດວກ (ທົນທານ, ພ້ອມທີ່ຈະບໍລິໂພກ), ດຶງດູດໃຈ (hyper-palatable) ແລະຜະລິດຕະພັນອາຫານທີ່ມີກໍາໄລສູງ (ຄ່າໃຊ້ຈ່າຍຕ່ໍາ) ທີ່ຖືກອອກແບບມາເພື່ອຍ້າຍກຸ່ມອາຫານອື່ນໆທັງຫມົດ. ຜະລິດຕະພັນອາຫານທີ່ປຸງແຕ່ງແບບພິເສດແມ່ນປົກກະຕິແລ້ວຖືກຫຸ້ມຫໍ່ຢ່າງດຶງດູດ ແລະ ຕະຫຼາດຢ່າງເຂັ້ມງວດ.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
