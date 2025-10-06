@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ዘላቂ ምግብን መምረጥ ውስብስብነት ሊሰማው ይችላል. መለያዎች ግራ የሚያጋቡ ናቸው እና መረጃ ብዙ ጊዜ ይጎድላል። አረንጓዴው ነጥብ ቀላል ለማድረግ የተፈጠረ ሲሆን ይህም **ግልጽ******በሳይንስ ላይ የተመሰረተ** እና **ግልጽ የሆነ** የምግብ ምርቶች በሚፈልጉበት ቦታ ይሰጥዎታል፡ ሲገዙ።",
   "guide_greenscore_better_product_arg4_title": "ግልጽነት",
   "guide_greenscore_better_product_arg4_text": "ከባለቤትነት መለያዎች በተለየ የአረንጓዴው ነጥብ ስሌት **ሙሉ በሙሉ ክፍት ነው** እና **በማንኛውም ሰው ሊረጋገጥ ይችላል**።",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "ብዙ ተከታታይ ሂደቶች አብዛኛውን ጊዜ ብዙ ንጥረ ነገሮችን በማጣመር እና የመጨረሻውን ምርት ለመፍጠር ጥቅም ላይ ይውላሉ (ስለዚህ 'እጅግ በጣም የተቀነባበረ')። ሂደቶቹ እንደ ሃይድሮጂን እና ሃይድሮላይዜሽን፣ ማስወጣት እና መቅረጽ እና ለመጥበስ ቅድመ-ሂደትን የመሳሰሉ ምንም አይነት የቤት ውስጥ አቻ የሌላቸውን ያካትታሉ።",
   "guide_nova_explanations_arg4_title": "የ ultra-processing አዳኝ እና የገንዘብ ገጽታዎች",
   "guide_nova_explanations_arg4_text": "የ ultra-processing አጠቃላይ ዓላማ ሁሉንም ሌሎች የምግብ ቡድኖችን ለማፈናቀል የተነደፉ ብራንድ ያላቸው ፣ ምቹ (የሚበረክት ፣ ለመጠጣት ዝግጁ) ፣ ማራኪ (ከፍተኛ-የሚወደድ) እና ከፍተኛ ትርፋማ (ዝቅተኛ ዋጋ ያላቸው ንጥረ ነገሮች) የምግብ ምርቶችን መፍጠር ነው። እጅግ በጣም የተቀነባበሩ የምግብ ምርቶች በአብዛኛው በማራኪ የታሸጉ እና በከፍተኛ ሁኔታ ለገበያ ይቀርባሉ።",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
