@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "오픈 푸드 팩트",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "이용 및 기여 약관",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-ko.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "계정 삭제하기",
-  "@account_deletion_subject": {
+  "account_delete_title": "내 계정 삭제",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "계정",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "Open Prices 웹사이트에서 열기",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "변하지 않는 것",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "친환경 점수",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "지속 가능한 식품을 선택하는 것은 복잡하게 느껴질 수 있습니다. 라벨은 헷갈리고 정보는 종종 누락됩니다. 그린스코어는 이러한 과정을 간소화하기 위해 만들어졌으며, 식품에 대한 **명확하고**, **과학에 기반하며**, **투명한** 환경 등급을 쇼핑하는 순간에 바로 확인할 수 있도록 설계되었습니다.",
   "guide_greenscore_better_product_arg4_title": "투명도",
   "guide_greenscore_better_product_arg4_text": "독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "가공 식품",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "일반적으로 많은 재료들을 조합하고 최종 제품(즉, '초가공')을 만들기 위해 여러 공정이 사용됩니다. 이러한 공정에는 수소화 및 가수분해, 압출 및 성형, 그리고 튀김 전처리 등 국내에서는 찾아볼 수 없는 여러 공정이 포함됩니다.",
   "guide_nova_explanations_arg4_title": "초가공의 약탈적 측면과 재정적 측면",
   "guide_nova_explanations_arg4_text": "초가공 식품의 전반적인 목적은 브랜드 인지도가 높고, 편리하며(내구성이 뛰어나고, 바로 섭취할 수 있으며), 매력적이며(매우 맛있으며), 수익성이 높은(저렴한 재료 사용) 식품을 개발하여 다른 모든 식품군을 대체하는 것입니다. 초가공 식품은 일반적으로 매력적인 포장과 집중적인 마케팅을 통해 판매됩니다.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "추출 진행 중…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "추출 성공",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "내 기여",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "내 통계",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "번역하고 도구를 개선하세요…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "내 계정 관리",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "계정 관리",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "내 비밀번호를 변경하세요",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "소셜 미디어에서 우리를 팔로우하세요",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "오픈 푸드 팩츠 블로그",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0개의 제품이 추가되었습니다",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "추가된 상품",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "Open Food Facts에 추가한 새로운 제품",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "내가 완성해야 할 제품",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "모든 미완성 제품",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "내 가격, 내 증명…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "당신이 완성하는 데 도움을 줄 수 있는 제품",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} / {total} 증명",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} / {total} 기여자",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} / {total} 위치",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} 위치",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "변경 사항을 적용하려면 앱을 다시 시작하세요.",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "계정",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "{created}에 추가됨",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

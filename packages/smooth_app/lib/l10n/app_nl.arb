@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Open voedselfeiten",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "gebruiksvoorwaarden en bijdrage",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Verwijder mijn account",
-  "@account_deletion_subject": {
+  "account_delete_title": "Verwijder mijn account",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
   "prices_app_button": "Ga naar de Prijzen-app",
+  "prices_website_button": "Open op de website van Open Prices",
   "prices_bulk_proof_upload_select": "Voeg prijskaartjes rechtstreeks vanuit de galerij toe",
   "prices_bulk_proof_upload_warning": "Nadat u afbeeldingen hebt geselecteerd, kunt u deze niet meer bewerken!",
   "prices_bulk_proof_upload_warning_ai": "AI zal uw bewijzen gebruiken om prijzen te berekenen.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Wat niet verandert",
   "guide_nutriscore_v2_unchanged_paragraph1": "De Nutri-Score is een score die is ontworpen om **de voedingskwaliteit te meten**. Het is **complementair aan de NOVA-groep** op **ultrabewerkte voedingsmiddelen** (ook aanwezig in de applicatie).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Voor fabrikanten blijft de weergave van de Nutri-Score **optioneel**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Het kiezen van duurzame voeding kan ingewikkeld lijken. Etiketten zijn verwarrend en er ontbreekt vaak informatie. De Green-Score is ontwikkeld om het eenvoudiger te maken en geeft je een **duidelijke**, **wetenschappelijk onderbouwde** en **transparante** milieubeoordeling voor voedingsproducten, precies waar je die nodig hebt: tijdens het winkelen.",
   "guide_greenscore_better_product_arg4_title": "Transparantie",
   "guide_greenscore_better_product_arg4_text": "In tegenstelling tot merkgebonden labels is de Green-Score-berekening **volledig open** en kan deze **door iedereen** worden geverifieerd.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-verwerkte voedingsmiddelen",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Er wordt een verscheidenheid aan processen gebruikt om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultra-bewerkt'). De processen omvatten zaken die geen equivalent hebben in de huishoudelijke context, zoals hydrogenering en hydrolysering, extrusie en manipulatie, en voorbewerkingen voor frituren.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
   "guide_nova_explanations_arg4_text": "Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Voorbeeld",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extractie geslaagd",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Extractie bezig…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "Extractie succesvol",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Het is niet gelukt om voedingsstoffen uit de foto te extraheren",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "Mijn bijdragen",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Mijn statistieken",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "Vertaal, verbeter onze tools…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "Open Food Facts is een database met voedselproducten **gemaakt door iedereen, voor iedereen**.\nU kunt het gebruiken om betere voedselkeuzes te maken, en omdat het **open data** is, kan iedereen het **hergebruiken voor welk doel dan ook**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacybeleid",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "Mijn account beheren",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Beheer uw account",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "Mijn wachtwoord wijzigen",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "Volg ons op sociale media",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "De Open Food Facts-blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0 producten toegevoegd",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "Toegevoegde producten",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "Nieuwe producten die ik heb toegevoegd aan Open Food Facts",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "Producten die ik moet voltooien",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "Alle onvolledige producten",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prijzen",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Mijn prijzen",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Mijn prijzen, mijn bewijzen…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "Producten die u kunt helpen voltooien",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} van {total} bewijzen",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} bewijzen",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} van {total} bijdragers",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} bijdragers",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} van {total} locaties",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} locaties",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "Start de app opnieuw op om de wijzigingen toe te passen.",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Account",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Toegevoegd op {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "ഓപ്പൺ ഫുഡ് വസ്തുതകൾ",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "terms of use and contribution",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
-  "@account_deletion_subject": {
+  "account_delete_title": "എന്റെ അക്കൗണ്ട് ഇല്ലാതാക്കുക",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "ഓപ്പൺ പ്രൈസസ് വെബ്‌സൈറ്റിൽ തുറക്കുക",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "സുസ്ഥിര ഭക്ഷണം തിരഞ്ഞെടുക്കുന്നത് സങ്കീർണ്ണമായി തോന്നാം. ലേബലുകൾ ആശയക്കുഴപ്പമുണ്ടാക്കുന്നതും പലപ്പോഴും വിവരങ്ങൾ കാണാത്തതുമാണ്. നിങ്ങൾക്ക് ആവശ്യമുള്ളിടത്ത്: ഷോപ്പിംഗ് നടത്തുമ്പോൾ തന്നെ, ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്ക് **വ്യക്തമായ**, **ശാസ്ത്രാധിഷ്ഠിത**, **സുതാര്യമായ** പാരിസ്ഥിതിക റേറ്റിംഗ് നൽകിക്കൊണ്ട്, കാര്യങ്ങൾ ലളിതമാക്കുന്നതിനാണ് ഗ്രീൻ-സ്കോർ സൃഷ്ടിച്ചിരിക്കുന്നത്.",
   "guide_greenscore_better_product_arg4_title": "സുതാര്യത",
   "guide_greenscore_better_product_arg4_text": "പ്രൊപ്രൈറ്ററി ലേബലുകളിൽ നിന്ന് വ്യത്യസ്തമായി, ഗ്രീൻ-സ്കോർ കണക്കുകൂട്ടൽ **പൂർണ്ണമായും തുറന്നിരിക്കുന്നു** കൂടാതെ ആർക്കും **പരിശോധിക്കാൻ കഴിയും**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "സാധാരണയായി പല ചേരുവകളും സംയോജിപ്പിച്ച് അന്തിമ ഉൽപ്പന്നം സൃഷ്ടിക്കുന്നതിന് (അതിനാൽ 'അൾട്രാ-പ്രോസസ്ഡ്') നിരവധി പ്രക്രിയകൾ ഉപയോഗിക്കുന്നു. ഹൈഡ്രജനേഷൻ, ഹൈഡ്രോലൈസേഷൻ, എക്സ്ട്രൂഷൻ, മോൾഡിംഗ്, ഫ്രൈയിംഗിനുള്ള പ്രീ-പ്രോസസ്സിംഗ് തുടങ്ങിയ ആഭ്യന്തര തുല്യതകളില്ലാത്ത നിരവധി പ്രക്രിയകൾ ഇതിൽ ഉൾപ്പെടുന്നു.",
   "guide_nova_explanations_arg4_title": "അൾട്രാ പ്രോസസ്സിംഗിന്റെ ആക്രമണാത്മകവും സാമ്പത്തികവുമായ വശങ്ങൾ",
   "guide_nova_explanations_arg4_text": "അൾട്രാ-പ്രോസസ്സിംഗിന്റെ മൊത്തത്തിലുള്ള ലക്ഷ്യം, മറ്റെല്ലാ ഭക്ഷ്യ ഗ്രൂപ്പുകളെയും മാറ്റിസ്ഥാപിക്കുന്നതിനായി രൂപകൽപ്പന ചെയ്ത ബ്രാൻഡഡ്, സൗകര്യപ്രദമായ (ഈടുനിൽക്കുന്ന, കഴിക്കാൻ തയ്യാറായ), ആകർഷകമായ (അമിത-സ്വാദിഷ്ടമായ) ഉയർന്ന ലാഭകരമായ (കുറഞ്ഞ വിലയുള്ള ചേരുവകൾ) ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സൃഷ്ടിക്കുക എന്നതാണ്. അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സാധാരണയായി ആകർഷകമായ രീതിയിൽ പാക്കേജുചെയ്യുകയും തീവ്രമായി വിപണനം ചെയ്യുകയും ചെയ്യുന്നു.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "വേർതിരിച്ചെടുക്കൽ പുരോഗമിക്കുന്നു…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "വേർതിരിച്ചെടുക്കൽ വിജയകരം",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "My contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "എന്റെ സ്ഥിതിവിവരക്കണക്കുകൾ",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "വിവർത്തനം ചെയ്യുക, ഞങ്ങളുടെ ഉപകരണങ്ങൾ മെച്ചപ്പെടുത്തുക…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് എന്നത് എല്ലാവർക്കുമായി നിർമ്മിച്ച ഒരു ഭക്ഷ്യ ഉൽപ്പന്ന ഡാറ്റാബേസാണ് **.\nമികച്ച ഭക്ഷണ തിരഞ്ഞെടുപ്പുകൾ നടത്താൻ നിങ്ങൾക്ക് ഇത് ഉപയോഗിക്കാം, കൂടാതെ ഇത് **ഓപ്പൺ ഡാറ്റ** ആയതിനാൽ, ആർക്കും ഏത് ആവശ്യത്തിനും ഇത് വീണ്ടും ഉപയോഗിക്കാം**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "എന്റെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുക",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "നിങ്ങളുടെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുക",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "എന്റെ പാസ്‌വേഡ് മാറ്റുക",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "സോഷ്യൽ മീഡിയയിൽ ഞങ്ങളെ പിന്തുടരുക",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ബ്ലോഗ്",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0 ഉൽപ്പന്നങ്ങൾ ചേർത്തിട്ടില്ല",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "ചേർത്ത ഉൽപ്പന്നങ്ങൾ",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "എനിക്ക് പൂർത്തിയാക്കേണ്ട ഉൽപ്പന്നങ്ങൾ",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "എല്ലാ അപൂർണ്ണ ഉൽപ്പന്നങ്ങളും",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "എന്റെ വിലകൾ, എന്റെ തെളിവുകൾ…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "നിങ്ങൾക്ക് പൂർത്തിയാക്കാൻ സഹായിക്കാനാകുന്ന ഉൽപ്പന്നങ്ങൾ",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} / {total} തെളിവുകൾ",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{total} സംഭാവകരുടെ {count}",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{total} ലൊക്കേഷനുകളിൽ {count}",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} സ്ഥലങ്ങൾ",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "മാറ്റങ്ങൾ പ്രയോഗിക്കാൻ ആപ്പ് പുനരാരംഭിക്കുക.",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Account",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "{created}-ൽ ചേർത്തു",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }
