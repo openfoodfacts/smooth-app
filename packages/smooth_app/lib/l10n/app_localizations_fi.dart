@@ -9,7 +9,7 @@ class AppLocalizationsFi extends AppLocalizations {
   AppLocalizationsFi([String locale = 'fi']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Avoimet ruokatiedot';
 
   @override
   String get sep => '';
@@ -1687,7 +1687,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get account_delete => 'Poista tunnus';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Poista tilini';
 
   @override
   String get user_profile => 'Tili';
@@ -2508,7 +2508,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_app_button => 'Siirry Hinnat-sovellukseen';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Avaa Open Prices -verkkosivustolla';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4827,10 +4827,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Uutto käynnissä…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Uutto onnistui';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4976,10 +4976,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_contribute_title => 'Osallistu';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Osallistumiseni';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Tilastoni';
 
   @override
   String get preferences_contribute_subtitle => 'Käännä, paranna työkalujamme…';
@@ -5061,7 +5061,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts on elintarviketuotetietokanta, **jonka kaikki ovat tehneet kaikille**.\nVoit käyttää sitä parempien ruokavalintojen tekemiseen, ja koska se on **avointa dataa**, kuka tahansa voi **käyttää sitä uudelleen mihin tahansa tarkoitukseen**.';
 
   @override
   String get preferences_privacy_policy => 'Tietosuojakäytäntö';
@@ -5118,7 +5118,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_manage_account_title => 'Hallinnoi tiliäni';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Hallinnoi tiliäsi';
 
   @override
   String get preferences_change_password_title => 'Vaihda salasanani';
@@ -5343,7 +5343,8 @@ class AppLocalizationsFi extends AppLocalizations {
       'Liity mukaan varmistamaan tietokannan täydellisyys ja tarkkuus';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Lisätyt tuotteet';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5358,14 +5359,14 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kaikki keskeneräiset tuotteet';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Hinnat';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Minun hinnat';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Hintani, todisteeni…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5495,32 +5496,32 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count / $total todistusta';
   }
 
   @override
   String proof_count(int count) {
-    return '$count proofs';
+    return '$count todisteita';
   }
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count / $total osallistujaa';
   }
 
   @override
   String contributors_count(int count) {
-    return '$count contributors';
+    return '$count avustajia';
   }
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count / $total sijainnista';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count sijaintia';
   }
 
   @override
@@ -5564,6 +5565,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Lisätty $created';
   }
 }

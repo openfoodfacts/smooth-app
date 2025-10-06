@@ -9,7 +9,7 @@ class AppLocalizationsKm extends AppLocalizations {
   AppLocalizationsKm([String locale = 'km']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'បើកការពិតអំពីអាហារ';
 
   @override
   String get sep => '';
@@ -1686,7 +1686,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'លុបគណនីរបស់ខ្ញុំ';
 
   @override
   String get user_profile => 'Account';
@@ -2506,7 +2506,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'បើកនៅលើគេហទំព័រ Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4827,10 +4827,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'ការស្រង់ចេញកំពុងដំណើរការ…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'ការស្រង់ចេញបានជោគជ័យ';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4979,7 +4979,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'ស្ថិតិរបស់ខ្ញុំ';
 
   @override
   String get preferences_contribute_subtitle => 'បកប្រែ កែលម្អឧបករណ៍របស់យើង…';
@@ -5060,7 +5060,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts គឺ​ជា​មូលដ្ឋាន​ទិន្នន័យ​ផលិតផល​អាហារ **ដែល​បង្កើត​ឡើង​ដោយ​អ្នក​រាល់​គ្នា​សម្រាប់​អ្នក​រាល់​គ្នា**។\nអ្នក​អាច​ប្រើ​វា​ដើម្បី​ធ្វើ​ការ​ជ្រើសរើស​អាហារ​បាន​កាន់​តែ​ប្រសើរ ហើយ​ដូច​ដែល​វា​ជា **ទិន្នន័យ​បើក​ចំហ** អ្នក​ណា​ក៏​អាច **ប្រើ​វា​ឡើង​វិញ​ក្នុង​គោល​បំណង​ណា​មួយ**។';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5117,7 +5117,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get preferences_manage_account_title => 'គ្រប់គ្រងគណនីរបស់ខ្ញុំ';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'គ្រប់គ្រងគណនីរបស់អ្នក។';
 
   @override
   String get preferences_change_password_title =>
@@ -5340,7 +5340,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ចូលរួមកិច្ចខិតខំប្រឹងប្រែងរបស់យើងដើម្បីធានាថាមូលដ្ឋានទិន្នន័យពេញលេញ និងត្រឹមត្រូវ។';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title => 'ផលិតផលបន្ថែម';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5362,7 +5362,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'តម្លៃរបស់ខ្ញុំ ភស្តុតាងរបស់ខ្ញុំ…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5494,7 +5494,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count នៃ $total ភស្តុតាង';
   }
 
   @override
@@ -5504,7 +5504,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count នៃ $total អ្នករួមចំណែក';
   }
 
   @override
@@ -5514,12 +5514,12 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count នៃ $total ទីតាំង';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count ទីតាំង';
   }
 
   @override
@@ -5564,6 +5564,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'បានបន្ថែមនៅលើ $created';
   }
 }

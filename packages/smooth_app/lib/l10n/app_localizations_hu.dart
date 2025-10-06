@@ -9,7 +9,7 @@ class AppLocalizationsHu extends AppLocalizations {
   AppLocalizationsHu([String locale = 'hu']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Nyílt Élelmiszer Tények';
 
   @override
   String get sep => '';
@@ -1703,7 +1703,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get account_delete => 'Fiók törlése';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Fiókom törlése';
 
   @override
   String get user_profile => 'Fiók';
@@ -2535,7 +2535,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get prices_app_button => 'Tovább az Árak appba';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Nyitva az Open Prices weboldalon';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4874,10 +4874,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Kiolvasás most';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Kitermelés folyamatban…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'A kinyerés sikeres';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5023,10 +5023,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get preferences_contribute_title => 'Hozzájárulás';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Hozzájárulásaim';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'A statisztikáim';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5110,7 +5110,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Az Open Food Facts egy élelmiszertermék-adatbázis, **amelyet mindenki készített, mindenkinek**.\nHasználhatod jobb élelmiszer-döntések meghozatalára, és mivel **nyílt adat**, bárki **újra felhasználhatja bármilyen célra**.';
 
   @override
   String get preferences_privacy_policy => 'Adatvédelmi Irányelvek';
@@ -5167,7 +5167,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get preferences_manage_account_title => 'Fiókom kezelése';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Fiók kezelése';
 
   @override
   String get preferences_change_password_title => 'Jelszó módosítása';
@@ -5395,7 +5395,8 @@ class AppLocalizationsHu extends AppLocalizations {
       'Csatlakozzon erőfeszítéseinkhez, hogy az adatbázis teljes és pontos legyen';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Hozzáadott termékek';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5410,14 +5411,14 @@ class AppLocalizationsHu extends AppLocalizations {
       'Minden befejezetlen termék';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Árak';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Áraim';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Az áraim, a bizonyítékaim…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5549,7 +5550,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count a $total bizonyításból';
   }
 
   @override
@@ -5559,7 +5560,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count a $total közreműködőből';
   }
 
   @override
@@ -5569,12 +5570,12 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count a $total helyszínből';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count helyszínek';
   }
 
   @override
@@ -5619,6 +5620,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Hozzáadva ekkor: $created';
   }
 }

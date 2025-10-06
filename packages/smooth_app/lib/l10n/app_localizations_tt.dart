@@ -9,7 +9,7 @@ class AppLocalizationsTt extends AppLocalizations {
   AppLocalizationsTt([String locale = 'tt']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Ачык азык фактлары';
 
   @override
   String get sep => '';
@@ -1686,7 +1686,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Минем счетны бетерегез';
 
   @override
   String get user_profile => 'Account';
@@ -2507,7 +2507,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Ачык бәяләр сайтында ачыгыз';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4830,7 +4830,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Чыгару уңышлы';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4980,7 +4980,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Минем статистика';
 
   @override
   String get preferences_contribute_subtitle => 'Translate, improve our tools…';
@@ -5117,7 +5117,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_manage_account_title => 'Минем хисап белән идарә итү';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Хисап белән идарә итү';
 
   @override
   String get preferences_change_password_title => 'Серсүземне үзгәртегез';
@@ -5342,7 +5342,8 @@ class AppLocalizationsTt extends AppLocalizations {
       'Мәгълүматлар базасының тулы һәм төгәл булуын тәэмин итү өчен безнең көчебезгә кушылыгыз';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Өстәмә продуктлар';
 
   @override
   String get preferences_contributions_new_products_subtitle =>

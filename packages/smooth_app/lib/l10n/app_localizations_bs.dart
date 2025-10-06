@@ -9,7 +9,7 @@ class AppLocalizationsBs extends AppLocalizations {
   AppLocalizationsBs([String locale = 'bs']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Otvorene činjenice o hrani';
 
   @override
   String get sep => '';
@@ -1687,7 +1687,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Izbriši moj račun';
 
   @override
   String get user_profile => 'Account';
@@ -2508,7 +2508,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Otvorite na web stranici Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4832,10 +4832,10 @@ class AppLocalizationsBs extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Ekstrakcija u toku…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Ekstrakcija uspješna';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,7 +4985,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Moja statistika';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5068,7 +5068,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts je baza podataka o prehrambenim proizvodima **koju su napravili svi, za sve**.\nMožete je koristiti za donošenje boljih odluka o hrani, a budući da su to **otvoreni podaci**, svako ih može **ponovno koristiti u bilo koju svrhu**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5125,7 +5125,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get preferences_manage_account_title => 'Upravljaj mojim računom';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Upravljajte svojim računom';
 
   @override
   String get preferences_change_password_title => 'Promijeni moju lozinku';
@@ -5351,7 +5351,8 @@ class AppLocalizationsBs extends AppLocalizations {
       'Pridružite se našem nastojanju da osigurate da je baza podataka potpuna i tačna';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Dodani proizvodi';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5373,7 +5374,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Moje cijene, moji dokazi…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5504,7 +5505,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count od $total dokaza';
   }
 
   @override
@@ -5514,7 +5515,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count od $total saradnika';
   }
 
   @override
@@ -5524,12 +5525,12 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count od $total lokacija';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count lokacija';
   }
 
   @override
@@ -5574,6 +5575,6 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Dodano $created';
   }
 }
