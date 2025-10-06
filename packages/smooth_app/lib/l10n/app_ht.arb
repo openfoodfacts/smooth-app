@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Chwazi manje dirab ka sanble konplike. Etikèt yo konfizyon epi souvan enfòmasyon yo manke. Yo te kreye Green-Score la pou senplifye bagay yo, pou ba ou yon evalyasyon anviwònman **klè**, **ki baze sou syans**, epi **transparan** pou pwodwi alimantè yo, egzakteman kote ou bezwen li: pandan w ap fè acha.",
   "guide_greenscore_better_product_arg4_title": "Transparans",
   "guide_greenscore_better_product_arg4_text": "Kontrèman ak etikèt propriétaires yo, kalkil Green-Score la **konplètman ouvè** epi nenpòt moun ka **verifye li**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Yo itilize yon pakèt sekans pwosesis pou konbine engredyan yo ki anjeneral anpil epi pou kreye pwodwi final la (kidonk yo rele l 'ultra-trete'). Pwosesis yo gen ladan plizyè ki pa gen ekivalan domestik, tankou idrojenasyon ak idrolizasyon, èkstruzyon ak bòdi, ak pre-tretman pou fri.",
   "guide_nova_explanations_arg4_title": "Aspè predatè ak finansye ultra-pwosesis la",
   "guide_nova_explanations_arg4_text": "Objektif jeneral ultra-pwosesis la se kreye pwodui alimantè ki gen mak, pratik (dirab, pare pou konsome), atiran (ipè-gou) epi trè pwofitab (engredyan ki pa koute chè), ki fèt pou ranplase tout lòt gwoup alimantè yo. Pwodui alimantè ultra-pwosesis yo anjeneral anbale yon fason atiran epi yo vann yo yon fason entansif.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
