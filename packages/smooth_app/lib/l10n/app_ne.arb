@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "दिगो खाना छनौट गर्नु जटिल लाग्न सक्छ। लेबलहरू भ्रामक हुन्छन् र जानकारी प्रायः हराउँछ। ग्रीन-स्कोर यसलाई सरल बनाउनको लागि सिर्जना गरिएको थियो, जसले तपाईंलाई खाद्य उत्पादनहरूको लागि **स्पष्ट**, **विज्ञानमा आधारित**, र **पारदर्शी** वातावरणीय मूल्याङ्कन दिन्छ, जहाँ तपाईंलाई आवश्यक पर्दछ: जब तपाईं किनमेल गर्नुहुन्छ।",
   "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
   "guide_greenscore_better_product_arg4_text": "स्वामित्व लेबलहरू भन्दा फरक, ग्रीन-स्कोर गणना **पूर्ण रूपमा खुला** छ** र **जो कोही पनि द्वारा प्रमाणित** गर्न सकिन्छ।",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "सामान्यतया धेरै सामग्रीहरू संयोजन गर्न र अन्तिम उत्पादन सिर्जना गर्न (त्यसैले 'अल्ट्रा-प्रशोधित') प्रक्रियाहरूको श्रृंखलाको प्रयोग गरिन्छ। यी प्रक्रियाहरूमा घरेलु समकक्षहरू बिना धेरै समावेश छन्, जस्तै हाइड्रोजनेशन र हाइड्रोलाइजेसन, एक्सट्रुजन र मोल्डिंग, र फ्राइङको लागि पूर्व-प्रशोधन।",
   "guide_nova_explanations_arg4_title": "अल्ट्रा-प्रोसेसिङको शिकारी र वित्तीय पक्षहरू",
   "guide_nova_explanations_arg4_text": "अल्ट्रा-प्रशोधनको समग्र उद्देश्य ब्रान्डेड, सुविधाजनक (टिकाउ, उपभोग गर्न तयार), आकर्षक (अति-स्वादिष्ट) र अत्यधिक लाभदायक (कम लागत सामग्री) खाद्य उत्पादनहरू सिर्जना गर्नु हो जुन अन्य सबै खाद्य समूहहरूलाई विस्थापित गर्न डिजाइन गरिएको हो। अल्ट्रा-प्रशोधित खाद्य उत्पादनहरू सामान्यतया आकर्षक रूपमा प्याकेज गरिन्छ र गहन रूपमा बजारमा ल्याइन्छ।",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
