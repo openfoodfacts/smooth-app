@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Eligendo cibum sustentabilem difficile videri potest. Etiquettae confusae sunt et informationes saepe desunt. Punctum Viride creatum est ut rem simplicem reddat, tibi aestimationem environmentalem **claram**, **scientificam**, et **perspicuam** pro cibis praebens, ubi eam desideras: dum emis.",
   "guide_greenscore_better_product_arg4_title": "Perspicuitas",
   "guide_greenscore_better_product_arg4_text": "Dissimilis notis propriis, computatio Green-Score **omnino aperta** est et ab quolibet **verificari** potest.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Multitudo serierum processuum adhibetur ad ingredientia, quae plerumque multa sunt, coniungenda et ad productum finale creandum (hinc 'ultra-processum'). Inter processus sunt plures sine aequivalentibus domesticis, ut hydrogenatio et hydrolysatio, extrusio et formatio, et prae-processus ad frigendum.",
   "guide_nova_explanations_arg4_title": "Aspectus rapaces et pecuniarii ultra-processus",
   "guide_nova_explanations_arg4_text": "Propositum generale ultra-processus est creare cibos nobiles, commodos (durabiles, ad consumendum paratos), attractivos (hyper-sapidos) et valde lucrativos (ingredientibus vilis) destinatos ad omnes alias genera ciborum substituenda. Cibi ultra-processi plerumque attractive involucris involuuntur et intensive venduntur.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
