@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ရေရှည်တည်တံ့သောအစားအစာကိုရွေးချယ်ခြင်းသည်ရှုပ်ထွေးခံစားရနိုင်သည်။ အညွှန်းများသည် ရှုပ်ထွေးနေပြီး အချက်အလက် မကြာခဏ ပျောက်ဆုံးနေပါသည်။ Green-Score သည် အစားအသောက်ထုတ်ကုန်များအတွက် **ရှင်းလင်းသော**၊ **သိပ္ပံအခြေခံ** နှင့် **အကြည်** ပတ်ဝန်းကျင်အဆင့်သတ်မှတ်ခြင်းတို့ကို ပေးစွမ်းနိုင်စေရန် ရိုးရှင်းစေရန် ဖန်တီးထားပါသည်- သင်စျေးဝယ်နေစဉ်။",
   "guide_greenscore_better_product_arg4_title": "ပွင့်လင်းမြင်သာမှု",
   "guide_greenscore_better_product_arg4_text": "မူပိုင်အညွှန်းများနှင့်မတူဘဲ၊ Green-Score တွက်ချက်မှုသည် **လုံးဝဖွင့်ထားသည်** ဖြစ်ပြီး မည်သူမဆို **စစ်ဆေးနိုင်ပါသည်။**",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "အများအားဖြင့် ပါဝင်ပစ္စည်းများ အများအပြားကို ပေါင်းစပ်ပြီး နောက်ဆုံးထုတ်ကုန်ကို ဖန်တီးရန် (ထို့ကြောင့် 'လွန်ကဲစွာ စီမံဆောင်ရွက်သည်') လုပ်ငန်းစဉ်များ၏ ဆက်တိုက်များပြားသော လုပ်ငန်းစဉ်များကို အသုံးပြုပါသည်။ လုပ်ငန်းစဉ်များတွင် ဟိုက်ဒရိုဂျင်နှင့် ဟိုက်ဒရိုဂျင် ထုတ်ပေးခြင်း၊ ထုတ်ယူခြင်းနှင့် ပုံသွင်းခြင်းနှင့် ကြော်ခြင်းအတွက် ကြိုတင်လုပ်ဆောင်ခြင်းကဲ့သို့သော ပြည်တွင်း ညီမျှမှုမရှိသော လုပ်ငန်းစဉ်များစွာ ပါဝင်ပါသည်။",
   "guide_nova_explanations_arg4_title": "လွန်ကဲစွာ လုပ်ဆောင်ခြင်း၏ အာဏာရှင်ဆန်မှုနှင့် ငွေကြေးဆိုင်ရာ ကဏ္ဍများ",
   "guide_nova_explanations_arg4_text": "လွန်ကဲစွာ စီမံဆောင်ရွက်ပေးခြင်း၏ အလုံးစုံရည်ရွယ်ချက်မှာ အခြားအစားအစာအုပ်စုအားလုံးကို ရွှေ့ပြောင်းရန် ဒီဇိုင်းထုတ်ထားသော အမှတ်တံဆိပ်ပါသော၊ အဆင်ပြေသော (တာရှည်ခံ၊ စားသုံးရန်အသင့်)၊ ဆွဲဆောင်မှု (hyper-palatable) နှင့် အလွန်အမြတ်အစွန်းရနိုင်သော (ကုန်ကျစရိတ်သက်သာသော ပါဝင်ပစ္စည်းများ) အစားအသောက်ထုတ်ကုန်များကို ဖန်တီးရန်ဖြစ်သည်။ လွန်လွန်ကဲကဲ ပြုပြင်ထားသော အစားအသောက်ထုတ်ကုန်များကို အများအားဖြင့် ဆွဲဆောင်မှုရှိရှိ ထုပ်ပိုးပြီး စျေးကွက်တွင် အလေးအနက်ထားကြသည်။",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
