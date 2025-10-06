@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Ang pagpili ng napapanatiling pagkain ay maaaring maging kumplikado. Nakakalito ang mga label at kadalasang nawawala ang impormasyon. Ginawa ang Green-Score para gawing simple ito, na nagbibigay sa iyo ng **malinaw**, **nakabatay sa agham**, at **transparent** na rating sa kapaligiran para sa mga produktong pagkain, kung saan mo ito kailangan: habang namimili ka.",
   "guide_greenscore_better_product_arg4_title": "Transparency",
   "guide_greenscore_better_product_arg4_text": "Hindi tulad ng mga proprietary label, ang pagkalkula ng Green-Score ay **ganap na bukas** at maaaring **ma-verify ng sinuman**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Maraming mga pagkakasunud-sunod ng mga proseso ang ginagamit upang pagsamahin ang karaniwang maraming sangkap at upang lumikha ng panghuling produkto (kaya't 'ultra-processed'). Kasama sa mga proseso ang ilang walang katumbas na domestic, tulad ng hydrogenation at hydrolysation, extrusion at molding, at pre-processing para sa pagprito.",
   "guide_nova_explanations_arg4_title": "Ang predatory at pinansiyal na aspeto ng ultra-processing",
   "guide_nova_explanations_arg4_text": "Ang pangkalahatang layunin ng ultra-processing ay lumikha ng mga produktong pagkain na may tatak, maginhawa (matibay, handang ubusin), kaakit-akit (hyper-palatable) at lubos na kumikita (mababa ang halaga) na idinisenyo upang palitan ang lahat ng iba pang pangkat ng pagkain. Ang mga produktong ultra-processed na pagkain ay karaniwang nakabalot nang kaakit-akit at masinsinang ibinebenta.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
