@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "பச்சை-ஸ்கோர்",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. கிரீன்-ஸ்கோர் அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.",
   "guide_greenscore_better_product_arg4_title": "வெளிப்படைத்தன்மை",
   "guide_greenscore_better_product_arg4_text": "தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "பொதுவாக பல பொருட்களை ஒன்றிணைத்து இறுதிப் பொருளை உருவாக்குவதற்கு (எனவே 'மிகவும் பதப்படுத்தப்பட்ட') பல செயல்முறைகள் பயன்படுத்தப்படுகின்றன. இந்த செயல்முறைகளில் உள்நாட்டு சமமானவை இல்லாத பல அடங்கும், அதாவது ஹைட்ரஜனேற்றம் மற்றும் நீராற்பகுப்பு, வெளியேற்றம் மற்றும் மோல்டிங், மற்றும் வறுக்க முன் செயலாக்கம்.",
   "guide_nova_explanations_arg4_title": "அல்ட்ரா-பிராசசிங்கின் கொள்ளையடிக்கும் மற்றும் நிதி அம்சங்கள்",
   "guide_nova_explanations_arg4_text": "அல்ட்ரா-பதப்படுத்தலின் ஒட்டுமொத்த நோக்கம், மற்ற அனைத்து உணவுக் குழுக்களையும் மாற்றுவதற்காக வடிவமைக்கப்பட்ட பிராண்டட், வசதியான (நீடித்த, உட்கொள்ளத் தயாராக), கவர்ச்சிகரமான (மிகவும் சுவையான) மற்றும் அதிக லாபகரமான (குறைந்த விலை பொருட்கள்) உணவுப் பொருட்களை உருவாக்குவதாகும். அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுப் பொருட்கள் பொதுவாக கவர்ச்சிகரமான முறையில் பேக் செய்யப்பட்டு தீவிரமாக சந்தைப்படுத்தப்படுகின்றன.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
