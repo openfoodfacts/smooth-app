@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Apa yang tidak berubah",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Memilih makanan berkelanjutan bisa terasa rumit. Labelnya membingungkan dan informasinya seringkali hilang. Green-Score diciptakan untuk menyederhanakannya, memberikan Anda peringkat lingkungan yang **jelas**, **berbasis sains**, dan **transparan** untuk produk makanan, tepat di tempat yang Anda butuhkan: saat Anda berbelanja.",
   "guide_greenscore_better_product_arg4_title": "Transparansi",
   "guide_greenscore_better_product_arg4_text": "Tidak seperti label hak milik, perhitungan Green-Score **sepenuhnya terbuka** dan dapat **diverifikasi oleh siapa saja**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Makanan ultraproses",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Berbagai rangkaian proses digunakan untuk menggabungkan bahan-bahan yang biasanya banyak dan menghasilkan produk akhir (sehingga disebut 'ultra-proses'). Proses-proses ini mencakup beberapa proses yang belum ada padanannya di dalam negeri, seperti hidrogenasi dan hidrolisis, ekstrusi dan pencetakan, serta pra-pemrosesan untuk penggorengan.",
   "guide_nova_explanations_arg4_title": "Aspek predator dan finansial dari ultra-processing",
   "guide_nova_explanations_arg4_text": "Tujuan utama ultra-proses adalah menciptakan produk pangan bermerek, praktis (tahan lama, siap konsumsi), menarik (sangat lezat), dan sangat menguntungkan (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok pangan lainnya. Produk pangan ultra-proses biasanya dikemas secara menarik dan dipasarkan secara intensif.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Pratinjau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
