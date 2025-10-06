@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://es-ca.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://es-ca.openfoodfacts.org/donate-to-open-food-facts",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Triar aliments sostenibles pot semblar complex. Les etiquetes són confuses i sovint falta informació. El Green-Score es va crear per simplificar-ho, donant-vos una qualificació ambiental **clara**, **basada en la ciència** i **transparent** per als productes alimentaris, just on la necessiteu: mentre compreu.",
   "guide_greenscore_better_product_arg4_title": "Transparència",
   "guide_greenscore_better_product_arg4_text": "A diferència de les etiquetes pròpies, el càlcul de Green-Score és **completament obert** i qualsevol persona pot **verificar-lo**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Aliments ultraprocessats",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "S'utilitza una multitud de seqüències de processos per combinar els ingredients, que solen ser nombrosos, i crear el producte final (d'aquí el que es coneix com a \"ultraprocessat\"). Els processos n'inclouen diversos sense equivalents domèstics, com ara la hidrogenació i la hidrolització, l'extrusió i el modelat, i el preprocessament per a la fregidura.",
   "guide_nova_explanations_arg4_title": "Els aspectes depredadors i financers de l'ultraprocessament",
   "guide_nova_explanations_arg4_text": "L'objectiu general de l'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i comercialitzar-se intensivament.",
-  "guide_nova_share_link": "https://ca.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
