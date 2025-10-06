@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Hvad ændrer sig ikke",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en score designet til at **måle ernæringskvalitet**. Den er **supplerende til NOVA-gruppen** om **ultraforarbejdede fødevarer** (også til stede i ansøgningen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For producenter er visningen af Nutri-Score ** fortsat valgfri**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Øko-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Det kan føles komplekst at vælge bæredygtige fødevarer. Etiketter er forvirrende, og der mangler ofte information. Green-Score blev skabt for at gøre det enkelt, og giver dig en **klar**, **videnskabeligt baseret** og **transparent** miljøvurdering af fødevarer, lige der hvor du har brug for den: mens du handler.",
   "guide_greenscore_better_product_arg4_title": "Gennemsigtighed",
   "guide_greenscore_better_product_arg4_text": "I modsætning til proprietære etiketter er Green-Score-beregningen **fuldstændig åben** og kan **verificeres af alle**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultraforarbejdede fødevarer",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "En lang række procesforløb anvendes til at kombinere de normalt mange ingredienser og til at skabe det endelige produkt (deraf 'ultraforarbejdet'). Processerne omfatter adskillige uden indenlandske ækvivalenter, såsom hydrogenering og hydrolysering, ekstrudering og støbning samt forbehandling til stegning.",
   "guide_nova_explanations_arg4_title": "De aggressive og økonomiske aspekter af ultraforarbejdning",
   "guide_nova_explanations_arg4_text": "Det overordnede formål med ultraforarbejdning er at skabe mærkevareprodukter, der er bekvemme (holdbare, klar til forbrug), attraktive (hypervelsmagende) og yderst rentable (billige ingredienser) og er designet til at fortrænge alle andre fødevaregrupper. Ultraforarbejdede fødevarer er normalt pakket attraktivt og markedsføres intensivt.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Forhåndsvisning",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
