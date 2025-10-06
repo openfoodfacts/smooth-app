@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Gall dewis bwyd cynaliadwy deimlo'n gymhleth. Mae labeli'n ddryslyd ac mae gwybodaeth yn aml ar goll. Crëwyd y Sgôr Werdd i'w gwneud yn syml, gan roi sgôr amgylcheddol **glir**, **seiliedig ar wyddoniaeth**, a **thryloyw** i chi ar gyfer cynhyrchion bwyd, yn union lle mae ei angen arnoch: wrth i chi siopa.",
   "guide_greenscore_better_product_arg4_title": "Tryloywder",
   "guide_greenscore_better_product_arg4_text": "Yn wahanol i labeli perchnogol, mae cyfrifiad y Sgôr Werdd yn **hollol agored** a gellir ei **wirio gan unrhyw un**.",
-  "guide_greenscore_share_link": "https://cy.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Defnyddir llu o ddilyniannau o brosesau i gyfuno'r cynhwysion sydd fel arfer yn niferus ac i greu'r cynnyrch terfynol (felly 'wedi'i brosesu'n uwch'). Mae'r prosesau'n cynnwys sawl un heb unrhyw gyfwerth domestig, megis hydrogeniad a hydrolysiad, allwthio a mowldio, a rhagbrosesu ar gyfer ffrio.",
   "guide_nova_explanations_arg4_title": "Agweddau ysglyfaethus ac ariannol prosesu uwch-reolaidd",
   "guide_nova_explanations_arg4_text": "Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi'u prosesu'n uwch-dechnolegol yn cael eu pecynnu'n ddeniadol a'u marchnata'n ddwys.",
-  "guide_nova_share_link": "https://cy.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
