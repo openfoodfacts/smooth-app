@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "انتخاب غذای پایدار می‌تواند پیچیده به نظر برسد. برچسب‌ها گیج‌کننده هستند و اغلب اطلاعات کافی وجود ندارد. امتیاز سبز (Green-Score) برای ساده‌سازی این کار ایجاد شده است و به شما یک رتبه‌بندی زیست‌محیطی **شفاف**، **مبتنی بر علم** و **روشن** برای محصولات غذایی، درست در زمانی که به آن نیاز دارید، می‌دهد: هنگام خرید.",
   "guide_greenscore_better_product_arg4_title": "شفافیت",
   "guide_greenscore_better_product_arg4_text": "برخلاف برچسب‌های اختصاصی، محاسبه امتیاز سبز **کاملاً باز** است و هر کسی می‌تواند آن را **تأیید** کند.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "برای ترکیب معمولاً بسیاری از مواد اولیه و ایجاد محصول نهایی (از این رو «فوق فرآوری شده») از توالی‌های متعددی از فرآیندها استفاده می‌شود. این فرآیندها شامل چندین فرآیند بدون معادل داخلی مانند هیدروژناسیون و هیدرولیز، اکستروژن و قالب‌گیری و پیش‌پردازش برای سرخ کردن هستند.",
   "guide_nova_explanations_arg4_title": "جنبه‌های غارتگرانه و مالی پردازش فوق‌العاده",
   "guide_nova_explanations_arg4_text": "هدف کلی فرافرآوری، ایجاد محصولات غذایی برنددار، مناسب (بادوام، آماده مصرف)، جذاب (بسیار خوش‌طعم) و بسیار سودآور (با مواد اولیه کم‌هزینه) است که برای جایگزینی سایر گروه‌های غذایی طراحی شده‌اند. محصولات غذایی فرافرآوری شده معمولاً به صورت جذاب بسته‌بندی و به صورت فشرده به بازار عرضه می‌شوند.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
