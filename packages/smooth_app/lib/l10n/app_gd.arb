@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Faodaidh taghadh biadh seasmhach a bhith a’ faireachdainn iom-fhillte. Tha bileagan troimh-chèile agus gu tric chan eil fiosrachadh ann. Chaidh an Sgòr Uaine a chruthachadh gus a dhèanamh sìmplidh, a’ toirt dhut rangachadh àrainneachdail **soilleir**, **stèidhichte air saidheans**, agus **follaiseach** airson toraidhean bìdh, dìreach far a bheil feum agad air: fhad ‘s a tha thu a’ ceannach.",
   "guide_greenscore_better_product_arg4_title": "Follaiseachd",
   "guide_greenscore_better_product_arg4_text": "Eu-coltach ri bileagan seilbhe, tha àireamhachadh an Sgòr Uaine **gu tur fosgailte** agus faodar a **dhearbhachadh le duine sam bith**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Bithear a’ cleachdadh iomadh sreath de phròiseasan gus na grìtheidean, a bhios mar as trice mòran, a chur còmhla agus an toradh deireannach a chruthachadh (mar sin ‘air a phròiseasadh gu mòr’). Tha grunn phròiseasan anns na pròiseasan aig nach eil co-ionannachdan dachaigheil, leithid hydrogenation agus hydrolysation, eas-tharraing agus molltair, agus ro-phròiseasadh airson friogais.",
   "guide_nova_explanations_arg4_title": "Na taobhan creachaidh is ionmhais a tha an lùib ultra-phròiseasadh",
   "guide_nova_explanations_arg4_text": "Is e prìomh adhbhar giollachd-bhìdh toraidhean bìdh branndaichte, goireasach (maireannach, deiseil airson ithe), tarraingeach (ro-bhlasta) agus air leth prothaideach (tàthchuid aig prìs ìseal) a chruthachadh, air an dealbhadh gus a h-uile buidheann bìdh eile a chuir às. Mar as trice bidh toraidhean bìdh air an giollachd-bhìdh air am pacadh ann an dòigh tharraingeach agus air am margaidheachd gu dian.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
