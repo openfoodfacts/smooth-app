@@ -77,19 +77,9 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_connect_community_updates_title,
       tiles: &lt;PreferenceTile&gt;[
+        _buildBlogTile(appLocalizations),
         _buildNewsletterTile(appLocalizations),
         _buildCommunityCalendarTile(appLocalizations),
-      ],
-    ),
-    PreferenceCard(
-      title: appLocalizations.preferences_connect_social_media_title,
-      tiles: &lt;PreferenceTile&gt;[
-        _buildTikTokTile(context, appLocalizations),
-        _buildInstagramTile(context, appLocalizations),
-        _buildTwitterTile(context, appLocalizations),
-        _buildMastodonTile(context, appLocalizations),
-        _buildBlueskyTile(context, appLocalizations),
-        _buildBlogTile(appLocalizations),
       ],
     ),
     PreferenceCard(

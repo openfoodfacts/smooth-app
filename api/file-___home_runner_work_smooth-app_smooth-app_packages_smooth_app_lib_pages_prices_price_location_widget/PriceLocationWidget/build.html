@@ -73,7 +73,7 @@
 Widget build(BuildContext context) {
   final String? title = getLocationTitle(location);
   return ListTile(
-    leading: const Icon(PriceButton.locationIconData),
+    leading: const icons.Location(),
     title: title == null
         ? null
         : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),

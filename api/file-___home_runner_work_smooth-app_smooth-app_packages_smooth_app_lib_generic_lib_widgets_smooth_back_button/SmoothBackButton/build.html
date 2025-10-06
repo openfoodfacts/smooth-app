@@ -71,32 +71,36 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final MaterialLocalizations localizations = MaterialLocalizations.of(
-    context,
-  );
-
-  return Material(
-    type: MaterialType.transparency,
+  return Tooltip(
+    message: MaterialLocalizations.of(context).backButtonTooltip,
     child: Semantics(
-      value: localizations.backButtonTooltip,
-      button: true,
+      value: MaterialLocalizations.of(context).backButtonTooltip,
       excludeSemantics: true,
-      child: InkWell(
-        onTap: onPressed ?? () =&gt; Navigator.maybePop(context),
-        customBorder: const CircleBorder(),
-        child: Tooltip(
-          message: localizations.backButtonTooltip,
-          child: Padding(
-            padding: _iconPadding,
-            child: Icon(
-              ConstantIcons.backIcon,
-              color:
-                  iconColor ??
-                  (Theme.of(context).colorScheme.brightness ==
-                          Brightness.light
-                      ? Colors.black
-                      : Colors.white),
-            ),
+      button: true,
+      child: SizedBox(
+        width: kToolbarHeight,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () {
+            Navigator.of(context).maybePop();
+          },
+          child: SizedBox.expand(
+            child: backButtonType == BackButtonType.minimize
+                ? const icons.Chevron.down(size: 16.0)
+                : Padding(
+                    padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                    child: DecoratedBox(
+                      decoration: ShapeDecoration(
+                        shape: CircleBorder(
+                          side: BorderSide(color: iconColor ?? Colors.white),
+                        ),
+                      ),
+                      child: icons.Arrow.left(
+                        size: 16.0,
+                        color: iconColor ?? Colors.white,
+                      ),
+                    ),
+                  ),
           ),
         ),
       ),
@@ -133,6 +137,7 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_back_button/SmoothBackButton-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_back_button/SmoothBackButton/backButtonType.html">backButtonType</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_back_button/SmoothBackButton/iconColor.html">iconColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_back_button/SmoothBackButton/onPressed.html">onPressed</a></li>

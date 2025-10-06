@@ -71,19 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Widget child;
-
-  switch (tabItem) {
-    case BottomNavigationTab.Profile:
-      child = PreferencesPage();
-      break;
-    case BottomNavigationTab.List:
-      child = const HistoryPage();
-      break;
-    case BottomNavigationTab.Scan:
-      child = const ScanPage();
-      break;
-  }
+  final Widget child = switch (tabItem) {
+    BottomNavigationTab.Profile =&gt; PreferencesPage(),
+    BottomNavigationTab.List =&gt; const HistoryPage(),
+    BottomNavigationTab.Scan =&gt; const ScanPage(),
+  };
 
   return Navigator(
     key: navigatorKey,

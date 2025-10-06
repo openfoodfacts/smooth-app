@@ -74,13 +74,8 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   context.watch&lt;UserManagementProvider&gt;();
-  final ThemeData theme = Theme.of(context);
 
   final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
-
-  final Color iconColor = context.lightTheme()
-      ? theme.primaryColor
-      : Colors.white;
 
   return ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
     create: (_) =&gt; PreferencesRootSearchController(),
@@ -93,40 +88,51 @@ Widget build(BuildContext context) {
         PreferenceCard(
           title: appLocalizations.preferences_page_customize_app_title,
           tiles: &lt;PreferenceTile&gt;[
-            _buildFoodPreferencesTile(appLocalizations, iconColor),
-            _buildAppSettingsTile(appLocalizations, iconColor),
+            _buildFoodPreferencesTile(appLocalizations),
+            _buildAppSettingsTile(appLocalizations),
           ],
         ),
         PreferenceCard(
           title: appLocalizations.preferences_card_project,
           tiles: &lt;PreferenceTile&gt;[
-            _buildContributeProjectTile(appLocalizations, iconColor),
-            _buildSupportTile(appLocalizations, iconColor),
+            _buildContributeProjectTile(appLocalizations),
+            _buildSupportTile(appLocalizations),
           ],
         ),
         PreferenceCard(
           title: appLocalizations.preferences_card_help,
-          header: NewNutriscoreHeader(),
+          header: const NutriScoreV2Banner(),
           tiles: &lt;PreferenceTile&gt;[
-            _buildFaqTile(appLocalizations, iconColor),
-            _buildConnectTile(appLocalizations, iconColor),
+            _buildFaqTile(appLocalizations),
+            _buildConnectTile(appLocalizations),
           ],
         ),
         PreferenceCard(
           title: appLocalizations.preferences_card_about,
           tiles: &lt;PreferenceTile&gt;[
-            _buildLegalInformationTile(appLocalizations, iconColor),
-            _buildAboutAppTile(appLocalizations, iconColor),
+            _buildLegalInformationTile(appLocalizations),
             if (userPreferences.devMode &gt; 0)
-              _buildDevModeTile(appLocalizations, iconColor),
+              _buildDevModeTile(
+                appLocalizations,
+                context.extension&lt;SmoothColorsThemeExtension&gt;().error,
+              ),
+            _buildAboutAppTile(appLocalizations),
           ],
         ),
       ],
-      externalSearchTiles: &lt;ExternalSearchPreferenceTile&gt;[
+      externalSearchTiles: const &lt;ExternalSearchPreferenceTile&gt;[
         WikiSearchPreferenceTile(),
         GithubSearchPreferenceTile(),
-        const ForumSearchPreferenceTile(),
+        ForumSearchPreferenceTile(),
       ],
+      footer: (_) =&gt; Consumer&lt;PreferencesRootSearchController&gt;(
+        builder: (_, PreferencesRootSearchController controller, _) {
+          if (controller.query?.isNotEmpty == true) {
+            return EMPTY_WIDGET;
+          }
+          return const SocialNetworksFooter();
+        },
+      ),
     ),
   );
 }</code></pre>

@@ -71,17 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData theme = Theme.of(context);
-
   return PreferenceTile(
     icon: icon,
     leading: leading,
     title: title,
     subtitleText: subtitleText,
-    trailing: icons.Chevron.right(
-      size: 14.0,
-      color: context.lightTheme() ? theme.primaryColor : Colors.white,
-    ),
     onTap: () {
       Navigator.of(context).push(
         MaterialPageRoute&lt;Widget&gt;(

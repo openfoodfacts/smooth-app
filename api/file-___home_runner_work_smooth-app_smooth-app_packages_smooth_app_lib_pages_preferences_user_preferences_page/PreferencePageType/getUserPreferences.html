@@ -79,73 +79,64 @@
   &#47;&#47; TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
   context.read&lt;UserManagementProvider&gt;();
 
-  switch (this) {
-    case PreferencePageType.ACCOUNT:
-      return UserPreferencesAccount(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.FOOD:
-      return UserPreferencesFood(
-        productPreferences: productPreferences,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.SETTINGS:
-      return UserPreferencesSettings(
-        themeProvider: themeProvider,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.DEV_MODE:
-      return UserPreferencesDevMode(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.CONTRIBUTE:
-      return UserPreferencesContribute(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.FAQ:
-      return UserPreferencesFaq(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.DONATION:
-      return UserPreferencesDonation(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.PRICES:
-      return UserPreferencesPrices(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-    case PreferencePageType.CONNECT:
-      return UserPreferencesConnect(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      );
-  }
+  return switch (this) {
+    PreferencePageType.ACCOUNT =&gt; UserPreferencesAccount(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.FOOD =&gt; UserPreferencesFood(
+      productPreferences: productPreferences,
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.SETTINGS =&gt; UserPreferencesSettings(
+      themeProvider: themeProvider,
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.DEV_MODE =&gt; UserPreferencesDevMode(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.CONTRIBUTE =&gt; UserPreferencesContribute(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.FAQ =&gt; UserPreferencesFaq(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.DONATION =&gt; UserPreferencesDonation(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.PRICES =&gt; UserPreferencesPrices(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+    PreferencePageType.CONNECT =&gt; UserPreferencesConnect(
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+  };
 }</code></pre>
 </section>
 
@@ -203,6 +194,7 @@
 
 
         <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_page/PreferencePageType.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_page/PreferencePageType/fromTag.html">fromTag</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_page/PreferencePageType/getPreferencePageTypes.html">getPreferencePageTypes</a></li>
 
         <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_page/PreferencePageType.html#constants">Constants</a></li>

@@ -109,12 +109,17 @@ Widget build(BuildContext context) {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: &lt;Widget&gt;[
-                      Icon(
-                        Icons.arrow_circle_right,
-                        color: lightTheme
+                      icons.CircledArrow.right(
+                        type: icons.CircledArrowType.normal,
+                        circleColor: lightTheme
                             ? themeExtension.primaryBlack
                             : Colors.white,
-                        size: 28.0,
+                        color: Colors.white,
+                        size: 20.0,
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          horizontal: 6.0,
+                          vertical: 7.5,
+                        ),
                       ),
                     ],
                   ),

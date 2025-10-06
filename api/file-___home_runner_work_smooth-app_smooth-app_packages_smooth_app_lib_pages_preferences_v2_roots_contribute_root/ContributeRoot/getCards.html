@@ -71,45 +71,38 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;PreferenceCard&gt; getCards(BuildContext context) {
-  final ThemeData theme = Theme.of(context);
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final OpenFoodFactsCountry country = ProductQuery.getCountry();
-
-  final Color iconColor = context.lightTheme()
-      ? theme.primaryColor
-      : Colors.white;
 
   return &lt;PreferenceCard&gt;[
     PreferenceCard(
       title: appLocalizations.preferences_contribute_active_volunteer_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildSkillPoolTile(appLocalizations, iconColor),
-        _buildHowToContributeTile(appLocalizations, iconColor),
+        _buildSkillPoolTile(appLocalizations),
+        _buildHowToContributeTile(appLocalizations),
       ],
     ),
     PreferenceCard(
       title: appLocalizations.preferences_contribute_mobile_dev_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildSoftwareDevelopmentTile(context, appLocalizations, iconColor),
+        _buildSoftwareDevelopmentTile(context, appLocalizations),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
-          _buildEnrollAlphaTile(context, appLocalizations, iconColor),
+          _buildEnrollAlphaTile(context, appLocalizations),
         _buildContributorsTile(context, appLocalizations),
       ],
     ),
     PreferenceCard(
       title: appLocalizations.preferences_contribute_local_community_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildTranslateTile(context, appLocalizations, iconColor),
+        _buildTranslateTile(context, appLocalizations),
         _buildShareTile(appLocalizations),
         if (country.wikiUrl != null)
-          _buildCountryImproveTile(appLocalizations, country, iconColor),
+          _buildCountryImproveTile(appLocalizations, country),
       ],
     ),
     PreferenceCard(
       title: appLocalizations.preferences_contribute_data_quality_title,
-      tiles: &lt;PreferenceTile&gt;[
-        _buildDataQualityTile(appLocalizations, iconColor),
-      ],
+      tiles: &lt;PreferenceTile&gt;[_buildDataQualityTile(appLocalizations)],
     ),
   ];
 }</code></pre>

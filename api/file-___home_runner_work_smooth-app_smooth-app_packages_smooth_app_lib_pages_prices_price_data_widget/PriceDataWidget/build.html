@@ -107,7 +107,7 @@ Widget build(BuildContext context) {
                       DateFormat.yMd(locale).add_Hm().format(created),
                     ),
                     enableFeedback: true,
-                    child: _PriceDataEntry(
+                    child: PriceDataEntry(
                       icon: const icons.Clock.alt(size: 19.0),
                       label: DateFormat.yMd(locale).format(purchased),
                       shortLabel: DateFormat.Md(locale).format(purchased),
@@ -126,7 +126,7 @@ Widget build(BuildContext context) {
             Row(
               children: &lt;Widget&gt;[
                 Expanded(
-                  child: _PriceDataEntry(
+                  child: PriceDataEntry(
                     icon: const icons.Shop(size: 20.0),
                     label:
                         price.location?.name ??
@@ -142,7 +142,7 @@ Widget build(BuildContext context) {
             Row(
               children: &lt;Widget&gt;[
                 Expanded(
-                  child: _PriceDataEntry(
+                  child: PriceDataEntry(
                     icon: const icons.Location(size: 19.44),
                     label:
                         &#39;${price.location?.city}, ${price.location?.country ?? &#39;&#39;}&#39;,

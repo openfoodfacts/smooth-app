@@ -73,66 +73,35 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  return FlexibleSpaceBar(
-    collapseMode: CollapseMode.none,
-    background: Padding(
-      padding: const EdgeInsetsDirectional.only(bottom: SEARCH_BOTTOM_HEIGHT),
-      child: AppBarBackground(
-        height: LOGGED_OUT_APP_BAR_EXPANDED_HEIGHT,
-        child: Container(
-          margin: EdgeInsetsDirectional.only(
-            top:
-                MediaQuery.paddingOf(context).top +
-                TOOLBAR_HEIGHT +
-                MEDIUM_SPACE,
-          ),
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: MEDIUM_SPACE,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: &lt;Widget&gt;[
-              Row(
-                children: &lt;Widget&gt;[
-                  Expanded(
-                    child: AppBarAuthenticationButton(
-                      title: appLocalizations.create_account,
-                      onPressed: () {
-                        Navigator.of(
-                          context,
-                          rootNavigator: true,
-                        ).push&lt;dynamic&gt;(
-                          MaterialPageRoute&lt;dynamic&gt;(
-                            builder: (BuildContext context) =&gt;
-                                const SignUpPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Expanded(
-                    child: AppBarAuthenticationButton(
-                      title: appLocalizations.sign_in,
-                      onPressed: () {
-                        Navigator.of(
-                          context,
-                          rootNavigator: true,
-                        ).push&lt;dynamic&gt;(
-                          MaterialPageRoute&lt;dynamic&gt;(
-                            builder: (BuildContext context) =&gt;
-                                const LoginPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
+  return IntrinsicHeight(
+    child: Row(
+      spacing: MEDIUM_SPACE,
+      children: &lt;Widget&gt;[
+        Expanded(
+          child: AppBarAuthenticationButton(
+            title: appLocalizations.create_account,
+            onPressed: () {
+              Navigator.of(context, rootNavigator: true).push&lt;dynamic&gt;(
+                MaterialPageRoute&lt;dynamic&gt;(
+                  builder: (BuildContext context) =&gt; const SignUpPage(),
+                ),
+              );
+            },
           ),
         ),
-      ),
+        Expanded(
+          child: AppBarAuthenticationButton(
+            title: appLocalizations.sign_in,
+            onPressed: () {
+              Navigator.of(context, rootNavigator: true).push&lt;dynamic&gt;(
+                MaterialPageRoute&lt;dynamic&gt;(
+                  builder: (BuildContext context) =&gt; const LoginPage(),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     ),
   );
 }</code></pre>
@@ -180,6 +149,8 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_logged_out_logged_out_app_bar_content/LoggedOutAppBarContent-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_logged_out_logged_out_app_bar_content/LoggedOutAppBarContent/MIN_HEIGHT-constant.html">MIN_HEIGHT</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

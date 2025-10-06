@@ -77,7 +77,7 @@ Widget build(BuildContext context) {
 
   return SmoothCardWithRoundedHeader(
     title: appLocalizations.prices_location_subtitle,
-    leading: const Icon(Icons.shopping_cart),
+    leading: const icons.Shopping.cart(),
     contentPadding: const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: MEDIUM_SPACE,
@@ -88,9 +88,7 @@ Widget build(BuildContext context) {
           : location.getTitle() ??
                 location.getSubtitle() ??
                 location.getLatLng().toString(),
-      leadingIcon: location == null
-          ? const Icon(Icons.shopping_cart)
-          : const Icon(PriceButton.locationIconData),
+      leadingIcon: const icons.Location(),
       onPressed: model.proof != null
           ? null
           : () async {

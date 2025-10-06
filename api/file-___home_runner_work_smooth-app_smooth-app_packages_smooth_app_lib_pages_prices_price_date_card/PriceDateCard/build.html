@@ -76,14 +76,14 @@ Widget build(BuildContext context) {
 
   return SmoothCardWithRoundedHeader(
     title: appLocalizations.prices_date_subtitle,
-    leading: const Icon(Icons.calendar_month),
+    leading: const icons.Calendar(),
     contentPadding: const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: MEDIUM_SPACE,
     ),
     child: SmoothLargeButtonWithIcon(
       text: MaterialLocalizations.of(context).formatCompactDate(model.date),
-      leadingIcon: const Icon(Icons.calendar_month),
+      leadingIcon: const icons.Calendar(size: 18.0),
       onPressed: model.proof != null
           ? null
           : () async {

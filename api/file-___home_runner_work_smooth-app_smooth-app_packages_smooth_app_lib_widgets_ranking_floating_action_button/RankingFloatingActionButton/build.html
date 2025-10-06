@@ -75,26 +75,27 @@ Widget build(BuildContext context) =&gt; SmoothRevealAnimation(
   startOffset: const Offset(0.0, 1.0),
   child: Container(
     height: MINIMUM_TOUCH_SIZE,
-    margin: EdgeInsets.only(left: MediaQuery.sizeOf(context).width * 0.09),
+    margin: EdgeInsetsDirectional.only(
+      start: MediaQuery.widthOf(context) * 0.09,
+    ),
     alignment: Alignment.center,
-    child: SizedBox(
-      height: MINIMUM_TOUCH_SIZE,
-      child: ElevatedButton.icon(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
-            const RoundedRectangleBorder(
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-            ),
-          ),
+    child: ElevatedButton.icon(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
+          const RoundedRectangleBorder(borderRadius: CIRCULAR_BORDER_RADIUS),
         ),
-        icon: const Icon(rankingIconData),
-        label: AutoSizeText(
-          AppLocalizations.of(context).myPersonalizedRanking,
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
+        minimumSize: const WidgetStatePropertyAll&lt;Size&gt;(
+          Size(64.0, MINIMUM_TOUCH_SIZE),
         ),
+      ),
+      icon: const icons.Trophy(),
+      label: AutoSizeText(
+        AppLocalizations.of(context).myPersonalizedRanking,
+        textAlign: TextAlign.center,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(fontWeight: FontWeight.w600),
       ),
     ),
   ),
@@ -144,8 +145,6 @@ Widget build(BuildContext context) =&gt; SmoothRevealAnimation(
 
 
 
-        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_ranking_floating_action_button/RankingFloatingActionButton-class.html#constants">Constants</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_ranking_floating_action_button/RankingFloatingActionButton/rankingIconData-constant.html">rankingIconData</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   final ThemeData theme = Theme.of(context);
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  final BorderRadius borderRadius = BorderRadius.circular(12.0);
+  const BorderRadius borderRadius = ROUNDED_BORDER_RADIUS;
 
   return Material(
     borderRadius: borderRadius,
@@ -88,36 +88,43 @@ Widget build(BuildContext context) {
                 ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
                   create: (_) =&gt; PreferencesRootSearchController(),
                   child: ContributionsRoot(
-                    title: appLocalizations.contribute,
+                    title: appLocalizations.preferences_my_stats_title,
                   ),
                 ),
           ),
         );
       },
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: &lt;Widget&gt;[
-          Text(
-            appLocalizations.preferences_app_bar_see_all_stats,
-            style: TextStyle(
-              color: theme.primaryColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
-          SizedBox.square(
-            dimension: 24.0,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            Text(
+              appLocalizations.preferences_app_bar_see_all_stats,
+              style: TextStyle(
                 color: theme.primaryColor,
-                shape: BoxShape.circle,
+                fontWeight: FontWeight.w700,
+                fontSize: 16.0,
               ),
-              child: const icons.Arrow.right(color: Colors.white, size: 12.0),
             ),
-          ),
-        ],
+            const SizedBox(width: MEDIUM_SPACE),
+            SizedBox.square(
+              dimension: 24.0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: theme.primaryColor,
+                  shape: BoxShape.circle,
+                ),
+                child: const icons.Arrow.right(
+                  color: Colors.white,
+                  size: 12.0,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -166,6 +173,8 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_logged_in_all_statistics_button/AllStatisticsButton-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_logged_in_all_statistics_button/AllStatisticsButton/MIN_HEIGHT-constant.html">MIN_HEIGHT</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

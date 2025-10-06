@@ -72,18 +72,16 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void paint(Canvas canvas, Size size) {
-  final Paint circlePaint = Paint()
-    ..color = Colors.white10
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 10.0;
+  _drawShadow(canvas, size);
 
-  final Offset bottomLeftCenter = Offset(20.0, size.height &#47; 3.0 * 2.0);
-  const double bottomLeftRadius = 240.0 &#47; 2.0;
-  canvas.drawCircle(bottomLeftCenter, bottomLeftRadius, circlePaint);
+  if (footerHeight &gt; 0.0) {
+    _drawFooterBackground(canvas, size);
+  }
 
-  final Offset topRightCenter = Offset(size.width - 20.0, size.height &#47; 3.0);
-  const double topRightRadius = 220.0 &#47; 2.0;
-  canvas.drawCircle(topRightCenter, topRightRadius, circlePaint);
+  canvas.save();
+  final Size bodySize = Size(size.width, bodyHeight - offset);
+  _drawBackground(canvas, size, bodySize);
+  canvas.restore();
 }</code></pre>
 </section>
 
@@ -112,11 +110,20 @@ void paint(Canvas canvas, Size size) {
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/AppBarBackgroundPainter.html">AppBarBackgroundPainter</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/backgroundColor.html">backgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/bodyHeight.html">bodyHeight</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/borderRadius.html">borderRadius</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/footerColor.html">footerColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/footerHeight.html">footerHeight</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/maxHeight.html">maxHeight</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/minHeight.html">minHeight</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/offset.html">offset</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter/shadowColor.html">shadowColor</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_app_bars_app_bar_background/AppBarBackgroundPainter-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

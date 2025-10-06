@@ -52,7 +52,9 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">formattedItemCount</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="formattedItemCount-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+<span class="name ">formattedItemCount</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="formattedItemCount-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="formattedItemCount-param-loadedItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">loadedItems</span>, </span></li>
+<li><span class="parameter" id="formattedItemCount-param-totalItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">totalItems</span></span></li>
 </ol>)
 
       
@@ -67,11 +69,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String formattedItemCount(BuildContext context) {
+  <pre class="language-dart"><code class="language-dart">String formattedItemCount(
+  BuildContext context,
+  int loadedItems,
+  int? totalItems,
+) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  return _totalItems != null
-      ? appLocalizations.item_count_with_total(_items.length, _totalItems!)
-      : appLocalizations.item_count(_items.length);
+  return totalItems != null
+      ? appLocalizations.item_count_with_total(loadedItems, totalItems)
+      : appLocalizations.item_count(loadedItems);
 }</code></pre>
 </section>
 

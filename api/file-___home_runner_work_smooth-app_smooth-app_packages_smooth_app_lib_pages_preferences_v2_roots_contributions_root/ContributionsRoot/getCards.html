@@ -78,9 +78,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
 
   return &lt;PreferenceCard&gt;[
     PreferenceCard(
-      title: appLocalizations.contribute,
-      &#47;&#47; Quick test to make Pierre happy
-      bannerText: appLocalizations.contribute_improve_text,
+      title: appLocalizations.preferences_my_contributions_title,
       tiles: &lt;PreferenceTile&gt;[
         _buildNewProductsTile(
           context,
@@ -102,8 +100,15 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
           userId,
         ),
         _buildAllIncompleteTile(context, appLocalizations, localDatabase),
-        _buildCategorizeProductsTile(appLocalizations),
       ],
+    ),
+    PreferenceCard(
+      title: appLocalizations.preferences_my_contributions_prices_title,
+      tiles: &lt;PreferenceTile&gt;[_buildMyPricesTile(context, appLocalizations)],
+    ),
+    PreferenceCard(
+      title: appLocalizations.preferences_contribute_title,
+      tiles: &lt;PreferenceTile&gt;[_buildCategorizeProductsTile(appLocalizations)],
     ),
   ];
 }</code></pre>

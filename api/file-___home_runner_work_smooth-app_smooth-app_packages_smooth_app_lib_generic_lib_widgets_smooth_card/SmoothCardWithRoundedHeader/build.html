@@ -87,20 +87,21 @@ Widget build(BuildContext context) {
     ),
     child: Column(
       children: &lt;Widget&gt;[
-        SmoothCardWithRoundedHeaderTop(
-          title: title,
-          titleBackgroundColor: titleBackgroundColor,
-          titleSpacing: titleSpacing,
-          leading: leading,
-          leadingIconSize: leadingIconSize,
-          leadingMargin: leadingMargin,
-          leadingPadding: leadingPadding,
-          trailing: trailing,
-          titleTextStyle: titleTextStyle,
-          titlePadding: titlePadding,
-          borderRadius: borderRadius,
-          banner: banner,
-        ),
+        if (title != null)
+          SmoothCardWithRoundedHeaderTop(
+            title: title!,
+            titleBackgroundColor: titleBackgroundColor,
+            titleSpacing: titleSpacing,
+            leading: leading,
+            leadingIconSize: leadingIconSize,
+            leadingMargin: leadingMargin,
+            leadingPadding: leadingPadding,
+            trailing: trailing,
+            titleTextStyle: titleTextStyle,
+            titlePadding: titlePadding,
+            borderRadius: borderRadius,
+            banner: banner,
+          ),
         SmoothCardWithRoundedHeaderBody(
           contentBackgroundColor: contentBackgroundColor,
           contentPadding: contentPadding,

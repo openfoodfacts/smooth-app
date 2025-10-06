@@ -73,22 +73,33 @@
 Widget build(BuildContext context) {
   const double leadingMargin = 6.0;
 
+  final bool darkTheme = context.darkTheme();
+
   return SmoothCardWithRoundedHeader(
     leading: EMPTY_WIDGET,
     leadingMargin: const EdgeInsetsDirectional.only(start: leadingMargin),
     title: title,
+    titlePadding: const EdgeInsetsDirectional.symmetric(
+      vertical: 14.0,
+      horizontal: LARGE_SPACE,
+    ),
+    titleTextStyle: Theme.of(
+      context,
+    ).textTheme.displaySmall!.copyWith(fontSize: 16.5),
+    titleBackgroundColor:
+        titleBackgroundColor ?? (darkTheme ? Colors.black87 : null),
     banner: bannerText != null
         ? Padding(
-            padding: const EdgeInsets.all(MEDIUM_SPACE),
+            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
             child: Text(bannerText!),
           )
         : null,
     titleSpacing: MEDIUM_SPACE * 2 - leadingMargin &#47; 2,
-    contentPadding: !gridView ? EdgeInsets.zero : null,
+    contentPadding: !gridView ? EdgeInsetsDirectional.zero : null,
     clipBehavior: Clip.antiAlias,
-    titleBackgroundColor:
-        titleBackgroundColor ??
-        (context.lightTheme() ? null : const Color(0xFF322219)),
+    contentBackgroundColor: (darkTheme
+        ? context.extension&lt;SmoothColorsThemeExtension&gt;().primaryUltraBlack
+        : null),
     child: gridView
         ? GridView.count(
             crossAxisCount: 3,
@@ -109,7 +120,6 @@ Widget build(BuildContext context) {
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(
                     top: ROUNDED_RADIUS,
-                    bottom: ROUNDED_RADIUS,
                   ),
                   child: header,
                 ),

@@ -89,6 +89,9 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     ),
     PreferenceCard(
       title: appLocalizations.preferences_about_app_development_title,
+      titleBackgroundColor: context
+          .extension&lt;SmoothColorsThemeExtension&gt;()
+          .error,
       tiles: &lt;PreferenceTile&gt;[
         _buildDevModeTile(appLocalizations, userPreferences),
       ],

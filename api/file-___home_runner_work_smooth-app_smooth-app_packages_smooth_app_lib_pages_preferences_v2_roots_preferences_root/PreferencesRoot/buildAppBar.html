@@ -64,14 +64,18 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget buildAppBar(BuildContext context) =&gt;
-    customAppBar ??
-    SliverPinnedHeader(
-      child: SmoothTopBar2(
-        title: title!,
-        leadingAction: SmoothLeadingAction.back,
-      ),
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">Widget buildAppBar(BuildContext context) {
+  if (customAppBar != null) {
+    return customAppBar!;
+  }
+
+  return SliverPinnedHeader(
+    child: SmoothAppBar(
+      title: Text(title!),
+      leading: const SmoothBackButton(),
+    ),
+  );
+}</code></pre>
 </section>
 
 
@@ -102,7 +106,6 @@
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/changeStatusBarBrightness.html">changeStatusBarBrightness</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/customAppBar.html">customAppBar</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
@@ -114,9 +117,10 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/buildCardsList.html">buildCardsList</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/buildScaffold.html">buildScaffold</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/buildSearchResults.html">buildSearchResults</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/getBottom.html">getBottom</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/getCards.html">getCards</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/getExternalSearchTiles.html">getExternalSearchTiles</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/getFooter.html">getFooter</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/getHeader.html">getHeader</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/prepareForBuild.html">prepareForBuild</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_preferences_root/PreferencesRoot/searchTiles.html">searchTiles</a></li>

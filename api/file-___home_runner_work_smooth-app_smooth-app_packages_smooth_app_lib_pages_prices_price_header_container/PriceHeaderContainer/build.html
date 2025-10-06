@@ -86,31 +86,10 @@ Widget build(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: &lt;Widget&gt;[
-            SizedBox.square(
-              dimension: 80.0,
-              child: Stack(
-                children: &lt;Widget&gt;[
-                  if (imageProvider != null)
-                    ProductPicture.fromImageProvider(
-                      imageProvider: imageProvider!,
-                      size: const Size.square(80.0),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(12.0),
-                      ),
-                    )
-                  else
-                    const PictureNotFound.ink(
-                      backgroundDecoration: BoxDecoration(
-                        borderRadius: ANGULAR_BORDER_RADIUS,
-                      ),
-                    ),
-                  if (count != null)
-                    Align(
-                      alignment: AlignmentDirectional.bottomCenter,
-                      child: _PriceCountBadge(count: count!),
-                    ),
-                ],
-              ),
+            PriceImageContainer(
+              size: const Size.square(80.0),
+              imageProvider: imageProvider,
+              count: count,
             ),
             const SizedBox(width: SMALL_SPACE),
             Expanded(

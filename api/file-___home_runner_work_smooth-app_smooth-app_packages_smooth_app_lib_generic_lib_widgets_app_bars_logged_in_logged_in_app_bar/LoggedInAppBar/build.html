@@ -71,22 +71,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData theme = Theme.of(context);
-
-  return SliverAppBar(
+  return ProfileAppBar(
+    contentHeight:
+        AppBarStatisticsCard.HEIGHT +
+        MEDIUM_SPACE +
+        AllStatisticsButton.MIN_HEIGHT,
     title: LoggedInAppBarHeader(userId: userId),
-    flexibleSpace: LoggedInAppBarBody(userId: userId),
-    bottom: SearchBottomBar(),
-    toolbarHeight: TOOLBAR_HEIGHT,
-    pinned: true,
-    floating: true,
-    expandedHeight: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT,
-    backgroundColor: theme.primaryColor,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-    ),
-    elevation: 12.0,
-    forceElevated: true,
+    content: LoggedInAppBarBody(userId: userId),
+    progressOffset: SEARCH_BOTTOM_HEIGHT,
   );
 }</code></pre>
 </section>

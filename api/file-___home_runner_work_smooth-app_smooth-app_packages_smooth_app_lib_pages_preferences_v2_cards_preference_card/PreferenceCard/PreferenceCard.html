@@ -49,8 +49,8 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">PreferenceCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-title">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
-<li><span class="parameter" id="-param-tiles"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">tiles</span>, </span></li>
+      <span class="name ">PreferenceCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-tiles">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">tiles</span>, </span></li>
+<li><span class="parameter" id="-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-gridView"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">gridView</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-header"><span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
 <li><span class="parameter" id="-param-titleBackgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">titleBackgroundColor</span>, </span></li>
@@ -66,14 +66,17 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PreferenceCard({
-  required this.title,
   required this.tiles,
+  this.title,
   this.gridView = false,
   this.header,
   this.titleBackgroundColor,
   this.bannerText,
   super.key,
-}) : assert(title.isNotEmpty, &#39;PreferenceCard title must not be empty.&#39;),
+}) : assert(
+       title == null || title.isNotEmpty,
+       &#39;PreferenceCard title must not be empty.&#39;,
+     ),
      assert(
        tiles.isNotEmpty,
        &#39;PreferenceCard must contain at least one tile.&#39;,

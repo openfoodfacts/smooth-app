@@ -82,14 +82,16 @@ Widget build(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.start,
         children: &lt;Widget&gt;[
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
             child: _PricesCardViewButton(product),
           ),
           Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
             child: SmoothLargeButtonWithIcon(
               text: appLocalizations.prices_add_a_price,
-              leadingIcon: const Icon(Icons.add),
+              leadingIcon: const icons.Add(),
               onPressed: () async =&gt; ProductPriceAddPage.showProductPage(
                 context: context,
                 product: PriceMetaProduct.product(product),

@@ -71,94 +71,69 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData theme = Theme.of(context);
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SmoothColorsThemeExtension themeExtension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
 
-  final bool lightTheme = context.lightTheme();
-
-  return FlexibleSpaceBar(
-    expandedTitleScale: 1.0,
-    title: Row(
+  return ConstrainedBox(
+    constraints: const BoxConstraints(minHeight: PROFILE_PICTURE_SIZE),
+    child: Row(
       spacing: MEDIUM_SPACE,
       children: &lt;Widget&gt;[
-        Container(
-          width: PROFILE_PICTURE_SIZE,
-          height: PROFILE_PICTURE_SIZE,
-          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: theme.cardColor,
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              lightTheme
-                  ? &#39;assets&#47;app&#47;release_icon_light_transparent_no_border.svg&#39;
-                  : &#39;assets&#47;app&#47;release_icon_dark_transparent_no_border.svg&#39;,
-            ),
-          ),
-        ),
+        const UserProfilePicture(),
         Expanded(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             spacing: VERY_SMALL_SPACE,
             children: &lt;Widget&gt;[
-              Row(
-                children: &lt;Widget&gt;[
-                  Flexible(
-                    child: Text(
-                      userId,
-                      style: TextStyle(
-                        color: themeExtension.secondaryNormal,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
+              Text(
+                userId,
+                style: TextStyle(
+                  color: themeExtension.secondaryNormal,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              Row(
-                children: &lt;Widget&gt;[
-                  Flexible(
-                    child: Text(
-                      appLocalizations.preferences_app_bar_message,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
+              Text(
+                appLocalizations.preferences_app_bar_message,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w400,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
         ),
-        DecoratedBox(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
+        IconButton(
+          tooltip: appLocalizations.preferences_manage_account_tooltip,
+          style: ButtonStyle(
+            padding: WidgetStateProperty.all(
+              const EdgeInsetsDirectional.only(start: 1.5),
+            ),
+            backgroundColor: WidgetStateProperty.all(Colors.white),
           ),
-          child: IconButton(
-            icon: Icon(Icons.settings, color: theme.primaryColor),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute&lt;Widget&gt;(
-                  builder: (BuildContext context) =&gt;
-                      ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
-                        create: (_) =&gt; PreferencesRootSearchController(),
-                        child: AccountRoot(
-                          title: appLocalizations.preferences_account_title,
-                        ),
+          icon: icons.User.edit(
+            color: themeExtension.primaryUltraBlack,
+            size: 19.0,
+          ),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute&lt;Widget&gt;(
+                builder: (BuildContext context) =&gt;
+                    ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
+                      create: (_) =&gt; PreferencesRootSearchController(),
+                      child: AccountRoot(
+                        title: appLocalizations.preferences_account_title,
                       ),
-                ),
-              );
-            },
-          ),
+                    ),
+              ),
+            );
+          },
         ),
       ],
     ),

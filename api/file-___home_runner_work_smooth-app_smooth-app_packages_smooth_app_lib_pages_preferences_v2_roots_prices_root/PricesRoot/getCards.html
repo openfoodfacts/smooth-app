@@ -79,7 +79,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
   return &lt;PreferenceCard&gt;[
     if (isConnected) ...&lt;PreferenceCard&gt;[
       PreferenceCard(
-        title: appLocalizations.user_profile_title_id_default(userId),
+        title: appLocalizations.user_search_prices_title,
         tiles: &lt;PreferenceTile&gt;[
           _buildUserPricesTile(context, appLocalizations, userId),
           _buildProofsTile(context, appLocalizations),
@@ -119,7 +119,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     ),
     PreferenceCard(
       title: appLocalizations.preferences_prices_loyalty_data_title,
-      tiles: &lt;PreferenceTile&gt;[_buildGdprTile(appLocalizations)],
+      tiles: &lt;PreferenceTile&gt;[_buildGDPRTile(appLocalizations)],
     ),
   ];
 }</code></pre>
