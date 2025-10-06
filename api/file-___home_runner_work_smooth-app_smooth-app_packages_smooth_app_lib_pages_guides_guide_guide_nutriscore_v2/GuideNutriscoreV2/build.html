@@ -71,8 +71,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
   return GuidesPage(
     pageName: &#39;NutriscoreV2&#39;,
     header: const _NutriscoreHeader(),
@@ -85,7 +83,9 @@ Widget build(BuildContext context) {
     ],
     footer: SliverToBoxAdapter(
       child: GuidesFooter(
-        shareUrl: appLocalizations.guide_nutriscore_v2_share_link,
+        shareUrl: ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nutriscore-v2&#39;,
+        ),
       ),
     ),
   );

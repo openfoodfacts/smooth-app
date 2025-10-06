@@ -71,14 +71,16 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
   return GuidesPage(
     pageName: &#39;NOVA&#39;,
     header: const _NOVAHeader(),
     body: const &lt;Widget&gt;[_NOVASection1(), _NOVASection2(), _NOVASection3()],
     footer: SliverToBoxAdapter(
-      child: GuidesFooter(shareUrl: appLocalizations.guide_nova_share_link),
+      child: GuidesFooter(
+        shareUrl: ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;nova&#39;,
+        ),
+      ),
     ),
   );
 }</code></pre>
