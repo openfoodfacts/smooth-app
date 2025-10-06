@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-fr.openfoodfacts.org/conditions-d-utilisation",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donner.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
   "guide_nutriscore_v2_unchanged_paragraph1": "Le Nutri-Score est un score conçu pour **mesurer la qualité nutritionnelle**. Il est **complémentaire au groupe NOVA** sur les **aliments ultra-transformés** (également présent dans l'application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Pour les fabricants, l'affichage du Nutri-Score **reste optionnel**.",
-  "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Choisir une alimentation durable peut s'avérer complexe. Les étiquettes sont confuses et les informations sont souvent manquantes. Le Green-Score a été créé pour simplifier les choses, en vous fournissant une évaluation environnementale **claire**, **fondée scientifiquement** et **transparente** des produits alimentaires, là où vous en avez besoin : pendant vos courses.",
   "guide_greenscore_better_product_arg4_title": "Transparence",
   "guide_greenscore_better_product_arg4_text": "Contrairement aux labels propriétaires, le calcul du Green-Score est **complètement ouvert** et peut être **vérifié par n'importe qui**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Aliments ultra-transformés",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Une multitude de procédés sont utilisés pour combiner les ingrédients, généralement nombreux, et créer le produit final (d'où le terme « ultra-transformé »). Parmi ces procédés, plusieurs n'ont pas d'équivalents nationaux, comme l'hydrogénation et l'hydrolyse, l'extrusion et le moulage, ainsi que le prétraitement pour la friture.",
   "guide_nova_explanations_arg4_title": "Les aspects prédateurs et financiers de l'ultra-transformation",
   "guide_nova_explanations_arg4_text": "L'objectif général de l'ultratransformation est de créer des produits alimentaires de marque, pratiques (durables, prêts à consommer), attrayants (hyper appétissants) et très rentables (ingrédients à faible coût), destinés à supplanter tous les autres groupes alimentaires. Les produits alimentaires ultratransformés sont généralement emballés de manière attrayante et font l'objet d'une commercialisation intensive.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Aperçu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
