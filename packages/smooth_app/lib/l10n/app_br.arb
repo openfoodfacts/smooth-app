@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Dibab boued padus a c'hell bezañ kemplezh. Dister eo an tikedennoù ha mankout a ra an titouroù alies. Krouet eo bet ar Green-Score evit ma vefe aesoc'h, o reiñ deoc'h ur feur endro **sklaer**, **diazezet war ar skiantoù** ha **treuzwelus** evit ar produioù boued, e-lec'h m'ho peus ezhomm anezhañ : e-pad ma prenit.",
   "guide_greenscore_better_product_arg4_title": "Treuzwelusterezh",
   "guide_greenscore_better_product_arg4_text": "Er c'hontrol d'an tikedennoù perc'hennet, ar jediñ Green-Score a zo **digor penn-da-benn** ha gallout a ra bezañ **gwiriekaet gant piv bennak**.",
-  "guide_greenscore_share_link": "https://br.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Ur bern heuliadoù argerzhioù a vez implijet evit kendeuziñ an elfennoù niverus peurliesañ ha krouiñ ar produ diwezhañ (setu 'treuzfurmet'). En o zouez emañ meur a argerzh hep kevatal ebet, evel an hidrogenadur hag an hidrolizadur, an estrusiñ hag ar moullañ, hag ar rak-treuzfurmiñ evit ar fritañ.",
   "guide_nova_explanations_arg4_title": "An elfennoù preizher hag arc'hantel eus an ultra-treuzfurmiñ",
   "guide_nova_explanations_arg4_text": "Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket, aes (padus, prest da zebriñ), dedennus (tre-blev) ha gounezus-kenañ (elfennoù izel) savet evit dilec'hiañ an holl strolladoù boued all. Ar produioù boued ultra-treuzfurmet a vez paket en un doare dedennus ha marc'hataet kalz peurliesañ.",
-  "guide_nova_share_link": "https://br.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
