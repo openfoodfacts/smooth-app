@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://cz.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Co se nemění",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Pro výrobce zůstává zobrazení Nutri-Score **nepovinné**.",
-  "guide_nutriscore_v2_share_link": "https://world-cs.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Eco-score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Výběr udržitelných potravin se může zdát složitý. Štítky jsou matoucí a informace často chybí. Systém Green-Score byl vytvořen proto, aby to zjednodušil a poskytl vám **jasné**, **vědecky podložené** a **transparentní** environmentální hodnocení potravinářských výrobků přímo tam, kde ho potřebujete: při nakupování.",
   "guide_greenscore_better_product_arg4_title": "Průhlednost",
   "guide_greenscore_better_product_arg4_text": "Na rozdíl od proprietárních značek je výpočet Green-Score **zcela otevřený** a může být **ověřen kýmkoli**.",
-  "guide_greenscore_share_link": "https://cs.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra zpracované potraviny",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "K zkombinování obvykle mnoha ingrediencí a vytvoření konečného produktu (odtud „ultra zpracovaný“) se používá řada postupů. Mezi tyto postupy patří několik, které nemají v domácí srovnání, jako je hydrogenace a hydrolýza, extruze a tvarování a předzpracování pro smažení.",
   "guide_nova_explanations_arg4_title": "Predátorské a finanční aspekty ultraprocessingu",
   "guide_nova_explanations_arg4_text": "Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (levné ingredience) potravinářské výrobky určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.",
-  "guide_nova_share_link": "https://cs.openfoodfacts.org/nova",
   "preview_badge": "Náhled",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
