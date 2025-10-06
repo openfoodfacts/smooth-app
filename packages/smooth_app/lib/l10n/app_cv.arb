@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Ҫирӗп апат-ҫимӗҫ суйласа илесси кӑткӑс пек туйӑнма пултарать. Ярлыксем пӑтраштараҫҫӗ, информаци час-часах ҫук. Green-Score ҫакна ансатлатма тунӑ, вӑл сире апат-ҫимӗҫ продукчӗсемшӗн **уҫӑмлӑ**, **наука никӗсӗ ҫинче никӗсленнӗ** тата **уҫӑмлӑ** экологи рейтингне парать, шӑпах сире кирлӗ ҫӗрте: эсир суту-илӳ тунӑ вӑхӑтра.",
   "guide_greenscore_better_product_arg4_title": "Уҫӑмлӑх",
   "guide_greenscore_better_product_arg4_text": "Проприетарлӑ ярлыксенчен уйрӑлса тӑракан Green-Score шутлавӗ **пӗтӗмпех уҫӑ** тата ӑна **кирек кам та тӗрӗслеме пултарать**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Ытларах чухне нумай ингредиентсене пӗрлештерме тата юлашки продукта (ҫавӑнпа та «ультра-процессланӑ») тума нумай процесс йӗркипе усӑ кураҫҫӗ. Процесссен шутне килти эквиваленчӗсем ҫуккисем кӗреҫҫӗ, сӑмахран, гидрогенизаци тата гидролиз, экструзи тата формӑсем, ӑшалама малтанах тирпейлесси.",
   "guide_nova_explanations_arg4_title": "Ультрапроцессин ҫӑткӑнлӑх тата финанс енӗсем",
   "guide_nova_explanations_arg4_text": "Ультра-тирпейлессин пӗтӗмӗшле тӗллевӗ — ытти апат-ҫимӗҫ ушкӑнӗсене улӑштарма хатӗрленӗ брендлӑ, меллӗ (тӗрӗс, ҫиме хатӗр), илӗртӳллӗ (питӗ тутлӑ) тата пысӑк тупӑшлӑ (йӳнӗ ингредиентсем) апат-ҫимӗҫ продукчӗсем туса кӑларасси. Ультра-тирпейленӗ апат-ҫимӗҫ продукцийӗсене ытларах чухне илӗртӳллӗн пуҫтараҫҫӗ тата вӗсене хӗрӳллӗн сутаҫҫӗ.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
