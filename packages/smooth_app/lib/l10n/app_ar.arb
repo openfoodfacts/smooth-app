@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "النتيجة البيئية",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "قد يبدو اختيار الطعام المستدام معقدًا. فالملصقات مُربكة، والمعلومات غالبًا ما تكون ناقصة. صُممت \"الدرجة الخضراء\" لتبسيط الأمر، حيث تمنحك تقييمًا بيئيًا واضحًا، وواضحًا، وشفافًا، للمنتجات الغذائية، أينما كنت: أثناء التسوق.",
   "guide_greenscore_better_product_arg4_title": "الشفافية",
   "guide_greenscore_better_product_arg4_text": "على عكس العلامات التجارية المسجلة الملكية، فإن حساب Green-Score هو **مفتوح تمامًا** ويمكن **التحقق منه من قبل أي شخص**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "تُستخدم سلسلة من العمليات لدمج المكونات العديدة عادةً، ولإنتاج المنتج النهائي (ومن هنا جاء مصطلح \"المعالجة الفائقة\"). تشمل هذه العمليات عدة عمليات لا مثيل لها محليًا، مثل الهدرجة والتحلل المائي، والبثق والقولبة، والمعالجة المسبقة للقلي.",
   "guide_nova_explanations_arg4_title": "الجوانب المفترسة والمالية للمعالجة الفائقة",
   "guide_nova_explanations_arg4_text": "الهدف العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية، سهلة الاستخدام (متينة، جاهزة للاستهلاك)، جذابة (شهية للغاية)، ومربحة للغاية (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بكثافة.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
