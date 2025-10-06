@@ -79,3 +79,14 @@ class ProductCompatibilityHelper {
     return NumberFormat('00').format(_score.toInt());
   }
 }
+
+extension MatchedScoreV2Extension on MatchedScoreV2 {
+  int get level => switch (status) {
+    MatchedProductStatusV2.VERY_GOOD_MATCH => 5,
+    MatchedProductStatusV2.GOOD_MATCH => 4,
+    MatchedProductStatusV2.POOR_MATCH => 3,
+    MatchedProductStatusV2.MAY_NOT_MATCH => 2,
+    MatchedProductStatusV2.DOES_NOT_MATCH => 1,
+    MatchedProductStatusV2.UNKNOWN_MATCH => 0,
+  };
+}

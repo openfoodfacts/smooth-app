@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/all_statistics_button.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_body.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_header.dart';
-import 'package:smooth_app/generic_lib/widgets/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/statistics_cards/app_bar_statistics_card.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/profile_app_bar.dart';
 
 class LoggedInAppBar extends StatelessWidget {
-  LoggedInAppBar({required this.userId, super.key}) : assert(userId.isNotEmpty);
+  const LoggedInAppBar({required this.userId, super.key})
+    : assert(userId.length > 0);
+
   final String userId;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    return SliverAppBar(
+    return ProfileAppBar(
+      contentHeight:
+          AppBarStatisticsCard.HEIGHT +
+          MEDIUM_SPACE +
+          AllStatisticsButton.MIN_HEIGHT,
       title: LoggedInAppBarHeader(userId: userId),
-      flexibleSpace: LoggedInAppBarBody(userId: userId),
-      bottom: SearchBottomBar(),
-      toolbarHeight: TOOLBAR_HEIGHT,
-      pinned: true,
-      floating: true,
-      expandedHeight: LOGGED_IN_APP_BAR_EXPANDED_HEIGHT,
-      backgroundColor: theme.primaryColor,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-      ),
-      elevation: 12.0,
-      forceElevated: true,
+      content: LoggedInAppBarBody(userId: userId),
+      progressOffset: SEARCH_BOTTOM_HEIGHT,
     );
   }
 }

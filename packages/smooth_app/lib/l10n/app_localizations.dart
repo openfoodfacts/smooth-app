@@ -347,6 +347,12 @@ abstract class AppLocalizations {
     Locale('zu'),
   ];
 
+  /// No description provided for @app_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts'**
+  String get app_name;
+
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
   ///
   /// In en, this message translates to:
@@ -3201,7 +3207,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Delete my account'**
-  String get account_deletion_subject;
+  String get account_delete_title;
 
   /// User account (if connected)
   ///
@@ -4594,6 +4600,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go to Prices app'**
   String get prices_app_button;
+
+  /// No description provided for @prices_website_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Open on the Open Prices website'**
+  String get prices_website_button;
 
   /// No description provided for @prices_bulk_proof_upload_select.
   ///
@@ -8389,11 +8401,17 @@ abstract class AppLocalizations {
   /// **'Extract now'**
   String get nutrition_facts_extract_button_text;
 
-  /// Message to indicate that the extraction of nutrients from a picture was succesful
+  /// Message to indicate that the extraction of nutrients from a picture is in progress
   ///
   /// In en, this message translates to:
-  /// **'Extraction succesful'**
-  String get nutrition_facts_extract_succesful;
+  /// **'Extraction in progress…'**
+  String get nutrition_facts_extract_in_progress;
+
+  /// Message to indicate that the extraction of nutrients from a picture was successful
+  ///
+  /// In en, this message translates to:
+  /// **'Extraction successful'**
+  String get nutrition_facts_extract_successful;
 
   /// Message to indicate that the extraction of nutrients from a picture failed
   ///
@@ -8677,6 +8695,18 @@ abstract class AppLocalizations {
   /// **'Contribute'**
   String get preferences_contribute_title;
 
+  /// Title for my contributions preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'My contributions'**
+  String get preferences_my_contributions_title;
+
+  /// Title for my stats preferences tile
+  ///
+  /// In en, this message translates to:
+  /// **'My statistics'**
+  String get preferences_my_stats_title;
+
   /// Subtitle for the contribution preferences tile
   ///
   /// In en, this message translates to:
@@ -8815,6 +8845,12 @@ abstract class AppLocalizations {
   /// **'Legal mentions'**
   String get preferences_legal_mentions;
 
+  /// This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.'**
+  String get preferences_legal_header;
+
   /// Title for the preferences privacy policy tile
   ///
   /// In en, this message translates to:
@@ -8916,6 +8952,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Manage my account'**
   String get preferences_manage_account_title;
+
+  /// Tooltip for a button that lets the user manage his account
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your account'**
+  String get preferences_manage_account_tooltip;
 
   /// Title for the preferences change password tile
   ///
@@ -9097,12 +9139,6 @@ abstract class AppLocalizations {
   /// **'Get involved by attending one of our virtual events'**
   String get preferences_connect_community_calendar_subtitle;
 
-  /// Title for social media card
-  ///
-  /// In en, this message translates to:
-  /// **'Follow us on social media'**
-  String get preferences_connect_social_media_title;
-
   /// Title for blog tile
   ///
   /// In en, this message translates to:
@@ -9280,10 +9316,10 @@ abstract class AppLocalizations {
   /// Title for new products added tile
   ///
   /// In en, this message translates to:
-  /// **'0 products added'**
-  String get preferences_contributions_new_products_title;
+  /// **'Added products'**
+  String get preferences_contributions_products_added_title;
 
-  /// Subtitle for new products added tile
+  /// Subtitle for new products added subtile
   ///
   /// In en, this message translates to:
   /// **'New products I added to Open Food Facts'**
@@ -9300,6 +9336,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All incomplete products'**
   String get preferences_contributions_all_incomplete_title;
+
+  /// Title for a container linking to user prices
+  ///
+  /// In en, this message translates to:
+  /// **'Prices'**
+  String get preferences_my_contributions_prices_title;
+
+  /// Title for opening prices stats
+  ///
+  /// In en, this message translates to:
+  /// **'My prices'**
+  String get preferences_my_contributions_my_prices_title;
+
+  /// Subtitle for opening prices stats
+  ///
+  /// In en, this message translates to:
+  /// **'My prices, my proofs…'**
+  String get preferences_my_contributions_my_prices_subtitle;
 
   /// Subtitle for all incomplete products tile
   ///
@@ -9504,6 +9558,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Authentication failed, unable to fetch proofs'**
   String get prices_proof_error;
+
+  /// Number of proofs
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} proofs'**
+  String proofs_count_with_total(int count, int total);
+
+  /// Number of proofs (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} proofs'**
+  String proof_count(int count);
+
+  /// Number of contributors
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} contributors'**
+  String contributors_count_with_total(int count, int total);
+
+  /// Number of contributors (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} contributors'**
+  String contributors_count(int count);
+
+  /// Number of locations
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} locations'**
+  String prices_locations_count_with_total(int count, int total);
+
+  /// Number of locations (when we don't know the total)
+  ///
+  /// In en, this message translates to:
+  /// **'{count} locations'**
+  String prices_locations_count(int count);
 
   /// Message to restart the app to apply changes, used in the preferences screen
   ///

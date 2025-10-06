@@ -5,6 +5,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -73,7 +74,7 @@ class ScanProductCardFound extends StatelessWidget {
       AppRoutes.PRODUCT(
         product.barcode!,
         heroTag: _heroTag,
-        backButtonType: ProductPageBackButton.minimize,
+        backButtonType: BackButtonType.minimize,
         transition: ProductPageTransition.slideUp,
       ),
       extra: product,

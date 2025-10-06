@@ -167,8 +167,8 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
       ],
       prefixIcons: <Widget>[
         if (hasCountButton) const icons.PriceTag(),
-        if (hasProof) const Icon(Icons.document_scanner_rounded),
-        const Icon(Icons.account_circle_rounded),
+        if (hasProof) const icons.PriceReceipt(),
+        const icons.Profile(),
         const icons.Shop(),
       ],
       values: <ProductPriceAction>[

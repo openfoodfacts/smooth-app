@@ -80,7 +80,7 @@ class AccountRoot extends PreferencesRoot {
   }
 
   @override
-  Widget getBottom(BuildContext context) {
+  WidgetBuilder getFooter() => (BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Padding(
@@ -93,7 +93,7 @@ class AccountRoot extends PreferencesRoot {
         ],
       ),
     );
-  }
+  };
 
   // Danger Zone section
   PreferenceTile _buildAccountDeletionTile(
@@ -101,8 +101,8 @@ class AccountRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      leading: const icons.Delete.trash(),
-      title: appLocalizations.account_delete,
+      leading: const icons.Warning(),
+      title: appLocalizations.account_delete_title,
       subtitleText: appLocalizations.preferences_account_deletion_subtitle,
       onTap: () async => Navigator.of(context).push<void>(
         MaterialPageRoute<void>(

@@ -11,7 +11,6 @@ class SmoothScaffold2 extends StatefulWidget {
     this.bottomBar,
     this.backgroundColor,
     this.padding,
-    this.brightness,
     this.injectPaddingInBody = true,
     this.belowTopBar = false,
     this.floatingBottomBar,
@@ -31,7 +30,6 @@ class SmoothScaffold2 extends StatefulWidget {
   final bool bottomSafeArea;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
-  final Brightness? brightness;
 
   @override
   State<SmoothScaffold2> createState() => _SmoothScaffold2State();
@@ -46,7 +44,6 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
 
     return SmoothScaffold(
       backgroundColor: widget.backgroundColor,
-      brightness: widget.brightness,
       body: PrimaryScrollController(
         controller: _controller,
         child: CustomMultiChildLayout(

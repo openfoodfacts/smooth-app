@@ -9,6 +9,9 @@ class AppLocalizationsMl extends AppLocalizations {
   AppLocalizationsMl([String locale = 'ml']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -1687,7 +1690,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Delete my account';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2508,9 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Open on the Open Prices website';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4841,7 +4847,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extraction successful';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4988,6 +4997,12 @@ class AppLocalizationsMl extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'My statistics';
+
+  @override
   String get preferences_contribute_subtitle =>
       'വിവർത്തനം ചെയ്യുക, ഞങ്ങളുടെ ഉപകരണങ്ങൾ മെച്ചപ്പെടുത്തുക…';
 
@@ -5068,6 +5083,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5121,6 +5140,9 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get preferences_manage_account_title =>
       'എന്റെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുക';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Manage your account';
 
   @override
   String get preferences_change_password_title => 'എന്റെ പാസ്‌വേഡ് മാറ്റുക';
@@ -5233,10 +5255,6 @@ class AppLocalizationsMl extends AppLocalizations {
       'ഞങ്ങളുടെ വെർച്വൽ ഇവന്റുകളിൽ ഒന്നിൽ പങ്കെടുത്ത് അതിൽ പങ്കാളികളാകൂ.';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'സോഷ്യൽ മീഡിയയിൽ ഞങ്ങളെ പിന്തുടരുക';
-
-  @override
   String get preferences_connect_blog_title => 'ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ബ്ലോഗ്';
 
   @override
@@ -5346,8 +5364,7 @@ class AppLocalizationsMl extends AppLocalizations {
       'ഡാറ്റാബേസ് പൂർണ്ണവും കൃത്യവുമാണെന്ന് ഉറപ്പാക്കാൻ ഞങ്ങളുടെ ശ്രമത്തിൽ പങ്കുചേരുക.';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 ഉൽപ്പന്നങ്ങൾ ചേർത്തിട്ടില്ല';
+  String get preferences_contributions_products_added_title => 'Added products';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5360,6 +5377,16 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'എല്ലാ അപൂർണ്ണ ഉൽപ്പന്നങ്ങളും';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'My prices, my proofs…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5490,6 +5517,36 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'ആധികാരികത ഉറപ്പാക്കൽ പരാജയപ്പെട്ടു, തെളിവുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല.';
+
+  @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
 
   @override
   String get restart_to_apply_message =>

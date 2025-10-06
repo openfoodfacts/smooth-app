@@ -100,7 +100,7 @@ class LanguageSelectorTile extends PreferenceTile {
             ],
           ),
           onTap: () => _openLanguageSelector(context),
-          trailing: const icons.Edit(),
+          trailing: const icons.Edit(size: 18.0),
         );
       },
     );

@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
+import 'package:smooth_app/pages/prices/price_data_entry.dart';
+import 'package:smooth_app/pages/prices/price_image_container.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -35,7 +41,12 @@ class _PricesProofsPageState extends State<PricesProofsPage>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return SmoothScaffold(
+      backgroundColor: lightTheme ? extension.primaryLight : null,
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
@@ -120,11 +131,25 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
   @override
   Widget buildItem({required BuildContext context, required Proof item}) {
     if (item.filePath == null) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return SmoothCard(
+      elevation: 5.0,
+      elevationColor: Colors.black26,
+      margin: const EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        start: 8.0,
+        end: 8.0,
+      ),
+      padding: EdgeInsets.zero,
+      color: lightTheme ? null : extension.primaryUltraBlack,
       child: InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () async {
           if (selectProof) {
             Navigator.of(context).pop(item);
@@ -141,6 +166,18 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
       ),
     );
   }
+
+  @override
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return totalItems != null
+        ? appLocalizations.proofs_count_with_total(loadedItems, totalItems)
+        : appLocalizations.proof_count(loadedItems);
+  }
 }
 
 class _PriceProofListItem extends StatelessWidget {
@@ -150,25 +187,26 @@ class _PriceProofListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String date = MaterialLocalizations.of(
-      context,
-    ).formatCompactDate(proof.date ?? proof.created);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+    final String locale = Localizations.localeOf(context).toLanguageTag();
 
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double imageSize = screenWidth * 0.3;
-
-    return Padding(
-      padding: const EdgeInsets.all(SMALL_SPACE),
-      child: Row(
-        children: <Widget>[
-          Badge.count(
-            count: proof.priceCount,
-            alignment: Alignment.topRight,
-            offset: const Offset(-MEDIUM_SPACE, MEDIUM_SPACE),
-            padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-            child: SmoothImage(
-              width: imageSize,
-              height: imageSize,
+    return IconTheme.merge(
+      data: IconThemeData(
+        color: lightTheme ? extension.primaryNormal : extension.primaryMedium,
+      ),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+        child: Row(
+          spacing: MEDIUM_SPACE,
+          children: <Widget>[
+            PriceImageContainer(
+              size: Size.square(MediaQuery.widthOf(context) * 0.3),
+              borderRadius: BorderRadius.all(
+                Radius.circular(ROUNDED_RADIUS.x - SMALL_SPACE),
+              ),
               imageProvider: NetworkImage(
                 proof
                     .getFileUrl(
@@ -177,12 +215,36 @@ class _PriceProofListItem extends StatelessWidget {
                     )
                     .toString(),
               ),
-              rounded: false,
+              count: proof.priceCount,
             ),
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
-          Expanded(child: Column(children: <Widget>[Text(date)])),
-        ],
+            Expanded(
+              child: Column(
+                spacing: SMALL_SPACE,
+                children: <Widget>[
+                  PriceDataEntry(
+                    icon: const icons.Clock.alt(size: 19.0),
+                    label: DateFormat.yMd(
+                      locale,
+                    ).format(proof.date ?? proof.created),
+                  ),
+                  PriceDataEntry(
+                    icon: const icons.Shop(size: 20.0),
+                    label:
+                        proof.location?.name ??
+                        appLocalizations.prices_entry_shop_not_found,
+                    labelPadding: const EdgeInsetsDirectional.only(bottom: 2.5),
+                  ),
+                  PriceDataEntry(
+                    icon: const icons.Location(size: 19.44),
+                    label:
+                        '${proof.location?.city}, ${proof.location?.country ?? ''}',
+                    labelPadding: const EdgeInsetsDirectional.only(bottom: 2.5),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

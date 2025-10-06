@@ -9,12 +9,14 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 class AllStatisticsButton extends StatelessWidget {
   const AllStatisticsButton({super.key});
 
+  static const double MIN_HEIGHT = 36.0;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final BorderRadius borderRadius = BorderRadius.circular(12.0);
+    const BorderRadius borderRadius = ROUNDED_BORDER_RADIUS;
 
     return Material(
       borderRadius: borderRadius,
@@ -28,36 +30,43 @@ class AllStatisticsButton extends StatelessWidget {
                   ChangeNotifierProvider<PreferencesRootSearchController>(
                     create: (_) => PreferencesRootSearchController(),
                     child: ContributionsRoot(
-                      title: appLocalizations.contribute,
+                      title: appLocalizations.preferences_my_stats_title,
                     ),
                   ),
             ),
           );
         },
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              appLocalizations.preferences_app_bar_see_all_stats,
-              style: TextStyle(
-                color: theme.primaryColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            SizedBox.square(
-              dimension: 24.0,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                appLocalizations.preferences_app_bar_see_all_stats,
+                style: TextStyle(
                   color: theme.primaryColor,
-                  shape: BoxShape.circle,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16.0,
                 ),
-                child: const icons.Arrow.right(color: Colors.white, size: 12.0),
               ),
-            ),
-          ],
+              const SizedBox(width: MEDIUM_SPACE),
+              SizedBox.square(
+                dimension: 24.0,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: theme.primaryColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const icons.Arrow.right(
+                    color: Colors.white,
+                    size: 12.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -130,10 +130,14 @@ abstract class InfiniteScrollManager<T> {
   }
 
   /// Returns a formatted item count (e.g., "25 of 100 items")
-  String formattedItemCount(BuildContext context) {
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _totalItems != null
-        ? appLocalizations.item_count_with_total(_items.length, _totalItems!)
-        : appLocalizations.item_count(_items.length);
+    return totalItems != null
+        ? appLocalizations.item_count_with_total(loadedItems, totalItems)
+        : appLocalizations.item_count(loadedItems);
   }
 }

@@ -4,12 +4,12 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_data_entry.dart';
 import 'package:smooth_app/pages/prices/price_data_value.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/text/dynamic_text.dart';
 
 /// Price Data display (no product data here).
 class PriceDataWidget extends StatelessWidget {
@@ -64,7 +64,7 @@ class PriceDataWidget extends StatelessWidget {
                         DateFormat.yMd(locale).add_Hm().format(created),
                       ),
                       enableFeedback: true,
-                      child: _PriceDataEntry(
+                      child: PriceDataEntry(
                         icon: const icons.Clock.alt(size: 19.0),
                         label: DateFormat.yMd(locale).format(purchased),
                         shortLabel: DateFormat.Md(locale).format(purchased),
@@ -83,7 +83,7 @@ class PriceDataWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: _PriceDataEntry(
+                    child: PriceDataEntry(
                       icon: const icons.Shop(size: 20.0),
                       label:
                           price.location?.name ??
@@ -99,7 +99,7 @@ class PriceDataWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: _PriceDataEntry(
+                    child: PriceDataEntry(
                       icon: const icons.Location(size: 19.44),
                       label:
                           '${price.location?.city}, ${price.location?.country ?? ''}',
@@ -116,62 +116,6 @@ class PriceDataWidget extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _PriceDataEntry extends StatelessWidget {
-  const _PriceDataEntry({
-    required this.icon,
-    required this.label,
-    this.shortLabel,
-    this.labelPadding,
-    this.labelStyle,
-  });
-
-  final Widget icon;
-  final String label;
-  final String? shortLabel;
-  final EdgeInsetsGeometry? labelPadding;
-  final TextStyle? labelStyle;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme();
-
-    return Row(
-      children: <Widget>[
-        icon,
-        const SizedBox(width: SMALL_SPACE),
-        Expanded(
-          child: Padding(
-            padding: labelPadding ?? EdgeInsetsDirectional.zero,
-            child: DefaultTextStyle.merge(
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: lightTheme
-                    ? extension.primaryBlack
-                    : extension.primaryLight,
-              ).merge(labelStyle),
-              child: _child,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget get _child {
-    if (shortLabel == null) {
-      return Text(label);
-    } else {
-      return SmoothDynamicLayout(
-        replacement: Text(shortLabel!),
-        child: Text(label),
-      );
-    }
   }
 }
 

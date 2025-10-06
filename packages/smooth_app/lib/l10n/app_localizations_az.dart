@@ -9,6 +9,9 @@ class AppLocalizationsAz extends AppLocalizations {
   AppLocalizationsAz([String locale = 'az']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -1687,7 +1690,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Delete my account';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2508,9 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Open on the Open Prices website';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4839,7 +4845,10 @@ class AppLocalizationsAz extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extraction successful';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,6 +4994,12 @@ class AppLocalizationsAz extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'My statistics';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Tərcümə edin, alətlərimizi təkmilləşdirin…';
 
@@ -5064,6 +5079,10 @@ class AppLocalizationsAz extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5115,6 +5134,9 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Hesabımı idarə et';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Manage your account';
 
   @override
   String get preferences_change_password_title => 'Parolumu dəyişin';
@@ -5228,10 +5250,6 @@ class AppLocalizationsAz extends AppLocalizations {
       'Virtual tədbirlərimizdən birində iştirak etməklə siz də iştirak edin';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Bizi sosial mediada izləyin';
-
-  @override
   String get preferences_connect_blog_title => 'Açıq Qida Faktları bloqu';
 
   @override
@@ -5343,8 +5361,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Verilənlər bazasının tam və dəqiq olmasını təmin etmək üçün səylərimizə qoşulun';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 məhsul əlavə edildi';
+  String get preferences_contributions_products_added_title => 'Added products';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5357,6 +5374,16 @@ class AppLocalizationsAz extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Bütün natamam məhsullar';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'My prices, my proofs…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5486,6 +5513,36 @@ class AppLocalizationsAz extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Doğrulama uğursuz oldu, sübutları əldə etmək mümkün olmadı';
+
+  @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
 
   @override
   String get restart_to_apply_message =>

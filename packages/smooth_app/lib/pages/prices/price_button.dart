@@ -19,7 +19,6 @@ class PriceButton extends StatelessWidget {
   static const IconData priceIconData = Icons.label;
   static const IconData userIconData = Icons.account_box;
   static const IconData proofIconData = Icons.image;
-  static const IconData locationIconData = Icons.location_on;
   static const IconData historyIconData = Icons.history;
   static const IconData productIconData = Icons.category;
   static const IconData warningIconData = Icons.warning;

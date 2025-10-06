@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -1607,7 +1610,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get account_delete => '删除账号';
 
   @override
-  String get account_deletion_subject => '注销 删除账号';
+  String get account_delete_title => 'Delete my account';
 
   @override
   String get user_profile => '账户';
@@ -2381,6 +2384,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Open on the Open Prices website';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4615,7 +4621,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_facts_extract_button_text => '马上解析';
 
   @override
-  String get nutrition_facts_extract_succesful => '解析成功';
+  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extraction successful';
 
   @override
   String get nutrition_facts_extract_failed => '未能从图片中提取营养成分';
@@ -4759,6 +4768,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_contribute_title => '贡献';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'My statistics';
+
+  @override
   String get preferences_contribute_subtitle => '翻译，改进我们的工具…';
 
   @override
@@ -4830,6 +4845,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_legal_mentions => '法务信息';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+
+  @override
   String get preferences_privacy_policy => '隐私政策';
 
   @override
@@ -4879,6 +4898,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => '管理我的帐户';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Manage your account';
 
   @override
   String get preferences_change_password_title => '更改我的密码';
@@ -4973,9 +4995,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_connect_community_calendar_subtitle => '参加我们的虚拟活动';
 
   @override
-  String get preferences_connect_social_media_title => '在社交媒体上关注我们';
-
-  @override
   String get preferences_connect_blog_title => '开放食品事实博客';
 
   @override
@@ -5067,7 +5086,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '加入我们的努力，确保数据库的完整和准确';
 
   @override
-  String get preferences_contributions_new_products_title => '已添加 0 件商品';
+  String get preferences_contributions_products_added_title => 'Added products';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5078,6 +5097,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get preferences_contributions_all_incomplete_title => '所有未完成产品';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'My prices, my proofs…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle => '您可以帮助完成的产品';
@@ -5191,6 +5220,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get prices_proof_error => '身份验证失败，无法获取证明';
+
+  @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
 
   @override
   String get restart_to_apply_message => '请重新启动应用程序以应用更改。';

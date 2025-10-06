@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Message</title>
+    <g id="Message" stroke="none" fill="none" fill-rule="nonzero">
+        <path d="M15.3,1.7 L1.7,1.7 C0.76075,1.7 0,2.46075 0,3.4 L0,13.6 C0,14.53925 0.76075,15.3 1.7,15.3 L15.3,15.3 C16.23925,15.3 17,14.53925 17,13.6 L17,3.4 C17,2.46075 16.23925,1.7 15.3,1.7 Z M15.3,5.1 L8.5,9.35 L1.7,5.1 L1.7,3.4 L8.5,7.65 L15.3,3.4 L15.3,5.1 Z" id="Shape" fill="color(display-p3 0.000 0.000 0.000)"></path>
+    </g>
+</svg>

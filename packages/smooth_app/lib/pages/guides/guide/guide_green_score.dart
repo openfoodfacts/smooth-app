@@ -293,7 +293,7 @@ class _GreenScoreSection4 extends StatelessWidget {
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_greenscore_bonuses_penalties_arg1_title,
-          icon: const icons.Manufacturing(),
+          icon: const icons.Factory(),
           text: appLocalizations.guide_greenscore_bonuses_penalties_arg1_text,
         ),
         GuidesTitleWithText(

@@ -9,6 +9,9 @@ class AppLocalizationsDa extends AppLocalizations {
   AppLocalizationsDa([String locale = 'da']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -1694,7 +1697,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get account_delete => 'Slet konto';
 
   @override
-  String get account_deletion_subject => 'Slet min konto';
+  String get account_delete_title => 'Delete my account';
 
   @override
   String get user_profile => 'Konto';
@@ -2517,6 +2520,9 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Gå til appen Priser';
+
+  @override
+  String get prices_website_button => 'Open on the Open Prices website';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4856,7 +4862,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Udtræk nu';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Udvinding lykkedes';
+  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Extraction successful';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5003,6 +5012,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get preferences_contribute_title => 'Bidrag';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'My statistics';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Oversæt, forbedr vores værktøjer…';
 
@@ -5082,6 +5097,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get preferences_legal_mentions => 'Juridiske forhold';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+
+  @override
   String get preferences_privacy_policy => 'Fortrolighedspolitik';
 
   @override
@@ -5134,6 +5153,9 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Administrer min konto';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Manage your account';
 
   @override
   String get preferences_change_password_title => 'Skift min adgangskode';
@@ -5243,10 +5265,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Bliv involveret ved at deltage i et af vores virtuelle arrangementer';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Følg os på sociale medier';
 
   @override
   String get preferences_connect_blog_title => 'Open Food Facts-bloggen';
@@ -5359,8 +5377,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Vær med i vores indsats for at sikre, at databasen er komplet og nøjagtig';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 produkter tilføjet';
+  String get preferences_contributions_products_added_title => 'Added products';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5373,6 +5390,16 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Alle ufuldstændige produkter';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'My prices, my proofs…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5500,6 +5527,36 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get prices_proof_error =>
       'Godkendelse mislykkedes, kunne ikke hente beviser';
+
+  @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count of $total proofs';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count of $total contributors';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count of $total locations';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
 
   @override
   String get restart_to_apply_message =>
