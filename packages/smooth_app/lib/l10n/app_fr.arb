@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Informations sur les aliments ouverts",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -851,7 +851,7 @@
     "description": "Example of an incorrect serving size"
   },
   "nutrition_page_invalid_number": "Nombre invalide",
-  "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
+  "nutrition_page_update_running": "Mise à jour du produit sur le serveur…",
   "nutrition_page_update_done": "Produit mis à jour !",
   "nutrition_page_take_serving_size_from_product_quantity": "Utilisez la quantité de produit comme taille de portion",
   "@nutrition_page_take_serving_size_from_product_quantity": {
@@ -1241,7 +1241,7 @@
   "instagram": "Suivez-nous sur Instagram",
   "instagram_link": "https://instagram.com/openfoodfacts.fr",
   "twitter": "Suivez-nous sur X (anciennement Twitter)",
-  "twitter_link": "https://www.twitter.com/openfoodfactsfr",
+  "twitter_link": "https://x.com/openfoodfactsfr",
   "mastodon": "Suivez-nous sur Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
   "bsky": "Suivez-nous sur BlueSky",
@@ -1413,8 +1413,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Supprimer mon compte",
-  "@account_deletion_subject": {
+  "account_delete_title": "Supprimer mon compte",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Compte",
@@ -1648,7 +1648,7 @@
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
-  "edit_product_form_item_labels_hint": "Saisir un label (ex : NutriScore)",
+  "edit_product_form_item_labels_hint": "Saisir un label (ex : Nutri-Score)",
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
@@ -1828,7 +1828,7 @@
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
-  "edit_product_form_item_categories_type": "catégorie",
+  "edit_product_form_item_categories_type": "Saisissez une catégorie (ex : jus d'orange)",
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
@@ -2289,6 +2289,7 @@
   },
   "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
   "prices_app_button": "Accéder à l'application Prix",
+  "prices_website_button": "Ouvert sur le site Open Prices",
   "prices_bulk_proof_upload_select": "Ajouter des étiquettes de prix directement depuis la galerie",
   "prices_bulk_proof_upload_warning": "Une fois que vous aurez sélectionné des images, vous ne pourrez pas les modifier !",
   "prices_bulk_proof_upload_warning_ai": "L'IA sera exécutée sur vos preuves pour en extraire les prix.",
@@ -2458,7 +2459,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Preuves ouvertes de \"{user}\"",
+  "prices_open_user_proofs": "Ouvrir les preuves de \"{user}\"",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -3857,7 +3858,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "Qu'est ce que le Nutri-Score ?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Qu'est-ce que le Nutri-Score ?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Le Nutri-Score est un logo qui a pour objectif de vous informer sur la **qualité nutritionnelle des aliments**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3919,7 +3920,7 @@
   "guide_greenscore_lca_arg3_title": "14 indicateurs d'impact environnemental",
   "guide_greenscore_lca_arg3_text1": "Changement climatique/empreinte carbone",
   "guide_greenscore_lca_arg3_text2": "Appauvrissement de la couche d'ozone",
-  "guide_greenscore_lca_arg3_text3": "rayonnement ionisant",
+  "guide_greenscore_lca_arg3_text3": "Rayonnement ionisant",
   "guide_greenscore_lca_arg3_text4": "Atterrir",
   "guide_greenscore_lca_arg3_text5": "Consommation d'eau et d'énergie",
   "guide_greenscore_lca_arg3_text6": "Pollution de l'air",
@@ -4396,9 +4397,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction réussie",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Extraction en cours…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "Extraction réussie",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Impossible d'extraire les nutriments de l'image",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4593,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "Mes contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Mes statistiques",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "Traduisez, améliorez nos outils…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4701,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "Open Food Facts est une base de données de produits alimentaires **créée par tout le monde, pour tout le monde**.\nVous pouvez l'utiliser pour faire de meilleurs choix alimentaires, et comme il s'agit de **données ouvertes**, tout le monde peut **la réutiliser à n'importe quelle fin**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Politique de confidentialité",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4772,10 @@
   "preferences_manage_account_title": "Gérer mon compte",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Gérez votre compte",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "Changer mon mot de passe",
   "@preferences_change_password_title": {
@@ -4876,10 +4897,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "Suivez-nous sur les réseaux sociaux",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "Le blog Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5013,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0 produits ajoutés",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "Produits ajoutés",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "Nouveaux produits que j'ai ajoutés à Open Food Facts",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "Produits que je dois compléter",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5028,18 @@
   "preferences_contributions_all_incomplete_title": "Tous les produits incomplets",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prix",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Mes prix",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Mes tarifs, mes épreuves…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "Produits que vous pouvez aider à compléter",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5048,7 +5077,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Mesures du prix d'ouverture",
+  "preferences_prices_metrics_title": "Métriques Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5179,6 +5208,78 @@
   "prices_proof_error": "L'authentification a échoué, impossible de récupérer les preuves",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "proofs_count_with_total": "{count} sur {total} preuves",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} preuves",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} sur {total} contributeurs",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributeurs",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} sur {total} emplacements",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} emplacements",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
   },
   "restart_to_apply_message": "Veuillez redémarrer l'application pour appliquer les modifications.",
   "@restart_to_apply_message": {
