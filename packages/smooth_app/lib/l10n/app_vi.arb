@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Điểm sinh thái",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Điểm Xanh được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
   "guide_greenscore_better_product_arg4_title": "Tính minh bạch",
   "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Thức ăn siêu chế biến",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Hàng loạt chuỗi quy trình được sử dụng để kết hợp các thành phần thường rất đa dạng và tạo ra sản phẩm cuối cùng (do đó được gọi là \"siêu chế biến\"). Các quy trình này bao gồm một số quy trình không có sản phẩm tương đương trong nước, chẳng hạn như hydro hóa và thủy phân, đùn và đúc khuôn, và sơ chế để chiên.",
   "guide_nova_explanations_arg4_title": "Các khía cạnh săn mồi và tài chính của quá trình siêu chế biến",
   "guide_nova_explanations_arg4_text": "Mục đích chung của siêu chế biến là tạo ra các sản phẩm thực phẩm có thương hiệu, tiện lợi (bền, dễ tiêu thụ), hấp dẫn (siêu ngon miệng) và có lợi nhuận cao (nguyên liệu giá rẻ) được thiết kế để thay thế tất cả các nhóm thực phẩm khác. Các sản phẩm thực phẩm siêu chế biến thường được đóng gói hấp dẫn và tiếp thị rầm rộ.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
