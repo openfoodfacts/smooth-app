@@ -9,7 +9,7 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => '오픈 푸드 팩트';
 
   @override
   String get sep => '';
@@ -1658,7 +1658,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get account_delete => '계정 삭제';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => '내 계정 삭제';
 
   @override
   String get user_profile => '계정';
@@ -2464,7 +2464,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Open Prices 웹사이트에서 열기';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4760,10 +4760,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => '추출 진행 중…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => '추출 성공';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4909,10 +4909,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_contribute_title => '기여하기';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => '내 기여';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => '내 통계';
 
   @override
   String get preferences_contribute_subtitle => '번역하고 도구를 개선하세요…';
@@ -4988,7 +4988,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      '오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5042,7 +5042,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_manage_account_title => '내 계정 관리';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => '계정 관리';
 
   @override
   String get preferences_change_password_title => '내 비밀번호를 변경하세요';
@@ -5242,7 +5242,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '데이터베이스가 완전하고 정확한지 확인하기 위한 노력에 동참해 주세요.';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title => '추가된 상품';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5261,8 +5261,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
-  String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+  String get preferences_my_contributions_my_prices_subtitle => '내 가격, 내 증명…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5384,7 +5383,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count / $total 증명';
   }
 
   @override
@@ -5394,7 +5393,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count / $total 기여자';
   }
 
   @override
@@ -5404,12 +5403,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count / $total 위치';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count 위치';
   }
 
   @override
@@ -5449,6 +5448,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '$created에 추가됨';
   }
 }

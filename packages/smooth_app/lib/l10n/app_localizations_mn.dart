@@ -9,7 +9,7 @@ class AppLocalizationsMn extends AppLocalizations {
   AppLocalizationsMn([String locale = 'mn']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Нээлттэй хүнсний баримтууд';
 
   @override
   String get sep => '';
@@ -1686,7 +1686,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Миний бүртгэлийг устга';
 
   @override
   String get user_profile => 'Account';
@@ -2506,7 +2506,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Нээлттэй үнийн вэбсайт дээр нээнэ үү';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4833,10 +4833,10 @@ class AppLocalizationsMn extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Олборлолт явагдаж байна…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Олборлолт амжилттай';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,7 +4985,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Миний статистик';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5068,7 +5068,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts бол хүнсний бүтээгдэхүүний мэдээллийн сан юм **бүх хүн, хүн бүрт зориулж хийсэн**.\nТа үүнийг ашиглан илүү сайн хүнсний сонголт хийх боломжтой ба **нээлттэй өгөгдөл** тул хэн ч **ямар ч зорилгоор дахин ашиглах боломжтой**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5125,7 +5125,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get preferences_manage_account_title => 'Миний бүртгэлийг удирдах';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Бүртгэлээ удирдана уу';
 
   @override
   String get preferences_change_password_title => 'Миний нууц үгийг өөрчил';
@@ -5350,7 +5350,8 @@ class AppLocalizationsMn extends AppLocalizations {
       'Мэдээллийн санг бүрэн, үнэн зөв байлгахын тулд бидний хүчин чармайлтад нэгдээрэй';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Нэмэгдсэн бүтээгдэхүүн';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5372,7 +5373,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Миний үнэ, миний баталгаа…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5505,7 +5506,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$total нотолгооны $count';
   }
 
   @override
@@ -5515,7 +5516,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$total оролцогчдын $count';
   }
 
   @override
@@ -5525,12 +5526,12 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$total байршлын $count';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count байршил';
   }
 
   @override
@@ -5575,6 +5576,6 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '$createdдээр нэмсэн';
   }
 }

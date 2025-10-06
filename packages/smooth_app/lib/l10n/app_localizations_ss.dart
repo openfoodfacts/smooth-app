@@ -9,7 +9,7 @@ class AppLocalizationsSs extends AppLocalizations {
   AppLocalizationsSs([String locale = 'ss']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Vula Emaciniso Ekudla';
 
   @override
   String get sep => '';
@@ -1686,7 +1686,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Cisha i-akhawunti yami';
 
   @override
   String get user_profile => 'Account';
@@ -2506,7 +2506,8 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button =>
+      'Vula kuwebhusayithi yeManani Lavulekile .';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4839,10 +4840,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Kukhishwa kuyachubeka…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Kukhishwa kwaphumelela';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4993,7 +4994,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Tibalo tami';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5076,7 +5077,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Emaciniso Ekudla Lavulekile yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5133,7 +5134,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Lawula i-akhawunti yakho';
 
   @override
   String get preferences_change_password_title => 'Shintja iphasiwedi yami';
@@ -5359,7 +5360,8 @@ class AppLocalizationsSs extends AppLocalizations {
       'Hlanganyela nemtamo wetfu wekucinisekisa kutsi i-database iphelele futsi inembile';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Imikhicito lengetiwe';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5381,7 +5383,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Intsengo yami, bufakazi bami…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5515,7 +5517,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count ye $total bufakazi';
   }
 
   @override
@@ -5525,7 +5527,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count we $total labafaka sandla';
   }
 
   @override
@@ -5535,12 +5537,12 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count ye $total tindzawo';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count tindzawo';
   }
 
   @override
@@ -5585,6 +5587,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Kwengetwe ku $created';
   }
 }

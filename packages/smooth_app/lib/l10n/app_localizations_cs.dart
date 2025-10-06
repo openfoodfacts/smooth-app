@@ -9,7 +9,7 @@ class AppLocalizationsCs extends AppLocalizations {
   AppLocalizationsCs([String locale = 'cs']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Otevřená fakta o jídle';
 
   @override
   String get sep => '';
@@ -1707,7 +1707,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get account_delete => 'Smazat účet';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Smazat můj účet';
 
   @override
   String get user_profile => 'Účet';
@@ -2528,7 +2528,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_app_button => 'Přejít do aplikace Ceny';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Otevřít na webu Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4855,10 +4855,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extrahujte nyní';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Probíhá extrakce…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Extrakce úspěšná';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5005,10 +5005,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get preferences_contribute_title => 'Přispět';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Moje příspěvky';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Moje statistiky';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5091,7 +5091,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts je databáze potravinářských výrobků **vytvořená každým, pro každého**.\nMůžete ji použít k lepšímu výběru potravin a protože se jedná o **otevřená data**, kdokoli je může **znovu použít k jakémukoli účelu**.';
 
   @override
   String get preferences_privacy_policy => 'Zásady ochrany osobních údajů';
@@ -5148,7 +5148,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get preferences_manage_account_title => 'Spravovat můj účet';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Spravujte svůj účet';
 
   @override
   String get preferences_change_password_title => 'Změnit heslo';
@@ -5376,7 +5376,8 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přidejte se k našemu úsilí o zajištění úplnosti a přesnosti databáze';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Přidané produkty';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5391,14 +5392,14 @@ class AppLocalizationsCs extends AppLocalizations {
       'Všechny neúplné produkty';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Ceny';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Moje ceny';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Moje ceny, moje důkazy…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5528,32 +5529,32 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count z $total důkazů';
   }
 
   @override
   String proof_count(int count) {
-    return '$count proofs';
+    return '$count dokladů';
   }
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count z $total přispěvatelů';
   }
 
   @override
   String contributors_count(int count) {
-    return '$count contributors';
+    return '$count přispěvatelů';
   }
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count z $total lokalit';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count lokalit';
   }
 
   @override
@@ -5597,6 +5598,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Přidáno dne $created';
   }
 }

@@ -21,22 +21,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get add => '加入产品';
 
   @override
-  String get account_delete_message => '您确定要删除您的账户吗？\n如果有特殊原因，请在下面分享';
+  String get account_delete_message => '您確定要刪除您的帳戶嗎？\n如果有具體原因，請在下方分享';
 
   @override
   String get reason => '原因';
 
   @override
-  String get okay => '好的';
+  String get okay => '確定';
 
   @override
-  String get validate => '验证';
+  String get validate => '驗證';
 
   @override
   String get create => '创建';
 
   @override
-  String get applyButtonText => '应用';
+  String get applyButtonText => '套用';
 
   @override
   String get next_label => '下一個';
@@ -45,22 +45,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get continue_label => '继续';
 
   @override
-  String get exit_label => '退出';
+  String get exit_label => 'Exit';
 
   @override
-  String get previous_label => '上一步';
+  String get previous_label => '前一頁';
 
   @override
-  String get go_back_to_top => '返回顶端';
+  String get go_back_to_top => '回到頂端';
 
   @override
-  String get save => '保存';
+  String get save => '儲存';
 
   @override
-  String get save_confirmation => '您确定要保存吗?';
+  String get save_confirmation => '您確定要存檔嗎？';
 
   @override
-  String get skip => '跳过';
+  String get skip => '略過';
 
   @override
   String get cancel => '取消';
@@ -81,10 +81,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get finish => '完成';
 
   @override
-  String get calculate => '计算';
+  String get calculate => '計算';
 
   @override
-  String get reset_food_prefs => '重设食物偏好';
+  String get reset_food_prefs => '重新設定食物偏好選項？';
 
   @override
   String get error => '出错';
@@ -93,13 +93,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get error_occurred => '发生错误';
 
   @override
-  String get featureInProgress => '我们正在开发此功能，敬请期待';
+  String get featureInProgress => '我們仍在開發此功能，敬請期待';
 
   @override
-  String get label_web => '在网站查看';
+  String get label_web => '在瀏覽器上查看';
 
   @override
-  String get learnMore => '更多信息';
+  String get learnMore => '瞭解更多';
 
   @override
   String get unknown => '未知';
@@ -141,25 +141,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get match_short_unknown => '未知匹配';
 
   @override
-  String get licenses => '许可证';
+  String get licenses => 'Licences';
 
   @override
-  String get looking_for => '查找';
+  String get looking_for => '尋找';
 
   @override
-  String get welcomeToOpenFoodFacts => '欢迎使用 Open Food Facts！';
+  String get welcomeToOpenFoodFacts => '歡迎來到 Open Food Facts';
 
   @override
   String get whatIsOff => 'Open Food Facts 是一个由当地社区推动的全球性非营利组织。';
 
   @override
-  String get productDataUtility => '查看和您的偏好有关的食品数据。';
+  String get productDataUtility => '查看與您的偏好相關的食物資料。';
 
   @override
-  String get healthCardUtility => '选择对您有益的食品。';
+  String get healthCardUtility => '選擇對您有益的食物。';
 
   @override
-  String get ecoCardUtility => '选择对地球有益的食品。';
+  String get ecoCardUtility => '選擇對地球有益的食物。';
 
   @override
   String get server_error_open_new_issue => '服务器无响应！您可以使用以下链接反馈问题。';
@@ -168,7 +168,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sign_in_text => '登录您的 Open Food Facts 账号以保存您的贡献';
 
   @override
-  String get incorrect_credentials => '用户名或密码错误。';
+  String get incorrect_credentials => '使用者名稱或密碼錯誤。';
 
   @override
   String get password_lost_incorrect_credentials => '此电子邮件或用户名不存在。请检查您的登录信息。';
@@ -177,7 +177,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get password_lost_server_unavailable => '我们的服务器目前速度缓慢，对此我们深表歉意。请稍后重试。';
 
   @override
-  String get login => '用户名';
+  String get login => '用戶名';
 
   @override
   String get login_result_type_server_unreachable => '网络无法访问';
@@ -186,19 +186,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get login_result_type_server_issue => '服务器出现问题。请稍后再试。';
 
   @override
-  String get login_page_username_or_email => '请输入用户名或邮箱';
+  String get login_page_username_or_email => '請輸入使用者名稱或電子郵件';
 
   @override
-  String get login_page_password_error_empty => '请输入密码';
+  String get login_page_password_error_empty => '請輸入密碼';
 
   @override
-  String get create_account => '创建账号';
+  String get create_account => '創建帳號';
 
   @override
   String get sign_in => '登录';
 
   @override
-  String get sign_in_mandatory => '您需要登录才可以使用该功能';
+  String get sign_in_mandatory => '對於該功能，我們需要您先登入。';
 
   @override
   String get help_improve_country => '帮助改善您所在国家/地区的 Open Food Facts';
@@ -207,7 +207,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sign_out => '登出';
 
   @override
-  String get sign_out_confirmation => '您确定要登出吗?';
+  String get sign_out_confirmation => '確定要登出嗎?';
 
   @override
   String get password => '密码';
@@ -216,27 +216,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get forgot_password => '忘记密码';
 
   @override
-  String get view_profile => '查看个人资料';
+  String get view_profile => '檢視個人檔案';
 
   @override
   String get reset_password => '重置密码';
 
   @override
   String get reset_password_explanation_text =>
-      '如果忘记密码，请输入您的用户名或邮箱地址以接收重置密码验证邮件。请检查您的收件箱，另外，也请记得检查垃圾邮件文件夹。';
+      '如果忘記密碼，請輸入您的使用者名稱或電子郵件地址以接收重置密碼的步驟說明。另外，記得檢查垃圾郵件的文件夾。';
 
   @override
-  String get username_or_email => '用户名或邮箱';
+  String get username_or_email => '使用者名稱或電子郵件地址';
 
   @override
   String get reset_password_done =>
-      '一封包含重置密码链接的电子邮件已发送到与您的账户关联的电子邮件地址，请检查您的收件箱或垃圾邮件文件夹。';
+      '一封含有重設密碼連結的電子郵件已寄給您的帳戶中所設定的電子郵件地址。另外，請檢查垃圾郵件。';
 
   @override
-  String get send_reset_password_mail => '更改密码';
+  String get send_reset_password_mail => '修改密碼';
 
   @override
-  String get enter_some_text => '请填写信息';
+  String get enter_some_text => '請輸入內容';
 
   @override
   String get sign_up_page_title => '注册';
@@ -245,113 +245,114 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sign_up_page_action_button => '注册';
 
   @override
-  String get sign_up_page_action_doing_it => '正在注册…';
+  String get sign_up_page_action_doing_it => '註冊中…';
 
   @override
-  String get sign_up_page_action_ok => '恭喜! 您的账户已经被创建。';
+  String get sign_up_page_action_ok => '恭喜！您已經成功創建帳號。';
 
   @override
   String get sign_up_page_display_name_hint => '名称';
 
   @override
-  String get sign_up_page_display_name_error_empty => '请输入您想使用的显示名称';
+  String get sign_up_page_display_name_error_empty => '請輸入您想要使用的顯示名稱';
 
   @override
-  String get sign_up_page_email_hint => '电子邮件';
+  String get sign_up_page_email_hint => '電子郵件';
 
   @override
-  String get sign_up_page_email_error_empty => '电子邮件是必需的';
+  String get sign_up_page_email_error_empty => '電子郵件（必填）';
 
   @override
-  String get sign_up_page_email_error_invalid => '无效电子邮件';
+  String get sign_up_page_email_error_invalid => '電子信箱無效';
 
   @override
-  String get sign_up_page_username_hint => '用户名: 公开可见';
+  String get sign_up_page_username_hint => '使用者名稱：公開可見';
 
   @override
-  String get sign_up_page_username_error_empty => '请输入用户名';
+  String get sign_up_page_username_error_empty => '請填入使用者名稱';
 
   @override
-  String get sign_up_page_username_error_invalid => '请输入有效的用户名';
+  String get sign_up_page_username_error_invalid => '請輸入一個有效的使用者名稱';
 
   @override
-  String get sign_up_page_username_description => '用户名不能包含空格、大写字母或特殊字符。';
+  String get sign_up_page_username_description => '使用者名稱不能包含空格、大寫字母或特殊字符';
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return '用户名不能超过 $value 个字符';
+    return '使用者名稱的長度不能超過 $value 個字元';
   }
 
   @override
   String get sign_up_page_password_hint => '密码';
 
   @override
-  String get sign_up_page_password_error_empty => '请输入密码';
+  String get sign_up_page_password_error_empty => '請輸入密碼';
 
   @override
-  String get sign_up_page_password_error_invalid => '请输入一个有效密码 (包含至少6个字符)';
+  String get sign_up_page_password_error_invalid => '請輸入有效密碼（至少 6 個字元）';
 
   @override
-  String get sign_up_page_confirm_password_hint => '确认密码';
+  String get sign_up_page_confirm_password_hint => '再次輸入密碼';
 
   @override
-  String get sign_up_page_confirm_password_error_empty => '请确认密码';
+  String get sign_up_page_confirm_password_error_empty => '請再次輸入密碼';
 
   @override
-  String get sign_up_page_confirm_password_error_invalid => '密码不相符';
+  String get sign_up_page_confirm_password_error_invalid => '密碼錯誤';
 
   @override
   String get sign_up_page_agree_text => '我同意 Open Food Facts ';
 
   @override
-  String get sign_up_page_terms_text => '使用条款和贡献';
+  String get sign_up_page_terms_text => '使用及貢獻條款';
 
   @override
-  String get donate_url => 'https://donate.openfoodfacts.org/';
+  String get donate_url =>
+      'https://world-zh.openfoodfacts.org/donate-to-open-food-facts';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      '创建帐户时, 必须同意使用条款, 然而, 仍然可以通过应用程序进行匿名贡献';
+      '創建帳號時，必須同意使用條款，但是您仍然可以通過應用程式進行匿名捐款';
 
   @override
-  String get sign_up_page_producer_checkbox => '我是食品生产商';
+  String get sign_up_page_producer_checkbox => '我是食品生產商';
 
   @override
-  String get sign_up_page_producer_hint => '生产商/品牌';
+  String get sign_up_page_producer_hint => '生產商/品牌';
 
   @override
-  String get sign_up_page_producer_error_empty => '请输入生产商或品牌名称';
+  String get sign_up_page_producer_error_empty => '請輸入生產商或品牌名稱';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
       '我想订阅 Open Food Facts 的最新动态（您可以随时取消订阅）';
 
   @override
-  String get sign_up_page_user_name_already_used => '该用户名已存在，请选择一个不同的用户名。';
+  String get sign_up_page_user_name_already_used => '這個使用者名稱已存在，請改用其他名稱。';
 
   @override
-  String get sign_up_page_email_already_exists => '已存在。登录该账号或尝试其他电子邮件地址。';
+  String get sign_up_page_email_already_exists => '已經存在，請直接登入、或改用其他電子郵件。';
 
   @override
-  String get sign_up_page_provide_valid_email => '请提供一个有效的电子邮箱地址。';
+  String get sign_up_page_provide_valid_email => '請提供有效的電子郵件地址。';
 
   @override
   String get sign_up_page_server_busy => '非常抱歉，创建您的帐户时遇到了一些技术问题。请稍后重试。';
 
   @override
-  String get settingsTitle => '设置';
+  String get settingsTitle => '設定';
 
   @override
-  String get darkmode => '主题';
+  String get darkmode => '主題';
 
   @override
   String get darkmode_dark => '深色';
 
   @override
-  String get darkmode_light => '浅色';
+  String get darkmode_light => '淺色';
 
   @override
-  String get darkmode_system_default => '系统默认';
+  String get darkmode_system_default => '系統預設值';
 
   @override
   String get thanks_for_contributing => '感谢您的贡献！';
@@ -360,7 +361,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contributors_label => '他们正在开发应用程序';
 
   @override
-  String get contributors_dialog_title => '贡献者';
+  String get contributors_dialog_title => '合作者';
 
   @override
   String contributors_dialog_entry_description(Object name) {
@@ -377,17 +378,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get support_join_slack => '在我们的 Slack 频道寻求帮助';
 
   @override
-  String get support_via_forum => '在我们的社区上寻求帮助';
+  String get support_via_forum => '在論壇上尋求幫助';
 
   @override
-  String get support_via_email => '给我们发送电子邮件';
+  String get support_via_email => '給我們傳送電子郵件';
 
   @override
-  String get support_via_email_include_logs_dialog_title => '发送应用日志?';
+  String get support_via_email_include_logs_dialog_title => '要將紀錄送出嗎？';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      '您是否希望在电子邮件附件中包含应用程序日志?';
+      '您是否希望將應用程式紀錄附在電子郵件中？';
 
   @override
   String get termsOfUse => '使用条款';
@@ -399,13 +400,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get privacy_policy => '隐私政策';
 
   @override
-  String get about_this_app => '关于这个应用程序';
+  String get about_this_app => '關於本程式';
 
   @override
-  String get contribute => '贡献';
+  String get contribute => '貢獻';
 
   @override
-  String get contribute_sw_development => '软件开发';
+  String get contribute_sw_development => '軟體開發';
 
   @override
   String get contribute_develop_text =>
@@ -416,13 +417,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '您可以加入 Open Food Facts Slack 聊天室，这是提问的首选方式。';
 
   @override
-  String get contribute_develop_dev_mode_title => '开发模式？';
+  String get contribute_develop_dev_mode_title => '開發模式？';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => '启用开发者模式';
+  String get contribute_develop_dev_mode_subtitle => '起用開發模式';
 
   @override
-  String get contribute_donate_title => '捐赠';
+  String get contribute_donate_title => '贊助/捐款';
 
   @override
   String get contribute_donate_header => '捐助 Open Food Facts';
@@ -435,27 +436,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contribute_improve_ProductsToBeCompleted => '待完成的产品';
 
   @override
-  String get contribute_improve_header => '改进';
+  String get contribute_improve_header => '改善';
 
   @override
   String get contribute_improve_text =>
       '数据库是该项目的核心。它简单易用，快速提供帮助。您可以下载手机应用程序，开始添加或改进产品。\n\n另一方面，Open Food Facts 网站提供了多种贡献方式：';
 
   @override
-  String get contribute_translate_header => '翻译';
+  String get contribute_translate_header => '翻譯';
 
   @override
-  String get contribute_data_quality => '数据质量';
+  String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => '开始翻译';
+  String get contribute_translate_link_text => '開始翻譯';
 
   @override
   String get contribute_translate_text =>
       'Open Food Facts 是一个全球项目，涵盖来自 160 多个国家的产品。Open Food Facts 已被翻译成数十种语言，内容也不断更新。';
 
   @override
-  String get contribute_translate_text_2 => '翻译是项目的关键任务之一';
+  String get contribute_translate_text_2 => '翻譯是專案的關鍵任務之一';
 
   @override
   String get contribute_join_skill_pool => '为 Open Food Facts 贡献你的技能。加入技能库！';
@@ -472,72 +473,73 @@ class AppLocalizationsZh extends AppLocalizations {
       'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => '点击此处回答问题';
+  String get tap_to_answer => '點擊此處回答問題';
 
   @override
-  String get tap_to_answer_hint => '点击此处回答有关该产品的问题';
+  String get tap_to_answer_hint => '點擊此處並回答有關此產品的問題';
 
   @override
   String get robotoff_questions_loading_hint => '正在加载有关该产品的问题，请稍候';
 
   @override
-  String get saving_answer => '保存您的答案';
+  String get saving_answer => '儲存您的回覆';
 
   @override
-  String get contribute_to_get_rewards => '成为食品透明度的参与者';
+  String get contribute_to_get_rewards =>
+      'Become an actor of food transparency';
 
   @override
   String get question_sign_in_text => '登录您的 Open Food Facts 帐户，获取您的贡献值';
 
   @override
-  String get question_yes_button_accessibility_value => '回答“是”';
+  String get question_yes_button_accessibility_value => '回答是';
 
   @override
-  String get question_no_button_accessibility_value => '回答“否”';
+  String get question_no_button_accessibility_value => '回答不是';
 
   @override
-  String get question_skip_button_accessibility_value => '跳过该题';
+  String get question_skip_button_accessibility_value => '跳過此問題';
 
   @override
   String get tap_to_edit_search => '点击打开搜索框';
 
   @override
-  String get myPreferences => '我的偏好';
+  String get myPreferences => '我的偏好設定';
 
   @override
   String get account_create_message =>
       '创建您的帐户并加入 Open Food Facts 社区，帮助在世界各地建立食品知识！';
 
   @override
-  String get join_us => '加入我们';
+  String get join_us => '加入我們';
 
   @override
-  String get myPreferences_profile_title => '您的个人信息';
+  String get myPreferences_profile_title => '您的個人檔案';
 
   @override
   String get myPreferences_profile_subtitle => '管理您的 Open Food Facts 贡献者帐户。';
 
   @override
-  String get myPreferences_settings_title => '应用设置';
+  String get myPreferences_settings_title => '應用程式設定';
 
   @override
   String get myPreferences_settings_subtitle => '黑暗模式，语言…';
 
   @override
-  String get myPreferences_food_title => '食物偏好';
+  String get myPreferences_food_title => '食品偏好選項';
 
   @override
-  String get myPreferences_food_subtitle => '选择对您最重要的食物信息.';
+  String get myPreferences_food_subtitle => '選擇對您最至關重要的食物資訊';
 
   @override
   String get myPreferences_food_comment =>
       'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences => '重置您的食物偏好?';
+  String get confirmResetPreferences => '重新設定食物偏好選項？';
 
   @override
-  String get myPersonalizedRanking => '我的个性化排名';
+  String get myPersonalizedRanking => '我的個人化排名';
 
   @override
   String get ranking_tab_all => '全部';
@@ -561,22 +563,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get profile_navbar_label => 'Community';
 
   @override
-  String get scan_navbar_label => '扫描';
+  String get scan_navbar_label => '掃描';
 
   @override
-  String get history_navbar_label => '历史记录';
+  String get history_navbar_label => '歷史紀錄';
 
   @override
   String get list_navbar_label => '列表';
 
   @override
-  String get category => '按类别筛选';
+  String get category => '按類別篩選';
 
   @override
   String get category_all => '全部';
 
   @override
-  String get category_search => '(类别搜索)';
+  String get category_search => '（類別搜尋）';
 
   @override
   String get filter => '筛选';
@@ -588,7 +590,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get scan_history => '扫描历史记录';
 
   @override
-  String get search => '搜索';
+  String get search => '搜尋';
 
   @override
   String get search_store => '搜索商店';
@@ -597,22 +599,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tap_for_more => '点击获取更多信息';
 
   @override
-  String get product => '产品';
+  String get product => '產品';
 
   @override
   String get unknownBrand => '未知品牌';
 
   @override
-  String get unknownProductName => '未知产品名称';
+  String get unknownProductName => '未知產品名稱';
 
   @override
-  String get label_refresh => '刷新';
+  String get label_refresh => '重新整理';
 
   @override
   String get label_reload => '重新加载';
 
   @override
-  String get image => '图片';
+  String get image => '圖片';
 
   @override
   String get front_photo => '正面照片';
@@ -633,16 +635,16 @@ class AppLocalizationsZh extends AppLocalizations {
       '保持原始顺序。如需指定，请注明百分比。用逗号或连字符分隔，并使用括号表示成分。';
 
   @override
-  String get ingredients_editing_error => '未能保存配料表。';
+  String get ingredients_editing_error => '儲存成分失敗。';
 
   @override
-  String get ingredients_editing_image_error => '未能获取配料表图像。';
+  String get ingredients_editing_image_error => '未能獲取新的成分圖像。';
 
   @override
-  String get ingredients_editing_title => '编辑配料表';
+  String get ingredients_editing_title => '編輯成分';
 
   @override
-  String get ingredients_photo => '原料的照片';
+  String get ingredients_photo => '成分照片';
 
   @override
   String get packaging_editing_instructions =>
@@ -658,22 +660,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get packaging_editing_title => '编辑包装信息';
 
   @override
-  String get nutrition => '营养';
+  String get nutrition => '營養成分';
 
   @override
-  String get nutrition_facts_photo => '营养成分的照片';
+  String get nutrition_facts_photo => '營養標示相片';
 
   @override
   String get nutrition_facts_editing_title => '编辑营养成分表';
 
   @override
-  String get packaging_information => '包装信息';
+  String get packaging_information => '包裝資訊';
 
   @override
-  String get packaging_information_photo => '包装信息照片';
+  String get packaging_information_photo => '包裝資訊照片';
 
   @override
-  String get missing_product => '你发现了一件新产品！';
+  String get missing_product => '您發現了一個新產品！';
 
   @override
   String get add_product_take_photos => '拍摄包装照片，将此产品添加到 Open Food Facts';
@@ -682,10 +684,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get add_product_take_photos_descriptive => '请您先拍几张照片，你可以在以后完成操作';
 
   @override
-  String get add_product_information_button_label => '添加产品信息';
+  String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => '新产品';
+  String get new_product => '新的產品';
 
   @override
   String get new_product_found_title => '发现新产品！';
@@ -694,7 +696,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get new_product_found_text => '我们的协作数据库包含超过** 300 万种产品**，但此条形码不存在：';
 
   @override
-  String get new_product_found_button => '添加该商品';
+  String get new_product_found_button => '加入此產品';
 
   @override
   String get new_product_leave_title => '离开此页面吗？';
@@ -769,25 +771,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get recycling_photo_title => '“循环利用标记”的照片';
 
   @override
-  String get take_photo_title => '请拍照';
+  String get take_photo_title => '選一張圖片';
 
   @override
   String get take_more_photo_title => '拍摄更多照片';
 
   @override
-  String get front_photo_uploaded => '已上传正面照片';
+  String get front_photo_uploaded => '已上載正面包裝的相片';
 
   @override
-  String get ingredients_photo_button_label => '原料的照片';
+  String get ingredients_photo_button_label => '成分照片';
 
   @override
-  String get ingredients_photo_uploaded => '已上传配料表照片';
+  String get ingredients_photo_uploaded => '已上載成分的相片';
 
   @override
   String get nutrition_cache_loading_error => '无法从缓存中加载营养成分';
 
   @override
-  String get nutritional_facts_photo_button_label => '营养成分的照片';
+  String get nutritional_facts_photo_button_label => '營養標示相片';
 
   @override
   String get nutritional_facts_input_button_label => '填写营养成分表';
@@ -821,7 +823,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get new_product_subtitle_nova => '通过填写食品类别和配料获得它';
 
   @override
-  String get new_product_desc_nova_unknown => '食品加工水平未知';
+  String get new_product_desc_nova_unknown => '食品加工程度未知';
 
   @override
   String get new_product_title_pictures => '添加产品';
@@ -871,13 +873,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get take_more_photo_button_label => '拍摄更多照片';
 
   @override
-  String get other_photo_uploaded => '已上传其他照片';
+  String get other_photo_uploaded => '已上傳其它相片';
 
   @override
   String get retake_photo_button_label => '重拍';
 
   @override
-  String get selecting_photo => '正在选择照片';
+  String get selecting_photo => '選取相片';
 
   @override
   String get uploading_image => '正在向服务器上传照片';
@@ -904,13 +906,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get uploading_image_type_generic => '将图片上传至 Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients => '添加缺失的成分';
+  String get score_add_missing_ingredients => '添加缺少的成分';
 
   @override
   String get score_add_missing_packaging_image => '添加缺失的包装照片';
 
   @override
-  String get score_add_missing_nutrition_facts => '添加缺失的营养成分';
+  String get score_add_missing_nutrition_facts => '補充營養成分';
 
   @override
   String get score_add_missing_product_traces => '添加缺失的产品轨迹';
@@ -940,10 +942,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get score_add_missing_product_brands => '添加缺失的产品品牌';
 
   @override
-  String get score_update_nutrition_facts => '更新营养成分表';
+  String get score_update_nutrition_facts => '更新營養成分';
 
   @override
-  String get nutrition_page_title => '营养成分表';
+  String get nutrition_page_title => '營養成分';
 
   @override
   String get nutrition_page_nutritional_info_title => '营养信息';
@@ -982,7 +984,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_page_per_serving => '每份';
 
   @override
-  String get nutrition_page_add_nutrient => '添加营养';
+  String get nutrition_page_add_nutrient => '新增營養';
 
   @override
   String get nutrition_page_serving_size => '份量';
@@ -1035,13 +1037,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => '无效的数字';
+  String get nutrition_page_invalid_number => '無效數值';
 
   @override
   String get nutrition_page_update_running => '正在更新服务器上的产品…';
 
   @override
-  String get nutrition_page_update_done => '产品已更新！';
+  String get nutrition_page_update_done => '產品更新了！';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
@@ -1051,25 +1053,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_page_photo_error => '无法加载照片';
 
   @override
-  String get more_photos => '更有趣的照片';
+  String get more_photos => '更多奇妙照片';
 
   @override
   String get view_more_photo_button => '查看该产品的所有现有照片';
 
   @override
-  String get no_product_found => '没有找到的产品';
+  String get no_product_found => '未發現產品';
 
   @override
   String get no_location_found => '未找到位置';
 
   @override
-  String get not_found => '未找到:';
+  String get not_found => '無法查明：';
 
   @override
-  String get refreshing_product => '产品更新中';
+  String get refreshing_product => '食品重新整理中';
 
   @override
-  String get product_refreshed => '产品已更新';
+  String get product_refreshed => '產品更新';
 
   @override
   String product_image_accessibility_label(String date) {
@@ -1102,10 +1104,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get product_image_action_take_new_picture => 'Take a new picture';
+  String get product_image_action_take_new_picture => '拍摄';
 
   @override
-  String get product_image_action_take_picture => '请拍照';
+  String get product_image_action_take_picture => '選一張圖片';
 
   @override
   String get product_image_action_from_gallery => '从手机图库中选择';
@@ -1120,7 +1122,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_image_details_from_producer => '来自制造商';
 
   @override
-  String get product_image_details_contributor => '贡献者';
+  String get product_image_details_contributor => '貢獻者';
 
   @override
   String get product_image_details_contributor_producer =>
@@ -1177,7 +1179,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get app_review_negative_modal_negative_button => '否';
 
   @override
-  String get could_not_refresh => '无法刷新产品';
+  String get could_not_refresh => '無法重新整理產品';
 
   @override
   String get product_internet_error_modal_title => '发生错误！';
@@ -1239,44 +1241,44 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get product_internet_error => '由于网络错误，无法获取有关此产品的信息。';
+  String get product_internet_error => '因為網路錯誤，無法取得關於此產品的資訊。';
 
   @override
-  String get cached_results_from => '显示结果来自：';
+  String get cached_results_from => '顯示結果自：';
 
   @override
   String get product_search_same_category => '寻找替代方案';
 
   @override
-  String get product_search_same_category_short => '比较';
+  String get product_search_same_category_short => '比較';
 
   @override
   String get product_search_same_category_error =>
       'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
-  String get product_improvement_add_category => '添加类别以计算Nutri-Score。';
+  String get product_improvement_add_category => '新增一個類別以計算 Nutri-Score。';
 
   @override
-  String get product_improvement_add_nutrition_facts => '添加营养成分以计算Nutri-Score。';
+  String get product_improvement_add_nutrition_facts => '新增營養成分和類別以計算營養評分。';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      '添加营养成分和类别以计算 Nutri-Score。';
+      '新增營養成分和類別以計算營養評分。';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
       '无法计算此产品的营养评分，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。';
 
   @override
-  String get product_improvement_obsolete_nutrition_image => '营养表图片已过时，请刷新。';
+  String get product_improvement_obsolete_nutrition_image => '此營養成分表已過時：請更新。';
 
   @override
   String get product_improvement_origins_to_be_completed =>
       'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => '请提供国家信息';
+  String get country_chooser_label => '請選擇國家';
 
   @override
   String get currency_chooser_label => 'Please choose a currency';
@@ -1312,19 +1314,19 @@ class AppLocalizationsZh extends AppLocalizations {
       'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history => '已从历史记录中删除该产品';
+  String get product_removed_history => '產品已從歷史記錄中刪除';
 
   @override
   String get product_removed_list => '把产品从列表移除';
 
   @override
-  String get product_could_not_remove => '无法移除产品';
+  String get product_could_not_remove => '無法移除產品';
 
   @override
-  String get no_prodcut_in_list => '这个列表中没有产品';
+  String get no_prodcut_in_list => '此清單裡沒有任何產品';
 
   @override
-  String get no_product_in_section => '这个区域没有产品';
+  String get no_product_in_section => '此部門仍未有產品';
 
   @override
   String get recently_seen_products => 'All viewed products';
@@ -1336,7 +1338,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clear_long => '清空列表';
 
   @override
-  String get really_clear => '确定要删除此列表吗？';
+  String get really_clear => '您確定要刪除此清單嗎？';
 
   @override
   String pct_match(Object percent) {
@@ -1435,16 +1437,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get select_none_products_mode => '全部不选';
 
   @override
-  String get compare_products_appbar_title => '比较产品';
+  String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle => '请至少选择两个产品';
 
   @override
-  String get retry_button_label => '重试';
+  String get retry_button_label => '重試';
 
   @override
-  String get connect_with_us => '联系我们';
+  String get connect_with_us => '聯繫我們';
 
   @override
   String get tiktok => '在 TikTok 上关注我们';
@@ -1477,19 +1479,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => '博客';
+  String get blog => '部落格';
 
   @override
-  String get faq => '常见问题';
+  String get faq => '常見問題';
 
   @override
-  String get discover => '发现';
+  String get discover => '探索';
 
   @override
-  String get how_to_contribute => '如何贡献数据';
+  String get how_to_contribute => '如何貢獻';
 
   @override
-  String get hint_knowledge_panel_message => '点击卡片任意部分获取更多信息。立即尝试！';
+  String get hint_knowledge_panel_message =>
+      '您可以點擊卡片的任何部分以獲取有關您所看到內容的更多詳細信息。現在就試試！';
 
   @override
   String get permissions_page_title => '相机访问权限';
@@ -1535,7 +1538,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get authorize_button_label => '授权';
 
   @override
-  String get refuse_button_label => '拒绝';
+  String get refuse_button_label => '拒絕';
 
   @override
   String get ask_me_later_button_label => '稍后';
@@ -1561,10 +1564,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboarding_welcome_loading_dialog_title => '正在加载您的第一个产品';
 
   @override
-  String get product_list_your_ranking => '您的排名';
+  String get product_list_your_ranking => '你的排名';
 
   @override
-  String get product_list_empty_icon_desc => '无历史记录';
+  String get product_list_empty_icon_desc => '無歷史資料';
 
   @override
   String get product_list_empty_title => '开始扫描';
@@ -1597,13 +1600,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get loading_dialog_default_title => '正在下载数据';
+  String get loading_dialog_default_title => '正在下載資料';
 
   @override
-  String get loading_dialog_default_error_message => '无法下载数据';
+  String get loading_dialog_default_error_message => '無法下載資料';
 
   @override
-  String get account_delete => '删除账号';
+  String get account_delete => '刪除帳號';
 
   @override
   String get account_delete_title => 'Delete my account';
@@ -1612,7 +1615,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get user_profile => '账户';
 
   @override
-  String get user_profile_title_guest => '欢迎!';
+  String get user_profile_title_guest => '歡迎！';
 
   @override
   String get user_profile_subtitle_guest => '登录或注册加入 Open Food Facts 社区';
@@ -1628,7 +1631,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get email_subject_account_deletion => '删除账号';
+  String get email_subject_account_deletion => '刪除帳號';
 
   @override
   String email_body_account_deletion(String userId) {
@@ -1713,7 +1716,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get permission_photo_none_found => '没有检测到摄像头';
 
   @override
-  String get permission_photo_denied => '未授权访问照相机';
+  String get permission_photo_denied => '未授權相機訪問權限';
 
   @override
   String get show_product_pictures => '显示产品图片';
@@ -1733,7 +1736,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
-  String get edit_product_label_short => '编辑';
+  String get edit_product_label_short => '編輯';
 
   @override
   String edit_product_form_item_help(String value) {
@@ -1777,10 +1780,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_deny_suggestion => '拒绝建议';
 
   @override
-  String get edit_product_form_item_details_title => '基本信息';
+  String get edit_product_form_item_details_title => '基本資料';
 
   @override
-  String get edit_product_form_item_details_subtitle => '产品名称、品牌、数量';
+  String get edit_product_form_item_details_subtitle => '產品名稱、品牌、數量';
 
   @override
   String get edit_product_form_item_other_details_title => '额外细节';
@@ -1789,13 +1792,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_other_details_subtitle => '产品网站…';
 
   @override
-  String get edit_product_form_item_photos_title => '照片';
+  String get edit_product_form_item_photos_title => '相片';
 
   @override
-  String get edit_product_form_item_photos_subtitle => '添加或刷新照片';
+  String get edit_product_form_item_photos_subtitle => '添加或更新照片';
 
   @override
-  String get edit_product_form_item_labels_title => '标签和证书';
+  String get edit_product_form_item_labels_title => '標籤和認證';
 
   @override
   String get edit_product_form_item_labels_subtitle => '环保、质量标签…';
@@ -1804,7 +1807,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_labels_hint => '输入标签（例如：NutriScore）';
 
   @override
-  String get edit_product_form_item_labels_type => '标签';
+  String get edit_product_form_item_labels_type => '標籤';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
@@ -1859,7 +1862,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_stores_explanation_good_examples_3 => '利德尔';
 
   @override
-  String get edit_product_form_item_origins_title => '起源';
+  String get edit_product_form_item_origins_title => '產地';
 
   @override
   String get edit_product_form_item_origins_hint => '输入原产地（例如：德国）';
@@ -1883,7 +1886,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => '国家/地区';
+  String get edit_product_form_item_countries_title => '地區';
 
   @override
   String get edit_product_form_item_countries_hint => '输入国家（例如：德国）';
@@ -1900,13 +1903,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => '可追踪码';
+  String get edit_product_form_item_emb_codes_title => '產銷履歷代碼';
 
   @override
   String get edit_product_form_item_emb_codes_hint => '输入溯源码';
 
   @override
-  String get edit_product_form_item_emb_codes_type => '可追踪码';
+  String get edit_product_form_item_emb_codes_type => '產銷履歷代碼';
 
   @override
   String get edit_product_form_item_emb_help_title =>
@@ -1940,19 +1943,19 @@ class AppLocalizationsZh extends AppLocalizations {
       'EMB 72264';
 
   @override
-  String get edit_product_form_item_traces_title => '跟踪';
+  String get edit_product_form_item_traces_title => '含少量';
 
   @override
-  String get edit_product_form_item_traces_hint => '跟踪';
+  String get edit_product_form_item_traces_hint => '追蹤';
 
   @override
   String get edit_product_form_item_traces_type => '输入追踪信息（例如：大豆）';
 
   @override
-  String get edit_product_form_item_categories_title => '类别';
+  String get edit_product_form_item_categories_title => '類別';
 
   @override
-  String get edit_product_form_item_categories_hint => '类别';
+  String get edit_product_form_item_categories_hint => '分類';
 
   @override
   String get edit_product_form_item_categories_type => '输入类别（例如：橙汁）';
@@ -2030,7 +2033,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_nutrition_facts_title => '营养成分';
 
   @override
-  String get edit_product_form_item_nutrition_facts_subtitle => '营养成分、酒精含量……';
+  String get edit_product_form_item_nutrition_facts_subtitle => '營養、酒精含量⋯⋯';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
@@ -2061,10 +2064,10 @@ class AppLocalizationsZh extends AppLocalizations {
       'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
-  String get edit_product_form_save => '编辑';
+  String get edit_product_form_save => '編輯';
 
   @override
-  String get edit_product_ingredients_photo_title => '原料的照片';
+  String get edit_product_ingredients_photo_title => '成分照片';
 
   @override
   String get edit_product_ingredients_list_title => '成分列表';
@@ -2076,7 +2079,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => '沒有可用的資料';
 
   @override
   String get product_field_website_title => '网站';
@@ -2091,7 +2094,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get not_implemented_snackbar_text => '尚未生效';
 
   @override
-  String get category_picker_page_appbar_text => '类别';
+  String get category_picker_page_appbar_text => '類別';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
@@ -2163,7 +2166,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get user_list_subtitle_product => '列表';
 
   @override
-  String get user_list_title => '您的清单';
+  String get user_list_title => '您的清單';
 
   @override
   String get user_list_add_product => '将产品添加到您的列表';
@@ -2172,8 +2175,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get user_list_button_new => 'Create a new list';
 
   @override
-  String get user_list_empty_label =>
-      'No list available yet!\nPlease start by creating one.';
+  String get user_list_empty_label => '暂无可用列表，请从创建一个新列表开始';
 
   @override
   String get user_list_button_add_product => '添加到列表';
@@ -2294,7 +2296,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dev_preferences_export_history_dialog_title => '导出历史记录';
 
   @override
-  String get dev_preferences_button_positive => '确定';
+  String get dev_preferences_button_positive => '好';
 
   @override
   String get dev_preferences_button_negative => '取消';
@@ -2339,7 +2341,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
-  String get dev_preferences_news_provider_status_title => '状态';
+  String get dev_preferences_news_provider_status_title => '狀態';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
@@ -2347,16 +2349,16 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => '食物';
 
   @override
   String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => '寵物食品';
 
   @override
-  String get product_type_label_product => '其他';
+  String get product_type_label_product => 'Other';
 
   @override
   String get product_type_selection_title => 'Product type';
@@ -2469,7 +2471,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => '未找到产品';
+  String get prices_barcode_search_not_found => 'Product not found';
 
   @override
   String get prices_barcode_search_none_yet => 'No product yet';
@@ -2489,7 +2491,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_per_kilogram => '每公斤价格';
 
   @override
-  String get prices_per_unit => '每单位价格';
+  String get prices_per_unit => 'Price per unit';
 
   @override
   String get prices_per_kilogram_short => ' /公斤';
@@ -2498,7 +2500,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_per_unit_short => ' / 单元';
 
   @override
-  String get prices_category_mandatory => '强制性的';
+  String get prices_category_mandatory => 'Mandatory';
 
   @override
   String get prices_category_optional => '选修的';
@@ -2777,7 +2779,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get dev_preferences_import_history_result_success => '完成';
+  String get dev_preferences_import_history_result_success => '已完成';
 
   @override
   String get dev_mode_section_server => '服务器配置';
@@ -2804,7 +2806,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '（成分和包装）';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get search_history_item_edit_tooltip => '沿用與編輯此搜尋的項目';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -2897,7 +2899,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get signup_page_terms_of_use_line1 => '我同意 Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 => '使用条款和贡献';
+  String get signup_page_terms_of_use_line2 => '使用及貢獻條款';
 
   @override
   String get analytics_consent_image_semantic_label => '分析图标';
@@ -2916,7 +2918,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get summary_card_button_add_basic_details => '完善基本信息';
 
   @override
-  String get edit_photo_button_label => '编辑';
+  String get edit_photo_button_label => '編輯';
 
   @override
   String get edit_photo_unselect_button_label => '取消选择照片';
@@ -2943,7 +2945,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_photo_language_none => '暂无图像';
 
   @override
-  String get category_picker_screen_title => '类别';
+  String get category_picker_screen_title => '類別';
 
   @override
   String get basic_details => '基本信息';
@@ -3112,7 +3114,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
-  String get barcode => '条形码';
+  String get barcode => '條碼';
 
   @override
   String barcode_barcode(String barcode) {
@@ -3120,7 +3122,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get barcode_invalid_error => '无效的条形码';
+  String get barcode_invalid_error => '條碼無效';
 
   @override
   String get basic_details_add_success => '基本信息添加成功';
@@ -3257,10 +3259,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get capture => 'Take a new picture';
+  String get capture => '拍摄';
 
   @override
-  String get capture_new_picture => '请拍照';
+  String get capture_new_picture => '選一張圖片';
 
   @override
   String get choose_from_gallery => '从相册选择';
@@ -3372,8 +3374,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '请扫描至少两个产品以进行比较';
 
   @override
-  String get scan_header_compare_button_valid_state_tooltip =>
-      'Click to compare the products you have scanned';
+  String get scan_header_compare_button_valid_state_tooltip => '点击以比较您扫描过的产品';
 
   @override
   String get scan_product_loading => 'You have scanned\nthe barcode:';
@@ -3491,7 +3492,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_packagings_element_hint_units => '输入产品中包含的相同形状和材料的包装单位数量。';
 
   @override
-  String get edit_packagings_element_field_shape => '形状';
+  String get edit_packagings_element_field_shape => '形狀';
 
   @override
   String get edit_packagings_element_hint_shape =>
@@ -3714,7 +3715,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get loading => '正在加载…';
+  String get loading => '載入中…';
 
   @override
   String get know_more => '了解更多';
@@ -3758,7 +3759,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_list_create_tooltip => 'Create a new list';
 
   @override
-  String get nutriscore_generic => '营养分数';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
   String get nutriscore_a => 'Nutri-Score A';
@@ -3798,7 +3799,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => '生态得分';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => '绿色评分A';
@@ -3876,7 +3877,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contact_title_press_email => 'Press Contact';
 
   @override
-  String get contact_title_newsletter => '订阅新闻资讯';
+  String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
   String get contact_title_calendar => 'Subscribe to our community calendar';
@@ -3898,8 +3899,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
-  String get link_cant_be_opened =>
-      'This link can\'t be opened on your device. Please check that you have a browser installed.';
+  String get link_cant_be_opened => '此連結無法在您的裝置上開啟。請檢查您是否安裝了瀏覽器。';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
@@ -3912,80 +3912,88 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get guide_title => '指南';
+  String get guide_title => 'Guide';
 
   @override
   String get guide_share_label => '推荐给好友';
 
   @override
-  String get guide_nutriscore_v2_title => 'Nutri-Score 正在不断发展！';
+  String get guide_nutriscore_v2_title =>
+      'The Nutri-Score is evolving: explanations!';
 
   @override
-  String get guide_nutriscore_v2_what_is_nutriscore_title => 'Nutri-Score 是什么？';
+  String get guide_nutriscore_v2_what_is_nutriscore_title =>
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Nutri-Score 是一个标志，旨在告诉您**食品的营养质量**。';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      '颜色代码各不相同，深绿色（**A**）代表**最健康**的产品，深红色（**E**）代表**不太健康**的产品。';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption => 'Nutri-Score A 级标志';
+  String get guide_nutriscore_v2_nutriscore_a_caption =>
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title => 'Nutri-Score 为何不断发展？';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Nutri-Score 公式**正在不断发展**，以提供更好的建议：';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg1_title => '更好地评估所有饮料';
+  String get guide_nutriscore_v2_why_v2_arg1_title =>
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      '在新算法中，**牛奶**、添加糖的**乳制品饮料**和**植物**饮料的得到了更好的区分。';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg2_title => '更合理的饮料排名';
+  String get guide_nutriscore_v2_why_v2_arg2_title =>
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      '**糖含量**需要更好地考虑，并且更倾向于**低糖**饮料。\\n**甜味剂也会受到惩罚**：低糖汽水的评级将从 B 级降至 C 到 E 级之间。水仍然是推荐的饮料。';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      '含有较多盐和糖的产品将受到惩罚（译者注：生理盐水虽然含盐，但对人体应该一定程度上有益）';
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      '**太甜**或**太咸**的产品的**评级将会进一步降低**。';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg4_title => '油和鱼的营养情况也将被进一步细分';
+  String get guide_nutriscore_v2_why_v2_arg4_title =>
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      '某些**富含脂肪的鱼**和**富含有益脂肪的油**的评级将会提高。';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => '限制红肉';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      '**红肉的摄入量应该受到限制**。这就是为什么**家禽的排名相对较高**。';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
-  String get guide_nutriscore_v2_new_logo_title => '如何区分旧的 Nutri-Score 和新的计算？';
+  String get guide_nutriscore_v2_new_logo_title =>
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      '从现在开始，标志上可以显示“**新算法**”标记以表明这确实是新的算法。';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
-  String get guide_nutriscore_v2_new_logo_image_caption => '新版 Nutri-Score 的标志';
+  String get guide_nutriscore_v2_new_logo_image_caption =>
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title =>
@@ -4001,21 +4009,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      '无需等待，您**将在 OpenFoodFacts 应用程序中找到**新的计算结果，包括制造商是否尚未更新分数的产品。';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => '哪些要素没有改变';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      '对于制造商来说，Nutri-Score 的显示**仍然是可选的**。';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => '生态得分';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title => '什么是绿色分数？';
@@ -4052,22 +4060,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6个生产步骤';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => '农业';
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => '加工';
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => '包装';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => '运输';
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => '分派';
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => '消耗量';
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
   String get guide_greenscore_lca_arg3_title => '14项环境影响指标';
@@ -4104,35 +4112,38 @@ class AppLocalizationsZh extends AppLocalizations {
       '为了奖励某一类别中更好的产品，我们会根据以下几个标准施加奖金和惩罚：';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg1_title => '生产方式';
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      '拥有官方标签、保证环境效益的标签或认证（有机、公平贸易、HVE、Label Rouge、Bleu Blanc Cœur、MSC/ASC）的产品可获得奖励。';
+      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg2_title => '成分来源';
+  String get guide_greenscore_bonuses_penalties_arg2_title => '成分來源';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
       '根据原料的产地，我们会给予一定的奖励。该奖励会考虑运输的影响以及每个生产商所在国家的环境政策。';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg3_title => '濒危物种';
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      '含有对生物多样性和生态系统产生重大负面影响的成分的产品将受到处罚，例如棕榈油，其生产造成了大规模的森林砍伐。';
+      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => '包装';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      '罚款的计算考虑了包装的循环性（使用再生原材料和可回收性）和过度包装。';
+      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
 
   @override
-  String get guide_greenscore_transparency_title => '更高的透明度的需求，以更好地衡量和减少环境影响';
+  String get guide_greenscore_transparency_title =>
+      'An increased need for transparency to better measure and reduce environmental impacts';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
@@ -4188,7 +4199,8 @@ class AppLocalizationsZh extends AppLocalizations {
       '与专有标签不同，Green-Score 计算**完全开放**，并且**任何人都可以验证**。';
 
   @override
-  String get guide_nova_title => '超加工食品';
+  String get guide_nova_title =>
+      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
   String get guide_nova_what_is_nova_title => '什么是超加工？';
@@ -4217,21 +4229,22 @@ class AppLocalizationsZh extends AppLocalizations {
       '未加工食品（或称天然食品）是指从自然界分离出来的植物（种子、果实、叶、茎、根）或动物（肌肉、内脏、蛋、奶）等可食用的部分，以及菌类、藻类和水。';
 
   @override
-  String get guide_nova_groups_arg2_title => '加工过的烹饪原料';
+  String get guide_nova_groups_arg2_title => '加工的烹飪用食品';
 
   @override
   String get guide_nova_groups_arg2_text =>
       '加工烹饪原料，例如油、黄油、糖和盐，是通过压榨、精炼、研磨、碾磨和干燥等工艺从第一类食品或自然界中提取的物质。';
 
   @override
-  String get guide_nova_groups_arg3_title => '加工食品';
+  String get guide_nova_groups_arg3_title => '第三類： 加工食品';
 
   @override
   String get guide_nova_groups_arg3_text =>
       '瓶装蔬菜、罐装鱼、糖浆水果、奶酪和新鲜面包等加工食品，主要通过在第一类食品中添加盐、油、糖或其他来自第二类食品的物质制成。加工过程包括各种保存或烹饪方法，对于面包和奶酪而言，还包括非酒精发酵。大多数加工食品含有两到三种成分，可识别为第一类食品的改良版。它们可以单独食用，或者更常见的是与其他食物搭配食用。';
 
   @override
-  String get guide_nova_groups_arg4_title => '超加工食品';
+  String get guide_nova_groups_arg4_title =>
+      'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
   String get guide_nova_groups_arg4_text =>
@@ -4293,7 +4306,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => '詳細資訊';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
@@ -4303,7 +4316,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photo_viewer_details_title => 'Details of the photo';
 
   @override
-  String get photo_viewer_details_contributor_title => '贡献者';
+  String get photo_viewer_details_contributor_title => '貢獻者';
 
   @override
   String get photo_viewer_details_size_title => 'Size';
@@ -4317,7 +4330,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photo_viewer_details_date_title => '日期';
 
   @override
-  String get photo_viewer_details_url_title => 'URL';
+  String get photo_viewer_details_url_title => '網址';
 
   @override
   String get product_page_compatibility_score => '兼容的';
@@ -4331,10 +4344,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get product_image_front_accessibility_label => '正面图片';
+  String get product_image_front_accessibility_label => '封面圖片';
 
   @override
-  String get product_image_ingredients_accessibility_label => '成分列表：';
+  String get product_image_ingredients_accessibility_label => '成分照片';
 
   @override
   String get product_image_nutrition_accessibility_label => '营养信息图片';
@@ -4432,7 +4445,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get carousel_error_text_2 => '请检查您的互联网连接或单击此按钮：';
 
   @override
-  String get carousel_error_button => '重试';
+  String get carousel_error_button => '重試';
 
   @override
   String get carousel_unknown_product_header => '未知产品';
@@ -4445,7 +4458,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '我们的协作数据库包含超过** 300 万种产品**，但此条形码不存在：';
 
   @override
-  String get carousel_unknown_product_button => '添加该商品';
+  String get carousel_unknown_product_button => '加入此產品';
 
   @override
   String get carousel_loading_header => '正在加载信息...';
@@ -4472,13 +4485,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photo_field_front => '产品照片';
 
   @override
-  String get photo_field_ingredients => '原料的照片';
+  String get photo_field_ingredients => '成分照片';
 
   @override
   String get photo_field_nutrition => '营养成分的照片';
 
   @override
-  String get photo_field_packaging => '包装信息照片';
+  String get photo_field_packaging => '包裝資訊照片';
 
   @override
   String get photo_already_exists => '这张照片已经存在';
@@ -4490,10 +4503,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get date => '日期';
 
   @override
-  String get photo_rotate_left => '左边旋转';
+  String get photo_rotate_left => '向左旋轉';
 
   @override
-  String get photo_rotate_right => '右边旋转';
+  String get photo_rotate_right => '向右旋轉';
 
   @override
   String get photo_undo_action => '撤消上一个操作';
@@ -4543,7 +4556,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_footer_action_barcode => 'View barcode';
 
   @override
-  String get product_footer_action_barcode_short => '条形码';
+  String get product_footer_action_barcode_short => '條碼';
 
   @override
   String get product_footer_action_open_website => 'Open website';
@@ -4615,7 +4628,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_facts_extract_failed => '未能从图片中提取营养成分';
 
   @override
-  String get prices_discount => '折扣';
+  String get prices_discount => 'Discount';
 
   @override
   String get prices_stats_statistics => '统计数据';
@@ -4630,13 +4643,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_products_section => '产品';
 
   @override
-  String get prices_stats_locations_section => '地点';
+  String get prices_stats_locations_section => 'Locations';
 
   @override
   String get prices_stats_proofs_section => 'Proofs';
 
   @override
-  String get prices_stats_contributors_section => '贡献者';
+  String get prices_stats_contributors_section => '合作者';
 
   @override
   String get prices_stats_experiments_section => 'Experiments';
@@ -4645,7 +4658,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_misc_section => '其他';
 
   @override
-  String get prices_stats_total => '总计';
+  String get prices_stats_total => 'Total';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -4660,22 +4673,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => '消耗量';
+  String get prices_stats_consumption => 'Consumption';
 
   @override
-  String get prices_stats_with_price => '有价格';
+  String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => '食物';
 
   @override
-  String get prices_stats_beauty => '美丽';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => '产品';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => '寵物食品';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -4684,7 +4697,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_online => 'Online';
 
   @override
-  String get prices_stats_countries => '国家/地区';
+  String get prices_stats_countries => '國家地區';
 
   @override
   String get prices_stats_price_tag => '价格标签';
@@ -4693,7 +4706,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_receipt => '收据';
 
   @override
-  String get prices_stats_gdpr_request => 'GDPR 要求';
+  String get prices_stats_gdpr_request => 'GDPR request';
 
   @override
   String get prices_stats_shop_import => 'Shop import';
@@ -4723,7 +4736,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => '其他';
+  String get prices_stats_other => 'Other';
 
   @override
   String get prices_stats_last_updated => '最后更新于';
@@ -4750,7 +4763,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_card_project => '开放食品事实项目';
 
   @override
-  String get preferences_contribute_title => '贡献';
+  String get preferences_contribute_title => '貢獻';
 
   @override
   String get preferences_my_contributions_title => 'My contributions';
@@ -4768,7 +4781,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_connect_subtitle => '联系我们或在社交媒体上关注我们';
 
   @override
-  String get preferences_support_title => '捐赠';
+  String get preferences_support_title => '捐款';
 
   @override
   String get preferences_support_subtitle => '帮助我们向全球数百万消费者提供信息';
@@ -4777,7 +4790,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_card_help => '帮助与支持';
 
   @override
-  String get preferences_faq_title => '常见问题';
+  String get preferences_faq_title => '常見問題';
 
   @override
   String get preferences_faq_subtitle => '获取问题的答案';
@@ -4789,7 +4802,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_app_bar_message => '感谢您成为我们的会员之一！';
 
   @override
-  String get preferences_app_bar_products_modified => '产品修改';
+  String get preferences_app_bar_products_modified => 'Products modified';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
@@ -4815,7 +4828,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_app_settings_products => '产品';
 
   @override
-  String get preferences_card_about => '关于';
+  String get preferences_card_about => '關於';
 
   @override
   String get preferences_legal_information_title => '法律信息';
@@ -4827,7 +4840,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_terms_of_use => '使用条款';
 
   @override
-  String get preferences_legal_mentions => '法务信息';
+  String get preferences_legal_mentions => 'Legal mentions';
 
   @override
   String get preferences_legal_header =>
@@ -4846,7 +4859,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_about_app_subtitle => '技术信息、开发人员信息等';
 
   @override
-  String get preferences_card_information => '信息';
+  String get preferences_card_information => '資訊';
 
   @override
   String get preferences_version_number_title => '版本号';
@@ -4870,7 +4883,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_add_prices => 'Add prices';
 
   @override
-  String get preferences_complete_products => '补全产品信息';
+  String get preferences_complete_products => 'Complete products';
 
   @override
   String get preferences_tips => '尖端';
@@ -4897,7 +4910,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_account_deletion_subtitle => '您的所有贡献都将丢失';
 
   @override
-  String get preferences_contributions_title => '贡献';
+  String get preferences_contributions_title => '貢獻';
 
   @override
   String get preferences_dev_mode_app_settings_title => '应用设置';
@@ -4964,7 +4977,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_faq_off_ngo_title => '开放食品事实非政府组织';
 
   @override
-  String get preferences_about_information_title => '信息';
+  String get preferences_about_information_title => '資訊';
 
   @override
   String get preferences_connect_community_updates_title => '获取社区更新';
@@ -5020,7 +5033,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_connect_pro_email_subtitle => '联系我们开始使用';
 
   @override
-  String get preferences_connect_press_title => '媒体报道';
+  String get preferences_connect_press_title => '傳媒';
 
   @override
   String get preferences_connect_press_page_subtitle => '获取报告所需的所有材料';
@@ -5084,10 +5097,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_contributions_all_incomplete_title => '所有未完成产品';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => '价格';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => '我的价格';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -5246,7 +5259,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_app_settings_media_title => '媒体';
 
   @override
-  String get preferences_about_app_development_title => '开发';
+  String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title => '开放食品事实实验室';

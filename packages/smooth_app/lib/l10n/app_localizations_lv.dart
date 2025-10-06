@@ -9,7 +9,7 @@ class AppLocalizationsLv extends AppLocalizations {
   AppLocalizationsLv([String locale = 'lv']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Atvērtie pārtikas fakti';
 
   @override
   String get sep => '';
@@ -1687,7 +1687,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Dzēst manu kontu';
 
   @override
   String get user_profile => 'Account';
@@ -2507,7 +2507,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Atvērt vietnē Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4830,10 +4830,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Notiek ekstrakcija…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Ekstrakcija veiksmīga';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4979,10 +4979,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get preferences_contribute_title => 'Veicināt / atbalstīt';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Mani ieguldījumi';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Mana statistika';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5066,7 +5066,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      '“Open Food Facts” ir pārtikas produktu datubāze, **ko izveidojuši visi, ikvienam**.\nTo var izmantot, lai izdarītu labākas izvēles attiecībā uz pārtiku, un, tā kā tie ir **atvērtie dati**, ikviens tos var **atkārtoti izmantot jebkādiem mērķiem**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5123,7 +5123,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get preferences_manage_account_title => 'Pārvaldīt manu kontu';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Pārvaldiet savu kontu';
 
   @override
   String get preferences_change_password_title => 'Mainīt manu paroli';
@@ -5348,7 +5348,8 @@ class AppLocalizationsLv extends AppLocalizations {
       'Pievienojieties mūsu centieniem nodrošināt datubāzes pilnīgumu un precizitāti';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Pievienotie produkti';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5370,7 +5371,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Manas cenas, mani pierādījumi…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5502,7 +5503,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count no $total pierādījumiem';
   }
 
   @override
@@ -5512,7 +5513,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count no $total līdzstrādniekiem';
   }
 
   @override
@@ -5522,12 +5523,12 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count no $total atrašanās vietām';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count atrašanās vietas';
   }
 
   @override
@@ -5572,6 +5573,6 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Pievienots $created';
   }
 }
