@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://br.openfoodfacts.org/termos-de-uso",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://world-pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação concebida para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultra-processados** (também presente na aplicação).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Para os fabricantes, a indicação do Nutri-Score **continua a ser facultativa**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Escolher alimentos sustentáveis pode parecer complexo. Os rótulos são confusos e muitas vezes falta informação. O Green-Score foi criado para simplificar, oferecendo uma classificação ambiental **clara**, **baseada em dados científicos** e **transparente** para produtos alimentares, exatamente onde precisa: enquanto faz compras.",
   "guide_greenscore_better_product_arg4_title": "Transparência",
   "guide_greenscore_better_product_arg4_text": "Ao contrário dos rótulos proprietários, o cálculo do Green-Score é **completamente aberto** e pode ser **verificado por qualquer pessoa**.",
-  "guide_greenscore_share_link": "https://pt.openfoodfacts.org/green-score",
   "guide_nova_title": "Alimentos ultra-processados",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "É utilizada uma infinidade de sequências de processos para combinar os ingredientes, geralmente numerosos, e criar o produto final (daí o nome \"ultraprocessado\"). Os processos incluem vários sem equivalentes nacionais, como hidrogenação e hidrólise, extrusão e moldagem, e pré-processamento para fritura.",
   "guide_nova_explanations_arg4_title": "Os aspetos predatórios e financeiros do ultraprocessamento",
   "guide_nova_explanations_arg4_text": "O objetivo geral do ultraprocessamento é criar produtos alimentares de marca, práticos (duráveis, prontos a consumir), atraentes (hiperpalatáveis) e altamente rentáveis (ingredientes de baixo custo), concebidos para substituir todos os outros grupos alimentares. Os produtos alimentares ultraprocessados são geralmente embalados de forma atrativa e comercializados de forma intensiva.",
-  "guide_nova_share_link": "https://pt.openfoodfacts.org/nova",
   "preview_badge": "Pré-visualizar",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
