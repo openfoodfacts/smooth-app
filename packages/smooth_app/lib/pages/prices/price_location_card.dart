@@ -38,7 +38,7 @@ class PriceLocationCard extends StatelessWidget {
             : location.getTitle() ??
                   location.getSubtitle() ??
                   location.getLatLng().toString(),
-        leadingIcon:  const icons.Location(),
+        leadingIcon: const icons.Location(),
         onPressed: model.proof != null
             ? null
             : () async {
