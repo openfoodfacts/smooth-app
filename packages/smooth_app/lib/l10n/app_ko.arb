@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-ko.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "변하지 않는 것",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "친환경 점수",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "지속 가능한 식품을 선택하는 것은 복잡하게 느껴질 수 있습니다. 라벨은 헷갈리고 정보는 종종 누락됩니다. 그린스코어는 이러한 과정을 간소화하기 위해 만들어졌으며, 식품에 대한 **명확하고**, **과학에 기반하며**, **투명한** 환경 등급을 쇼핑하는 순간에 바로 확인할 수 있도록 설계되었습니다.",
   "guide_greenscore_better_product_arg4_title": "투명도",
   "guide_greenscore_better_product_arg4_text": "독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "가공 식품",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "일반적으로 많은 재료들을 조합하고 최종 제품(즉, '초가공')을 만들기 위해 여러 공정이 사용됩니다. 이러한 공정에는 수소화 및 가수분해, 압출 및 성형, 그리고 튀김 전처리 등 국내에서는 찾아볼 수 없는 여러 공정이 포함됩니다.",
   "guide_nova_explanations_arg4_title": "초가공의 약탈적 측면과 재정적 측면",
   "guide_nova_explanations_arg4_text": "초가공 식품의 전반적인 목적은 브랜드 인지도가 높고, 편리하며(내구성이 뛰어나고, 바로 섭취할 수 있으며), 매력적이며(매우 맛있으며), 수익성이 높은(저렴한 재료 사용) 식품을 개발하여 다른 모든 식품군을 대체하는 것입니다. 초가공 식품은 일반적으로 매력적인 포장과 집중적인 마케팅을 통해 판매됩니다.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
