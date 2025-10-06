@@ -324,10 +324,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4213,10 +4209,6 @@ class AppLocalizationsSo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4407,10 +4399,6 @@ class AppLocalizationsSo extends AppLocalizations {
       'Si ka duwan calaamadaha lahaanshaha, xisaabinta Green-Score waa ** si buuxda u furan *** oo waxaa xaqiijin kara *** qof kasta.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4498,9 +4486,6 @@ class AppLocalizationsSo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ujeedada guud ee hab-socodka aadka u sarreeya waa in la abuuro summad leh, habboon (raagi karta, diyaar u ah in la isticmaalo), soo jiidasho leh (sare-u-qaadi karo) iyo faa\'iido sare leh (waxyaabaha qiimahoodu jaban yahay) alaabta cuntada loogu talagalay in lagu baro dhammaan kooxaha kale ee cuntada. Alaabooyinka cuntada sida aadka ah loo farsameeyay ayaa inta badan loo baakadeeyaa si soo jiidasho leh waxaana si xoogan loo suuq geeyaa.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

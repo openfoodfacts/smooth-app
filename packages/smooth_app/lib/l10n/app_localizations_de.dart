@@ -333,10 +333,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Nutzungsbedingungen von Open Food Facts zu';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://de.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://world-de.openfoodfacts.org/spenden';
 
   @override
@@ -4294,10 +4290,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://de.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4483,10 +4475,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Im Gegensatz zu proprietären Labels ist die Green-Score-Berechnung **völlig offen** und kann **von jedem überprüft** werden.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Sehr hoch verarbeitete Lebensmittel';
 
   @override
@@ -4576,9 +4564,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Der Hauptzweck der Ultra-Verarbeitung besteht darin, Marken-Lebensmittel zu schaffen, die praktisch (haltbar, verzehrfertig), attraktiv (überaus schmackhaft) und hochprofitabel (preiswerte Zutaten) sind und alle anderen Lebensmittelgruppen verdrängen sollen. Ultra-verarbeitete Lebensmittel werden in der Regel attraktiv verpackt und intensiv vermarktet.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Vorschau';

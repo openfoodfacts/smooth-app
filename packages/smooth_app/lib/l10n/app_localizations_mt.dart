@@ -324,10 +324,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4395,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'B\'differenza mit-tikketti proprjetarji, il-kalkolu tal-Green-Score huwa **kompletament miftuħ** u jista\' jiġi **verifikat minn kulħadd**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4493,9 +4481,6 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L-iskop ġenerali tal-ultra-proċessar huwa li jinħolqu prodotti tal-ikel tad-ditta, konvenjenti (durabbli, lesti biex jiġu kkunsmati), attraenti (iper-palatabbli) u profittabbli ħafna (ingredjenti bi prezz baxx) iddisinjati biex jieħdu post il-gruppi tal-ikel l-oħra kollha. Prodotti tal-ikel ultra-proċessati ġeneralment ikunu ppakkjati b\'mod attraenti u kkummerċjalizzati b\'mod intensiv.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

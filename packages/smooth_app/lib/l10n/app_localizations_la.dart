@@ -324,10 +324,6 @@ class AppLocalizationsLa extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsLa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4395,6 @@ class AppLocalizationsLa extends AppLocalizations {
       'Dissimilis notis propriis, computatio Green-Score **omnino aperta** est et ab quolibet **verificari** potest.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4494,9 +4482,6 @@ class AppLocalizationsLa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Propositum generale ultra-processus est creare cibos nobiles, commodos (durabiles, ad consumendum paratos), attractivos (hyper-sapidos) et valde lucrativos (ingredientibus vilis) destinatos ad omnes alias genera ciborum substituenda. Cibi ultra-processi plerumque attractive involucris involuuntur et intensive venduntur.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

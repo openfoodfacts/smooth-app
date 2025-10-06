@@ -323,10 +323,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get sign_up_page_terms_text => 'vilkår for brug og bidrag';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4224,10 +4220,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'For producenter er visningen af Nutri-Score ** fortsat valgfri**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Øko-Score';
 
   @override
@@ -4414,10 +4406,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'I modsætning til proprietære etiketter er Green-Score-beregningen **fuldstændig åben** og kan **verificeres af alle**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultraforarbejdede fødevarer';
 
   @override
@@ -4506,9 +4494,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Det overordnede formål med ultraforarbejdning er at skabe mærkevareprodukter, der er bekvemme (holdbare, klar til forbrug), attraktive (hypervelsmagende) og yderst rentable (billige ingredienser) og er designet til at fortrænge alle andre fødevaregrupper. Ultraforarbejdede fødevarer er normalt pakket attraktivt og markedsføres intensivt.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Forhåndsvisning';

@@ -324,10 +324,6 @@ class AppLocalizationsCy extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsCy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4405,10 +4397,6 @@ class AppLocalizationsCy extends AppLocalizations {
       'Yn wahanol i labeli perchnogol, mae cyfrifiad y Sgôr Werdd yn **hollol agored** a gellir ei **wirio gan unrhyw un**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://cy.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,9 +4483,6 @@ class AppLocalizationsCy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i\'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi\'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi\'u prosesu\'n uwch-dechnolegol yn cael eu pecynnu\'n ddeniadol a\'u marchnata\'n ddwys.';
-
-  @override
-  String get guide_nova_share_link => 'https://cy.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

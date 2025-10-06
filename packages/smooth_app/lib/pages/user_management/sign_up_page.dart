@@ -551,10 +551,15 @@ class _TermsOfUseCheckbox extends StatelessWidget {
   }
 
   Future<void> _onTermsClicked(AppLocalizations appLocalizations) async {
-    final String url = appLocalizations.sign_up_page_agree_url;
-
     try {
-      await launchUrl(Uri.parse(url), mode: LaunchMode.platformDefault);
+      await launchUrl(
+        Uri.parse(
+          ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/terms-of-use',
+          ),
+        ),
+        mode: LaunchMode.platformDefault,
+      );
     } catch (_) {}
   }
 }

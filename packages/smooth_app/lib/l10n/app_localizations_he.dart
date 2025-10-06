@@ -319,10 +319,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'תנאי השימוש והתרומה של Open Food Facts';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-he.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://world-he.openfoodfacts.org/donate';
 
   @override
@@ -4198,10 +4194,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'ליצרנים, התצוגה של Nutri-Score **נותרת בגדר רשות**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4382,10 +4374,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'בניגוד לתוויות קנייניות, חישוב ה-Green-Score הוא **פתוח לחלוטין** וניתן לאמת אותו על ידי כל אחד**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'מזון אולטרה מעובד';
 
   @override
@@ -4471,9 +4459,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'המטרה הכוללת של עיבוד אולטרה-מעובד היא ליצור מוצרי מזון ממותגים, נוחים (עמידים, מוכנים לצריכה), אטרקטיביים (טעימים במיוחד) ורווחיים ביותר (מרכיבים זולים) שנועדו להחליף את כל קבוצות המזון האחרות. מוצרי מזון אולטרה-מעובדים ארוזים בדרך כלל בצורה אטרקטיבית ומשווקים באופן אינטנסיבי.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'תצוגה מקדימה';

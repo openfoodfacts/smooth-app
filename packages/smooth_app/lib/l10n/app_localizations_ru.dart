@@ -329,10 +329,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sign_up_page_terms_text => 'условия использования и вклад';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url =>
       'https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts';
 
@@ -4314,10 +4310,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4505,10 +4497,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'В отличие от фирменных лейблов, расчет Green-Score **полностью открыт** и может быть **проверен любым**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ультра-обработанные продукты';
 
   @override
@@ -4596,9 +4584,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Основная цель ультрапереработки — создание фирменных, удобных (долговечных, готовых к употреблению), привлекательных (очень вкусных) и высокорентабельных (с использованием недорогих ингредиентов) пищевых продуктов, призванных вытеснить все другие группы продуктов питания. Ультрапереработанные продукты обычно имеют привлекательную упаковку и активно продвигаются на рынке.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Предварительный просмотр';

@@ -329,10 +329,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'felhasználási és hozzájárulási feltételeivel';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://hu.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url =>
       'https://hu.openfoodfacts.org/donate-to-open-food-facts';
 
@@ -4249,10 +4245,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://hu.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4440,10 +4432,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'A saját fejlesztésű címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Többszörösen feldolgozott élelmiszerek';
 
   @override
@@ -4532,9 +4520,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből álló) élelmiszertermékek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.';
-
-  @override
-  String get guide_nova_share_link => 'https://hu.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Előnézet';

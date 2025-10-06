@@ -324,10 +324,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4209,10 +4205,6 @@ class AppLocalizationsLo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsLo extends AppLocalizations {
       'ບໍ່ຄືກັບປ້າຍກຳກັບທີ່ເປັນເຈົ້າຂອງ, ການຄຳນວນ Green-Score ແມ່ນ **ເປີດຢ່າງຄົບຖ້ວນ** ແລະສາມາດຖືກກວດສອບໄດ້ໂດຍທຸກຄົນ**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4490,9 +4478,6 @@ class AppLocalizationsLo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ຈຸດປະສົງໂດຍລວມຂອງການປຸງແຕ່ງແບບພິເສດແມ່ນເພື່ອສ້າງຍີ່ຫໍ້, ສະດວກ (ທົນທານ, ພ້ອມທີ່ຈະບໍລິໂພກ), ດຶງດູດໃຈ (hyper-palatable) ແລະຜະລິດຕະພັນອາຫານທີ່ມີກໍາໄລສູງ (ຄ່າໃຊ້ຈ່າຍຕ່ໍາ) ທີ່ຖືກອອກແບບມາເພື່ອຍ້າຍກຸ່ມອາຫານອື່ນໆທັງຫມົດ. ຜະລິດຕະພັນອາຫານທີ່ປຸງແຕ່ງແບບພິເສດແມ່ນປົກກະຕິແລ້ວຖືກຫຸ້ມຫໍ່ຢ່າງດຶງດູດ ແລະ ຕະຫຼາດຢ່າງເຂັ້ມງວດ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

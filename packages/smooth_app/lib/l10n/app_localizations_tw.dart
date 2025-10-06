@@ -324,10 +324,6 @@ class AppLocalizationsTw extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4213,10 +4209,6 @@ class AppLocalizationsTw extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4410,10 +4402,6 @@ class AppLocalizationsTw extends AppLocalizations {
       'Nea ɛnte sɛ proprietary labels no, Green-Score akontabuo no **bue koraa** na **obiara betumi **agye atom**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/asɛmfua a ɛyɛ ahabammono';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4501,9 +4489,6 @@ class AppLocalizationsTw extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Atirimpɔw titiriw a ɛwɔ ultra-processing mu ne sɛ wɔbɛyɛ nnuan a wɔakyerɛw so, ɛyɛ mmerɛw (ɛtra hɔ kyɛ, ɛyɛ krado sɛ wobedi), ɛyɛ fɛ (ɛyɛ dɛ dodo) na mfaso wɔ so kɛse (nneɛma a ne bo nyɛ den) a wɔayɛ sɛ ɛbɛma wɔatu nnuan akuw afoforo nyinaa afi hɔ. Mpɛn pii no, wɔkyekyere nnuan a wɔayɛ no yiye kɛse wɔ ɔkwan a ɛyɛ fɛ so na wɔtɔn no kɛse.';
-
-  @override
-  String get guide_nova_share_link => 'https://tw.bue aduan ho nsɛm.org/nova';
 
   @override
   String get preview_badge => 'Preview';

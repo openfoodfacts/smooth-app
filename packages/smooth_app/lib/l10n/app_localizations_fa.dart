@@ -324,10 +324,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4209,10 +4205,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4396,10 +4388,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'برخلاف برچسب‌های اختصاصی، محاسبه امتیاز سبز **کاملاً باز** است و هر کسی می‌تواند آن را **تأیید** کند.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4485,9 +4473,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'هدف کلی فرافرآوری، ایجاد محصولات غذایی برنددار، مناسب (بادوام، آماده مصرف)، جذاب (بسیار خوش‌طعم) و بسیار سودآور (با مواد اولیه کم‌هزینه) است که برای جایگزینی سایر گروه‌های غذایی طراحی شده‌اند. محصولات غذایی فرافرآوری شده معمولاً به صورت جذاب بسته‌بندی و به صورت فشرده به بازار عرضه می‌شوند.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

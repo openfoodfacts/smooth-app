@@ -327,10 +327,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sign_up_page_terms_text => 'kullanım ve katılım koşulları';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://tr.openfoodfacts.org/';
 
   @override
@@ -4235,10 +4231,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Üreticiler için Nutri-Score\'un görüntülenmesi **isteğe bağlı** kalmaktadır.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4424,10 +4416,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tescilli etiketlerin aksine, Yeşil Puan hesaplaması **tamamen açıktır** ve **herkes tarafından doğrulanabilir**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Aşırı işlenmiş gıdalar';
 
   @override
@@ -4514,9 +4502,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultra işlemenin genel amacı, diğer tüm gıda gruplarının yerini alacak şekilde tasarlanmış, markalı, kullanışlı (dayanıklı, tüketime hazır), çekici (aşırı lezzetli) ve oldukça kârlı (düşük maliyetli içerikler) gıda ürünleri yaratmaktır. Ultra işlenmiş gıda ürünleri genellikle çekici bir şekilde paketlenir ve yoğun bir şekilde pazarlanır.';
-
-  @override
-  String get guide_nova_share_link => 'https://tr.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Ön izleme';

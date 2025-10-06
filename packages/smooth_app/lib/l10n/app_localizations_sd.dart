@@ -324,10 +324,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4208,10 +4204,6 @@ class AppLocalizationsSd extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4397,10 +4389,6 @@ class AppLocalizationsSd extends AppLocalizations {
       'ملڪيتي ليبلن جي برعڪس، گرين-اسڪور حساب ڪتاب **مڪمل طور تي کليل** آهي** ۽ **ڪنهن به طرفان تصديق ڪري سگهجي ٿو**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4487,9 +4475,6 @@ class AppLocalizationsSd extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'الٽرا پروسيسنگ جو مجموعي مقصد برانڊيڊ، آسان (پائيدار، استعمال لاءِ تيار)، پرڪشش (هائپر-لذيذ) ۽ انتهائي منافعي بخش (گهٽ قيمت وارا اجزا) کاڌي جون شيون ٺاهڻ آهي جيڪي ٻين سڀني کاڌي جي گروپن کي هٽائڻ لاءِ ٺهيل آهن. الٽرا پروسيس ٿيل کاڌي جون شيون عام طور تي پرڪشش پيڪيج ڪيون وينديون آهن ۽ شدت سان مارڪيٽ ڪيون وينديون آهن.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

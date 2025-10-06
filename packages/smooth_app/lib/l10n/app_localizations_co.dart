@@ -324,10 +324,6 @@ class AppLocalizationsCo extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4214,10 +4210,6 @@ class AppLocalizationsCo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4407,10 +4399,6 @@ class AppLocalizationsCo extends AppLocalizations {
       'À u cuntrariu di l\'etichette pruprietarie, u calculu di u Green-Score hè **cumpletamente apertu** è pò esse **verificatu da qualchissia**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4499,9 +4487,6 @@ class AppLocalizationsCo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'U scopu generale di l\'ultra-trasfurmazione hè di creà prudutti alimentari di marca, pratichi (durevuli, pronti à cunsumà), attraenti (iper-appetibili) è assai redditizi (ingredienti à bassu costu) cuncepiti per rimpiazzà tutti l\'altri gruppi alimentari. I prudutti alimentari ultra-trasfurmati sò generalmente imballati in modu attraente è cummercializati intensivamente.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

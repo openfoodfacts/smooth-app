@@ -324,10 +324,6 @@ class AppLocalizationsHy extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsHy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4394,6 @@ class AppLocalizationsHy extends AppLocalizations {
       'Ի տարբերություն սեփական պիտակների, Green-Score հաշվարկը **լիովին բաց** է և կարող է **ստուգվել ցանկացած անձի կողմից**:';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4493,9 +4481,6 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Գերմշակման ընդհանուր նպատակն է ստեղծել ապրանքանիշային, հարմար (ամուր, սպառման համար պատրաստ), գրավիչ (գերհամեղ) և բարձր եկամտաբեր (ցածր գնով բաղադրիչներ) սննդամթերք, որոնք նախատեսված են մյուս բոլոր սննդային խմբերը դուրս մղելու համար: Գերմշակված սննդամթերքը սովորաբար գրավիչ փաթեթավորվում է և ինտենսիվորեն շուկայավարվում:';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

@@ -324,10 +324,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4209,10 +4205,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'មិនដូចស្លាកកម្មសិទ្ធិទេ ការគណនាពិន្ទុបៃតងគឺ **បើកទាំងស្រុង** ហើយអាចត្រូវបាន **ផ្ទៀងផ្ទាត់ដោយនរណាម្នាក់**។';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4477,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'គោលបំណងរួមនៃការកែច្នៃជ្រុលគឺដើម្បីបង្កើតម៉ាកយីហោ ងាយស្រួល (ជាប់លាប់ ត្រៀមខ្លួនជាស្រេចក្នុងការប្រើប្រាស់) ភាពទាក់ទាញ (គួរឱ្យចង់ញ៉ាំ) និងទទួលបានផលចំណេញខ្ពស់ (គ្រឿងផ្សំតម្លៃទាប) ផលិតផលអាហារដែលត្រូវបានរចនាឡើងដើម្បីផ្លាស់ប្តូរក្រុមអាហារផ្សេងទៀតទាំងអស់។ ផលិតផលអាហារកែច្នៃជ្រុល ជាធម្មតាត្រូវបានវេចខ្ចប់យ៉ាងទាក់ទាញ និងទីផ្សារខ្លាំង។';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

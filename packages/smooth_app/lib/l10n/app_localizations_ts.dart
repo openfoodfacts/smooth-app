@@ -324,10 +324,6 @@ class AppLocalizationsTs extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsTs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4405,10 +4397,6 @@ class AppLocalizationsTs extends AppLocalizations {
       'Ku hambana na malebvu ya vulawuri, xibalo xa Green-Score xi **vulekile hi ku helela** naswona xi nga **tiyisisiwa hi mani na mani**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://ts.openfoodfacts.org/xikoro-xikoro xa rihlaza';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,10 +4483,6 @@ class AppLocalizationsTs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Xikongomelo hinkwaxo xa ultra-processing iku tumbuluxa switirhisiwa swa swakudya leswinga na branded, leswi olovaka (leswi tiyeke, leswi lulameleke ku dyiwa), leswi kokaka rinoko (hyper-palatable) na leswi vuyerisaka swinene (swiaki swa ntsengo wale hansi) leswi endleriweke ku susa mintlawa yin’wana hinkwayo ya swakudya. Switirhisiwa swa swakudya leswi endliweke hi ultra-processed hi ntolovelo swi pakiwa hi ndlela yo koka rinoko naswona swi xavisiwa ngopfu.';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://ts.swilo swa swakudya leswi pfulekeke.org/nova';
 
   @override
   String get preview_badge => 'Preview';

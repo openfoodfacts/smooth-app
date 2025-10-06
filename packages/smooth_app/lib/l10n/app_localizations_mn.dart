@@ -324,10 +324,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsMn extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4404,10 +4396,6 @@ class AppLocalizationsMn extends AppLocalizations {
       'Өмчлөлийн шошгуудаас ялгаатай нь Ногоон онооны тооцоолол нь **бүрэн нээлттэй** бөгөөд **бүх хүн баталгаажуулах боломжтой**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,9 +4483,6 @@ class AppLocalizationsMn extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Хэт боловсруулалтын ерөнхий зорилго нь бусад бүх хүнсний бүлгийг нүүлгэн шилжүүлэх зориулалттай брендийн, тохиромжтой (удаан эдэлгээтэй, хэрэглэхэд бэлэн), сэтгэл татам (хэт амттай) болон өндөр ашигтай (хямд өртөгтэй найрлагатай) хүнсний бүтээгдэхүүнийг бий болгох явдал юм. Хэт боловсруулсан хүнсний бүтээгдэхүүнийг ихэвчлэн сэтгэл татам байдлаар савлаж, эрчимтэй зах зээлд гаргадаг.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

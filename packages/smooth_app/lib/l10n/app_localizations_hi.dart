@@ -324,10 +324,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'स्वामित्व लेबल के विपरीत, ग्रीन-स्कोर गणना **पूरी तरह से खुली** है और इसे **किसी के द्वारा भी सत्यापित किया जा सकता है**।';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'अल्ट्रा-प्रसंस्कृत खाद्य पदार्थ';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'अल्ट्रा-प्रोसेसिंग का समग्र उद्देश्य ब्रांडेड, सुविधाजनक (टिकाऊ, उपभोग के लिए तैयार), आकर्षक (अति-स्वादिष्ट) और अत्यधिक लाभदायक (कम लागत वाली सामग्री) खाद्य उत्पाद बनाना है जो अन्य सभी खाद्य समूहों को विस्थापित करने के लिए डिज़ाइन किए गए हों। अल्ट्रा-प्रोसेस्ड खाद्य उत्पादों को आमतौर पर आकर्षक ढंग से पैक किया जाता है और उनका गहन विपणन किया जाता है।';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

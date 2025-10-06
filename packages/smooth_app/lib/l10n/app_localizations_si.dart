@@ -324,10 +324,6 @@ class AppLocalizationsSi extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsSi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4394,6 @@ class AppLocalizationsSi extends AppLocalizations {
       'හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'අල්ට්‍රා-සැකසීමේ සමස්ත අරමුණ වන්නේ අනෙකුත් සියලුම ආහාර කාණ්ඩ විස්ථාපනය කිරීම සඳහා නිර්මාණය කර ඇති සන්නාමගත, පහසු (කල් පවතින, පරිභෝජනයට සූදානම්), ආකර්ශනීය (අධි-රසවත්) සහ ඉහළ ලාභදායී (අඩු වියදම් අමුද්‍රව්‍ය) ආහාර නිෂ්පාදන නිර්මාණය කිරීමයි. අල්ට්‍රා-සැකසූ ආහාර නිෂ්පාදන සාමාන්‍යයෙන් ආකර්ශනීය ලෙස ඇසුරුම් කර දැඩි ලෙස අලෙවි කරනු ලැබේ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

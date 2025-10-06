@@ -324,10 +324,6 @@ class AppLocalizationsSt extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4213,10 +4209,6 @@ class AppLocalizationsSt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4405,10 +4397,6 @@ class AppLocalizationsSt extends AppLocalizations {
       'Ho fapana le lileibole tsa mong\'a ntlo, lipalo tsa Green-Score li ** bulehile ka botlalo ** \'me li ka ** netefatsoa ke mang kapa mang**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,9 +4483,6 @@ class AppLocalizationsSt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Morero o akaretsang oa ts\'ebetso ea morao-rao ke ho theha lihlahisoa tsa lijo tse nang le lebitso, tse loketseng (tse tšoarellang, tse loketseng ho jeoa), tse khahlehang (li-hyper-latable) le tse fanang ka chelete e ngata (lisebelisoa tsa theko e tlase) tse etselitsoeng ho tlosa lihlopha tse ling tsohle tsa lijo. Hangata lihlahisoa tsa lijo tse entsoeng ka mokhoa o phahameng ka ho fetesisa li pakoa ka mokhoa o khahlang le ho rekisoa ka matla.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

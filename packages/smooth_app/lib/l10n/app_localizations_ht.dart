@@ -324,10 +324,6 @@ class AppLocalizationsHt extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4208,10 +4204,6 @@ class AppLocalizationsHt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4399,10 +4391,6 @@ class AppLocalizationsHt extends AppLocalizations {
       'Kontrèman ak etikèt propriétaires yo, kalkil Green-Score la **konplètman ouvè** epi nenpòt moun ka **verifye li**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4477,6 @@ class AppLocalizationsHt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Objektif jeneral ultra-pwosesis la se kreye pwodui alimantè ki gen mak, pratik (dirab, pare pou konsome), atiran (ipè-gou) epi trè pwofitab (engredyan ki pa koute chè), ki fèt pou ranplase tout lòt gwoup alimantè yo. Pwodui alimantè ultra-pwosesis yo anjeneral anbale yon fason atiran epi yo vann yo yon fason entansif.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

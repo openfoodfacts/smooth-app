@@ -328,10 +328,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sign_up_page_terms_text => 'gebruiksvoorwaarden en bijdrage';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4261,10 +4257,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Voor fabrikanten blijft de weergave van de Nutri-Score **optioneel**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4450,10 +4442,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'In tegenstelling tot merkgebonden labels is de Green-Score-berekening **volledig open** en kan deze **door iedereen** worden geverifieerd.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-verwerkte voedingsmiddelen';
 
   @override
@@ -4541,9 +4529,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Voorbeeld';

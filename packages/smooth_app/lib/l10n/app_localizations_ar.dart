@@ -323,10 +323,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use\n';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4201,10 +4197,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'النتيجة البيئية';
 
   @override
@@ -4387,10 +4379,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'على عكس العلامات التجارية المسجلة الملكية، فإن حساب Green-Score هو **مفتوح تمامًا** ويمكن **التحقق منه من قبل أي شخص**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4478,9 +4466,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'الهدف العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية، سهلة الاستخدام (متينة، جاهزة للاستهلاك)، جذابة (شهية للغاية)، ومربحة للغاية (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بكثافة.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

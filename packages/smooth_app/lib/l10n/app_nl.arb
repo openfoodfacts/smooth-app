@@ -2335,7 +2335,7 @@
   },
   "prices_generic_title": "Prijzen",
   "prices_add_n_prices": "{count,plural, =1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
-  "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
+  "prices_send_n_prices": "{count,plural, =1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
   "prices_add_an_item": "Item toevoegen",
   "prices_add_a_price": "Voeg een prijs toe",
   "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",

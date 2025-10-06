@@ -331,10 +331,6 @@ class AppLocalizationsPl extends AppLocalizations {
       'warunkami użytkowania i wkładu w Open Food Facts';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-pl.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4263,10 +4259,6 @@ class AppLocalizationsPl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4454,10 +4446,6 @@ class AppLocalizationsPl extends AppLocalizations {
       'W przeciwieństwie do zastrzeżonych etykiet, sposób obliczania Green-Score jest **całkowicie otwarty** i może zostać **zweryfikowany przez każdego**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Żywność wysoko przetworzona';
 
   @override
@@ -4544,9 +4532,6 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Głównym celem ultraprzetwarzania jest tworzenie markowych, wygodnych (trwałych, gotowych do spożycia), atrakcyjnych (hipersmakowitych) i wysoce dochodowych (z tanich składników) produktów spożywczych, które mają zastąpić wszystkie inne grupy żywności. Produkty ultraprzetworzone są zazwyczaj atrakcyjnie pakowane i intensywnie promowane.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

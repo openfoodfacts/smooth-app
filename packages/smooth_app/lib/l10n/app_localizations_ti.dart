@@ -324,10 +324,6 @@ class AppLocalizationsTi extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4207,10 +4203,6 @@ class AppLocalizationsTi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4392,10 +4384,6 @@ class AppLocalizationsTi extends AppLocalizations {
       'ዘይከም ዋንነት ዘለዎም ምልክታት፡ ስሌት ቀጠልያ-ነጥቢ **ምሉእ ብምሉእ ክፉት** ኮይኑ **ብዝኾነ ሰብ** ክረጋገጽ ይኽእል።';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://ti.openfoodfacts.org/ሓምላይ-ነጥቢ';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4479,10 +4467,6 @@ class AppLocalizationsTi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ሓፈሻዊ ዕላማ ኣልትራ-ፕሮሰሲንግ ንኹሎም ካልኦት ጉጅለታት መግቢ ንምፍንቓል ዝተዳለዉ ምልክት ዘለዎም፣ ምቹኣት (ነባሪ፣ ንሃልኪ ድሉዋት)፣ ሰሓብቲ (ልዕሊ ዓቐን ጣዕሚ ዘለዎም)ን ልዑል መኽሰብ ዘለዎምን (ትሑት ዋጋ ዘለዎም ቀመማት) ፍርያት መግቢ ምፍጣር እዩ። መብዛሕትኡ ግዜ ኣዝዮም ዝተመስርሑ ፍርያት መግቢ ብሰሓቢ መንገዲ ይዕሸጉን ብጽዑቕ ዕዳጋ ይቐርቡን።';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://ti.openfoodfacts.org/nova ዝብል ጽሑፍ ኣሎ።';
 
   @override
   String get preview_badge => 'Preview';

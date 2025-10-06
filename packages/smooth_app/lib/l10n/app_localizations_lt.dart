@@ -331,10 +331,6 @@ class AppLocalizationsLt extends AppLocalizations {
   String get sign_up_page_terms_text => 'naudojimo ir įnašo sąlygomis';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-lt.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4268,10 +4264,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4460,10 +4452,6 @@ class AppLocalizationsLt extends AppLocalizations {
       'Kitaip nei patentuotų etikečių atveju, „Green-Score“ skaičiavimas yra **visiškai atviras** ir jį gali **patvirtinti bet kas**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://lt.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4550,9 +4538,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Bendras ultraperdirbimo tikslas – kurti firminius, patogius (patvarius, paruoštus vartoti), patrauklius (itin skanius) ir labai pelningus (su pigiais ingredientais) maisto produktus, skirtus išstumti visas kitas maisto grupes. Ultraperdirbti maisto produktai paprastai yra patraukliai supakuoti ir intensyviai parduodami.';
-
-  @override
-  String get guide_nova_share_link => 'https://lt.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

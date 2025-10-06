@@ -324,10 +324,6 @@ class AppLocalizationsAz extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsAz extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4395,6 @@ class AppLocalizationsAz extends AppLocalizations {
       'Mülkiyyət etiketlərindən fərqli olaraq, Yaşıl Xal hesablanması **tamamilə açıqdır** və **hər kəs tərəfindən təsdiqlənə bilər**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsAz extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultra emalın ümumi məqsədi bütün digər qida qruplarını sıxışdırmaq üçün nəzərdə tutulmuş markalı, rahat (davamlı, istehlaka hazır), cəlbedici (hiper dadlı) və yüksək gəlirli (az qiymətli maddələr) qida məhsulları yaratmaqdır. Ultra emal edilmiş qida məhsulları adətən cəlbedici şəkildə qablaşdırılır və intensiv şəkildə bazara çıxarılır.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

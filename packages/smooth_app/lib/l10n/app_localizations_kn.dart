@@ -324,10 +324,6 @@ class AppLocalizationsKn extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4214,10 +4210,6 @@ class AppLocalizationsKn extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4404,10 +4396,6 @@ class AppLocalizationsKn extends AppLocalizations {
       'ಸ್ವಾಮ್ಯದ ಲೇಬಲ್‌ಗಳಿಗಿಂತ ಭಿನ್ನವಾಗಿ, ಗ್ರೀನ್-ಸ್ಕೋರ್ ಲೆಕ್ಕಾಚಾರವು **ಸಂಪೂರ್ಣವಾಗಿ ಮುಕ್ತವಾಗಿದೆ** ಮತ್ತು ಇದನ್ನು **ಯಾರಾದರೂ ಪರಿಶೀಲಿಸಬಹುದು**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4494,9 +4482,6 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸಿಂಗ್‌ನ ಒಟ್ಟಾರೆ ಉದ್ದೇಶವೆಂದರೆ ಇತರ ಎಲ್ಲಾ ಆಹಾರ ಗುಂಪುಗಳನ್ನು ಬದಲಿಸಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಬ್ರ್ಯಾಂಡೆಡ್, ಅನುಕೂಲಕರ (ಬಾಳಿಕೆ ಬರುವ, ಸೇವಿಸಲು ಸಿದ್ಧ), ಆಕರ್ಷಕ (ಅತಿ-ರುಚಿಕರ) ಮತ್ತು ಹೆಚ್ಚು ಲಾಭದಾಯಕ (ಕಡಿಮೆ-ವೆಚ್ಚದ ಪದಾರ್ಥಗಳು) ಆಹಾರ ಉತ್ಪನ್ನಗಳನ್ನು ರಚಿಸುವುದು. ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸ್ಡ್ ಆಹಾರ ಉತ್ಪನ್ನಗಳನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಆಕರ್ಷಕವಾಗಿ ಪ್ಯಾಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ತೀವ್ರವಾಗಿ ಮಾರಾಟ ಮಾಡಲಾಗುತ್ತದೆ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

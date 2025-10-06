@@ -320,10 +320,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get sign_up_page_terms_text => 'ข้อมูลและเงื่อนไขการใช้งาน';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4205,10 +4201,6 @@ class AppLocalizationsTh extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4396,10 +4388,6 @@ class AppLocalizationsTh extends AppLocalizations {
       'ต่างจากฉลากที่เป็นกรรมสิทธิ์ การคำนวณ Green-Score นั้น **เปิดกว้างอย่างสมบูรณ์** และใครๆ ก็สามารถ **ตรวจสอบได้**';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/คะแนนสีเขียว';
-
-  @override
   String get guide_nova_title => 'อาหารที่ผ่านการแปรรูประดับสูง';
 
   @override
@@ -4486,9 +4474,6 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'วัตถุประสงค์โดยรวมของการแปรรูปขั้นสูง (Ultra-Processing) คือการสร้างผลิตภัณฑ์อาหารที่มีตราสินค้า สะดวก (ทนทาน พร้อมบริโภค) น่าดึงดูด (น่ารับประทานมาก) และสร้างกำไรสูง (ใช้วัตถุดิบราคาถูก) ซึ่งออกแบบมาเพื่อแทนที่กลุ่มอาหารอื่นๆ ทั้งหมด ผลิตภัณฑ์อาหารแปรรูปขั้นสูงมักมีบรรจุภัณฑ์ที่สวยงามและจำหน่ายอย่างแพร่หลาย';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

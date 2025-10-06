@@ -324,10 +324,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4215,10 +4211,6 @@ class AppLocalizationsTn extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4409,10 +4401,6 @@ class AppLocalizationsTn extends AppLocalizations {
       'Go farologana le dileibole tsa mong, palo ya Green-Score e **bulegile gotlhelele** mme e ka **tlhomamisiwa ke mongwe le mongwe**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://tn.dintlha tsa dijo tse di bulegileng.org/maduo a matala';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4501,10 +4489,6 @@ class AppLocalizationsTn extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Maikaelelo a kakaretso a ultra-processing ke go tlhama ditlhagiswa tsa dijo tse di nang le letshwaokgwebo, tse di siameng (tse di tshwarelelang, tse di siametseng go jewa), tse di kgatlhang (tse di monate thata) le tse di nang le dipoelo tse di kwa godimo (metswako e e tlhwatlhwatlase) tse di diretsweng go emisetsa ditlhopha tse dingwe tsotlhe tsa dijo. Dikumo tsa dijo tse di dirilweng ka tsela e e feteletseng gantsi di phuthelwa ka tsela e e kgatlhang mme di bapadiwa thata.';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://tn.dintlha tsa dijo tse di bulegileng.org/nova';
 
   @override
   String get preview_badge => 'Preview';

@@ -324,10 +324,6 @@ class AppLocalizationsPa extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsPa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsPa extends AppLocalizations {
       'ਮਲਕੀਅਤ ਲੇਬਲਾਂ ਦੇ ਉਲਟ, ਗ੍ਰੀਨ-ਸਕੋਰ ਗਣਨਾ **ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੀ** ਹੈ** ਅਤੇ ਇਸਨੂੰ **ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੁਆਰਾ ਤਸਦੀਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ**।';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਿੰਗ ਦਾ ਸਮੁੱਚਾ ਉਦੇਸ਼ ਬ੍ਰਾਂਡੇਡ, ਸੁਵਿਧਾਜਨਕ (ਟਿਕਾਊ, ਖਪਤ ਲਈ ਤਿਆਰ), ਆਕਰਸ਼ਕ (ਬਹੁਤ ਸੁਆਦੀ) ਅਤੇ ਬਹੁਤ ਜ਼ਿਆਦਾ ਲਾਭਦਾਇਕ (ਘੱਟ ਕੀਮਤ ਵਾਲੀਆਂ ਸਮੱਗਰੀਆਂ) ਭੋਜਨ ਉਤਪਾਦ ਬਣਾਉਣਾ ਹੈ ਜੋ ਹੋਰ ਸਾਰੇ ਭੋਜਨ ਸਮੂਹਾਂ ਨੂੰ ਵਿਸਥਾਪਿਤ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ। ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਭੋਜਨ ਉਤਪਾਦਾਂ ਨੂੰ ਆਮ ਤੌਰ \'ਤੇ ਆਕਰਸ਼ਕ ਢੰਗ ਨਾਲ ਪੈਕ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਅਤੇ ਤੀਬਰਤਾ ਨਾਲ ਮਾਰਕੀਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

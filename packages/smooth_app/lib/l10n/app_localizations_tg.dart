@@ -324,10 +324,6 @@ class AppLocalizationsTg extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsTg extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsTg extends AppLocalizations {
       'Баръакси тамғакоғазҳои хусусӣ, ҳисоби Green-Score **комилан кушода аст** ва метавонад **аз ҷониби ҳар кас тасдиқ карда шавад**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsTg extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Мақсади умумии коркарди ултра-коркард аз он иборат аст, ки маҳсулоти бренди, қулай (устувор, барои истеъмол омода), ҷолиб (гипер хушбӯй) ва сердаромад (компонентҳои камхарҷ), ки барои иваз кардани ҳама гурӯҳҳои дигари ғизо пешбинӣ шудаанд. Маҳсулоти хӯроквории ултра коркардшуда одатан ба таври ҷолиб бастабандӣ карда мешаванд ва ба таври интенсивӣ ба фурӯш бароварда мешаванд.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

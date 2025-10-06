@@ -326,10 +326,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4216,10 +4212,6 @@ class AppLocalizationsOr extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4406,10 +4398,6 @@ class AppLocalizationsOr extends AppLocalizations {
       'ମାଲିକାନା ଲେବଲଗୁଡ଼ିକ ପରି ନୁହେଁ, ସବୁଜ-ସ୍କୋର ଗଣନା **ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଖୋଲା** ଏବଂ ଏହାକୁ **ଯେକୌଣସି ବ୍ୟକ୍ତିଙ୍କ ଦ୍ୱାରା ଯାଞ୍ଚ କରାଯାଇପାରିବ**।';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4497,9 +4485,6 @@ class AppLocalizationsOr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣର ସାମଗ୍ରିକ ଉଦ୍ଦେଶ୍ୟ ହେଉଛି ବ୍ରାଣ୍ଡେଡ୍, ସୁବିଧାଜନକ (ସ୍ଥାୟୀ, ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ), ଆକର୍ଷଣୀୟ (ଅତ୍ୟଧିକ ସ୍ୱାଦିଷ୍ଟ) ଏବଂ ଅତ୍ୟନ୍ତ ଲାଭଦାୟକ (କମ୍ ମୂଲ୍ୟର ଉପାଦାନ) ଖାଦ୍ୟ ଉତ୍ପାଦ ସୃଷ୍ଟି କରିବା ଯାହା ଅନ୍ୟ ସମସ୍ତ ଖାଦ୍ୟ ଗୋଷ୍ଠୀକୁ ସ୍ଥାନାନ୍ତରିତ କରିବା ପାଇଁ ଡିଜାଇନ୍ କରାଯାଇଛି। ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣ ଖାଦ୍ୟ ଉତ୍ପାଦଗୁଡ଼ିକ ସାଧାରଣତଃ ଆକର୍ଷଣୀୟ ଭାବରେ ପ୍ୟାକେଜ୍ କରାଯାଇଥାଏ ଏବଂ ଘନତାର ସହିତ ବଜାରରେ ବିପଣନ କରାଯାଏ।';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

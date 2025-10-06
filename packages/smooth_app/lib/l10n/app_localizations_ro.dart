@@ -331,10 +331,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sign_up_page_terms_text => 'termeni de utilizare și contribuție';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-ro.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4268,10 +4264,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Scor Ecologic';
 
   @override
@@ -4461,10 +4453,6 @@ class AppLocalizationsRo extends AppLocalizations {
       'Spre deosebire de etichetele proprietare, calculul Green-Score este **complet deschis** și poate fi **verificat de oricine**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Alimente ultraprocesate';
 
   @override
@@ -4551,9 +4539,6 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Scopul general al ultra-procesării este de a crea produse alimentare de marcă, convenabile (durabile, gata de consum), atractive (hiper-palatabile) și extrem de profitabile (ingrediente cu costuri reduse), concepute pentru a înlocui toate celelalte grupe de alimente. Produsele alimentare ultra-procesate sunt de obicei ambalate atractiv și comercializate intensiv.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

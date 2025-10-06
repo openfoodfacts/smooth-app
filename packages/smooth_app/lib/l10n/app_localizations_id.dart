@@ -328,10 +328,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get sign_up_page_terms_text => 'syarat penggunaan dan kontribusi';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4248,10 +4244,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Bagi produsen, tampilan Nutri-Score **tetap opsional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4436,10 +4428,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Tidak seperti label hak milik, perhitungan Green-Score **sepenuhnya terbuka** dan dapat **diverifikasi oleh siapa saja**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Makanan ultraproses';
 
   @override
@@ -4526,9 +4514,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Tujuan utama ultra-proses adalah menciptakan produk pangan bermerek, praktis (tahan lama, siap konsumsi), menarik (sangat lezat), dan sangat menguntungkan (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok pangan lainnya. Produk pangan ultra-proses biasanya dikemas secara menarik dan dipasarkan secara intensif.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Pratinjau';

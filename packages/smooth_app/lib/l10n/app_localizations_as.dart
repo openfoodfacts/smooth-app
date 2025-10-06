@@ -324,10 +324,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsAs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsAs extends AppLocalizations {
       'মালিকানাধীন লেবেলৰ দৰে নহয়, সেউজ-স্ক\'ৰ গণনা **সম্পূৰ্ণভাৱে মুকলি** আৰু ইয়াক **যিকোনো ব্যক্তিয়ে পৰীক্ষা কৰিব পাৰে**।';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://as.openfoodfacts.org/সেউজীয়া-স্ক\'ৰ';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4490,10 +4478,6 @@ class AppLocalizationsAs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'আল্ট্ৰা-প্ৰচেছিঙৰ সামগ্ৰিক উদ্দেশ্য হৈছে আন সকলো খাদ্য গোটক স্থানচ্যুত কৰিব পৰাকৈ ডিজাইন কৰা ব্ৰেণ্ডেড, সুবিধাজনক (টেকসই, ব্যৱহাৰৰ বাবে সাজু), আকৰ্ষণীয় (অতি-স্বাদু) আৰু অতি লাভজনক (কম খৰচী উপাদান) খাদ্য সামগ্ৰী সৃষ্টি কৰা। আল্ট্ৰা-প্ৰচেছড খাদ্য সামগ্ৰী সাধাৰণতে আকৰ্ষণীয়ভাৱে পেকেজ কৰা হয় আৰু ইয়াৰ বজাৰ তীব্ৰভাৱে কৰা হয়।';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://as.openfoodfacts.org/nova ৰ দ্বাৰা প্ৰকাশিত';
 
   @override
   String get preview_badge => 'Preview';

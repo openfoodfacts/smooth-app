@@ -328,10 +328,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sign_up_page_terms_text => 'умови використання та внесок';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4263,10 +4259,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'Для постачальників зображення Nutri-Score **залишається необов’язковим**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore';
-
-  @override
   String get guide_greenscore_title =>
       'Green-Score (показник впливу на довкілля)';
 
@@ -4454,10 +4446,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'На відміну від власних позначок, розрахунок Green-Score є **повністю відкритим** і може бути **перевірений будь-ким**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ультраоброблені продукти';
 
   @override
@@ -4544,9 +4532,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Загальна мета ультраобробки полягає у створенні брендованих, зручних (міцних, готових до вживання), привабливих (надто смачних) та високоприбуткових (з низькими витратами на інгредієнти) харчових продуктів, призначених для витіснення всіх інших груп продуктів харчування. Ультраоброблені харчові продукти зазвичай привабливо упаковуються та інтенсивно просуваються на ринку.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Попередній перегляд';

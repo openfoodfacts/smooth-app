@@ -329,10 +329,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get sign_up_page_terms_text => 'käyttö- ja osallistumisehdot';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-fi.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org';
 
   @override
@@ -4208,10 +4204,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world-fi.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4399,10 +4391,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Toisin kuin omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://fi.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultrajalostetut ruoat';
 
   @override
@@ -4489,9 +4477,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä, käteviä (kestäviä, valmiita kuluttamaan), houkuttelevia (hypermaukkaita) ja erittäin kannattavia (edullisia ainesosia) elintarvikkeita, joiden on tarkoitus syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.';
-
-  @override
-  String get guide_nova_share_link => 'https://fi.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Esikatselu';

@@ -324,10 +324,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get sign_up_page_terms_text => 'användarvillkor och bidrag';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://se.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4232,10 +4228,6 @@ class AppLocalizationsSv extends AppLocalizations {
       'För tillverkarna är visning av Nutri-Score **fortsatt valfri**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4423,10 +4415,6 @@ class AppLocalizationsSv extends AppLocalizations {
       'Till skillnad från proprietära etiketter är Green-Score-beräkningen **helt öppen** och kan **verifieras av vem som helst**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4514,9 +4502,6 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Det övergripande syftet med ultraprocessning är att skapa märkesvaror som är bekväma (hållbara, färdiga att konsumeras), attraktiva (hypervälsmakande) och mycket lönsamma (billiga ingredienser) livsmedelsprodukter, utformade för att ersätta alla andra livsmedelsgrupper. Ultraprocessade livsmedelsprodukter är vanligtvis attraktivt förpackade och marknadsförs intensivt.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

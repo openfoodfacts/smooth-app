@@ -324,10 +324,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4212,10 +4208,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Ba kamar alamun mallakar mallaka ba, lissafin Green-Score ** gaba ɗaya buɗe yake ** kuma kowa zai iya tabbatar da shi **.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Babban manufar aiwatar da matsananciyar aiki shine ƙirƙirar alama, dacewa (mai ɗorewa, shirye don cinyewa), kyakkyawa (mai daɗi mai daɗi) da riba mai fa\'ida (kayan abinci masu ƙarancin farashi) samfuran abinci waɗanda aka tsara don korar duk sauran rukunin abinci. Kayan abinci da aka sarrafa sosai yawanci ana tattara su cikin kayatarwa kuma ana sayar da su sosai.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

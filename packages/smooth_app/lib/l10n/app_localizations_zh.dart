@@ -307,10 +307,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sign_up_page_terms_text => '使用条款和贡献';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4019,10 +4015,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '对于制造商来说，Nutri-Score 的显示**仍然是可选的**。';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => '生态得分';
 
   @override
@@ -4196,10 +4188,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '与专有标签不同，Green-Score 计算**完全开放**，并且**任何人都可以验证**。';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => '超加工食品';
 
   @override
@@ -4279,9 +4267,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       '超加工的总体目标是打造品牌化、便捷化（耐用、即食）、吸引力（超级美味）和高利润（低成本原料）的食品，旨在取代所有其他食品类别。超加工食品通常包装精美，营销力度强。';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

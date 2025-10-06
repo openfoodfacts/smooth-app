@@ -324,10 +324,6 @@ class AppLocalizationsMg extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4214,10 +4210,6 @@ class AppLocalizationsMg extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4407,10 +4399,6 @@ class AppLocalizationsMg extends AppLocalizations {
       'Tsy toy ny etikety tompon\'andraikitra, ny kajy Green-Score dia ** misokatra tanteraka** ary azo **hamarinin\'ny olona**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4499,9 +4487,6 @@ class AppLocalizationsMg extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ny tanjona ankapoben\'ny fanodinana ultra dia ny hamorona vokatra sakafo misy marika, mety (maharitra, vonona hohanina), mahasarika (hiper-mahafinaritra) ary tena mahazo tombony (engaron\'ny vidiny mora) natao hamindrana ireo vondrona sakafo hafa rehetra. Ny vokatra sakafo vita amin\'ny fomba faran\'izay bitika dia mazàna nofonosina amin\'ny fomba mahasarika sy amidin\'ny tsena.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

@@ -324,10 +324,6 @@ class AppLocalizationsLv extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsLv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4394,6 @@ class AppLocalizationsLv extends AppLocalizations {
       'Atšķirībā no patentētām etiķetēm, Green-Score aprēķins ir **pilnīgi atvērts** un to var **pārbaudīt jebkurš**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://lv.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultraapstrādes vispārējais mērķis ir radīt firmas zīmola, ērtus (izturīgus, gatavus patēriņam), pievilcīgus (ļoti garšīgus) un ļoti ienesīgus (ar zemām sastāvdaļām) pārtikas produktus, kas paredzēti, lai aizstātu visas pārējās pārtikas grupas. Ultraapstrādāti pārtikas produkti parasti tiek pievilcīgi iepakoti un intensīvi tirgoti.';
-
-  @override
-  String get guide_nova_share_link => 'https://lv.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

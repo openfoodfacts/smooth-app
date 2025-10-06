@@ -325,10 +325,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get sign_up_page_terms_text => 'pogoji uporabe in prispevki';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4228,10 +4224,6 @@ class AppLocalizationsSl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4419,10 +4411,6 @@ class AppLocalizationsSl extends AppLocalizations {
       'Za razliko od lastniških oznak je izračun Green-Score **popolnoma odprt** in ga lahko **preveri kdorkoli**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra predelana živila';
 
   @override
@@ -4509,9 +4497,6 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Splošni namen ultra predelave je ustvariti blagovne znamke, priročne (trajne, takojšnje za uživanje), privlačne (hiper okusne) in zelo donosne (cenovno nizke sestavine) živilske izdelke, namenjene izpodrivanju vseh drugih skupin živil. Ultra predelana živila so običajno privlačno pakirana in se intenzivno tržijo.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

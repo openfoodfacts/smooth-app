@@ -316,10 +316,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sign_up_page_terms_text => '利用と貢献規約';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://jp.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4117,10 +4113,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4297,10 +4289,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '独自のラベルとは異なり、グリーン スコアの計算は **完全にオープン** であり、**誰でも検証できます**。';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4382,9 +4370,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       '超加工の全体的な目的は、ブランド力があり、利便性（耐久性があり、すぐに食べられる）、魅力（非常に美味しい）、そして収益性（低コストの原材料）に優れた食品を製造し、他のすべての食品群に取って代わることです。超加工食品は通常、魅力的なパッケージで包装され、集中的に販売されます。';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'プレビュー';

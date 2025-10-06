@@ -324,10 +324,6 @@ class AppLocalizationsJv extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsJv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4394,6 @@ class AppLocalizationsJv extends AppLocalizations {
       'Ora kaya label kepemilikan, pitungan Green-Score **rampung mbukak** lan bisa **diverifikasi dening sapa wae**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsJv extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Tujuan sakabèhé saka ultra-processing yaiku kanggo nggawe produk pangan bermerek, trep (awet, siap dikonsumsi), menarik (hiper enak) lan duwe bathi (bahan murah) sing dirancang kanggo ngganti kabeh kelompok panganan liyane. Produk panganan sing wis diproses biasane dikemas kanthi apik lan dipasarake kanthi intensif.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

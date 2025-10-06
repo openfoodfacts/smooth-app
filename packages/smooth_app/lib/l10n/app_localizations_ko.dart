@@ -316,10 +316,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get sign_up_page_terms_text => '이용 및 기여 약관';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-ko.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4156,10 +4152,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => '친환경 점수';
 
   @override
@@ -4338,10 +4330,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => '가공 식품';
 
   @override
@@ -4423,9 +4411,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       '초가공 식품의 전반적인 목적은 브랜드 인지도가 높고, 편리하며(내구성이 뛰어나고, 바로 섭취할 수 있으며), 매력적이며(매우 맛있으며), 수익성이 높은(저렴한 재료 사용) 식품을 개발하여 다른 모든 식품군을 대체하는 것입니다. 초가공 식품은 일반적으로 매력적인 포장과 집중적인 마케팅을 통해 판매됩니다.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

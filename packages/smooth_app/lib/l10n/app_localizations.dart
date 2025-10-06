@@ -935,12 +935,6 @@ abstract class AppLocalizations {
   /// **'terms of use and contribution'**
   String get sign_up_page_terms_text;
 
-  /// Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken
-  ///
-  /// In en, this message translates to:
-  /// **'https://world-en.openfoodfacts.org/terms-of-use'**
-  String get sign_up_page_agree_url;
-
   /// Please insert the right url from the website here.
   ///
   /// In en, this message translates to:
@@ -7315,12 +7309,6 @@ abstract class AppLocalizations {
   /// **'For manufacturers, the display of the Nutri-Score **remains optional**.'**
   String get guide_nutriscore_v2_unchanged_paragraph2;
 
-  /// No description provided for @guide_nutriscore_v2_share_link.
-  ///
-  /// In en, this message translates to:
-  /// **'https://world.openfoodfacts.org/nutriscore-v2'**
-  String get guide_nutriscore_v2_share_link;
-
   /// The title of the guide (please don't forget the use of non-breaking spaces)
   ///
   /// In en, this message translates to:
@@ -7633,12 +7621,6 @@ abstract class AppLocalizations {
   /// **'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.'**
   String get guide_greenscore_better_product_arg4_text;
 
-  /// No description provided for @guide_greenscore_share_link.
-  ///
-  /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/green-score'**
-  String get guide_greenscore_share_link;
-
   /// The title of the guide (please don't forget the use of non-breaking spaces)
   ///
   /// In en, this message translates to:
@@ -7782,12 +7764,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.'**
   String get guide_nova_explanations_arg4_text;
-
-  /// No description provided for @guide_nova_share_link.
-  ///
-  /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/nova'**
-  String get guide_nova_share_link;
 
   /// Badge to indicate that the product is in preview mode (Be careful with this translation)
   ///

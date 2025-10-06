@@ -324,10 +324,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsCv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsCv extends AppLocalizations {
       'Проприетарлӑ ярлыксенчен уйрӑлса тӑракан Green-Score шутлавӗ **пӗтӗмпех уҫӑ** тата ӑна **кирек кам та тӗрӗслеме пултарать**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4479,6 @@ class AppLocalizationsCv extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ультра-тирпейлессин пӗтӗмӗшле тӗллевӗ — ытти апат-ҫимӗҫ ушкӑнӗсене улӑштарма хатӗрленӗ брендлӑ, меллӗ (тӗрӗс, ҫиме хатӗр), илӗртӳллӗ (питӗ тутлӑ) тата пысӑк тупӑшлӑ (йӳнӗ ингредиентсем) апат-ҫимӗҫ продукчӗсем туса кӑларасси. Ультра-тирпейленӗ апат-ҫимӗҫ продукцийӗсене ытларах чухне илӗртӳллӗн пуҫтараҫҫӗ тата вӗсене хӗрӳллӗн сутаҫҫӗ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

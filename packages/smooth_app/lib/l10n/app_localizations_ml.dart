@@ -324,10 +324,6 @@ class AppLocalizationsMl extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4211,10 +4207,6 @@ class AppLocalizationsMl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4395,6 @@ class AppLocalizationsMl extends AppLocalizations {
       'പ്രൊപ്രൈറ്ററി ലേബലുകളിൽ നിന്ന് വ്യത്യസ്തമായി, ഗ്രീൻ-സ്കോർ കണക്കുകൂട്ടൽ **പൂർണ്ണമായും തുറന്നിരിക്കുന്നു** കൂടാതെ ആർക്കും **പരിശോധിക്കാൻ കഴിയും**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4494,9 +4482,6 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'അൾട്രാ-പ്രോസസ്സിംഗിന്റെ മൊത്തത്തിലുള്ള ലക്ഷ്യം, മറ്റെല്ലാ ഭക്ഷ്യ ഗ്രൂപ്പുകളെയും മാറ്റിസ്ഥാപിക്കുന്നതിനായി രൂപകൽപ്പന ചെയ്ത ബ്രാൻഡഡ്, സൗകര്യപ്രദമായ (ഈടുനിൽക്കുന്ന, കഴിക്കാൻ തയ്യാറായ), ആകർഷകമായ (അമിത-സ്വാദിഷ്ടമായ) ഉയർന്ന ലാഭകരമായ (കുറഞ്ഞ വിലയുള്ള ചേരുവകൾ) ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സൃഷ്ടിക്കുക എന്നതാണ്. അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സാധാരണയായി ആകർഷകമായ രീതിയിൽ പാക്കേജുചെയ്യുകയും തീവ്രമായി വിപണനം ചെയ്യുകയും ചെയ്യുന്നു.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

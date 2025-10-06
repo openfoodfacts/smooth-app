@@ -324,10 +324,6 @@ class AppLocalizationsSa extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsSa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsSa extends AppLocalizations {
       'स्वामित्वलेबलस्य विपरीतम्, Green-Score गणना **पूर्णतया उद्घाटिता** अस्ति तथा च **केनापि सत्यापितुं शक्यते** ।';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://hi.openfoodfacts.org/ग्रीन-स्कोर इति वृत्तान्तः';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,10 +4479,6 @@ class AppLocalizationsSa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'अति-प्रक्रियाकरणस्य समग्रं उद्देश्यं अन्येषां सर्वेषां खाद्यसमूहानां विस्थापनार्थं डिजाइनं कृत्वा ब्राण्ड्-कृतं, सुविधाजनकं (स्थायित्वं, उपभोगार्थं सज्जं), आकर्षकं (अति-स्वादयुक्तं) अत्यन्तं लाभप्रदं (कम-लाभयुक्तं घटकं) च खाद्यपदार्थानां निर्माणं भवति अल्ट्रा-प्रोसेस्ड् खाद्यपदार्थाः प्रायः आकर्षकरूपेण पैकेज्ड् भवन्ति, गहनतया च विपणनं कुर्वन्ति ।';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://hi.openfoodfacts.org/nova इति वृत्तान्तः';
 
   @override
   String get preview_badge => 'Preview';

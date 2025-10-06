@@ -324,10 +324,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4217,10 +4213,6 @@ class AppLocalizationsMy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4409,10 +4401,6 @@ class AppLocalizationsMy extends AppLocalizations {
       'မူပိုင်အညွှန်းများနှင့်မတူဘဲ၊ Green-Score တွက်ချက်မှုသည် **လုံးဝဖွင့်ထားသည်** ဖြစ်ပြီး မည်သူမဆို **စစ်ဆေးနိုင်ပါသည်။**';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4501,9 +4489,6 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'လွန်ကဲစွာ စီမံဆောင်ရွက်ပေးခြင်း၏ အလုံးစုံရည်ရွယ်ချက်မှာ အခြားအစားအစာအုပ်စုအားလုံးကို ရွှေ့ပြောင်းရန် ဒီဇိုင်းထုတ်ထားသော အမှတ်တံဆိပ်ပါသော၊ အဆင်ပြေသော (တာရှည်ခံ၊ စားသုံးရန်အသင့်)၊ ဆွဲဆောင်မှု (hyper-palatable) နှင့် အလွန်အမြတ်အစွန်းရနိုင်သော (ကုန်ကျစရိတ်သက်သာသော ပါဝင်ပစ္စည်းများ) အစားအသောက်ထုတ်ကုန်များကို ဖန်တီးရန်ဖြစ်သည်။ လွန်လွန်ကဲကဲ ပြုပြင်ထားသော အစားအသောက်ထုတ်ကုန်များကို အများအားဖြင့် ဆွဲဆောင်မှုရှိရှိ ထုပ်ပိုးပြီး စျေးကွက်တွင် အလေးအနက်ထားကြသည်။';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

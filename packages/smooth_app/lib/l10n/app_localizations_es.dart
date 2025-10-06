@@ -338,10 +338,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'las condiciones de uso y contribución de Open Food Facts';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-es.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url =>
       'https://world-es.openfoodfacts.org/dar-a-open-food-facts';
 
@@ -4286,10 +4282,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/guide/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4480,10 +4472,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'A diferencia de las etiquetas propietarias, el cálculo de Green-Score es **completamente abierto** y puede ser **verificado por cualquier persona**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Alimentos ultraprocesados';
 
   @override
@@ -4572,9 +4560,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'El objetivo general del ultraprocesamiento es crear productos alimenticios de marca, prácticos (duraderos, listos para consumir), atractivos (hiperpalatables) y altamente rentables (con ingredientes de bajo costo), diseñados para desplazar a todos los demás grupos de alimentos. Los productos ultraprocesados suelen presentar envases atractivos y una comercialización intensiva.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

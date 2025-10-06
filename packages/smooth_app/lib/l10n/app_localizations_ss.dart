@@ -324,10 +324,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4214,10 +4210,6 @@ class AppLocalizationsSs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4411,10 +4403,6 @@ class AppLocalizationsSs extends AppLocalizations {
       'Ngalokwehlukile kumalebuli emphahla, kubalwa kwe-Green-Score **kuvulekile ngalokuphelele** futsi kungacinisekiswa **ngunobe ngubani**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://si.emaciniso ekudla lavulekile.org/emaphuzu-laluhlata';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4501,10 +4489,6 @@ class AppLocalizationsSs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Inhloso jikelele ye ultra-processing kwenta imikhicito yekudla leneluphawu, lelula (lehlala sikhatsi lesidze, lekulungele kudliwa), lekhangako (hyper-palatable) kanye nenzuzo lenkhulu (titsako letibita kancane) leyentelwe kususa onkhe lamanye emacembu ekudla. Imikhicito yekudla lecubunguliwe kakhulu ivame kupakishwa ngendlela lekhangako futsi itsengiswe kakhulu.';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://si.emaciniso ekudla lavulekile.org/nova';
 
   @override
   String get preview_badge => 'Preview';

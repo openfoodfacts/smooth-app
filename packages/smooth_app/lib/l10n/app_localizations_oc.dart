@@ -324,10 +324,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4214,10 +4210,6 @@ class AppLocalizationsOc extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4409,10 +4401,6 @@ class AppLocalizationsOc extends AppLocalizations {
       'A la diferéncia de las etiquetas proprietàrias, lo calcul Green-Score es **completament dobèrt** e pòt èsser **verificat per qual que siá**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://oc.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4500,9 +4488,6 @@ class AppLocalizationsOc extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L\'objectiu global de l\'ultra-transformacion es de crear de produches alimentaris de marca, convenents (durables, prèstes a consomar), atractius (iper-saborós) e fòrça rentables (ingredients de bas còst) concebuts per desplaçar totes los autres grops alimentaris. Los produches alimentaris ultratransformats son generalament embalats de manièra atractiva e comercializats intensivament.';
-
-  @override
-  String get guide_nova_share_link => 'https://oc.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

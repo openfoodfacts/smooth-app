@@ -324,10 +324,6 @@ class AppLocalizationsLb extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4213,10 +4209,6 @@ class AppLocalizationsLb extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4404,10 +4396,6 @@ class AppLocalizationsLb extends AppLocalizations {
       'Am Géigesaz zu proprietäre Labelen ass d\'Green-Score Berechnung **komplett oppen** a kann vun jidderengem **verifizéiert** ginn.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4495,9 +4483,6 @@ class AppLocalizationsLb extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Den allgemengen Zweck vun der Ultraveraarbechtung ass et, Marken-, praktesch (haltbar, konsuméierbar), attraktiv (hyper-schmackhaft) a ganz rentabel (bëlleg Zutaten) Liewensmëttelprodukter ze kreéieren, déi all aner Liewensmëttelgruppen ersetzen sollen. Ultraveraarbechte Liewensmëttelprodukter gi meeschtens attraktiv verpackt a intensiv vermaart.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';

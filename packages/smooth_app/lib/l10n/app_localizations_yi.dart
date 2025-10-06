@@ -324,10 +324,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
-
-  @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
@@ -4210,10 +4206,6 @@ class AppLocalizationsYi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4394,6 @@ class AppLocalizationsYi extends AppLocalizations {
       'אנדערש ווי אייגענע לייבלס, איז די גרין-סקאָר קאַלקולאַציע **גאָר אָפן** און קען ווערן **וועריפֿיצירט דורך ווער עס יז**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4493,9 +4481,6 @@ class AppLocalizationsYi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'דער הויפּט ציל פון אולטראַ-פּראַסעסינג איז צו שאַפֿן בראַנדיד, באַקוועם (דויערהאפט, גרייט צו קאָנסומירן), אַטראַקטיוו (היפּער-פּאַסיקע) און העכסט פּראָפיטאַבלע (נידעריק-קאָסט ינגרידיאַנץ) עסנוואַרג פּראָדוקטן דיזיינד צו פאַרבייַטן אַלע אנדערע עסנוואַרג גרופּעס. אולטראַ-פּראַסעסט עסנוואַרג פּראָדוקטן זענען געוויינטלעך פּאַקידזשד אַטראַקטיוולי און פֿאַרקויפֿט אינטענסיוו.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
