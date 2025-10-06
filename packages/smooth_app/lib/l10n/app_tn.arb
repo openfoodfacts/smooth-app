@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Go tlhopha dijo tse di tswelelang go ka utlwala go raraane. Dileibole di a tlhakatlhakanya mme gantsi tshedimosetso ga e yo. Green-Score e tlhamilwe go dira gore e nne bonolo, e go neye tekanyetso ya tikologo e e **tlhapileng**, **e e theilweng mo saenseng**, le **e e bonaletsang** ya dikumo tsa dijo, gone fa o e tlhokang teng: fa o ntse o reka.",
   "guide_greenscore_better_product_arg4_title": "Go dira dilo mo pontsheng",
   "guide_greenscore_better_product_arg4_text": "Go farologana le dileibole tsa mong, palo ya Green-Score e **bulegile gotlhelele** mme e ka **tlhomamisiwa ke mongwe le mongwe**.",
-  "guide_greenscore_share_link": "https://tn.dintlha tsa dijo tse di bulegileng.org/maduo a matala",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Bontsi jwa tatelano ya dithulaganyo bo dirisiwa go kopanya metswako e gantsi e leng mentsi le go tlhama setlhagiswa sa bofelo (ka jalo 'ultra-processed'). Dithulaganyo di akaretsa di le mmalwa tse di senang dilekanyo tsa selegae, jaaka hydrogenation le hydrolysis, go ntsha le go bopa, le go dira pele ga go gadika.",
   "guide_nova_explanations_arg4_title": "Dintlha tsa go ja ditshedi tse dingwe le tsa madi tsa go dira dilo ka tsela e e feteletseng",
   "guide_nova_explanations_arg4_text": "Maikaelelo a kakaretso a ultra-processing ke go tlhama ditlhagiswa tsa dijo tse di nang le letshwaokgwebo, tse di siameng (tse di tshwarelelang, tse di siametseng go jewa), tse di kgatlhang (tse di monate thata) le tse di nang le dipoelo tse di kwa godimo (metswako e e tlhwatlhwatlase) tse di diretsweng go emisetsa ditlhopha tse dingwe tsotlhe tsa dijo. Dikumo tsa dijo tse di dirilweng ka tsela e e feteletseng gantsi di phuthelwa ka tsela e e kgatlhang mme di bapadiwa thata.",
-  "guide_nova_share_link": "https://tn.dintlha tsa dijo tse di bulegileng.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
