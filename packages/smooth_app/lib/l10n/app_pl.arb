@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-pl.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Wybór zrównoważonej żywności może wydawać się skomplikowany. Etykiety są mylące, a informacji często brakuje. Zielony Wynik został stworzony, aby to uprościć, zapewniając **jasną**, **opartą na badaniach naukowych** i **transparentną** ocenę ekologiczną produktów spożywczych, dokładnie tam, gdzie jej potrzebujesz: podczas zakupów.",
   "guide_greenscore_better_product_arg4_title": "Przezroczystość",
   "guide_greenscore_better_product_arg4_text": "W przeciwieństwie do zastrzeżonych etykiet, sposób obliczania Green-Score jest **całkowicie otwarty** i może zostać **zweryfikowany przez każdego**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Żywność wysoko przetworzona",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Do połączenia zazwyczaj licznych składników i stworzenia produktu końcowego (stąd określenie „ultraprzetworzony”) stosuje się szereg sekwencji procesów. Procesy te obejmują kilka procesów, które nie mają krajowych odpowiedników, takich jak uwodornienie i hydroliza, wytłaczanie i formowanie oraz wstępna obróbka przed smażeniem.",
   "guide_nova_explanations_arg4_title": "Aspekty drapieżne i finansowe ultraprzetwarzania",
   "guide_nova_explanations_arg4_text": "Głównym celem ultraprzetwarzania jest tworzenie markowych, wygodnych (trwałych, gotowych do spożycia), atrakcyjnych (hipersmakowitych) i wysoce dochodowych (z tanich składników) produktów spożywczych, które mają zastąpić wszystkie inne grupy żywności. Produkty ultraprzetworzone są zazwyczaj atrakcyjnie pakowane i intensywnie promowane.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
