@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://se.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Vad förändras inte",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score är en poäng utformad för att **mäta näringskvalitet**. Det är ett **komplement till NOVA-gruppen** om **ultraprocessade livsmedel** (finns även detta i applikationen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "För tillverkarna är visning av Nutri-Score **fortsatt valfri**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Att välja hållbar mat kan kännas komplicerat. Etiketter är förvirrande och information saknas ofta. Green-Score skapades för att göra det enkelt och ger dig en **tydlig**, **vetenskapsbaserad** och **transparent** miljöklassificering för livsmedelsprodukter, precis där du behöver den: när du handlar.",
   "guide_greenscore_better_product_arg4_title": "Genomskinlighet",
   "guide_greenscore_better_product_arg4_text": "Till skillnad från proprietära etiketter är Green-Score-beräkningen **helt öppen** och kan **verifieras av vem som helst**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "En mängd olika processsekvenser används för att kombinera de vanligtvis många ingredienserna och skapa slutprodukten (därav \"ultraprocessad\"). Processerna inkluderar flera utan inhemska motsvarigheter, såsom hydrogenering och hydrolys, extrudering och gjutning, samt förbehandling för stekning.",
   "guide_nova_explanations_arg4_title": "De rovgiriga och ekonomiska aspekterna av ultrabearbetning",
   "guide_nova_explanations_arg4_text": "Det övergripande syftet med ultraprocessning är att skapa märkesvaror som är bekväma (hållbara, färdiga att konsumeras), attraktiva (hypervälsmakande) och mycket lönsamma (billiga ingredienser) livsmedelsprodukter, utformade för att ersätta alla andra livsmedelsgrupper. Ultraprocessade livsmedelsprodukter är vanligtvis attraktivt förpackade och marknadsförs intensivt.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
