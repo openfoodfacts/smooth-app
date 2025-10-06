@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "ఓపెన్ ఫుడ్ వాస్తవాలు",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1413,8 +1413,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
-  "@account_deletion_subject": {
+  "account_delete_title": "నా ఖాతాను తొలగించు",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2289,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "ఓపెన్ ప్రైసెస్ వెబ్‌సైట్‌లో తెరవండి",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -4396,9 +4397,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "సంగ్రహణ ప్రక్రియ జరుగుతోంది…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "సంగ్రహణ విజయవంతమైంది",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4593,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "My contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "నా గణాంకాలు",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "అనువదించండి, మా సాధనాలను మెరుగుపరచండి…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4701,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అనేది అందరిచే, అందరి కోసం తయారు చేయబడిన ఆహార ఉత్పత్తుల డేటాబేస్ **.\nమెరుగైన ఆహార ఎంపికలు చేయడానికి మీరు దీన్ని ఉపయోగించవచ్చు మరియు ఇది **ఓపెన్ డేటా** కాబట్టి, ఎవరైనా దీన్ని ఏ ఉద్దేశానికైనా తిరిగి ఉపయోగించవచ్చు**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4772,10 @@
   "preferences_manage_account_title": "నా ఖాతాను నిర్వహించు",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "మీ ఖాతాను నిర్వహించండి",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "నా పాస్‌వర్డ్‌ను మార్చు",
   "@preferences_change_password_title": {
@@ -4876,10 +4897,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "సోషల్ మీడియాలో మమ్మల్ని అనుసరించండి",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ బ్లాగ్",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5013,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0 ఉత్పత్తులు జోడించబడ్డాయి",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "జోడించిన ఉత్పత్తులు",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ కు నేను జోడించిన కొత్త ఉత్పత్తులు",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "నేను పూర్తి చేయాల్సిన ఉత్పత్తులు",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5028,18 @@
   "preferences_contributions_all_incomplete_title": "అన్ని అసంపూర్ణ ఉత్పత్తులు",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "నా ధరలు, నా ఆధారాలు…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "మీరు పూర్తి చేయడానికి సహాయపడే ఉత్పత్తులు",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5179,6 +5208,78 @@
   "prices_proof_error": "ప్రామాణీకరణ విఫలమైంది, రుజువులను పొందలేకపోయింది.",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "proofs_count_with_total": "{count} / {total} రుజువులు",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{total} మంది సహకారులలో {count}",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{total} స్థానాల్లో {count}",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} స్థానాలు",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
   },
   "restart_to_apply_message": "మార్పులను వర్తింపజేయడానికి దయచేసి యాప్‌ను పునఃప్రారంభించండి.",
   "@restart_to_apply_message": {
