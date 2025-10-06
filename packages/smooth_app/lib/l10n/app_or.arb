@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ସ୍ଥାୟୀ ଖାଦ୍ୟ ବାଛିବା ଜଟିଳ ମନେ ହୋଇପାରେ। ଲେବଲ୍ ଦ୍ୱନ୍ଦ୍ୱପୂର୍ଣ୍ଣ ଏବଂ ସୂଚନା ପ୍ରାୟତଃ ଅନୁପସ୍ଥିତ ଥାଏ। ଏହାକୁ ସରଳ କରିବା ପାଇଁ ଗ୍ରୀନ୍-ସ୍କୋର୍ ସୃଷ୍ଟି କରାଯାଇଥିଲା, ଯାହା ଆପଣଙ୍କୁ ଖାଦ୍ୟ ଉତ୍ପାଦ ପାଇଁ ଏକ **ସ୍ପଷ୍ଟ**, **ବିଜ୍ଞାନ-ଆଧାରିତ**, ଏବଂ **ସ୍ୱଚ୍ଛ** ପରିବେଶଗତ ମୂଲ୍ୟାଙ୍କନ ପ୍ରଦାନ କରିଥାଏ, ଠିକ୍ ଯେଉଁଠାରେ ଆପଣଙ୍କୁ ଏହା ଆବଶ୍ୟକ: ଯେତେବେଳେ ଆପଣ କିଣାକାଟା କରନ୍ତି।",
   "guide_greenscore_better_product_arg4_title": "ସ୍ୱଚ୍ଛତା",
   "guide_greenscore_better_product_arg4_text": "ମାଲିକାନା ଲେବଲଗୁଡ଼ିକ ପରି ନୁହେଁ, ସବୁଜ-ସ୍କୋର ଗଣନା **ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଖୋଲା** ଏବଂ ଏହାକୁ **ଯେକୌଣସି ବ୍ୟକ୍ତିଙ୍କ ଦ୍ୱାରା ଯାଞ୍ଚ କରାଯାଇପାରିବ**।",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "ସାଧାରଣତଃ ଅନେକ ଉପାଦାନକୁ ମିଶ୍ରଣ କରିବା ଏବଂ ଚୂଡ଼ାନ୍ତ ଉତ୍ପାଦ (ତେଣୁ 'ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣ') ତିଆରି କରିବା ପାଇଁ ପ୍ରକ୍ରିୟାର ଏକ ବହୁଳ କ୍ରମ ବ୍ୟବହୃତ ହୁଏ। ପ୍ରକ୍ରିୟାଗୁଡ଼ିକରେ କୌଣସି ଘରୋଇ ସମକକ୍ଷ ବିନା ଅନେକ ଅନ୍ତର୍ଭୁକ୍ତ, ଯେପରିକି ହାଇଡ୍ରୋଜେନେସନ୍ ଏବଂ ହାଇଡ୍ରୋଲାଇଜେସନ୍, ଏକ୍ସଟ୍ରୁଜନ୍ ଏବଂ ମୋଲ୍ଡିଂ, ଏବଂ ଭାଜିବା ପାଇଁ ପୂର୍ବ-ପ୍ରକ୍ରିୟାକରଣ।",
   "guide_nova_explanations_arg4_title": "ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣର ଶିକାରୀ ଏବଂ ଆର୍ଥିକ ଦିଗଗୁଡ଼ିକ",
   "guide_nova_explanations_arg4_text": "ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣର ସାମଗ୍ରିକ ଉଦ୍ଦେଶ୍ୟ ହେଉଛି ବ୍ରାଣ୍ଡେଡ୍, ସୁବିଧାଜନକ (ସ୍ଥାୟୀ, ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ), ଆକର୍ଷଣୀୟ (ଅତ୍ୟଧିକ ସ୍ୱାଦିଷ୍ଟ) ଏବଂ ଅତ୍ୟନ୍ତ ଲାଭଦାୟକ (କମ୍ ମୂଲ୍ୟର ଉପାଦାନ) ଖାଦ୍ୟ ଉତ୍ପାଦ ସୃଷ୍ଟି କରିବା ଯାହା ଅନ୍ୟ ସମସ୍ତ ଖାଦ୍ୟ ଗୋଷ୍ଠୀକୁ ସ୍ଥାନାନ୍ତରିତ କରିବା ପାଇଁ ଡିଜାଇନ୍ କରାଯାଇଛି। ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକରଣ ଖାଦ୍ୟ ଉତ୍ପାଦଗୁଡ଼ିକ ସାଧାରଣତଃ ଆକର୍ଷଣୀୟ ଭାବରେ ପ୍ୟାକେଜ୍ କରାଯାଇଥାଏ ଏବଂ ଘନତାର ସହିତ ବଜାରରେ ବିପଣନ କରାଯାଏ।",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
