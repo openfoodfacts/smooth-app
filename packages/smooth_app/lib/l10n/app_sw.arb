@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Kuchagua chakula endelevu kunaweza kuhisi kuwa ngumu. Lebo zinachanganya na habari mara nyingi hukosekana. Alama ya Kijani iliundwa ili kurahisisha, kukupa ukadiriaji wa **wazi**, **kulingana na sayansi**, na **wazi** wa mazingira kwa bidhaa za chakula, pale unapohitaji: unaponunua.",
   "guide_greenscore_better_product_arg4_title": "Uwazi",
   "guide_greenscore_better_product_arg4_text": "Tofauti na lebo za wamiliki, hesabu ya Alama ya Kijani ni **imefunguliwa kabisa** na inaweza **kuthibitishwa na mtu yeyote**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Misururu mingi ya michakato hutumika kuchanganya viambato vingi vya kawaida na kuunda bidhaa ya mwisho (kwa hivyo 'iliyochakatwa zaidi'). Michakato hiyo ni pamoja na kadhaa bila vilinganishi vya nyumbani, kama vile utiaji hidrojeni na uhaidrolisisi, utoboaji na ukingo, na uchakataji wa awali kwa kukaanga.",
   "guide_nova_explanations_arg4_title": "Vipengele vya unyanyasaji na kifedha vya usindikaji wa hali ya juu",
   "guide_nova_explanations_arg4_text": "Madhumuni ya jumla ya usindikaji wa hali ya juu ni kuunda bidhaa za chakula zenye chapa, zinazofaa (zinazodumu, tayari kutumika), zinazovutia (zinazopendeza) na zenye faida kubwa (za bei ya chini) zilizoundwa kuondoa vikundi vingine vyote vya chakula. Bidhaa za chakula zilizochakatwa kwa kiwango cha juu huwekwa kwenye vifurushi vya kuvutia na kuuzwa kwa kasi.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
