@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "స్థిరమైన ఆహారాన్ని ఎంచుకోవడం సంక్లిష్టంగా అనిపించవచ్చు. లేబుల్‌లు గందరగోళంగా ఉంటాయి మరియు సమాచారం తరచుగా కనిపించదు. గ్రీన్-స్కోర్‌ను సులభతరం చేయడానికి రూపొందించారు, మీకు అవసరమైన చోట: మీరు షాపింగ్ చేస్తున్నప్పుడు ఆహార ఉత్పత్తులకు **స్పష్టమైన**, **సైన్స్ ఆధారిత** మరియు **పారదర్శక** పర్యావరణ రేటింగ్‌ను అందిస్తారు.",
   "guide_greenscore_better_product_arg4_title": "పారదర్శకత",
   "guide_greenscore_better_product_arg4_text": "యాజమాన్య లేబుల్‌ల మాదిరిగా కాకుండా, గ్రీన్-స్కోర్ గణన **పూర్తిగా తెరిచి ఉంటుంది** మరియు ఎవరైనా **ధృవీకరించవచ్చు**.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "సాధారణంగా అనేక పదార్థాలను కలపడానికి మరియు తుది ఉత్పత్తిని సృష్టించడానికి అనేక ప్రక్రియల శ్రేణిని ఉపయోగిస్తారు (అందుకే 'అల్ట్రా-ప్రాసెస్డ్'). ఈ ప్రక్రియలలో దేశీయ సమానమైనవి లేని అనేక ప్రక్రియలు ఉన్నాయి, ఉదాహరణకు హైడ్రోజనేషన్ మరియు జలవిశ్లేషణ, ఎక్స్‌ట్రాషన్ మరియు అచ్చు, మరియు వేయించడానికి ముందస్తు ప్రాసెసింగ్.",
   "guide_nova_explanations_arg4_title": "అల్ట్రా-ప్రాసెసింగ్ యొక్క దోపిడీ మరియు ఆర్థిక అంశాలు",
   "guide_nova_explanations_arg4_text": "అల్ట్రా-ప్రాసెసింగ్ యొక్క మొత్తం ఉద్దేశ్యం ఏమిటంటే, బ్రాండెడ్, సౌకర్యవంతమైన (మన్నికైన, తినడానికి సిద్ధంగా), ఆకర్షణీయమైన (అధిక-రుచికరమైన) మరియు అధిక లాభదాయకమైన (తక్కువ-ధర పదార్థాలు) ఆహార ఉత్పత్తులను అన్ని ఇతర ఆహార సమూహాలను స్థానభ్రంశం చేయడానికి రూపొందించడం. అల్ట్రా-ప్రాసెసింగ్ చేయబడిన ఆహార ఉత్పత్తులు సాధారణంగా ఆకర్షణీయంగా ప్యాక్ చేయబడతాయి మరియు విస్తృతంగా మార్కెట్ చేయబడతాయి.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
