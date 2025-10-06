@@ -268,10 +268,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://world-de.openfoodfacts.org/spenden",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -3890,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
   "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.",
-  "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3952,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Die Auswahl nachhaltiger Lebensmittel kann komplex sein. Etiketten sind verwirrend und oft fehlen Informationen. Der Green-Score wurde entwickelt, um die Auswahl zu vereinfachen. Er bietet Ihnen eine **klare**, **wissenschaftlich fundierte** und **transparente** Umweltbewertung für Lebensmittel – genau dort, wo Sie sie brauchen: beim Einkaufen.",
   "guide_greenscore_better_product_arg4_title": "Transparenz",
   "guide_greenscore_better_product_arg4_text": "Im Gegensatz zu proprietären Labels ist die Green-Score-Berechnung **völlig offen** und kann **von jedem überprüft** werden.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Sehr hoch verarbeitete Lebensmittel",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3986,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Um die meist zahlreichen Zutaten zu kombinieren und das Endprodukt herzustellen (daher der Name „ultra-verarbeitet“), werden zahlreiche Prozessabläufe durchgeführt. Zu den Prozessen gehören mehrere, für die es im Inland keine Entsprechungen gibt, wie etwa Hydrierung und Hydrolyse, Extrusion und Formgebung sowie die Vorverarbeitung zum Frittieren.",
   "guide_nova_explanations_arg4_title": "Die räuberischen und finanziellen Aspekte der Ultraverarbeitung",
   "guide_nova_explanations_arg4_text": "Der Hauptzweck der Ultra-Verarbeitung besteht darin, Marken-Lebensmittel zu schaffen, die praktisch (haltbar, verzehrfertig), attraktiv (überaus schmackhaft) und hochprofitabel (preiswerte Zutaten) sind und alle anderen Lebensmittelgruppen verdrängen sollen. Ultra-verarbeitete Lebensmittel werden in der Regel attraktiv verpackt und intensiv vermarktet.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Vorschau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
