@@ -5,10 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -143,91 +141,4 @@ class _AppBarStaticsCardLayout extends MultiChildLayoutDelegate {
 
   @override
   bool shouldRelayout(_AppBarStaticsCardLayout oldDelegate) => true;
-}
-
-class _AppBarStatisticsCardProgressBar extends StatefulWidget {
-  const _AppBarStatisticsCardProgressBar({
-    required this.animate,
-    required this.onTap,
-  });
-
-  final bool animate;
-  final VoidCallback onTap;
-
-  @override
-  State<_AppBarStatisticsCardProgressBar> createState() =>
-      _AppBarStatisticsCardProgressBarState();
-}
-
-class _AppBarStatisticsCardProgressBarState
-    extends State<_AppBarStatisticsCardProgressBar>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-        AnimationController(
-          vsync: this,
-          duration: const Duration(milliseconds: 800),
-        )..addStatusListener((AnimationStatus status) {
-          if (status == AnimationStatus.completed && widget.animate) {
-            Future<void>.delayed(const Duration(milliseconds: 100), () {
-              if (widget.animate) {
-                _controller.forward(from: 0.0);
-              }
-            });
-          }
-        });
-
-    _animation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
-    _updateAnimationController();
-  }
-
-  @override
-  void didUpdateWidget(_AppBarStatisticsCardProgressBar oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.animate == widget.animate) {
-      return;
-    }
-
-    _updateAnimationController();
-  }
-
-  void _updateAnimationController() {
-    if (widget.animate || _controller.isAnimating) {
-      _controller.forward(from: widget.animate ? 0.0 : null);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return Tooltip(
-      message: appLocalizations.label_reload,
-      child: RotationTransition(
-        turns: _animation,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: widget.onTap,
-          child: const Padding(
-            padding: EdgeInsetsDirectional.all(MEDIUM_SPACE),
-            child: icons.Reload(color: Colors.white, size: 16.0),
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 }
