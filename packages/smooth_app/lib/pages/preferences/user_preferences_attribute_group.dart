@@ -108,7 +108,9 @@ class UserPreferencesAttributeGroup {
               color: colorScheme.error,
               width: double.infinity,
               padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-              margin: const EdgeInsetsDirectional.all(LARGE_SPACE),
+              margin: const EdgeInsetsDirectional.symmetric(
+                horizontal: LARGE_SPACE,
+              ),
               child: Text(
                 group.warning!,
                 style: TextStyle(color: colorScheme.onError),

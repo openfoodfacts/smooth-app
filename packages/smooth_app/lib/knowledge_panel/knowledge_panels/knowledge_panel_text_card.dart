@@ -8,7 +8,6 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
@@ -68,7 +67,7 @@ class KnowledgePanelTextCard extends StatelessWidget {
             appLocalizations.knowledge_panel_text_source(
               textElement.sourceText!,
             ),
-            trailingIcon: Icon(ConstantIcons.forwardIcon),
+            trailingIcon: const icons.Chevron.right(),
             onPressed: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
               context,
               textElement.sourceUrl!,

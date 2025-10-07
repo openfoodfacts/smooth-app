@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.da
 import 'package:smooth_app/pages/product/portion_calculator.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -249,7 +250,7 @@ class _KnowledgePanelPageEditAction extends StatelessWidget {
           SmoothPopupMenuItem<void>(
             label: tooltip,
             value: null,
-            icon: Icons.edit,
+            icon: const icons.Edit(),
           ),
         ];
       },

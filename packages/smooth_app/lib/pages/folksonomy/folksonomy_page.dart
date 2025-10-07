@@ -168,12 +168,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                     SmoothPopupMenuItem<FolksonomyAction>(
                       label: appLocalizations.edit_tag,
                       value: FolksonomyAction.edit,
-                      icon: Icons.edit,
+                      icon: const icons.Edit(),
                     ),
                     SmoothPopupMenuItem<FolksonomyAction>(
                       label: appLocalizations.remove_tag,
                       value: FolksonomyAction.remove,
-                      icon: Icons.delete,
+                      icon: const icons.Trash(),
                     ),
                   ];
                 },

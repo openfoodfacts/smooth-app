@@ -20,6 +20,10 @@ class PricesHeader extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
+    final Widget addButton = _PricesHeaderAddPriceButton(
+      onTap: model.addButton,
+    );
+
     return PinnedHeaderSliver(
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -43,18 +47,17 @@ class PricesHeader extends StatelessWidget {
             end: model.displayEachProduct ? 16.0 : 8.0,
           ),
           child: IntrinsicHeight(
-            child: Row(
-              spacing: SMALL_SPACE,
-              children: <Widget>[
-                if (pricesResult?.total != null)
-                  Expanded(
-                    child: _PricesPageCounter(count: pricesResult!.total!),
+            child: pricesResult?.total != null
+                ? FractionallySizedBox(widthFactor: 0.7, child: addButton)
+                : Row(
+                    spacing: SMALL_SPACE,
+                    children: <Widget>[
+                      Expanded(
+                        child: _PricesPageCounter(count: pricesResult!.total!),
+                      ),
+                      Expanded(child: SizedBox.expand(child: addButton)),
+                    ],
                   ),
-                Expanded(
-                  child: _PricesHeaderAddPriceButton(onTap: model.addButton),
-                ),
-              ],
-            ),
           ),
         ),
       ),
@@ -160,7 +163,7 @@ class _PricesHeaderAddPriceButton extends StatelessWidget {
               vertical: SMALL_SPACE,
               horizontal: MEDIUM_SPACE,
             ),
-            child: Column(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -172,12 +175,14 @@ class _PricesHeaderAddPriceButton extends StatelessWidget {
                       : extension.primaryMedium,
                   size: 35.0,
                 ),
-                Text(
-                  appLocalizations.prices_list_add_new_price,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Text(
+                    appLocalizations.prices_list_add_new_price,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],

@@ -56,7 +56,14 @@ class SmoothTheme {
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.surface
           : null,
-      scaffoldBackgroundColor: lightTheme ? null : const Color(0xFF303030),
+      scaffoldBackgroundColor:
+          themeProvider.currentTheme == THEME_DARK ||
+              (!lightTheme && themeProvider.currentTheme != THEME_AMOLED)
+          ? const Color(0xFF303030)
+          : null,
+      shadowColor: brightness == Brightness.light
+          ? Colors.black54
+          : Colors.white12,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(

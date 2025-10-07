@@ -2944,6 +2944,16 @@ class AppLocalizationsTa extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Reset app language';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -5189,6 +5199,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ஃபோக்சோனமி ஹோஸ்ட்';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Host: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

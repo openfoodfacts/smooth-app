@@ -51,6 +51,8 @@ class ProductPageTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool lightTheme = context.lightTheme();
+
     return SliverPersistentHeader(
       delegate: _TabBarDelegate(
         PreferredSize(
@@ -72,9 +74,10 @@ class ProductPageTabBar extends StatelessWidget {
                 .map((ProductPageTab tab) => tab.suffix)
                 .toList(growable: false),
             onTabChanged: (_) {},
-            overflowMainColor: context.lightTheme()
+            overflowMainColor: lightTheme
                 ? Theme.of(context).tabBarTheme.unselectedLabelColor
                 : Theme.of(context).scaffoldBackgroundColor,
+            unselectedTabColor: lightTheme ? Colors.black87 : Colors.white70,
           ),
         ),
       ),

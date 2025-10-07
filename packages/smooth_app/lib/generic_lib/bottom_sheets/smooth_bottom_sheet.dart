@@ -523,11 +523,11 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            foregroundColor: lightTheme ? Colors.black : Colors.white,
+            foregroundColor: lightTheme ? extension.primaryBlack : Colors.white,
             backgroundColor: lightTheme
                 ? extension.primaryMedium
                 : extension.primaryBlack,
-            iconColor: lightTheme ? Colors.black : Colors.white,
+            iconColor: lightTheme ? extension.primaryBlack : Colors.white,
           ),
           child: Row(
             children: <Widget>[

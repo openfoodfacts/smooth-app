@@ -2959,6 +2959,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Bahan dan kemasan)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Reset app language';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Gunakan kembali dan sunting pencarian ini';
 
@@ -5207,6 +5217,11 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Pembawa acara Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Host: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
