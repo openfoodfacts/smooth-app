@@ -1,5 +1,5 @@
 {
-  "app_name": "Informations sur les aliments ouverts",
+  "app_name": "Open Food Facts",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,7 +8,7 @@
   "@yes": {},
   "add": "Ajouter",
   "@add": {},
-  "account_delete_message": "Êtes-vous sûr de vouloir supprimer votre compte ?\nS'il y a une raison spécifique, veuillez partager ci-dessous",
+  "account_delete_message": "Êtes-vous sûr de vouloir supprimer votre compte ?\nS'il y a une raison spécifique, veuillez la partager ci-dessous",
   "@account_delete_message": {},
   "reason": "Raison",
   "@reason": {},
@@ -40,9 +40,9 @@
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
-  "go_back_to_top": "Retour en haut",
+  "go_back_to_top": "Retourner en haut",
   "save": "Enregistrer",
-  "save_confirmation": "Voulez-vous vraiment sauvegarder ?",
+  "save_confirmation": "Voulez-vous vraiment sauvegarder ?",
   "skip": "Ignorer",
   "cancel": "Annuler",
   "@cancel": {},
@@ -1616,7 +1616,7 @@
   "@edit_product_form_item_details_title": {
     "description": "Product edition - Basic Details - Title"
   },
-  "edit_product_form_item_details_subtitle": "Nom du produit, marque, quantité",
+  "edit_product_form_item_details_subtitle": "Nom du produit, marque & quantité",
   "@edit_product_form_item_details_subtitle": {
     "description": "Product edition - Basic Details - Subtitle"
   },
@@ -2255,7 +2255,7 @@
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
-  "dev_preferences_news_provider_status_subtitle": "Dernière actualisation: {date}",
+  "dev_preferences_news_provider_status_subtitle": "Dernière actualisation : {date}",
   "@dev_preferences_news_provider_status_subtitle": {
     "description": "News dev preferences - Custom URL for news - Subtitle",
     "placeholders": {
@@ -2284,7 +2284,7 @@
     }
   },
   "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
-  "prices_app_button": "Accéder à l'application Prix",
+  "prices_app_button": "Aller sur le site d'Open Prices",
   "prices_website_button": "Ouvert sur le site Open Prices",
   "prices_bulk_proof_upload_select": "Ajouter des étiquettes de prix directement depuis la galerie",
   "prices_bulk_proof_upload_warning": "Une fois que vous aurez sélectionné des images, vous ne pourrez pas les modifier !",
@@ -2402,7 +2402,7 @@
   "prices_entry_menu_open_product_prices": "Voir tous les prix du produit",
   "prices_entry_menu_open_proof": "Voir la preuve",
   "prices_entry_menu_my_prices": "Voir mes autres prix",
-  "prices_entry_menu_author_prices": "Voir d'autres prix de l'auteur",
+  "prices_entry_menu_author_prices": "Voir les autres prix de l'auteur",
   "prices_entry_menu_shop_prices": "Voir les autres prix de ce magasin",
   "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
   "@prices_product_accessibility_summary": {
@@ -3122,7 +3122,7 @@
   "@gallery_source_access_denied_dialog_title": {
     "description": "On iOS, the user has refused to give the permission (title of the dialog)"
   },
-  "gallery_source_access_denied_dialog_message_ios": "Malheureusement, l'application ne peut pas accéder à votre galerie, car vous avez précédemment refusé l'autorisation.\n\nVeuillez accéder aux paramètres de l'application dans les Paramètres de votre téléphone -> Photos",
+  "gallery_source_access_denied_dialog_message_ios": "Malheureusement, l'application ne peut pas accéder à votre galerie photo, car vous avez précédemment refusé l'autorisation.\n\nVeuillez accéder aux paramètres de l'application dans les Paramètres de votre téléphone -> Photos",
   "@gallery_source_access_denied_dialog_message_ios": {
     "description": "On iOS, the user has refused to give the permission"
   },
@@ -3218,7 +3218,7 @@
   },
   "expand_ingredients_body": "Garder le panneau des ingrédients étendu",
   "search_product_filter_visibility_title": "Afficher un filtre dans la recherche",
-  "search_product_filter_visibility_subtitle": "Sélectionner le site de recherche : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
+  "search_product_filter_visibility_subtitle": "Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
