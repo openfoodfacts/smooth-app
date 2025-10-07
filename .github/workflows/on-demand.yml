@@ -18,6 +18,11 @@ jobs:
       contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
+    - name: Add reaction to comment
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: eyes
     - name: Get branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
@@ -79,6 +84,11 @@ jobs:
       contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
+    - name: Add reaction to comment
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: eyes
     - name: Get branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
