@@ -2657,6 +2657,13 @@ class AppLocalizationsGl extends AppLocalizations {
   String get prices_list_add_new_price => 'Engadir un novo prezo\n';
 
   @override
+  String get prices_list_empty_title => 'No price yet!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Tenda descoñecida';
 
   @override
@@ -2744,9 +2751,22 @@ class AppLocalizationsGl extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'No contributor yet!';
+
+  @override
+  String get prices_users_empty_explanation => 'Be the first to add a price!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'No shop yet!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Be the first to add a price!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2849,6 +2869,13 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get prices_proof_subtitle => 'Proof';
+
+  @override
+  String get prices_proof_empty_title => 'No proof yet!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Start by adding a photo of a **receipt** or a **price tag**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4813,6 +4840,12 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get prices_products_empty_title => 'No price available';
+
+  @override
+  String get prices_products_empty_explanation => 'Be the first to contribute!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
