@@ -1,5 +1,5 @@
 {
-  "app_name": "עובדות מזון פתוחות",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1409,7 +1409,7 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_delete_title": "מחק את החשבון שלי",
+  "account_delete_title": "למחוק את החשבון שלי",
   "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
@@ -2285,7 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
   "prices_app_button": "מעבר ליישומון המחירים",
-  "prices_website_button": "פתוח באתר האינטרנט של Open Prices",
+  "prices_website_button": "פתיחת אתר האינטרנט של Open Prices",
   "prices_bulk_proof_upload_select": "הוספת תגי מחיר ישירות מהגלריה",
   "prices_bulk_proof_upload_warning": "לאחר בחירת תמונות, לא ניתן יהיה לערוך אותן!",
   "prices_bulk_proof_upload_warning_ai": "בינה מלאכותית תרוץ על ההוכחות שלך כדי לחלץ מחירים.",
@@ -4590,7 +4590,7 @@
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
-  "preferences_my_stats_title": "הסטטיסטיקות שלי",
+  "preferences_my_stats_title": "הסטטיסטיקה שלי",
   "@preferences_my_stats_title": {
     "description": "Title for my stats preferences tile"
   },
@@ -4694,7 +4694,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts הוא מאגר מידע של מוצרי מזון **שנוצר על ידי כולם, עבור כולם**.\nניתן להשתמש בו כדי לבצע בחירות מזון טובות יותר, ומכיוון שמדובר ב- **נתונים פתוחים**, כל אחד יכול **לעשות בהם שימוש חוזר לכל מטרה**.",
+  "preferences_legal_header": "Open Food Facts הוא מאגר מידע של מוצרי מזון **שנוצר על ידי כולם, עבור כולם**.\nניתן להשתמש בו כדי לבצע בחירות מזון טובות יותר, ומכיוון שמדובר ב**נתונים פתוחים**, כל אחד ואחת יכולים **לעשות בהם שימוש חוזר לכל מטרה**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5250,7 +5250,7 @@
       }
     }
   },
-  "prices_locations_count_with_total": "{count} מתוך {total} מיקומים",
+  "prices_locations_count_with_total": "{count} מתוך {total} מקומות",
   "@prices_locations_count_with_total": {
     "description": "Number of locations",
     "placeholders": {
@@ -5264,7 +5264,7 @@
       }
     }
   },
-  "prices_locations_count": "מיקומים {count}",
+  "prices_locations_count": "{count} מקומות",
   "@prices_locations_count": {
     "description": "Number of locations (when we don't know the total)",
     "placeholders": {
@@ -5316,7 +5316,7 @@
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
   },
-  "prices_adding_timestamp_tooltip": "נוסף ב- {created}",
+  "prices_adding_timestamp_tooltip": "נוסף ב־{created}",
   "@prices_adding_timestamp_tooltip": {
     "description": "Tooltip to show the timestamp on which price was added",
     "placeholders": {
