@@ -9,12 +9,11 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
-class AppBarStatisticsCard extends StatefulWidget {
+class AppBarStatisticsCard extends StatelessWidget {
   AppBarStatisticsCard({
     required this.imagePath,
     required this.description,
@@ -35,37 +34,27 @@ class AppBarStatisticsCard extends StatefulWidget {
   static const double HEIGHT = 68.0;
 
   @override
-  State<StatefulWidget> createState() => _AppBarStatisticsCardState();
-}
-
-class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
-  bool _loading = false;
-
-  @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
-    final int? count = widget.lazyCounter.getLocalCount(userPreferences);
+    final int? count = lazyCounter.getLocalCount(userPreferences);
 
     return Material(
       borderRadius: ROUNDED_BORDER_RADIUS,
       color: themeExtension.secondaryVibrant.withValues(alpha: 0.8),
       child: SizedBox(
-        height: AppBarStatisticsCard.HEIGHT,
+        height: HEIGHT,
         child: InkWell(
           borderRadius: ROUNDED_BORDER_RADIUS,
-          onTap: widget.onTap,
+          onTap: onTap,
           child: CustomMultiChildLayout(
             delegate: _AppBarStaticsCardLayout(MEDIUM_SPACE),
             children: <Widget>[
               LayoutId(
                 id: _AppBarStatisticsCardLayoutItem.illustration,
-                child: SvgPicture(
-                  AssetBytesLoader(widget.imagePath),
-                  height: 32.0,
-                ),
+                child: SvgPicture(AssetBytesLoader(imagePath), height: 32.0),
               ),
               LayoutId(
                 id: _AppBarStatisticsCardLayoutItem.counter,
@@ -85,19 +74,12 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
               LayoutId(
                 id: _AppBarStatisticsCardLayoutItem.description,
                 child: AutoSizeText(
-                  widget.description,
-                  group: widget.autoSizeGroup,
+                  description,
+                  group: autoSizeGroup,
                   minFontSize: 8.0,
                   softWrap: false,
                   maxLines: 1,
                   style: const TextStyle(color: Colors.white),
-                ),
-              ),
-              LayoutId(
-                id: _AppBarStatisticsCardLayoutItem.refreshButton,
-                child: _AppBarStatisticsCardProgressBar(
-                  onTap: () => _asyncLoad(),
-                  animate: _loading,
                 ),
               ),
             ],
@@ -106,42 +88,9 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
       ),
     );
   }
-
-  Future<void> _asyncLoad() async {
-    if (_loading) {
-      return;
-    }
-    _loading = true;
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    if (mounted) {
-      setState(() {});
-    }
-    try {
-      final int? value = await widget.lazyCounter.getServerCount();
-      if (value != null) {
-        await widget.lazyCounter.setLocalCount(
-          value,
-          userPreferences,
-          notify: false,
-        );
-      }
-    } catch (e) {
-      Logs.e('Error loading data: $e');
-    } finally {
-      _loading = false;
-      if (mounted) {
-        setState(() {});
-      }
-    }
-  }
 }
 
-enum _AppBarStatisticsCardLayoutItem {
-  illustration,
-  counter,
-  description,
-  refreshButton,
-}
+enum _AppBarStatisticsCardLayoutItem { illustration, counter, description }
 
 class _AppBarStaticsCardLayout extends MultiChildLayoutDelegate {
   _AppBarStaticsCardLayout(this.padding);
@@ -159,13 +108,10 @@ class _AppBarStaticsCardLayout extends MultiChildLayoutDelegate {
       availableSize,
     );
 
-    final double buttonWidth = size.height * 0.6;
     final Size counterSize = layoutChild(
       _AppBarStatisticsCardLayoutItem.counter,
       availableSize.deflate(
-        EdgeInsetsDirectional.only(
-          start: illustrationSize.width + padding * 2 + buttonWidth,
-        ),
+        EdgeInsetsDirectional.only(start: illustrationSize.width + padding * 2),
       ),
     );
     final Size descriptionSize = layoutChild(
@@ -178,17 +124,6 @@ class _AppBarStaticsCardLayout extends MultiChildLayoutDelegate {
     final double verticalSpacing =
         (size.height - counterSize.height - descriptionSize.height) / 2;
 
-    final Size refreshButtonSize = layoutChild(
-      _AppBarStatisticsCardLayoutItem.refreshButton,
-      BoxConstraints.tight(
-        Size(buttonWidth, verticalSpacing + counterSize.height),
-      ),
-    );
-
-    positionChild(
-      _AppBarStatisticsCardLayoutItem.refreshButton,
-      Offset(size.width - refreshButtonSize.width, verticalSpacing * 0.5),
-    );
     positionChild(
       _AppBarStatisticsCardLayoutItem.illustration,
       Offset(padding, illustrationSize.height / 2),
