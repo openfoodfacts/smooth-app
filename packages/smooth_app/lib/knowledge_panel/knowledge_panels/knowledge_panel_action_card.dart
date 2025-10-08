@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// "Contribute Actions" for the knowledge panels.
@@ -86,15 +85,10 @@ class KnowledgePanelActionCard extends StatelessWidget {
       return addPanelButton(
         appLocalizations.product_footer_action_report,
         onPressed: () async => LaunchUrlHelper.launchURL(
-          OpenFoodAPIClient.getProductUri(
-            product.barcode!,
-            replaceSubdomain: true,
-            language: ProductQuery.getLanguage(),
-            country: ProductQuery.getCountry(),
-            uriHelper: ProductQuery.getUriProductHelper(
-              productType: product.productType,
-            ),
-          ).toString(),
+          'https://nutripatrol.openfoodfacts.org/flag/product/'
+          '?barcode=${product.barcode}'
+          '&source=mobile'
+          '&flavor=${product.productType?.offTag}',
         ),
       );
     }
