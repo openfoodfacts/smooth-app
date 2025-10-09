@@ -9,7 +9,7 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get app_name => 'Informations sur les aliments ouverts';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => ' ';
@@ -22,7 +22,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Êtes-vous sûr de vouloir supprimer votre compte ?\nS\'il y a une raison spécifique, veuillez partager ci-dessous';
+      'Êtes-vous sûr de vouloir supprimer votre compte ?\nS\'il y a une raison spécifique, veuillez la partager ci-dessous';
 
   @override
   String get reason => 'Raison';
@@ -52,13 +52,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get previous_label => 'Précédent';
 
   @override
-  String get go_back_to_top => 'Retour en haut';
+  String get go_back_to_top => 'Retourner en haut';
 
   @override
   String get save => 'Enregistrer';
 
   @override
-  String get save_confirmation => 'Voulez-vous vraiment sauvegarder ?';
+  String get save_confirmation => 'Voulez-vous vraiment sauvegarder ?';
 
   @override
   String get skip => 'Ignorer';
@@ -1921,7 +1921,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Nom du produit, marque, quantité';
+      'Nom du produit, marque & quantité';
 
   @override
   String get edit_product_form_item_other_details_title =>
@@ -2531,7 +2531,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Dernière actualisation: $date';
+    return 'Dernière actualisation : $date';
   }
 
   @override
@@ -2568,7 +2568,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Raccourci vers l\'application Prix sur la page produit';
 
   @override
-  String get prices_app_button => 'Accéder à l\'application Prix';
+  String get prices_app_button => 'Aller sur le site d\'Open Prices';
 
   @override
   String get prices_website_button => 'Ouvert sur le site Open Prices';
@@ -2735,7 +2735,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get prices_entry_menu_author_prices =>
-      'Voir d\'autres prix de l\'auteur';
+      'Voir les autres prix de l\'auteur';
 
   @override
   String get prices_entry_menu_shop_prices =>
@@ -3458,7 +3458,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Malheureusement, l\'application ne peut pas accéder à votre galerie, car vous avez précédemment refusé l\'autorisation.\n\nVeuillez accéder aux paramètres de l\'application dans les Paramètres de votre téléphone -> Photos';
+      'Malheureusement, l\'application ne peut pas accéder à votre galerie photo, car vous avez précédemment refusé l\'autorisation.\n\nVeuillez accéder aux paramètres de l\'application dans les Paramètres de votre téléphone -> Photos';
 
   @override
   String get gallery_source_access_denied_dialog_button =>
@@ -3537,7 +3537,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Sélectionner le site de recherche : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
+      'Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Pas de connexion internet';
