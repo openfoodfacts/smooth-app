@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -45,9 +46,11 @@ class _ProductPricesListState extends State<ProductPricesList>
   @override
   void initState() {
     super.initState();
+    final UserPreferences userPreferences = context.read<UserPreferences>();
     _priceManager = _InfiniteScrollPriceManager(
       pricesResult: widget.pricesResult,
       model: widget.model,
+      userPreferences: userPreferences,
     );
   }
 
@@ -62,6 +65,7 @@ class _ProductPricesListState extends State<ProductPricesList>
 class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
   _InfiniteScrollPriceManager({
     required this.model,
+    required this.userPreferences,
     GetPricesResult? pricesResult,
   }) : super(
          initialItems: pricesResult?.items,
@@ -71,6 +75,8 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
   /// The model containing price query parameters
   final GetPricesModel model;
+
+  final UserPreferences userPreferences;
 
   @override
   Future<void> fetchData(int pageNumber) async {
@@ -88,12 +94,28 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     }
 
     final GetPricesResult value = result.value;
+    final int? total = value.total;
     updateItems(
       newItems: value.items,
       pageNumber: value.pageNumber,
-      totalItems: value.total,
+      totalItems: total,
       totalPages: value.numberOfPages,
     );
+
+    if (model.lazyCounterPrices != null && total != null) {
+      final int? before = model.lazyCounterPrices!.getLocalCount(
+        userPreferences,
+      );
+      if (before != total) {
+        unawaited(
+          model.lazyCounterPrices!.setLocalCount(
+            total,
+            userPreferences,
+            notify: true,
+          ),
+        );
+      }
+    }
   }
 
   @override
