@@ -134,7 +134,7 @@ class FaqRoot extends PreferencesRoot {
     BuildContext context,
     AppLocalizations appLocalizations,
   ) {
-    return UrlPreferenceTile(
+    return PreferenceTile(
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_off_title,
       subtitleText: null,
@@ -151,7 +151,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.travel_explore_outlined,
+      icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_obf_title,
       subtitleText: null,
       onTap: () => Navigator.of(context, rootNavigator: true).push(
@@ -167,7 +167,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.travel_explore_outlined,
+      icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_opff_title,
       subtitleText: null,
       onTap: () => Navigator.of(context, rootNavigator: true).push(
@@ -183,7 +183,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.travel_explore_outlined,
+      icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_opf_title,
       subtitleText: null,
       onTap: () => Navigator.of(context, rootNavigator: true).push(
@@ -199,7 +199,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.travel_explore_outlined,
+      icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_op_title,
       subtitleText: null,
       onTap: () => Navigator.of(context, rootNavigator: true).push(

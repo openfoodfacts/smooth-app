@@ -129,7 +129,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     ),
                   ),
                   child: PreferenceTile(
-                    icon: Icons.sell_outlined,
+                    icon: const Icon(Icons.sell_outlined),
                     title: appLocalizations.prices_add_price_tags,
                     subtitleText: appLocalizations
                         .preferences_prices_add_price_tags_subtitle,
@@ -173,7 +173,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     ),
                   ),
                   child: PreferenceTile(
-                    icon: Icons.receipt_long_outlined,
+                    icon: const Icon(Icons.receipt_long_outlined),
                     title: appLocalizations.prices_add_a_receipt,
                     subtitleText: appLocalizations
                         .preferences_prices_add_receipt_subtitle,
