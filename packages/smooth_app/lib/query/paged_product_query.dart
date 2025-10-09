@@ -1,5 +1,6 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 
@@ -16,6 +17,7 @@ abstract class PagedProductQuery {
   int get pageNumber => _pageNumber;
 
   final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
   OpenFoodFactsCountry? get country => world ? null : ProductQuery.getCountry();
 
   /// Is that the world mode (true), or the standard country mode (false).
@@ -28,6 +30,8 @@ abstract class PagedProductQuery {
 
   /// Is that a query that has potentially different data for country and world?
   bool hasDifferentCountryWorldData() => false;
+
+  LazyCounter? getLazyCounter() => null;
 
   static const int _typicalPageSize = 25;
   static const int _startPageNumber = 1;

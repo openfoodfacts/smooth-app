@@ -1,5 +1,6 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -54,6 +55,12 @@ class PagedUserProductQuery extends PagedProductQuery {
 
   final String userId;
   final UserSearchType type;
+
+  @override
+  LazyCounter? getLazyCounter() =>
+      (type == UserSearchType.INFORMER && productType == ProductType.food)
+      ? const LazyCounterUserSearch(UserSearchType.INFORMER)
+      : null;
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() => type.getConfiguration(
