@@ -9,7 +9,7 @@ class AppLocalizationsTt extends AppLocalizations {
   AppLocalizationsTt([String locale = 'tt']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Ачык азык фактлары';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1690,7 +1686,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Минем счетны бетерегез';
 
   @override
   String get user_profile => 'Account';
@@ -2511,7 +2507,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Ачык бәяләр сайтында ачыгыз';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4210,10 +4206,6 @@ class AppLocalizationsTt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsTt extends AppLocalizations {
       'Хуҗалык этикеткаларыннан аермалы буларак, Яшел-Счетны исәпләү ** бөтенләй ачык ** һәм аны ** теләсә кем раслый ала **.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4477,6 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ультра эшкәртүнең гомуми максаты - маркалы, уңайлы (чыдам, кулланырга әзер), җәлеп итүчән (гипер-тәмле) һәм югары керемле (аз чыгымлы ингредиентлар) азык-төлек продуктларын барлыкка китерү. Ультра эшкәртелгән азык продуктлары гадәттә җәлеп ителә һәм интенсив базарда сатыла.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4845,7 +4830,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Чыгару уңышлы';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4995,7 +4980,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Минем статистика';
 
   @override
   String get preferences_contribute_subtitle => 'Translate, improve our tools…';
@@ -5132,7 +5117,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_manage_account_title => 'Минем хисап белән идарә итү';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Хисап белән идарә итү';
 
   @override
   String get preferences_change_password_title => 'Серсүземне үзгәртегез';
@@ -5357,7 +5342,8 @@ class AppLocalizationsTt extends AppLocalizations {
       'Мәгълүматлар базасының тулы һәм төгәл булуын тәэмин итү өчен безнең көчебезгә кушылыгыз';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Өстәмә продуктлар';
 
   @override
   String get preferences_contributions_new_products_subtitle =>

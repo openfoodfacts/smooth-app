@@ -5,6 +5,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -14,8 +15,6 @@ class GuideGreenScore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     return GuidesPage(
       pageName: 'GreenScore',
       header: const _GreenScoreHeader(),
@@ -28,7 +27,9 @@ class GuideGreenScore extends StatelessWidget {
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
-          shareUrl: appLocalizations.guide_greenscore_share_link,
+          shareUrl: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/green-score',
+          ),
         ),
       ),
     );

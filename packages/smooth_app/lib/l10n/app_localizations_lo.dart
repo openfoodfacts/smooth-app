@@ -9,7 +9,7 @@ class AppLocalizationsLo extends AppLocalizations {
   AppLocalizationsLo([String locale = 'lo']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'ເປີດຄວາມຈິງກ່ຽວກັບອາຫານ';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1690,7 +1686,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'ລຶບບັນຊີຂອງຂ້ອຍ';
 
   @override
   String get user_profile => 'Account';
@@ -2510,7 +2506,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'ເປີດຢູ່ໃນເວັບໄຊທ໌ Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4209,10 +4205,6 @@ class AppLocalizationsLo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4400,10 +4392,6 @@ class AppLocalizationsLo extends AppLocalizations {
       'ບໍ່ຄືກັບປ້າຍກຳກັບທີ່ເປັນເຈົ້າຂອງ, ການຄຳນວນ Green-Score ແມ່ນ **ເປີດຢ່າງຄົບຖ້ວນ** ແລະສາມາດຖືກກວດສອບໄດ້ໂດຍທຸກຄົນ**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4490,9 +4478,6 @@ class AppLocalizationsLo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ຈຸດປະສົງໂດຍລວມຂອງການປຸງແຕ່ງແບບພິເສດແມ່ນເພື່ອສ້າງຍີ່ຫໍ້, ສະດວກ (ທົນທານ, ພ້ອມທີ່ຈະບໍລິໂພກ), ດຶງດູດໃຈ (hyper-palatable) ແລະຜະລິດຕະພັນອາຫານທີ່ມີກໍາໄລສູງ (ຄ່າໃຊ້ຈ່າຍຕ່ໍາ) ທີ່ຖືກອອກແບບມາເພື່ອຍ້າຍກຸ່ມອາຫານອື່ນໆທັງຫມົດ. ຜະລິດຕະພັນອາຫານທີ່ປຸງແຕ່ງແບບພິເສດແມ່ນປົກກະຕິແລ້ວຖືກຫຸ້ມຫໍ່ຢ່າງດຶງດູດ ແລະ ຕະຫຼາດຢ່າງເຂັ້ມງວດ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4843,10 +4828,11 @@ class AppLocalizationsLo extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress =>
+      'ການສະກັດເອົາກຳລັງດຳເນີນຢູ່…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'ການສະກັດເອົາສຳເລັດແລ້ວ';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4995,7 +4981,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'ສະຖິຕິຂອງຂ້ອຍ';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5079,7 +5065,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts ເປັນຖານຂໍ້ມູນຜະລິດຕະພັນອາຫານ **ເຮັດໂດຍທຸກຄົນ, ສໍາລັບທຸກຄົນ**.\nທ່ານ​ສາ​ມາດ​ນໍາ​ໃຊ້​ມັນ​ເພື່ອ​ເຮັດ​ໃຫ້​ການ​ເລືອກ​ອາ​ຫານ​ທີ່​ດີກ​ວ່າ​, ແລະ​ຍ້ອນ​ວ່າ​ມັນ​ເປັນ **ການ​ເປີດ​ຂໍ້​ມູນ​**​, ໃຜ​ກໍ​ຕາມ​ສາ​ມາດ **ໃຊ້​ຄືນ​ໃຫມ່​ສໍາ​ລັບ​ຈຸດ​ປະ​ສົງ​ໃດ​ຫນຶ່ງ **​.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5136,7 +5122,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_manage_account_title => 'ຈັດການບັນຊີຂອງຂ້ອຍ';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'ຈັດການບັນຊີຂອງທ່ານ';
 
   @override
   String get preferences_change_password_title => 'ປ່ຽນລະຫັດຜ່ານຂອງຂ້ອຍ';
@@ -5355,7 +5341,8 @@ class AppLocalizationsLo extends AppLocalizations {
       'ເຂົ້າຮ່ວມຄວາມພະຍາຍາມຂອງພວກເຮົາເພື່ອຮັບປະກັນຖານຂໍ້ມູນແມ່ນຄົບຖ້ວນແລະຖືກຕ້ອງ';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'ເພີ່ມຜະລິດຕະພັນ';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5377,7 +5364,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'ລາຄາຂອງຂ້ອຍ, ຫຼັກຖານຂອງຂ້ອຍ…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5508,7 +5495,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count ຂອງ $total ຫຼັກຖານສະແດງ';
   }
 
   @override
@@ -5518,7 +5505,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count ຂອງ $total ຜູ້ປະກອບສ່ວນ';
   }
 
   @override
@@ -5528,12 +5515,12 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count ຂອງ $total ສະຖານທີ່';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count ສະຖານທີ່';
   }
 
   @override
@@ -5578,6 +5565,6 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'ເພີ່ມໃສ່ $created';
   }
 }

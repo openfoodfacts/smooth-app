@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "အစားအသောက် အချက်အလက်များကို ဖွင့်ပါ။",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "terms of use and contribution",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
-  "@account_deletion_subject": {
+  "account_delete_title": "ကျွန်ုပ်၏အကောင့်ကိုဖျက်ပါ။",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "Open Prices ဝဘ်ဆိုဒ်တွင် ဖွင့်ပါ။",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "ရေရှည်တည်တံ့သောအစားအစာကိုရွေးချယ်ခြင်းသည်ရှုပ်ထွေးခံစားရနိုင်သည်။ အညွှန်းများသည် ရှုပ်ထွေးနေပြီး အချက်အလက် မကြာခဏ ပျောက်ဆုံးနေပါသည်။ Green-Score သည် အစားအသောက်ထုတ်ကုန်များအတွက် **ရှင်းလင်းသော**၊ **သိပ္ပံအခြေခံ** နှင့် **အကြည်** ပတ်ဝန်းကျင်အဆင့်သတ်မှတ်ခြင်းတို့ကို ပေးစွမ်းနိုင်စေရန် ရိုးရှင်းစေရန် ဖန်တီးထားပါသည်- သင်စျေးဝယ်နေစဉ်။",
   "guide_greenscore_better_product_arg4_title": "ပွင့်လင်းမြင်သာမှု",
   "guide_greenscore_better_product_arg4_text": "မူပိုင်အညွှန်းများနှင့်မတူဘဲ၊ Green-Score တွက်ချက်မှုသည် **လုံးဝဖွင့်ထားသည်** ဖြစ်ပြီး မည်သူမဆို **စစ်ဆေးနိုင်ပါသည်။**",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "အများအားဖြင့် ပါဝင်ပစ္စည်းများ အများအပြားကို ပေါင်းစပ်ပြီး နောက်ဆုံးထုတ်ကုန်ကို ဖန်တီးရန် (ထို့ကြောင့် 'လွန်ကဲစွာ စီမံဆောင်ရွက်သည်') လုပ်ငန်းစဉ်များ၏ ဆက်တိုက်များပြားသော လုပ်ငန်းစဉ်များကို အသုံးပြုပါသည်။ လုပ်ငန်းစဉ်များတွင် ဟိုက်ဒရိုဂျင်နှင့် ဟိုက်ဒရိုဂျင် ထုတ်ပေးခြင်း၊ ထုတ်ယူခြင်းနှင့် ပုံသွင်းခြင်းနှင့် ကြော်ခြင်းအတွက် ကြိုတင်လုပ်ဆောင်ခြင်းကဲ့သို့သော ပြည်တွင်း ညီမျှမှုမရှိသော လုပ်ငန်းစဉ်များစွာ ပါဝင်ပါသည်။",
   "guide_nova_explanations_arg4_title": "လွန်ကဲစွာ လုပ်ဆောင်ခြင်း၏ အာဏာရှင်ဆန်မှုနှင့် ငွေကြေးဆိုင်ရာ ကဏ္ဍများ",
   "guide_nova_explanations_arg4_text": "လွန်ကဲစွာ စီမံဆောင်ရွက်ပေးခြင်း၏ အလုံးစုံရည်ရွယ်ချက်မှာ အခြားအစားအစာအုပ်စုအားလုံးကို ရွှေ့ပြောင်းရန် ဒီဇိုင်းထုတ်ထားသော အမှတ်တံဆိပ်ပါသော၊ အဆင်ပြေသော (တာရှည်ခံ၊ စားသုံးရန်အသင့်)၊ ဆွဲဆောင်မှု (hyper-palatable) နှင့် အလွန်အမြတ်အစွန်းရနိုင်သော (ကုန်ကျစရိတ်သက်သာသော ပါဝင်ပစ္စည်းများ) အစားအသောက်ထုတ်ကုန်များကို ဖန်တီးရန်ဖြစ်သည်။ လွန်လွန်ကဲကဲ ပြုပြင်ထားသော အစားအသောက်ထုတ်ကုန်များကို အများအားဖြင့် ဆွဲဆောင်မှုရှိရှိ ထုပ်ပိုးပြီး စျေးကွက်တွင် အလေးအနက်ထားကြသည်။",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "ထုတ်ယူနေဆဲ…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "ထုတ်ယူခြင်း အောင်မြင်ပါသည်။",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "My contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "ငါ့စာရင်းဇယား",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "ဘာသာပြန်ပါ၊ ကျွန်ုပ်တို့၏ကိရိယာများ…ကို တိုးတက်အောင်လုပ်ပါ။",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "Open Food Facts သည် လူတိုင်းအတွက်၊ လူတိုင်းအတွက် ဖန်တီးထားသော အစားအသောက်ဒေတာဘေ့စ်တစ်ခုဖြစ်သည်။\nပိုမိုကောင်းမွန်သော အစားအသောက်ရွေးချယ်မှုများပြုလုပ်ရန် ၎င်းကို သင်အသုံးပြုနိုင်ပြီး ၎င်းသည် **open data**ဖြစ်သောကြောင့် မည်သူမဆို ၎င်းကို မည်သည့်ရည်ရွယ်ချက်အတွက်မဆို **ပြန်လည်အသုံးပြုနိုင်ပါသည်။",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "ကျွန်ုပ်၏အကောင့်ကိုစီမံပါ။",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "သင့်အကောင့်ကို စီမံခန့်ခွဲပါ။",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "ကျွန်ုပ်၏ စကားဝှက်ကို ပြောင်းပါ။",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "ဆိုရှယ်မီဒီယာပေါ်တွင်ကျွန်ုပ်တို့ကိုလိုက်နာပါ။",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "Open Food Facts ဘလော့ဂ်",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "တရားမ၀င် ကုန်ပစ္စည်းများ ထည့်သွင်းထားသည်။",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "ထုတ်ကုန်များထည့်ထားသည်။",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "Open Food Facts တွင် ကျွန်ုပ်ထည့်ထားသော ထုတ်ကုန်အသစ်များ",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "ပြီးပြည့်စုံရန် လိုအပ်သော ထုတ်ကုန်များ",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "မပြည့်စုံသောထုတ်ကုန်အားလုံး",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "ငါ့စျေးနှုန်း၊ ငါ့သက်သေ…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "ပြီးပြည့်စုံအောင် ကူညီပေးနိုင်တဲ့ ထုတ်ကုန်တွေ",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} ၏ {total} အထောက်အထားများ",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} ၏ {total} ပံ့ပိုးသူများ",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} ၏ {total} တည်နေရာများ",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} တည်နေရာများ",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "အပြောင်းအလဲများကို အသုံးပြုရန် အက်ပ်ကို ပြန်လည်စတင်ပါ။",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Account",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "{created}တွင် ထည့်သွင်းခဲ့သည်။",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

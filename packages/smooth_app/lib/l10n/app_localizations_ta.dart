@@ -9,7 +9,7 @@ class AppLocalizationsTa extends AppLocalizations {
   AppLocalizationsTa([String locale = 'ta']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'திறந்த உணவு உண்மைகள்';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1693,7 +1689,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'எனது கணக்கை நீக்கு.';
 
   @override
   String get user_profile => 'Account';
@@ -2516,7 +2512,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'திறந்த விலைகள் வலைத்தளத்தில் திறக்கவும்';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4226,10 +4222,6 @@ class AppLocalizationsTa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'பச்சை-ஸ்கோர்';
 
   @override
@@ -4418,10 +4410,6 @@ class AppLocalizationsTa extends AppLocalizations {
       'தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4509,9 +4497,6 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'அல்ட்ரா-பதப்படுத்தலின் ஒட்டுமொத்த நோக்கம், மற்ற அனைத்து உணவுக் குழுக்களையும் மாற்றுவதற்காக வடிவமைக்கப்பட்ட பிராண்டட், வசதியான (நீடித்த, உட்கொள்ளத் தயாராக), கவர்ச்சிகரமான (மிகவும் சுவையான) மற்றும் அதிக லாபகரமான (குறைந்த விலை பொருட்கள்) உணவுப் பொருட்களை உருவாக்குவதாகும். அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுப் பொருட்கள் பொதுவாக கவர்ச்சிகரமான முறையில் பேக் செய்யப்பட்டு தீவிரமாக சந்தைப்படுத்தப்படுகின்றன.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4862,10 +4847,12 @@ class AppLocalizationsTa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'இப்போது பிரித்தெடு';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress =>
+      'பிரித்தெடுக்கும் பணி நடந்து கொண்டிருக்கிறது…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful =>
+      'பிரித்தெடுத்தல் வெற்றியடைந்தது';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5016,7 +5003,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'எனது புள்ளிவிவரங்கள்';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5101,7 +5088,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் என்பது அனைவராலும், அனைவருக்கும்** உருவாக்கப்பட்ட உணவுப் பொருட்களின் தரவுத்தளமாகும்.\nசிறந்த உணவுத் தேர்வுகளைச் செய்ய நீங்கள் இதைப் பயன்படுத்தலாம், மேலும் இது **திறந்த தரவு** என்பதால், யார் வேண்டுமானாலும் எந்த நோக்கத்திற்காகவும் இதை மீண்டும் பயன்படுத்தலாம்**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5158,7 +5145,8 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_manage_account_title => 'எனது கணக்கை நிர்வகிக்கவும்';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip =>
+      'உங்கள் கணக்கை நிர்வகிக்கவும்';
 
   @override
   String get preferences_change_password_title => 'எனது கடவுச்சொல்லை மாற்று';
@@ -5385,7 +5373,8 @@ class AppLocalizationsTa extends AppLocalizations {
       'தரவுத்தளம் முழுமையாகவும் துல்லியமாகவும் இருப்பதை உறுதிசெய்ய எங்கள் முயற்சியில் சேருங்கள்.';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'சேர்க்கப்பட்ட தயாரிப்புகள்';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5403,11 +5392,11 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'எனது விலைகள்';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'என்னுடைய விலைகள், என்னுடைய சான்றுகள்…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5542,32 +5531,32 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count / $total சான்றுகள்';
   }
 
   @override
   String proof_count(int count) {
-    return '$count proofs';
+    return '$count சான்றுகள்';
   }
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$total பங்களிப்பாளர்களில் $count';
   }
 
   @override
   String contributors_count(int count) {
-    return '$count contributors';
+    return '$count பங்களிப்பாளர்கள்';
   }
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$total இடங்களில் $count';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count இடங்கள்';
   }
 
   @override
@@ -5612,6 +5601,6 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '$createdஇல் சேர்க்கப்பட்டது';
   }
 }

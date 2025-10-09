@@ -9,7 +9,7 @@ class AppLocalizationsEu extends AppLocalizations {
   AppLocalizationsEu([String locale = 'eu']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Janari Irekien Datuak';
 
   @override
   String get sep => '';
@@ -324,10 +324,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1694,7 +1690,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get account_delete => 'Ezabatu kontua';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Ezabatu nire kontua';
 
   @override
   String get user_profile => 'Kontua';
@@ -2516,7 +2512,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get prices_app_button => 'Joan Prezioak aplikaziora';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Ireki Open Prices webgunean';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4223,10 +4219,6 @@ class AppLocalizationsEu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4418,10 +4410,6 @@ class AppLocalizationsEu extends AppLocalizations {
       'Etiketa jabedunen aldean, Green-Score kalkulua **guztiz irekia** da eta edonork **egiaztatu** dezake.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4509,9 +4497,6 @@ class AppLocalizationsEu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultraprozesamenduaren helburu nagusia markako, erosoko (iraunkorrak, kontsumitzeko prest), erakargarriak (hiper-ahogozoak) eta oso errentagarriak (kostu baxuko osagaiak) diren elikagaiak sortzea da, gainerako elikagai-talde guztiak ordezkatzeko diseinatuta. Ultraprozesatutako elikagaiak normalean modu erakargarrian ontziratzen dira eta modu intentsiboan merkaturatzen dira.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4862,10 +4847,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Ateratze prozesuan…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Erauzketa arrakastatsua';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5012,10 +4997,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_contribute_title => 'Ekarpena egin';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Nire ekarpenak';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Nire estatistikak';
 
   @override
   String get preferences_contribute_subtitle => 'Itzuli, hobetu gure tresnak…';
@@ -5097,7 +5082,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts elikagai produktuen datu-base bat da, **denek eta guztiontzat egindakoa**.\nElikagai-aukera hobeak egiteko erabil dezakezu, eta **datu irekiak** direnez, edonork **berrerabili dezake edozein xedetarako**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5153,7 +5138,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_manage_account_title => 'Kudeatu nire kontua';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Kudeatu zure kontua';
 
   @override
   String get preferences_change_password_title => 'Aldatu nire pasahitza';
@@ -5379,7 +5364,8 @@ class AppLocalizationsEu extends AppLocalizations {
       'Batu zaitez gure ahaleginari datu-basea osoa eta zehatza dela ziurtatzeko';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Gehitutako produktuak';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5401,7 +5387,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Nire prezioak, nire frogak…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5535,7 +5521,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count frogak $total -tik';
   }
 
   @override
@@ -5545,7 +5531,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count laguntzaileetatik $total';
   }
 
   @override
@@ -5555,12 +5541,12 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count kokapenetatik $total';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count kokapenak';
   }
 
   @override
@@ -5605,6 +5591,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Gehituta $created-n';
   }
 }

@@ -9,7 +9,7 @@ class AppLocalizationsMt extends AppLocalizations {
   AppLocalizationsMt([String locale = 'mt']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Fatti dwar l-Ikel Miftuħ';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1690,7 +1686,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Ħassar il-kont tiegħi';
 
   @override
   String get user_profile => 'Account';
@@ -2510,7 +2506,8 @@ class AppLocalizationsMt extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button =>
+      'Iftaħ fuq il-websajt tal-Prezzijiet Miftuħa';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4211,10 +4208,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4396,6 @@ class AppLocalizationsMt extends AppLocalizations {
       'B\'differenza mit-tikketti proprjetarji, il-kalkolu tal-Green-Score huwa **kompletament miftuħ** u jista\' jiġi **verifikat minn kulħadd**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4493,9 +4482,6 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'L-iskop ġenerali tal-ultra-proċessar huwa li jinħolqu prodotti tal-ikel tad-ditta, konvenjenti (durabbli, lesti biex jiġu kkunsmati), attraenti (iper-palatabbli) u profittabbli ħafna (ingredjenti bi prezz baxx) iddisinjati biex jieħdu post il-gruppi tal-ikel l-oħra kollha. Prodotti tal-ikel ultra-proċessati ġeneralment ikunu ppakkjati b\'mod attraenti u kkummerċjalizzati b\'mod intensiv.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4846,10 +4832,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Estrazzjoni għaddejja…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Estrazzjoni b\'suċċess';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4999,7 +4985,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'L-istatistika tiegħi';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5083,7 +5069,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts hija database ta\' prodotti tal-ikel **magħmula minn kulħadd, għal kulħadd**.\nTista\' tużaha biex tagħmel għażliet aħjar tal-ikel, u peress li hija **dejta miftuħa**, kulħadd jista\' **jerġa\' jużaha għal kwalunkwe skop**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5140,7 +5126,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get preferences_manage_account_title => 'Immaniġġja l-kont tiegħi';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Immaniġġja l-kont tiegħek';
 
   @override
   String get preferences_change_password_title => 'Ibdel il-password tiegħi';
@@ -5365,7 +5351,8 @@ class AppLocalizationsMt extends AppLocalizations {
       'Ingħaqad mal-isforz tagħna biex niżguraw li d-database tkun kompluta u preċiża';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Prodotti miżjuda';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5387,7 +5374,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Il-prezzijiet tiegħi, il-provi tiegħi…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5521,7 +5508,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count ta\' $total provi';
   }
 
   @override
@@ -5531,7 +5518,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count minn $total kontributuri';
   }
 
   @override
@@ -5541,12 +5528,12 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count minn $total postijiet';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count postijiet';
   }
 
   @override
@@ -5591,6 +5578,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Miżjud fuq $created';
   }
 }

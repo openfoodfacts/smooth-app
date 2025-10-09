@@ -9,7 +9,7 @@ class AppLocalizationsBr extends AppLocalizations {
   AppLocalizationsBr([String locale = 'br']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Digor eo ar fedoù diwar-benn ar boued';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1691,7 +1687,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Dilemel ma c\'hont';
 
   @override
   String get user_profile => 'Account';
@@ -2511,7 +2507,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Digor war lec\'hienn Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4213,10 +4209,6 @@ class AppLocalizationsBr extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4406,10 +4398,6 @@ class AppLocalizationsBr extends AppLocalizations {
       'Er c\'hontrol d\'an tikedennoù perc\'hennet, ar jediñ Green-Score a zo **digor penn-da-benn** ha gallout a ra bezañ **gwiriekaet gant piv bennak**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://br.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4497,9 +4485,6 @@ class AppLocalizationsBr extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket, aes (padus, prest da zebriñ), dedennus (tre-blev) ha gounezus-kenañ (elfennoù izel) savet evit dilec\'hiañ an holl strolladoù boued all. Ar produioù boued ultra-treuzfurmet a vez paket en un doare dedennus ha marc\'hataet kalz peurliesañ.';
-
-  @override
-  String get guide_nova_share_link => 'https://br.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4850,10 +4835,11 @@ class AppLocalizationsBr extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress =>
+      'An eztennañ o vont war-raok…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Deuet eo an tennañ da benn';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5002,7 +4988,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Ma stadegoù';
 
   @override
   String get preferences_contribute_subtitle => 'Troiñ, gwellaat hon ostilhoù…';
@@ -5084,7 +5070,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts zo un diaz roadennoù produioù boued **savet gant pep hini, evit pep hini**.\nGallout a rit implijout anezhañ evit dibab boued gwelloc\'h, ha dre ma\'z eo **roadennoù digor** e c\'hall pep hini **adimplij anezhañ evit ne vern petra**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5141,7 +5127,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get preferences_manage_account_title => 'Merañ ma c\'hont';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Merañ ho kont';
 
   @override
   String get preferences_change_password_title => 'Cheñchit ma ger-tremen';
@@ -5366,7 +5352,8 @@ class AppLocalizationsBr extends AppLocalizations {
       'Kemer perzh en hor striv evit ma vo klok ha reizh an diaz roadennoù';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Produioù ouzhpennet';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5388,7 +5375,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Ma prizioù, ma prouennoù…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5522,7 +5509,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count eus $total prouennoù';
   }
 
   @override
@@ -5532,7 +5519,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count eus $total kenlabourerien';
   }
 
   @override
@@ -5542,12 +5529,12 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count eus $total lec\'hiadurioù';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count lec\'hiadurioù';
   }
 
   @override
@@ -5592,6 +5579,6 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Ouzhpennet d\'an $created';
   }
 }

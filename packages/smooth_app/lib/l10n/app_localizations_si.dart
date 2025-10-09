@@ -9,7 +9,7 @@ class AppLocalizationsSi extends AppLocalizations {
   AppLocalizationsSi([String locale = 'si']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'විවෘත ආහාර පිළිබඳ කරුණු';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1690,7 +1686,7 @@ class AppLocalizationsSi extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'මගේ ගිණුම මකන්න';
 
   @override
   String get user_profile => 'Account';
@@ -2511,7 +2507,8 @@ class AppLocalizationsSi extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button =>
+      'විවෘත මිල ගණන් වෙබ් අඩවියෙන් විවෘත කරන්න.';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4212,10 +4209,6 @@ class AppLocalizationsSi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4402,10 +4395,6 @@ class AppLocalizationsSi extends AppLocalizations {
       'හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4480,6 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'අල්ට්‍රා-සැකසීමේ සමස්ත අරමුණ වන්නේ අනෙකුත් සියලුම ආහාර කාණ්ඩ විස්ථාපනය කිරීම සඳහා නිර්මාණය කර ඇති සන්නාමගත, පහසු (කල් පවතින, පරිභෝජනයට සූදානම්), ආකර්ශනීය (අධි-රසවත්) සහ ඉහළ ලාභදායී (අඩු වියදම් අමුද්‍රව්‍ය) ආහාර නිෂ්පාදන නිර්මාණය කිරීමයි. අල්ට්‍රා-සැකසූ ආහාර නිෂ්පාදන සාමාන්‍යයෙන් ආකර්ශනීය ලෙස ඇසුරුම් කර දැඩි ලෙස අලෙවි කරනු ලැබේ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4844,10 +4830,11 @@ class AppLocalizationsSi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress =>
+      'උපුටා ගැනීම සිදුවෙමින් පවතී…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'උපුටා ගැනීම සාර්ථකයි';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4996,7 +4983,7 @@ class AppLocalizationsSi extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'මගේ සංඛ්‍යාලේඛන';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5079,7 +5066,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts යනු සෑම කෙනෙකුම විසින්ම, සෑම කෙනෙකුටම** සාදන ලද ආහාර නිෂ්පාදන දත්ත සමුදායකි.\nවඩා හොඳ ආහාර තේරීම් කිරීමට ඔබට එය භාවිතා කළ හැකි අතර, එය **විවෘත දත්ත** බැවින්, ඕනෑම කෙනෙකුට ඕනෑම අරමුණක් සඳහා එය නැවත භාවිතා කළ හැකිය**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5136,7 +5123,7 @@ class AppLocalizationsSi extends AppLocalizations {
   String get preferences_manage_account_title => 'මගේ ගිණුම කළමනාකරණය කරන්න';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'ඔබගේ ගිණුම කළමනාකරණය කරන්න';
 
   @override
   String get preferences_change_password_title => 'මගේ මුරපදය වෙනස් කරන්න';
@@ -5359,7 +5346,8 @@ class AppLocalizationsSi extends AppLocalizations {
       'දත්ත සමුදාය සම්පූර්ණ හා නිවැරදි බව සහතික කිරීමට අපගේ උත්සාහයට සම්බන්ධ වන්න.';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'එකතු කළ නිෂ්පාදන';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5381,7 +5369,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'මගේ මිල ගණන්, මගේ සාක්ෂි…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5513,7 +5501,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count න් $total සාක්ෂි';
   }
 
   @override
@@ -5523,7 +5511,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$total දායකයින්ගෙන් $count';
   }
 
   @override
@@ -5533,12 +5521,12 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$total ස්ථාන වලින් $count';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count ස්ථාන';
   }
 
   @override
@@ -5582,6 +5570,6 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return '$createdදින එකතු කරන ලදී';
   }
 }

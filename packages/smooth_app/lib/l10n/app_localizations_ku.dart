@@ -9,7 +9,7 @@ class AppLocalizationsKu extends AppLocalizations {
   AppLocalizationsKu([String locale = 'ku']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Rastiyên Xwarinê yên Vekirî';
 
   @override
   String get sep => '';
@@ -322,10 +322,6 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1690,7 +1686,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Hesabê min jê bibe';
 
   @override
   String get user_profile => 'Account';
@@ -2510,7 +2506,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Li ser malpera Open Prices vekin';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4211,10 +4207,6 @@ class AppLocalizationsKu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4393,6 @@ class AppLocalizationsKu extends AppLocalizations {
       'Berevajî etîketên taybet, hesabkirina Green-Score **bi tevahî vekirî** ye û dikare ji hêla **her kesî** ve were verast kirin.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4480,6 @@ class AppLocalizationsKu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Armanca giştî ya ultra-proseskirinê ew e ku berhemên xwarinê yên bi marqe, hêsan (mayînde, amade ne ji bo vexwarinê), balkêş (pir xweş) û pir qezenckar (malzemeyên erzan) biafirînin ku ji bo cîhê hemû komên xwarinên din hatine çêkirin. Berhemên xwarinê yên ultra-proseskirî bi gelemperî bi rengek balkêş têne pakêt kirin û bi giranî têne bazar kirin.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4845,10 +4830,10 @@ class AppLocalizationsKu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Derxistin berdewam dike…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Derxistin serkeftî bû';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4997,7 +4982,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Statîstîkên min';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5080,7 +5065,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Rastîyên Xwarinê yên Vekirî (Open Food Facts) databeseke berhemên xwarinê ye ku **ji hêla her kesî ve, ji bo her kesî** hatiye çêkirin.\nHûn dikarin wê bikar bînin da ku hilbijartinên xwarinê yên çêtir bikin, û ji ber ku ew **daneya vekirî** ye, her kes dikare **wê ji bo her armancê ji nû ve bikar bîne**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5137,7 +5122,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get preferences_manage_account_title => 'Hesabê min birêve bibe';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Hesabê xwe birêve bibe';
 
   @override
   String get preferences_change_password_title => 'Şîfreya min biguherîne';
@@ -5364,7 +5349,8 @@ class AppLocalizationsKu extends AppLocalizations {
       'Ji bo ku hûn daneyên xwe temam û rast bikin, beşdarî hewldana me bibin';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Berhemên zêdekirî';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5386,7 +5372,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Bihayên min, delîlên min…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5519,7 +5505,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count ji $total delîlan';
   }
 
   @override
@@ -5529,7 +5515,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count ji $total beşdaran';
   }
 
   @override
@@ -5539,12 +5525,12 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count ji $total cihan';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count cih';
   }
 
   @override
@@ -5588,6 +5574,6 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Li ser ${created}zêdekirî';
   }
 }

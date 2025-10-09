@@ -9,7 +9,7 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Open voedselfeiten';
 
   @override
   String get sep => '';
@@ -326,10 +326,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'gebruiksvoorwaarden en bijdrage';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1708,7 +1704,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get account_delete => 'Account verwijderen';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Verwijder mijn account';
 
   @override
   String get user_profile => 'Account';
@@ -2547,7 +2543,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_app_button => 'Ga naar de Prijzen-app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Open op de website van Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4261,10 +4257,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Voor fabrikanten blijft de weergave van de Nutri-Score **optioneel**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4450,10 +4442,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'In tegenstelling tot merkgebonden labels is de Green-Score-berekening **volledig open** en kan deze **door iedereen** worden geverifieerd.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-verwerkte voedingsmiddelen';
 
   @override
@@ -4541,9 +4529,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Voorbeeld';
@@ -4899,10 +4884,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Nu extraheren';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Extractie bezig…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Extractie succesvol';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5049,10 +5034,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get preferences_contribute_title => 'Bijdragen';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Mijn bijdragen';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Mijn statistieken';
 
   @override
   String get preferences_contribute_subtitle => 'Vertaal, verbeter onze tools…';
@@ -5134,7 +5119,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts is een database met voedselproducten **gemaakt door iedereen, voor iedereen**.\nU kunt het gebruiken om betere voedselkeuzes te maken, en omdat het **open data** is, kan iedereen het **hergebruiken voor welk doel dan ook**.';
 
   @override
   String get preferences_privacy_policy => 'Privacybeleid';
@@ -5191,7 +5176,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get preferences_manage_account_title => 'Mijn account beheren';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Beheer uw account';
 
   @override
   String get preferences_change_password_title => 'Mijn wachtwoord wijzigen';
@@ -5414,7 +5399,8 @@ class AppLocalizationsNl extends AppLocalizations {
       'Sluit u aan bij onze inspanningen om ervoor te zorgen dat de database compleet en nauwkeurig is';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Toegevoegde producten';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5429,14 +5415,14 @@ class AppLocalizationsNl extends AppLocalizations {
       'Alle onvolledige producten';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Prijzen';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Mijn prijzen';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Mijn prijzen, mijn bewijzen…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5569,32 +5555,32 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count van $total bewijzen';
   }
 
   @override
   String proof_count(int count) {
-    return '$count proofs';
+    return '$count bewijzen';
   }
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count van $total bijdragers';
   }
 
   @override
   String contributors_count(int count) {
-    return '$count contributors';
+    return '$count bijdragers';
   }
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count van $total locaties';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count locaties';
   }
 
   @override
@@ -5639,6 +5625,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Toegevoegd op $created';
   }
 }

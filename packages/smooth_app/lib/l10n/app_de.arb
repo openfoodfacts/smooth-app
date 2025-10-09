@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Öffnen Sie Lebensmittelfakten",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "Nutzungsbedingungen von Open Food Facts zu",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://world-de.openfoodfacts.org/spenden",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Mein Benutzerkonto löschen",
-  "@account_deletion_subject": {
+  "account_delete_title": "Mein Konto löschen",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Konto",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
   "prices_app_button": "Zur Preise-App wechseln",
+  "prices_website_button": "Öffnen Sie auf der Open Prices-Website",
   "prices_bulk_proof_upload_select": "Preisschilder direkt aus der Galerie hinzufügen",
   "prices_bulk_proof_upload_warning": "Sobald Sie Fotos ausgewählt haben, können diese nicht mehr bearbeitet werden!",
   "prices_bulk_proof_upload_warning_ai": "KI prüft Ihre Nachweise, um Preise zu ermitteln.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
   "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.",
-  "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "Die Auswahl nachhaltiger Lebensmittel kann komplex sein. Etiketten sind verwirrend und oft fehlen Informationen. Der Green-Score wurde entwickelt, um die Auswahl zu vereinfachen. Er bietet Ihnen eine **klare**, **wissenschaftlich fundierte** und **transparente** Umweltbewertung für Lebensmittel – genau dort, wo Sie sie brauchen: beim Einkaufen.",
   "guide_greenscore_better_product_arg4_title": "Transparenz",
   "guide_greenscore_better_product_arg4_text": "Im Gegensatz zu proprietären Labels ist die Green-Score-Berechnung **völlig offen** und kann **von jedem überprüft** werden.",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Sehr hoch verarbeitete Lebensmittel",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "Um die meist zahlreichen Zutaten zu kombinieren und das Endprodukt herzustellen (daher der Name „ultra-verarbeitet“), werden zahlreiche Prozessabläufe durchgeführt. Zu den Prozessen gehören mehrere, für die es im Inland keine Entsprechungen gibt, wie etwa Hydrierung und Hydrolyse, Extrusion und Formgebung sowie die Vorverarbeitung zum Frittieren.",
   "guide_nova_explanations_arg4_title": "Die räuberischen und finanziellen Aspekte der Ultraverarbeitung",
   "guide_nova_explanations_arg4_text": "Der Hauptzweck der Ultra-Verarbeitung besteht darin, Marken-Lebensmittel zu schaffen, die praktisch (haltbar, verzehrfertig), attraktiv (überaus schmackhaft) und hochprofitabel (preiswerte Zutaten) sind und alle anderen Lebensmittelgruppen verdrängen sollen. Ultra-verarbeitete Lebensmittel werden in der Regel attraktiv verpackt und intensiv vermarktet.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Vorschau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Erfolgreich extrahiert",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Extraktion läuft…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "Extraktion erfolgreich",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Nährstoffe konnten nicht aus dem Bild extrahiert werden",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "Meine Beiträge",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Meine Statistiken",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "Übersetzen, unsere Tools verbessern…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "Open Food Facts ist eine Lebensmitteldatenbank, **von allen für alle**.\nSie können sie nutzen, um bessere Lebensmittel auszuwählen, und da es sich um **offene Daten** handelt, kann sie jeder **für beliebige Zwecke wiederverwenden**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Datenschutzrichtlinien",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "Mein Konto verwalten",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Verwalten Sie Ihr Konto",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "Mein Passwort ändern",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "Folgen Sie uns auf Social Media",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "Der Open Food Facts Blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "0 Produkte hinzugefügt",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "Hinzugefügte Produkte",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "Neue Produkte, die ich zu Open Food Facts hinzugefügt habe",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "Produkte, die ich vervollständigen muss",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "Alle unvollständigen Produkte",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Preise",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Mein Preise",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Meine Preise, meine Beweise…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "Produkte, bei deren Fertigstellung Sie mithelfen können",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} von {total} Beweisen",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} Belege",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} von {total} Mitwirkenden",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} Mitwirkende",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} von {total} Standorten",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} Standorte",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "Bitte starten Sie die App neu, um die Änderungen zu übernehmen.",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Konto",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Hinzugefügt am {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

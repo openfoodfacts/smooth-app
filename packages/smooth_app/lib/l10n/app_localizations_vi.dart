@@ -9,7 +9,7 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Mở sự thật về thực phẩm';
 
   @override
   String get sep => '';
@@ -324,10 +324,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'điều khoản sử dụng và đóng góp';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1702,7 +1698,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get account_delete => 'Xoá tài khoản';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Xóa tài khoản của tôi';
 
   @override
   String get user_profile => 'Tài khoản';
@@ -2526,7 +2522,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Mở trên trang web Giá mở';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4235,10 +4231,6 @@ class AppLocalizationsVi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Điểm sinh thái';
 
   @override
@@ -4424,10 +4416,6 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Thức ăn siêu chế biến';
 
   @override
@@ -4516,9 +4504,6 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Mục đích chung của siêu chế biến là tạo ra các sản phẩm thực phẩm có thương hiệu, tiện lợi (bền, dễ tiêu thụ), hấp dẫn (siêu ngon miệng) và có lợi nhuận cao (nguyên liệu giá rẻ) được thiết kế để thay thế tất cả các nhóm thực phẩm khác. Các sản phẩm thực phẩm siêu chế biến thường được đóng gói hấp dẫn và tiếp thị rầm rộ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4870,10 +4855,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Đang trích xuất…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Trích xuất thành công';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5019,10 +5004,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get preferences_contribute_title => 'Góp phần';
 
   @override
-  String get preferences_my_contributions_title => 'My contributions';
+  String get preferences_my_contributions_title => 'Đóng góp của tôi';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Thống kê của tôi';
 
   @override
   String get preferences_contribute_subtitle =>
@@ -5106,7 +5091,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts là cơ sở dữ liệu về sản phẩm thực phẩm **do mọi người tạo ra, dành cho mọi người**.\nBạn có thể sử dụng cơ sở dữ liệu này để đưa ra những lựa chọn thực phẩm tốt hơn và vì đây là **dữ liệu mở** nên bất kỳ ai cũng có thể **tái sử dụng cho bất kỳ mục đích nào**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5163,7 +5148,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get preferences_manage_account_title => 'Quản lý tài khoản của tôi';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Quản lý tài khoản của bạn';
 
   @override
   String get preferences_change_password_title => 'Thay đổi mật khẩu của tôi';
@@ -5387,7 +5372,8 @@ class AppLocalizationsVi extends AppLocalizations {
       'Hãy tham gia cùng chúng tôi để đảm bảo cơ sở dữ liệu được hoàn thiện và chính xác';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Sản phẩm đã thêm';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5409,7 +5395,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Giá của tôi, bằng chứng của tôi…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5538,7 +5524,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count trong số $total bản chứng minh';
   }
 
   @override
@@ -5548,7 +5534,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count trong số $total người đóng góp';
   }
 
   @override
@@ -5558,12 +5544,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count trong số $total địa điểm';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count địa điểm';
   }
 
   @override
@@ -5607,6 +5593,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Đã thêm vào $created';
   }
 }
