@@ -1044,10 +1044,10 @@ packages:
     dependency: "direct main"
     description:
       name: l10n_countries
-      sha256: "1488ec667b177c43bfd282f0dee8a8dd7adc3245971a6b3c645e637f4897cfa9"
+      sha256: dfeb4d4925f71d61d2c495a0f0e1430fe66ce664cf87533dd10dc445cab0ff02
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.1"
   latlong2:
     dependency: "direct main"
     description:
