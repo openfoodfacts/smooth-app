@@ -394,7 +394,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get contributors_label => 'Ils/Elles bâtissent l\'appli';
 
   @override
-  String get contributors_dialog_title => 'Contributeurs';
+  String get contributors_bottom_sheet_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {

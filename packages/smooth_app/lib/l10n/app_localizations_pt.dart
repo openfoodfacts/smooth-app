@@ -391,7 +391,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get contributors_label => 'Eles estão a desenvolver a aplicação';
 
   @override
-  String get contributors_dialog_title => 'Colaboradores';
+  String get contributors_bottom_sheet_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
@@ -6053,9 +6053,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get contributors_label => 'Eles estão a desenvolver a aplicação';
-
-  @override
-  String get contributors_dialog_title => 'Colaboradores';
 
   @override
   String contributors_dialog_entry_description(Object name) {

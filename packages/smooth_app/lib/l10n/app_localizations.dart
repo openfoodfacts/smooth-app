@@ -1037,11 +1037,11 @@ abstract class AppLocalizations {
   /// **'They are building the app'**
   String get contributors_label;
 
-  /// Dialog title: A list of all contributors of this app
+  /// Bottom Sheet title: A list of all contributors of this app
   ///
   /// In en, this message translates to:
   /// **'Contributors'**
-  String get contributors_dialog_title;
+  String get contributors_bottom_sheet_title;
 
   /// The user id of the contributor.
   ///

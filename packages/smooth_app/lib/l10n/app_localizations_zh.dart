@@ -361,7 +361,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get contributors_label => '他们正在开发应用程序';
 
   @override
-  String get contributors_dialog_title => '合作者';
+  String get contributors_bottom_sheet_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {

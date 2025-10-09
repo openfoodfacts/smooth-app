@@ -372,7 +372,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get contributors_label => '彼らはアプリを構築中です';
 
   @override
-  String get contributors_dialog_title => '貢献者';
+  String get contributors_bottom_sheet_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
