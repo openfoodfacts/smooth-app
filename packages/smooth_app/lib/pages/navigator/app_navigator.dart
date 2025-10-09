@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
@@ -16,7 +17,6 @@ import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
@@ -154,7 +154,7 @@ class _SmoothGoRouter {
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.uri.queryParameters['heroTag'],
-                  backButton: ProductPageBackButton.byName(
+                  backButton: BackButtonType.byName(
                     state.uri.queryParameters['backButtonType'],
                   ),
                 );
@@ -214,7 +214,11 @@ class _SmoothGoRouter {
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
               builder: (BuildContext context, GoRouterState state) =>
-                  PreferencesPage(),
+                  UserPreferencesPage(
+                    type: PreferencePageType.fromTag(
+                      state.pathParameters['preferenceType'],
+                    ),
+                  ),
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
@@ -474,7 +478,7 @@ class AppRoutes {
     String barcode, {
     bool useHeroAnimation = true,
     String? heroTag = '',
-    ProductPageBackButton? backButtonType,
+    BackButtonType? backButtonType,
     ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
@@ -497,7 +501,7 @@ class AppRoutes {
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.tag}';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';

@@ -9,6 +9,9 @@ class AppLocalizationsAm extends AppLocalizations {
   AppLocalizationsAm([String locale = 'am']) : super(locale);
 
   @override
+  String get app_name => 'ክፍት የምግብ እውነታዎች';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'መለያዬን ሰርዝ';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'በክፍት ዋጋዎች ድህረ ገጽ ላይ ክፈት';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4202,10 +4204,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4386,10 +4384,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'ከባለቤትነት መለያዎች በተለየ የአረንጓዴው ነጥብ ስሌት **ሙሉ በሙሉ ክፍት ነው** እና **በማንኛውም ሰው ሊረጋገጥ ይችላል**።';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4474,9 +4468,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'የ ultra-processing አጠቃላይ ዓላማ ሁሉንም ሌሎች የምግብ ቡድኖችን ለማፈናቀል የተነደፉ ብራንድ ያላቸው ፣ ምቹ (የሚበረክት ፣ ለመጠጣት ዝግጁ) ፣ ማራኪ (ከፍተኛ-የሚወደድ) እና ከፍተኛ ትርፋማ (ዝቅተኛ ዋጋ ያላቸው ንጥረ ነገሮች) የምግብ ምርቶችን መፍጠር ነው። እጅግ በጣም የተቀነባበሩ የምግብ ምርቶች በአብዛኛው በማራኪ የታሸጉ እና በከፍተኛ ሁኔታ ለገበያ ይቀርባሉ።';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4827,7 +4818,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'ማውጣት በሂደት ላይ…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'ማውጣት ተሳክቷል።';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4973,6 +4967,12 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'የእኔ ስታቲስቲክስ';
+
+  @override
   String get preferences_contribute_subtitle => 'ተርጉም፣ መሳሪያዎቻችንን አሻሽል…';
 
   @override
@@ -5046,6 +5046,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'ክፍት የምግብ እውነታዎች የምግብ ምርቶች ዳታቤዝ ነው **በሁሉም ሰው የተሰራ ለሁሉም**።\nየተሻሉ የምግብ ምርጫዎችን ለማድረግ ሊጠቀሙበት ይችላሉ፣ እና **ክፍት ዳታ** እንደመሆኑ ማንኛውም ሰው ** ለማንኛውም ዓላማ እንደገና ሊጠቀምበት ይችላል**።';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5097,6 +5101,9 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'መለያዬን አስተዳድር';
+
+  @override
+  String get preferences_manage_account_tooltip => 'መለያህን አስተዳድር';
 
   @override
   String get preferences_change_password_title => 'የይለፍ ቃሌን ቀይር';
@@ -5206,9 +5213,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'ከምናባዊ ዝግጅቶቻችን በአንዱ በመገኘት ይሳተፉ';
 
   @override
-  String get preferences_connect_social_media_title => 'በማህበራዊ ሚዲያ ላይ ይከተሉን።';
-
-  @override
   String get preferences_connect_blog_title => 'ክፍት የምግብ እውነታዎች ብሎግ';
 
   @override
@@ -5312,7 +5316,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'የመረጃ ቋቱ የተሟላ እና ትክክለኛ መሆኑን ለማረጋገጥ ጥረታችንን ይቀላቀሉ';
 
   @override
-  String get preferences_contributions_new_products_title => '0 ምርቶች ታክለዋል';
+  String get preferences_contributions_products_added_title => 'የተጨመሩ ምርቶች';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5324,6 +5328,16 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_contributions_all_incomplete_title => 'ሁሉም ያልተሟሉ ምርቶች';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'የኔ ዋጋ፣ ማስረጃዎቼ…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5447,6 +5461,36 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_proof_error => 'ማረጋገጥ አልተሳካም፣ ማስረጃዎችን ማምጣት አልተቻለም';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count የ $total ማስረጃዎች';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count የ $total አበርካቾች';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count የ $total ቦታዎች';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count ቦታዎች';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'ለውጦቹን ተግባራዊ ለማድረግ እባክዎ መተግበሪያውን እንደገና ያስጀምሩ።';
 
@@ -5483,4 +5527,9 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return '$createdላይ ተጨምሯል።';
+  }
 }

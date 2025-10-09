@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
 import 'package:smooth_app/pages/proof_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Card that displays the proof for price adding.
 class PriceProofCard extends StatelessWidget {
@@ -35,7 +36,7 @@ class PriceProofCard extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_proof_subtitle,
-      leading: const Icon(Icons.document_scanner_rounded),
+      leading: const icons.PriceReceipt(),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         horizontal: SMALL_SPACE,
         vertical: MEDIUM_SPACE,
@@ -150,7 +151,7 @@ enum _ProofSource {
   IconData getIconData() => switch (this) {
     _ProofSource.camera => Icons.camera_rounded,
     _ProofSource.gallery => Icons.perm_media_rounded,
-    _ProofSource.history => Icons.document_scanner_rounded,
+    _ProofSource.history => const icons.PriceReceipt().icon,
   };
 
   Future<void> process(

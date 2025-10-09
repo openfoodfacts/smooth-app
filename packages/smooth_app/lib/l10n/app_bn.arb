@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "ওপেন ফুডের তথ্য",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "terms of use and contribution",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
-  "@account_deletion_subject": {
+  "account_delete_title": "আমার অ্যাকাউন্ট মুছে ফেলুন",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "ওপেন প্রাইস ওয়েবসাইটে খুলুন",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "টেকসই খাবার নির্বাচন করা জটিল মনে হতে পারে। লেবেলগুলি বিভ্রান্তিকর এবং প্রায়শই তথ্য অনুপস্থিত থাকে। গ্রিন-স্কোরটি তৈরি করা হয়েছে এটিকে সহজ করার জন্য, যা আপনাকে খাদ্য পণ্যের জন্য **স্পষ্ট**, **বিজ্ঞান-ভিত্তিক** এবং **স্বচ্ছ** পরিবেশগত রেটিং দেয়, ঠিক যেখানে আপনার প্রয়োজন: যখন আপনি কেনাকাটা করেন।",
   "guide_greenscore_better_product_arg4_title": "স্বচ্ছতা",
   "guide_greenscore_better_product_arg4_text": "মালিকানাধীন লেবেলের বিপরীতে, গ্রিন-স্কোর গণনা **সম্পূর্ণ উন্মুক্ত** এবং **যে কেউ** যাচাই করতে পারে**।",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "সাধারণত অনেকগুলি উপাদান একত্রিত করে চূড়ান্ত পণ্য তৈরি করতে (অতএব 'অতি-প্রক্রিয়াজাত') বিভিন্ন ধরণের প্রক্রিয়া ব্যবহার করা হয়। এই প্রক্রিয়াগুলিতে কোনও ঘরোয়া সমতুল্য ছাড়াই বেশ কয়েকটি অন্তর্ভুক্ত থাকে, যেমন হাইড্রোজেনেশন এবং হাইড্রোলাইজেশন, এক্সট্রুশন এবং ছাঁচনির্মাণ এবং ভাজার জন্য প্রাক-প্রক্রিয়াজাতকরণ।",
   "guide_nova_explanations_arg4_title": "অতি-প্রক্রিয়াকরণের শিকারী এবং আর্থিক দিকগুলি",
   "guide_nova_explanations_arg4_text": "অতি-প্রক্রিয়াকরণের সামগ্রিক উদ্দেশ্য হল ব্র্যান্ডেড, সুবিধাজনক (টেকসই, খাওয়ার জন্য প্রস্তুত), আকর্ষণীয় (অতি-সুস্বাদু) এবং অত্যন্ত লাভজনক (কম দামের উপাদান) খাদ্য পণ্য তৈরি করা যা অন্যান্য সমস্ত খাদ্য গোষ্ঠীকে স্থানচ্যুত করার জন্য ডিজাইন করা হয়েছে। অতি-প্রক্রিয়াজাত খাদ্য পণ্যগুলি সাধারণত আকর্ষণীয়ভাবে প্যাকেজ করা হয় এবং নিবিড়ভাবে বাজারজাত করা হয়।",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "উত্তোলন চলছে…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "নিষ্কাশন সফল হয়েছে",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "My contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "আমার পরিসংখ্যান",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "অনুবাদ করুন, আমাদের টুলগুলি উন্নত করুন…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "ওপেন ফুড ফ্যাক্টস হল একটি খাদ্য পণ্যের ডাটাবেস যা **সবার জন্য, সবার দ্বারা তৈরি**।\nআপনি এটি ব্যবহার করে আরও ভালো খাবারের পছন্দ করতে পারেন, এবং যেহেতু এটি **ওপেন ডেটা**, তাই যে কেউ **যেকোনো উদ্দেশ্যে এটি পুনরায় ব্যবহার করতে** পারে।",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "আমার অ্যাকাউন্ট পরিচালনা করুন",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "তোমার অ্যাকাউন্ট পরিচালনা করো",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "আমার পাসওয়ার্ড পরিবর্তন করুন",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "সোশ্যাল মিডিয়াতে আমাদের অনুসরণ করুন",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "ওপেন ফুড ফ্যাক্টস ব্লগ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "০টি পণ্য যোগ করা হয়েছে",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "যোগ করা পণ্য",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "ওপেন ফুড ফ্যাক্টস-এ আমার যোগ করা নতুন পণ্য",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "আমার যেসব পণ্য সম্পূর্ণ করতে হবে",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "সমস্ত অসম্পূর্ণ পণ্য",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "আমার দাম, আমার প্রমাণ…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "আপনি যে পণ্যগুলি সম্পূর্ণ করতে সাহায্য করতে পারেন",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} এর {total} প্রমাণ",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} এর মধ্যে {total} অবদানকারী",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} এর {total} অবস্থান",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} অবস্থান",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "পরিবর্তনগুলি প্রয়োগ করতে অ্যাপটি পুনরায় চালু করুন।",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Account",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "{created}এ যোগ করা হয়েছে",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

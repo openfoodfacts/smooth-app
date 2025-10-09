@@ -9,6 +9,7 @@ class UrlPreferenceTile extends PreferenceTile {
     required super.title,
     required this.url,
     super.leading,
+    super.leadingSize,
     super.icon,
     super.subtitleText,
     super.key,
@@ -22,10 +23,11 @@ class UrlPreferenceTile extends PreferenceTile {
 
     return PreferenceTile(
       leading: leading,
+      leadingSize: leadingSize,
       icon: icon,
       title: title,
       subtitleText: subtitleText,
-      trailing: icons.ExternalLink(
+      trailing: icons.ExternalLink.bold(
         size: 16.0,
         color: context.lightTheme() ? theme.primaryColor : Colors.white,
       ),

@@ -9,6 +9,9 @@ class AppLocalizationsTi extends AppLocalizations {
   AppLocalizationsTi([String locale = 'ti']) : super(locale);
 
   @override
+  String get app_name => 'ክፉት ሓቅታት መግቢ';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'ኣካውንተይ ደምስስዎ።';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'ኣብ መርበብ ሓበሬታ ክፉት ዋጋታት ክፈት';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4201,10 +4203,6 @@ class AppLocalizationsTi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4386,10 +4384,6 @@ class AppLocalizationsTi extends AppLocalizations {
       'ዘይከም ዋንነት ዘለዎም ምልክታት፡ ስሌት ቀጠልያ-ነጥቢ **ምሉእ ብምሉእ ክፉት** ኮይኑ **ብዝኾነ ሰብ** ክረጋገጽ ይኽእል።';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://ti.openfoodfacts.org/ሓምላይ-ነጥቢ';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4473,10 +4467,6 @@ class AppLocalizationsTi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'ሓፈሻዊ ዕላማ ኣልትራ-ፕሮሰሲንግ ንኹሎም ካልኦት ጉጅለታት መግቢ ንምፍንቓል ዝተዳለዉ ምልክት ዘለዎም፣ ምቹኣት (ነባሪ፣ ንሃልኪ ድሉዋት)፣ ሰሓብቲ (ልዕሊ ዓቐን ጣዕሚ ዘለዎም)ን ልዑል መኽሰብ ዘለዎምን (ትሑት ዋጋ ዘለዎም ቀመማት) ፍርያት መግቢ ምፍጣር እዩ። መብዛሕትኡ ግዜ ኣዝዮም ዝተመስርሑ ፍርያት መግቢ ብሰሓቢ መንገዲ ይዕሸጉን ብጽዑቕ ዕዳጋ ይቐርቡን።';
-
-  @override
-  String get guide_nova_share_link =>
-      'https://ti.openfoodfacts.org/nova ዝብል ጽሑፍ ኣሎ።';
 
   @override
   String get preview_badge => 'Preview';
@@ -4827,7 +4817,10 @@ class AppLocalizationsTi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'ምውጻእ ኣብ ምክያድ…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'ምውጻእ ዕዉት እዩ።';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4973,6 +4966,12 @@ class AppLocalizationsTi extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'ስታቲስቲክስ ናተይ';
+
+  @override
   String get preferences_contribute_subtitle => 'ተርጉም፣ መሳርሒታትና ኣመሓይሽ…';
 
   @override
@@ -5047,6 +5046,10 @@ class AppLocalizationsTi extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts **ብኹሉ ሰብ፣ ንኹሉ** ዝተሰርሐ ዳታቤዝ ፍርያት መግቢ እዩ።\nዝሓሸ ምርጫታት መግቢ ንምግባር ክትጥቀመሉ ትኽእል ኢኻ፣ **ክፉት ዳታ** ስለዝኾነ ድማ ዝኾነ ሰብ **ንዝኾነ ዕላማ ዳግማይ ክጥቀመሉ ይኽእል እዩ**።';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5096,6 +5099,9 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'ኣካውንተይ ኣመሓድር';
+
+  @override
+  String get preferences_manage_account_tooltip => 'ኣካውንትካ ኣመሓድር';
 
   @override
   String get preferences_change_password_title => 'ፓስዎርድይ ቀይር';
@@ -5203,9 +5209,6 @@ class AppLocalizationsTi extends AppLocalizations {
       'ኣብ ሓደ ካብቲ ቨርቹዋል መደባትና ብምስታፍ ተሳተፉ';
 
   @override
-  String get preferences_connect_social_media_title => 'ኣብ ማሕበራዊ ሚድያ ተኸታተሉና።';
-
-  @override
   String get preferences_connect_blog_title => 'ብሎግ ክፉት ሓቅታት መግቢ';
 
   @override
@@ -5308,7 +5311,7 @@ class AppLocalizationsTi extends AppLocalizations {
       'እቲ ዳታቤዝ ምሉእን ቅኑዕን ምዃኑ ንምርግጋጽ ኣብ እንገብሮ ጻዕሪ ተጸንበሩ';
 
   @override
-  String get preferences_contributions_new_products_title => '0 ፍርያት ተወሰኸ';
+  String get preferences_contributions_products_added_title => 'ተወሳኺ ፍርያት';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5321,6 +5324,16 @@ class AppLocalizationsTi extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'ኩሎም ዘይተማልኡ ፍርያት';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'ዋጋታተይ፡ መርትዖታተይ…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5443,6 +5456,36 @@ class AppLocalizationsTi extends AppLocalizations {
   String get prices_proof_error => 'ምርግጋጽ ምርግጋጽ ፈሺሉ፣ መርትዖታት ከምጽእ ኣይከኣለን';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count ናይ $total መርትዖታት';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count ናይ $total ኣበርከትቲ';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count ናይ $total ቦታታት';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count ቦታታት';
+  }
+
+  @override
   String get restart_to_apply_message => 'በጃኹም ነቲ ኣፕ ዳግማይ ጀምርዎ ነቲ ለውጢ ንምትግባር።';
 
   @override
@@ -5479,4 +5522,9 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'ኣብ $createdተወሰኸ';
+  }
 }

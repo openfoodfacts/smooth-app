@@ -60,7 +60,6 @@ class _ScanPageState extends State<ScanPage> {
     final bool hasACamera = CameraHelper.hasACamera;
 
     return SmoothScaffold(
-      brightness: Brightness.light,
       backgroundColor: context.lightTheme()
           ? themeExtension.primaryLight
           : null,

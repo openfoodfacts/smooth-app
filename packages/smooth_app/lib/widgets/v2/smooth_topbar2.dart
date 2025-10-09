@@ -23,6 +23,7 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
     this.foregroundColor,
     this.backgroundColor,
     this.productType,
+    this.theme,
     super.key,
   }) : assert(title.length > 0),
        assert(forceMultiLines == false || subTitle == null);
@@ -40,6 +41,7 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   final bool forceMultiLines;
   final bool reducedHeightOnScroll;
   final ProductType? productType;
+  final SmoothTopBar2Theme? theme;
 
   final PreferredSizeWidget? topWidget;
   final SmoothLeadingAction? leadingAction;
@@ -100,7 +102,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     final SmoothColorsThemeExtension colors = context
         .extension<SmoothColorsThemeExtension>();
     final TextDirection textDirection = Directionality.of(context);
-    final bool darkTheme = context.darkTheme();
+    final bool lightTheme = context.lightTheme();
 
     final double imageWidth = MediaQuery.sizeOf(context).width * 0.22;
     final double imageHeight = imageWidth * 114 / 92;
@@ -110,16 +112,15 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
       ),
     );
 
-    final Color backgroundColor =
-        widget.backgroundColor ??
-        (darkTheme ? colors.primaryDark : colors.primaryMedium);
+    final Color backgroundColor = _backgroundColor(colors, lightTheme);
+    final Color? foregroundColor = _foregroundColor(colors, lightTheme);
 
     return PhysicalModel(
       color: Colors.transparent,
       elevation: _elevation,
       shadowColor:
           widget.elevationColor ??
-          (darkTheme ? Colors.white10 : Colors.black12),
+          (lightTheme ? Colors.black12 : Colors.white10),
       borderRadius: borderRadius,
       child: ClipRRect(
         borderRadius: borderRadius,
@@ -172,7 +173,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                                   ),
                                   child: SmoothLeadingButton(
                                     action: widget.leadingAction!,
-                                    foregroundColor: widget.foregroundColor,
+                                    foregroundColor: foregroundColor,
                                   ),
                                 ),
                                 const SizedBox(width: BALANCED_SPACE),
@@ -183,7 +184,11 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                                     bottom: 1.56 * (1 - _progress),
                                     top: _computeTextTopPadding(),
                                   ),
-                                  child: _getText(darkTheme, colors),
+                                  child: _getText(
+                                    lightTheme,
+                                    colors,
+                                    foregroundColor,
+                                  ),
                                 ),
                               ),
                             ],
@@ -204,6 +209,27 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
   double _computeHeight() =>
       kToolbarHeight +
       ((SmoothTopBar2.kTopBar2Height - kToolbarHeight) * (1 - _progress));
+
+  Color _backgroundColor(SmoothColorsThemeExtension colors, bool lightTheme) {
+    if (widget.backgroundColor != null) {
+      return widget.backgroundColor!;
+    }
+
+    if (widget.theme == SmoothTopBar2Theme.dark) {
+      return lightTheme ? colors.primaryBlack : colors.primaryUltraBlack;
+    }
+    return lightTheme ? colors.primaryMedium : colors.primaryDark;
+  }
+
+  Color? _foregroundColor(SmoothColorsThemeExtension colors, bool lightTheme) {
+    if (widget.foregroundColor != null) {
+      return widget.foregroundColor!;
+    }
+    if (widget.theme == SmoothTopBar2Theme.dark) {
+      return lightTheme ? Colors.white : null;
+    }
+    return null;
+  }
 
   Positioned _getImageAsset({
     required Color backgroundColor,
@@ -261,15 +287,19 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     );
   }
 
-  Widget _getText(bool darkTheme, SmoothColorsThemeExtension colors) {
+  Widget _getText(
+    bool lightTheme,
+    SmoothColorsThemeExtension colors,
+    Color? defaultColor,
+  ) {
     final Widget text = Text(
       widget.title,
       maxLines: widget.subTitle != null ? 1 : 2,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         color:
-            widget.foregroundColor ??
-            (darkTheme ? colors.primaryMedium : colors.primaryBlack),
+            defaultColor ??
+            (lightTheme ? colors.primaryBlack : colors.primaryMedium),
         fontSize: 20.0,
         height: widget.reducedHeightOnScroll ? 1.3 : 1.5,
         fontWeight: FontWeight.bold,
@@ -296,8 +326,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color:
-                widget.foregroundColor ??
-                (darkTheme ? colors.primaryMedium : colors.primaryBlack),
+                defaultColor ??
+                (lightTheme ? colors.primaryBlack : colors.primaryMedium),
             fontSize: 16.0,
             height: 1.5,
             fontWeight: FontWeight.w500,
@@ -319,3 +349,5 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     return topPadding;
   }
 }
+
+enum SmoothTopBar2Theme { light, dark }

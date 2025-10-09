@@ -9,6 +9,9 @@ class AppLocalizationsGd extends AppLocalizations {
   AppLocalizationsGd([String locale = 'gd']) : super(locale);
 
   @override
+  String get app_name => 'Fiosrachadh Biadh Fosgailte';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Sguab às mo chunntas';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Fosgailte air làrach-lìn Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4208,10 +4210,6 @@ class AppLocalizationsGd extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4399,6 @@ class AppLocalizationsGd extends AppLocalizations {
       'Eu-coltach ri bileagan seilbhe, tha àireamhachadh an Sgòr Uaine **gu tur fosgailte** agus faodar a **dhearbhachadh le duine sam bith**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4493,9 +4487,6 @@ class AppLocalizationsGd extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Is e prìomh adhbhar giollachd-bhìdh toraidhean bìdh branndaichte, goireasach (maireannach, deiseil airson ithe), tarraingeach (ro-bhlasta) agus air leth prothaideach (tàthchuid aig prìs ìseal) a chruthachadh, air an dealbhadh gus a h-uile buidheann bìdh eile a chuir às. Mar as trice bidh toraidhean bìdh air an giollachd-bhìdh air am pacadh ann an dòigh tharraingeach agus air am margaidheachd gu dian.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4846,7 +4837,11 @@ class AppLocalizationsGd extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Às-tharraing ga dhèanamh…';
+
+  @override
+  String get nutrition_facts_extract_successful =>
+      'Shoirbhich leis an às-tharraing';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4994,6 +4989,12 @@ class AppLocalizationsGd extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Mo staitistig';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Eadar-theangaich, leasaich na h-innealan againn…';
 
@@ -5074,6 +5075,10 @@ class AppLocalizationsGd extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      '’S e stòr-dàta thoraidhean bìdh a th’ ann an Open Food Facts **air a dhèanamh le a h-uile duine, airson a h-uile duine**.\nFaodaidh tu a chleachdadh gus roghainnean bìdh nas fheàrr a dhèanamh, agus leis gur e **dàta fosgailte** a th’ ann, faodaidh duine sam bith **ath-chleachdadh airson adhbhar sam bith**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5126,6 +5131,9 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Stiùirich mo chunntas';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Stiùirich do chunntas';
 
   @override
   String get preferences_change_password_title =>
@@ -5242,10 +5250,6 @@ class AppLocalizationsGd extends AppLocalizations {
       'Gabh pàirt le bhith an làthair aig aon de na tachartasan brìgheil againn';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Lean sinn air na meadhanan sòisealta';
-
-  @override
   String get preferences_connect_blog_title =>
       'Am blog Fiosrachadh Biadh Fosgailte';
 
@@ -5359,8 +5363,8 @@ class AppLocalizationsGd extends AppLocalizations {
       'Thig còmhla rinn gus dèanamh cinnteach gu bheil an stòr-dàta coileanta agus ceart';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 bathar air a chur ris';
+  String get preferences_contributions_products_added_title =>
+      'Toraidhean a bharrachd';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5373,6 +5377,16 @@ class AppLocalizationsGd extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'A h-uile toradh neo-choileanta';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Mo phrìsean, mo dhearbhadh…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5505,6 +5519,36 @@ class AppLocalizationsGd extends AppLocalizations {
       'Dh’fhàillig dearbhadh, cha ghabh dearbhaidhean fhaighinn';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count de $total dearbhaidhean';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count de $total luchd-taic';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count de $total àiteachan';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return 'àiteachan $count';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Ath-thòisich an aplacaid gus na h-atharrachaidhean a chur an sàs.';
 
@@ -5542,4 +5586,9 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Air a chur ris air $created';
+  }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get app_name => '오픈 푸드 팩트';
+
+  @override
   String get sep => '';
 
   @override
@@ -311,10 +314,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => '이용 및 기여 약관';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-ko.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1659,7 +1658,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get account_delete => '계정 삭제';
 
   @override
-  String get account_deletion_subject => '계정 삭제하기';
+  String get account_delete_title => '내 계정 삭제';
 
   @override
   String get user_profile => '계정';
@@ -2463,6 +2462,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Open Prices 웹사이트에서 열기';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4150,10 +4152,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => '친환경 점수';
 
   @override
@@ -4332,10 +4330,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => '가공 식품';
 
   @override
@@ -4417,9 +4411,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       '초가공 식품의 전반적인 목적은 브랜드 인지도가 높고, 편리하며(내구성이 뛰어나고, 바로 섭취할 수 있으며), 매력적이며(매우 맛있으며), 수익성이 높은(저렴한 재료 사용) 식품을 개발하여 다른 모든 식품군을 대체하는 것입니다. 초가공 식품은 일반적으로 매력적인 포장과 집중적인 마케팅을 통해 판매됩니다.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4769,7 +4760,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => '추출 진행 중…';
+
+  @override
+  String get nutrition_facts_extract_successful => '추출 성공';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4915,6 +4909,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_contribute_title => '기여하기';
 
   @override
+  String get preferences_my_contributions_title => '내 기여';
+
+  @override
+  String get preferences_my_stats_title => '내 통계';
+
+  @override
   String get preferences_contribute_subtitle => '번역하고 도구를 개선하세요…';
 
   @override
@@ -4987,6 +4987,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_legal_mentions => '법률상의 언급';
 
   @override
+  String get preferences_legal_header =>
+      '오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5036,6 +5040,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => '내 계정 관리';
+
+  @override
+  String get preferences_manage_account_tooltip => '계정 관리';
 
   @override
   String get preferences_change_password_title => '내 비밀번호를 변경하세요';
@@ -5134,9 +5141,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       '당사의 가상 이벤트 중 하나에 참석하여 참여하세요.';
-
-  @override
-  String get preferences_connect_social_media_title => '소셜 미디어에서 우리를 팔로우하세요';
 
   @override
   String get preferences_connect_blog_title => '오픈 푸드 팩츠 블로그';
@@ -5238,7 +5242,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '데이터베이스가 완전하고 정확한지 확인하기 위한 노력에 동참해 주세요.';
 
   @override
-  String get preferences_contributions_new_products_title => '0개의 제품이 추가되었습니다';
+  String get preferences_contributions_products_added_title => '추가된 상품';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5249,6 +5253,15 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_contributions_all_incomplete_title => '모든 미완성 제품';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle => '내 가격, 내 증명…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5369,6 +5382,36 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_proof_error => '인증에 실패하여 증명을 가져올 수 없습니다.';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count / $total 증명';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count / $total 기여자';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count / $total 위치';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count 위치';
+  }
+
+  @override
   String get restart_to_apply_message => '변경 사항을 적용하려면 앱을 다시 시작하세요.';
 
   @override
@@ -5402,4 +5445,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_account_title => '계정';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return '$created에 추가됨';
+  }
 }

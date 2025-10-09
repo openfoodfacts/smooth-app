@@ -10,6 +10,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class AboutAppRoot extends PreferencesRoot {
   const AboutAppRoot({required super.title});
@@ -34,6 +36,9 @@ class AboutAppRoot extends PreferencesRoot {
       ),
       PreferenceCard(
         title: appLocalizations.preferences_about_app_development_title,
+        titleBackgroundColor: context
+            .extension<SmoothColorsThemeExtension>()
+            .error,
         tiles: <PreferenceTile>[
           _buildDevModeTile(appLocalizations, userPreferences),
         ],
@@ -103,6 +108,7 @@ class AboutAppRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title: appLocalizations.contribute_develop_dev_mode_title,
       subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
+      icon: const icons.DangerousZone(),
       state: userPreferences.devMode != 0,
       onToggle: (final bool devMode) async =>
           userPreferences.setDevMode(devMode ? 1 : 0),

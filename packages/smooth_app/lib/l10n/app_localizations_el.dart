@@ -9,6 +9,9 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
+  String get app_name => 'Ανοιχτά στοιχεία για τα τρόφιμα';
+
+  @override
   String get sep => '';
 
   @override
@@ -326,10 +329,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'τους όρους χρήσης και συνεισφοράς';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://gr.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1730,7 +1729,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get account_delete => 'Διαγραφή λογαριασμού';
 
   @override
-  String get account_deletion_subject => 'Διαγραφή του λογαριασμού μου';
+  String get account_delete_title => 'Διαγραφή του λογαριασμού μου';
 
   @override
   String get user_profile => 'Λογαριασμός';
@@ -2567,6 +2566,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Μεταβείτε στην εφαρμογή Τιμές';
+
+  @override
+  String get prices_website_button => 'Ανοιχτό στον ιστότοπο Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4296,10 +4298,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://gr.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4490,10 +4488,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Σε αντίθεση με τις ιδιόκτητες ετικέτες, ο υπολογισμός του Green-Score είναι **εντελώς ανοιχτός** και μπορεί να **επαληθευτεί από οποιονδήποτε**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Υπερεπεξεργασμένα τρόφιμα';
 
   @override
@@ -4582,9 +4576,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ο γενικός σκοπός της υπερεπεξεργασίας είναι η δημιουργία επώνυμων, βολικών (ανθεκτικών, έτοιμων προς κατανάλωση), ελκυστικών (υπερεύγευστων) και εξαιρετικά κερδοφόρων (χαμηλού κόστους συστατικά) τροφίμων, σχεδιασμένων να εκτοπίσουν όλες τις άλλες ομάδες τροφίμων. Τα υπερεπεξεργασμένα τρόφιμα συνήθως συσκευάζονται ελκυστικά και διατίθενται στην αγορά εντατικά.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Προεπισκόπηση';
@@ -4944,7 +4935,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Εξαγωγή τώρα';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Επιτυχής εξαγωγή';
+  String get nutrition_facts_extract_in_progress => 'Εξαγωγή σε εξέλιξη…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Η εξαγωγή ήταν επιτυχής';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5091,6 +5085,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_contribute_title => 'Συμβάλλετε';
 
   @override
+  String get preferences_my_contributions_title => 'Οι Συνεισφορές μου';
+
+  @override
+  String get preferences_my_stats_title => 'Τα στατιστικά μου';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Μεταφράστε, βελτιώστε τα εργαλεία μας…';
 
@@ -5172,6 +5172,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_legal_mentions => 'Νομικές αναφορές';
 
   @override
+  String get preferences_legal_header =>
+      'Το Open Food Facts είναι μια βάση δεδομένων τροφίμων **που δημιουργήθηκε από όλους, για όλους**.\nΜπορείτε να τη χρησιμοποιήσετε για να κάνετε καλύτερες επιλογές τροφίμων και, καθώς πρόκειται για **ανοιχτά δεδομένα**, ο καθένας μπορεί να την **επαναχρησιμοποιήσει για οποιονδήποτε σκοπό**.';
+
+  @override
   String get preferences_privacy_policy => 'Πολιτική απορρήτου';
 
   @override
@@ -5225,6 +5229,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get preferences_manage_account_title =>
       'Διαχείριση του λογαριασμού μου';
+
+  @override
+  String get preferences_manage_account_tooltip =>
+      'Διαχείριση του λογαριασμού σας';
 
   @override
   String get preferences_change_password_title => 'Αλλαγή κωδικού πρόσβασης';
@@ -5336,10 +5344,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Συμμετέχετε συμμετέχοντας σε μία από τις εικονικές μας εκδηλώσεις';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Ακολουθήστε μας στα μέσα κοινωνικής δικτύωσης';
 
   @override
   String get preferences_connect_blog_title => 'Το ιστολόγιο Open Food Facts';
@@ -5454,8 +5458,8 @@ class AppLocalizationsEl extends AppLocalizations {
       'Συμμετέχετε στην προσπάθειά μας να διασφαλίσουμε ότι η βάση δεδομένων είναι πλήρης και ακριβής';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 προϊόντα προστέθηκαν';
+  String get preferences_contributions_products_added_title =>
+      'Προστέθηκαν προϊόντα';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5468,6 +5472,16 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Όλα τα ημιτελή προϊόντα';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Τιμές';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Οι τιμές μου';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Οι τιμές μου, οι αποδείξεις μου…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5597,6 +5611,36 @@ class AppLocalizationsEl extends AppLocalizations {
       'Η πιστοποίηση απέτυχε, δεν είναι δυνατή η ανάκτηση αποδείξεων';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count από $total αποδείξεις';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count από $total συνεισφέροντες';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count από $total τοποθεσίες';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count τοποθεσίες';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Επανεκκινήστε την εφαρμογή για να εφαρμοστούν οι αλλαγές.';
 
@@ -5635,4 +5679,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Λογαριασμός';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Προστέθηκε στις $created';
+  }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsBm extends AppLocalizations {
   AppLocalizationsBm([String locale = 'bm']) : super(locale);
 
   @override
+  String get app_name => 'Dumuni Tiɲɛniw Dabɔ';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'N ka jatebɔsɛbɛn bɔ yen';
 
   @override
   String get user_profile => 'Account';
@@ -2506,6 +2505,9 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Da wuli Open Prices siti kan';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4208,10 +4210,6 @@ class AppLocalizationsBm extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4399,6 @@ class AppLocalizationsBm extends AppLocalizations {
       'A tɛ i n’a fɔ labeli propriétaires, Green-Score jatebɔ ye **da wuli pewu** wa a bɛ se ka **sɛgɛsɛgɛ mɔgɔ bɛɛ fɛ**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/jatebɔ-sɛbɛn ɲɛ jɛman';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4491,9 +4485,6 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultra-processing kun bɛɛ ye ka dumunifɛnw dilan minnu tɔgɔ sɛbɛnnen don, minnu bɛ se ka mɛn, minnu bɛ mɛn, minnu bɛ se ka dun, minnu bɛ mɔgɔ ɲɛnajɛ (min ka di kosɛbɛ) ani minnu nafa ka bon kosɛbɛ (fɛn minnu musaka ka dɔgɔ) minnu dabɔra ka dumuni kulu tɔw bɛɛ bɔ u nɔ na. A ka c’a la, dumunifɛnw minnu dilannen don ni ultra-processed ye, olu bɛ kɛ pake kɔnɔ cogo la min bɛ mɔgɔ ɲɛnajɛ, wa u bɛ feere kosɛbɛ.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.dumuniw dafalenw.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4844,7 +4835,11 @@ class AppLocalizationsBm extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Extraction bɛ sen na…';
+
+  @override
+  String get nutrition_facts_extract_successful =>
+      'Extraction (bɔli) ye ɲɛtaa sɔrɔ';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4992,6 +4987,12 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'N ka jatebɔw';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Bamanankan baara, an ka baarakɛminɛnw ɲɛ ka taa a fɛ…';
 
@@ -5071,6 +5072,10 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts ye dumunifɛnw kunnafonidilan ye **min dilannen don bɛɛ fɛ, bɛɛ ye**.\nAw bɛ se ka baara kɛ n’a ye walasa ka dumuni sugandili ɲumanw kɛ, wa ikomi a ye **daɲɛ dafalenw** ye, mɔgɔ bɛɛ bɛ se ka **segin ka baara kɛ n’a ye kun o kun**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5123,6 +5128,9 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'N ka jatebɔsɛbɛn ɲɛnabɔ';
+
+  @override
+  String get preferences_manage_account_tooltip => 'I ka jatebɔsɛbɛn ɲɛnabɔ';
 
   @override
   String get preferences_change_password_title => 'N ka tɔgɔlasɛbɛn Changer';
@@ -5236,10 +5244,6 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Aw ka tugu an kɔ sosiyete siwiliw kan';
-
-  @override
   String get preferences_connect_blog_title => 'Dumuni dafalenw ka bulɔgu';
 
   @override
@@ -5350,8 +5354,8 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ka fara an ka cɛsiri kan walasa kunnafonidilan ka dafa ani ka kɛ tiɲɛ ye';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 fɛnw farala ɲɔgɔn kan';
+  String get preferences_contributions_products_added_title =>
+      'Fɛn minnu bɛ fara a kan';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5364,6 +5368,16 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Fɛn minnu tɛ dafa, olu bɛɛ';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Ne ka sɔngɔw, ne ka daliluw…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5494,6 +5508,36 @@ class AppLocalizationsBm extends AppLocalizations {
   String get prices_proof_error => 'Tiɲɛni ma ɲɛ, a ma se ka daliluw sɔrɔ';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count ka $total daliluw';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count ka $total dɛmɛbagaw';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count ka $total yɔrɔw';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count yɔrɔw';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Aw ye porogramu daminɛ kokura walisa ka yɛlɛmaniw waleya.';
 
@@ -5532,4 +5576,9 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'A farala ${created}kan';
+  }
 }

@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 
 class SmoothScaffold extends Scaffold {
   const SmoothScaffold({
-    this.brightness,
     this.statusBarBackgroundColor,
     this.contentBehindStatusBar = false,
     this.spaceBehindStatusBar = false,
@@ -51,7 +50,6 @@ class SmoothScaffold extends Scaffold {
     }
   }
 
-  final Brightness? brightness;
   final Color? statusBarBackgroundColor;
   final bool contentBehindStatusBar;
   final bool spaceBehindStatusBar;
@@ -143,8 +141,7 @@ class SmoothScaffoldState extends ScaffoldState {
       (widget as SmoothScaffold).changeStatusBarBrightness == true;
 
   Brightness? get _brightness =>
-      (widget as SmoothScaffold).brightness ??
-      SmoothBrightnessOverride.of(context)?.brightness;
+      SmoothBrightnessOverride.of(context)?.brightness ?? Brightness.light;
 
   SystemUiOverlayStyle get _overlayStyle {
     final Brightness? brightness;

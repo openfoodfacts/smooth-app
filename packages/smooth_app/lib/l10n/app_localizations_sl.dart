@@ -9,6 +9,9 @@ class AppLocalizationsSl extends AppLocalizations {
   AppLocalizationsSl([String locale = 'sl']) : super(locale);
 
   @override
+  String get app_name => 'Odprta dejstva o hrani';
+
+  @override
   String get sep => '';
 
   @override
@@ -320,10 +323,6 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'pogoji uporabe in prispevki';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1698,7 +1697,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get account_delete => 'Izbrišite račun';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Izbriši moj račun';
 
   @override
   String get user_profile => 'Račun';
@@ -2522,6 +2521,9 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Odprto na spletni strani Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4222,10 +4224,6 @@ class AppLocalizationsSl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4413,10 +4411,6 @@ class AppLocalizationsSl extends AppLocalizations {
       'Za razliko od lastniških oznak je izračun Green-Score **popolnoma odprt** in ga lahko **preveri kdorkoli**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra predelana živila';
 
   @override
@@ -4503,9 +4497,6 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Splošni namen ultra predelave je ustvariti blagovne znamke, priročne (trajne, takojšnje za uživanje), privlačne (hiper okusne) in zelo donosne (cenovno nizke sestavine) živilske izdelke, namenjene izpodrivanju vseh drugih skupin živil. Ultra predelana živila so običajno privlačno pakirana in se intenzivno tržijo.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4855,7 +4846,10 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Pridobivanje v teku…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Ekstrakcija uspešna';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5002,6 +4996,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get preferences_contribute_title => 'Prispevaj';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Moja statistika';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Prevajajte, izboljšajte naša orodja…';
 
@@ -5082,6 +5082,10 @@ class AppLocalizationsSl extends AppLocalizations {
   String get preferences_legal_mentions => 'Pravni podatki';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts je podatkovna zbirka živil, **ki so jo ustvarili vsi za vsakogar**.\nUporabite jo lahko za boljše izbire hrane, in ker gre za **odprte podatke**, jo lahko kdorkoli **ponovno uporabi za kateri koli namen**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5134,6 +5138,9 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Upravljaj moj račun';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Upravljajte svoj račun';
 
   @override
   String get preferences_change_password_title => 'Spremeni moje geslo';
@@ -5249,10 +5256,6 @@ class AppLocalizationsSl extends AppLocalizations {
       'Sodelujte z udeležbo na enem od naših virtualnih dogodkov';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Spremljajte nas na družbenih omrežjih';
-
-  @override
   String get preferences_connect_blog_title => 'Blog Odprta dejstva o hrani';
 
   @override
@@ -5365,8 +5368,7 @@ class AppLocalizationsSl extends AppLocalizations {
       'Pridružite se nam pri prizadevanjih za zagotovitev popolnosti in točnosti baze podatkov';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      'Dodanih 0 izdelkov';
+  String get preferences_contributions_products_added_title => 'Dodani izdelki';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5379,6 +5381,16 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Vsi nepopolni izdelki';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Moje cene, moji dokazi…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5509,6 +5521,36 @@ class AppLocalizationsSl extends AppLocalizations {
       'Preverjanje pristnosti ni uspelo, dokazov ni mogoče pridobiti';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count od $total dokazov';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count od $total sodelavcev';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count od $total lokacij';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count lokacij';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Znova zaženite aplikacijo, da se spremembe uporabijo.';
 
@@ -5547,4 +5589,9 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Račun';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Dodano dne $created';
+  }
 }

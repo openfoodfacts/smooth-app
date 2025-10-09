@@ -9,6 +9,9 @@ class AppLocalizationsCy extends AppLocalizations {
   AppLocalizationsCy([String locale = 'cy']) : super(locale);
 
   @override
+  String get app_name => 'Ffeithiau Bwyd Agored';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Dileu fy nghyfrif';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Agor ar wefan Prisiau Agored';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4208,6 @@ class AppLocalizationsCy extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4399,10 +4397,6 @@ class AppLocalizationsCy extends AppLocalizations {
       'Yn wahanol i labeli perchnogol, mae cyfrifiad y Sgôr Werdd yn **hollol agored** a gellir ei **wirio gan unrhyw un**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://cy.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4489,9 +4483,6 @@ class AppLocalizationsCy extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i\'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi\'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi\'u prosesu\'n uwch-dechnolegol yn cael eu pecynnu\'n ddeniadol a\'u marchnata\'n ddwys.';
-
-  @override
-  String get guide_nova_share_link => 'https://cy.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4842,7 +4833,10 @@ class AppLocalizationsCy extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Echdynnu ar y gweill…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Echdynnu llwyddiannus';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4988,6 +4982,12 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Fy ystadegau';
+
+  @override
   String get preferences_contribute_subtitle => 'Cyfieithu, gwella ein hoffer…';
 
   @override
@@ -5065,6 +5065,10 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Cronfa ddata cynhyrchion bwyd yw Open Food Facts **a grëwyd gan bawb, i bawb**.\nGallwch ei defnyddio i wneud dewisiadau bwyd gwell, ac oherwydd ei fod yn **ddata agored**, gall unrhyw un **ei ailddefnyddio at unrhyw ddiben**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5117,6 +5121,9 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Rheoli fy nghyfrif';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Rheoli eich cyfrif';
 
   @override
   String get preferences_change_password_title => 'Newid fy nghyfrinair';
@@ -5231,10 +5238,6 @@ class AppLocalizationsCy extends AppLocalizations {
       'Cymerwch ran drwy fynychu un o\'n digwyddiadau rhithwir';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Dilynwch ni ar y cyfryngau cymdeithasol';
-
-  @override
   String get preferences_connect_blog_title => 'Blog Ffeithiau Bwyd Agored';
 
   @override
@@ -5346,8 +5349,8 @@ class AppLocalizationsCy extends AppLocalizations {
       'Ymunwch â\'n hymdrech i sicrhau bod y gronfa ddata yn gyflawn ac yn gywir';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 cynnyrch wedi\'u hychwanegu';
+  String get preferences_contributions_products_added_title =>
+      'Cynhyrchion wedi\'u hychwanegu';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5360,6 +5363,16 @@ class AppLocalizationsCy extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Pob cynnyrch anghyflawn';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Fy mhrisiau, fy mhrawf…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5488,6 +5501,36 @@ class AppLocalizationsCy extends AppLocalizations {
   String get prices_proof_error => 'Methodd y dilysu, ni ellid nôl profion';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count o $total prawf';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count o $total cyfranwyr';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count o $total lleoliad';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return 'lleoliadau $count';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Ailgychwynwch yr ap i gymhwyso\'r newidiadau.';
 
@@ -5525,4 +5568,9 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Ychwanegwyd ar $created';
+  }
 }

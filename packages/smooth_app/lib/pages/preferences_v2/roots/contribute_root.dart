@@ -18,63 +18,52 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class ContributeRoot extends PreferencesRoot {
   const ContributeRoot({required super.title});
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsCountry country = ProductQuery.getCountry();
-
-    final Color iconColor = context.lightTheme()
-        ? theme.primaryColor
-        : Colors.white;
 
     return <PreferenceCard>[
       PreferenceCard(
         title: appLocalizations.preferences_contribute_active_volunteer_title,
         tiles: <PreferenceTile>[
-          _buildSkillPoolTile(appLocalizations, iconColor),
-          _buildHowToContributeTile(appLocalizations, iconColor),
+          _buildSkillPoolTile(appLocalizations),
+          _buildHowToContributeTile(appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_mobile_dev_title,
         tiles: <PreferenceTile>[
-          _buildSoftwareDevelopmentTile(context, appLocalizations, iconColor),
+          _buildSoftwareDevelopmentTile(context, appLocalizations),
           if (GlobalVars.appStore.getEnrollInBetaURL() != null)
-            _buildEnrollAlphaTile(context, appLocalizations, iconColor),
+            _buildEnrollAlphaTile(context, appLocalizations),
           _buildContributorsTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_local_community_title,
         tiles: <PreferenceTile>[
-          _buildTranslateTile(context, appLocalizations, iconColor),
+          _buildTranslateTile(context, appLocalizations),
           _buildShareTile(appLocalizations),
           if (country.wikiUrl != null)
-            _buildCountryImproveTile(appLocalizations, country, iconColor),
+            _buildCountryImproveTile(appLocalizations, country),
         ],
       ),
       PreferenceCard(
         title: appLocalizations.preferences_contribute_data_quality_title,
-        tiles: <PreferenceTile>[
-          _buildDataQualityTile(appLocalizations, iconColor),
-        ],
+        tiles: <PreferenceTile>[_buildDataQualityTile(appLocalizations)],
       ),
     ];
   }
 
   // Active Volunteer section
-  UrlPreferenceTile _buildSkillPoolTile(
-    AppLocalizations appLocalizations,
-    Color iconColor,
-  ) {
+  UrlPreferenceTile _buildSkillPoolTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      leading: icons.Profile(color: iconColor),
+      leading: const icons.Student(),
       title: appLocalizations.contribute_join_skill_pool,
       subtitleText: appLocalizations.preferences_contribute_skill_pool_subtitle,
       url:
@@ -84,10 +73,9 @@ class ContributeRoot extends PreferencesRoot {
 
   UrlPreferenceTile _buildHowToContributeTile(
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return UrlPreferenceTile(
-      leading: icons.Donate(color: iconColor),
+      leading: const icons.Book(),
       title: appLocalizations.how_to_contribute,
       subtitleText: appLocalizations.preferences_contribute_how_to_subtitle,
       url: ProductQuery.replaceSubdomain(
@@ -100,10 +88,9 @@ class ContributeRoot extends PreferencesRoot {
   PreferenceTile _buildSoftwareDevelopmentTile(
     BuildContext context,
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return PreferenceTile(
-      leading: icons.Programming(color: iconColor),
+      leading: const icons.Construction(),
       title: appLocalizations.contribute_sw_development,
       subtitleText: appLocalizations.preferences_contribute_sw_dev_subtitle,
       onTap: () async => _develop(context),
@@ -113,10 +100,9 @@ class ContributeRoot extends PreferencesRoot {
   PreferenceTile _buildEnrollAlphaTile(
     BuildContext context,
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return PreferenceTile(
-      leading: icons.Lab(color: iconColor),
+      leading: const icons.Lab.alt(),
       title: appLocalizations.preferences_contribute_enroll_alpha,
       subtitleText: appLocalizations.preferences_contribute_alpha_subtitle,
       onTap: () async => _enrollInInternal(context),
@@ -128,7 +114,7 @@ class ContributeRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.emoji_people,
+      icon: const icons.CrossWalk(),
       title: appLocalizations.contributors_label,
       subtitleText: appLocalizations.contributors_description,
       onTap: () async => _contributors(context),
@@ -139,10 +125,9 @@ class ContributeRoot extends PreferencesRoot {
   PreferenceTile _buildTranslateTile(
     BuildContext context,
     AppLocalizations appLocalizations,
-    Color iconColor,
   ) {
     return PreferenceTile(
-      leading: icons.Language(color: iconColor),
+      leading: const icons.Language(),
       title: appLocalizations.preferences_contribute_translate_header,
       subtitleText: appLocalizations.preferences_contribute_translate_subtitle,
       onTap: () async => _translate(context),
@@ -151,7 +136,7 @@ class ContributeRoot extends PreferencesRoot {
 
   PreferenceTile _buildShareTile(AppLocalizations appLocalizations) {
     return PreferenceTile(
-      icon: Icons.adaptive.share,
+      leading: const icons.Coffee.love(),
       title: appLocalizations.contribute_share_header,
       subtitleText: appLocalizations.preferences_contribute_share_subtitle,
       onTap: () async => _share(appLocalizations.contribute_share_content),
@@ -161,10 +146,9 @@ class ContributeRoot extends PreferencesRoot {
   UrlPreferenceTile _buildCountryImproveTile(
     AppLocalizations appLocalizations,
     OpenFoodFactsCountry country,
-    Color iconColor,
   ) {
     return UrlPreferenceTile(
-      leading: icons.Language.world(color: iconColor),
+      leading: const icons.World.help(),
       title: appLocalizations.help_improve_country,
       subtitleText: appLocalizations.preferences_contribute_country_subtitle,
       url: country.wikiUrl!,
@@ -172,12 +156,9 @@ class ContributeRoot extends PreferencesRoot {
   }
 
   // Data Quality section
-  UrlPreferenceTile _buildDataQualityTile(
-    AppLocalizations appLocalizations,
-    Color iconColor,
-  ) {
+  UrlPreferenceTile _buildDataQualityTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      leading: icons.Sparkles(color: iconColor),
+      leading: const icons.Certificate(),
       title: appLocalizations.preferences_contribute_data_quality_team_title,
       subtitleText:
           appLocalizations.preferences_contribute_data_quality_team_subtitle,

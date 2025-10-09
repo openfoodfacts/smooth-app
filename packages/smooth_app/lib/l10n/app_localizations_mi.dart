@@ -9,6 +9,9 @@ class AppLocalizationsMi extends AppLocalizations {
   AppLocalizationsMi([String locale = 'mi']) : super(locale);
 
   @override
+  String get app_name => 'Nga Tikanga Kai Tuwhera';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsMi extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Mukua taku kaute';
 
   @override
   String get user_profile => 'Account';
@@ -2506,6 +2505,9 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Tuwhera ki te paetukutuku Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4209,10 +4211,6 @@ class AppLocalizationsMi extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4401,10 +4399,6 @@ class AppLocalizationsMi extends AppLocalizations {
       'Kare i rite ki nga tapanga rangatira, ko te tatauranga Kakariki-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4492,9 +4486,6 @@ class AppLocalizationsMi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ko te kaupapa katoa o te tukatuka ultra ko te hanga parani, watea (te roa, kua rite ki te kai), ataahua (he tino reka) me te tino whai hua (nga kai iti-utu) i hangaia hei whakakore i nga roopu kai katoa. Ko nga hua kai kua oti te tukatuka i te nuinga o te waa he tino ataahua, ka kaha te maakete.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4845,7 +4836,11 @@ class AppLocalizationsMi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress =>
+      'Kei te haere tonu te tangohanga…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'I angitu te tangohanga';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4991,6 +4986,12 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Ko aku tatauranga';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Whakamaoritia, whakapai ake i a maatau taputapu…';
 
@@ -5070,6 +5071,10 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Ko Open Food Facts he papaa raraunga hua kai **i hangaia e te katoa, ma te katoa**.\nKa taea e koe te whakamahi hei whiriwhiri kai pai ake, a, i te mea he **tuwhera raraunga**, ka taea e te tangata **whakamahi ano mo tetahi kaupapa**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5122,6 +5127,9 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Whakahaerehia taku kaute';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Whakahaerehia to putea';
 
   @override
   String get preferences_change_password_title => 'Hurihia taku kupuhipa';
@@ -5233,10 +5241,6 @@ class AppLocalizationsMi extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Whakauru ma te haere ki tetahi o a maatau huihuinga mariko';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'A pee mai ia matou i runga i nga paapori pāpori';
 
   @override
   String get preferences_connect_blog_title => 'The Open Food Facts blog';
@@ -5351,8 +5355,8 @@ class AppLocalizationsMi extends AppLocalizations {
       'Whakauru mai ki ta maatau mahi ki te whakarite kia oti, kia tika hoki te paataka raraunga';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 nga hua taapiri';
+  String get preferences_contributions_products_added_title =>
+      'Nga hua taapiri';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5365,6 +5369,16 @@ class AppLocalizationsMi extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Katoa nga hua kaore i oti';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Aku utu, aku tohu…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5496,6 +5510,36 @@ class AppLocalizationsMi extends AppLocalizations {
       'I rahua te motuhēhēnga, kāore i taea te tiki tohu';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count o $total tohu';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count o $total kaituku';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count o $total wāhi';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count wāhi';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Tīmataria anō te taupānga hei whakamahi i ngā huringa.';
 
@@ -5534,4 +5578,9 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Kua taapiri atu ki $created';
+  }
 }

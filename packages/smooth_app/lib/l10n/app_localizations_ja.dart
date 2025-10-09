@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get app_name => 'オープンフードファクト';
+
+  @override
   String get sep => '';
 
   @override
@@ -311,10 +314,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => '利用と貢献規約';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://jp.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1651,7 +1650,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get account_delete => 'アカウントを削除';
 
   @override
-  String get account_deletion_subject => 'アカウントの削除';
+  String get account_delete_title => 'アカウントを削除する';
 
   @override
   String get user_profile => 'アカウント';
@@ -2450,6 +2449,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get prices_app_button => '価格アプリに移動';
+
+  @override
+  String get prices_website_button => 'Open Pricesウェブサイトで開く';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4111,10 +4113,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4291,10 +4289,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '独自のラベルとは異なり、グリーン スコアの計算は **完全にオープン** であり、**誰でも検証できます**。';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4376,9 +4370,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       '超加工の全体的な目的は、ブランド力があり、利便性（耐久性があり、すぐに食べられる）、魅力（非常に美味しい）、そして収益性（低コストの原材料）に優れた食品を製造し、他のすべての食品群に取って代わることです。超加工食品は通常、魅力的なパッケージで包装され、集中的に販売されます。';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'プレビュー';
@@ -4728,7 +4719,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => '抽出中…';
+
+  @override
+  String get nutrition_facts_extract_successful => '抽出成功';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4874,6 +4868,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_contribute_title => '貢献する';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => '私の統計';
+
+  @override
   String get preferences_contribute_subtitle => '翻訳してツールを改善しましょう…';
 
   @override
@@ -4945,6 +4945,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts は、**みんなが作った、みんなのための**食品データベースです。\nこれを使えば、より良い食品の選択ができるだけでなく、**オープン データ** なので、誰でも **どんな目的でも再利用** できます。';
+
+  @override
   String get preferences_privacy_policy => 'プライバシーポリシー';
 
   @override
@@ -4994,6 +4998,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'アカウントを管理する';
+
+  @override
+  String get preferences_manage_account_tooltip => 'アカウントを管理する';
 
   @override
   String get preferences_change_password_title => 'パスワードを変更する';
@@ -5093,9 +5100,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'バーチャルイベントに参加して、ぜひご参加ください';
 
   @override
-  String get preferences_connect_social_media_title => 'ソーシャルメディアでフォローしてください';
-
-  @override
   String get preferences_connect_blog_title => 'オープンフードファクトブログ';
 
   @override
@@ -5191,7 +5195,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'データベースの完全性と正確性を確保するための私たちの取り組みにご参加ください';
 
   @override
-  String get preferences_contributions_new_products_title => '0 件の商品が追加されました';
+  String get preferences_contributions_products_added_title => '追加された製品';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5202,6 +5206,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get preferences_contributions_all_incomplete_title => 'すべての不完全な製品';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => '私の価格';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle => '私の価格、私の証明…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5320,6 +5333,36 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_proof_error => '認証に失敗しました。証明を取得できません';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$total 件中 $count 件の証明';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count 件の証明';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$total 人中 $count 人の貢献者';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count 人の貢献者';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$total か所のうち $count か所';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count の場所';
+  }
+
+  @override
   String get restart_to_apply_message => '変更を適用するにはアプリを再起動してください。';
 
   @override
@@ -5354,4 +5397,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'アカウント';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return '$createdに追加されました';
+  }
 }

@@ -28,6 +28,7 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_servin
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -363,11 +364,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
-    final List<Widget> widgets = <Widget>[
-      const NutritionServingSwitch(),
-      /* if (nutritionContainer.robotoffNutrientExtraction == null)
-        _extractNutrientsButton(context, nutritionContainer), */
-    ];
+    final List<Widget> widgets = <Widget>[const NutritionServingSwitch()];
 
     final Iterable<OrderedNutrient> displayableNutrients = nutritionContainer
         .getDisplayableNutrients();
@@ -481,7 +478,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                                               ? SmoothFloatingSnackbar.positive(
                                                   context: context,
                                                   text: appLocalizations
-                                                      .nutrition_facts_extract_succesful,
+                                                      .nutrition_facts_extract_successful,
                                                 )
                                               : SmoothFloatingSnackbar.error(
                                                   context: context,
@@ -531,7 +528,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
               Positioned.fill(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: extension.secondaryLight.withAlpha(140),
+                    color: extension.secondaryLight.withValues(alpha: 0.4),
                     borderRadius: ROUNDED_BORDER_RADIUS,
                   ),
                   child: Column(
@@ -549,12 +546,15 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                         child: Row(
                           children: <Widget>[
                             const ExcludeSemantics(
-                              child: icons.Sparkles(size: 18.0),
+                              child: SparkleAnimation(
+                                type: SparkleAnimationType.scale,
+                                color: Colors.black,
+                              ),
                             ),
                             const SizedBox(width: MEDIUM_SPACE),
                             Text(
                               appLocalizations
-                                  .nutrition_facts_extract_button_text,
+                                  .nutrition_facts_extract_in_progress,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),

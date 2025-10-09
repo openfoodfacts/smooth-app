@@ -728,10 +728,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_map
-      sha256: df33e784b09fae857c6261a5521dd42bd4d3342cb6200884bb70730638af5fd5
+      sha256: "391e7dc95cc3f5190748210a69d4cfeb5d8f84dcdfa9c3235d0a9d7742ccb3f8"
       url: "https://pub.dev"
     source: hosted
-    version: "8.2.1"
+    version: "8.2.2"
   flutter_native_splash:
     dependency: "direct main"
     description:
@@ -847,10 +847,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: eb059dfe59f08546e9787f895bd01652076f996bcbf485a8609ef990419ad227
+      sha256: c752e2d08d088bf83742cb05bf83003f3e9d276ff1519b5c92f9d5e60e5ddd23
       url: "https://pub.dev"
     source: hosted
-    version: "16.2.1"
+    version: "16.2.4"
   graphs:
     dependency: transitive
     description:
@@ -1044,10 +1044,10 @@ packages:
     dependency: "direct main"
     description:
       name: l10n_countries
-      sha256: "1488ec667b177c43bfd282f0dee8a8dd7adc3245971a6b3c645e637f4897cfa9"
+      sha256: dfeb4d4925f71d61d2c495a0f0e1430fe66ce664cf87533dd10dc445cab0ff02
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.1"
   latlong2:
     dependency: "direct main"
     description:
@@ -1212,10 +1212,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "5212d2a2f5e8c77b03b328af3825d784cd66c42cba5f08d1f9c126eae9e09ea2"
+      sha256: d77ca677d906ddf8ab3b23567a12e53eca93298b6d62a42503215d91233ef5e4
       url: "https://pub.dev"
     source: hosted
-    version: "3.25.1"
+    version: "3.26.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1237,10 +1237,10 @@ packages:
     dependency: "direct main"
     description:
       name: package_info_plus
-      sha256: "16eee997588c60225bda0488b6dcfac69280a6b7a3cf02c741895dd370a02968"
+      sha256: f69da0d3189a4b4ceaeb1a3defb0f329b3b352517f52bed4290f83d4f06bc08d
       url: "https://pub.dev"
     source: hosted
-    version: "8.3.1"
+    version: "9.0.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -2007,10 +2007,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_wkwebview
-      sha256: fb46db8216131a3e55bcf44040ca808423539bc6732e7ed34fb6d8044e3d512f
+      sha256: fea63576b3b7e02b2df8b78ba92b48ed66caec2bb041e9a0b1cbd586d5d80bfd
       url: "https://pub.dev"
     source: hosted
-    version: "3.23.0"
+    version: "3.23.1"
   win32:
     dependency: transitive
     description:

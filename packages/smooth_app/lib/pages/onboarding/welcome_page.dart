@@ -29,7 +29,6 @@ class WelcomePage extends StatelessWidget {
 
     return SmoothScaffold(
       backgroundColor: backgroundColor,
-      brightness: Brightness.dark,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         bottom: Platform.isAndroid,

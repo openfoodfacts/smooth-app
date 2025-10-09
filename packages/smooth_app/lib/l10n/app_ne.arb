@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "ओपन फूड तथ्यहरू",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -267,10 +267,6 @@
   "sign_up_page_terms_text": "terms of use and contribution",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -1413,8 +1409,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Delete my account",
-  "@account_deletion_subject": {
+  "account_delete_title": "मेरो खाता मेटाउनुहोस्",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Account",
@@ -2289,6 +2285,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
+  "prices_website_button": "ओपन प्राइस वेबसाइटमा खोल्नुहोस्",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -3889,7 +3886,6 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3951,7 +3947,6 @@
   "guide_greenscore_better_product_arg3_text": "दिगो खाना छनौट गर्नु जटिल लाग्न सक्छ। लेबलहरू भ्रामक हुन्छन् र जानकारी प्रायः हराउँछ। ग्रीन-स्कोर यसलाई सरल बनाउनको लागि सिर्जना गरिएको थियो, जसले तपाईंलाई खाद्य उत्पादनहरूको लागि **स्पष्ट**, **विज्ञानमा आधारित**, र **पारदर्शी** वातावरणीय मूल्याङ्कन दिन्छ, जहाँ तपाईंलाई आवश्यक पर्दछ: जब तपाईं किनमेल गर्नुहुन्छ।",
   "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
   "guide_greenscore_better_product_arg4_text": "स्वामित्व लेबलहरू भन्दा फरक, ग्रीन-स्कोर गणना **पूर्ण रूपमा खुला** छ** र **जो कोही पनि द्वारा प्रमाणित** गर्न सकिन्छ।",
-  "guide_greenscore_share_link": "https://en.openfoodfacts.org/green-score",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3985,7 +3980,6 @@
   "guide_nova_explanations_arg3_text": "सामान्यतया धेरै सामग्रीहरू संयोजन गर्न र अन्तिम उत्पादन सिर्जना गर्न (त्यसैले 'अल्ट्रा-प्रशोधित') प्रक्रियाहरूको श्रृंखलाको प्रयोग गरिन्छ। यी प्रक्रियाहरूमा घरेलु समकक्षहरू बिना धेरै समावेश छन्, जस्तै हाइड्रोजनेशन र हाइड्रोलाइजेसन, एक्सट्रुजन र मोल्डिंग, र फ्राइङको लागि पूर्व-प्रशोधन।",
   "guide_nova_explanations_arg4_title": "अल्ट्रा-प्रोसेसिङको शिकारी र वित्तीय पक्षहरू",
   "guide_nova_explanations_arg4_text": "अल्ट्रा-प्रशोधनको समग्र उद्देश्य ब्रान्डेड, सुविधाजनक (टिकाउ, उपभोग गर्न तयार), आकर्षक (अति-स्वादिष्ट) र अत्यधिक लाभदायक (कम लागत सामग्री) खाद्य उत्पादनहरू सिर्जना गर्नु हो जुन अन्य सबै खाद्य समूहहरूलाई विस्थापित गर्न डिजाइन गरिएको हो। अल्ट्रा-प्रशोधित खाद्य उत्पादनहरू सामान्यतया आकर्षक रूपमा प्याकेज गरिन्छ र गहन रूपमा बजारमा ल्याइन्छ।",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4396,9 +4390,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "निकासी भइरहेको छ…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "निकासी सफल भयो",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
@@ -4588,6 +4586,14 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
+  "preferences_my_contributions_title": "My contributions",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "मेरो तथ्याङ्क",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
   "preferences_contribute_subtitle": "अनुवाद गर्नुहोस्, हाम्रा उपकरणहरू सुधार गर्नुहोस्…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
@@ -4688,6 +4694,10 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
+  "preferences_legal_header": "ओपन फूड फ्याक्ट्स भनेको **सबैले बनाएको, सबैका लागि** खाद्य उत्पादनहरूको डाटाबेस हो।\nतपाईं यसलाई राम्रो खाना छनौट गर्न प्रयोग गर्न सक्नुहुन्छ, र यो **खुला डाटा** भएकोले, जो कोहीले पनि **कुनै पनि उद्देश्यका लागि पुन: प्रयोग गर्न सक्छन्**।",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
   "preferences_privacy_policy": "Privacy policy",
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
@@ -4755,6 +4765,10 @@
   "preferences_manage_account_title": "मेरो खाता व्यवस्थापन गर्नुहोस्",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "आफ्नो खाता व्यवस्थापन गर्नुहोस्",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
   },
   "preferences_change_password_title": "मेरो पासवर्ड परिवर्तन गर्नुहोस्",
   "@preferences_change_password_title": {
@@ -4876,10 +4890,6 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_social_media_title": "सामाजिक सञ्जालमा हामीलाई पछ्याउनुहोस्",
-  "@preferences_connect_social_media_title": {
-    "description": "Title for social media card"
-  },
   "preferences_connect_blog_title": "खुला खाद्य तथ्य ब्लग",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
@@ -4996,13 +5006,13 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_new_products_title": "० उत्पादनहरू थपिए",
-  "@preferences_contributions_new_products_title": {
+  "preferences_contributions_products_added_title": "थपिएका उत्पादनहरू",
+  "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
   "preferences_contributions_new_products_subtitle": "ओपन फूड फ्याक्ट्समा मैले थपेका नयाँ उत्पादनहरू",
   "@preferences_contributions_new_products_subtitle": {
-    "description": "Subtitle for new products added tile"
+    "description": "Subtitle for new products added subtile"
   },
   "preferences_contributions_to_be_completed_title": "मलाई पूरा गर्न आवश्यक उत्पादनहरू",
   "@preferences_contributions_to_be_completed_title": {
@@ -5011,6 +5021,18 @@
   "preferences_contributions_all_incomplete_title": "सबै अपूर्ण उत्पादनहरू",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Prices",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "My prices",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "मेरा मूल्यहरू, मेरा प्रमाणहरू…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
   },
   "preferences_contributions_all_incomplete_subtitle": "तपाईंले पूरा गर्न मद्दत गर्न सक्ने उत्पादनहरू",
   "@preferences_contributions_all_incomplete_subtitle": {
@@ -5180,6 +5202,78 @@
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
+  "proofs_count_with_total": "{count} of {total} proofs",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} of {total} contributors",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} of {total} locations",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} locations",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
   "restart_to_apply_message": "परिवर्तनहरू लागू गर्न कृपया एप पुन: सुरु गर्नुहोस्।",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
@@ -5221,5 +5315,14 @@
   "preferences_account_title": "Account",
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "{created}मा थपियो",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
   }
 }

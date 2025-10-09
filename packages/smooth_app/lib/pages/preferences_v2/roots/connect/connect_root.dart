@@ -1,16 +1,10 @@
-import 'dart:ui' as ui;
-
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -19,6 +13,7 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/services/smooth_services.dart';
 
 class ConnectRoot extends PreferencesRoot {
@@ -32,19 +27,9 @@ class ConnectRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_connect_community_updates_title,
         tiles: <PreferenceTile>[
+          _buildBlogTile(appLocalizations),
           _buildNewsletterTile(appLocalizations),
           _buildCommunityCalendarTile(appLocalizations),
-        ],
-      ),
-      PreferenceCard(
-        title: appLocalizations.preferences_connect_social_media_title,
-        tiles: <PreferenceTile>[
-          _buildTikTokTile(context, appLocalizations),
-          _buildInstagramTile(context, appLocalizations),
-          _buildTwitterTile(context, appLocalizations),
-          _buildMastodonTile(context, appLocalizations),
-          _buildBlueskyTile(context, appLocalizations),
-          _buildBlogTile(appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -82,7 +67,7 @@ class ConnectRoot extends PreferencesRoot {
   // Community Updates section
   UrlPreferenceTile _buildNewsletterTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.newspaper_outlined,
+      icon: const icons.Newsletter(),
       title: appLocalizations.contact_title_newsletter,
       subtitleText: appLocalizations.preferences_connect_newsletter_subtitle,
       url: 'https://link.openfoodfacts.org/newsletter-en',
@@ -93,7 +78,7 @@ class ConnectRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return UrlPreferenceTile(
-      icon: Icons.calendar_month_outlined,
+      icon: const icons.Calendar.add(),
       title: appLocalizations.preferences_connect_community_calendar_title,
       subtitleText:
           appLocalizations.preferences_connect_community_calendar_subtitle,
@@ -101,89 +86,9 @@ class ConnectRoot extends PreferencesRoot {
     );
   }
 
-  // Social Media section
-  UrlPreferenceTile _buildTikTokTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return UrlPreferenceTile(
-      leading: SvgPicture.asset(
-        'assets/preferences/tiktok-logo.svg',
-        width: DEFAULT_ICON_SIZE,
-        package: AppHelper.APP_PACKAGE,
-      ),
-      title: appLocalizations.tiktok,
-      url: appLocalizations.tiktok_link,
-    );
-  }
-
-  UrlPreferenceTile _buildInstagramTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return UrlPreferenceTile(
-      leading: SvgPicture.asset(
-        'assets/preferences/instagram-camera.svg',
-        width: DEFAULT_ICON_SIZE,
-        package: AppHelper.APP_PACKAGE,
-      ),
-      title: appLocalizations.instagram,
-      url: appLocalizations.instagram_link,
-    );
-  }
-
-  UrlPreferenceTile _buildTwitterTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return UrlPreferenceTile(
-      leading: SvgPicture.asset(
-        'assets/preferences/x-logo.svg',
-        width: DEFAULT_ICON_SIZE,
-        colorFilter: ui.ColorFilter.mode(
-          Theme.of(context).colorScheme.onSurface,
-          ui.BlendMode.srcIn,
-        ),
-        package: AppHelper.APP_PACKAGE,
-      ),
-      title: appLocalizations.twitter,
-      url: appLocalizations.twitter_link,
-    );
-  }
-
-  UrlPreferenceTile _buildMastodonTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return UrlPreferenceTile(
-      leading: SvgPicture.asset(
-        'assets/preferences/mastodon-logo.svg',
-        width: DEFAULT_ICON_SIZE,
-        package: AppHelper.APP_PACKAGE,
-      ),
-      title: appLocalizations.mastodon,
-      url: appLocalizations.mastodon_link,
-    );
-  }
-
-  UrlPreferenceTile _buildBlueskyTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return UrlPreferenceTile(
-      leading: SvgPicture.asset(
-        'assets/preferences/bluesky-logo.svg',
-        width: DEFAULT_ICON_SIZE,
-        package: AppHelper.APP_PACKAGE,
-      ),
-      title: appLocalizations.bsky,
-      url: appLocalizations.bsky_link,
-    );
-  }
-
   UrlPreferenceTile _buildBlogTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.newspaper,
+      leading: const icons.Megaphone(),
       title: appLocalizations.preferences_connect_blog_title,
       subtitleText: appLocalizations.preferences_connect_blog_subtitle,
       url: 'https://blog.openfoodfacts.org',
@@ -193,7 +98,7 @@ class ConnectRoot extends PreferencesRoot {
   // Community Help section
   UrlPreferenceTile _buildForumTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.forum_outlined,
+      icon: const icons.Forum(),
       title: appLocalizations.support_via_forum,
       url: 'https://forum.openfoodfacts.org/',
     );
@@ -201,7 +106,7 @@ class ConnectRoot extends PreferencesRoot {
 
   UrlPreferenceTile _buildSlackTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.chat_outlined,
+      icon: const icons.SocialNetwork.slack(),
       title: appLocalizations.support_join_slack,
       url: 'https://slack.openfoodfacts.org/',
     );
@@ -213,7 +118,7 @@ class ConnectRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.pest_control_outlined,
+      icon: const icons.Debug(),
       title: appLocalizations.preferences_connect_debug_info_title,
       subtitleText: appLocalizations.preferences_connect_debug_info_subtitle,
       onTap: _openDebugLogDialog(context, appLocalizations),
@@ -225,7 +130,7 @@ class ConnectRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.campaign_outlined,
+      icon: const icons.Feedback(),
       title: appLocalizations.preferences_connect_feedback_title,
       subtitleText: appLocalizations.preferences_connect_feedback_subtitle,
       onTap: () async {
@@ -249,7 +154,7 @@ class ConnectRoot extends PreferencesRoot {
 
   UrlPreferenceTile _buildSurveyTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.add_comment_outlined,
+      icon: const icons.Feedback.form(),
       title: appLocalizations.preferences_connect_survey_title,
       subtitleText: appLocalizations.preferences_connect_survey_subtitle,
       url: UserFeedbackHelper.getFeedbackFormLink(),
@@ -259,7 +164,7 @@ class ConnectRoot extends PreferencesRoot {
   // Professionals section
   UrlPreferenceTile _buildProPageTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: Icons.factory_outlined,
+      icon: const icons.Producer(),
       title: appLocalizations.contact_title_pro_page,
       subtitleText: appLocalizations.preferences_connect_pro_subtitle,
       url: ProductQuery.replaceSubdomain(
@@ -273,7 +178,7 @@ class ConnectRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.email_outlined,
+      icon: const icons.Message.edit(),
       title: appLocalizations.contact_title_pro_email,
       subtitleText: appLocalizations.preferences_connect_pro_email_subtitle,
       onTap: () async => _sendEmail(
@@ -289,7 +194,7 @@ class ConnectRoot extends PreferencesRoot {
   // Press section
   UrlPreferenceTile _buildPressPageTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: CupertinoIcons.news_solid,
+      icon: const icons.Press(),
       title: appLocalizations.contact_title_press_page,
       subtitleText: appLocalizations.preferences_connect_press_page_subtitle,
       url: 'https://world.openfoodfacts.org/press',
@@ -301,7 +206,7 @@ class ConnectRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      icon: Icons.email_outlined,
+      icon: const icons.Message.edit(),
       title: appLocalizations.contact_title_press_email,
       subtitleText: appLocalizations.preferences_connect_press_email_subtitle,
       onTap: () async => _sendEmail(

@@ -9,6 +9,9 @@ class AppLocalizationsEo extends AppLocalizations {
   AppLocalizationsEo([String locale = 'eo']) : super(locale);
 
   @override
+  String get app_name => 'Malfermaj Manĝaĵoj';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Forigi mian konton';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Malfermu en la retejo de Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4208,6 @@ class AppLocalizationsEo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4396,10 +4394,6 @@ class AppLocalizationsEo extends AppLocalizations {
       'Male al proprietaj etikedoj, la kalkulo de Green-Score estas **tute malferma** kaj povas esti **kontrolita de iu ajn**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://eopenfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4487,9 +4481,6 @@ class AppLocalizationsEo extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'La ĝenerala celo de ultra-prilaborado estas krei markitajn, oportunajn (daŭremajn, pretajn por konsumo), allogajn (hiper-bongustajn) kaj tre profitodonajn (malaltkostajn ingrediencojn) manĝaĵojn, desegnitajn por anstataŭigi ĉiujn aliajn nutraĵgrupojn. Ultra-prilaboritaj manĝaĵoj kutime estas alloge pakitaj kaj intense surmerkatigitaj.';
-
-  @override
-  String get guide_nova_share_link => 'https://eopenfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4840,7 +4831,10 @@ class AppLocalizationsEo extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Eltirado okazas…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Eltiro sukcesa';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4987,6 +4981,12 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_contribute_title => 'Kontribui';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Miaj statistikoj';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Traduku, plibonigu niajn ilojn…';
 
@@ -5066,6 +5066,10 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Malfermaj Nutraĵaj Faktoj estas datumbazo pri nutraĵoj **farita de ĉiuj, por ĉiuj**.\nVi povas uzi ĝin por fari pli bonajn elektojn pri nutraĵoj, kaj ĉar ĝi estas **malfermaj datumoj**, ĉiu povas **reuzi ĝin por iu ajn celo**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5118,6 +5122,9 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Administri mian konton';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Administri vian konton';
 
   @override
   String get preferences_change_password_title => 'Ŝanĝi mian pasvorton';
@@ -5229,10 +5236,6 @@ class AppLocalizationsEo extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Partoprenu ĉeestante unu el niaj virtualaj eventoj';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'Sekvu nin en sociaj retoj';
 
   @override
   String get preferences_connect_blog_title => 'La blogo Open Food Facts';
@@ -5347,8 +5350,8 @@ class AppLocalizationsEo extends AppLocalizations {
       'Aliĝu al nia klopodo por certigi, ke la datumbazo estas kompleta kaj preciza';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 produktoj aldonitaj';
+  String get preferences_contributions_products_added_title =>
+      'Aldonitaj produktoj';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5361,6 +5364,16 @@ class AppLocalizationsEo extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Ĉiuj nekompletaj produktoj';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Miaj prezoj, miaj pruvoj…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5490,6 +5503,36 @@ class AppLocalizationsEo extends AppLocalizations {
       'Aŭtentigo malsukcesis, ne eblis akiri pruvojn';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count el $total pruvoj';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count el $total kontribuantoj';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count el $total lokoj';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count lokoj';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Bonvolu rekomenci la aplikaĵon por apliki la ŝanĝojn.';
 
@@ -5528,4 +5571,9 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Aldonita je $created';
+  }
 }

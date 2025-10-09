@@ -9,6 +9,9 @@ class AppLocalizationsFi extends AppLocalizations {
   AppLocalizationsFi([String locale = 'fi']) : super(locale);
 
   @override
+  String get app_name => 'Avoimet ruokatiedot';
+
+  @override
   String get sep => '';
 
   @override
@@ -324,10 +327,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'käyttö- ja osallistumisehdot';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-fi.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org';
@@ -1688,7 +1687,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get account_delete => 'Poista tunnus';
 
   @override
-  String get account_deletion_subject => 'Poista tunnus';
+  String get account_delete_title => 'Poista tilini';
 
   @override
   String get user_profile => 'Tili';
@@ -2507,6 +2506,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Siirry Hinnat-sovellukseen';
+
+  @override
+  String get prices_website_button => 'Avaa Open Prices -verkkosivustolla';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4202,10 +4204,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world-fi.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4393,10 +4391,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Toisin kuin omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://fi.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultrajalostetut ruoat';
 
   @override
@@ -4483,9 +4477,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä, käteviä (kestäviä, valmiita kuluttamaan), houkuttelevia (hypermaukkaita) ja erittäin kannattavia (edullisia ainesosia) elintarvikkeita, joiden on tarkoitus syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.';
-
-  @override
-  String get guide_nova_share_link => 'https://fi.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Esikatselu';
@@ -4836,7 +4827,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Uutto käynnissä…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Uutto onnistui';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4982,6 +4976,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_contribute_title => 'Osallistu';
 
   @override
+  String get preferences_my_contributions_title => 'Osallistumiseni';
+
+  @override
+  String get preferences_my_stats_title => 'Tilastoni';
+
+  @override
   String get preferences_contribute_subtitle => 'Käännä, paranna työkalujamme…';
 
   @override
@@ -5060,6 +5060,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_legal_mentions => 'Oikeudelliset huomautukset';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts on elintarviketuotetietokanta, **jonka kaikki ovat tehneet kaikille**.\nVoit käyttää sitä parempien ruokavalintojen tekemiseen, ja koska se on **avointa dataa**, kuka tahansa voi **käyttää sitä uudelleen mihin tahansa tarkoitukseen**.';
+
+  @override
   String get preferences_privacy_policy => 'Tietosuojakäytäntö';
 
   @override
@@ -5112,6 +5116,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Hallinnoi tiliäni';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Hallinnoi tiliäsi';
 
   @override
   String get preferences_change_password_title => 'Vaihda salasanani';
@@ -5225,10 +5232,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Osallistu johonkin virtuaalitapahtumiimme';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Seuraa meitä sosiaalisessa mediassa';
-
-  @override
   String get preferences_connect_blog_title => 'Open Food Facts -blogi';
 
   @override
@@ -5340,8 +5343,8 @@ class AppLocalizationsFi extends AppLocalizations {
       'Liity mukaan varmistamaan tietokannan täydellisyys ja tarkkuus';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 tuotetta lisätty';
+  String get preferences_contributions_products_added_title =>
+      'Lisätyt tuotteet';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5354,6 +5357,16 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Kaikki keskeneräiset tuotteet';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Hinnat';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Minun hinnat';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Hintani, todisteeni…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5482,6 +5495,36 @@ class AppLocalizationsFi extends AppLocalizations {
       'Todennus epäonnistui, todisteiden nouto epäonnistui';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count / $total todistusta';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count todisteita';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count / $total osallistujaa';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count avustajia';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count / $total sijainnista';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count sijaintia';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Käynnistä sovellus uudelleen, jotta muutokset tulevat voimaan.';
 
@@ -5519,4 +5562,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Tili';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Lisätty $created';
+  }
 }

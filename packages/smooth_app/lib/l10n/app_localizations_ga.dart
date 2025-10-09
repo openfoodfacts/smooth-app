@@ -9,6 +9,9 @@ class AppLocalizationsGa extends AppLocalizations {
   AppLocalizationsGa([String locale = 'ga']) : super(locale);
 
   @override
+  String get app_name => 'Fíricí Bia Oscailte';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Scrios mo chuntas';
 
   @override
   String get user_profile => 'Account';
@@ -2506,6 +2505,10 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button =>
+      'Oscail ar shuíomh Gréasáin Oscailte Praghsanna';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4207,10 +4210,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4398,10 +4397,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Murab ionann agus lipéid dhílseánaigh, tá ríomh an Scóir Ghlais **oscailte go hiomlán** agus is féidir le duine ar bith é a fhíorú.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4488,9 +4483,6 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Is é cuspóir foriomlán an ultraphróiseála táirgí bia brandáilte, áisiúla (marthanacha, réidh le hithe), tarraingteacha (an-bhlasta) agus an-bhrabúsacha (comhábhair ar chostas íseal) a chruthú atá deartha chun gach grúpa bia eile a dhíláithriú. De ghnáth, bíonn táirgí bia ultraphróiseáilte pacáistithe go tarraingteach agus margaíocht dhian orthu.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4841,7 +4833,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Eastóscadh ar siúl…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Eastóscadh rathúil';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4987,6 +4982,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_contribute_title => 'Cur';
 
   @override
+  String get preferences_my_contributions_title => 'My Contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Mo staitisticí';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Aistrigh, feabhsaigh ár n-uirlisí…';
 
@@ -5067,6 +5068,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Is bunachar sonraí táirgí bia é Open Food Facts atá **déanta ag gach duine, do gach duine**.\nIs féidir leat é a úsáid chun roghanna bia níos fearr a dhéanamh, agus toisc gur **sonraí oscailte** é, is féidir le duine ar bith **é a athúsáid chun aon chríche**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5119,6 +5124,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Bainistigh mo chuntas';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Bainistigh do chuntas';
 
   @override
   String get preferences_change_password_title => 'Athraigh mo phasfhocal';
@@ -5233,10 +5241,6 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bí páirteach trí fhreastal ar cheann dár n-imeachtaí fíorúla';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Lean muid ar na meáin shóisialta';
-
-  @override
   String get preferences_connect_blog_title => 'Blag Fíricí Bia Oscailte';
 
   @override
@@ -5348,8 +5352,8 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bí linn chun a chinntiú go bhfuil an bunachar sonraí iomlán agus cruinn';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 táirge curtha leis';
+  String get preferences_contributions_products_added_title =>
+      'Táirgí curtha leis';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5362,6 +5366,16 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Gach táirge neamhiomlán';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Mo phraghsanna, mo chruthúnais…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5494,6 +5508,36 @@ class AppLocalizationsGa extends AppLocalizations {
       'Theip ar fhíordheimhniú, ní féidir cruthúnais a fháil';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count de $total cruthúnais';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count de $total rannpháirtí';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count de $total suíomh';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return 'suíomhanna $count';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Atosaigh an aip le do thoil chun na hathruithe a chur i bhfeidhm.';
 
@@ -5532,4 +5576,9 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Curtha leis ar $created';
+  }
 }

@@ -9,6 +9,9 @@ class AppLocalizationsIs extends AppLocalizations {
   AppLocalizationsIs([String locale = 'is']) : super(locale);
 
   @override
+  String get app_name => 'Opna matarstaðreyndir';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Eyða reikningnum mínum';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Opið á vefsíðu Opna verðlagningar';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4203,10 +4205,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4394,10 +4392,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Ólíkt einkaleyfisvernduðum merkjum er útreikningur Græna stigsins **algjörlega opinn** og hver sem er getur **staðfest hann**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4483,9 +4477,6 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Megintilgangur öfgavinnslu er að skapa vörumerkjaðar, þægilegar (endingargóðar, tilbúnar til neyslu), aðlaðandi (ofurbragðgóðar) og mjög arðbærar (ódýr hráefni) matvörur sem eru hannaðar til að koma í stað allra annarra matvælaflokka. Ofurunnar matvörur eru yfirleitt pakkaðar á aðlaðandi hátt og markaðssettar á öflugan hátt.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4836,7 +4827,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Útdráttur í gangi…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Útdráttur tókst';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4982,6 +4976,12 @@ class AppLocalizationsIs extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Tölfræði mín';
+
+  @override
   String get preferences_contribute_subtitle => 'Þýða, bæta verkfæri okkar…';
 
   @override
@@ -5059,6 +5059,10 @@ class AppLocalizationsIs extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Open Food Facts er gagnagrunnur um matvæli **sem allir búa til, fyrir alla**.\nÞú getur notað hann til að taka betri ákvarðanir um mat og þar sem hann er **opin gögn** getur hver sem er **endurnýtt hann í hvaða tilgangi sem er**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5110,6 +5114,10 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Stjórna reikningnum mínum';
+
+  @override
+  String get preferences_manage_account_tooltip =>
+      'Stjórnaðu reikningnum þínum';
 
   @override
   String get preferences_change_password_title => 'Breyta lykilorðinu mínu';
@@ -5224,10 +5232,6 @@ class AppLocalizationsIs extends AppLocalizations {
       'Taktu þátt með því að mæta á einn af sýndarviðburðum okkar';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Fylgdu okkur á samfélagsmiðlum';
-
-  @override
   String get preferences_connect_blog_title => 'Bloggið Open Food Facts';
 
   @override
@@ -5339,7 +5343,7 @@ class AppLocalizationsIs extends AppLocalizations {
       'Taktu þátt í átaki okkar til að tryggja að gagnagrunnurinn sé tæmandi og nákvæmur';
 
   @override
-  String get preferences_contributions_new_products_title => '0 vörum bætt við';
+  String get preferences_contributions_products_added_title => 'Bættar vörur';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5352,6 +5356,16 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Allar ófullgerðar vörur';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Verð mín, sannanir mínar…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5482,6 +5496,36 @@ class AppLocalizationsIs extends AppLocalizations {
       'Auðkenning mistókst, ekki tókst að sækja sönnunargögn';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count af $total sönnunum';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count af $total framlagsaðilum';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count af $total staðsetningum';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count locations';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Endurræstu forritið til að virkja breytingarnar.';
 
@@ -5519,4 +5563,9 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Bætt við $created';
+  }
 }

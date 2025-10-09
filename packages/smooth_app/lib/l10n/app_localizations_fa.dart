@@ -9,6 +9,9 @@ class AppLocalizationsFa extends AppLocalizations {
   AppLocalizationsFa([String locale = 'fa']) : super(locale);
 
   @override
+  String get app_name => 'حقایق غذایی را باز کنید';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'حساب کاربری من را حذف کنید';
 
   @override
   String get user_profile => 'Account';
@@ -2505,6 +2504,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'در وب‌سایت Open Prices باز کنید';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4203,10 +4205,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4390,10 +4388,6 @@ class AppLocalizationsFa extends AppLocalizations {
       'برخلاف برچسب‌های اختصاصی، محاسبه امتیاز سبز **کاملاً باز** است و هر کسی می‌تواند آن را **تأیید** کند.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4479,9 +4473,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'هدف کلی فرافرآوری، ایجاد محصولات غذایی برنددار، مناسب (بادوام، آماده مصرف)، جذاب (بسیار خوش‌طعم) و بسیار سودآور (با مواد اولیه کم‌هزینه) است که برای جایگزینی سایر گروه‌های غذایی طراحی شده‌اند. محصولات غذایی فرافرآوری شده معمولاً به صورت جذاب بسته‌بندی و به صورت فشرده به بازار عرضه می‌شوند.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4832,7 +4823,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'استخراج در حال انجام است…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'استخراج موفقیت‌آمیز بود';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4978,6 +4972,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'آمار من';
+
+  @override
   String get preferences_contribute_subtitle =>
       'ترجمه کنید، ابزارهای ما را بهبود بخشید…';
 
@@ -5057,6 +5057,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'اطلاعات عمومی غذا یک پایگاه داده محصولات غذایی است **که توسط همه و برای همه ساخته شده است**.\nشما می‌توانید از آن برای انتخاب‌های غذایی بهتر استفاده کنید و از آنجایی که **داده‌های باز** است، هر کسی می‌تواند **از آن برای هر هدفی دوباره استفاده کند**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5109,6 +5113,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'مدیریت حساب من';
+
+  @override
+  String get preferences_manage_account_tooltip => 'مدیریت حساب کاربری شما';
 
   @override
   String get preferences_change_password_title => 'رمز عبورم را عوض کن';
@@ -5218,10 +5225,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'با شرکت در یکی از رویدادهای مجازی ما، مشارکت کنید';
-
-  @override
-  String get preferences_connect_social_media_title =>
-      'ما را در شبکه‌های اجتماعی دنبال کنید';
 
   @override
   String get preferences_connect_blog_title => 'وبلاگ حقایق غذای آزاد';
@@ -5334,7 +5337,8 @@ class AppLocalizationsFa extends AppLocalizations {
       'به تلاش ما برای اطمینان از کامل و دقیق بودن پایگاه داده بپیوندید';
 
   @override
-  String get preferences_contributions_new_products_title => '0 محصول اضافه شد';
+  String get preferences_contributions_products_added_title =>
+      'محصولات اضافه شده';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5347,6 +5351,16 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'تمام محصولات ناقص';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'قیمت‌های من، مدارک من…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5476,6 +5490,36 @@ class AppLocalizationsFa extends AppLocalizations {
       'احراز هویت ناموفق بود، نتوانست مدارک را دریافت کند';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count از $total اثبات‌ها';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count از $total مشارکت‌کنندگان';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count از $total مکان';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return 'مکان‌های $count';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'لطفا برای اعمال تغییرات، برنامه را مجدداً راه اندازی کنید.';
 
@@ -5513,4 +5557,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'اضافه شده در $created';
+  }
 }

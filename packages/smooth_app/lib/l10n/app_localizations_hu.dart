@@ -9,6 +9,9 @@ class AppLocalizationsHu extends AppLocalizations {
   AppLocalizationsHu([String locale = 'hu']) : super(locale);
 
   @override
+  String get app_name => 'Nyílt Élelmiszer Tények';
+
+  @override
   String get sep => '';
 
   @override
@@ -324,10 +327,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get sign_up_page_terms_text =>
       'felhasználási és hozzájárulási feltételeivel';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://hu.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url =>
@@ -1704,7 +1703,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get account_delete => 'Fiók törlése';
 
   @override
-  String get account_deletion_subject => 'Fiókom törlése';
+  String get account_delete_title => 'Fiókom törlése';
 
   @override
   String get user_profile => 'Fiók';
@@ -2534,6 +2533,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Tovább az Árak appba';
+
+  @override
+  String get prices_website_button => 'Nyitva az Open Prices weboldalon';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4243,10 +4245,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://hu.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4434,10 +4432,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'A saját fejlesztésű címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Többszörösen feldolgozott élelmiszerek';
 
   @override
@@ -4526,9 +4520,6 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből álló) élelmiszertermékek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.';
-
-  @override
-  String get guide_nova_share_link => 'https://hu.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Előnézet';
@@ -4883,7 +4874,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Kiolvasás most';
 
   @override
-  String get nutrition_facts_extract_succesful => 'A kiolvasás sikeres';
+  String get nutrition_facts_extract_in_progress => 'Kitermelés folyamatban…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'A kinyerés sikeres';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5029,6 +5023,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get preferences_contribute_title => 'Hozzájárulás';
 
   @override
+  String get preferences_my_contributions_title => 'Hozzájárulásaim';
+
+  @override
+  String get preferences_my_stats_title => 'A statisztikáim';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Fordítás, eszközeink fejlesztése…';
 
@@ -5109,6 +5109,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get preferences_legal_mentions => 'Jogi közlemény';
 
   @override
+  String get preferences_legal_header =>
+      'Az Open Food Facts egy élelmiszertermék-adatbázis, **amelyet mindenki készített, mindenkinek**.\nHasználhatod jobb élelmiszer-döntések meghozatalára, és mivel **nyílt adat**, bárki **újra felhasználhatja bármilyen célra**.';
+
+  @override
   String get preferences_privacy_policy => 'Adatvédelmi Irányelvek';
 
   @override
@@ -5161,6 +5165,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Fiókom kezelése';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Fiók kezelése';
 
   @override
   String get preferences_change_password_title => 'Jelszó módosítása';
@@ -5276,10 +5283,6 @@ class AppLocalizationsHu extends AppLocalizations {
       'Csatlakozz virtuális eseményeink egyikéhez';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Kövess minket a közösségi médiában';
-
-  @override
   String get preferences_connect_blog_title => 'Az Open Food Facts blog';
 
   @override
@@ -5392,8 +5395,8 @@ class AppLocalizationsHu extends AppLocalizations {
       'Csatlakozzon erőfeszítéseinkhez, hogy az adatbázis teljes és pontos legyen';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 termék hozzáadva';
+  String get preferences_contributions_products_added_title =>
+      'Hozzáadott termékek';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5406,6 +5409,16 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Minden befejezetlen termék';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Árak';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'Áraim';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Az áraim, a bizonyítékaim…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5536,6 +5549,36 @@ class AppLocalizationsHu extends AppLocalizations {
       'A hitelesítés sikertelen, a bizonyítékok nem kérhetők le.';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count a $total bizonyításból';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count a $total közreműködőből';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count a $total helyszínből';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count helyszínek';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Kérjük, indítsa újra az alkalmazást a módosítások érvénybe léptetéséhez.';
 
@@ -5574,4 +5617,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Fiók';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Hozzáadva ekkor: $created';
+  }
 }

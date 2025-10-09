@@ -9,6 +9,9 @@ class AppLocalizationsHa extends AppLocalizations {
   AppLocalizationsHa([String locale = 'ha']) : super(locale);
 
   @override
+  String get app_name => 'Bude Bayanan Abinci';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Share asusuna';
 
   @override
   String get user_profile => 'Account';
@@ -2506,6 +2505,10 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button =>
+      'Bude akan gidan yanar gizon Buɗe Farashi';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4206,10 +4209,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4395,10 +4394,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Ba kamar alamun mallakar mallaka ba, lissafin Green-Score ** gaba ɗaya buɗe yake ** kuma kowa zai iya tabbatar da shi **.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4486,9 +4481,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Babban manufar aiwatar da matsananciyar aiki shine ƙirƙirar alama, dacewa (mai ɗorewa, shirye don cinyewa), kyakkyawa (mai daɗi mai daɗi) da riba mai fa\'ida (kayan abinci masu ƙarancin farashi) samfuran abinci waɗanda aka tsara don korar duk sauran rukunin abinci. Kayan abinci da aka sarrafa sosai yawanci ana tattara su cikin kayatarwa kuma ana sayar da su sosai.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4839,7 +4831,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Ana ci gaba da hakowa…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'An yi nasarar cirewa';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4985,6 +4980,12 @@ class AppLocalizationsHa extends AppLocalizations {
   String get preferences_contribute_title => 'Contribute';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Ƙididdiga na';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Fassara, inganta kayan aikin mu…';
 
@@ -5063,6 +5064,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Bude Facts Abinci shine bayanan samfuran abinci ** wanda kowa yayi, ga kowa da kowa**.\nKuna iya amfani da shi don yin zaɓin abinci mafi kyau, kuma kamar yadda yake **buɗaɗɗen bayanai**, kowa zai iya **sake amfani da shi don kowane dalili**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5115,6 +5120,9 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Sarrafa asusuna';
+
+  @override
+  String get preferences_manage_account_tooltip => 'Sarrafa asusun ku';
 
   @override
   String get preferences_change_password_title => 'Canja kalmar sirri ta';
@@ -5226,10 +5234,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Shiga ta hanyar halartar ɗaya daga cikin abubuwan da suka faru na kama-da-wane';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Ku biyo mu a kafafen sada zumunta';
-
-  @override
   String get preferences_connect_blog_title => 'Budaddiyar Bayanan Abinci';
 
   @override
@@ -5339,8 +5343,8 @@ class AppLocalizationsHa extends AppLocalizations {
       'Haɗa ƙoƙarinmu don tabbatar da cikakkun bayanai kuma cikakke ne';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 an ƙara samfuran';
+  String get preferences_contributions_products_added_title =>
+      'Abubuwan da aka ƙara';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5353,6 +5357,16 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Duk samfuran da basu cika ba';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Farashina, hujjojina…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5480,6 +5494,36 @@ class AppLocalizationsHa extends AppLocalizations {
   String get prices_proof_error => 'Tabbatarwa ya gaza, ya kasa debo hujjoji';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count na $total hujjoji';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count na $total masu ba da gudummawa';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count na $total wurare';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count wurare';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Da fatan za a sake kunna app don amfani da canje-canje.';
 
@@ -5517,4 +5561,9 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'An ƙara akan $created';
+  }
 }

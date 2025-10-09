@@ -9,6 +9,9 @@ class AppLocalizationsTl extends AppLocalizations {
   AppLocalizationsTl([String locale = 'tl']) : super(locale);
 
   @override
+  String get app_name => 'Open Food Facts';
+
+  @override
   String get sep => '';
 
   @override
@@ -319,10 +322,6 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get sign_up_page_terms_text => 'terms of use and contribution';
-
-  @override
-  String get sign_up_page_agree_url =>
-      'https://world-en.openfoodfacts.org/terms-of-use';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -1687,7 +1686,7 @@ class AppLocalizationsTl extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_deletion_subject => 'Delete my account';
+  String get account_delete_title => 'Tanggalin ang aking account';
 
   @override
   String get user_profile => 'Account';
@@ -2506,6 +2505,9 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get prices_app_button => 'Go to Prices app';
+
+  @override
+  String get prices_website_button => 'Buksan sa website ng Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -4209,10 +4211,6 @@ class AppLocalizationsTl extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_nutriscore_v2_share_link =>
-      'https://world.openfoodfacts.org/nutriscore-v2';
-
-  @override
   String get guide_greenscore_title => 'Green-Score';
 
   @override
@@ -4403,10 +4401,6 @@ class AppLocalizationsTl extends AppLocalizations {
       'Hindi tulad ng mga proprietary label, ang pagkalkula ng Green-Score ay **ganap na bukas** at maaaring **ma-verify ng sinuman**.';
 
   @override
-  String get guide_greenscore_share_link =>
-      'https://en.openfoodfacts.org/green-score';
-
-  @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
@@ -4494,9 +4488,6 @@ class AppLocalizationsTl extends AppLocalizations {
   @override
   String get guide_nova_explanations_arg4_text =>
       'Ang pangkalahatang layunin ng ultra-processing ay lumikha ng mga produktong pagkain na may tatak, maginhawa (matibay, handang ubusin), kaakit-akit (hyper-palatable) at lubos na kumikita (mababa ang halaga) na idinisenyo upang palitan ang lahat ng iba pang pangkat ng pagkain. Ang mga produktong ultra-processed na pagkain ay karaniwang nakabalot nang kaakit-akit at masinsinang ibinebenta.';
-
-  @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
   String get preview_badge => 'Preview';
@@ -4847,7 +4838,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_succesful => 'Extraction succesful';
+  String get nutrition_facts_extract_in_progress => 'Isinasagawa ang pagkuha…';
+
+  @override
+  String get nutrition_facts_extract_successful => 'Matagumpay ang pagkuha';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -4994,6 +4988,12 @@ class AppLocalizationsTl extends AppLocalizations {
   String get preferences_contribute_title => 'Mag-ambag';
 
   @override
+  String get preferences_my_contributions_title => 'My contributions';
+
+  @override
+  String get preferences_my_stats_title => 'Ang aking mga istatistika';
+
+  @override
   String get preferences_contribute_subtitle =>
       'Isalin, pagbutihin ang aming mga tool…';
 
@@ -5075,6 +5075,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
+  String get preferences_legal_header =>
+      'Ang Open Food Facts ay isang database ng mga produktong pagkain **ginawa ng lahat, para sa lahat**.\nMagagamit mo ito upang makagawa ng mas mahusay na mga pagpipilian sa pagkain, at dahil ito ay **bukas na data**, sinuman ay maaaring **muling gamitin ito para sa anumang layunin**.';
+
+  @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
@@ -5127,6 +5131,10 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get preferences_manage_account_title => 'Pamahalaan ang aking account';
+
+  @override
+  String get preferences_manage_account_tooltip =>
+      'Pamahalaan ang iyong account';
 
   @override
   String get preferences_change_password_title => 'Baguhin ang aking password';
@@ -5239,10 +5247,6 @@ class AppLocalizationsTl extends AppLocalizations {
       'Makilahok sa pamamagitan ng pagdalo sa isa sa aming mga virtual na kaganapan';
 
   @override
-  String get preferences_connect_social_media_title =>
-      'Sundan kami sa social media';
-
-  @override
   String get preferences_connect_blog_title => 'Ang Open Food Facts blog';
 
   @override
@@ -5353,8 +5357,8 @@ class AppLocalizationsTl extends AppLocalizations {
       'Sumali sa aming pagsisikap upang matiyak na kumpleto at tumpak ang database';
 
   @override
-  String get preferences_contributions_new_products_title =>
-      '0 mga produkto ang naidagdag';
+  String get preferences_contributions_products_added_title =>
+      'Nagdagdag ng mga produkto';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
@@ -5367,6 +5371,16 @@ class AppLocalizationsTl extends AppLocalizations {
   @override
   String get preferences_contributions_all_incomplete_title =>
       'Lahat ng hindi kumpletong produkto';
+
+  @override
+  String get preferences_my_contributions_prices_title => 'Prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_title => 'My prices';
+
+  @override
+  String get preferences_my_contributions_my_prices_subtitle =>
+      'Ang aking mga presyo, ang aking mga patunay…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
@@ -5500,6 +5514,36 @@ class AppLocalizationsTl extends AppLocalizations {
       'Nabigo ang pagpapatotoo, hindi nakakuha ng mga patunay';
 
   @override
+  String proofs_count_with_total(int count, int total) {
+    return '$count ng $total patunay';
+  }
+
+  @override
+  String proof_count(int count) {
+    return '$count proofs';
+  }
+
+  @override
+  String contributors_count_with_total(int count, int total) {
+    return '$count ng $total contributor';
+  }
+
+  @override
+  String contributors_count(int count) {
+    return '$count contributors';
+  }
+
+  @override
+  String prices_locations_count_with_total(int count, int total) {
+    return '$count ng $total lokasyon';
+  }
+
+  @override
+  String prices_locations_count(int count) {
+    return '$count lokasyon';
+  }
+
+  @override
   String get restart_to_apply_message =>
       'Mangyaring i-restart ang app upang ilapat ang mga pagbabago.';
 
@@ -5538,4 +5582,9 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get preferences_account_title => 'Account';
+
+  @override
+  String prices_adding_timestamp_tooltip(String created) {
+    return 'Idinagdag sa $created';
+  }
 }

@@ -3,6 +3,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A card that contains a list of [PreferenceTile].
@@ -10,14 +12,17 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// Cards are then displayed as a list in a [PreferencesRoot].
 class PreferenceCard extends StatelessWidget {
   PreferenceCard({
-    required this.title,
     required this.tiles,
+    this.title,
     this.gridView = false,
     this.header,
     this.titleBackgroundColor,
     this.bannerText,
     super.key,
-  }) : assert(title.isNotEmpty, 'PreferenceCard title must not be empty.'),
+  }) : assert(
+         title == null || title.isNotEmpty,
+         'PreferenceCard title must not be empty.',
+       ),
        assert(
          tiles.isNotEmpty,
          'PreferenceCard must contain at least one tile.',
@@ -35,7 +40,7 @@ class PreferenceCard extends StatelessWidget {
          'Header must be null when gridView is true.',
        );
 
-  final String title;
+  final String? title;
   final List<PreferenceTile> tiles;
   final bool gridView;
   final Widget? header;
@@ -46,22 +51,33 @@ class PreferenceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const double leadingMargin = 6.0;
 
+    final bool darkTheme = context.darkTheme();
+
     return SmoothCardWithRoundedHeader(
       leading: EMPTY_WIDGET,
       leadingMargin: const EdgeInsetsDirectional.only(start: leadingMargin),
       title: title,
+      titlePadding: const EdgeInsetsDirectional.symmetric(
+        vertical: 14.0,
+        horizontal: LARGE_SPACE,
+      ),
+      titleTextStyle: Theme.of(
+        context,
+      ).textTheme.displaySmall!.copyWith(fontSize: 16.5),
+      titleBackgroundColor:
+          titleBackgroundColor ?? (darkTheme ? Colors.black87 : null),
       banner: bannerText != null
           ? Padding(
-              padding: const EdgeInsets.all(MEDIUM_SPACE),
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
               child: Text(bannerText!),
             )
           : null,
       titleSpacing: MEDIUM_SPACE * 2 - leadingMargin / 2,
-      contentPadding: !gridView ? EdgeInsets.zero : null,
+      contentPadding: !gridView ? EdgeInsetsDirectional.zero : null,
       clipBehavior: Clip.antiAlias,
-      titleBackgroundColor:
-          titleBackgroundColor ??
-          (context.lightTheme() ? null : const Color(0xFF322219)),
+      contentBackgroundColor: (darkTheme
+          ? context.extension<SmoothColorsThemeExtension>().primaryUltraBlack
+          : null),
       child: gridView
           ? GridView.count(
               crossAxisCount: 3,
@@ -82,7 +98,6 @@ class PreferenceCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: const BorderRadius.vertical(
                       top: ROUNDED_RADIUS,
-                      bottom: ROUNDED_RADIUS,
                     ),
                     child: header,
                   ),
@@ -100,7 +115,7 @@ class PreferenceCard extends StatelessWidget {
     for (int i = 0; i < tiles.length; i++) {
       if (i > 0) {
         tilesWithDividers.add(
-          Divider(color: lightTheme ? Colors.grey[300] : Colors.grey[800]),
+          Divider(color: lightTheme ? Colors.grey[300] : Colors.grey[700]),
         );
       }
       tilesWithDividers.add(tiles[i]);
