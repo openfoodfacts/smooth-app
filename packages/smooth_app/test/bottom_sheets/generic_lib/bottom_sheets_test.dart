@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -21,11 +21,17 @@ import '../../tests_utils/mocks.dart';
 void main() {
   GlobalVars.appStore = const MockedAppStore();
 
-  group('Dialogs on Contribute Page looks as expected', () {
+  group('Bottom Sheets on Contribute Page looks as expected', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
-      const List<String> dialogTypes = <String>['Improving'];
-      for (final String dialogType in dialogTypes) {
-        testWidgets('${dialogType}_Page_${theme}_Theme', (
+      const List<String> bottomSheetTypes = <String>[
+        'Software development',
+        'Translate',
+        // 'Contributors'
+        // Currently can't make real http calls from the test library and since this bottom sheets depends on an api call
+        // So omitting this one for now
+      ];
+      for (final String bottomSheetType in bottomSheetTypes) {
+        testWidgets('${bottomSheetType}_Page_${theme}_Theme', (
           WidgetTester tester,
         ) async {
           late UserPreferences userPreferences;
@@ -66,11 +72,11 @@ void main() {
             ),
           );
           await tester.pumpAndSettle();
-          await tester.tap(find.text(dialogType));
+          await tester.tap(find.text(bottomSheetType));
           await tester.pumpAndSettle();
           await expectGoldenMatches(
-            find.byType(SmoothAlertDialog),
-            'user_preferences_page_dialogs_$dialogType-${theme.toLowerCase()}.png',
+            find.byType(SmoothModalSheet),
+            'user_preferences_page_bottom_sheets_$bottomSheetType-${theme.toLowerCase()}.png',
           );
           expect(tester, meetsGuideline(textContrastGuideline));
           expect(tester, meetsGuideline(labeledTapTargetGuideline));
