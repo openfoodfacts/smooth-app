@@ -255,7 +255,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Text(appLocalizations.contribute_translate_text),
                 Text(appLocalizations.contribute_translate_text_2),
               ],
@@ -285,7 +285,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     builder: (BuildContext context) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       return SmoothModalSheet(
-        title: appLocalizations.contributors_bottom_sheet_title,
+        title: appLocalizations.contributors_dialog_title,
         prefixIndicator: true,
         body: Column(
           mainAxisSize: MainAxisSize.min,

@@ -389,7 +389,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get contributors_label => 'Ei construiesc aplicația';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Colaboratori';
 
   @override
   String contributors_dialog_entry_description(Object name) {

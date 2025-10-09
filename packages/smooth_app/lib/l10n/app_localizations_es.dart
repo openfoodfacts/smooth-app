@@ -398,7 +398,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Estas son las personas que están construyendo la aplicación';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Colaboradores';
 
   @override
   String contributors_dialog_entry_description(Object name) {

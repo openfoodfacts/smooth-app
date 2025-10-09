@@ -389,7 +389,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get contributors_label => 'Они создают приложение';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Участники';
 
   @override
   String contributors_dialog_entry_description(Object name) {

@@ -375,7 +375,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get contributors_label => 'הם בונים את היישומון';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'תורמים';
 
   @override
   String contributors_dialog_entry_description(Object name) {

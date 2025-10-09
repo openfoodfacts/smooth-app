@@ -386,7 +386,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get contributors_label => 'He rakentavat sovellusta';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Osallistujat';
 
   @override
   String contributors_dialog_entry_description(Object name) {

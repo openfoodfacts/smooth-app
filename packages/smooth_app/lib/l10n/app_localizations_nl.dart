@@ -386,7 +386,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get contributors_label => 'Ze bouwen de app';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Bijdragers';
 
   @override
   String contributors_dialog_entry_description(Object name) {

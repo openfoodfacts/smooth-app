@@ -384,7 +384,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get contributors_label => 'Aplikazioa garatzen ari dira';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {

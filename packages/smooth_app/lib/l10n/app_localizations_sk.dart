@@ -389,7 +389,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get contributors_label => 'Budujú aplikáciu';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Prispievatelia';
 
   @override
   String contributors_dialog_entry_description(Object name) {

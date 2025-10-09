@@ -388,7 +388,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get contributors_label => 'Ők fejlesztik az alkalmazást';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Hozzájárulók';
 
   @override
   String contributors_dialog_entry_description(Object name) {

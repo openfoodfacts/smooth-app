@@ -387,7 +387,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get contributors_label => 'Вони створюють додаток';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Співучасники';
 
   @override
   String contributors_dialog_entry_description(Object name) {

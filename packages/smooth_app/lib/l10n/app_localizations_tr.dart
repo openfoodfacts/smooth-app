@@ -386,7 +386,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get contributors_label => 'Onlar uygulamayı geliştiriyorlar';
 
   @override
-  String get contributors_bottom_sheet_title => 'Contributors';
+  String get contributors_dialog_title => 'Katkıda bulunanlar';
 
   @override
   String contributors_dialog_entry_description(Object name) {
