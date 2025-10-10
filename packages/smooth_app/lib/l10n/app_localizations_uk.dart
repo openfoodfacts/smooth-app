@@ -1282,6 +1282,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Властивості продукту не знайдено. Властивості можна використовувати для більш детального опису продуктів у гнучкий спосіб. Торкніться, щоб додати.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Додати властивість';
 
   @override

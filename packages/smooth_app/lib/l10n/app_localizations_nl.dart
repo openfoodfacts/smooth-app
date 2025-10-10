@@ -1278,6 +1278,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven. Tik om toe te voegen.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Eigenschap toevoegen';
 
   @override

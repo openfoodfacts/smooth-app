@@ -1302,6 +1302,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν βρέθηκαν ιδιότητες προϊόντος. Οι ιδιότητες μπορούν να χρησιμοποιηθούν για την περιγραφή των προϊόντων με περισσότερες λεπτομέρειες, με ευέλικτο τρόπο.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Προσθήκη ιδιότητας';
 
   @override

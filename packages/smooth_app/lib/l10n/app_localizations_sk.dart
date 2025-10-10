@@ -1283,6 +1283,13 @@ class AppLocalizationsSk extends AppLocalizations {
       'Nenašli sa žiadne vlastnosti produktu. Vlastnosti môžu byť použité na podrobnejšie opísanie produktov flexibilným spôsobom.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Pridajte vlastnosť';
 
   @override

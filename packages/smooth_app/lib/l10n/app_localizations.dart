@@ -2584,6 +2584,18 @@ abstract class AppLocalizations {
   /// **'No product properties found. Properties can be used to describe products in more details, in a flexible way.'**
   String get no_product_tags_found_message;
 
+  /// No description provided for @product_tags_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties'**
+  String get product_tags_empty;
+
+  /// No description provided for @product_tags_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'By adding properties (key/value) to a product, you help enrich it.'**
+  String get product_tags_explanation;
+
   /// No description provided for @add_tag.
   ///
   /// In en, this message translates to:

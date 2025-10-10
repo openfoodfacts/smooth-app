@@ -1196,6 +1196,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get no_product_tags_found_message => '未找到产品属性。产品属性可以更详细、更灵活地描述产品。';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => '添加属性';
 
   @override

@@ -1294,6 +1294,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'Keine Produkteigenschaften gefunden. Eigenschaften können verwendet werden, um Produkte auf flexible Art und Weise detaillierter zu beschreiben. Antippen zum Hinzufügen.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Eigenschaft hinzufügen';
 
   @override

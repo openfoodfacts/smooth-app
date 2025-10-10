@@ -83,7 +83,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
           _buildEditIngredientsTile(context, appLocalizations, userPreferences),
-          _buildShowFolksonomyTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -350,34 +349,6 @@ class DevModeRoot extends PreferencesRoot {
       onToggle: (bool value) async {
         await userPreferences.setFlag(
           UserPreferencesDevMode.userPreferencesFlagEditIngredients,
-          value,
-        );
-
-        if (!context.mounted) {
-          return;
-        }
-
-        _showSuccessMessage(context, appLocalizations);
-      },
-    );
-  }
-
-  TogglePreferenceTile _buildShowFolksonomyTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      title: appLocalizations.preferences_dev_preferences_show_folksonomy_title,
-      icon: const icons.Eye.invisible(),
-      state:
-          userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-          ) ??
-          true,
-      onToggle: (bool value) async {
-        await userPreferences.setFlag(
-          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
           value,
         );
 

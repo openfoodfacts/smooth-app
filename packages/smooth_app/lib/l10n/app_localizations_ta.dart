@@ -1264,6 +1264,13 @@ class AppLocalizationsTa extends AppLocalizations {
       'தயாரிப்புப் பண்புகள் இல்லை. தயாரிப்புகளை மேலும் விவரங்களில், நெகிழ்வான முறையில் விவரிக்கப் பண்புகலைப் பயன்படுத்தப்படலாம்.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'ஒரு குணத்தைச் சேர்க்கவும்';
 
   @override

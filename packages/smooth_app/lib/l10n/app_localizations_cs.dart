@@ -1277,6 +1277,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nebyly nalezeny žádné vlastnosti produktu. Vlastnosti lze použít k podrobnějšímu a flexibilnímu popisu produktů. Klepnutím přidáte.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Přidat vlastnost';
 
   @override

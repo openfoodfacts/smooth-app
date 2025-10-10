@@ -1290,6 +1290,13 @@ class AppLocalizationsLt extends AppLocalizations {
       'Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Pridėti savybę';
 
   @override

@@ -64,7 +64,8 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
 
     if (widget.action == FolksonomyAction.add) {
       isKeyValid =
-          isKeyValid && !widget.existingKeys!.contains(keyController.text);
+          isKeyValid &&
+          widget.existingKeys?.contains(keyController.text) != true;
     } else if (widget.action == FolksonomyAction.edit) {
       isKeyValid =
           isKeyValid &&

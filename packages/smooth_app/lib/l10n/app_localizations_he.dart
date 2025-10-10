@@ -1240,6 +1240,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'לא נמצאו מאפייני מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'הוספת מאפיין';
 
   @override

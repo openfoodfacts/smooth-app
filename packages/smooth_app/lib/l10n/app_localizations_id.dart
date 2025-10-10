@@ -1280,6 +1280,13 @@ class AppLocalizationsId extends AppLocalizations {
       'Properti produk tidak ditemukan. Properti dapat digunakan untuk mendeskripsikan produk secara lebih rinci, dengan cara yang fleksibel. Ketuk untuk menambahkan.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Tambahkan properti';
 
   @override

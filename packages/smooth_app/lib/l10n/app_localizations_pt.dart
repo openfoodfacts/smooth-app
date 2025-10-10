@@ -1292,6 +1292,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Não foram encontradas propriedades de produtos. As propriedades podem ser utilizadas para descrever os produtos com mais pormenores, de uma forma flexível.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Adicionar uma propriedade';
 
   @override
