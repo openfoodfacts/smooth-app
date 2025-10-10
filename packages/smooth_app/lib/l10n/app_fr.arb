@@ -2159,7 +2159,7 @@
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Tester les paramètres d'environnement",
+  "dev_preferences_test_environment_title": "Adresse de l'environnement de TEST",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
