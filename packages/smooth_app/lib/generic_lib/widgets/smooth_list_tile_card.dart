@@ -81,9 +81,7 @@ class SmoothListTileCard extends StatelessWidget {
                   ),
                 )
               : null,
-          trailing: const icons.Chevron.right(
-            size: 15.0,
-          ),
+          trailing: const icons.Chevron.right(size: 15.0),
         ),
       ),
     );
