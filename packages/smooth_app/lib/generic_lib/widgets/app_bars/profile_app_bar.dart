@@ -29,7 +29,7 @@ class ProfileAppBar extends StatelessWidget {
         (Platform.isAndroid ? VERY_SMALL_SPACE : 0.0) +
         PROFILE_PICTURE_SIZE +
         MEDIUM_SPACE +
-        SEARCH_BOTTOM_HEIGHT;
+        SearchBottomBar.totalHeight;
 
     final double maxHeight = minHeight + LARGE_SPACE + contentHeight;
 
@@ -84,10 +84,10 @@ class _ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
       height: maxHeight,
       child: AppBarBackground(
         scrollOffset: progress * (maxHeight - minHeight),
-        bodyHeight: maxHeight - SEARCH_BOTTOM_HEIGHT,
+        bodyHeight: maxHeight - SearchBottomBar.totalHeight,
         minHeight: minHeight,
         maxHeight: maxHeight,
-        footerHeight: SEARCH_BOTTOM_HEIGHT,
+        footerHeight: SearchBottomBar.totalHeight,
         child: Column(
           children: <Widget>[
             Padding(
