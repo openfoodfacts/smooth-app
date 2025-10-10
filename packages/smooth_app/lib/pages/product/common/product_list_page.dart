@@ -574,9 +574,7 @@ class _ProductListAppBarTitle extends StatelessWidget {
       child: SizedBox(
         height: kToolbarHeight,
         child: InkWell(
-          borderRadius: context.read<ThemeProvider>().isAmoledTheme
-              ? ANGULAR_BORDER_RADIUS
-              : null,
+          borderRadius: ANGULAR_BORDER_RADIUS,
           onTap: enabled ? onTap : null,
           child: Padding(
             padding: const EdgeInsetsDirectional.symmetric(
