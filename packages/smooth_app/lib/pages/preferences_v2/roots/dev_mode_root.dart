@@ -26,7 +26,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class DevModeRoot extends PreferencesRoot {
-  DevModeRoot({required super.title});
+  const DevModeRoot({required super.title});
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
