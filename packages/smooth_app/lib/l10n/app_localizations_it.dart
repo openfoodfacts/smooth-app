@@ -1283,6 +1283,13 @@ class AppLocalizationsIt extends AppLocalizations {
       'Nessuna proprietà del prodotto trovata. Le proprietà possono essere usate per descrivere i prodotti in modo più dettagliato, in modo flessibile. Tocca per aggiungere.';
 
   @override
+  String get product_tags_empty => 'Nessuna proprietà';
+
+  @override
+  String get product_tags_explanation =>
+      'Aggiungendo proprietà (chiave/valore) a un prodotto, contribuisci ad arricchirlo.';
+
+  @override
   String get add_tag => 'Aggiungi proprietà';
 
   @override
@@ -2978,6 +2985,17 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredienti e confezione)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Reimposta la lingua dell\'app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Aggiungi carte';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Passa da prices.openfoodfacts.org (PROD) a test env';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5237,6 +5255,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Ospite di Folksonomia';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ospite: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

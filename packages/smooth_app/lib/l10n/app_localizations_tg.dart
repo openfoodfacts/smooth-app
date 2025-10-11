@@ -1262,6 +1262,13 @@ class AppLocalizationsTg extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Не моликият';
+
+  @override
+  String get product_tags_explanation =>
+      'Бо илова кардани хосиятҳо (калид/арзиш) ба маҳсулот, шумо ба ғанисозии он кӯмак мекунед.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2934,6 +2941,17 @@ class AppLocalizationsTg extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Забони барномаро аз нав танзим кунед';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Илова кардани кортҳои';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Гузариш байни price.openfoodfacts.org (PROD) ва env test';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5165,6 +5183,11 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Мизбони фолксономй';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Мизбон: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

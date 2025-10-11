@@ -1262,6 +1262,13 @@ class AppLocalizationsHa extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Babu kadarori';
+
+  @override
+  String get product_tags_explanation =>
+      'Ta ƙara kaddarorin (maɓalli/daraja) zuwa samfur, kuna taimakawa haɓaka shi.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2935,6 +2942,16 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Sake saita yaren app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Ƙara katunan';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Canja tsakanin prices.openfoodfacts.org (PROD) da gwajin env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5166,6 +5183,11 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Mai masaukin baki na Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Mai watsa shiri: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

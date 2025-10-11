@@ -1262,6 +1262,13 @@ class AppLocalizationsTe extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ఆస్తులు లేవు';
+
+  @override
+  String get product_tags_explanation =>
+      'ఒక ఉత్పత్తికి లక్షణాలను (కీ/విలువ) జోడించడం ద్వారా, మీరు దానిని సుసంపన్నం చేయడంలో సహాయపడతారు.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2935,6 +2942,16 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'యాప్ భాషను రీసెట్ చేయండి';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'కార్డ్‌లను జోడించండి';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) మరియు పరీక్ష env మధ్య మారండి';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5166,6 +5183,11 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ఫోక్సోనమీ హోస్ట్';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'హోస్ట్: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

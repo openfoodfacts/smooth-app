@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -65,11 +64,14 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
               final SmoothPopupMenuItem<T> item = list.elementAt(index);
 
               return ListTile(
-                leading: item.icon != null ? Icon(item.icon) : null,
-                title: Text(item.label),
+                leading: item.icon,
+                title: Text(
+                  item.label,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  widget.onSelected(item.value);
+                  widget.onSelected.call(item.value);
                 },
               );
             },
@@ -92,6 +94,6 @@ class SmoothPopupMenuItem<T> {
 
   final T value;
   final String label;
-  final IconData? icon;
+  final Widget? icon;
   final bool enabled;
 }

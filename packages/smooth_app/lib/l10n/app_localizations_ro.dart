@@ -1286,6 +1286,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Nicio proprietate';
+
+  @override
+  String get product_tags_explanation =>
+      'Prin adăugarea de proprietăți (cheie/valoare) unui produs, contribuiți la îmbogățirea acestuia.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2975,6 +2982,16 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Resetați limba aplicației';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Adăugați carduri';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Comutare între prices.openfoodfacts.org (PROD) și mediul de testare';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5227,6 +5244,11 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Gazdă de folcsonomie';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Gazdă: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

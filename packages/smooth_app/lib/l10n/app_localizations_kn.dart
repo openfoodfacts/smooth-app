@@ -1263,6 +1263,13 @@ class AppLocalizationsKn extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ಯಾವುದೇ ಗುಣಲಕ್ಷಣಗಳಿಲ್ಲ';
+
+  @override
+  String get product_tags_explanation =>
+      'ಉತ್ಪನ್ನಕ್ಕೆ ಗುಣಲಕ್ಷಣಗಳನ್ನು (ಕೀ/ಮೌಲ್ಯ) ಸೇರಿಸುವ ಮೂಲಕ, ನೀವು ಅದನ್ನು ಉತ್ಕೃಷ್ಟಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತೀರಿ.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2937,6 +2944,17 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'ಅಪ್ಲಿಕೇಶನ್ ಭಾಷೆಯನ್ನು ಮರುಹೊಂದಿಸಿ';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ಕಾರ್ಡ್‌ಗಳನ್ನು ಸೇರಿಸಿ';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) ಮತ್ತು test env ನಡುವೆ ಬದಲಾಯಿಸಿ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5171,6 +5189,11 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ಫೋಕ್ಸೊನಮಿ ಹೋಸ್ಟ್';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'ಹೋಸ್ಟ್: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

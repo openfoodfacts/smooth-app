@@ -1262,6 +1262,13 @@ class AppLocalizationsFa extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'بدون ملک';
+
+  @override
+  String get product_tags_explanation =>
+      'با اضافه کردن ویژگی‌ها (کلید/مقدار) به یک محصول، به غنی‌سازی آن کمک می‌کنید.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2932,6 +2939,16 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'تنظیم مجدد زبان برنامه';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'اضافه کردن کارت‌ها';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'بین prices.openfoodfacts.org (PROD) و test env جابجا شوید';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5157,6 +5174,11 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'میزبان فولکسونومی';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'میزبان: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

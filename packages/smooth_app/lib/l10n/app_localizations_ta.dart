@@ -1264,6 +1264,13 @@ class AppLocalizationsTa extends AppLocalizations {
       'தயாரிப்புப் பண்புகள் இல்லை. தயாரிப்புகளை மேலும் விவரங்களில், நெகிழ்வான முறையில் விவரிக்கப் பண்புகலைப் பயன்படுத்தப்படலாம்.';
 
   @override
+  String get product_tags_empty => 'சொத்துக்கள் இல்லை';
+
+  @override
+  String get product_tags_explanation =>
+      'ஒரு பொருளுக்கு பண்புகளை (திறவுகோல்/மதிப்பு) சேர்ப்பதன் மூலம், நீங்கள் அதை வளப்படுத்த உதவுகிறீர்கள்.';
+
+  @override
   String get add_tag => 'ஒரு குணத்தைச் சேர்க்கவும்';
 
   @override
@@ -2942,6 +2949,17 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'பயன்பாட்டு மொழியை மீட்டமைக்கவும்';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'கார்டுகளைச் சேர்';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) மற்றும் சோதனை env க்கு இடையில் மாறவும்.';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5189,6 +5207,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ஃபோக்சோனமி ஹோஸ்ட்';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'தொகுப்பாளர்: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

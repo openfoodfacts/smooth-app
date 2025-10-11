@@ -1262,6 +1262,13 @@ class AppLocalizationsQu extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Mana propiedades nisqayuq';
+
+  @override
+  String get product_tags_explanation =>
+      'Huk ruruman propiedades (llave/valor) yapaspa, qhapaqyachiypaq yanapanki.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2935,6 +2942,17 @@ class AppLocalizationsQu extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'App simita musuqmanta churay';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Tarjetakunata yapay';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5179,6 +5197,11 @@ class AppLocalizationsQu extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomía nisqa anfitrión';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Anfitrión: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

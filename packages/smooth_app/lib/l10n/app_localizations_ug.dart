@@ -1262,6 +1262,13 @@ class AppLocalizationsUg extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ھېچقانداق خاسلىقى يوق';
+
+  @override
+  String get product_tags_explanation =>
+      'مەھسۇلاتقا خاسلىق (ئاچقۇچ / قىممەت) قوشسىڭىز ، ئۇنى بېيىتىشقا ياردەم بېرىسىز.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2933,6 +2940,16 @@ class AppLocalizationsUg extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'ئەپ تىلىنى ئەسلىگە كەلتۈرۈش';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'كارتا قوشۇڭ';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Price.openfoodfacts.org (PROD) بىلەن سىناق env نى ئالماشتۇرۇڭ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5166,6 +5183,11 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Host: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

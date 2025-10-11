@@ -1262,6 +1262,13 @@ class AppLocalizationsMy extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'သတ္တိမရှိပါ။';
+
+  @override
+  String get product_tags_explanation =>
+      'ကုန်ပစ္စည်းတစ်ခုသို့ ဂုဏ်သတ္တိများ (သော့/တန်ဖိုး) ပေါင်းထည့်ခြင်းဖြင့်၊ ၎င်းကို ကြွယ်ဝအောင် ကူညီပေးပါသည်။';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2939,6 +2946,17 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'အက်ပ်ဘာသာစကားကို ပြန်လည်သတ်မှတ်ပါ။';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ကတ်များထည့်ပါ။';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5180,6 +5198,11 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomy အိမ်ရှင်';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'အိမ်ရှင်- $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

@@ -101,7 +101,7 @@ class UserProfilePicture extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: lightTheme ? Colors.white : Colors.black54,
+            color: lightTheme ? Colors.white : Colors.white10,
           ),
           child: Padding(
             padding: const EdgeInsetsDirectional.all(SMALL_SPACE),

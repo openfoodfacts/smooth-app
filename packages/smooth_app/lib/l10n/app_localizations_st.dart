@@ -1262,6 +1262,13 @@ class AppLocalizationsSt extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Ha ho thepa';
+
+  @override
+  String get product_tags_explanation =>
+      'Ka ho eketsa thepa (senotlolo / boleng) ho sehlahisoa, u thusa ho se ruisa.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2934,6 +2941,16 @@ class AppLocalizationsSt extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Seta puo ea app bocha';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Kenya likarete';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Fetoha lipakeng tsa prices.openfoodfacts.org (PROD) le test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5170,6 +5187,11 @@ class AppLocalizationsSt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Moamoheli oa Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Motsamaisi: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

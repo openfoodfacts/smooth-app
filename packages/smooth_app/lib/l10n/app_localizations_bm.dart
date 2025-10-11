@@ -1262,6 +1262,13 @@ class AppLocalizationsBm extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Nafolo tɛ yen';
+
+  @override
+  String get product_tags_explanation =>
+      'Ni i ye nafolo (kili/nafa) fara fɛn dɔ kan, i bɛ dɛmɛ don k’a nafa bonya.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2936,6 +2943,16 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Reset app kan';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Kartiw fara a kan';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Aw bɛ wuli ka wuli prices.openfoodfacts.org (PROD) ni test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5175,6 +5192,11 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomy jatigikɛ';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Jatigikɛ: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

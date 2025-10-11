@@ -1262,6 +1262,13 @@ class AppLocalizationsMg extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Tsy misy fananana';
+
+  @override
+  String get product_tags_explanation =>
+      'Amin\'ny fampidirana fananana (fanalahidy / sanda) amin\'ny vokatra iray dia manampy amin\'ny fanatsarana azy ianao.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2937,6 +2944,17 @@ class AppLocalizationsMg extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Avereno ny fiteny fampiharana';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Ampio karatra';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Mifindra eo amin\'ny prices.openfoodfacts.org (PROD) sy ny test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5175,6 +5193,11 @@ class AppLocalizationsMg extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomy mpampiantrano';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'mpampiantrano: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

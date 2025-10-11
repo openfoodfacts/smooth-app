@@ -1262,6 +1262,13 @@ class AppLocalizationsGu extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'કોઈ મિલકતો નથી';
+
+  @override
+  String get product_tags_explanation =>
+      'ઉત્પાદનમાં ગુણધર્મો (કી/મૂલ્ય) ઉમેરીને, તમે તેને સમૃદ્ધ બનાવવામાં મદદ કરો છો.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2935,6 +2942,16 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'એપ્લિકેશન ભાષા રીસેટ કરો';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'કાર્ડ ઉમેરો';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) અને ટેસ્ટ env વચ્ચે સ્વિચ કરો';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5164,6 +5181,11 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ફોક્સોનોમી હોસ્ટ';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'યજમાન: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

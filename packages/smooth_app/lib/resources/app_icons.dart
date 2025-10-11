@@ -202,16 +202,6 @@ class AddToList extends AppIcon {
   }
 }
 
-class Alone extends AppIcon {
-  const Alone({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.alone);
-}
-
 class AppStore extends AppIcon {
   const AppStore({
     super.color,
@@ -348,6 +338,14 @@ class Camera extends AppIcon {
     super.key,
   }) : super._(_IconsFont.camera_add);
 
+  const Camera.aperture({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.aperture);
+
   const Camera.bulk({
     super.color,
     super.size,
@@ -387,6 +385,16 @@ class Camera extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_restart);
+}
+
+class Cards extends AppIcon {
+  const Cards({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.cards);
 }
 
 class Categories extends AppIcon {
@@ -477,14 +485,48 @@ class Check extends AppIcon {
   }) : super._(_IconsFont.check);
 }
 
-class CheckList extends AppIcon {
-  const CheckList({
+class CheckBox extends AppIcon {
+  const CheckBox({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.checklist);
+  }) : super._(_IconsFont.checkbox);
+
+  const CheckBox.filled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checkbox_filled);
+}
+
+class CheckList extends AppIcon {
+  const CheckList.document({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checklist_document);
+
+  const CheckList.twoLines({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checklist_two_items);
+
+  const CheckList.threeLines({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checklist_three_items);
 }
 
 class Chevron extends AppIcon {
@@ -782,6 +824,14 @@ class Compare extends AppIcon {
     super.key,
   }) : super._(_IconsFont.compare);
 
+  const Compare.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.compare_alt);
+
   const Compare.disabled({
     super.color,
     super.size,
@@ -801,6 +851,16 @@ class Compass extends AppIcon {
   }) : super._(_IconsFont.compass);
 }
 
+class Collapse extends AppIcon {
+  const Collapse({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.collapse);
+}
+
 class Construction extends AppIcon {
   const Construction({
     super.color,
@@ -809,14 +869,6 @@ class Construction extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.construction);
-
-  const Construction.cones({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.cones);
 }
 
 class Contribute extends AppIcon {
@@ -933,16 +985,6 @@ class Debug extends AppIcon {
   }) : super._(_IconsFont.debug);
 }
 
-class Delete extends AppIcon {
-  const Delete.trash({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.delete_trash);
-}
-
 class Discover extends AppIcon {
   const Discover({
     super.color,
@@ -1026,6 +1068,16 @@ class DoubleChevron extends AppIcon {
   }
 }
 
+class Download extends AppIcon {
+  const Download({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.download);
+}
+
 class Drag extends AppIcon {
   const Drag.start({
     super.color,
@@ -1101,6 +1153,14 @@ class Eye extends AppIcon {
     super.key,
   }) : super._(_IconsFont.eye_checkbox);
 
+  const Eye.invisible({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.eye_invisible);
+
   const Eye.visible({
     super.color,
     super.size,
@@ -1109,13 +1169,13 @@ class Eye extends AppIcon {
     super.key,
   }) : super._(_IconsFont.eye_visible);
 
-  const Eye.invisible({
+  const Eye.visuallyImpaired({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.eye_invisible);
+  }) : super._(_IconsFont.eye_visually_impaired);
 }
 
 class Factory extends AppIcon {
@@ -1184,6 +1244,14 @@ class Flag extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.flag);
+
+  const Flag.checked({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.checked_flag);
 }
 
 class Forum extends AppIcon {
@@ -1296,6 +1364,16 @@ class Help extends AppIcon {
   }) : super._(_IconsFont.help_circled);
 }
 
+class HourGlass extends AppIcon {
+  const HourGlass({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.hour_glass);
+}
+
 class ImageGallery extends AppIcon {
   const ImageGallery({
     super.color,
@@ -1304,6 +1382,16 @@ class ImageGallery extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.gallery);
+}
+
+class Import extends AppIcon {
+  const Import({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.import_icon);
 }
 
 class Incognito extends AppIcon {
@@ -1734,6 +1822,16 @@ class OCR extends AppIcon {
   }) : super._(_IconsFont.ocr);
 }
 
+class Offline extends AppIcon {
+  const Offline({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.offline);
+}
+
 class Origins extends AppIcon {
   const Origins({
     super.color,
@@ -1762,6 +1860,16 @@ class Packaging extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.packaging);
+}
+
+class Panel extends AppIcon {
+  const Panel({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.panel);
 }
 
 class Partners extends AppIcon {
@@ -1884,8 +1992,16 @@ class Podium extends AppIcon {
   }) : super._(_IconsFont.podium);
 }
 
-class Press extends AppIcon {
-  const Press({
+class News extends AppIcon {
+  const News.paper({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.newspaper);
+
+  const News.press({
     super.color,
     super.size,
     super.shadow,
@@ -2028,6 +2144,24 @@ class Remove extends AppIcon {
   }) : super._(_IconsFont.remove);
 }
 
+class Reset extends AppIcon {
+  const Reset({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.reset);
+
+  const Reset.reinit({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.reinit);
+}
+
 class Robot extends AppIcon {
   const Robot({
     super.color,
@@ -2129,6 +2263,14 @@ class Search extends AppIcon {
     super.key,
   }) : super._(_IconsFont.search);
 
+  const Search.advanced({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.advanced_search);
+
   const Search.alt({
     super.color,
     super.size,
@@ -2137,13 +2279,13 @@ class Search extends AppIcon {
     super.key,
   }) : super._(_IconsFont.search_alt);
 
-  const Search.advanced({
+  const Search.database({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.advanced_search);
+  }) : super._(_IconsFont.database_search);
 }
 
 class Select extends AppIcon {
@@ -2300,6 +2442,26 @@ class Sparkles extends AppIcon {
   }) : super._(_IconsFont.sparkles);
 }
 
+class SpellChecker extends AppIcon {
+  const SpellChecker({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.spell_checker);
+}
+
+class Status extends AppIcon {
+  const Status({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.status);
+}
+
 class Strength extends AppIcon {
   const Strength({
     super.color,
@@ -2340,6 +2502,16 @@ class Suggestion extends AppIcon {
   }) : super._(_IconsFont.suggestion);
 }
 
+class Switches extends AppIcon {
+  const Switches({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.switches);
+}
+
 class Team extends AppIcon {
   const Team({
     super.color,
@@ -2358,6 +2530,32 @@ class Traces extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.traces);
+}
+
+class Trash extends AppIcon {
+  const Trash({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.trash);
+
+  const Trash.clear({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.trash_clear);
+
+  const Trash.delete({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.trash_delete);
 }
 
 class ThreeDots extends AppIcon {
@@ -2435,6 +2633,24 @@ class Trophy extends AppIcon {
   }) : super._(_IconsFont.trophy);
 }
 
+class Upload extends AppIcon {
+  const Upload({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.upload);
+
+  const Upload.bulk({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.upload_bulk);
+}
+
 class User extends AppIcon {
   const User.edit({
     super.color,
@@ -2443,6 +2659,14 @@ class User extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.user_edit);
+
+  const User.question({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.user_question);
 }
 
 class Vibration extends AppIcon {
@@ -2519,6 +2743,16 @@ class World extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.worldwide_location);
+}
+
+class Zoom extends AppIcon {
+  const Zoom({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.zoom);
 }
 
 abstract class AppIcon extends StatelessWidget {

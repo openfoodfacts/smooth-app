@@ -1262,6 +1262,13 @@ class AppLocalizationsTn extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Ga go na dithoto';
+
+  @override
+  String get product_tags_explanation =>
+      'Ka go tsenya dipharologantsho (senotlolo/boleng) mo setlhagisweng, o thusa go se humisa.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2937,6 +2944,16 @@ class AppLocalizationsTn extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Seta gape puo ya tiriswa';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Tsenya dikarata';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5178,6 +5195,11 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Moamogedi wa setso';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Moamogedi: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

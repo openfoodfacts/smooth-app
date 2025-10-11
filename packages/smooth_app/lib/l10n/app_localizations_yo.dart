@@ -1262,6 +1262,13 @@ class AppLocalizationsYo extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Ko si ohun-ini';
+
+  @override
+  String get product_tags_explanation =>
+      'Nipa fifi awọn ohun-ini kun (bọtini/iye) si ọja kan, o ṣe iranlọwọ lati jẹ ki o pọ si.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2934,6 +2941,16 @@ class AppLocalizationsYo extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Tun ede app to';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Fi awọn kaadi sii';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Yipada laarin awọn prices.openfoodfacts.org (PROD) ati idanwo env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5163,6 +5180,11 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomi alejo';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Alejo: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

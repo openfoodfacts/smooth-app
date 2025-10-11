@@ -115,8 +115,7 @@ class PreferencesPage extends StatelessWidget {
     final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
 
     return PreferenceCard(
-      title: appLocalizations.contribute,
-      gridView: true,
+      grid: true,
       tiles: <PreferenceTile>[
         _buildPricesContributionTile(context, appLocalizations, autoSizeGroup),
         _buildHungerGamesTile(context, autoSizeGroup),

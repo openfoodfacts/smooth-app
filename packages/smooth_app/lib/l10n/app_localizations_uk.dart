@@ -1282,6 +1282,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Властивості продукту не знайдено. Властивості можна використовувати для більш детального опису продуктів у гнучкий спосіб. Торкніться, щоб додати.';
 
   @override
+  String get product_tags_empty => 'Немає властивостей';
+
+  @override
+  String get product_tags_explanation =>
+      'Додаючи властивості (ключ/значення) до продукту, ви допомагаєте його збагатити.';
+
+  @override
   String get add_tag => 'Додати властивість';
 
   @override
@@ -2967,6 +2974,16 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Інгредієнти та упаковка)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Скинути мову програми';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Додати картки';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Перемикання між prices.openfoodfacts.org (PROD) та тестовим середовищем';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5227,6 +5244,11 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Ведучий фолксономії';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ведучий: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

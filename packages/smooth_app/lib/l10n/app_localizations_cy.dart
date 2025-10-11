@@ -1262,6 +1262,13 @@ class AppLocalizationsCy extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Dim eiddo';
+
+  @override
+  String get product_tags_explanation =>
+      'Drwy ychwanegu priodweddau (allwedd/gwerth) at gynnyrch, rydych chi\'n helpu i\'w gyfoethogi.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2934,6 +2941,16 @@ class AppLocalizationsCy extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Ailosod iaith yr ap';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Ychwanegu cardiau';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Newid rhwng prices.openfoodfacts.org (PROD) ac amgylchedd prawf';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5167,6 +5184,11 @@ class AppLocalizationsCy extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Gwesteiwr Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Gwesteiwr: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

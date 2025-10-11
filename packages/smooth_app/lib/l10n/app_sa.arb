@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "न गुणाः",
+  "product_tags_explanation": "उत्पादे गुणाः (कुंजी/मूल्यं) योजयित्वा भवन्तः तस्य समृद्धीकरणे सहायतां कुर्वन्ति ।",
   "add_tag": "Add property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
@@ -2632,6 +2634,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "एप् भाषा पुनः सेट् कुर्वन्तु",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "कार्ड्स् योजयन्तु",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "prices.openfoodfacts.org (PROD) इत्यस्य मध्ये स्विच् कुर्वन्तु तथा च test env",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Reuse and edit this search",
   "@search_history_item_edit_tooltip": {
@@ -4817,6 +4831,15 @@
   "preferences_dev_mode_folksonomy_host_title": "लोकस्वरशास्त्र यजमान",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "यजमानः {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "सुलभता प्रयोगाः",
   "@preferences_dev_mode_accessibility_experiments_title": {

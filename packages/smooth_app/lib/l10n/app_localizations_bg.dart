@@ -1282,6 +1282,13 @@ class AppLocalizationsBg extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Няма имоти';
+
+  @override
+  String get product_tags_explanation =>
+      'Чрез добавяне на свойства (ключ/стойност) към даден продукт, вие помагате за обогатяването му.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2965,6 +2972,17 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Нулиране на езика на приложението';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Добавяне на карти';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Превключване между prices.openfoodfacts.org (PROD) и тестова среда';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5208,6 +5226,11 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Водещ на фолксономия';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Домакин: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

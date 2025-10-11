@@ -1292,6 +1292,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Нет свойств';
+
+  @override
+  String get product_tags_explanation =>
+      'Добавляя свойства (ключ/значение) к продукту, вы помогаете его обогатить.';
+
+  @override
   String get add_tag => 'Добавить свойство';
 
   @override
@@ -3006,6 +3013,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Состав и упаковка)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Сбросить язык приложения';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Добавить карты';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5275,6 +5292,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Хост Фолксономии';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Хост: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

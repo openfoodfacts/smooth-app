@@ -1240,6 +1240,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'לא נמצאו מאפייני מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.';
 
   @override
+  String get product_tags_empty => 'אין נכסים';
+
+  @override
+  String get product_tags_explanation =>
+      'על ידי הוספת מאפיינים (מפתח/ערך) למוצר, אתם עוזרים להעשיר אותו.';
+
+  @override
   String get add_tag => 'הוספת מאפיין';
 
   @override
@@ -2930,6 +2937,16 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle => '(רכיבים ואריזה)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'איפוס שפת האפליקציה';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'הוסף כרטיסים';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'מעבר בין prices.openfoodfacts.org (PROD) לסביבת בדיקה';
 
   @override
   String get search_history_item_edit_tooltip => 'שימוש בחיפוש ועריכתו';
@@ -5128,6 +5145,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'מנחה פולקסונומי';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'מארח: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

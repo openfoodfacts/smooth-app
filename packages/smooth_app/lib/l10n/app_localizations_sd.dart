@@ -1262,6 +1262,13 @@ class AppLocalizationsSd extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ڪابه ملڪيت ناهي';
+
+  @override
+  String get product_tags_explanation =>
+      'ڪنهن پراڊڪٽ ۾ خاصيتون (چاٻي/قدر) شامل ڪرڻ سان، توهان ان کي مالا مال ڪرڻ ۾ مدد ڪندا آهيو.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2932,6 +2939,16 @@ class AppLocalizationsSd extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'ايپ جي ٻولي ري سيٽ ڪريو';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ڪارڊ شامل ڪريو';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) ۽ ٽيسٽ اين وي جي وچ ۾ سوئچ ڪريو';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5158,6 +5175,11 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'لوڪ سونومي ميزبان';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'ميزبان: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

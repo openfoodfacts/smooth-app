@@ -1262,6 +1262,13 @@ class AppLocalizationsMt extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'L-ebda proprjetajiet';
+
+  @override
+  String get product_tags_explanation =>
+      'Billi żżid proprjetajiet (ċavetta/valur) ma\' prodott, tgħin biex jarrikkixxih.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2935,6 +2942,16 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Irrisettja l-lingwa tal-app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Żid karti';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Ibdel bejn prices.openfoodfacts.org (PROD) u l-ambjent tat-test';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5169,6 +5186,11 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Ospitanti tal-folksonomija';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ospitanti: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

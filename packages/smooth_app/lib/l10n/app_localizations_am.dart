@@ -1262,6 +1262,13 @@ class AppLocalizationsAm extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ምንም ንብረቶች የሉም';
+
+  @override
+  String get product_tags_explanation =>
+      'ንብረቶችን (ቁልፍ/ዋጋ) ወደ ምርት በማከል፣ ለማበልጸግ ይረዳሉ።';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2932,6 +2939,16 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'የመተግበሪያ ቋንቋን ዳግም ያስጀምሩ';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ካርዶችን ያክሉ';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'በዋጋዎች.openfoodfacts.org (PROD) እና test env መካከል ይቀያይሩ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5144,6 +5161,11 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy አስተናጋጅ';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'አስተናጋጅ: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
