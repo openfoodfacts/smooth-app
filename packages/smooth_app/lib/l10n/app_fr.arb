@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Aucune propriété",
+  "product_tags_explanation": "En ajoutant des propriétés (clé / valeur) à un produit, vous permettez de l’enrichir.",
   "add_tag": "Ajouter une propriété",
   "add_tags": "Ajouter des propriétés",
   "add_edit_tags": "Ajouter ou modifier des propriétés",
@@ -2632,6 +2634,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingrédients et emballage)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Réinitialiser la langue de l'application",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Ajouter des cartes",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Basculer entre prices.openfoodfacts.org (PROD) et l'environnement de test",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Réutiliser et modifier cette recherche",
   "@search_history_item_edit_tooltip": {
@@ -4817,6 +4831,15 @@
   "preferences_dev_mode_folksonomy_host_title": "Animateur de Folksonomy",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Hôte : {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Expériences d'accessibilité",
   "@preferences_dev_mode_accessibility_experiments_title": {
