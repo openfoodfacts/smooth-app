@@ -1011,7 +1011,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Nėra savybių",
-  "product_tags_explanation": "Pridėdami prie produkto ypatybes (raktą/reikšmę), padedate jį praturtinti.",
+  "product_tags_explanation": "Pridėdami prie produkto savybių (raktą / vertę), padedate jį pagerinti.",
   "add_tag": "Pridėti savybę",
   "add_tags": "Pridėti savybes",
   "add_edit_tags": "Pridėti arba redaguoti savybes",
@@ -2635,15 +2635,15 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
-  "dev_mode_reset_app_language_title": "Iš naujo nustatyti programėlės kalbą",
+  "dev_mode_reset_app_language_title": "Nustatyti programėlės kalbą iš naujo",
   "@dev_mode_reset_app_language_title": {
     "description": "User dev preferences - Reset app language - Title"
   },
-  "dev_mode_add_demo_cards_language_title": "Pridėti korteles",
+  "dev_mode_add_demo_cards_language_title": "Pridėti kortelių",
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Perjungti tarp prices.openfoodfacts.org (PROD) ir testinės aplinkos",
+  "dev_mode_openprices_switch_env_title": "Perjungti tarp prices.openfoodfacts.org (PROD) ir bandomosios aplinkos",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
