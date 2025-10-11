@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Aucune propriété",
+  "product_tags_explanation": "En ajoutant des propriétés (clé / valeur) à un produit, vous permettez de l’enrichir.",
   "add_tag": "Ajouter une propriété",
   "add_tags": "Ajouter des propriétés",
   "add_edit_tags": "Ajouter ou modifier des propriétés",

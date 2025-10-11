@@ -95,8 +95,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
     final AppLocalizations appLocalizations,
   ) => SmoothScaffold(
     appBar: SmoothAppBar(
-      backgroundColor: themeData.scaffoldBackgroundColor,
-      elevation: 2,
+      elevation: 2.0,
       automaticallyImplyLeading: false,
       leading: const SmoothBackButton(),
       title: SearchAppBarTitle(

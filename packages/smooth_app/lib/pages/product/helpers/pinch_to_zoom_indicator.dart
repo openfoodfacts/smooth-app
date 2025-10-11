@@ -8,7 +8,10 @@ import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class PinchToZoomExplainer extends StatelessWidget {
-  const PinchToZoomExplainer();
+  const PinchToZoomExplainer({this.backgroundColor, this.customBorder});
+
+  final Color? backgroundColor;
+  final ShapeBorder? customBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class PinchToZoomExplainer extends StatelessWidget {
         message: appLocalizations
             .edit_product_form_item_ingredients_pinch_to_zoom_tooltip,
         child: InkWell(
-          customBorder: const CircleBorder(),
+          customBorder: customBorder ?? const CircleBorder(),
           onTap: () {
             showSmoothModalSheet(
               context: context,
@@ -56,7 +59,11 @@ class PinchToZoomExplainer extends StatelessWidget {
               },
             );
           },
-          child: const SmoothIndicatorIcon(icon: icons.PinchToZoom()),
+          child: SmoothIndicatorIcon(
+            customBorder: customBorder,
+            backgroundColor: backgroundColor,
+            icon: const icons.PinchToZoom(),
+          ),
         ),
       ),
     );

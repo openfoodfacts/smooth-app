@@ -180,7 +180,7 @@ class _ExpandMapIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Align(
       alignment: AlignmentDirectional.bottomEnd,
-      child: SmoothIndicatorIcon(icon: icons.Expand()),
+      child: SmoothIndicatorIcon(icon: icons.Zoom()),
     );
   }
 }

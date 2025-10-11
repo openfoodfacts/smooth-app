@@ -2584,6 +2584,18 @@ abstract class AppLocalizations {
   /// **'No product properties found. Properties can be used to describe products in more details, in a flexible way.'**
   String get no_product_tags_found_message;
 
+  /// No description provided for @product_tags_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties'**
+  String get product_tags_empty;
+
+  /// No description provided for @product_tags_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'By adding properties (key/value) to a product, you help enrich it.'**
+  String get product_tags_explanation;
+
   /// No description provided for @add_tag.
   ///
   /// In en, this message translates to:
@@ -5202,6 +5214,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'(Ingredients and packaging)'**
   String get dev_mode_spellchecker_for_ocr_subtitle;
+
+  /// User dev preferences - Reset app language - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Reset app language'**
+  String get dev_mode_reset_app_language_title;
+
+  /// User dev preferences - Add cards - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Add cards'**
+  String get dev_mode_add_demo_cards_language_title;
+
+  /// User dev preferences - Switch server environment (Open Prices) - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Switch between prices.openfoodfacts.org (PROD) and test env'**
+  String get dev_mode_openprices_switch_env_title;
 
   /// A tooltip to explain the Pen button near a search term -> it allows to reuse the item
   ///
@@ -9006,6 +9036,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Folksonomy host'**
   String get preferences_dev_mode_folksonomy_host_title;
+
+  /// Subtitle for folksonomy host setting
+  ///
+  /// In en, this message translates to:
+  /// **'Host: {host}'**
+  String preferences_dev_mode_folksonomy_host_subtitle(String host);
 
   /// Title for accessibility experiments card
   ///

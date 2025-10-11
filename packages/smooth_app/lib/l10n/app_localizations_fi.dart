@@ -1264,6 +1264,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tuotteen ominaisuuksia ei löytynyt. Ominaisuuksien avulla voidaan kuvata tuotteita tarkemmin, joustavasti. Lisää napauttamalla.';
 
   @override
+  String get product_tags_empty => 'No properties';
+
+  @override
+  String get product_tags_explanation =>
+      'By adding properties (key/value) to a product, you help enrich it.';
+
+  @override
   String get add_tag => 'Lisää omaisuus';
 
   @override
@@ -2935,6 +2942,16 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Ainesosat ja pakkaus)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Reset app language';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5161,6 +5178,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy-isäntä';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Host: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

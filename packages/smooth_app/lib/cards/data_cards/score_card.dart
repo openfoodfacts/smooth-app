@@ -5,7 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum CardEvaluation {
@@ -115,7 +115,7 @@ class ScoreCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (isClickable) Icon(ConstantIcons.forwardIcon),
+              if (isClickable) const icons.Chevron.right(size: 15.0),
             ],
           ),
         ),

@@ -478,10 +478,11 @@ class _ProductNameCollapsedSection extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: BALANCED_SPACE),
         CustomPaint(
-          foregroundPainter: DashedLinePainter(
+          foregroundPainter: DashedBorderPainter(
             color: extension.primaryMedium,
             dashGap: 4.0,
             dashSpace: 4.0,
+            sides: <Side>{Side.top},
           ),
           size: const Size(double.infinity, 1.0),
           child: Ink(
