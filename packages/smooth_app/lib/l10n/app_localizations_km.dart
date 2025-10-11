@@ -1262,11 +1262,11 @@ class AppLocalizationsKm extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'គ្មានទ្រព្យសម្បត្តិ';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'តាមរយៈការបន្ថែមលក្ខណៈសម្បត្តិ (គន្លឹះ/តម្លៃ) ទៅក្នុងផលិតផល អ្នកជួយបង្កើនវា។';
 
   @override
   String get add_tag => 'Add property';
@@ -2941,14 +2941,14 @@ class AppLocalizationsKm extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'កំណត់ភាសាកម្មវិធីឡើងវិញ';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'បន្ថែមកាត';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'ប្តូររវាង price.openfoodfacts.org (PROD) និង test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5181,7 +5181,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'ម៉ាស៊ីន៖ $host';
   }
 
   @override

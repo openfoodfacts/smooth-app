@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Aidez-nous à améliorer Open Food Facts dans votre pays';
+      'Aidez-nous à améliorer Open Food Facts dans votre pays';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -501,8 +501,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Contribuez à Open Food Facts. Rejoignez la réserve de compétences !';
 
   @override
-  String get contribute_share_header =>
-      'Partagez Open Food Facts avec vos amis';
+  String get contribute_share_header => 'Partagez Open Food Facts à vos amis';
 
   @override
   String get contribute_share_content =>
@@ -2440,7 +2439,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Tester les paramètres d\'environnement';
+      'Adresse de l\'environnement de TEST';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
@@ -3015,14 +3014,15 @@ class AppLocalizationsFr extends AppLocalizations {
       '(Ingrédients et emballage)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title =>
+      'Réinitialiser la langue de l\'application';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Ajouter des cartes';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Basculer entre prices.openfoodfacts.org (PROD) et l\'environnement de test';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5297,7 +5297,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Hôte : $host';
   }
 
   @override
@@ -5583,7 +5583,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Des moyens simples pour aider Open Food Facts';
+      'Des moyens simples pour aider Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5688,7 +5688,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Apportez Open Food Facts à votre langue';
+      'Traduire Open Food Facts dans votre langue';
 
   @override
   String get preferences_contribute_enroll_alpha =>

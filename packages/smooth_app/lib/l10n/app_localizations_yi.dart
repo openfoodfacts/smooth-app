@@ -1262,11 +1262,11 @@ class AppLocalizationsYi extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'קיין אייגנשאַפטן נישט';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'דורך צולייגן אייגנשאפטן (שליסל/ווערט) צו א פראדוקט, העלפט איר עס פאררייכערן.';
 
   @override
   String get add_tag => 'Add property';
@@ -2942,14 +2942,15 @@ class AppLocalizationsYi extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title =>
+      'צוריקשטעלן די שפּראַך פון דער אַפּ';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'לייג צו קארטלעך';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'טוישן צווישן prices.openfoodfacts.org (PROD) און טעסט סביבה';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5190,7 +5191,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'באַלעבאָס: $host';
   }
 
   @override

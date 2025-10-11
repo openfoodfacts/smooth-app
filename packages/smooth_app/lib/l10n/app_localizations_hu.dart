@@ -1277,11 +1277,11 @@ class AppLocalizationsHu extends AppLocalizations {
       'Nem találtunk terméktulajdonságokat. A tulajdonságok rugalmasan használhatók a termékek részletesebb leírására. Érintse meg a hozzáadáshoz.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Nincsenek ingatlanok';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Tulajdonságok (kulcs/érték) hozzáadásával egy termékhez gazdagíthatod azt.';
 
   @override
   String get add_tag => 'Tulajdonság hozzáadása';
@@ -2973,14 +2973,15 @@ class AppLocalizationsHu extends AppLocalizations {
       '(összetevők és csomagolás)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title =>
+      'Alkalmazás nyelvének visszaállítása';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Kártyák hozzáadása';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Váltás a prices.openfoodfacts.org (PROD) és a test env között';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5231,7 +5232,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Gazdagép: $host';
   }
 
   @override

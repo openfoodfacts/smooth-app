@@ -1280,11 +1280,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Properti produk tidak ditemukan. Properti dapat digunakan untuk mendeskripsikan produk secara lebih rinci, dengan cara yang fleksibel. Ketuk untuk menambahkan.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Tidak ada properti';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Dengan menambahkan properti (kunci/nilai) ke suatu produk, Anda membantu memperkayanya.';
 
   @override
   String get add_tag => 'Tambahkan properti';
@@ -2966,14 +2966,14 @@ class AppLocalizationsId extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Bahan dan kemasan)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Setel ulang bahasa aplikasi';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Tambahkan kartu';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Beralih antara prices.openfoodfacts.org (PROD) dan uji lingkungan';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5227,7 +5227,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Tuan rumah: $host';
   }
 
   @override

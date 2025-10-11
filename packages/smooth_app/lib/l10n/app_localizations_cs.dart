@@ -1277,11 +1277,11 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nebyly nalezeny žádné vlastnosti produktu. Vlastnosti lze použít k podrobnějšímu a flexibilnímu popisu produktů. Klepnutím přidáte.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Žádné nemovitosti';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Přidáním vlastností (klíč/hodnota) k produktu ho pomáháte obohatit.';
 
   @override
   String get add_tag => 'Přidat vlastnost';
@@ -2962,14 +2962,14 @@ class AppLocalizationsCs extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Složení a balení)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Obnovit jazyk aplikace';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Přidat karty';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Přepínání mezi prices.openfoodfacts.org (PROD) a testovacím prostředím';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5211,7 +5211,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Hostitel: $host';
   }
 
   @override
