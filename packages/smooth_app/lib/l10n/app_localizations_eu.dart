@@ -1265,11 +1265,11 @@ class AppLocalizationsEu extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Ez dago propietaterik';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Produktu bati propietateak (gakoa/balioa) gehituz, aberasten laguntzen duzu.';
 
   @override
   String get add_tag => 'Add property';
@@ -2949,14 +2949,15 @@ class AppLocalizationsEu extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title =>
+      'Berrezarri aplikazioaren hizkuntza';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Gehitu txartelak';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Aldatu prices.openfoodfacts.org (PROD) eta proba ingurunearen artean';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5203,7 +5204,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Ostalaria: $host';
   }
 
   @override

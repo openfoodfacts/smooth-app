@@ -1263,11 +1263,11 @@ class AppLocalizationsLv extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Nav īpašumu';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Pievienojot produktam īpašības (atslēgu/vērtību), jūs palīdzat to bagātināt.';
 
   @override
   String get add_tag => 'Add property';
@@ -2942,14 +2942,14 @@ class AppLocalizationsLv extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Atiestatīt lietotnes valodu';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Pievienot kartes';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Pārslēgties starp prices.openfoodfacts.org (PROD) un testa vidi';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5187,7 +5187,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Resursdators: $host';
   }
 
   @override

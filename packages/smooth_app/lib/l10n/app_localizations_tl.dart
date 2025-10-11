@@ -1262,11 +1262,11 @@ class AppLocalizationsTl extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Walang mga ari-arian';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Sa pamamagitan ng pagdaragdag ng mga katangian (key/value) sa isang produkto, nakakatulong ka sa pagpapayaman nito.';
 
   @override
   String get add_tag => 'Add property';
@@ -2946,14 +2946,14 @@ class AppLocalizationsTl extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'I-reset ang wika ng app';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Magdagdag ng mga card';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Lumipat sa pagitan ng prices.openfoodfacts.org (PROD) at test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';

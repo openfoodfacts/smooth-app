@@ -1283,11 +1283,11 @@ class AppLocalizationsSk extends AppLocalizations {
       'Nenašli sa žiadne vlastnosti produktu. Vlastnosti môžu byť použité na podrobnejšie opísanie produktov flexibilným spôsobom.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Žiadne nehnuteľnosti';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Pridaním vlastností (kľúč/hodnota) k produktu ho pomáhate obohatiť.';
 
   @override
   String get add_tag => 'Pridajte vlastnosť';
@@ -2969,14 +2969,14 @@ class AppLocalizationsSk extends AppLocalizations {
       '(Ingrediencie a balenie)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Obnoviť jazyk aplikácie';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Pridať karty';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Prepínanie medzi prices.openfoodfacts.org (PROD) a testovacím prostredím';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5229,7 +5229,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Hostiteľ: $host';
   }
 
   @override

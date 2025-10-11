@@ -1302,11 +1302,11 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν βρέθηκαν ιδιότητες προϊόντος. Οι ιδιότητες μπορούν να χρησιμοποιηθούν για την περιγραφή των προϊόντων με περισσότερες λεπτομέρειες, με ευέλικτο τρόπο.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Δεν υπάρχουν ακίνητα';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Προσθέτοντας ιδιότητες (κλειδί/τιμή) σε ένα προϊόν, βοηθάτε στον εμπλουτισμό του.';
 
   @override
   String get add_tag => 'Προσθήκη ιδιότητας';
@@ -3008,14 +3008,14 @@ class AppLocalizationsEl extends AppLocalizations {
       '(Συστατικά και συσκευασία)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Επαναφορά γλώσσας εφαρμογής';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Προσθήκη καρτών';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Εναλλαγή μεταξύ prices.openfoodfacts.org (PROD) και περιβάλλοντος δοκιμής';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5296,7 +5296,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Κεντρικός υπολογιστής: $host';
   }
 
   @override

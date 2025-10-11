@@ -1262,11 +1262,11 @@ class AppLocalizationsUg extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'ھېچقانداق خاسلىقى يوق';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'مەھسۇلاتقا خاسلىق (ئاچقۇچ / قىممەت) قوشسىڭىز ، ئۇنى بېيىتىشقا ياردەم بېرىسىز.';
 
   @override
   String get add_tag => 'Add property';
@@ -2942,14 +2942,14 @@ class AppLocalizationsUg extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'ئەپ تىلىنى ئەسلىگە كەلتۈرۈش';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'كارتا قوشۇڭ';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Price.openfoodfacts.org (PROD) بىلەن سىناق env نى ئالماشتۇرۇڭ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';

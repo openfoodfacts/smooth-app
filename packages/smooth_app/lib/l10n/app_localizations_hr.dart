@@ -1263,11 +1263,11 @@ class AppLocalizationsHr extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Nema nekretnina';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Dodavanjem svojstava (ključ/vrijednost) proizvodu, pomažete u njegovom obogaćivanju.';
 
   @override
   String get add_tag => 'Add property';
@@ -2945,14 +2945,14 @@ class AppLocalizationsHr extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Poništi jezik aplikacije';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Dodaj kartice';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Prebacivanje između prices.openfoodfacts.org (PROD) i testnog okruženja';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5187,7 +5187,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Domaćin: $host';
   }
 
   @override

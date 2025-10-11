@@ -1290,11 +1290,11 @@ class AppLocalizationsLt extends AppLocalizations {
       'Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Nėra savybių';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Pridėdami prie produkto savybių (raktą / vertę), padedate jį pagerinti.';
 
   @override
   String get add_tag => 'Pridėti savybę';
@@ -2984,14 +2984,15 @@ class AppLocalizationsLt extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title =>
+      'Nustatyti programėlės kalbą iš naujo';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Pridėti kortelių';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Perjungti tarp prices.openfoodfacts.org (PROD) ir bandomosios aplinkos';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -5254,7 +5255,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Pagrindinis kompiuteris: $host';
   }
 
   @override

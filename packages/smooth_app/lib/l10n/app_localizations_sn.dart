@@ -1262,11 +1262,11 @@ class AppLocalizationsSn extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Hapana zvivakwa';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Nekuwedzera zvivakwa (kiyi / kukosha) kune chigadzirwa, unobatsira kuchipfumisa.';
 
   @override
   String get add_tag => 'Add property';
@@ -2942,14 +2942,14 @@ class AppLocalizationsSn extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Gadzirisa mutauro weapp';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Wedzera makadhi';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Chinja pakati pe prices.openfoodfacts.org (PROD) uye test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
