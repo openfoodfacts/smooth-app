@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Sin propiedades",
+  "product_tags_explanation": "Al agregar propiedades (clave/valor) a un producto, ayudas a enriquecerlo.",
   "add_tag": "Añadir una propiedad",
   "add_tags": "Añadir propiedades",
   "add_edit_tags": "Añadir o modificar propiedades",
@@ -2632,6 +2634,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredientes y envase)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Restablecer el idioma de la aplicación",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Añadir tarjetas",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Cambiar entre prices.openfoodfacts.org (PROD) y el entorno de prueba",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Reutilizar y editar esta búsqueda",
   "@search_history_item_edit_tooltip": {
@@ -4817,6 +4831,15 @@
   "preferences_dev_mode_folksonomy_host_title": "Anfitrión de folksonomía",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Anfitrión: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Experimentos de accesibilidad",
   "@preferences_dev_mode_accessibility_experiments_title": {
