@@ -89,8 +89,13 @@ Widget build(BuildContext context) {
                   GoRouter.of(context).pop(res);
                 } on GoError catch (error) {
                   if (error.message == &#39;There is nothing to pop&#39;) {
-                    &#47;&#47; Force to kill the app
-                    SystemNavigator.pop();
+                    try {
+                      &#47;&#47; Using regular Navigator as fallback
+                      Navigator.of(context).pop(res);
+                    } catch (navigatorError) {
+                      &#47;&#47; Force to kill the app
+                      SystemNavigator.pop();
+                    }
                   }
                 }
               });
