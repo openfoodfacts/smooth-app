@@ -72,7 +72,6 @@
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;PreferenceCard&gt; getCards(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
 
   return &lt;PreferenceCard&gt;[
     PreferenceCard(
@@ -86,15 +85,6 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_contribute_title,
       tiles: &lt;PreferenceTile&gt;[_buildSourceCodeTile(appLocalizations)],
-    ),
-    PreferenceCard(
-      title: appLocalizations.preferences_about_app_development_title,
-      titleBackgroundColor: context
-          .extension&lt;SmoothColorsThemeExtension&gt;()
-          .error,
-      tiles: &lt;PreferenceTile&gt;[
-        _buildDevModeTile(appLocalizations, userPreferences),
-      ],
     ),
   ];
 }</code></pre>
@@ -133,6 +123,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_about_app_root/AboutAppRoot-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_about_app_root/AboutAppRoot/getCards.html">getCards</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_roots_about_app_root/AboutAppRoot/getFooter.html">getFooter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 

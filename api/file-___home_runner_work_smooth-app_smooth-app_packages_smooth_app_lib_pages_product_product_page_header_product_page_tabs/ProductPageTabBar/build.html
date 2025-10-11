@@ -71,6 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final bool lightTheme = context.lightTheme();
+
   return SliverPersistentHeader(
     delegate: _TabBarDelegate(
       PreferredSize(
@@ -92,9 +94,10 @@ Widget build(BuildContext context) {
               .map((ProductPageTab tab) =&gt; tab.suffix)
               .toList(growable: false),
           onTabChanged: (_) {},
-          overflowMainColor: context.lightTheme()
+          overflowMainColor: lightTheme
               ? Theme.of(context).tabBarTheme.unselectedLabelColor
               : Theme.of(context).scaffoldBackgroundColor,
+          unselectedTabColor: lightTheme ? Colors.black87 : Colors.white70,
         ),
       ),
     ),

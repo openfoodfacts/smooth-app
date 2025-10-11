@@ -75,7 +75,10 @@ Widget build(BuildContext context) {
     padding: margin ?? const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
     child: CustomPaint(
       size: const Size(double.infinity, 1.0),
-      painter: DashedLinePainter(color: Theme.of(context).dividerColor),
+      painter: DashedBorderPainter(
+        sides: &lt;Side&gt;{Side.top},
+        color: Theme.of(context).dividerColor,
+      ),
     ),
   );
 }</code></pre>

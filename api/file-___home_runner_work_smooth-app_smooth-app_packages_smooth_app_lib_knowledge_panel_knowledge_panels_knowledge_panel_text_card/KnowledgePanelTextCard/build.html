@@ -119,7 +119,7 @@ Widget build(BuildContext context) {
           appLocalizations.knowledge_panel_text_source(
             textElement.sourceText!,
           ),
-          trailingIcon: Icon(ConstantIcons.forwardIcon),
+          trailingIcon: const icons.Chevron.right(),
           onPressed: () async =&gt; LaunchUrlHelper.launchURLInWebViewOrBrowser(
             context,
             textElement.sourceUrl!,

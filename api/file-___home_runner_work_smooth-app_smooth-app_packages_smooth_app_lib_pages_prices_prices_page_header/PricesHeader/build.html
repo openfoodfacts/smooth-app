@@ -74,6 +74,10 @@ Widget build(BuildContext context) {
   final SmoothColorsThemeExtension extension = context
       .extension&lt;SmoothColorsThemeExtension&gt;();
 
+  final Widget addButton = _PricesHeaderAddPriceButton(
+    onTap: model.addButton,
+  );
+
   return PinnedHeaderSliver(
     child: DecoratedBox(
       decoration: BoxDecoration(
@@ -97,18 +101,17 @@ Widget build(BuildContext context) {
           end: model.displayEachProduct ? 16.0 : 8.0,
         ),
         child: IntrinsicHeight(
-          child: Row(
-            spacing: SMALL_SPACE,
-            children: &lt;Widget&gt;[
-              if (pricesResult?.total != null)
-                Expanded(
-                  child: _PricesPageCounter(count: pricesResult!.total!),
+          child: pricesResult?.total != null
+              ? FractionallySizedBox(widthFactor: 0.7, child: addButton)
+              : Row(
+                  spacing: SMALL_SPACE,
+                  children: &lt;Widget&gt;[
+                    Expanded(
+                      child: _PricesPageCounter(count: pricesResult!.total!),
+                    ),
+                    Expanded(child: SizedBox.expand(child: addButton)),
+                  ],
                 ),
-              Expanded(
-                child: _PricesHeaderAddPriceButton(onTap: model.addButton),
-              ),
-            ],
-          ),
         ),
       ),
     ),

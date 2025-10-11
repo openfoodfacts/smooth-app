@@ -73,7 +73,8 @@
 Widget build(BuildContext context) {
   const double leadingMargin = 6.0;
 
-  final bool darkTheme = context.darkTheme();
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
 
   return SmoothCardWithRoundedHeader(
     leading: EMPTY_WIDGET,
@@ -87,7 +88,13 @@ Widget build(BuildContext context) {
       context,
     ).textTheme.displaySmall!.copyWith(fontSize: 16.5),
     titleBackgroundColor:
-        titleBackgroundColor ?? (darkTheme ? Colors.black87 : null),
+        titleBackgroundColor ??
+        context.nullableColorThemeValue(
+          light: null,
+          dark: Colors.black87,
+          amoled: extension.primaryUltraBlack.withValues(alpha: 0.6),
+        ),
+
     banner: bannerText != null
         ? Padding(
             padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
@@ -95,24 +102,28 @@ Widget build(BuildContext context) {
           )
         : null,
     titleSpacing: MEDIUM_SPACE * 2 - leadingMargin &#47; 2,
-    contentPadding: !gridView ? EdgeInsetsDirectional.zero : null,
+    contentPadding: !grid ? EdgeInsetsDirectional.zero : null,
     clipBehavior: Clip.antiAlias,
-    contentBackgroundColor: (darkTheme
-        ? context.extension&lt;SmoothColorsThemeExtension&gt;().primaryUltraBlack
-        : null),
-    child: gridView
-        ? GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsetsDirectional.only(
-              bottom: MEDIUM_SPACE,
-              start: MEDIUM_SPACE,
-              end: MEDIUM_SPACE,
+    contentBackgroundColor: context.colorThemeValue(
+      light: Colors.white,
+      dark: extension.primaryUltraBlack,
+      amoled: extension.primaryUltraBlack,
+    ),
+    child: grid
+        ? IntrinsicHeight(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(
+                bottom: MEDIUM_SPACE,
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
+              ),
+              child: Row(
+                spacing: MEDIUM_SPACE,
+                children: tiles
+                    .map((PreferenceTile tile) =&gt; Expanded(child: tile))
+                    .toList(growable: false),
+              ),
             ),
-            mainAxisSpacing: MEDIUM_SPACE,
-            crossAxisSpacing: MEDIUM_SPACE,
-            children: tiles,
           )
         : Column(
             children: &lt;Widget&gt;[
@@ -159,7 +170,7 @@ Widget build(BuildContext context) {
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_cards_preference_card/PreferenceCard-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_cards_preference_card/PreferenceCard/bannerText.html">bannerText</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_cards_preference_card/PreferenceCard/gridView.html">gridView</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_cards_preference_card/PreferenceCard/grid.html">grid</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_cards_preference_card/PreferenceCard/header.html">header</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>

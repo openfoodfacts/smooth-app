@@ -78,7 +78,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_dev_mode_app_settings_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildResetLanguageTile(context, userPreferences),
+        _buildResetLanguageTile(context, appLocalizations, userPreferences),
       ],
     ),
     PreferenceCard(
@@ -92,7 +92,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_dev_mode_demo_mode_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildAddCardsTile(context),
+        _buildAddCardsTile(context, appLocalizations),
         _buildResetOnboardingTile(context, appLocalizations, userPreferences),
       ],
     ),
@@ -124,7 +124,6 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       title: appLocalizations.dev_mode_section_product_page,
       tiles: &lt;PreferenceTile&gt;[
         _buildEditIngredientsTile(context, appLocalizations, userPreferences),
-        _buildShowFolksonomyTile(context, appLocalizations, userPreferences),
       ],
     ),
     PreferenceCard(
@@ -144,7 +143,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       ],
     ),
     PreferenceCard(
-      title: &#39;Open Prices&#39;,
+      title: &#39;Open Prices&#39;,
       tiles: &lt;PreferenceTile&gt;[
         _buildBulkProofUploadTile(appLocalizations, userPreferences),
         _buildMultiProductsSelectionTile(

@@ -73,11 +73,9 @@
 Widget build(BuildContext context) {
   return Padding(
     padding: margin ?? const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-    child: DecoratedBox(
-      decoration: const BoxDecoration(
-        color: Colors.black38,
-        shape: BoxShape.circle,
-      ),
+    child: Material(
+      color: backgroundColor ?? Colors.black38,
+      shape: customBorder ?? const CircleBorder(),
       child: Padding(
         padding: padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
         child: IconTheme(
@@ -120,6 +118,8 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_indicator_icon/SmoothIndicatorIcon-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_indicator_icon/SmoothIndicatorIcon/backgroundColor.html">backgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_indicator_icon/SmoothIndicatorIcon/customBorder.html">customBorder</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_indicator_icon/SmoothIndicatorIcon/icon.html">icon</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_indicator_icon/SmoothIndicatorIcon/iconTheme.html">iconTheme</a></li>

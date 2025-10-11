@@ -131,7 +131,7 @@ Widget build(BuildContext context) {
         final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
           title: title,
           prefixIndicator: true,
-          bodyPadding: EdgeInsets.zero,
+          bodyPadding: EdgeInsetsDirectional.zero,
           body: SizedBox(
             height: itemHeight * labels.length,
             child: ListView.separated(
