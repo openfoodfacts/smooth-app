@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Nessun prezzo ancora!",
+  "prices_list_empty_subtitle": "Sii il primo ad aggiungerne uno:\nScansionando una **scontrino** o un **cartellino del prezzo**!",
   "prices_entry_shop_not_found": "Negozio sconosciuto",
   "prices_entry_menu_title": "Inserimento prezzo da \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Nessun collaboratore ancora!",
+  "prices_users_empty_explanation": "Sii il primo ad aggiungere un prezzo!",
   "prices_users_list_length_many_pages": "Principali {pageSize} contributori (totali: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Nessun negozio ancora!",
+  "prices_locations_empty_explanation": "Sii il primo ad aggiungere un prezzo!",
   "prices_locations_list_length_many_pages": "Principali posizioni {pageSize} (totale: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "Devi selezionare un negozio!",
   "prices_location_search_broader": "Impossibile trovare quello che stavi cercando? Proviamo una ricerca più ampia!",
   "prices_proof_subtitle": "Prova",
+  "prices_proof_empty_title": "Nessuna prova ancora!",
+  "prices_proof_empty_explanation": "Inizia aggiungendo una foto di una **scontrino** o di un **cartellino del prezzo**!",
   "prices_proof_find": "Seleziona una prova",
   "prices_proof_receipt": "Ricevuta",
   "prices_proof_price_tag": "Etichetta del prezzo",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Nessun prezzo disponibile",
+  "prices_products_empty_explanation": "Sii il primo a contribuire!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
