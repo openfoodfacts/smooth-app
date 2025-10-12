@@ -47,7 +47,7 @@ class PricesHeader extends StatelessWidget {
             end: model.displayEachProduct ? 16.0 : 8.0,
           ),
           child: IntrinsicHeight(
-            child: pricesResult?.total != null
+            child: pricesResult?.total == null || pricesResult?.total == 0
                 ? FractionallySizedBox(widthFactor: 0.7, child: addButton)
                 : Row(
                     spacing: SMALL_SPACE,
