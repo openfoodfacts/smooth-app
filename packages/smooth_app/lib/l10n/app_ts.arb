@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "A ku na nxavo ku fikela sweswi!",
+  "prices_list_empty_subtitle": "Vana wo sungula ku engetela yin'we:\nHi ku skena **risiti** kumbe **xiphemu xa nxavo**!",
   "prices_entry_shop_not_found": "Vhengele leri nga tiviwiki",
   "prices_entry_menu_title": "Ku nghena ka nxavo ku suka eka \"{user}\".",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Ku hava muhoxa xandla ku fikela sweswi!",
+  "prices_users_empty_explanation": "Vana wo sungula ku engetela nxavo!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Ku hava xitolo ku fikela sweswi!",
+  "prices_locations_empty_explanation": "Vana wo sungula ku engetela nxavo!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "Ku hava vumbhoni ku fikela sweswi!",
+  "prices_proof_empty_explanation": "Sungula hi ku engetela xifaniso xa **risiti** kumbe **xiphemu xa nxavo**!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Ku hava nxavo lowu kumekaka",
+  "prices_products_empty_explanation": "Vana wo sungula ku hoxa xandla!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
