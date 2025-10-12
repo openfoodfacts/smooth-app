@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "קיין פרייז נאכנישט!",
+  "prices_list_empty_subtitle": "זייט דער ערשטער צו לייגן איינס צו:\nדורך סקענען א **קװיטונג** אדער א **פרייז־טעקע**!",
   "prices_entry_shop_not_found": "אומבאַקאַנטער קראָם",
   "prices_entry_menu_title": "פרייז איינגאבע פון \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "קיין ביישטייערער נאכנישט!",
+  "prices_users_empty_explanation": "זייט דער ערשטער צו לייגן צו א פרייז!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "קיין קראָם נאָך נישט!",
+  "prices_locations_empty_explanation": "זייט דער ערשטער צו לייגן צו א פרייז!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "קיין באַווייַז נאָך נישט!",
+  "prices_proof_empty_explanation": "הייבט אן דורך צולייגן א בילד פון א **קװיטונג** אדער א **פרייז־טעקע**!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "קיין פרייז נישט פֿאַראַן",
+  "prices_products_empty_explanation": "זייט דער ערשטער צו ביישטייערן!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
