@@ -274,7 +274,13 @@ class _ProductListPageState extends State<ProductListPage>
       floatingActionButton: products.isEmpty
           ? FloatingActionButton.extended(
               icon: const icons.Barcode.withCorners(),
-              label: Text(appLocalizations.product_list_empty_title),
+              label: Text(
+                appLocalizations.product_list_empty_title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                ),
+              ),
               onPressed: () =>
                   ExternalScanCarouselManager.read(context).showSearchCard(),
             )
