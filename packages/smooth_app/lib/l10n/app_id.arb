@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Belum ada harga!",
+  "prices_list_empty_subtitle": "Jadilah orang pertama yang menambahkannya:\nDengan memindai **kwitansi** atau **label harga**!",
   "prices_entry_shop_not_found": "Toko tidak dikenal",
   "prices_entry_menu_title": "Harga entri dari \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Belum ada kontributor!",
+  "prices_users_empty_explanation": "Jadilah yang pertama menambahkan harga!",
   "prices_users_list_length_many_pages": "{pageSize} kontributor teratas (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Belum ada toko!",
+  "prices_locations_empty_explanation": "Jadilah yang pertama menambahkan harga!",
   "prices_locations_list_length_many_pages": "{pageSize} lokasi teratas (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "Anda harus memilih toko!",
   "prices_location_search_broader": "Tidak dapat menemukan apa yang Anda cari? Coba pencarian yang lebih luas!",
   "prices_proof_subtitle": "Bukti",
+  "prices_proof_empty_title": "Belum ada bukti!",
+  "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
   "prices_proof_find": "Pilih bukti",
   "prices_proof_receipt": "Resi",
   "prices_proof_price_tag": "Label harga",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Tidak ada harga yang tersedia",
+  "prices_products_empty_explanation": "Jadilah yang pertama berkontribusi!",
   "prices_products_list_length_many_pages": "{pageSize} produk teratas (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
