@@ -81,12 +81,12 @@ List&lt;UserPreferencesItem&gt; getChildren() {
     ),
     _getListTile(
       appLocalizations.contribute_sw_development,
-      () async =&gt; _develop(),
+      () async =&gt; ContributeUIHelper.showDevelopBottomSheet(context),
       Icons.app_shortcut,
     ),
     _getListTile(
       appLocalizations.contribute_translate_header,
-      () async =&gt; _translate(),
+      () async =&gt; ContributeUIHelper.showTranslateBottomSheet(context),
       Icons.translate,
     ),
     _getListTile(
@@ -167,7 +167,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
     _getListTile(
       appLocalizations.contributors_label,
-      () async =&gt; _contributors(),
+      () async =&gt; ContributeUIHelper.showContributorsBottomSheet(context),
       Icons.emoji_people,
       description: appLocalizations.contributors_description,
     ),
