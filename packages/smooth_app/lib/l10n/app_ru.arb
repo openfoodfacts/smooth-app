@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Цена пока неизвестна!",
+  "prices_list_empty_subtitle": "Будьте первым, кто добавит:\nОтсканировав **чек** или **ценник**!",
   "prices_entry_shop_not_found": "Неизвестный магазин",
   "prices_entry_menu_title": "Цена записи от \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Пока нет участников!",
+  "prices_users_empty_explanation": "Будьте первым, кто добавит цену!",
   "prices_users_list_length_many_pages": "Лучшие {pageSize} участники (всего: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Магазина пока нет!",
+  "prices_locations_empty_explanation": "Будьте первым, кто добавит цену!",
   "prices_locations_list_length_many_pages": "Лучшие {pageSize} локации (всего: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "Вам нужно выбрать магазин!",
   "prices_location_search_broader": "Не смогли найти то, что искали? Давайте попробуем более широкий поиск!",
   "prices_proof_subtitle": "Доказательство",
+  "prices_proof_empty_title": "Пока нет доказательств!",
+  "prices_proof_empty_explanation": "Начните с добавления фотографии **чека** или **ценника**!",
   "prices_proof_find": "Выберите доказательство",
   "prices_proof_receipt": "Чек",
   "prices_proof_price_tag": "Ценник",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Цена не указана",
+  "prices_products_empty_explanation": "Будьте первым, кто внесет свой вклад!",
   "prices_products_list_length_many_pages": "Лучшие {pageSize} продукты (всего: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",

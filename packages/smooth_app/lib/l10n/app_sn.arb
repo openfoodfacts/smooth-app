@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Hapana mutengo parizvino!",
+  "prices_list_empty_subtitle": "Iva wekutanga kuwedzera imwe:\nNekupenengura **risiti** kana **tegi**!",
   "prices_entry_shop_not_found": "Chitoro chisingazivikanwi",
   "prices_entry_menu_title": "Mutengo wekupinda kubva \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Hapana mubatsiri parizvino!",
+  "prices_users_empty_explanation": "Iva wekutanga kuwedzera mutengo!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Hapana chitoro parizvino!",
+  "prices_locations_empty_explanation": "Iva wekutanga kuwedzera mutengo!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "Hapana humbowo parizvino!",
+  "prices_proof_empty_explanation": "Tanga nekuwedzera pikicha ye**risiti** kana***mutengo*!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Hapana mutengo uripo",
+  "prices_products_empty_explanation": "Iva wekutanga kupa!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
