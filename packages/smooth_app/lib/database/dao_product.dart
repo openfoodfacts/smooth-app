@@ -21,12 +21,14 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       'encoded_gzipped_json';
   static const String _TABLE_PRODUCT_COLUMN_LAST_UPDATE = 'last_update';
   static const String _TABLE_PRODUCT_COLUMN_LANGUAGE = 'lc';
+  static const String _TABLE_PRODUCT_COLUMN_PRODUCT_TYPE = 'product_type';
 
   static const List<String> _columns = <String>[
     _TABLE_PRODUCT_COLUMN_BARCODE,
     _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
     _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
     _TABLE_PRODUCT_COLUMN_LANGUAGE,
+    _TABLE_PRODUCT_COLUMN_PRODUCT_TYPE,
   ];
 
   static FutureOr<void> onUpgrade(
@@ -48,6 +50,12 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       await db.execute(
         'alter table $_TABLE_PRODUCT add column '
         '$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT',
+      );
+    }
+    if (oldVersion < 8) {
+      await db.execute(
+        'alter table $_TABLE_PRODUCT add column '
+        '$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE TEXT',
       );
     }
   }
@@ -177,7 +185,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     }
     await localDatabase.database.transaction(
       (final Transaction transaction) async =>
-          _bulkReplaceLoop(transaction, products, language),
+          _bulkReplaceLoop(transaction, products, language, productType),
     );
   }
 
@@ -208,6 +216,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final DatabaseExecutor databaseExecutor,
     final Iterable<Product> products,
     final OpenFoodFactsLanguage language,
+    final ProductType productType,
   ) async {
     final int lastUpdate = LocalDatabase.nowInMillis();
     final BulkManager bulkManager = BulkManager();
@@ -221,6 +230,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       );
       insertParameters.add(lastUpdate);
       insertParameters.add(language.offTag);
+      insertParameters.add(product.productType?.offTag ?? productType.offTag);
     }
     await bulkManager.insert(
       bulkInsertable: this,
@@ -344,24 +354,38 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
     const String tableJoin =
         'p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}';
+    const String columns =
+        'p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON'
+        ',p.$_TABLE_PRODUCT_COLUMN_BARCODE'
+        ',p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE';
+    // we want rows with a different language - or a null language
     final String languageCondition =
         ' ('
         'p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null '
         "or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != '${language.offTag}'"
         ') ';
+    // we want rows with that type - or a null type
+    final String productTypeCondition =
+        ' ('
+        'p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE is null '
+        "or p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE = '${productType.offTag}'"
+        ') ';
 
+    // Listing the rows with a last access, ordered by last access (desc).
     final String queryWithLastAccess =
-        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'select $columns '
         'from'
         ' $_TABLE_PRODUCT p '
         ' inner join ${DaoProductLastAccess.TABLE} a'
         '  on $tableJoin '
         'where'
         ' $languageCondition '
+        ' and $productTypeCondition '
         'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc';
 
+    // Listing the rows without a last access.
     final String queryWithoutLastAccess =
-        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'select $columns '
         'from'
         ' $_TABLE_PRODUCT p '
         'where'
@@ -370,7 +394,26 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
         '  from ${DaoProductLastAccess.TABLE} a '
         '  where $tableJoin '
         ' ) '
+        ' and $productTypeCondition '
         ' and $languageCondition';
+
+    final Map<String, String> updates = <String, String>{};
+
+    /// Updates products that didn't have a product_type *in the table column*.
+    ///
+    /// This way, we lazily populate the database.
+    /// After one "language refresh", all products will have a populated
+    /// product_type column, so this method will do nothing afterwards.
+    Future<void> updateUnknownProductTypes() async {
+      for (final MapEntry<String, String> entry in updates.entries) {
+        await localDatabase.database.update(
+          _TABLE_PRODUCT,
+          <String, String>{_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE: entry.value},
+          where: '$_TABLE_PRODUCT_COLUMN_BARCODE = ?',
+          whereArgs: <String>[entry.key],
+        );
+      }
+    }
 
     // optimization: using 2 more simple queries than a "left join" that proved
     // more expensive (less than .1s for each simple query, .5s for "left join")
@@ -384,21 +427,36 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       final QueryCursor queryCursor = await localDatabase.database
           .rawQueryCursor(query, null);
       while (await queryCursor.moveNext()) {
-        final Product product = _getProductFromQueryResult(queryCursor.current);
-        final String barcode = product.barcode!;
+        final String barcode =
+            queryCursor.current[_TABLE_PRODUCT_COLUMN_BARCODE]! as String;
         if (excludeBarcodes.contains(barcode)) {
           continue;
         }
-        if ((product.productType ?? ProductType.food) != productType) {
+        String? foundProductType =
+            queryCursor.current[_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE] as String?;
+        if (foundProductType == null) {
+          final Product product = _getProductFromQueryResult(
+            queryCursor.current,
+          );
+          foundProductType = product.productType?.offTag;
+          if (foundProductType != null) {
+            updates[barcode] = foundProductType;
+          }
+        }
+        if ((foundProductType ?? ProductType.food.offTag) !=
+            productType.offTag) {
           continue;
         }
         result.add(barcode);
         if (result.length == limit) {
+          await queryCursor.close();
+          await updateUnknownProductTypes();
           return result;
         }
       }
     }
 
+    await updateUnknownProductTypes();
     return result;
   }
 
