@@ -4838,7 +4838,7 @@
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "Animateur de Folksonomy",
+  "preferences_dev_mode_folksonomy_host_title": "Hôte de Folksonomy Engine",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
