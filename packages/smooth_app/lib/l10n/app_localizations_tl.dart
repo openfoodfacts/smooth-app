@@ -2656,11 +2656,11 @@ class AppLocalizationsTl extends AppLocalizations {
   String get prices_list_add_new_price => 'Magdagdag ng\nbagong presyo';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Wala pang presyo!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Mauna kang magdagdag ng isa:\nSa pamamagitan ng pag-scan sa isang **resibo** o **tag ng presyo**!';
 
   @override
   String get prices_entry_shop_not_found => 'Hindi kilalang tindahan';
@@ -2753,10 +2753,11 @@ class AppLocalizationsTl extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Wala pang contributor!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Mauna kang magdagdag ng presyo!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2764,11 +2765,11 @@ class AppLocalizationsTl extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Wala pang tindahan!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Mauna kang magdagdag ng presyo!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2873,11 +2874,11 @@ class AppLocalizationsTl extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Wala pang patunay!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Magsimula sa pamamagitan ng pagdaragdag ng larawan ng **resibo** o **tag ng presyo**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4844,10 +4845,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Walang available na presyo';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => 'Maging unang mag-ambag!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

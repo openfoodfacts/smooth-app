@@ -2655,11 +2655,11 @@ class AppLocalizationsTn extends AppLocalizations {
   String get prices_list_add_new_price => 'Tsenya tlhwatlhwa e ntšha ya\n';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Ga go ise go nne le tlhwatlhwa!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Nna wa ntlha go tsenya e le nngwe:\nKa go sekaseka **rasiti** kgotsa **theke ya tlhwatlhwa**!';
 
   @override
   String get prices_entry_shop_not_found => 'Lebenkele le le sa itsiweng';
@@ -2752,10 +2752,11 @@ class AppLocalizationsTn extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Ga go ise go nne le seabe!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Nna wa ntlha go tsenya tlhwatlhwa!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2763,11 +2764,11 @@ class AppLocalizationsTn extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Ga go ise go nne le lebenkele!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Nna wa ntlha go tsenya tlhwatlhwa!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2873,11 +2874,11 @@ class AppLocalizationsTn extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Ga go ise go nne le bosupi!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Simolola ka go tsenya senepe sa **rasiti** kgotsa **theke ya tlhwatlhwa**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4846,10 +4847,11 @@ class AppLocalizationsTn extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Ga go na tlhwatlhwa';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Nna wa ntlha go ntsha moneelo!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

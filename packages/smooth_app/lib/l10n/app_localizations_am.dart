@@ -2654,11 +2654,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_list_add_new_price => '\nአዲስ ዋጋ ይጨምሩ';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'እስካሁን ምንም ዋጋ የለም!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'አንድ ለመጨመር የመጀመሪያው ይሁኑ፡\n**ደረሰኝ** ወይም **የዋጋ መለያ** በመቃኘት!';
 
   @override
   String get prices_entry_shop_not_found => 'ያልታወቀ መደብር';
@@ -2748,10 +2748,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'እስካሁን ምንም አስተዋጽዖ የለም!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation => 'ዋጋ ለመጨመር የመጀመሪያው ይሁኑ!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2759,11 +2759,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'እስካሁን ምንም ሱቅ የለም!';
 
   @override
-  String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+  String get prices_locations_empty_explanation => 'ዋጋ ለመጨመር የመጀመሪያው ይሁኑ!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2868,11 +2867,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'እስካሁን ምንም ማረጋገጫ የለም!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      '**ደረሰኝ** ወይም **የዋጋ መለያ** ፎቶ በማከል ይጀምሩ!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4824,10 +4823,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'ምንም ዋጋ አይገኝም';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => 'አስተዋጽዖ ለማድረግ የመጀመሪያው ይሁኑ!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

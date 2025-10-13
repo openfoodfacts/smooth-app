@@ -2657,11 +2657,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_list_add_new_price => 'Lisää\nuusi hinta';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Ei vielä hintaa!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Lisää ensimmäinen:\nSkannaamalla **kuitin** tai **hintalapun**!';
 
   @override
   String get prices_entry_shop_not_found => 'Tuntematon kauppa';
@@ -2751,10 +2751,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Ei vielä osallistujaa!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Ole ensimmäinen, joka lisää hinnan!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2762,11 +2763,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Ei vielä kauppaa!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Ole ensimmäinen, joka lisää hinnan!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2871,11 +2872,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_proof_subtitle => 'Todiste';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Ei vielä todisteita!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Aloita lisäämällä kuva **kuitista** tai **hintalapusta**!';
 
   @override
   String get prices_proof_find => 'Valitse todiste';
@@ -4833,10 +4834,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Ei hintaa saatavilla';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Ole ensimmäinen osallistuja!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

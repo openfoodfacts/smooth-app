@@ -2656,11 +2656,11 @@ class AppLocalizationsTe extends AppLocalizations {
   String get prices_list_add_new_price => '\nకొత్త ధరను జోడించండి';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'ఇంకా ధర లేదు!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      '**రసీదు** లేదా **ధర ట్యాగ్**ని స్కాన్ చేయడం ద్వారా\nజోడించే మొదటి వ్యక్తి అవ్వండి!';
 
   @override
   String get prices_entry_shop_not_found => 'తెలియని స్టోర్';
@@ -2751,10 +2751,11 @@ class AppLocalizationsTe extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'ఇంకా సహకారి లేరు!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'ధరను జోడించే మొదటి వ్యక్తి అవ్వండి!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2762,11 +2763,11 @@ class AppLocalizationsTe extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'ఇంకా దుకాణం లేదు!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'ధరను జోడించే మొదటి వ్యక్తి అవ్వండి!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2871,11 +2872,11 @@ class AppLocalizationsTe extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'ఇంకా రుజువు లేదు!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      '**రసీదు** యొక్క ఫోటో లేదా **ధర ట్యాగ్** జోడించడం ద్వారా ప్రారంభించండి!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4837,10 +4838,10 @@ class AppLocalizationsTe extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'ధర అందుబాటులో లేదు';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => 'మొదటగా విరాళం ఇవ్వండి!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

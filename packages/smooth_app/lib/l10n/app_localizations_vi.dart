@@ -2670,11 +2670,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get prices_list_add_new_price => 'Thêm giá mới\n';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Chưa có giá!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Hãy là người đầu tiên thêm một:\nBằng cách quét **biên lai** hoặc **nhãn giá**!';
 
   @override
   String get prices_entry_shop_not_found => 'Cửa hàng không xác định';
@@ -2765,10 +2765,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Chưa có người đóng góp nào!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Hãy là người đầu tiên thêm giá!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2776,11 +2777,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Chưa có cửa hàng nào!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Hãy là người đầu tiên thêm giá!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2885,11 +2886,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Chưa có bằng chứng!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Bắt đầu bằng cách thêm ảnh **biên lai** hoặc **nhãn giá**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4861,10 +4862,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Không có giá nào có sẵn';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Hãy là người đầu tiên đóng góp!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
