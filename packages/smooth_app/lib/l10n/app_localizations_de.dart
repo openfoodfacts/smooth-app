@@ -2706,11 +2706,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get prices_list_add_new_price => 'Fügen Sie einen\nneuen Preis hinzu';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Noch kein Preis!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Seien Sie der Erste, der eines hinzufügt:\nIndem Sie einen **Beleg** oder ein **Preisschild** scannen!';
 
   @override
   String get prices_entry_shop_not_found => 'Unbekannter Laden';
@@ -2802,10 +2802,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Noch kein Mitwirkender!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Geben Sie als Erster einen Preis an!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2813,11 +2814,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Noch kein Shop!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Geben Sie als Erster einen Preis an!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2922,11 +2923,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get prices_proof_subtitle => 'Nachweis';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Noch kein Beweis!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Fügen Sie zunächst ein Foto einer **Quittung** oder eines **Preisschilds** hinzu!';
 
   @override
   String get prices_proof_find => 'Wählen Sie einen Nachweis';
@@ -4927,10 +4928,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Kein Preis verfügbar';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Seien Sie der Erste, der einen Beitrag leistet!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

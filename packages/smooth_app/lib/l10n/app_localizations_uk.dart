@@ -2686,11 +2686,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_list_add_new_price => 'Додати нову ціну\n';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Ціни ще немає!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Додайте першим:\nВідскануйте **чек** або **цінник**!';
 
   @override
   String get prices_entry_shop_not_found => 'Невідомий магазин';
@@ -2781,10 +2781,11 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Ще немає учасників!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Будьте першим, хто додасть ціну!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2792,11 +2793,11 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Магазину ще немає!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Будьте першим, хто додасть ціну!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2901,11 +2902,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_proof_subtitle => 'Доказ';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Поки що немає доказів!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Почніть із додавання фотографії **чек** або **цінника**!';
 
   @override
   String get prices_proof_find => 'Виберіть доказ';
@@ -4890,10 +4891,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Ціна недоступна';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Будьте першим, хто зробить свій внесок!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

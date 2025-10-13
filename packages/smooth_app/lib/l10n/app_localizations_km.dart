@@ -2654,11 +2654,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get prices_list_add_new_price => 'បន្ថែមតម្លៃ\nថ្មី។';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'មិនទាន់មានតម្លៃទេ!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'ក្លាយជាអ្នកដំបូងដែលបន្ថែមលេខមួយ៖\nដោយស្កេន **បង្កាន់ដៃ** ឬ **ស្លាកតម្លៃ**!';
 
   @override
   String get prices_entry_shop_not_found => 'ហាងមិនស្គាល់';
@@ -2748,10 +2748,11 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'មិនទាន់មានអ្នករួមចំណែកទេ!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'ក្លាយជាអ្នកដំបូងដែលបន្ថែមតម្លៃ!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2759,11 +2760,11 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'មិនទាន់មានហាងទេ!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'ក្លាយជាអ្នកដំបូងដែលបន្ថែមតម្លៃ!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2868,11 +2869,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'មិនទាន់មានភស្តុតាងទេ!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'ចាប់ផ្តើមដោយបន្ថែមរូបថត **បង្កាន់ដៃ** ឬ **ស្លាកតម្លៃ**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4833,10 +4834,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'គ្មានតម្លៃទេ។';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'ក្លាយជាអ្នកដំបូងដែលរួមចំណែក!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

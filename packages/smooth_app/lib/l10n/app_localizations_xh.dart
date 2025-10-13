@@ -2655,11 +2655,11 @@ class AppLocalizationsXh extends AppLocalizations {
   String get prices_list_add_new_price => 'Yongeza i\nixabiso elitsha';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Akukho xabiso okwangoku!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Yiba ngowokuqala ukongeza enye:\nNgokuskena **isiliphu** okanye **ithegi yexabiso**!';
 
   @override
   String get prices_entry_shop_not_found => 'Ivenkile engaziwayo';
@@ -2751,10 +2751,11 @@ class AppLocalizationsXh extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Akukho galelo okwangoku!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Yiba ngowokuqala ukongeza ixabiso!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2762,11 +2763,11 @@ class AppLocalizationsXh extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Akukho venkile okwangoku!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Yiba ngowokuqala ukongeza ixabiso!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2871,11 +2872,11 @@ class AppLocalizationsXh extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Akukho bungqina okwangoku!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Qala ngokongeza ifoto **yerisithi** okanye **ithegi yexabiso**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4842,10 +4843,11 @@ class AppLocalizationsXh extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Akukho xabiso likhoyo';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Yiba ngowokuqala ukufaka isandla!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

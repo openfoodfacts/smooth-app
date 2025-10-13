@@ -2599,11 +2599,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_list_add_new_price => '新しい価格を\n追加する';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => '価格はまだありません!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      '最初に追加するには:\n**レシート**または**値札**をスキャンしてください!';
 
   @override
   String get prices_entry_shop_not_found => '不明な店舗';
@@ -2692,10 +2692,10 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'まだ貢献者がいません!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation => '最初に価格を追加してください!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2703,11 +2703,10 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'まだショップはありません！';
 
   @override
-  String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+  String get prices_locations_empty_explanation => '最初に価格を追加してください!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2812,11 +2811,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'まだ証拠はありません!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'まずは**領収書**または**値札**の写真を追加しましょう！';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4725,10 +4724,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => '価格はありません';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => '最初に貢献しましょう！';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

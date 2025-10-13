@@ -2680,11 +2680,11 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_list_add_new_price => 'Pridať novú cenu\n';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Zatiaľ žiadna cena!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Buďte prvý, kto ho pridá:\nNaskenovaním **účtenky** alebo **cenovky**!';
 
   @override
   String get prices_entry_shop_not_found => 'Neznámy obchod';
@@ -2776,10 +2776,10 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Zatiaľ žiadny prispievateľ!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation => 'Buďte prvý, kto pridá cenu!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2787,11 +2787,11 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Zatiaľ žiadny obchod!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Buďte prvý, kto pridá cenu!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2896,11 +2896,11 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_proof_subtitle => 'Potvrdenie';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Zatiaľ žiadny dôkaz!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Začnite pridaním fotografie **účtenky** alebo **cenovky**!';
 
   @override
   String get prices_proof_find => 'Vyberte potvrdenie';
@@ -4878,10 +4878,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Nie je k dispozícii žiadna cena';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => 'Buďte prvý, kto prispeje!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

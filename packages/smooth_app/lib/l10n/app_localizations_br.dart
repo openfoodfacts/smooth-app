@@ -2656,11 +2656,11 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_list_add_new_price => 'Ouzhpennañ ur priz nevez\n';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Priz ebet c\'hoazh !';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Bezit ar c\'hentañ da ouzhpennañ unan :\nEn ur skaniñ ur **resi** pe ur **tikedenn priz** !';
 
   @override
   String get prices_entry_shop_not_found => 'Stal dianav';
@@ -2751,10 +2751,11 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Kenlabourer ebet c\'hoazh !';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Bezit ar c\'hentañ da ouzhpennañ ur priz !';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2762,11 +2763,11 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Stal ebet c\'hoazh !';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Bezit ar c\'hentañ da ouzhpennañ ur priz !';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2871,11 +2872,11 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Prouenn ebet c\'hoazh !';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Kregiñ gant ouzhpennañ ul luc\'hskeudenn eus ur **resevet** pe ur **tikedenn priz** !';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4842,10 +4843,11 @@ class AppLocalizationsBr extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Priz ebet';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Bezit ar re gentañ o kemer perzh !';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
