@@ -81,7 +81,7 @@
   }
   await localDatabase.database.transaction(
     (final Transaction transaction) async =&gt;
-        _bulkReplaceLoop(transaction, products, language),
+        _bulkReplaceLoop(transaction, products, language, productType),
   );
 }</code></pre>
 </section>

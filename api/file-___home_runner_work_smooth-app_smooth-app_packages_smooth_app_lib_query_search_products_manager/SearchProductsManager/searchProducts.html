@@ -74,11 +74,17 @@
   required final SearchProductsType type,
 }) async {
   await type.waitIfNeeded();
-  return OpenFoodAPIClient.searchProducts(
-    user,
-    configuration,
-    uriHelper: uriHelper,
-  );
+
+  &#47;&#47; It&#39;s better to do the HTTP actions outside of &quot;compute&quot;, because
+  &#47;&#47; there are init phases for HTTP (like user agent and SSL certificates)
+  &#47;&#47; that would need to be somehow replicated for a new &quot;compute thread&quot;.
+  &#47;&#47; Besides, putting HTTP in &quot;compute&quot; wouldn&#39;t improve the performances.
+  final Response response = await configuration.getResponse(user, uriHelper);
+  TooManyRequestsException.check(response);
+
+  final SearchResult result = await compute(_decodeProducts, response.body);
+  _removeImages(result, configuration);
+  return result;
 }</code></pre>
 </section>
 

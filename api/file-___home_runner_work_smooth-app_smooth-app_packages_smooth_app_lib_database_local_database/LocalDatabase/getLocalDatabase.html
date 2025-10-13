@@ -80,7 +80,7 @@
   final String databasePath = join(databasesRootPath, &#39;smoothie.db&#39;);
   final Database database = await openDatabase(
     databasePath,
-    version: 7,
+    version: 8,
     singleInstance: true,
     onUpgrade: _onUpgrade,
   );

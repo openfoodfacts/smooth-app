@@ -87,6 +87,12 @@
       &#39;$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT&#39;,
     );
   }
+  if (oldVersion &lt; 8) {
+    await db.execute(
+      &#39;alter table $_TABLE_PRODUCT add column &#39;
+      &#39;$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE TEXT&#39;,
+    );
+  }
 }</code></pre>
 </section>
 

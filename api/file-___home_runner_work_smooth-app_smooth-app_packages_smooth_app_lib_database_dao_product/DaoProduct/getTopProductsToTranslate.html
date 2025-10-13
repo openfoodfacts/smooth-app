@@ -85,24 +85,38 @@ products being probably wiped out.</p>
 
   const String tableJoin =
       &#39;p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}&#39;;
+  const String columns =
+      &#39;p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON&#39;
+      &#39;,p.$_TABLE_PRODUCT_COLUMN_BARCODE&#39;
+      &#39;,p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE&#39;;
+  &#47;&#47; we want rows with a different language - or a null language
   final String languageCondition =
       &#39; (&#39;
       &#39;p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null &#39;
       &quot;or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != &#39;${language.offTag}&#39;&quot;
       &#39;) &#39;;
+  &#47;&#47; we want rows with that type - or a null type
+  final String productTypeCondition =
+      &#39; (&#39;
+      &#39;p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE is null &#39;
+      &quot;or p.$_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE = &#39;${productType.offTag}&#39;&quot;
+      &#39;) &#39;;
 
+  &#47;&#47; Listing the rows with a last access, ordered by last access (desc).
   final String queryWithLastAccess =
-      &#39;select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON &#39;
+      &#39;select $columns &#39;
       &#39;from&#39;
       &#39; $_TABLE_PRODUCT p &#39;
       &#39; inner join ${DaoProductLastAccess.TABLE} a&#39;
       &#39;  on $tableJoin &#39;
       &#39;where&#39;
       &#39; $languageCondition &#39;
+      &#39; and $productTypeCondition &#39;
       &#39;order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc&#39;;
 
+  &#47;&#47; Listing the rows without a last access.
   final String queryWithoutLastAccess =
-      &#39;select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON &#39;
+      &#39;select $columns &#39;
       &#39;from&#39;
       &#39; $_TABLE_PRODUCT p &#39;
       &#39;where&#39;
@@ -111,7 +125,26 @@ products being probably wiped out.</p>
       &#39;  from ${DaoProductLastAccess.TABLE} a &#39;
       &#39;  where $tableJoin &#39;
       &#39; ) &#39;
+      &#39; and $productTypeCondition &#39;
       &#39; and $languageCondition&#39;;
+
+  final Map&lt;String, String&gt; updates = &lt;String, String&gt;{};
+
+  &#47;&#47;&#47; Updates products that didn&#39;t have a product_type *in the table column*.
+  &#47;&#47;&#47;
+  &#47;&#47;&#47; This way, we lazily populate the database.
+  &#47;&#47;&#47; After one &quot;language refresh&quot;, all products will have a populated
+  &#47;&#47;&#47; product_type column, so this method will do nothing afterwards.
+  Future&lt;void&gt; updateUnknownProductTypes() async {
+    for (final MapEntry&lt;String, String&gt; entry in updates.entries) {
+      await localDatabase.database.update(
+        _TABLE_PRODUCT,
+        &lt;String, String&gt;{_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE: entry.value},
+        where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE = ?&#39;,
+        whereArgs: &lt;String&gt;[entry.key],
+      );
+    }
+  }
 
   &#47;&#47; optimization: using 2 more simple queries than a &quot;left join&quot; that proved
   &#47;&#47; more expensive (less than .1s for each simple query, .5s for &quot;left join&quot;)
@@ -125,21 +158,36 @@ products being probably wiped out.</p>
     final QueryCursor queryCursor = await localDatabase.database
         .rawQueryCursor(query, null);
     while (await queryCursor.moveNext()) {
-      final Product product = _getProductFromQueryResult(queryCursor.current);
-      final String barcode = product.barcode!;
+      final String barcode =
+          queryCursor.current[_TABLE_PRODUCT_COLUMN_BARCODE]! as String;
       if (excludeBarcodes.contains(barcode)) {
         continue;
       }
-      if ((product.productType ?? ProductType.food) != productType) {
+      String? foundProductType =
+          queryCursor.current[_TABLE_PRODUCT_COLUMN_PRODUCT_TYPE] as String?;
+      if (foundProductType == null) {
+        final Product product = _getProductFromQueryResult(
+          queryCursor.current,
+        );
+        foundProductType = product.productType?.offTag;
+        if (foundProductType != null) {
+          updates[barcode] = foundProductType;
+        }
+      }
+      if ((foundProductType ?? ProductType.food.offTag) !=
+          productType.offTag) {
         continue;
       }
       result.add(barcode);
       if (result.length == limit) {
+        await queryCursor.close();
+        await updateUnknownProductTypes();
         return result;
       }
     }
   }
 
+  await updateUnknownProductTypes();
   return result;
 }</code></pre>
 </section>
