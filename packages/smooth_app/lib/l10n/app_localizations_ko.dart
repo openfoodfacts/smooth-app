@@ -2612,11 +2612,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_list_add_new_price => '\n새로운 가격을 추가합니다';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => '아직 가격이 없습니다!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      '가장 먼저 하나를 추가하세요:\n**영수증**이나 **가격표**를 스캔하세요!';
 
   @override
   String get prices_entry_shop_not_found => '알 수 없는 매장';
@@ -2705,10 +2705,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => '아직 기여자가 없습니다!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation => '가격을 최초로 추가하세요!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2716,11 +2716,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => '아직 가게가 없습니다!';
 
   @override
-  String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+  String get prices_locations_empty_explanation => '가격을 최초로 추가하세요!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2825,11 +2824,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => '아직 증거가 없습니다!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      '**영수증**이나 **가격표** 사진을 첨부하여 시작하세요!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -4766,10 +4765,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => '가격이 없습니다';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation => '첫 번째로 기여해 보세요!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {

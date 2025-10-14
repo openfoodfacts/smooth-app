@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "아직 가격이 없습니다!",
+  "prices_list_empty_subtitle": "가장 먼저 하나를 추가하세요:\n**영수증**이나 **가격표**를 스캔하세요!",
   "prices_entry_shop_not_found": "알 수 없는 매장",
   "prices_entry_menu_title": "\"{user}\"에서 가격 입력",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "아직 기여자가 없습니다!",
+  "prices_users_empty_explanation": "가격을 최초로 추가하세요!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "아직 가게가 없습니다!",
+  "prices_locations_empty_explanation": "가격을 최초로 추가하세요!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "아직 증거가 없습니다!",
+  "prices_proof_empty_explanation": "**영수증**이나 **가격표** 사진을 첨부하여 시작하세요!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "가격이 없습니다",
+  "prices_products_empty_explanation": "첫 번째로 기여해 보세요!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",

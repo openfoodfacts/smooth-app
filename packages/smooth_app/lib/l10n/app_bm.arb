@@ -2391,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Sɔngɔ tɛ yen fɔlɔ!",
+  "prices_list_empty_subtitle": "Aw ka kɛ mɔgɔ fɔlɔ ye ka kelen fara a kan:\nNi aw ye **resipi** walima **sɔngɔ sɛbɛn** skan!",
   "prices_entry_shop_not_found": "Magasin dɔnbali",
   "prices_entry_menu_title": "Sɔngɔ donna ka bɔ \"{user}\" la.",
   "@prices_entry_menu_title": {
@@ -2491,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Donan si ma kɛ fɔlɔ!",
+  "prices_users_empty_explanation": "Aw ka kɛ mɔgɔ fɔlɔ ye ka sɔngɔ dɔ fara a kan!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2503,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Butigi si tɛ yen fɔlɔ!",
+  "prices_locations_empty_explanation": "Aw ka kɛ mɔgɔ fɔlɔ ye ka sɔngɔ dɔ fara a kan!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2567,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "Dalilu si ma sɔrɔ fɔlɔ!",
+  "prices_proof_empty_explanation": "A daminɛ ni **resipi** foto dɔ farali ye walima **sɔngɔ sɛbɛn**!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4352,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Sɔngɔ si tɛ sɔrɔ",
+  "prices_products_empty_explanation": "Aw ka kɛ mɔgɔ fɔlɔ ye ka bolomafara di!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
