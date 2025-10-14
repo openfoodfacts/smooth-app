@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/contribute_ui_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -99,7 +97,8 @@ class ContributeRoot extends PreferencesRoot {
       leading: const icons.Lab.alt(),
       title: appLocalizations.preferences_contribute_enroll_alpha,
       subtitleText: appLocalizations.preferences_contribute_alpha_subtitle,
-      onTap: () async => _enrollInInternal(context),
+      onTap: () async =>
+          ContributeUIHelper.showEnrollInInternalBottomSheet(context),
     );
   }
 
@@ -163,28 +162,4 @@ class ContributeRoot extends PreferencesRoot {
 
   Future<void> _share(String content) async =>
       SharePlus.instance.share(ShareParams(text: content));
-
-  Future<void> _enrollInInternal(BuildContext context) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool? result = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.preferences_contribute_enroll_alpha,
-        body: Text(appLocalizations.contribute_enroll_alpha_warning),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.close,
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.of(context).pop(true),
-        ),
-      ),
-    );
-    if (result == true) {
-      await LaunchUrlHelper.launchURL(
-        GlobalVars.appStore.getEnrollInBetaURL()!,
-      );
-    }
-  }
 }
