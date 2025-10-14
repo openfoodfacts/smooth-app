@@ -1,5 +1,5 @@
 {
-  "app_name": "Avatud toidufaktid",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1011,7 +1011,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Pole omadusi",
-  "product_tags_explanation": "Tootele omaduste (võti/väärtus) lisamisega aitate seda rikastada.",
+  "product_tags_explanation": "Tootele omaduste (võti/väärtus) lisamisega aitad andmeid täiendada.",
   "add_tag": "Add property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
@@ -1411,7 +1411,7 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_delete_title": "Kustuta minu konto",
+  "account_delete_title": "Kustuta minu kasutajakonto",
   "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
@@ -2287,7 +2287,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
-  "prices_website_button": "Avatud Open Prices'i veebisaidil",
+  "prices_website_button": "Ava Open Prices'i veebisaidis",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -2392,7 +2392,7 @@
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_list_empty_title": "Hinda veel pole!",
-  "prices_list_empty_subtitle": "Ole esimene, kes selle lisab:\nSkanneerides **kviitungi** või **hinnasilti**!",
+  "prices_list_empty_subtitle": "Ole esimene, kes selle lisab:\nSkanneerides **kviitungit** või **hinnasilti**!",
   "prices_entry_shop_not_found": "Tundmatu pood",
   "prices_entry_menu_title": "Hinna sisestamine alates \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2493,7 +2493,7 @@
       }
     }
   },
-  "prices_users_empty_title": "Kaastöölisi veel pole!",
+  "prices_users_empty_title": "Kaasautoreid veel pole!",
   "prices_users_empty_explanation": "Ole esimene, kes hinna lisab!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
@@ -2574,7 +2574,7 @@
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "Pole veel tõestust!",
-  "prices_proof_empty_explanation": "Alusta **tšeki** või **hinnasildi** foto lisamisega!",
+  "prices_proof_empty_explanation": "Alusta **kviitungi** või **hinnasildi** foto lisamisega!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -4361,7 +4361,7 @@
     "description": "Label of the folksonomy tab on the product page"
   },
   "prices_products_empty_title": "Hinda pole saadaval",
-  "prices_products_empty_explanation": "Ole esimene, kes panustab!",
+  "prices_products_empty_explanation": "Ole esimene, kes osaleb ja täiendab andmeid!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4414,11 +4414,11 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_in_progress": "Ekstraheerimine on pooleli…",
+  "nutrition_facts_extract_in_progress": "Lahtipakkimine on pooleli…",
   "@nutrition_facts_extract_in_progress": {
     "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
   },
-  "nutrition_facts_extract_successful": "Ekstraheerimine õnnestus",
+  "nutrition_facts_extract_successful": "Lahtipakkimine õnnestus",
   "@nutrition_facts_extract_successful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
@@ -4718,7 +4718,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts on toiduainete andmebaas, **mille on **loonud kõik ja kõigile**.\nSaate seda kasutada paremate toiduvalikute tegemiseks ja kuna tegemist on **avatud andmetega**, saab igaüks seda **mis tahes otstarbel taaskasutada**.",
+  "preferences_legal_header": "Open Food Facts on toiduainete andmebaas, **mille on loonud kõik ja kõigile**.\nSaad seda kasutada paremate toiduvalikute tegemiseks ja kuna tegemist on **avatud andmetega**, saab igaüks seda **mis tahes otstarbel taaskasutada**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4790,7 +4790,7 @@
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
   },
-  "preferences_manage_account_tooltip": "Halda oma kontot",
+  "preferences_manage_account_tooltip": "Halda oma kasutajakontot",
   "@preferences_manage_account_tooltip": {
     "description": "Tooltip for a button that lets the user manage his account"
   },
@@ -5259,7 +5259,7 @@
       }
     }
   },
-  "contributors_count_with_total": "{count} {total} kaastöölisest",
+  "contributors_count_with_total": "{count} / {total} kaasautorist",
   "@contributors_count_with_total": {
     "description": "Number of contributors",
     "placeholders": {
@@ -5283,7 +5283,7 @@
       }
     }
   },
-  "prices_locations_count_with_total": "{count} {total} asukohast",
+  "prices_locations_count_with_total": "{count} / {total} asukohast",
   "@prices_locations_count_with_total": {
     "description": "Number of locations",
     "placeholders": {
