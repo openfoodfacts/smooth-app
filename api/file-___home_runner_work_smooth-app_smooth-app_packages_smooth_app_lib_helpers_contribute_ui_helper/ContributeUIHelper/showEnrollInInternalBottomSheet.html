@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the showDevelopBottomSheet method from the ContributeUIHelper class, for the Dart programming language.">
-  <title>showDevelopBottomSheet method - ContributeUIHelper class - contribute_ui_helper library - Dart API</title>
+  <meta name="description" content="API docs for the showEnrollInInternalBottomSheet method from the ContributeUIHelper class, for the Dart programming language.">
+  <title>showEnrollInInternalBottomSheet method - ContributeUIHelper class - contribute_ui_helper library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper-library.html">contribute_ui_helper</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper/ContributeUIHelper-class.html">ContributeUIHelper</a></li>
-    <li class="self-crumb">showDevelopBottomSheet method</li>
+    <li class="self-crumb">showEnrollInInternalBottomSheet method</li>
   </ol>
-  <div class="self-name">showDevelopBottomSheet</div>
+  <div class="self-name">showEnrollInInternalBottomSheet</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,7 +44,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">showDevelopBottomSheet</span> method 
+<h1><span class="kind-method">showEnrollInInternalBottomSheet</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -52,7 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">showDevelopBottomSheet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showDevelopBottomSheet-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+<span class="name ">showEnrollInInternalBottomSheet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showEnrollInInternalBottomSheet-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
       
@@ -64,46 +64,29 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showDevelopBottomSheet(BuildContext context) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; showEnrollInInternalBottomSheet(
+  BuildContext context,
+) async {
   return showSmoothModalSheet&lt;void&gt;(
     context: context,
     builder: (BuildContext context) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final UserPreferences userPreferences = context
-          .watch&lt;UserPreferences&gt;();
       return SmoothModalSheet(
-        title: appLocalizations.contribute_sw_development,
+        title: appLocalizations.preferences_contribute_enroll_alpha,
         prefixIndicator: true,
         body: Column(
           children: &lt;Widget&gt;[
-            Text(appLocalizations.contribute_develop_text),
-            const SizedBox(height: VERY_LARGE_SPACE),
-            Text(appLocalizations.contribute_develop_text_2),
-            const SizedBox(height: BALANCED_SPACE),
-            SmoothAlertContentButton(
-              label: &#39;Slack&#39;,
-              icon: Icons.open_in_new,
+            Text(appLocalizations.contribute_enroll_alpha_warning),
+            const SizedBox(height: LARGE_SPACE),
+            SmoothSimpleButton(
               onPressed: () async =&gt; LaunchUrlHelper.launchURL(
-                &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;,
+                GlobalVars.appStore.getEnrollInBetaURL()!,
               ),
-            ),
-            const SizedBox(height: SMALL_SPACE),
-            SmoothAlertContentButton(
-              label: &#39;GitHub&#39;,
-              icon: Icons.open_in_new,
-              onPressed: () async =&gt; LaunchUrlHelper.launchURL(
-                &#39;https:&#47;&#47;github.com&#47;openfoodfacts&#39;,
+              minWidth: 150,
+              child: Text(
+                appLocalizations.okay.toUpperCase(),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-            ),
-            const SizedBox(height: BALANCED_SPACE),
-            SwitchListTile.adaptive(
-              title: Text(appLocalizations.contribute_develop_dev_mode_title),
-              subtitle: Text(
-                appLocalizations.contribute_develop_dev_mode_subtitle,
-              ),
-              value: userPreferences.devMode != 0,
-              onChanged: (final bool devMode) async =&gt;
-                  userPreferences.setDevMode(devMode ? 1 : 0),
             ),
           ],
         ),
@@ -127,7 +110,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper-library.html">contribute_ui_helper</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_contribute_ui_helper/ContributeUIHelper-class.html">ContributeUIHelper</a></li>
-  <li class="self-crumb">showDevelopBottomSheet method</li>
+  <li class="self-crumb">showEnrollInInternalBottomSheet method</li>
 </ol>
 
 
