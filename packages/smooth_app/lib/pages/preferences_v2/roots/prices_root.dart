@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -32,7 +29,6 @@ class PricesRoot extends PreferencesRoot {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String userId = ProductQuery.getWriteUser().userId;
     final bool isConnected = OpenFoodAPIConfiguration.globalUser != null;
-    final UserPreferences userPreferences = context.read<UserPreferences>();
 
     return <PreferenceCard>[
       if (isConnected) ...<PreferenceCard>[
@@ -64,11 +60,7 @@ class PricesRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_prices_ways_contribute_title,
         tiles: <PreferenceTile>[
-          if (userPreferences.getFlag(
-                UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-              ) ??
-              false)
-            _buildBulkProofUploadTile(context, appLocalizations),
+          _buildBulkProofUploadTile(context, appLocalizations),
           _buildContributionAssistantTile(appLocalizations),
           _buildValidationAssistantTile(appLocalizations),
           _buildMultipleProofTile(appLocalizations),

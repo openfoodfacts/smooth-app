@@ -6,7 +6,6 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -138,15 +137,11 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         Icons.bar_chart,
       ),
-      if (userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-          ) ??
-          false)
-        _getListTile(
-          appLocalizations.prices_bulk_proof_upload_title,
-          () async => ProofBulkAddPage.showPage(context: context),
-          Icons.upload_file,
-        ),
+      _getListTile(
+        appLocalizations.prices_bulk_proof_upload_title,
+        () async => ProofBulkAddPage.showPage(context: context),
+        Icons.upload_file,
+      ),
       _getListTile(
         appLocalizations.prices_contribution_assistant,
         () async => LaunchUrlHelper.launchURL(

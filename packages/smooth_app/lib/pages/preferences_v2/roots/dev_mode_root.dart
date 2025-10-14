@@ -104,7 +104,6 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: 'Open Prices',
         tiles: <PreferenceTile>[
-          _buildBulkProofUploadTile(appLocalizations, userPreferences),
           _buildMultiProductsSelectionTile(
             context,
             appLocalizations,
@@ -419,25 +418,6 @@ class DevModeRoot extends PreferencesRoot {
   }
 
   // Open Prices section methods
-  TogglePreferenceTile _buildBulkProofUploadTile(
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      title: appLocalizations.prices_bulk_proof_upload_title,
-      icon: const icons.Upload.bulk(),
-      state:
-          userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-          ) ??
-          false,
-      onToggle: (bool value) async => userPreferences.setFlag(
-        UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
-        value,
-      ),
-    );
-  }
-
   TogglePreferenceTile _buildMultiProductsSelectionTile(
     BuildContext context,
     AppLocalizations appLocalizations,
