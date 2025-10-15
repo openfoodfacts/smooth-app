@@ -167,7 +167,7 @@ class ProductPageTabsGenerator {
             AppLocalizations.of(context).product_page_tab_for_me,
         builder: (BuildContext context, _) => ListView(
           padding: EdgeInsetsDirectional.zero,
-          children: const <Widget>[SizedBox()],
+          children: const <Widget>[],
         ),
       ),
     );
@@ -197,13 +197,13 @@ class ProductPageTabsGenerator {
           future: _getPricesTotal(product, context),
           builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
             if (!snapshot.hasData || snapshot.data == null) {
-              return const SizedBox.shrink();
+              return EMPTY_WIDGET;
             }
             return SmoothCircle(
               color: context
                   .extension<SmoothColorsThemeExtension>()
                   .secondaryNormal,
-              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
               child: Text(
                 snapshot.data!.toString(),
                 style: const TextStyle(color: Colors.white, fontSize: 12.0),
