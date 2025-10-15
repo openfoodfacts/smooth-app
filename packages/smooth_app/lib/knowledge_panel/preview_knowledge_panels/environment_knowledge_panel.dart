@@ -6,9 +6,9 @@ import 'package:smooth_app/knowledge_panel/preview_knowledge_panels/preview_know
 
 class EnvironmentKnowledgePanel extends PreviewKnowledgePanel {
   const EnvironmentKnowledgePanel({
-    super.key,
     required super.product,
     required super.panels,
+    super.key,
   });
 
   @override
@@ -20,16 +20,16 @@ class _EnvironmentKnowledgePanelState
     extends PreviewKnowledgePanelState<EnvironmentKnowledgePanel> {
   @override
   Widget buildPreviewContent(BuildContext context) {
-    final KnowledgePanel nutriscorePanel =
+    final KnowledgePanel environmentalScorePanel =
         KnowledgePanelsBuilder.getKnowledgePanel(
-      widget.product,
-      'environmental_score',
-    )!;
+          widget.product,
+          'environmental_score',
+        )!;
 
     return NewKnowledgePanelTitleCard(
-      title: nutriscorePanel.titleElement?.title ?? '',
-      subtitle: nutriscorePanel.titleElement?.subtitle ?? '',
-      iconUrl: nutriscorePanel.titleElement?.iconUrl,
+      title: environmentalScorePanel.titleElement?.title ?? '',
+      subtitle: environmentalScorePanel.titleElement?.subtitle ?? '',
+      iconUrl: environmentalScorePanel.titleElement?.iconUrl,
     );
   }
 }

@@ -18,8 +18,8 @@ class KnowledgePanelSquareCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension themeExtension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -29,23 +29,17 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     _buildPanel(context, panels[0], themeExtension),
-                    const VerticalDivider(
-                      thickness: 1.0,
-                    ),
+                    const VerticalDivider(thickness: 1.0),
                     _buildPanel(context, panels[1], themeExtension),
                   ],
                 ),
               ),
-              const Divider(
-                thickness: 1.0,
-              ),
+              const Divider(thickness: 1.0),
               IntrinsicHeight(
                 child: Row(
                   children: <Widget>[
                     _buildPanel(context, panels[2], themeExtension),
-                    const VerticalDivider(
-                      thickness: 1.0,
-                    ),
+                    const VerticalDivider(thickness: 1.0),
                     _buildPanel(context, panels[3], themeExtension),
                   ],
                 ),
@@ -61,10 +55,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                       horizontal: MEDIUM_SPACE,
                       vertical: VERY_SMALL_SPACE,
                     ),
-                    leading: _buildIndicator(
-                      panel.evaluation,
-                      themeExtension,
-                    ),
+                    leading: _buildIndicator(panel.evaluation, themeExtension),
                     title: _buildTitle(
                       context,
                       panel.titleElement?.title ?? '',
@@ -103,9 +94,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   panel.titleElement?.name ?? 'No name',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Icon(
                   ConstantIcons.forwardIcon,
@@ -117,16 +106,14 @@ class KnowledgePanelSquareCard extends StatelessWidget {
             const SizedBox(height: SMALL_SPACE),
             Row(
               children: <Widget>[
-                _buildIndicator(
-                  panel.evaluation,
-                  themeExtension,
-                ),
+                _buildIndicator(panel.evaluation, themeExtension),
                 const SizedBox(width: MEDIUM_SPACE),
                 Text(
-                  '${_formatValue(panel.titleElement?.value)}${panel.titleElement?.type == TitleElementType.PERCENTAGE ? '%' : ''}',
+                  '${_formatValue(100)}${panel.titleElement?.type == TitleElementType.PERCENTAGE ? '%' : ''}',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: indicatorColor(panel.evaluation, themeExtension)),
+                    fontWeight: FontWeight.bold,
+                    color: indicatorColor(panel.evaluation, themeExtension),
+                  ),
                 ),
               ],
             ),
@@ -164,7 +151,9 @@ class KnowledgePanelSquareCard extends StatelessWidget {
   }
 
   Color indicatorColor(
-      Evaluation? evaluation, SmoothColorsThemeExtension themeExtension) {
+    Evaluation? evaluation,
+    SmoothColorsThemeExtension themeExtension,
+  ) {
     if (evaluation == null) {
       return Colors.grey;
     }
