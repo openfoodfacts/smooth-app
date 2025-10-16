@@ -429,7 +429,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   sortKey: const OrdinalSortKey(1.0),
                   child: Text(
                     title,
-                    maxLines: 1,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,

@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 
@@ -181,6 +182,37 @@ class ContributeUIHelper {
                 minWidth: 150,
                 child: Text(
                   appLocalizations.contribute.toUpperCase(),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  static Future<void> showEnrollInInternalBottomSheet(
+    BuildContext context,
+  ) async {
+    return showSmoothModalSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return SmoothModalSheet(
+          title: appLocalizations.preferences_contribute_enroll_alpha,
+          prefixIndicator: true,
+          body: Column(
+            children: <Widget>[
+              Text(appLocalizations.contribute_enroll_alpha_warning),
+              const SizedBox(height: LARGE_SPACE),
+              SmoothSimpleButton(
+                onPressed: () async => LaunchUrlHelper.launchURL(
+                  GlobalVars.appStore.getEnrollInBetaURL()!,
+                ),
+                minWidth: 150,
+                child: Text(
+                  appLocalizations.okay.toUpperCase(),
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
