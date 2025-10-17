@@ -177,10 +177,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     labels: <String>[title],
     builder: (_) => UserPreferencesListTile(
       title: Text(title),
-      onTap:
-          onTap ??
-          () async =>
-              LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url!),
+      onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
       trailing:
           icon ??
           UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
@@ -274,49 +271,41 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async =>
-                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                              context,
-                              ProductQuery.replaceSubdomain(
-                                'https://world.openfoodfacts.org/who-we-are',
-                              ),
-                            ),
+                        onPressed: () async => LaunchUrlHelper.launchURL(
+                          ProductQuery.replaceSubdomain(
+                            'https://world.openfoodfacts.org/who-we-are',
+                          ),
+                        ),
                         label: appLocalizations.learnMore,
                         icon: Icons.open_in_new,
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async =>
-                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                              context,
-                              ProductQuery.replaceSubdomain(
-                                'https://world.openfoodfacts.org/terms-of-use',
-                              ),
-                            ),
+                        onPressed: () async => LaunchUrlHelper.launchURL(
+                          ProductQuery.replaceSubdomain(
+                            'https://world.openfoodfacts.org/terms-of-use',
+                          ),
+                        ),
                         label: appLocalizations.termsOfUse,
                         icon: Icons.open_in_new,
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async =>
-                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                              context,
-                              ProductQuery.replaceSubdomain(
-                                'https://world.openfoodfacts.org/legal',
-                              ),
-                            ),
+                        onPressed: () async => LaunchUrlHelper.launchURL(
+                          ProductQuery.replaceSubdomain(
+                            'https://world.openfoodfacts.org/legal',
+                          ),
+                        ),
                         label: appLocalizations.legalNotices,
                         icon: Icons.open_in_new,
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () =>
-                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
-                              context,
-                              ProductQuery.replaceSubdomain(
-                                'https://world.openfoodfacts.org/privacy',
-                              ),
-                            ),
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                          ProductQuery.replaceSubdomain(
+                            'https://world.openfoodfacts.org/privacy',
+                          ),
+                        ),
                         label: appLocalizations.privacy_policy,
                         icon: Icons.open_in_new,
                       ),

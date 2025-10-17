@@ -31,8 +31,7 @@ class UrlPreferenceTile extends PreferenceTile {
         size: 16.0,
         color: context.lightTheme() ? theme.primaryColor : Colors.white,
       ),
-      onTap: () async =>
-          LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
+      onTap: () async => LaunchUrlHelper.launchURL(url),
     );
   }
 }
