@@ -37,7 +37,7 @@ jobs:
       
       # Get dependencies.
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
 
       # Check for formatting issues
       - name: Check for formatting issues (run "dart format . ")
