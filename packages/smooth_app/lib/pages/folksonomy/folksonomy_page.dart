@@ -285,13 +285,10 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     }
   }
 
-  Future<bool> _checkIfLoggedIn() async {
-    if (!await ProductRefresher().checkIfLoggedIn(
+  Future<bool> _checkIfLoggedIn() {
+    return ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: true,
-    )) {
-      return false;
-    }
-    return true;
+    );
   }
 }
