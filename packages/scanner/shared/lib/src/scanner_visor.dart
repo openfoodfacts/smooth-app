@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
-  const SmoothBarcodeScannerVisor({this.contentPadding, super.key});
+  const SmoothBarcodeScannerVisor({
+    required this.icon,
+    this.contentPadding,
+    super.key,
+  });
 
   static const double CORNER_PADDING = 26.0;
   static const double STROKE_WIDTH = 3.0;
 
+  final Widget icon;
   final EdgeInsetsGeometry? contentPadding;
 
   @override
@@ -24,10 +28,9 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
         child: CustomPaint(
           painter: _ScanVisorPainter(),
           child: Center(
-            child: SvgPicture.asset(
-              'assets/icons/visor_icon.svg',
-              width: 35.0,
-              height: 32.0,
+            child: IconTheme.merge(
+              data: const IconThemeData(size: 35.0, color: Colors.white),
+              child: icon,
             ),
           ),
         ),
@@ -61,7 +64,8 @@ class _ScanVisorPainter extends CustomPainter {
   final Paint _paint = Paint()
     ..strokeWidth = SmoothBarcodeScannerVisor.STROKE_WIDTH
     ..color = Colors.white
-    ..style = PaintingStyle.stroke;
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round;
 
   @override
   void paint(Canvas canvas, Size size) {

@@ -9738,6 +9738,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Added on {created}'**
   String prices_adding_timestamp_tooltip(String created);
+
+  /// No description provided for @location_map_details_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Location details'**
+  String get location_map_details_title;
+
+  /// No description provided for @location_map_details_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get location_map_details_name;
+
+  /// No description provided for @location_map_details_street.
+  ///
+  /// In en, this message translates to:
+  /// **'Street'**
+  String get location_map_details_street;
+
+  /// No description provided for @location_map_details_city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get location_map_details_city;
+
+  /// No description provided for @location_map_details_postcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Postcode'**
+  String get location_map_details_postcode;
+
+  /// No description provided for @location_map_details_country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get location_map_details_country;
+
+  /// No description provided for @location_map_details_coordinates.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinates'**
+  String get location_map_details_coordinates;
+
+  /// No description provided for @location_map_details_osm_id.
+  ///
+  /// In en, this message translates to:
+  /// **'OSM ID'**
+  String get location_map_details_osm_id;
 }
 
 class _AppLocalizationsDelegate

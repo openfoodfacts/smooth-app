@@ -17,7 +17,6 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothProductCardItemFound extends StatelessWidget {
   const SmoothProductCardItemFound({
@@ -257,28 +256,12 @@ class _SmoothProductItemScores extends StatelessWidget {
           ) ==
           true;
 
-      Widget child = SvgIconChip(
-        attributes[index].iconUrl!,
-        height: 39.0 - (nutriScoreLogo ? 1.0 : 0.0),
-      );
-
-      if (nutriScoreLogo) {
-        child = DecoratedBox(
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: context.lightTheme() ? Colors.black26 : Colors.white54,
-              width: 1.0,
-              strokeAlign: BorderSide.strokeAlignOutside,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(6.5)),
-          ),
-          child: child,
-        );
-      }
-
       return Padding(
         padding: const EdgeInsetsDirectional.only(end: 1.0),
-        child: child,
+        child: SvgIconChip(
+          attributes[index].iconUrl!,
+          height: 39.0 - (nutriScoreLogo ? 1.0 : 0.0),
+        ),
       );
     });
     return scores;
