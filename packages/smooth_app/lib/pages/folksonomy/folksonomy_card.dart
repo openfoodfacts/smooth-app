@@ -113,10 +113,6 @@ class _FolksonomyCard extends StatelessWidget {
     BuildContext context,
     Product product,
   ) async {
-    if (!context.mounted) {
-      return;
-    }
-
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext lContext) => FolksonomyPage(
