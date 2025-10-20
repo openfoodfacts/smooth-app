@@ -118,9 +118,16 @@ class _CameraScannerPageState extends State<CameraScannerPage>
                   color: Colors.white24,
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Colors.white54,
+                    color: Colors.white,
                     width: SmoothBarcodeScannerVisor.STROKE_WIDTH - 1.0,
                   ),
+                  boxShadow: const <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8.0,
+                      offset: Offset.zero,
+                    ),
+                  ],
                 ),
                 child: const Padding(
                   padding: EdgeInsetsDirectional.all(VERY_LARGE_SPACE),

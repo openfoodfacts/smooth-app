@@ -177,7 +177,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(
+                padding: const EdgeInsetsDirectional.all(
                   SmoothBarcodeScannerVisor.CORNER_PADDING,
                 ),
                 child: Row(
