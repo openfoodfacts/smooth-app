@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_switch.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Sign Up Page. Pop's true if the sign up was successful.
@@ -27,7 +28,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
-  static const double space = 10;
+  static const double space = BALANCED_SPACE;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -221,7 +222,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                         }
                       },
                     ),
-                    const SizedBox(height: space),
+                    const SizedBox(height: VERY_LARGE_SPACE),
                     _TermsOfUseCheckbox(
                       agree: _agree,
                       disagree: _disagreed,
@@ -233,27 +234,16 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                       },
                     ),
                     const SizedBox(height: space),
-                    ListTile(
-                      onTap: () {
-                        setState(() => _foodProducer = !_foodProducer);
-                      },
-                      contentPadding: EdgeInsets.zero,
-                      leading: IgnorePointer(
-                        ignoring: true,
-                        child: Checkbox(
-                          value: _foodProducer,
-                          fillColor: WidgetStateProperty.resolveWith(
-                            getCheckBoxColor,
-                          ),
-                          onChanged: (_) {},
-                        ),
-                      ),
-                      title: Text(
+                    _SwitchListItem(
+                      text: Text(
                         appLocalizations.sign_up_page_producer_checkbox,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),
                       ),
+                      checked: _foodProducer,
+                      onChanged: (bool selected) =>
+                          setState(() => _foodProducer = !_foodProducer),
                     ),
                     if (_foodProducer) ...<Widget>[
                       const SizedBox(height: space),
@@ -273,34 +263,26 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                       ),
                     ],
                     const SizedBox(height: space),
-                    ListTile(
-                      onTap: () {
-                        setState(() => _subscribe = !_subscribe);
-                      },
-                      contentPadding: EdgeInsets.zero,
-                      leading: IgnorePointer(
-                        ignoring: true,
-                        child: Checkbox(
-                          value: _subscribe,
-                          fillColor: WidgetStateProperty.resolveWith(
-                            getCheckBoxColor,
-                          ),
-                          onChanged: (_) {},
-                        ),
-                      ),
-                      title: Text(
+                    _SwitchListItem(
+                      text: Text(
                         appLocalizations.sign_up_page_subscribe_checkbox,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),
                       ),
+                      checked: _subscribe,
+                      onChanged: (_) =>
+                          setState(() => _subscribe = !_subscribe),
                     ),
                     const SizedBox(height: space),
                     ElevatedButton(
                       onPressed: () async => _signUp(),
                       style: ButtonStyle(
                         minimumSize: WidgetStateProperty.all<Size>(
-                          Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                          Size(
+                            size.width * 0.5,
+                            theme.buttonTheme.height + 10.0,
+                          ),
                         ),
                         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
@@ -482,79 +464,40 @@ class _TermsOfUseCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
-    return InkWell(
-      excludeFromSemantics: true,
-      onTap: () {
-        onCheckboxChanged(!agree);
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                IgnorePointer(
-                  ignoring: true,
-                  child: Checkbox(
-                    value: agree,
-                    fillColor: WidgetStateProperty.resolveWith(
-                      checkboxColorResolver,
-                    ),
-                    onChanged: (_) {},
-                  ),
-                ),
-                const SizedBox(width: 20.0),
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(
-                          // additional space needed because of the next text span
-                          text: '${appLocalizations.sign_up_page_agree_text} ',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurface,
-                          ),
-                        ),
-                        TextSpan(
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: Colors.blue,
-                          ),
-                          text: appLocalizations.sign_up_page_terms_text,
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => _onTermsClicked(appLocalizations),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () => _onTermsClicked(appLocalizations),
-                  customBorder: const CircleBorder(),
-                  child: AspectRatio(
-                    aspectRatio: 1.0,
-                    child: Icon(
-                      semanticLabel: appLocalizations.termsOfUse,
-                      Icons.info,
-                      color: checkboxColorResolver(<WidgetState>{
-                        WidgetState.selected,
-                      }),
-                    ),
-                  ),
-                ),
-              ],
+    return _SwitchListItem(
+      text: RichText(
+        text: TextSpan(
+          children: <InlineSpan>[
+            TextSpan(
+              // additional space needed because of the next text span
+              text: '${appLocalizations.sign_up_page_agree_text} ',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurface,
+              ),
             ),
-          ),
-          Offstage(
-            offstage: !disagree,
-            child: Text(
-              appLocalizations.sign_up_page_agree_error_invalid,
-              style: TextStyle(color: theme.colorScheme.error),
+            TextSpan(
+              style: theme.textTheme.bodyMedium?.copyWith(color: Colors.blue),
+              text: appLocalizations.sign_up_page_terms_text,
+              recognizer: TapGestureRecognizer()
+                ..onTap = () => _onTermsClicked(appLocalizations),
             ),
+          ],
+        ),
+      ),
+      checked: agree,
+      onChanged: onCheckboxChanged,
+      footer: (BuildContext context) => Offstage(
+        offstage: !disagree,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+          child: Text(
+            appLocalizations.sign_up_page_agree_error_invalid,
+            style: TextStyle(color: theme.colorScheme.error),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -570,5 +513,56 @@ class _TermsOfUseCheckbox extends StatelessWidget {
         mode: LaunchMode.platformDefault,
       );
     } catch (_) {}
+  }
+}
+
+class _SwitchListItem extends StatelessWidget {
+  const _SwitchListItem({
+    required this.text,
+    required this.checked,
+    required this.onChanged,
+    this.footer,
+  });
+
+  final Widget text;
+  final bool checked;
+  final ValueChanged<bool> onChanged;
+  final WidgetBuilder? footer;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget body = Row(
+      spacing: SMALL_SPACE,
+      children: <Widget>[
+        Expanded(child: text),
+        IgnorePointer(
+          child: SmoothSwitch(
+            value: checked,
+            onChanged: (_) {},
+            size: const Size(38.0, 20.0),
+          ),
+        ),
+      ],
+    );
+
+    if (footer != null) {
+      body = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[body, footer!.call(context)],
+      );
+    }
+
+    return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
+      excludeFromSemantics: true,
+      onTap: () => onChanged(!checked),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: VERY_LARGE_SPACE,
+          end: SMALL_SPACE,
+        ),
+        child: body,
+      ),
+    );
   }
 }
