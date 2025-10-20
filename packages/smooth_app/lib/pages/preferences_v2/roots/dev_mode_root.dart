@@ -6,13 +6,9 @@ import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/locations/osm_location.dart';
-import 'package:smooth_app/pages/locations/search_location_helper.dart';
-import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -21,7 +17,6 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/value_edition_preference_tile.dart';
-import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
@@ -111,7 +106,6 @@ class DevModeRoot extends PreferencesRoot {
             userPreferences,
           ),
           _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
-          _buildLocationSearchTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -492,57 +486,6 @@ class DevModeRoot extends PreferencesRoot {
         }
 
         _showSuccessMessage(context, appLocalizations);
-      },
-    );
-  }
-
-  PreferenceTile _buildLocationSearchTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return PreferenceTile(
-      title: appLocalizations.preferences_dev_mode_location_search_title,
-      icon: const icons.World.location(),
-      onTap: () async {
-        final LocalDatabase localDatabase = context.read<LocalDatabase>();
-        final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
-        final List<OsmLocation> osmLocations = await daoOsmLocation.getAll();
-        if (!context.mounted) {
-          return;
-        }
-        final List<SearchLocationPreloadedItem> preloadedList =
-            <SearchLocationPreloadedItem>[];
-        for (final OsmLocation osmLocation in osmLocations) {
-          preloadedList.add(
-            SearchLocationPreloadedItem(osmLocation, popFirst: false),
-          );
-        }
-        final OsmLocation? osmLocation = await Navigator.push<OsmLocation>(
-          context,
-          MaterialPageRoute<OsmLocation>(
-            builder: (BuildContext context) => SearchPage(
-              SearchLocationHelper(),
-              preloadedList: preloadedList,
-              autofocus: false,
-            ),
-          ),
-        );
-        if (osmLocation == null) {
-          return;
-        }
-        await daoOsmLocation.put(osmLocation);
-        if (!context.mounted) {
-          return;
-        }
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              osmLocation.getTitle() ??
-                  osmLocation.getSubtitle() ??
-                  osmLocation.getLatLng().toString(),
-            ),
-          ),
-        );
       },
     );
   }
