@@ -32,8 +32,6 @@ class SmoothBarcodeWidget extends StatelessWidget {
     final Color contentColor =
         color ?? (context.lightTheme() ? Colors.black : Colors.white);
 
-    print('barcode2: $barcode');
-    print('barcodeType; $_barcodeType');
     return Semantics(
       label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
       excludeSemantics: true,
