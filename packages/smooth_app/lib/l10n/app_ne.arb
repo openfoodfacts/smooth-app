@@ -5357,5 +5357,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Location details",
+  "location_map_details_name": "Name",
+  "location_map_details_street": "Street",
+  "location_map_details_city": "City",
+  "location_map_details_postcode": "Postcode",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_osm_id": "OSM ID"
 }
