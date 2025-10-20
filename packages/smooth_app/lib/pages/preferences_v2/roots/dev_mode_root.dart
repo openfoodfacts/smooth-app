@@ -78,6 +78,7 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
           _buildEditIngredientsTile(context, appLocalizations, userPreferences),
+          _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -105,7 +106,6 @@ class DevModeRoot extends PreferencesRoot {
             appLocalizations,
             userPreferences,
           ),
-          _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
