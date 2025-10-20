@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -194,17 +195,9 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
         errorBuilder: (_, _) => _onError(),
       );
     } else {
-      return Image.network(
-        semanticLabel: image.alt,
-        loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
-          if (loadingProgress == null) {
-            return _onLoading();
-          }
-
-          return child;
-        },
-        errorBuilder: (_, _, _) => _onError(),
-        image.src ?? '-',
+      return SmoothImage(
+        semanticsLabel: image.alt,
+        imageProvider: NetworkImage(image.src ?? '-'),
       );
     }
   }
