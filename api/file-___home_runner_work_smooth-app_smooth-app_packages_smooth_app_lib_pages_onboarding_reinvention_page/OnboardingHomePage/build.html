@@ -71,40 +71,45 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return SmoothScaffold(
-    backgroundColor: const Color(0xFFE3F3FE),
-    body: Provider&lt;OnboardingConfig&gt;.value(
-      value: OnboardingConfig._(MediaQuery.sizeOf(context)),
-      child: Stack(
-        children: &lt;Widget&gt;[
-          const _OnboardingWelcomePageContent(),
-          OnboardingBottomHills(
-            onTap: () async {
-              final UserPreferences userPreferences = context
-                  .read&lt;UserPreferences&gt;();
-              final LocalDatabase localDatabase = context
-                  .read&lt;LocalDatabase&gt;();
+  return SmoothBrightnessOverride(
+    brightness: Brightness.dark,
+    child: SmoothScaffold(
+      backgroundColor: const Color(0xFFE3F3FE),
+      body: Provider&lt;OnboardingConfig&gt;.value(
+        value: OnboardingConfig._(MediaQuery.sizeOf(context)),
+        child: Stack(
+          children: &lt;Widget&gt;[
+            const _OnboardingWelcomePageContent(),
+            OnboardingBottomHills(
+              onTap: () async {
+                final UserPreferences userPreferences = context
+                    .read&lt;UserPreferences&gt;();
+                final LocalDatabase localDatabase = context
+                    .read&lt;LocalDatabase&gt;();
 
-              &#47;&#47;&#47; Enable crash reports and user tracking by default
-              &#47;&#47;&#47; (Can be disabled by the user later in the settings)
-              await userPreferences.setCrashReports(true);
-              await userPreferences.setUserTracking(true);
+                &#47;&#47;&#47; Enable crash reports and user tracking by default
+                &#47;&#47;&#47; (Can be disabled by the user later in the settings)
+                await userPreferences.setCrashReports(true);
+                await userPreferences.setUserTracking(true);
 
-              if (context.mounted) {
-                await OnboardingLoader(
-                  localDatabase,
-                ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
-              }
+                if (context.mounted) {
+                  await OnboardingLoader(
+                    localDatabase,
+                  ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                }
 
-              if (context.mounted) {
-                await OnboardingFlowNavigator(userPreferences).navigateToPage(
-                  context,
-                  OnboardingPage.HOME_PAGE.getNextPage(),
-                );
-              }
-            },
-          ),
-        ],
+                if (context.mounted) {
+                  await OnboardingFlowNavigator(
+                    userPreferences,
+                  ).navigateToPage(
+                    context,
+                    OnboardingPage.HOME_PAGE.getNextPage(),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ),
     ),
   );

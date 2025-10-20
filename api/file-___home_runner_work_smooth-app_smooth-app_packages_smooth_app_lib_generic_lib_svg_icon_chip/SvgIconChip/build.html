@@ -70,10 +70,30 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) =&gt; ConstrainedBox(
-  constraints: BoxConstraints(minWidth: height),
-  child: SvgCache(iconUrl, height: height),
-);</code></pre>
+Widget build(BuildContext context) {
+  final bool nutriScoreLogo =
+      iconUrl.contains(RegExp(r&#39;.*&#47;nutriscore-[a-z]-.*\.svg&#39;)) == true;
+
+  Widget child = SvgCache(iconUrl, height: height);
+
+  if (nutriScoreLogo) {
+    child = Center(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: context.lightTheme() ? Colors.black26 : Colors.white54,
+            width: 1.0,
+            strokeAlign: BorderSide.strokeAlignOutside,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(6.5)),
+        ),
+        child: child,
+      ),
+    );
+  }
+
+  return child;
+}</code></pre>
 </section>
 
 

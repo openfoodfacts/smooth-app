@@ -83,37 +83,11 @@ Widget build(BuildContext context) {
           : Text(subtitle, maxLines: 1, overflow: TextOverflow.ellipsis),
       actions: &lt;Widget&gt;[
         IconButton(
-          icon: const Icon(Icons.info),
-          onPressed: () =&gt; showCupertinoModalPopup&lt;void&gt;(
-            context: context,
-            builder: (final BuildContext context) =&gt; CupertinoActionSheet(
-              actions: &lt;Widget&gt;[
-                if (osmLocation.name != null)
-                  _getItem(context, osmLocation.name!, &#39;Name&#39;),
-                if (osmLocation.street != null)
-                  _getItem(context, osmLocation.street!, &#39;Street&#39;),
-                if (osmLocation.city != null)
-                  _getItem(context, osmLocation.city!, &#39;City&#39;),
-                if (osmLocation.postcode != null)
-                  _getItem(context, osmLocation.postcode!, &#39;Postcode&#39;),
-                if (osmLocation.country != null)
-                  _getItem(context, osmLocation.country!, &#39;Country&#39;),
-                _getItem(
-                  context,
-                  &#39;${osmLocation.latitude}, ${osmLocation.longitude}&#39;,
-                  &#39;Coordinates&#39;,
-                ),
-                _getItem(
-                  context,
-                  &#39;${osmLocation.osmType.short}${osmLocation.osmId}&#39;,
-                  &#39;OSM&#39;,
-                ),
-              ],
-            ),
-          ),
+          icon: const icons.Info(),
+          onPressed: () =&gt; _showLocationDetails(context),
         ),
         IconButton(
-          icon: const Icon(Icons.check),
+          icon: const icons.Check.circled(),
           onPressed: () {
             &#47;&#47; pops that map page
             Navigator.of(context).pop();
@@ -138,12 +112,12 @@ Widget build(BuildContext context) {
           markers: &lt;Marker&gt;[
             Marker(
               point: latLng,
-              child: const Icon(
-                Icons.pin_drop,
-                color: Colors.lightBlue,
+              child: const icons.Location(
+                color: Colors.black,
                 size: markerSize,
+                shadow: Shadow(color: Colors.black26, blurRadius: 4.0),
               ),
-              alignment: Alignment.topCenter,
+              alignment: const Alignment(0.0, -0.9),
               width: markerSize,
               height: markerSize,
             ),

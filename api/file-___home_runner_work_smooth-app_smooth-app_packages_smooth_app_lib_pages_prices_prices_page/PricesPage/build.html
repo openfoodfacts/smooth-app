@@ -91,7 +91,7 @@ Widget build(BuildContext context) {
     ),
     injectPaddingInBody: model.displayEachProduct,
     belowTopBar: !model.displayEachProduct,
-    padding: EdgeInsets.zero,
+    padding: EdgeInsetsDirectional.zero,
     floatingBottomBar: ConsumerFilter&lt;UserPreferences&gt;(
       buildWhen:
           (UserPreferences? previousValue, UserPreferences currentValue) =&gt;

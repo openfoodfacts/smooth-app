@@ -163,10 +163,13 @@ Widget build(BuildContext context) {
                               child: RadioListTile&lt;ProofType&gt;(
                                 title: Text(item.getTitle(appLocalizations)),
                                 value: item,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: CIRCULAR_BORDER_RADIUS,
+                                ),
                               ),
                             ),
                           )
-                          .toList(),
+                          .toList(growable: false),
                 ),
           ),
         ),
