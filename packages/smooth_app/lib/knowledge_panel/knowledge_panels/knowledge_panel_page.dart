@@ -97,6 +97,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                   padding: const EdgeInsetsDirectional.only(
                     bottom: LARGE_SPACE,
                   ),
+                  borderRadius: ANGULAR_BORDER_RADIUS,
                   child: DefaultTextStyle.merge(
                     style: const TextStyle(fontSize: 15.0, height: 1.5),
                     child: KnowledgePanelExpandedCard(

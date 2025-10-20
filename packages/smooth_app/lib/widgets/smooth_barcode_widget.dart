@@ -87,6 +87,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
       case 8:
         return Barcode.ean8();
       case 12:
+        return Barcode.upcA();
       case 13:
         return Barcode.ean13();
       default:

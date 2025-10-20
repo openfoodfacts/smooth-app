@@ -85,9 +85,11 @@ class ScoreCard extends StatelessWidget {
       header: type == ScoreCardType.title,
       button: isClickable,
       child: Padding(
-        padding: margin ?? const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+        padding:
+            margin ??
+            const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
         child: Ink(
-          padding: const EdgeInsets.all(SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: ANGULAR_BORDER_RADIUS,
@@ -115,7 +117,8 @@ class ScoreCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (isClickable) const icons.Chevron.right(size: 15.0),
+              if (isClickable)
+                icons.Chevron.right(size: 15.0, color: textColor),
             ],
           ),
         ),
