@@ -5358,12 +5358,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Detalles de la ubicación",
   "location_map_details_name": "Nombre",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Calle",
+  "location_map_details_city": "Ciudad",
+  "location_map_details_postcode": "Código postal",
   "location_map_details_country": "País",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Coordenadas",
+  "location_map_details_osm_id": "ID de OSM"
 }
