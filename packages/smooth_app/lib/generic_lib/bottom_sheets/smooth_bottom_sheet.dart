@@ -300,6 +300,92 @@ class _SmoothListOfChoicesEndArrow extends StatelessWidget {
   }
 }
 
+Future<T?> showSmoothListOfItemsModalSheet<T>({
+  required BuildContext context,
+  required String title,
+  required Iterable<ModalSheetItem> items,
+  SmoothModalSheetType type = SmoothModalSheetType.info,
+}) {
+  final SmoothColorsThemeExtension extension = context
+      .extension<SmoothColorsThemeExtension>();
+
+  return showSmoothModalSheet(
+    context: context,
+    builder: (BuildContext lContext) {
+      final bool lightTheme = lContext.lightTheme();
+
+      return ListTileTheme.merge(
+        titleTextStyle: TextStyle(
+          color: lightTheme
+              ? extension.primaryUltraBlack
+              : extension.primaryLight,
+          fontWeight: FontWeight.w600,
+          fontSize: 16.0,
+        ),
+        subtitleTextStyle: TextStyle(
+          color: lightTheme ? extension.primaryTone : extension.primaryNormal,
+          fontSize: 14.5,
+        ),
+        child: SmoothModalSheet(
+          title: title,
+          type: type,
+          bodyPadding: EdgeInsetsDirectional.zero,
+          body: ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsetsDirectional.only(
+              bottom: MediaQuery.viewPaddingOf(context).bottom,
+            ),
+            itemBuilder: (_, int index) {
+              final ModalSheetItem item = items.elementAt(index);
+
+              return ListTile(
+                leading: item.leading != null
+                    ? IconTheme.merge(
+                        data: IconThemeData(
+                          color: lightTheme
+                              ? extension.primaryAccent
+                              : extension.primaryMedium,
+                        ),
+                        child: item.leading!,
+                      )
+                    : null,
+                title: Text(item.title),
+                subtitle: item.subTitle != null ? Text(item.subTitle!) : null,
+                trailing: item.trailing != null
+                    ? IconTheme.merge(
+                        data: const IconThemeData(size: 20.0),
+                        child: item.trailing!,
+                      )
+                    : null,
+                onTap: item.onTap,
+              );
+            },
+            separatorBuilder: (_, _) => const Divider(height: 1.0),
+            itemCount: items.length,
+          ),
+        ),
+      );
+    },
+  );
+}
+
+class ModalSheetItem {
+  ModalSheetItem({
+    required this.title,
+    this.subTitle,
+    this.leading,
+    this.trailing,
+    this.onTap,
+  });
+
+  final String title;
+  final String? subTitle;
+  final Widget? leading;
+  final Widget? trailing;
+  final VoidCallback? onTap;
+}
+
 /// A non scrollable modal sheet
 class SmoothModalSheet extends StatelessWidget {
   SmoothModalSheet({

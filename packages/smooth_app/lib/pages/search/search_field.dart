@@ -5,7 +5,6 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/color_schemes.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -79,7 +78,7 @@ class _SearchFieldState extends State<SearchField> {
       _controller = TextEditingController();
     }
 
-    final TextStyle textStyle = SearchFieldUIHelper.textStyle();
+    final TextStyle textStyle = SearchFieldUIHelper.textStyle;
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
 
@@ -164,7 +163,7 @@ class _SearchFieldState extends State<SearchField> {
       ),
       contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
       hintText: widget.searchHelper.getHintText(localizations),
-      hintStyle: widget.hintTextStyle ?? const TextStyle(color: Colors.black54),
+      hintStyle: widget.hintTextStyle ?? SearchFieldUIHelper.hintTextStyle,
       prefixIcon: widget.showNavigationButton
           ? const Align(
               alignment: AlignmentDirectional.centerStart,
@@ -202,7 +201,7 @@ class _BackIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchBarIcon(
-      icon: Icon(ConstantIcons.backIcon),
+      icon: const icons.Arrow.left(size: 15.0),
       label: MaterialLocalizations.of(context).closeButtonTooltip,
       onTap: () => Navigator.of(context).pop(),
     );
@@ -219,7 +218,8 @@ class _SearchIcon extends StatelessWidget {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
     return SearchBarIcon(
-      icon: const icons.Search(),
+      icon: const icons.Search.offRounded(),
+      padding: const EdgeInsetsDirectional.only(bottom: 2.0),
       label: localizations.search,
       onTap: onTap,
     );
@@ -227,10 +227,16 @@ class _SearchIcon extends StatelessWidget {
 }
 
 class SearchBarIcon extends StatelessWidget {
-  const SearchBarIcon({this.icon, this.onTap, this.label, super.key})
-    : assert(label == null || onTap != null);
+  const SearchBarIcon({
+    this.icon,
+    this.onTap,
+    this.label,
+    this.padding,
+    super.key,
+  }) : assert(label == null || onTap != null);
 
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry? padding;
   final String? label;
   final Widget? icon;
 
@@ -250,10 +256,10 @@ class SearchBarIcon extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(BALANCED_SPACE),
+          padding: padding ?? const EdgeInsetsDirectional.all(BALANCED_SPACE),
           child: IconTheme(
             data: const IconThemeData(size: 20.0, color: Colors.white),
-            child: icon ?? const icons.Search(),
+            child: icon ?? const icons.Search.off(),
           ),
         ),
       ),
@@ -290,7 +296,13 @@ class SearchFieldUIHelper {
   static const EdgeInsetsGeometry SEARCH_BAR_PADDING =
       EdgeInsetsDirectional.only(start: 20.0, end: BALANCED_SPACE, bottom: 3.0);
 
-  static TextStyle textStyle() => const TextStyle(color: Colors.black);
+  static TextStyle get hintTextStyle => const TextStyle(
+    fontSize: 15.0,
+    fontStyle: FontStyle.italic,
+    color: Colors.black54,
+  );
+
+  static TextStyle get textStyle => const TextStyle(color: Colors.black);
 
   static BoxDecoration decoration(BuildContext context) {
     final SmoothColorsThemeExtension theme = Theme.of(

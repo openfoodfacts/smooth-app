@@ -39,11 +39,6 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData categories = IconData(
-    0xe806,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
   static const IconData check = IconData(
     0xe807,
     fontFamily: _kFontFam,
@@ -251,16 +246,6 @@ class _IconsFont {
   );
   static const IconData no_picture = IconData(
     0xe831,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
-  static const IconData qrcode = IconData(
-    0xe832,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
-  static const IconData qrcode_corners = IconData(
-    0xe833,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -1001,6 +986,61 @@ class _IconsFont {
   );
   static const IconData switches = IconData(
     0xe905,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard_down = IconData(
+    0xe90e,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard_left = IconData(
+    0xe90f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard_right = IconData(
+    0xe910,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard = IconData(
+    0xe911,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData search_off_rounded = IconData(
+    0xe912,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData search_off = IconData(
+    0xe913,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData osm = IconData(
+    0xe914,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData postal_code = IconData(
+    0xe915,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData city = IconData(
+    0xe916,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData street = IconData(
+    0xe918,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData check_circled = IconData(
+    0xe919,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

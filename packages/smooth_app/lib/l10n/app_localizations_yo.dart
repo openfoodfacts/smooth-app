@@ -5620,4 +5620,28 @@ class AppLocalizationsYo extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Ṣe afikun si $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

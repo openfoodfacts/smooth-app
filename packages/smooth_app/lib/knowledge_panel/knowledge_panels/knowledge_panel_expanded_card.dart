@@ -129,7 +129,7 @@ class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
         color: context.lightTheme()
             ? extension.primaryMedium
             : extension.primaryUltraBlack,
-        borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+        borderRadius: const BorderRadius.vertical(top: ANGULAR_RADIUS),
       ),
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
