@@ -26,11 +26,6 @@ class _SearchBottomBarState extends State<SearchBottomBar> {
         searchHelper: context.read<PreferencesRootSearchController>(),
         showNavigationButton: false,
         searchOnChange: true,
-        hintTextStyle: const TextStyle(
-          fontSize: 15.0,
-          fontStyle: FontStyle.italic,
-          color: Colors.black54,
-        ),
       ),
     );
   }

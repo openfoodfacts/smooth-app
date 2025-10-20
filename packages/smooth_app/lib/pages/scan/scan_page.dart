@@ -71,15 +71,12 @@ class _ScanPageState extends State<ScanPage> {
               child: Consumer<PermissionListener>(
                 builder:
                     (BuildContext context, PermissionListener listener, _) {
-                      switch (listener.value.status) {
-                        case DevicePermissionStatus.checking:
-                          return EMPTY_WIDGET;
-                        case DevicePermissionStatus.granted:
-                          // TODO(m123): change
-                          return const CameraScannerPage();
-                        default:
-                          return const _PermissionDeniedCard();
-                      }
+                      return switch (listener.value.status) {
+                        DevicePermissionStatus.checking => EMPTY_WIDGET,
+                        DevicePermissionStatus.granted =>
+                          const CameraScannerPage(),
+                        _ => const _PermissionDeniedCard(),
+                      };
                     },
               ),
             ),
@@ -182,7 +179,7 @@ class _PermissionDeniedCard extends StatelessWidget {
                 bottom: 5.0,
               ),
               borderRadius: BorderRadius.zero,
-              margin: EdgeInsets.zero,
+              margin: EdgeInsetsDirectional.zero,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Column(
@@ -205,9 +202,8 @@ class _PermissionDeniedCard extends StatelessWidget {
                     Expanded(
                       child: SingleChildScrollView(
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: BALANCED_SPACE,
-                            vertical: BALANCED_SPACE,
+                          padding: const EdgeInsetsDirectional.all(
+                            BALANCED_SPACE,
                           ),
                           child: Text(
                             localizations.permission_photo_denied_message(

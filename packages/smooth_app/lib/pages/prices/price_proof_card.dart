@@ -124,10 +124,13 @@ class PriceProofCard extends StatelessWidget {
                                 child: RadioListTile<ProofType>(
                                   title: Text(item.getTitle(appLocalizations)),
                                   value: item,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: CIRCULAR_BORDER_RADIUS,
+                                  ),
                                 ),
                               ),
                             )
-                            .toList(),
+                            .toList(growable: false),
                   ),
             ),
           ),
