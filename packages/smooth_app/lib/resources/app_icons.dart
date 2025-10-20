@@ -397,16 +397,6 @@ class Cards extends AppIcon {
   }) : super._(_IconsFont.cards);
 }
 
-class Categories extends AppIcon {
-  const Categories({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.categories);
-}
-
 class Certificate extends AppIcon {
   const Certificate({
     super.color,
@@ -483,6 +473,14 @@ class Check extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.check);
+
+  const Check.circled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.check_circled);
 }
 
 class CheckBox extends AppIcon {
@@ -710,6 +708,18 @@ class CircledArrow extends AppIcon {
       type == CircledArrowType.thin ? super.size : ((super.size ?? 20.0) - 8.0);
 }
 
+enum CircledArrowType { thin, normal }
+
+class City extends AppIcon {
+  const City({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.city);
+}
+
 class ClearText extends AppIcon {
   const ClearText({
     super.color,
@@ -739,7 +749,39 @@ class Clear extends AppIcon {
   }) : super._(_IconsFont.clear);
 }
 
-enum CircledArrowType { thin, normal }
+class Clipboard extends AppIcon {
+  const Clipboard({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clipboard);
+
+  const Clipboard.down({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clipboard_down);
+
+  const Clipboard.left({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clipboard_left);
+
+  const Clipboard.right({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clipboard_right);
+}
 
 class Clock extends AppIcon {
   const Clock({
@@ -1842,6 +1884,16 @@ class Origins extends AppIcon {
   }) : super._(_IconsFont.origins);
 }
 
+class OSMLogo extends AppIcon {
+  const OSMLogo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.osm);
+}
+
 class Outdated extends AppIcon {
   const Outdated({
     super.color,
@@ -1992,6 +2044,16 @@ class Podium extends AppIcon {
   }) : super._(_IconsFont.podium);
 }
 
+class PostalCode extends AppIcon {
+  const PostalCode({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.postal_code);
+}
+
 class News extends AppIcon {
   const News.paper({
     super.color,
@@ -2094,24 +2156,6 @@ class Question extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.question_circled);
-}
-
-class QRCode extends AppIcon {
-  const QRCode({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.qrcode);
-
-  const QRCode.withCorners({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.qrcode_corners);
 }
 
 class Recycling extends AppIcon {
@@ -2286,6 +2330,22 @@ class Search extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.database_search);
+
+  const Search.off({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.search_off);
+
+  const Search.offRounded({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.search_off_rounded);
 }
 
 class Select extends AppIcon {
@@ -2460,6 +2520,16 @@ class Status extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.status);
+}
+
+class Street extends AppIcon {
+  const Street({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.street);
 }
 
 class Strength extends AppIcon {

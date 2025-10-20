@@ -60,7 +60,9 @@ class AppBarAuthenticationButton extends StatelessWidget {
                           circleColor: lightTheme
                               ? themeExtension.primaryBlack
                               : Colors.white,
-                          color: Colors.white,
+                          color: lightTheme
+                              ? Colors.white
+                              : themeExtension.primaryBlack,
                           size: 20.0,
                           padding: const EdgeInsetsDirectional.symmetric(
                             horizontal: 6.0,
