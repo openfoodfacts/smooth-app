@@ -124,6 +124,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       title: appLocalizations.dev_mode_section_product_page,
       tiles: &lt;PreferenceTile&gt;[
         _buildEditIngredientsTile(context, appLocalizations, userPreferences),
+        _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
       ],
     ),
     PreferenceCard(
@@ -151,7 +152,6 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
           appLocalizations,
           userPreferences,
         ),
-        _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
       ],
     ),
     PreferenceCard(
