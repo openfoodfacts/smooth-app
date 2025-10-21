@@ -202,7 +202,10 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               if (!context.mounted) {
                 return;
               }
-              await context.read<FolksonomyProvider>().deleteTag(entry.key);
+              await context.read<FolksonomyProvider>().deleteTag(
+                context,
+                entry.key,
+              );
             }
           },
         ),
@@ -242,10 +245,14 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(res.key, res.value);
+        context.read<FolksonomyProvider>().editTag(context, res.key, res.value);
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(res.key, res.value);
+          context.read<FolksonomyProvider>().addTag(
+            context,
+            res.key,
+            res.value,
+          );
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(
