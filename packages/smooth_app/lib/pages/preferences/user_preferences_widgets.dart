@@ -21,7 +21,10 @@ class UserPreferencesListItemDivider extends StatelessWidget {
       padding: margin ?? const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
       child: CustomPaint(
         size: const Size(double.infinity, 1.0),
-        painter: DashedLinePainter(color: Theme.of(context).dividerColor),
+        painter: DashedBorderPainter(
+          sides: <Side>{Side.top},
+          color: Theme.of(context).dividerColor,
+        ),
       ),
     );
   }

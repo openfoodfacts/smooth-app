@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Nėra savybių",
+  "product_tags_explanation": "Pridėdami prie produkto savybių (raktą / vertę), padedate jį pagerinti.",
   "add_tag": "Pridėti savybę",
   "add_tags": "Pridėti savybes",
   "add_edit_tags": "Pridėti arba redaguoti savybes",
@@ -2389,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Kainos dar nėra!",
+  "prices_list_empty_subtitle": "Būkite pirmas, kuris pridės:\nNuskaitydami **kvitą** arba **kainos etiketę**!",
   "prices_entry_shop_not_found": "Nežinoma parduotuvė",
   "prices_entry_menu_title": "Kainos įvedimas iš „{user}“",
   "@prices_entry_menu_title": {
@@ -2489,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Kol kas nėra bendraautorių!",
+  "prices_users_empty_explanation": "Būkite pirmas, pridėjęs kainą!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Parduotuvės dar nėra!",
+  "prices_locations_empty_explanation": "Būkite pirmas, pridėjęs kainą!",
   "prices_locations_list_length_many_pages": "Geriausios {pageSize} vietos (iš viso: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Neradote to, ko ieškojote? Išbandykime platesnę paiešką!",
   "prices_proof_subtitle": "Įrodymai",
+  "prices_proof_empty_title": "Dar nėra įrodymų!",
+  "prices_proof_empty_explanation": "Pradėkite pridėdami **kvito** arba **kainos etiketės** nuotrauką!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Čekis",
   "prices_proof_price_tag": "Kainos etiketė",
@@ -2632,6 +2642,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Nustatyti programėlės kalbą iš naujo",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Pridėti kortelių",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Perjungti tarp prices.openfoodfacts.org (PROD) ir bandomosios aplinkos",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Naudoti pakartotinai ir redaguoti šią paiešką",
   "@search_history_item_edit_tooltip": {
@@ -4338,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Kaina nežinoma",
+  "prices_products_empty_explanation": "Būkite pirmas, prisidėjęs!",
   "prices_products_list_length_many_pages": "Geriausi {pageSize} produktai (iš viso: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4817,6 +4841,15 @@
   "preferences_dev_mode_folksonomy_host_title": "Folksonomy šeimininkas",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Pagrindinis kompiuteris: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Prieinamumo eksperimentai",
   "@preferences_dev_mode_accessibility_experiments_title": {

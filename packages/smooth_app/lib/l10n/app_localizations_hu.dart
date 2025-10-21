@@ -1277,6 +1277,13 @@ class AppLocalizationsHu extends AppLocalizations {
       'Nem találtunk terméktulajdonságokat. A tulajdonságok rugalmasan használhatók a termékek részletesebb leírására. Érintse meg a hozzáadáshoz.';
 
   @override
+  String get product_tags_empty => 'Nincsenek ingatlanok';
+
+  @override
+  String get product_tags_explanation =>
+      'Tulajdonságok (kulcs/érték) hozzáadásával egy termékhez gazdagíthatod azt.';
+
+  @override
   String get add_tag => 'Tulajdonság hozzáadása';
 
   @override
@@ -2677,6 +2684,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get prices_list_add_new_price => 'Adj hozzá\núj árat';
 
   @override
+  String get prices_list_empty_title => 'Még nincs ár!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Légy az első, aki hozzáad egyet:\n**Blokk** vagy **árcédula** beolvasásával!';
+
+  @override
   String get prices_entry_shop_not_found => 'Ismeretlen üzlet';
 
   @override
@@ -2766,9 +2780,23 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Még nincs közreműködő!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Légy az első, aki árat ad hozzá!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize közreműködő (összes: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Még nincs bolt!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Légy az első, aki árat ad hozzá!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2873,6 +2901,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get prices_proof_subtitle => 'Bizonylat';
 
   @override
+  String get prices_proof_empty_title => 'Még nincs bizonyíték!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Kezdd egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!';
+
+  @override
   String get prices_proof_find => 'Bizonylat kiválasztása';
 
   @override
@@ -2964,6 +2999,17 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(összetevők és csomagolás)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Alkalmazás nyelvének visszaállítása';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Kártyák hozzáadása';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Váltás a prices.openfoodfacts.org (PROD) és a test env között';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -4836,6 +4882,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Nincs elérhető ár';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Légy az első, aki hozzájárul!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Legnépszerűbb $pageSize termék (összesen: $total)';
   }
@@ -5211,6 +5264,11 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomy házigazda';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Gazdagép: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5622,4 +5680,28 @@ class AppLocalizationsHu extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Hozzáadva ekkor: $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

@@ -8,7 +8,6 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -51,6 +50,8 @@ class ProductPageTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool lightTheme = context.lightTheme();
+
     return SliverPersistentHeader(
       delegate: _TabBarDelegate(
         PreferredSize(
@@ -72,9 +73,10 @@ class ProductPageTabBar extends StatelessWidget {
                 .map((ProductPageTab tab) => tab.suffix)
                 .toList(growable: false),
             onTabChanged: (_) {},
-            overflowMainColor: context.lightTheme()
+            overflowMainColor: lightTheme
                 ? Theme.of(context).tabBarTheme.unselectedLabelColor
                 : Theme.of(context).scaffoldBackgroundColor,
+            unselectedTabColor: lightTheme ? Colors.black87 : Colors.white70,
           ),
         ),
       ),
@@ -190,22 +192,17 @@ class ProductPageTabBar extends StatelessWidget {
       ),
     );
 
-    if (context.read<UserPreferences>().getFlag(
-          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-        ) ==
-        false) {
-      tabs.add(
-        ProductPageTab(
-          id: ProductPageHarcodedTabs.FOLKSONOMY.key,
-          labelBuilder: (BuildContext context) =>
-              AppLocalizations.of(context).product_page_tab_folksonomy,
-          builder: (_, Product product) => ListView(
-            padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[FolksonomyCard(product)],
-          ),
+    tabs.add(
+      ProductPageTab(
+        id: ProductPageHarcodedTabs.FOLKSONOMY.key,
+        labelBuilder: (BuildContext context) =>
+            AppLocalizations.of(context).product_page_tab_folksonomy,
+        builder: (_, Product product) => ListView(
+          padding: EdgeInsetsDirectional.zero,
+          children: <Widget>[FolksonomyCard(product)],
         ),
-      );
-    }
+      ),
+    );
 
     return tabs;
   }

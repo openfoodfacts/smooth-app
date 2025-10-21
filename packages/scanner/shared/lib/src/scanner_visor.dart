@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
-  const SmoothBarcodeScannerVisor({this.contentPadding, super.key});
+  const SmoothBarcodeScannerVisor({
+    required this.icon,
+    this.contentPadding,
+    super.key,
+  });
 
   static const double CORNER_PADDING = 26.0;
   static const double STROKE_WIDTH = 3.0;
 
+  final Widget icon;
   final EdgeInsetsGeometry? contentPadding;
 
   @override
@@ -24,10 +28,9 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
         child: CustomPaint(
           painter: _ScanVisorPainter(),
           child: Center(
-            child: SvgPicture.asset(
-              'assets/icons/visor_icon.svg',
-              width: 35.0,
-              height: 32.0,
+            child: IconTheme.merge(
+              data: const IconThemeData(size: 35.0, color: Colors.white),
+              child: icon,
             ),
           ),
         ),
@@ -61,27 +64,36 @@ class _ScanVisorPainter extends CustomPainter {
   final Paint _paint = Paint()
     ..strokeWidth = SmoothBarcodeScannerVisor.STROKE_WIDTH
     ..color = Colors.white
-    ..style = PaintingStyle.stroke;
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round;
 
   @override
   void paint(Canvas canvas, Size size) {
     final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
-    canvas.drawPath(getPath(rect, false), _paint);
+
+    final Path path = getPath(rect);
+
+    _paint.maskFilter = MaskFilter.blur(
+      BlurStyle.normal,
+      _convertRadiusToSigma(2.0),
+    );
+    _paint.color = Colors.black12;
+    canvas.drawPath(path, _paint);
+
+    _paint.maskFilter = null;
+    _paint.color = Colors.white;
+    canvas.drawPath(path, _paint);
   }
 
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
+  static double _convertRadiusToSigma(double radius) {
+    return radius * 0.57735 + 0.5;
+  }
 
   /// Returns a path to draw the visor
   /// [includeLineBetweenCorners] will draw lines between each corner, instead
   /// of moving the cursor
-  static Path getPath(Rect rect, bool includeLineBetweenCorners) {
-    final double bottomPosition;
-    if (includeLineBetweenCorners) {
-      bottomPosition = rect.bottom - SmoothBarcodeScannerVisor.STROKE_WIDTH;
-    } else {
-      bottomPosition = rect.bottom;
-    }
+  static Path getPath(Rect rect) {
+    final double bottomPosition = rect.bottom;
 
     final Path path = Path()
       // Top left
@@ -94,11 +106,7 @@ class _ScanVisorPainter extends CustomPainter {
       ..lineTo(rect.left + _fullCornerSize, rect.top);
 
     // Top right
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.right - _fullCornerSize, rect.top);
-    } else {
-      path.moveTo(rect.right - _fullCornerSize, rect.top);
-    }
+    path.moveTo(rect.right - _fullCornerSize, rect.top);
 
     path
       ..lineTo(rect.right - _halfCornerSize, rect.top)
@@ -106,11 +114,7 @@ class _ScanVisorPainter extends CustomPainter {
       ..lineTo(rect.right, rect.top + _fullCornerSize);
 
     // Bottom right
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.right, bottomPosition - _fullCornerSize);
-    } else {
-      path.moveTo(rect.right, bottomPosition - _fullCornerSize);
-    }
+    path.moveTo(rect.right, bottomPosition - _fullCornerSize);
 
     path
       ..lineTo(rect.right, bottomPosition - _halfCornerSize)
@@ -121,11 +125,7 @@ class _ScanVisorPainter extends CustomPainter {
       ..lineTo(rect.right - _fullCornerSize, bottomPosition);
 
     // Bottom left
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.left + _fullCornerSize, bottomPosition);
-    } else {
-      path.moveTo(rect.left + _fullCornerSize, bottomPosition);
-    }
+    path.moveTo(rect.left + _fullCornerSize, bottomPosition);
 
     path
       ..lineTo(rect.left + _halfCornerSize, bottomPosition)
@@ -135,12 +135,11 @@ class _ScanVisorPainter extends CustomPainter {
       )
       ..lineTo(rect.left, bottomPosition - _fullCornerSize);
 
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.left, rect.top + _halfCornerSize);
-    }
-
     return path;
   }
+
+  @override
+  bool shouldRepaint(_ScanVisorPainter oldDelegate) => false;
 }
 
 class VisorButton extends StatelessWidget {
@@ -170,9 +169,18 @@ class VisorButton extends StatelessWidget {
             message: tooltip,
             enableFeedback: true,
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsetsDirectional.all(12.0),
               child: IconTheme(
-                data: const IconThemeData(color: Colors.white),
+                data: const IconThemeData(
+                  color: Colors.white,
+                  shadows: <Shadow>[
+                    Shadow(
+                      color: Colors.black,
+                      offset: Offset(0.5, 0.5),
+                      blurRadius: 2.0,
+                    ),
+                  ],
+                ),
                 child: child,
               ),
             ),

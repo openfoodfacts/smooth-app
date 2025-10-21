@@ -1292,6 +1292,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Não foram encontradas propriedades de produtos. As propriedades podem ser utilizadas para descrever os produtos com mais pormenores, de uma forma flexível.';
 
   @override
+  String get product_tags_empty => 'Nenhuma propriedade';
+
+  @override
+  String get product_tags_explanation =>
+      'Ao adicionar propriedades (chave/valor) a um produto, ajuda a enriquecê-lo.';
+
+  @override
   String get add_tag => 'Adicionar uma propriedade';
 
   @override
@@ -2702,6 +2709,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_list_add_new_price => 'Adicionar um novo preço\n';
 
   @override
+  String get prices_list_empty_title => 'Ainda não há preço!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Seja o primeiro a adicionar um:\nDigitalizando um **recibo** ou uma **etiqueta de preço**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Loja desconhecida';
 
   @override
@@ -2789,9 +2803,23 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Nenhum colaborador ainda!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Seja o primeiro a adicionar um preço!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Principais $pageSize contribuidores (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Nenhuma loja ainda!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Seja o primeiro a adicionar um preço!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2897,6 +2925,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prices_proof_subtitle => 'Demonstração';
 
   @override
+  String get prices_proof_empty_title => 'Nenhuma prova ainda!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Comece por adicionar uma fotografia de um **recibo** ou de uma **etiqueta de preço**!';
+
+  @override
   String get prices_proof_find => 'Selecionar um comprovativo';
 
   @override
@@ -2988,6 +3023,16 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredientes e embalagem)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Repor idioma do aplicativo';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Adicionar cartões';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Alternar entre prices.openfoodfacts.org (PROD) e ambiente de teste';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -4881,6 +4926,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
+  String get prices_products_empty_title => 'Sem preço disponível';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Seja o primeiro a contribuir!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Principais $pageSize produtos (total: $total)';
   }
@@ -5258,6 +5310,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Apresentador do Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Anfitrião: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5666,6 +5723,30 @@ class AppLocalizationsPt extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Adicionado em $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -6954,6 +7035,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get no_product_tags_found_message =>
       'Não foram encontradas propriedades de produtos. As propriedades podem ser utilizadas para descrever os produtos com mais pormenores, de uma forma flexível.';
+
+  @override
+  String get product_tags_empty => 'Nenhuma propriedade';
+
+  @override
+  String get product_tags_explanation =>
+      'Ao adicionar propriedades (chave/valor) a um produto, você ajuda a enriquecê-lo.';
 
   @override
   String get add_tag => 'Adicionar uma propriedade';
@@ -8364,6 +8452,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_list_add_new_price => 'Adicione um novo preço\n';
 
   @override
+  String get prices_list_empty_title => 'Ainda não há preço!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Seja o primeiro a adicionar um:\nEscaneando um **recibo** ou uma **etiqueta de preço**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Loja desconhecida';
 
   @override
@@ -8451,9 +8546,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
+  String get prices_users_empty_title => 'Nenhum colaborador ainda!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Seja o primeiro a adicionar um preço!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Principais $pageSize contribuidores (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Nenhuma loja ainda!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Seja o primeiro a adicionar um preço!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -8559,6 +8668,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get prices_proof_subtitle => 'Demonstração';
 
   @override
+  String get prices_proof_empty_title => 'Nenhuma prova ainda!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Comece adicionando uma foto de um **recibo** ou uma **etiqueta de preço**!';
+
+  @override
   String get prices_proof_find => 'Selecionar um comprovativo';
 
   @override
@@ -8650,6 +8766,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredientes e embalagem)';
+
+  @override
+  String get dev_mode_reset_app_language_title =>
+      'Redefinir idioma do aplicativo';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Adicionar cartões';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Alternar entre prices.openfoodfacts.org (PROD) e ambiente de teste';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -10542,6 +10669,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
+  String get prices_products_empty_title => 'Nenhum preço disponível';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Seja o primeiro a contribuir!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Principais $pageSize produtos (total: $total)';
   }
@@ -10919,6 +11053,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Apresentador do Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Anfitrião: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>

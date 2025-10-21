@@ -194,7 +194,7 @@ class ConnectRoot extends PreferencesRoot {
   // Press section
   UrlPreferenceTile _buildPressPageTile(AppLocalizations appLocalizations) {
     return UrlPreferenceTile(
-      icon: const icons.Press(),
+      icon: const icons.News.press(),
       title: appLocalizations.contact_title_press_page,
       subtitleText: appLocalizations.preferences_connect_press_page_subtitle,
       url: 'https://world.openfoodfacts.org/press',

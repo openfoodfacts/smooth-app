@@ -6,9 +6,11 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -39,6 +41,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     final DateFormat dateFormat = DateFormat.yMd(
       ProductQuery.getLocaleString(),
     ).add_Hms();
@@ -87,9 +90,28 @@ class _PriceProofPageState extends State<PriceProofPage> {
               ),
             ),
           ),
-          Align(
-            alignment: AlignmentDirectional.topCenter,
-            child: _PriceProofCounter(count: widget.proof.priceCount),
+          PositionedDirectional(
+            bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+            start: SMALL_SPACE,
+            end: SMALL_SPACE,
+            child: IntrinsicHeight(
+              child: Row(
+                children: <Widget>[
+                  _PriceProofChildContainer(
+                    backgroundColor: PriceCountWidget.getForegroundColor(
+                      widget.proof.priceCount,
+                    ),
+                    child: _PriceProofCounter(count: widget.proof.priceCount),
+                  ),
+                  const Spacer(),
+                  const _PriceProofChildContainer(
+                    child: PinchToZoomExplainer(
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -156,39 +178,49 @@ class _PriceProofCounter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: extension.primaryBlack.withValues(alpha: 0.9),
-        borderRadius: const BorderRadius.vertical(
-          bottom: Radius.circular(12.0),
-        ),
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        top: SMALL_SPACE,
+        bottom: SMALL_SPACE,
       ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          start: MEDIUM_SPACE,
-          end: MEDIUM_SPACE,
-          top: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          spacing: 10.0,
-          children: <Widget>[
-            const icons.PriceTag(color: Colors.white),
-            Text(
-              appLocalizations.prices_button_count_price(count),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 10.0,
+        children: <Widget>[
+          const icons.PriceTag(color: Colors.white),
+          Text(
+            appLocalizations.prices_button_count_price(count),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+/// A Widget with a shared background and shape
+class _PriceProofChildContainer extends StatelessWidget {
+  const _PriceProofChildContainer({required this.child, this.backgroundColor});
+
+  final Widget child;
+  final Color? backgroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color:
+          (backgroundColor ??
+                  context.extension<SmoothColorsThemeExtension>().primaryBlack)
+              .withValues(alpha: 0.9),
+      borderRadius: BorderRadius.circular(12.0),
+      child: child,
     );
   }
 }

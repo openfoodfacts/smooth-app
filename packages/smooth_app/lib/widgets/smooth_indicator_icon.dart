@@ -8,11 +8,15 @@ class SmoothIndicatorIcon extends StatelessWidget {
     this.iconTheme,
     this.margin,
     this.padding,
+    this.backgroundColor,
+    this.customBorder,
     super.key,
   });
 
   final Widget icon;
   final IconThemeData? iconTheme;
+  final Color? backgroundColor;
+  final ShapeBorder? customBorder;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
 
@@ -20,11 +24,9 @@ class SmoothIndicatorIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: margin ?? const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: Colors.black38,
-          shape: BoxShape.circle,
-        ),
+      child: Material(
+        color: backgroundColor ?? Colors.black38,
+        shape: customBorder ?? const CircleBorder(),
         child: Padding(
           padding: padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
           child: IconTheme(

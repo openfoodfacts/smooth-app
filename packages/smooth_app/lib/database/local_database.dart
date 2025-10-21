@@ -36,6 +36,7 @@ class LocalDatabase extends ChangeNotifier {
   Database get database => _database;
 
   UpToDateProductProvider get upToDate => _upToDateProductProvider;
+
   UpToDateProductListProvider get upToDateProductList =>
       _upToDateProductListProvider;
 
@@ -75,7 +76,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 7,
+      version: 8,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );

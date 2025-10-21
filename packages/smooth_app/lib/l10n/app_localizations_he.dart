@@ -1240,6 +1240,13 @@ class AppLocalizationsHe extends AppLocalizations {
       'לא נמצאו מאפייני מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.';
 
   @override
+  String get product_tags_empty => 'אין נכסים';
+
+  @override
+  String get product_tags_explanation =>
+      'על ידי הוספת מאפיינים (מפתח/ערך) למוצר, אתם עוזרים להעשיר אותו.';
+
+  @override
   String get add_tag => 'הוספת מאפיין';
 
   @override
@@ -2633,6 +2640,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_list_add_new_price => 'הוספת\nמחיר חדש';
 
   @override
+  String get prices_list_empty_title => 'אין מחיר עדיין!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'היה הראשון להוסיף אחד:\nעל ידי סריקת **קבלה** או **תג מחיר**!';
+
+  @override
   String get prices_entry_shop_not_found => 'חנות לא ידועה';
 
   @override
@@ -2726,9 +2740,21 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'עדיין אין תורם!';
+
+  @override
+  String get prices_users_empty_explanation => 'היה הראשון להוסיף מחיר!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return '$pageSize המתנדבים המובילים (בסך הכול: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'עדיין אין חנות!';
+
+  @override
+  String get prices_locations_empty_explanation => 'היה הראשון להוסיף מחיר!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2841,6 +2867,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_proof_subtitle => 'הוכחה';
 
   @override
+  String get prices_proof_empty_title => 'אין עדיין הוכחה!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'התחילו בהוספת תמונה של **קבלה** או **תג מחיר**!';
+
+  @override
   String get prices_proof_find => 'בחירת הוכחה';
 
   @override
@@ -2930,6 +2963,16 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle => '(רכיבים ואריזה)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'איפוס שפת האפליקציה';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'הוסף כרטיסים';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'מעבר בין prices.openfoodfacts.org (PROD) לסביבת בדיקה';
 
   @override
   String get search_history_item_edit_tooltip => 'שימוש בחיפוש ועריכתו';
@@ -4767,6 +4810,12 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'אין מחיר זמין';
+
+  @override
+  String get prices_products_empty_explanation => 'היה הראשון לתרום!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return '$pageSize המוצרים המובילים (סך הכול: $total)';
   }
@@ -5128,6 +5177,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'מנחה פולקסונומי';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'מארח: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5522,4 +5576,28 @@ class AppLocalizationsHe extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'נוסף ב־$created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

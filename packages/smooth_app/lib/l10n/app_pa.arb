@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "ਕੋਈ ਸੰਪਤੀ ਨਹੀਂ",
+  "product_tags_explanation": "ਕਿਸੇ ਉਤਪਾਦ ਵਿੱਚ ਗੁਣ (ਕੁੰਜੀ/ਮੁੱਲ) ਜੋੜ ਕੇ, ਤੁਸੀਂ ਇਸਨੂੰ ਅਮੀਰ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦੇ ਹੋ।",
   "add_tag": "Add property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
@@ -2389,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "ਅਜੇ ਕੋਈ ਕੀਮਤ ਨਹੀਂ!",
+  "prices_list_empty_subtitle": "ਇੱਕ ਜੋੜਨ ਵਾਲੇ ਪਹਿਲੇ ਬਣੋ:\n**ਰਸੀਦ** ਜਾਂ **ਕੀਮਤ ਟੈਗ** ਸਕੈਨ ਕਰਕੇ!",
   "prices_entry_shop_not_found": "ਅਗਿਆਤ ਸਟੋਰ",
   "prices_entry_menu_title": "\"{user}\" ਤੋਂ ਕੀਮਤ ਐਂਟਰੀ",
   "@prices_entry_menu_title": {
@@ -2489,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "ਅਜੇ ਤੱਕ ਕੋਈ ਯੋਗਦਾਨੀ ਨਹੀਂ!",
+  "prices_users_empty_explanation": "ਕੀਮਤ ਜੋੜਨ ਵਾਲੇ ਪਹਿਲੇ ਵਿਅਕਤੀ ਬਣੋ!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "ਅਜੇ ਕੋਈ ਦੁਕਾਨ ਨਹੀਂ!",
+  "prices_locations_empty_explanation": "ਕੀਮਤ ਜੋੜਨ ਵਾਲੇ ਪਹਿਲੇ ਵਿਅਕਤੀ ਬਣੋ!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,6 +2573,8 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "ਅਜੇ ਕੋਈ ਸਬੂਤ ਨਹੀਂ!",
+  "prices_proof_empty_explanation": "**ਰਸੀਦ** ਜਾਂ **ਕੀਮਤ ਟੈਗ** ਦੀ ਫੋਟੋ ਜੋੜ ਕੇ ਸ਼ੁਰੂਆਤ ਕਰੋ!",
   "prices_proof_find": "Select a proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
@@ -2632,6 +2642,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "ਐਪ ਭਾਸ਼ਾ ਰੀਸੈਟ ਕਰੋ",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "ਕਾਰਡ ਸ਼ਾਮਲ ਕਰੋ",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "prices.openfoodfacts.org (PROD) ਅਤੇ ਟੈਸਟ env ਵਿਚਕਾਰ ਸਵਿੱਚ ਕਰੋ",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Reuse and edit this search",
   "@search_history_item_edit_tooltip": {
@@ -4338,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "ਕੋਈ ਕੀਮਤ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+  "prices_products_empty_explanation": "ਯੋਗਦਾਨ ਪਾਉਣ ਵਾਲੇ ਪਹਿਲੇ ਬਣੋ!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4817,6 +4841,15 @@
   "preferences_dev_mode_folksonomy_host_title": "ਫੋਕਸੋਨੋਮੀ ਹੋਸਟ",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "ਮੇਜ਼ਬਾਨ: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "ਪਹੁੰਚਯੋਗਤਾ ਪ੍ਰਯੋਗ",
   "@preferences_dev_mode_accessibility_experiments_title": {
