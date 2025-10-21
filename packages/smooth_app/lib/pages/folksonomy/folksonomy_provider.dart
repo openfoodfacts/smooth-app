@@ -14,7 +14,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   final List<ProductTag> _tags = <ProductTag>[];
   final ProductRefresher _productRefresher = ProductRefresher();
 
-  Future<String?> getBearerToken(BuildContext context) async {
+  Future<String?> _getBearerToken(BuildContext context) async {
     if (_bearerToken != null) {
       return _bearerToken!;
     }
@@ -78,7 +78,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> addTag(BuildContext context, String key, String value) async {
     try {
-      final String? bearerToken = await getBearerToken(context);
+      final String? bearerToken = await _getBearerToken(context);
       if (bearerToken == null) {
         return;
       }
@@ -131,7 +131,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     String newValue,
   ) async {
     try {
-      final String? bearerToken = await getBearerToken(context);
+      final String? bearerToken = await _getBearerToken(context);
       if (bearerToken == null) {
         return;
       }
@@ -179,7 +179,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> deleteTag(BuildContext context, String key) async {
     try {
-      final String? bearerToken = await getBearerToken(context);
+      final String? bearerToken = await _getBearerToken(context);
       if (bearerToken == null) {
         return;
       }

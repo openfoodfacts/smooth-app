@@ -245,15 +245,18 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(context, res.key, res.value);
+        await context.read<FolksonomyProvider>().editTag(context, res.key, res.value);
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(
+          await context.read<FolksonomyProvider>().addTag(
             context,
             res.key,
             res.value,
           );
         } catch (e) {
+          if(!mounted){
+            return;
+          }
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(
               context: context,
