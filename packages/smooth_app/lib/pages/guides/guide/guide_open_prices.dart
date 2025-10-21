@@ -102,6 +102,7 @@ class _OpenPricesSection2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return GuidesParagraph(
       title: appLocalizations.guide_open_prices_how_title,
@@ -124,9 +125,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     borderRadius: ROUNDED_BORDER_RADIUS,
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                    border: Border.all(color: theme.colorScheme.primary),
                   ),
                   child: PreferenceTile(
                     icon: const icons.PriceTag(),
@@ -168,9 +167,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     borderRadius: ROUNDED_BORDER_RADIUS,
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                    border: Border.all(color: theme.colorScheme.primary),
                   ),
                   child: PreferenceTile(
                     icon: const Icon(Icons.receipt_long_outlined),
