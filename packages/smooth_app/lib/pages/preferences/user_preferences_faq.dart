@@ -9,8 +9,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -56,11 +55,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     _getListTile(
       title: appLocalizations.faq_nutriscore_nutriscore,
       leadingSvg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNutriscoreV2(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NUTRISCORE_V2),
 
       /// Hide the icon
       icon: const Icon(Icons.info, size: 0.0),
@@ -73,11 +68,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     _getListTile(
       title: appLocalizations.nova_group_generic_new,
       leadingSvg: 'assets/cache/nova-group-4.svg',
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNOVA(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NOVA),
 
       /// Hide the icon
       icon: const Icon(Icons.info, size: 0.0),

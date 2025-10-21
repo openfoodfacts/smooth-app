@@ -9,7 +9,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 class SmoothButtonWithArrow extends StatelessWidget {
   const SmoothButtonWithArrow({
     required this.text,
-    required this.onTap,
+    this.onTap,
     this.padding,
     this.backgroundColor,
     this.textColor,

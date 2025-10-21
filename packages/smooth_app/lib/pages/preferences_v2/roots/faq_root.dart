@@ -3,14 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
-import 'package:smooth_app/pages/guides/guide/guide_open_beauty_facts.dart';
-import 'package:smooth_app/pages/guides/guide/guide_open_food_facts.dart';
-import 'package:smooth_app/pages/guides/guide/guide_open_pet_food_facts.dart';
-import 'package:smooth_app/pages/guides/guide/guide_open_prices.dart';
-import 'package:smooth_app/pages/guides/guide/guide_open_products_facts.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
@@ -80,11 +73,7 @@ class FaqRoot extends PreferencesRoot {
       ),
       title: appLocalizations.faq_nutriscore_nutriscore,
       subtitleText: appLocalizations.preferences_faq_nutriscore_v2_subtitle,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNutriscoreV2(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NUTRISCORE_V2),
     );
   }
 
@@ -97,11 +86,7 @@ class FaqRoot extends PreferencesRoot {
         'assets/guides/greenscore/greenscore_a.svg.vec',
       ),
       title: appLocalizations.environmental_score_generic_new,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideGreenScore(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_GREEN_SCORE),
     );
   }
 
@@ -112,11 +97,7 @@ class FaqRoot extends PreferencesRoot {
     return PreferenceTile(
       leading: _createLeadingIcon('assets/cache/nova-group-4.svg'),
       title: appLocalizations.nova_group_generic_new,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNOVA(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NOVA),
     );
   }
 
@@ -138,11 +119,8 @@ class FaqRoot extends PreferencesRoot {
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_off_title,
       subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenFoodFacts(),
-        ),
-      ),
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_FOOD_FACTS),
     );
   }
 
@@ -154,11 +132,8 @@ class FaqRoot extends PreferencesRoot {
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_obf_title,
       subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenBeautyFacts(),
-        ),
-      ),
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_BEAUTY_FACTS),
     );
   }
 
@@ -170,11 +145,8 @@ class FaqRoot extends PreferencesRoot {
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_opff_title,
       subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenPetFoodFacts(),
-        ),
-      ),
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PET_FOOD_FACTS),
     );
   }
 
@@ -186,11 +158,8 @@ class FaqRoot extends PreferencesRoot {
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_opf_title,
       subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenProductsFacts(),
-        ),
-      ),
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRODUCTS_FACTS),
     );
   }
 
@@ -202,11 +171,7 @@ class FaqRoot extends PreferencesRoot {
       icon: const icons.Discover(),
       title: appLocalizations.preferences_faq_discover_op_title,
       subtitleText: null,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideOpenPrices(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
     );
   }
 

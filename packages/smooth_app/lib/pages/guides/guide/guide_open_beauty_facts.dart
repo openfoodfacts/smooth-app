@@ -90,9 +90,9 @@ class _OpenBeautyFactsSection1 extends StatelessWidget {
               .guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
           child: SvgPicture.asset(
-            'assets/guides/open_beauty_facts/beauty-bottle-with-sticker-1.svg',
+            'assets/guides/open_beauty_facts/beauty_bottle_with_sticker.svg',
             width: 80.0,
           ),
         ),
@@ -123,7 +123,6 @@ class _OpenBeautyFactsSection2 extends StatelessWidget {
           children: <Widget>[
             SmoothButtonWithArrow(
               text: appLocalizations.guide_coming_soon_button_title,
-              onTap: null,
               backgroundColor: theme.disabledColor,
               arrowColor: theme.disabledColor,
             ),

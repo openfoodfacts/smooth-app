@@ -90,9 +90,9 @@ class _OpenPetFoodFactsSection1 extends StatelessWidget {
               .guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
           child: SvgPicture.asset(
-            'assets/guides/open_pet_food_facts/pet-food-kibble-bag.svg',
+            'assets/guides/open_pet_food_facts/pet_food_kibble_bag.svg',
             width: 80.0,
           ),
         ),
@@ -123,7 +123,6 @@ class _OpenPetFoodFactsSection2 extends StatelessWidget {
           children: <Widget>[
             SmoothButtonWithArrow(
               text: appLocalizations.guide_coming_soon_button_title,
-              onTap: null,
               backgroundColor: theme.disabledColor,
               arrowColor: theme.disabledColor,
             ),

@@ -90,9 +90,9 @@ class _OpenProductsFactsSection1 extends StatelessWidget {
               .guide_open_products_facts_what_is_open_products_facts_paragraph2,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
           child: SvgPicture.asset(
-            'assets/guides/open_products_facts/washing-machine.svg',
+            'assets/guides/open_products_facts/washing_machine.svg',
             width: 80.0,
           ),
         ),

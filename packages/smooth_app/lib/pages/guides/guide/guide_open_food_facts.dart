@@ -23,9 +23,8 @@ class GuideOpenFoodFacts extends StatelessWidget {
       header: const _OpenFoodFactsHeader(),
       body: const <Widget>[
         _OpenFoodFactsSection1(),
-        // _OpenFoodFactsSection2(),
+        _OpenFoodFactsSection2(),
         _OpenFoodFactsSection3(),
-        _OpenFoodFactsSection4(),
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
@@ -93,9 +92,9 @@ class _OpenFoodFactsSection1 extends StatelessWidget {
               .guide_open_food_facts_what_is_open_food_facts_paragraph2,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
           child: SvgPicture.asset(
-            'assets/guides/open_food_facts/chocolate-bar-eaten.svg',
+            'assets/guides/open_food_facts/chocolate_bar_eaten.svg',
             width: 80.0,
           ),
         ),
@@ -104,45 +103,8 @@ class _OpenFoodFactsSection1 extends StatelessWidget {
   }
 }
 
-/* class _OpenFoodFactsSection2 extends StatelessWidget {
+class _OpenFoodFactsSection2 extends StatelessWidget {
   const _OpenFoodFactsSection2();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return GuidesParagraph(
-      title: appLocalizations.guide_open_food_facts_features_title,
-      content: <Widget>[
-        GuidesTitleContainer(
-          icon: const icons.Ingredients.alt(),
-          title: appLocalizations.guide_open_food_facts_features_arg1_title,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SmoothButtonWithArrow(
-                text: appLocalizations.guide_open_preferences_button_title,
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          const UserPreferencesPage(
-                            type: PreferencePageType.FOOD,
-                          ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-} */
-
-class _OpenFoodFactsSection3 extends StatelessWidget {
-  const _OpenFoodFactsSection3();
 
   @override
   Widget build(BuildContext context) {
@@ -178,8 +140,8 @@ class _OpenFoodFactsSection3 extends StatelessWidget {
   }
 }
 
-class _OpenFoodFactsSection4 extends StatelessWidget {
-  const _OpenFoodFactsSection4();
+class _OpenFoodFactsSection3 extends StatelessWidget {
+  const _OpenFoodFactsSection3();
 
   @override
   Widget build(BuildContext context) {

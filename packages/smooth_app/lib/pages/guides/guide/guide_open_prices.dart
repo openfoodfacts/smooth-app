@@ -108,7 +108,7 @@ class _OpenPricesSection2 extends StatelessWidget {
       content: <Widget>[
         GuidesText(text: appLocalizations.guide_open_prices_how_paragraph1),
         GuidesTitleContainer(
-          icon: const Icon(Icons.sell_outlined, color: Colors.white),
+          icon: const icons.PriceTag(color: Colors.white),
           title: appLocalizations.guide_open_prices_how_arg1_title,
           child: Column(
             spacing: MEDIUM_SPACE,
@@ -129,7 +129,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     ),
                   ),
                   child: PreferenceTile(
-                    icon: const Icon(Icons.sell_outlined),
+                    icon: const icons.PriceTag(),
                     title: appLocalizations.prices_add_price_tags,
                     subtitleText: appLocalizations
                         .preferences_prices_add_price_tags_subtitle,
