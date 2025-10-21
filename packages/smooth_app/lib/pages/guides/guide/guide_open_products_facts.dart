@@ -128,7 +128,7 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           },
         ),
         GuidesTitleWithText(
-          icon: const Icon(Icons.build, color: Colors.white),
+          icon: const icons.Build(color: Colors.white),
           title: appLocalizations.guide_open_products_facts_features_arg2_title,
           text: appLocalizations.guide_open_products_facts_features_arg2_text,
         ),

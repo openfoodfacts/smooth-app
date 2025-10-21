@@ -143,7 +143,7 @@ class _OpenPricesSection2 extends StatelessWidget {
           ),
         ),
         GuidesTitleContainer(
-          icon: const Icon(Icons.receipt_long_outlined, color: Colors.white),
+          icon: const icons.PriceReceipt(color: Colors.white),
           title: appLocalizations.guide_open_prices_how_arg2_title,
           child: Column(
             spacing: MEDIUM_SPACE,
@@ -170,7 +170,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     border: Border.all(color: theme.colorScheme.primary),
                   ),
                   child: PreferenceTile(
-                    icon: const Icon(Icons.receipt_long_outlined),
+                    icon: const icons.PriceReceipt(),
                     title: appLocalizations.prices_add_a_receipt,
                     subtitleText: appLocalizations
                         .preferences_prices_add_receipt_subtitle,
