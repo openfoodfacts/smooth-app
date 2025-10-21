@@ -245,7 +245,11 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        await context.read<FolksonomyProvider>().editTag(context, res.key, res.value);
+        await context.read<FolksonomyProvider>().editTag(
+          context,
+          res.key,
+          res.value,
+        );
       } else if (action == FolksonomyAction.add) {
         try {
           await context.read<FolksonomyProvider>().addTag(
@@ -254,7 +258,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
             res.value,
           );
         } catch (e) {
-          if(!mounted){
+          if (!mounted) {
             return;
           }
           ScaffoldMessenger.of(context).showSnackBar(
