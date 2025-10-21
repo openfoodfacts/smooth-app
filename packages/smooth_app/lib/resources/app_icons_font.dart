@@ -1354,6 +1354,16 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData close_bold = IconData(
+    0xea19,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData close_circled = IconData(
+    0xea1a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData debug = IconData(
     0xea22,
     fontFamily: _kFontFam,

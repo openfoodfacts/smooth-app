@@ -2906,6 +2906,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_proof_find => 'Vyberte potvrdenie';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Účtenka';
 
   @override
@@ -3049,6 +3052,11 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Moje potvrdenie';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

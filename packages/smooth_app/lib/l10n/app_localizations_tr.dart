@@ -2896,6 +2896,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get prices_proof_find => 'Bedeli sil';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Makbuz';
 
   @override
@@ -3039,6 +3042,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Kanıtım';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

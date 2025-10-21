@@ -2945,6 +2945,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_proof_find => 'Επιλέξτε μια απόδειξη';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Απόδειξη';
 
   @override
@@ -3089,6 +3092,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Η απόδειξή μου';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

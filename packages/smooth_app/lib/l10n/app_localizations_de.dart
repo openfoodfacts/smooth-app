@@ -2933,6 +2933,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get prices_proof_find => 'Wählen Sie einen Nachweis';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Kassenbon';
 
   @override
@@ -3080,6 +3083,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Meine Nachweise';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

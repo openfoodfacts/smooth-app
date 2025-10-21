@@ -139,6 +139,7 @@ class _ProductListPageState extends State<ProductListPage>
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
+        animateActionMode: true,
         actions: <Widget>[
           SmoothPopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {

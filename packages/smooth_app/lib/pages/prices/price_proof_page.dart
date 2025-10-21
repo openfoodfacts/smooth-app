@@ -42,13 +42,26 @@ class _PriceProofPageState extends State<PriceProofPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    final String title;
+    if (ProductQuery.getWriteUser().userId == widget.proof.owner) {
+      title = appLocalizations.user_search_proof_title;
+    } else {
+      title = appLocalizations.search_proof_title(widget.proof.owner);
+    }
+
     final DateFormat dateFormat = DateFormat.yMd(
       ProductQuery.getLocaleString(),
     ).add_Hms();
     return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: Text(appLocalizations.user_search_proof_title),
-        subTitle: Text(dateFormat.format(widget.proof.created)),
+        title: Text(title),
+        subTitle: Row(
+          spacing: SMALL_SPACE,
+          children: <Widget>[
+            const icons.Calendar(size: 12.0),
+            Expanded(child: Text(dateFormat.format(widget.proof.created))),
+          ],
+        ),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_website_button,

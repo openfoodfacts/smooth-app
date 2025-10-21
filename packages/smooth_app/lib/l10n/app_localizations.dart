@@ -5110,6 +5110,12 @@ abstract class AppLocalizations {
   /// **'Select a proof'**
   String get prices_proof_find;
 
+  /// No description provided for @prices_proof_change.
+  ///
+  /// In en, this message translates to:
+  /// **'Change proof'**
+  String get prices_proof_change;
+
   /// No description provided for @prices_proof_receipt.
   ///
   /// In en, this message translates to:
@@ -5350,6 +5356,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My proof'**
   String get user_search_proof_title;
+
+  /// Proof viewer: page title (when not the user proof)
+  ///
+  /// In en, this message translates to:
+  /// **'Proof from \"{user}\"'**
+  String search_proof_title(String user);
 
   /// User prices (everybody except me): list tile title
   ///
