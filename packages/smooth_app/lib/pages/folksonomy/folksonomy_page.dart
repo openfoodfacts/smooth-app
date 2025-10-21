@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -196,15 +198,11 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 value: entry.value,
               );
             } else if (value == FolksonomyAction.remove) {
-              if (!await _checkIfLoggedIn()) {
-                return;
-              }
-              if (!context.mounted) {
-                return;
-              }
-              await context.read<FolksonomyProvider>().deleteTag(
-                context,
-                entry.key,
+              unawaited(
+                context.read<FolksonomyProvider>().deleteTag(
+                  context,
+                  entry.key,
+                ),
               );
             }
           },
@@ -245,17 +243,21 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        await context.read<FolksonomyProvider>().editTag(
-          context,
-          res.key,
-          res.value,
-        );
-      } else if (action == FolksonomyAction.add) {
-        try {
-          await context.read<FolksonomyProvider>().addTag(
+        unawaited(
+          context.read<FolksonomyProvider>().editTag(
             context,
             res.key,
             res.value,
+          ),
+        );
+      } else if (action == FolksonomyAction.add) {
+        try {
+          unawaited(
+            context.read<FolksonomyProvider>().addTag(
+              context,
+              res.key,
+              res.value,
+            ),
           );
         } catch (e) {
           if (!mounted) {
