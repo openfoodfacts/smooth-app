@@ -45,6 +45,7 @@ class _FolksonomyContent extends StatefulWidget {
 class _FolksonomyContentState extends State<_FolksonomyContent> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  final ProductRefresher _productRefresher = ProductRefresher();
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +105,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           if (!await _checkIfLoggedIn()) {
             return;
           }
-          _showEditDialog(
+          await _showEditDialog(
             action: FolksonomyAction.add,
             existingKeys: _getExistingKeys(provider),
           );
@@ -186,7 +187,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               if (!context.mounted) {
                 return;
               }
-              _showEditDialog(
+              await _showEditDialog(
                 action: value,
                 existingKeys: _getExistingKeys(
                   context.read<FolksonomyProvider>(),
@@ -201,7 +202,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
               if (!context.mounted) {
                 return;
               }
-              context.read<FolksonomyProvider>().deleteTag(entry.key);
+              await context.read<FolksonomyProvider>().deleteTag(entry.key);
             }
           },
         ),
@@ -286,7 +287,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
   }
 
   Future<bool> _checkIfLoggedIn() {
-    return ProductRefresher().checkIfLoggedIn(
+    return _productRefresher.checkIfLoggedIn(
       context,
       isLoggedInMandatory: true,
     );
