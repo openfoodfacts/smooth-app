@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
@@ -13,6 +14,7 @@ import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// A page showing the camera feed and decoding barcodes.
 class CameraScannerPage extends StatefulWidget {
@@ -107,24 +109,49 @@ class _CameraScannerPageState extends State<CameraScannerPage>
               toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
               toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
               contentPadding: _model.compareFeatureEnabled
-                  ? EdgeInsets.only(top: _headerHeight ?? 0.0)
+                  ? (_headerHeight != null
+                        ? EdgeInsetsDirectional.only(top: _headerHeight!)
+                        : EdgeInsetsDirectional.zero)
                   : null,
+              barcodeScannerIcon: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white24,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: SmoothBarcodeScannerVisor.STROKE_WIDTH - 1.0,
+                  ),
+                  boxShadow: const <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8.0,
+                      offset: Offset.zero,
+                    ),
+                  ],
+                ),
+                child: const Padding(
+                  padding: EdgeInsetsDirectional.all(VERY_LARGE_SPACE),
+                  child: icons.Barcode.withCorners(),
+                ),
+              ),
+              torchOnIcon: const icons.Torch.on(),
+              torchOffIcon: const icons.Torch.off(),
             ),
           ),
-          Positioned(
+          PositionedDirectional(
             top: 0.0,
-            left: 0.0,
-            right: 0.0,
+            start: 0.0,
+            end: 0.0,
             child: Container(
               height: statusBarHeight,
               width: double.infinity,
               color: Colors.black12,
             ),
           ),
-          Positioned(
+          PositionedDirectional(
             top: statusBarHeight,
-            left: 0.0,
-            right: 0.0,
+            start: 0.0,
+            end: 0.0,
             child: ScanHeader(key: _headerKey),
           ),
         ],

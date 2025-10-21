@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
@@ -105,7 +106,13 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     }
 
     if (widget.manager.items.isEmpty) {
-      return Center(child: Text(AppLocalizations.of(context).prices_no_result));
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return EmptyScreenLayout(
+        icon: widget.manager.emptyListIcon,
+        title: widget.manager.emptyListTitle(appLocalizations),
+        explanation: widget.manager.emptyListExplanation(appLocalizations),
+      );
     }
 
     final List<Widget> children = <Widget>[];

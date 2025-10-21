@@ -1283,6 +1283,13 @@ class AppLocalizationsSk extends AppLocalizations {
       'Nenašli sa žiadne vlastnosti produktu. Vlastnosti môžu byť použité na podrobnejšie opísanie produktov flexibilným spôsobom.';
 
   @override
+  String get product_tags_empty => 'Žiadne nehnuteľnosti';
+
+  @override
+  String get product_tags_explanation =>
+      'Pridaním vlastností (kľúč/hodnota) k produktu ho pomáhate obohatiť.';
+
+  @override
   String get add_tag => 'Pridajte vlastnosť';
 
   @override
@@ -2673,6 +2680,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_list_add_new_price => 'Pridať novú cenu\n';
 
   @override
+  String get prices_list_empty_title => 'Zatiaľ žiadna cena!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Buďte prvý, kto ho pridá:\nNaskenovaním **účtenky** alebo **cenovky**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Neznámy obchod';
 
   @override
@@ -2762,9 +2776,22 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Zatiaľ žiadny prispievateľ!';
+
+  @override
+  String get prices_users_empty_explanation => 'Buďte prvý, kto pridá cenu!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Najlepších $pageSize prispievateľov (celkom: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Zatiaľ žiadny obchod!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Buďte prvý, kto pridá cenu!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2869,6 +2896,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get prices_proof_subtitle => 'Potvrdenie';
 
   @override
+  String get prices_proof_empty_title => 'Zatiaľ žiadny dôkaz!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Začnite pridaním fotografie **účtenky** alebo **cenovky**!';
+
+  @override
   String get prices_proof_find => 'Vyberte potvrdenie';
 
   @override
@@ -2960,6 +2994,16 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingrediencie a balenie)';
+
+  @override
+  String get dev_mode_reset_app_language_title => 'Obnoviť jazyk aplikácie';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Pridať karty';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Prepínanie medzi prices.openfoodfacts.org (PROD) a testovacím prostredím';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -4834,6 +4878,12 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Nie je k dispozícii žiadna cena';
+
+  @override
+  String get prices_products_empty_explanation => 'Buďte prvý, kto prispeje!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Naj $pageSize produktov (celkom: $total)';
   }
@@ -5209,6 +5259,11 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Hostiteľ folksonomie';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Hostiteľ: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5619,4 +5674,28 @@ class AppLocalizationsSk extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Pridané dňa $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

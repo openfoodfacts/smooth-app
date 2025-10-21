@@ -1240,6 +1240,13 @@ class AppLocalizationsKo extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => '속성 없음';
+
+  @override
+  String get product_tags_explanation =>
+      '제품에 속성(키/값)을 추가하면 제품을 더욱 풍부하게 만드는 데 도움이 됩니다.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2605,6 +2612,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_list_add_new_price => '\n새로운 가격을 추가합니다';
 
   @override
+  String get prices_list_empty_title => '아직 가격이 없습니다!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      '가장 먼저 하나를 추가하세요:\n**영수증**이나 **가격표**를 스캔하세요!';
+
+  @override
   String get prices_entry_shop_not_found => '알 수 없는 매장';
 
   @override
@@ -2691,9 +2705,21 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => '아직 기여자가 없습니다!';
+
+  @override
+  String get prices_users_empty_explanation => '가격을 최초로 추가하세요!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => '아직 가게가 없습니다!';
+
+  @override
+  String get prices_locations_empty_explanation => '가격을 최초로 추가하세요!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2798,6 +2824,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => '아직 증거가 없습니다!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      '**영수증**이나 **가격표** 사진을 첨부하여 시작하세요!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
 
   @override
@@ -2889,6 +2922,16 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
       '(Ingredients and packaging)';
+
+  @override
+  String get dev_mode_reset_app_language_title => '앱 언어 재설정';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => '카드 추가';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org(PROD)와 테스트 환경 간 전환';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4722,6 +4765,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => '가격이 없습니다';
+
+  @override
+  String get prices_products_empty_explanation => '첫 번째로 기여해 보세요!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5082,6 +5131,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => '폴크소노미 호스트';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return '호스트: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title => '접근성 실험';
@@ -5450,4 +5504,28 @@ class AppLocalizationsKo extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return '$created에 추가됨';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

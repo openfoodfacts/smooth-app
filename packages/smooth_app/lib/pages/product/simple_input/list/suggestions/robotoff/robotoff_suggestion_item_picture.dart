@@ -54,7 +54,7 @@ class RobotoffSuggestionListItemPicture extends StatelessWidget {
                   vertical: MEDIUM_SPACE,
                 ),
                 child: const ExcludeSemantics(
-                  child: icons.Expand(color: Colors.white, size: 14.0),
+                  child: icons.Zoom(color: Colors.white, size: 14.0),
                 ),
               ),
             ),

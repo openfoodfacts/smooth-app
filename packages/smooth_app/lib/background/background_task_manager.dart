@@ -8,8 +8,10 @@ import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
@@ -43,6 +45,10 @@ class BackgroundTaskManager {
   /// Returns [DaoInstantString] key for task errors.
   static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
       'taskError:$taskId';
+
+  /// Returns [DaoInt] key for count of task failures.
+  static String taskIdToCountDaoIntKey(final String taskId) =>
+      'taskCount:$taskId';
 
   /// Runs all background task queues.
   static void runAgain(
@@ -90,6 +96,7 @@ class BackgroundTaskManager {
     await DaoInstantString(
       localDatabase,
     ).put(taskIdToErrorDaoInstantStringKey(taskId), null);
+    await DaoInt(localDatabase).put(taskIdToCountDaoIntKey(taskId), null);
     localDatabase.notifyListeners();
   }
 
@@ -252,6 +259,12 @@ class BackgroundTaskManager {
       return;
     }
     await DaoInstantString(localDatabase).put(key, status);
+    if (status != taskStatusStarted && status != taskStatusNoInternet) {
+      await getNextSequenceNumber(
+        DaoInt(localDatabase),
+        taskIdToCountDaoIntKey(taskId),
+      );
+    }
     localDatabase.notifyListeners();
   }
 

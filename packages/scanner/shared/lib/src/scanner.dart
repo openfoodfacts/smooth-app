@@ -22,6 +22,10 @@ abstract class Scanner {
     })
     trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
+
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
 

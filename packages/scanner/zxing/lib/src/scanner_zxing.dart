@@ -27,6 +27,9 @@ class ScannerZXing extends Scanner {
     })
     trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
@@ -38,6 +41,9 @@ class ScannerZXing extends Scanner {
       hasMoreThanOneCamera: hasMoreThanOneCamera,
       toggleCameraModeTooltip: toggleCameraModeTooltip,
       toggleFlashModeTooltip: toggleFlashModeTooltip,
+      barcodeScannerIcon: barcodeScannerIcon,
+      torchOnIcon: torchOnIcon,
+      torchOffIcon: torchOffIcon,
       contentPadding: contentPadding,
     );
   }
@@ -50,6 +56,9 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
     required this.hapticFeedback,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
+    required this.barcodeScannerIcon,
+    required this.torchOnIcon,
+    required this.torchOffIcon,
     this.toggleCameraModeTooltip,
     this.toggleFlashModeTooltip,
     this.contentPadding,
@@ -59,6 +68,10 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
   final Future<void> Function() hapticFeedback;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
+
+  final Widget barcodeScannerIcon;
+  final Widget torchOnIcon;
+  final Widget torchOffIcon;
 
   final EdgeInsetsGeometry? contentPadding;
   final String? toggleCameraModeTooltip;
@@ -133,6 +146,7 @@ class _SmoothBarcodeScannerZXingState
         ),
         Center(
           child: SmoothBarcodeScannerVisor(
+            icon: widget.barcodeScannerIcon,
             contentPadding: widget.contentPadding,
           ),
         ),
@@ -183,7 +197,10 @@ class _SmoothBarcodeScannerZXingState
                           }
                         }
                       },
-                      child: Icon(flashOn ? Icons.flash_on : Icons.flash_off),
+                      child: switch (flashOn) {
+                        true => widget.torchOnIcon,
+                        false => widget.torchOffIcon,
+                      },
                     );
                   },
                 ),

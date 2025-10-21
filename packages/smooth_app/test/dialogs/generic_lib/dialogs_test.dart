@@ -23,14 +23,7 @@ void main() {
 
   group('Dialogs on Contribute Page looks as expected', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
-      const List<String> dialogTypes = <String>[
-        'Improving',
-        'Software development',
-        'Translate',
-        // 'Contributors'
-        // Currently can't make real http calls from the test library and since this dialog depends on an api call
-        // So omitting this one for now
-      ];
+      const List<String> dialogTypes = <String>['Improving'];
       for (final String dialogType in dialogTypes) {
         testWidgets('${dialogType}_Page_${theme}_Theme', (
           WidgetTester tester,

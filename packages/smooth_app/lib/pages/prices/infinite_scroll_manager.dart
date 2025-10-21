@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
@@ -45,6 +48,13 @@ abstract class InfiniteScrollManager<T> {
 
   /// Getter for total pages
   int? get totalPages => _totalPages;
+
+  /// svg.vec format expected (cf [EmptyScreenLayout])
+  Widget get emptyListIcon;
+
+  String emptyListTitle(AppLocalizations appLocalizations);
+
+  String emptyListExplanation(AppLocalizations appLocalizations);
 
   @protected
   Future<void> fetchInit(final BuildContext context) async {}
@@ -117,10 +127,11 @@ abstract class InfiniteScrollManager<T> {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          SmoothFloatingSnackbar(
             content: Text(
               AppLocalizations.of(context).prices_error_loading_more_items,
             ),
+            duration: SnackBarDuration.medium,
           ),
         );
       }

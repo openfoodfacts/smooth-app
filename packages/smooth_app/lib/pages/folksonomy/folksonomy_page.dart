@@ -4,17 +4,18 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
-import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class FolksonomyPage extends StatelessWidget {
   const FolksonomyPage({required this.product, required this.provider});
@@ -50,9 +51,11 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     final FolksonomyProvider provider = context.watch<FolksonomyProvider>();
 
     return SmoothScaffold(
-      appBar: SmoothTopBar2(
-        title: appLocalizations.product_tags_title,
-        leadingAction: SmoothLeadingAction.back,
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.product_tags_title),
+        subTitle: Text(
+          getProductNameAndBrands(widget.product, AppLocalizations.of(context)),
+        ),
       ),
       body: Listener<FolksonomyProvider>(
         listener: _onProviderChanged,
@@ -62,6 +65,8 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 provider.value is FolksonomyStateError &&
                     (provider.value as FolksonomyStateError).action == null) {
               return const Center(child: CircularProgressIndicator.adaptive());
+            } else if (provider.value.tags?.isNotEmpty != true) {
+              return const FolksonomyEmptyPage();
             }
 
             return AnimatedList.separated(
@@ -168,12 +173,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                     SmoothPopupMenuItem<FolksonomyAction>(
                       label: appLocalizations.edit_tag,
                       value: FolksonomyAction.edit,
-                      icon: Icons.edit,
+                      icon: const icons.Edit(),
                     ),
                     SmoothPopupMenuItem<FolksonomyAction>(
                       label: appLocalizations.remove_tag,
                       value: FolksonomyAction.remove,
-                      icon: Icons.delete,
+                      icon: const icons.Trash(),
                     ),
                   ];
                 },
@@ -253,13 +258,13 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     if (provider.value is FolksonomyStateAddedItem) {
       final FolksonomyStateAddedItem state =
           provider.value as FolksonomyStateAddedItem;
-      _listKey.currentState!.insertItem(state.addedPosition);
+      _listKey.currentState?.insertItem(state.addedPosition);
 
       onNextFrame(() => provider.markAsConsumed());
     } else if (provider.value is FolksonomyStateRemovedItem) {
       final FolksonomyStateRemovedItem state =
           provider.value as FolksonomyStateRemovedItem;
-      _listKey.currentState!.removeItem(state.removedPosition, (
+      _listKey.currentState?.removeItem(state.removedPosition, (
         BuildContext context,
         Animation<double> animation,
       ) {
