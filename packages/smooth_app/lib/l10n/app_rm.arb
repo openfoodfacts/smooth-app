@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "No proof yet!",
   "prices_proof_empty_explanation": "Start by adding a photo of a **receipt** or a **price tag**!",
   "prices_proof_find": "Select a proof",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "My proof",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Contributor prices: {user}",
   "@user_any_search_prices_title": {
