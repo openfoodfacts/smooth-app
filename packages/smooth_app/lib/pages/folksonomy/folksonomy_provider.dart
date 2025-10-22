@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
@@ -11,12 +12,20 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   final String barcode;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
+  final ProductRefresher _productRefresher = ProductRefresher();
 
-  bool get isAuthorized => OpenFoodAPIConfiguration.globalUser != null;
-
-  Future<String> getBearerToken() async {
+  Future<String?> _getBearerToken(BuildContext context) async {
     if (_bearerToken != null) {
       return _bearerToken!;
+    }
+
+    final bool isLoggedIn = await _productRefresher.checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: true,
+    );
+
+    if (!isLoggedIn) {
+      return null;
     }
 
     final User? user = OpenFoodAPIConfiguration.globalUser;
@@ -67,9 +76,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> addTag(String key, String value) async {
+  Future<void> addTag(BuildContext context, String key, String value) async {
     try {
-      final String bearerToken = await getBearerToken();
+      final String? bearerToken = await _getBearerToken(context);
+      if (bearerToken == null) {
+        return;
+      }
 
       final ProductTag? tag = _getTag(key);
       if (tag != null) {
@@ -113,9 +125,16 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> editTag(String key, String newValue) async {
+  Future<void> editTag(
+    BuildContext context,
+    String key,
+    String newValue,
+  ) async {
     try {
-      final String bearerToken = await getBearerToken();
+      final String? bearerToken = await _getBearerToken(context);
+      if (bearerToken == null) {
+        return;
+      }
 
       final ProductTag? tag = _getTag(key);
       if (tag == null) {
@@ -158,9 +177,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> deleteTag(String key) async {
+  Future<void> deleteTag(BuildContext context, String key) async {
     try {
-      final String bearerToken = await getBearerToken();
+      final String? bearerToken = await _getBearerToken(context);
+      if (bearerToken == null) {
+        return;
+      }
 
       final ProductTag? tag = _getTag(key);
       if (tag == null) {
