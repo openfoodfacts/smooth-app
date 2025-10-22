@@ -217,19 +217,14 @@ class ProductPageTabsGenerator {
       ),
     );
 
-    if (context.read<UserPreferences>().getFlag(
-          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-        ) ==
-        false) {
-      tabs.add(
-        ProductPageTab(
-          id: ProductPageHarcodedTabs.FOLKSONOMY.key,
-          labelBuilder: (BuildContext context) =>
-              AppLocalizations.of(context).product_page_tab_folksonomy,
-          builder: (_, Product product) => FolksonomyCard(product),
-        ),
-      );
-    }
+    tabs.add(
+      ProductPageTab(
+        id: ProductPageHarcodedTabs.FOLKSONOMY.key,
+        labelBuilder: (BuildContext context) =>
+            AppLocalizations.of(context).product_page_tab_folksonomy,
+        builder: (_, Product product) => FolksonomyCard(product),
+      ),
+    );
 
     return tabs;
   }
