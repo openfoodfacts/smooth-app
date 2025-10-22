@@ -1,6 +1,8 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/query/product_query.dart';
 
+const int MIN_QUERY_LENGTH = 2;
+
 class FolksonomyKeysAutocompleter implements Autocompleter {
   const FolksonomyKeysAutocompleter({this.limit = 10}) : assert(limit > 0);
 
@@ -8,7 +10,7 @@ class FolksonomyKeysAutocompleter implements Autocompleter {
 
   @override
   Future<List<String>> getSuggestions(String input) async {
-    if (input.trim().length < 2) {
+    if (input.trim().length < MIN_QUERY_LENGTH) {
       return <String>[];
     }
 
@@ -37,7 +39,7 @@ class FolksonomyValuesAutocompleter implements Autocompleter {
   Future<List<String>> getSuggestions(String input) async {
     input = input.trim();
     final String key = keyProvider().trim();
-    if (input.length < 2 || key.isEmpty) {
+    if (input.length < MIN_QUERY_LENGTH || key.isEmpty) {
       return <String>[];
     }
 

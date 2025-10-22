@@ -167,7 +167,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             autocompleteManager: AutocompleteManager(
               const FolksonomyKeysAutocompleter(limit: 10),
             ),
-            suffixIcon: const Icon(Icons.search),
+            suffixIcon: const icons.Search(),
           ),
           const SizedBox(height: LARGE_SPACE),
           _FolksonomyEditTagContentTitle(
