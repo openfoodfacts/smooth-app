@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Henüz bir kanıt yok!",
   "prices_proof_empty_explanation": "Öncelikle bir **fiş** veya **fiyat etiketi** fotoğrafı ekleyerek başlayın!",
   "prices_proof_find": "Bedeli sil",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Makbuz",
   "prices_proof_price_tag": "Fiyat etiketi",
   "prices_proof_mandatory": "Bir bedel seçmeniz gerekiyor!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Kanıtım",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Katkıda bulunanların fiyatları: {user}",
   "@user_any_search_prices_title": {
