@@ -9,6 +9,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_autocompleter.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
@@ -37,8 +38,8 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
   late TextEditingController valueController;
   bool isKeyValid = true;
   bool isValueValid = true;
-  late final FocusNode keyFocusNode;
-  late final FocusNode valueFocusNode;
+  late final FocusNode keyFocusNode = FocusNode();
+  late final FocusNode valueFocusNode = FocusNode();
   final Key keyAutocompleteKey = UniqueKey();
   final Key valueAutocompleteKey = UniqueKey();
 
@@ -47,8 +48,6 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
     super.initState();
     keyController = TextEditingController(text: widget.oldKey);
     valueController = TextEditingController(text: widget.oldValue);
-    keyFocusNode = FocusNode();
-    valueFocusNode = FocusNode();
   }
 
   @override
@@ -134,6 +133,8 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
   final Key keyAutocompleteKey;
   final Key valueAutocompleteKey;
 
+  static const int _autocompleteSuggestionsLimit = 10;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -188,10 +189,10 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
                 autocompleteManager: AutocompleteManager(
                   FolksonomyValuesAutocompleter(
                     keyProvider: () => keyController.text,
-                    limit: 10,
+                    limit: _autocompleteSuggestionsLimit,
                   ),
                 ),
-                suffixIcon: const Icon(Icons.search),
+                suffixIcon: const icons.Search(),
               );
             },
           ),

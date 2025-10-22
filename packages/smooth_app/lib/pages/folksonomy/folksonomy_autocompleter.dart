@@ -2,7 +2,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyKeysAutocompleter implements Autocompleter {
-  const FolksonomyKeysAutocompleter({this.limit = 10});
+  const FolksonomyKeysAutocompleter({this.limit = 10}) : assert(limit > 0);
 
   final int limit;
 
@@ -17,9 +17,9 @@ class FolksonomyKeysAutocompleter implements Autocompleter {
       uriHelper: ProductQuery.uriFolksonomyHelper,
     );
 
-    final List<String> keys = keyStats.keys.toList()..sort();
+    final List<String> keys = keyStats.keys.toList(growable: false)..sort();
     if (keys.length > limit) {
-      return keys.sublist(0, limit);
+      return keys.take(limit).toList(growable: false);
     }
     return keys;
   }
@@ -35,15 +35,15 @@ class FolksonomyValuesAutocompleter implements Autocompleter {
 
   @override
   Future<List<String>> getSuggestions(String input) async {
-    final String q = input.trim();
+    input = input.trim();
     final String key = keyProvider().trim();
-    if (q.length < 2 || key.isEmpty) {
+    if (input.length < 2 || key.isEmpty) {
       return <String>[];
     }
 
     final Map<String, ValueCount> counts = await FolksonomyAPIClient.getValues(
       key: key,
-      query: q,
+      query: input,
       uriHelper: ProductQuery.uriFolksonomyHelper,
       limit: limit,
     );
