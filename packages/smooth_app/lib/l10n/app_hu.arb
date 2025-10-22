@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Még nincs bizonyíték!",
   "prices_proof_empty_explanation": "Kezdd egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!",
   "prices_proof_find": "Bizonylat kiválasztása",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Nyugta",
   "prices_proof_price_tag": "Árcédula",
   "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Bizonylataim",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Közreműködői árak: {user}",
   "@user_any_search_prices_title": {
