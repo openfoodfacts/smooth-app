@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Belum ada bukti!",
   "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
   "prices_proof_find": "Pilih bukti",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Resi",
   "prices_proof_price_tag": "Label harga",
   "prices_proof_mandatory": "Anda harus memilih bukti!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Bukti saya",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Harga kontributor: {user}",
   "@user_any_search_prices_title": {
