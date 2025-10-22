@@ -2952,6 +2952,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get prices_proof_find => 'Выберите доказательство';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Чек';
 
   @override
@@ -3096,6 +3099,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Моё доказательство';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

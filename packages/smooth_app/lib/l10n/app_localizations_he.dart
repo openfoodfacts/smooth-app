@@ -2877,6 +2877,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get prices_proof_find => 'בחירת הוכחה';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'קבלה';
 
   @override
@@ -3016,6 +3019,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'ההוכחה שלי';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

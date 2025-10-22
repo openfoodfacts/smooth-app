@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -112,7 +113,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   subTitle: _generateSubtitle(appLocalizations),
                   actions: <Widget>[
                     IconButton(
-                      icon: const Icon(Icons.info),
+                      icon: const icons.Info(),
                       onPressed: () async => PriceAddHelper(
                         context,
                       ).doesAcceptWarning(justInfo: true),

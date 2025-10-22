@@ -17,6 +17,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeSubTitle,
     this.title,
     this.subTitle,
+    this.animateActionMode = false,
     this.actionModeActions,
     this.actions,
     this.flexibleSpace,
@@ -67,6 +68,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? actionModeSubTitle;
   final List<Widget>? actions;
   final List<Widget>? actionModeActions;
+  final bool animateActionMode;
   final Widget? flexibleSpace;
   final PreferredSizeWidget? bottom;
   final double elevation;
@@ -115,6 +117,10 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: elevation,
         child: child,
       );
+    }
+
+    if (animateActionMode == false) {
+      return child;
     }
 
     child = KeyedSubtree(

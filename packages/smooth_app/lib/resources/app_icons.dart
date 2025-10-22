@@ -695,7 +695,14 @@ class CircledArrow extends AppIcon {
     if (type == CircledArrowType.normal) {
       return Container(
         decoration: BoxDecoration(shape: BoxShape.circle, color: circleColor),
-        padding: padding ?? const EdgeInsets.all(4.0),
+        padding:
+            padding ??
+            const EdgeInsetsDirectional.only(
+              start: 4.1,
+              end: 3.9,
+              top: 4.0,
+              bottom: 4.0,
+            ),
         child: child,
       );
     } else {
@@ -809,6 +816,22 @@ class Close extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.close);
+
+  const Close.bold({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.close_bold);
+
+  const Close.circled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.close_circled);
 }
 
 class Copy extends AppIcon {
