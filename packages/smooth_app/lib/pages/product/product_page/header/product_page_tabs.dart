@@ -228,8 +228,8 @@ class ProductPageTabsGenerator {
               AppLocalizations.of(context).product_page_tab_folksonomy,
           builder: (_, Product product) => FolksonomyCard(product),
         ),
-      ),
-    );
+      );
+    }
 
     return tabs;
   }
