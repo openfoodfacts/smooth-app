@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Aucune preuve pour l'instant !",
   "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
   "prices_proof_find": "Choisir une preuve",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Ticket de caisse",
   "prices_proof_price_tag": "Étiquette de prix",
   "prices_proof_mandatory": "Vous devez choisir une preuve !",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Ma preuve",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Prix contributeur : {user}",
   "@user_any_search_prices_title": {
