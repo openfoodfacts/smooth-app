@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "אין עדיין הוכחה!",
   "prices_proof_empty_explanation": "התחילו בהוספת תמונה של **קבלה** או **תג מחיר**!",
   "prices_proof_find": "בחירת הוכחה",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "קבלה",
   "prices_proof_price_tag": "תווית מחיר",
   "prices_proof_mandatory": "חובה לבחור הוכחה!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "ההוכחה שלי",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "מחירי תורמים: {user}",
   "@user_any_search_prices_title": {
