@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "இன்னும் ஆதாரம் இல்லை!",
   "prices_proof_empty_explanation": "**ரசீது** அல்லது **விலை குறி**யின் புகைப்படத்தைச் சேர்ப்பதன் மூலம் தொடங்குங்கள்!",
   "prices_proof_find": "Select a proof",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "My proof",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "பங்களிப்பாளர் விலைகள்: {user}",
   "@user_any_search_prices_title": {
