@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Brak dowodów!",
   "prices_proof_empty_explanation": "Zacznij od dodania zdjęcia **paragonu** lub **metki z ceną**!",
   "prices_proof_find": "Select a proof",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Rachunek",
   "prices_proof_price_tag": "Cenówka",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "My proof",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Ceny dla współpracowników: {user}",
   "@user_any_search_prices_title": {
