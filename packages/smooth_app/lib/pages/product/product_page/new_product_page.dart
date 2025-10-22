@@ -23,7 +23,6 @@ import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/smooth_tabbar.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
 class ProductPage extends StatefulWidget {
@@ -119,17 +118,6 @@ class ProductPageState extends State<ProductPage>
     List<ProductPageTab> tabs,
     TabController tabController,
   ) {
-    /// This calculates the space available for the TabBarView.
-    /// It takes the full height of the screen, and subtracts the heights of pinned elements :
-    final double availableHeight =
-        MediaQuery.sizeOf(context).height -
-        (kToolbarHeight +
-            MediaQuery.viewPaddingOf(context).top +
-            MediaQuery.viewPaddingOf(context).bottom +
-            SmoothTabBar.TAB_BAR_HEIGHT +
-            ProductFooter.kHeight +
-            LARGE_SPACE);
-
     return SmoothScaffold(
       contentBehindStatusBar: true,
       spaceBehindStatusBar: false,
@@ -163,25 +151,13 @@ class ProductPageState extends State<ProductPage>
             ProductPageTabBar(tabController: tabController, tabs: tabs),
           ];
         },
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Flexible(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxHeight: availableHeight),
-                child: TabBarView(
-                  controller: tabController,
-                  children: tabs
-                      .map(
-                        (ProductPageTab tab) =>
-                            tab.builder(context, upToDateProduct),
-                      )
-                      .toList(growable: false),
-                ),
-              ),
-            ),
-          ],
+        body: TabBarView(
+          controller: tabController,
+          children: tabs
+              .map(
+                (ProductPageTab tab) => tab.builder(context, upToDateProduct),
+              )
+              .toList(growable: false),
         ),
       ),
       bottomNavigationBar: Column(
