@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Ei vielä todisteita!",
   "prices_proof_empty_explanation": "Aloita lisäämällä kuva **kuitista** tai **hintalapusta**!",
   "prices_proof_find": "Valitse todiste",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Kuitti",
   "prices_proof_price_tag": "Hintalappu",
   "prices_proof_mandatory": "Sinun on valittava todiste!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Minun todisteeni",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Avustajien hinnat: {user}",
   "@user_any_search_prices_title": {
