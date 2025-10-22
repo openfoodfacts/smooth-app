@@ -83,8 +83,9 @@ Widget build(BuildContext context) {
       size: 16.0,
       color: context.lightTheme() ? theme.primaryColor : Colors.white,
     ),
-    onTap: () async =&gt;
-        LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
+    onTap:
+        onTap ??
+        () async =&gt; LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
   );
 }</code></pre>
 </section>
