@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Пока нет доказательств!",
   "prices_proof_empty_explanation": "Начните с добавления фотографии **чека** или **ценника**!",
   "prices_proof_find": "Выберите доказательство",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Чек",
   "prices_proof_price_tag": "Ценник",
   "prices_proof_mandatory": "Вам нужно выбрать доказательство!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Моё доказательство",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Цены для участников: {user}",
   "@user_any_search_prices_title": {
