@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Nessuna prova ancora!",
   "prices_proof_empty_explanation": "Inizia aggiungendo una foto di una **scontrino** o di un **cartellino del prezzo**!",
   "prices_proof_find": "Seleziona una prova",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Ricevuta",
   "prices_proof_price_tag": "Etichetta del prezzo",
   "prices_proof_mandatory": "Devi selezionare una prova!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "La mia prova",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Prezzi per i collaboratori: {user}",
   "@user_any_search_prices_title": {
