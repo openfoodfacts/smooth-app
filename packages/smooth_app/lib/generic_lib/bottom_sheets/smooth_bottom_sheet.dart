@@ -145,7 +145,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
             contentPadding ??
             EdgeInsetsDirectional.only(
               start: LARGE_SPACE,
-              end: addEndArrowToItems ? 17.0 : LARGE_SPACE,
+              end: addEndArrowToItems ? 16.25 : LARGE_SPACE,
             ),
         trailing: (suffixIcons != null
             ? IconTheme.merge(
@@ -680,12 +680,12 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
         ),
         margin: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
         padding: const EdgeInsetsDirectional.all(6.0),
-        child: const icons.Close(size: 13.0),
+        child: const icons.Close.bold(size: 12.0),
       );
     } else {
       icon = const Padding(
         padding: EdgeInsetsDirectional.all(MEDIUM_SPACE),
-        child: icons.Close(size: 15.0),
+        child: icons.Close.bold(size: 14.0),
       );
     }
 

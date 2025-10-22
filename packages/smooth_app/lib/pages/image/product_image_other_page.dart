@@ -372,11 +372,19 @@ class _ProductImageDetailsButton extends StatelessWidget {
               excludeSemantics: true,
               child: Row(
                 children: <Widget>[
-                  const icons.Info(size: 15.0, color: Colors.white),
-                  const SizedBox(width: SMALL_SPACE),
-                  Text(
-                    appLocalizations.photo_viewer_details_button,
-                    style: const TextStyle(color: Colors.white),
+                  const icons.Info(size: 18.0, color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                      bottom: 2.0,
+                    ),
+                    child: Text(
+                      appLocalizations.photo_viewer_details_button,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -446,7 +454,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: BALANCED_SPACE,
+          vertical: SMALL_SPACE,
+        ),
         child: Selector<PageController, int>(
           selector: (_, PageController value) {
             if (!value.position.hasPixels) {
@@ -467,7 +478,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
           builder: (BuildContext context, int progress, _) {
             return Text(
               '${progress + 1} / $items',
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             );
           },
         ),

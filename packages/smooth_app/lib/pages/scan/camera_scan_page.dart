@@ -115,7 +115,7 @@ class _CameraScannerPageState extends State<CameraScannerPage>
                   : null,
               barcodeScannerIcon: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Colors.white24,
+                  color: Colors.white10,
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.white,
