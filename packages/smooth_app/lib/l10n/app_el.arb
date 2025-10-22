@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Δεν υπάρχει ακόμη απόδειξη!",
   "prices_proof_empty_explanation": "Ξεκινήστε προσθέτοντας μια φωτογραφία μιας **απόδειξης** ή μιας **ετικέτας τιμής**!",
   "prices_proof_find": "Επιλέξτε μια απόδειξη",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Απόδειξη",
   "prices_proof_price_tag": "Ετικέτα τιμής",
   "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Η απόδειξή μου",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Τιμές συνεργατών: {user}",
   "@user_any_search_prices_title": {
