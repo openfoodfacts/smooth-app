@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Zatiaľ žiadny dôkaz!",
   "prices_proof_empty_explanation": "Začnite pridaním fotografie **účtenky** alebo **cenovky**!",
   "prices_proof_find": "Vyberte potvrdenie",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Účtenka",
   "prices_proof_price_tag": "Cenovka",
   "prices_proof_mandatory": "Musíte si vybrať potvrdenie!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Moje potvrdenie",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Ceny prispievateľov: {user}",
   "@user_any_search_prices_title": {
