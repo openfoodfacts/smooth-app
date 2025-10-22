@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Zatím žádný důkaz!",
   "prices_proof_empty_explanation": "Začněte přidáním fotografie **účtenky** nebo **cenovky**!",
   "prices_proof_find": "Vybrat doklad",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Účtenka",
   "prices_proof_price_tag": "Cenovka",
   "prices_proof_mandatory": "Musíte vybrat doklad!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Můj doklad",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Ceny přispěvatelů: {user}",
   "@user_any_search_prices_title": {
