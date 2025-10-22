@@ -2912,6 +2912,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_proof_find => 'Виберіть доказ';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Квитанція';
 
   @override
@@ -3056,6 +3059,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Мої докази';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

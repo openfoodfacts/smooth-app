@@ -2915,6 +2915,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_proof_find => 'Selecteer een bewijs';
 
   @override
+  String get prices_proof_change => 'Change proof';
+
+  @override
   String get prices_proof_receipt => 'Bon';
 
   @override
@@ -3057,6 +3060,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Mijn bewijs';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {

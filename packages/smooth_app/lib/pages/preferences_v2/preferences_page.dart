@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -243,7 +244,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
-      url: appLocalizations.donate_url,
+      // the donate page includes javascript, not well accepted by webviews
+      url: 'using onTap instead',
+      onTap: () async => LaunchUrlHelper.launchURL(appLocalizations.donate_url),
     );
   }
 
