@@ -2576,7 +2576,7 @@
   "prices_proof_empty_title": "Aucune preuve pour l'instant !",
   "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
   "prices_proof_find": "Choisir une preuve",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Preuve de changement",
   "prices_proof_receipt": "Ticket de caisse",
   "prices_proof_price_tag": "Étiquette de prix",
   "prices_proof_mandatory": "Vous devez choisir une preuve !",
@@ -2719,7 +2719,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Preuve de \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -5368,12 +5368,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Détails de la localisation",
   "location_map_details_name": "Nom",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Rue",
+  "location_map_details_city": "Ville",
+  "location_map_details_postcode": "Code postal",
   "location_map_details_country": "Pays",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Coordonnées",
+  "location_map_details_osm_id": "ID OSM"
 }
