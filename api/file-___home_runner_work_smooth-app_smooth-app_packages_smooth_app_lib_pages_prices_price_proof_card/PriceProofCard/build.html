@@ -72,106 +72,76 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final PriceModel model = context.watch&lt;PriceModel&gt;();
+
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
   return SmoothCardWithRoundedHeader(
     title: appLocalizations.prices_proof_subtitle,
     leading: const icons.PriceReceipt(),
-    contentPadding: const EdgeInsetsDirectional.symmetric(
-      horizontal: SMALL_SPACE,
-      vertical: MEDIUM_SPACE,
+    contentPadding: const EdgeInsetsDirectional.only(
+      top: BALANCED_SPACE,
+      bottom: MEDIUM_SPACE,
+      start: MEDIUM_SPACE,
+      end: MEDIUM_SPACE,
     ),
     child: Column(
       children: &lt;Widget&gt;[
-        if (model.proof != null)
-          Image(
-            image: NetworkImage(
-              model.proof!
-                  .getFileUrl(
-                    uriProductHelper: ProductQuery.uriPricesHelper,
-                    isThumbnail: true,
-                  )!
-                  .toString(),
-            ),
-          )
-        else if (model.cropParameters != null)
-          LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =&gt;
-                Image(
-                  image: FileImage(
-                    File(model.cropParameters!.smallCroppedFile!.path),
-                  ),
-                  width: constraints.maxWidth,
-                  height: constraints.maxWidth,
-                ),
-          ),
-        Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
-          ),
-          child: SmoothLargeButtonWithIcon(
-            text: !model.hasImage
-                ? appLocalizations.prices_proof_find
-                : model.proofType.getTitle(appLocalizations),
-            leadingIcon: !model.hasImage
-                ? const Icon(_iconTodo)
-                : const Icon(_iconDone),
-            onPressed: model.proof != null
-                ? null
-                : () async {
-                    final List&lt;_ProofSource&gt; sources =
-                        _ProofSource.getPossibleProofSources(
-                          includeMyProofs: includeMyProofs,
-                        );
-                    &#47;&#47; not very likely
-                    if (sources.isEmpty) {
-                      return;
-                    }
-                    final _ProofSource? proofSource;
-                    if (sources.length == 1) {
-                      proofSource = sources.first;
-                    } else {
-                      proofSource = await _ProofSource.select(
-                        context,
-                        sources: sources,
-                      );
-                    }
-                    if (proofSource == null) {
-                      return;
-                    }
-                    if (!context.mounted) {
-                      return;
-                    }
-                    return proofSource.process(context, model);
-                  },
-          ),
-        ),
-        RadioGroup&lt;ProofType&gt;(
+        SmoothRadioGroup&lt;ProofType&gt;(
           groupValue: model.proofType,
           onChanged: (final ProofType? proofType) =&gt;
               model.proofType = proofType!,
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) =&gt;
-                Row(
-                  children:
-                      (const &lt;ProofType&gt;[
-                            ProofType.receipt,
-                            ProofType.priceTag,
-                          ])
-                          .map&lt;Widget&gt;(
-                            (final ProofType item) =&gt; SizedBox(
-                              width: constraints.maxWidth &#47; 2,
-                              child: RadioListTile&lt;ProofType&gt;(
-                                title: Text(item.getTitle(appLocalizations)),
-                                value: item,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                                ),
-                              ),
-                            ),
-                          )
-                          .toList(growable: false),
-                ),
-          ),
+          items:
+              (forcedProofType != null
+                      ? &lt;ProofType&gt;[forcedProofType!]
+                      : &lt;ProofType&gt;[ProofType.receipt, ProofType.priceTag])
+                  .map&lt;SmoothRadioItem&lt;ProofType&gt;&gt;(
+                    (final ProofType item) =&gt; SmoothRadioItem&lt;ProofType&gt;(
+                      value: item,
+                      label: item.getTitle(appLocalizations),
+                      icon: item.getIcon(context),
+                    ),
+                  )
+                  .toList(growable: false),
+        ),
+        const SizedBox(height: VERY_SMALL_SPACE),
+        _ProofImagePreview(model: model),
+        const SizedBox(height: VERY_SMALL_SPACE),
+        SmoothLargeButtonWithIcon(
+          text: !model.hasImage
+              ? appLocalizations.prices_proof_find
+              : appLocalizations.prices_proof_change,
+          leadingIcon: !model.hasImage
+              ? const Icon(_iconTodo)
+              : const Icon(_iconDone),
+          trailingIcon: !model.hasImage
+              ? const icons.Chevron.right(size: 10.0)
+              : const icons.Edit(size: 10.0),
+          onPressed: () async {
+            final List&lt;_ProofSource&gt; sources =
+                _ProofSource.getPossibleProofSources(
+                  includeMyProofs: includeMyProofs,
+                );
+            &#47;&#47; not very likely
+            if (sources.isEmpty) {
+              return;
+            }
+            final _ProofSource? proofSource;
+            if (sources.length == 1) {
+              proofSource = sources.first;
+            } else {
+              proofSource = await _ProofSource.select(
+                context,
+                sources: sources,
+              );
+            }
+            if (proofSource == null) {
+              return;
+            }
+            if (!context.mounted) {
+              return;
+            }
+            return proofSource.process(context, model);
+          },
         ),
       ],
     ),

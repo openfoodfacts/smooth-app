@@ -85,23 +85,39 @@
             text: appLocalizations.prices_privacy_warning_main_message,
             textStyle: Theme.of(
               context,
-            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
           ),
-          _buildBulletPoint(
-            appLocalizations.prices_privacy_warning_message_bullet_1,
-            context,
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: extension.warning.withValues(alpha: 0.1),
+              borderRadius: ANGULAR_BORDER_RADIUS,
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: SMALL_SPACE,
+              ),
+              child: Column(
+                spacing: LARGE_SPACE,
+                children: &lt;Widget&gt;[
+                  _buildBulletPoint(
+                    appLocalizations.prices_privacy_warning_message_bullet_1,
+                    context,
+                  ),
+                  _buildBulletPoint(
+                    appLocalizations.prices_privacy_warning_message_bullet_2,
+                    context,
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: MEDIUM_SPACE),
-          _buildBulletPoint(
-            appLocalizations.prices_privacy_warning_message_bullet_2,
-            context,
-          ),
+
           const SizedBox(height: MEDIUM_SPACE),
           Text(
             appLocalizations.prices_privacy_warning_sub_message,
             style: Theme.of(
               context,
-            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -109,8 +125,8 @@
     labels: &lt;String&gt;[appLocalizations.i_accept, appLocalizations.i_refuse],
     values: &lt;bool&gt;[true, false],
     prefixIcons: &lt;Widget&gt;[
-      Icon(Icons.check_circle_rounded, color: extension.success),
-      Icon(Icons.cancel_rounded, color: extension.error),
+      icons.Check.circled(color: extension.success),
+      icons.Close.circled(color: extension.error),
     ],
     title: appLocalizations.prices_privacy_warning_title,
   );
