@@ -1264,6 +1264,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tuotteen ominaisuuksia ei löytynyt. Ominaisuuksien avulla voidaan kuvata tuotteita tarkemmin, joustavasti. Lisää napauttamalla.';
 
   @override
+  String get product_tags_empty => 'Ei ominaisuuksia';
+
+  @override
+  String get product_tags_explanation =>
+      'Lisäämällä tuotteeseen ominaisuuksia (avain/arvo) autat rikastamaan sitä.';
+
+  @override
   String get add_tag => 'Lisää omaisuus';
 
   @override
@@ -2650,6 +2657,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_list_add_new_price => 'Lisää\nuusi hinta';
 
   @override
+  String get prices_list_empty_title => 'Ei vielä hintaa!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Lisää ensimmäinen:\nSkannaamalla **kuitin** tai **hintalapun**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Tuntematon kauppa';
 
   @override
@@ -2737,9 +2751,23 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Ei vielä osallistujaa!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Ole ensimmäinen, joka lisää hinnan!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Parhaat $pageSize avustajat (yhteensä: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Ei vielä kauppaa!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Ole ensimmäinen, joka lisää hinnan!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2844,7 +2872,17 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_proof_subtitle => 'Todiste';
 
   @override
+  String get prices_proof_empty_title => 'Ei vielä todisteita!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Aloita lisäämällä kuva **kuitista** tai **hintalapusta**!';
+
+  @override
   String get prices_proof_find => 'Valitse todiste';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Kuitti';
@@ -2937,6 +2975,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Ainesosat ja pakkaus)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Palauta sovelluksen kieli';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Lisää kortteja';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Vaihda prices.openfoodfacts.org (PROD) -sivuston ja testiympäristön välillä';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Käytä ja muokkaa tätä hakua uudelleen';
 
@@ -2979,6 +3027,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Minun todisteeni';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4789,6 +4842,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Ei hintaa saatavilla';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Ole ensimmäinen osallistuja!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5161,6 +5221,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy-isäntä';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Isäntä: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5567,4 +5632,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Lisätty $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

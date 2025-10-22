@@ -1262,6 +1262,13 @@ class AppLocalizationsKa extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'თვისებები არ არის';
+
+  @override
+  String get product_tags_explanation =>
+      'პროდუქტზე თვისებების (გასაღები/მნიშვნელობა) დამატებით, თქვენ ხელს უწყობთ მის გამდიდრებას.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2648,6 +2655,13 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_list_add_new_price => 'დაამატეთ\nახალი ფასი';
 
   @override
+  String get prices_list_empty_title => 'ფასი ჯერ არ არის!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'დაამატე პირველი:\n**ჩეკის** ან **ფასის** სკანირებით!';
+
+  @override
   String get prices_entry_shop_not_found => 'უცნობი მაღაზია';
 
   @override
@@ -2735,9 +2749,23 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'კონტრიბუტორი ჯერ არ არის!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'იყავით პირველი, ვინც დაამატებს ფასს!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'მაღაზია ჯერ არ არის!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'იყავით პირველი, ვინც დაამატებს ფასს!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2842,7 +2870,17 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'ჯერ არანაირი მტკიცებულება!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'დაიწყეთ **ჩეკის** ან **ფასის** ფოტოს დამატებით!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2935,6 +2973,16 @@ class AppLocalizationsKa extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'აპლიკაციის ენის გადაყენება';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ბარათების დამატება';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'გადართვა prices.openfoodfacts.org (PROD)-სა და სატესტო გარემოს შორის';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2976,6 +3024,11 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4793,6 +4846,13 @@ class AppLocalizationsKa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'ფასი ხელმისაწვდომი არ არის';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'იყავი პირველი, ვინც შეიტანს წვლილს!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5168,6 +5228,11 @@ class AppLocalizationsKa extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'ფოლკსონომიის მასპინძელი';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'მასპინძელი: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5581,4 +5646,28 @@ class AppLocalizationsKa extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'დამატებულია $created-ში';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

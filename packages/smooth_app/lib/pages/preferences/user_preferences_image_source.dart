@@ -4,6 +4,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class UserPreferencesImageSource extends StatelessWidget {
   const UserPreferencesImageSource();
@@ -31,8 +32,8 @@ class UserPreferencesImageSource extends StatelessWidget {
       title: appLocalizations.choose_image_source_title,
       leadingBuilder: <WidgetBuilder>[
         (_) => const Icon(Icons.edit_note_rounded),
-        (_) => const Icon(Icons.camera),
-        (_) => const Icon(Icons.image),
+        (_) => const icons.Camera.filled(),
+        (_) => const icons.ImageGallery(),
       ],
       labels: <String>[
         appLocalizations.user_picture_source_ask,

@@ -1283,6 +1283,13 @@ class AppLocalizationsIt extends AppLocalizations {
       'Nessuna proprietà del prodotto trovata. Le proprietà possono essere usate per descrivere i prodotti in modo più dettagliato, in modo flessibile. Tocca per aggiungere.';
 
   @override
+  String get product_tags_empty => 'Nessuna proprietà';
+
+  @override
+  String get product_tags_explanation =>
+      'Aggiungendo proprietà (chiave/valore) a un prodotto, contribuisci ad arricchirlo.';
+
+  @override
   String get add_tag => 'Aggiungi proprietà';
 
   @override
@@ -2689,6 +2696,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get prices_list_add_new_price => 'Aggiungi un nuovo prezzo di\n';
 
   @override
+  String get prices_list_empty_title => 'Nessun prezzo ancora!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Sii il primo ad aggiungerne uno:\nScansionando una **scontrino** o un **cartellino del prezzo**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Negozio sconosciuto';
 
   @override
@@ -2778,9 +2792,23 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Nessun collaboratore ancora!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Sii il primo ad aggiungere un prezzo!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Principali $pageSize contributori (totali: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Nessun negozio ancora!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Sii il primo ad aggiungere un prezzo!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2885,7 +2913,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get prices_proof_subtitle => 'Prova';
 
   @override
+  String get prices_proof_empty_title => 'Nessuna prova ancora!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Inizia aggiungendo una foto di una **scontrino** o di un **cartellino del prezzo**!';
+
+  @override
   String get prices_proof_find => 'Seleziona una prova';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Ricevuta';
@@ -2980,6 +3018,17 @@ class AppLocalizationsIt extends AppLocalizations {
       '(Ingredienti e confezione)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Reimposta la lingua dell\'app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Aggiungi carte';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Passa da prices.openfoodfacts.org (PROD) a test env';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Riutilzza e modifica questa ricerca';
 
@@ -3023,6 +3072,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'La mia prova';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4862,6 +4916,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Nessun prezzo disponibile';
+
+  @override
+  String get prices_products_empty_explanation => 'Sii il primo a contribuire!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5237,6 +5297,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Ospite di Folksonomia';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ospite: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5647,4 +5712,28 @@ class AppLocalizationsIt extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Aggiunto il $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

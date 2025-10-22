@@ -1269,6 +1269,13 @@ class AppLocalizationsNb extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Ingen egenskaper';
+
+  @override
+  String get product_tags_explanation =>
+      'Ved å legge til egenskaper (nøkkel/verdi) til et produkt hjelper du deg med å berike det.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2659,6 +2666,13 @@ class AppLocalizationsNb extends AppLocalizations {
   String get prices_list_add_new_price => 'Legg til en\nny pris';
 
   @override
+  String get prices_list_empty_title => 'Ingen pris ennå!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Bli den første til å legge til en:\nved å skanne en **kvittering** eller en **pristagg**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Ukjent butikk';
 
   @override
@@ -2747,9 +2761,23 @@ class AppLocalizationsNb extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Ingen bidragsyter ennå!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Bli den første til å legge til en pris!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Ingen butikk ennå!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Bli den første til å legge til en pris!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2854,7 +2882,17 @@ class AppLocalizationsNb extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Ingen bevis ennå!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Start ved å legge til et bilde av en **kvittering** eller en **pristagg**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2947,6 +2985,16 @@ class AppLocalizationsNb extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Tilbakestill appspråk';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Opprett oppgavelapper';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Bytt mellom priser.openfoodfacts.org (PROD) og test env';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2988,6 +3036,11 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4808,6 +4861,12 @@ class AppLocalizationsNb extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Ingen pris tilgjengelig';
+
+  @override
+  String get prices_products_empty_explanation => 'Bli den første til å bidra!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5182,6 +5241,11 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomi vert';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Vert: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5587,4 +5651,28 @@ class AppLocalizationsNb extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Lagt til $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

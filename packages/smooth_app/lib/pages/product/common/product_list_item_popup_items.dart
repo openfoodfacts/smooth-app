@@ -11,6 +11,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/compare_products3_page.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Popup menu item entries for the product list page, for selected items.
@@ -22,7 +23,7 @@ abstract class ProductListItemPopupItem {
   String getTitle(final AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
-  IconData getIconData();
+  Widget getIcon();
 
   /// Is-it a destructive action?
   bool isDestructive() => false;
@@ -43,7 +44,7 @@ abstract class ProductListItemPopupItem {
     final bool enabled,
   ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
     value: this,
-    icon: getIconData(),
+    icon: getIcon(),
     label: getTitle(appLocalizations),
     enabled: enabled,
   );
@@ -56,7 +57,7 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
       'Compare side by side';
 
   @override
-  IconData getIconData() => Icons.difference_outlined;
+  Widget getIcon() => const icons.Compare.alt();
 
   @override
   Future<bool> doSomething({
@@ -107,7 +108,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
       appLocalizations.compare_products_mode;
 
   @override
-  IconData getIconData() => Icons.compare_arrows;
+  Widget getIcon() => const icons.Compare.alt();
 
   @override
   Future<bool> doSomething({
@@ -136,7 +137,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
       appLocalizations.delete_products_mode;
 
   @override
-  IconData getIconData() => Icons.delete;
+  Widget getIcon() => const icons.Trash.delete();
 
   @override
   bool isDestructive() => true;
@@ -195,7 +196,7 @@ class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
       appLocalizations.select_all_products_mode;
 
   @override
-  IconData getIconData() => Icons.check_box;
+  Widget getIcon() => const icons.CheckBox.filled();
 
   @override
   Future<bool> doSomething({
@@ -216,7 +217,7 @@ class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
       appLocalizations.select_none_products_mode;
 
   @override
-  IconData getIconData() => Icons.check_box_outline_blank;
+  Widget getIcon() => const icons.CheckBox();
 
   @override
   Future<bool> doSomething({

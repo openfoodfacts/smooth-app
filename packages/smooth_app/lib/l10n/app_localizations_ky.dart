@@ -1262,6 +1262,13 @@ class AppLocalizationsKy extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Мүлк жок';
+
+  @override
+  String get product_tags_explanation =>
+      'Продукцияга касиеттерди (ачкыч/маани) кошуу менен сиз аны байытууга жардам бересиз.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2649,6 +2656,13 @@ class AppLocalizationsKy extends AppLocalizations {
   String get prices_list_add_new_price => '\nжаңы бааны кошуңуз';
 
   @override
+  String get prices_list_empty_title => 'Азырынча баасы жок!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Биринчилерден болуп кошуңуз:\n**дүмүрчөк** же **баа теги** сканерлөө менен!';
+
+  @override
   String get prices_entry_shop_not_found => 'Белгисиз дүкөн';
 
   @override
@@ -2736,9 +2750,23 @@ class AppLocalizationsKy extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Азырынча салым кошуучу жок!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Бааны биринчилерден болуп кошуңуз!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Азырынча дүкөн жок!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Бааны биринчилерден болуп кошуңуз!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2843,7 +2871,17 @@ class AppLocalizationsKy extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Азырынча эч кандай далил жок!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      '**дүмүрчөк** же **баа теги** сүрөтүн кошуу менен баштаңыз!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2936,6 +2974,17 @@ class AppLocalizationsKy extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Колдонмонун тилин баштапкы абалга келтирүү';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Карталарды кошуңуз';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Price.openfoodfacts.org (PROD) менен сыноо энв. ортосунда которулуу';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2977,6 +3026,11 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4794,6 +4848,13 @@ class AppLocalizationsKy extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Баасы жок';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Биринчилерден болуп салым кошуңуз!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5169,6 +5230,11 @@ class AppLocalizationsKy extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Фольксономиянын алып баруучусу';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Алып баруучу: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5578,4 +5644,28 @@ class AppLocalizationsKy extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return '$createdкүнү кошулду';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

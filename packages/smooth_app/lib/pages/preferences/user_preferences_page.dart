@@ -248,12 +248,12 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final double backgroundHeight = MediaQuery.sizeOf(context).height * .20;
+    final double backgroundHeight = MediaQuery.heightOf(context) * 0.20;
     children.insert(
       0,
       Container(
         color: dark ? null : headerColor,
-        padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
         child: SvgPicture.asset(
           headerAsset,
           height: backgroundHeight,

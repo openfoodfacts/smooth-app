@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -81,7 +81,7 @@ class SmoothListTileCard extends StatelessWidget {
                   ),
                 )
               : null,
-          trailing: Icon(ConstantIcons.forwardIcon),
+          trailing: const icons.Chevron.right(size: 15.0),
         ),
       ),
     );

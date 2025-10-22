@@ -1302,6 +1302,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν βρέθηκαν ιδιότητες προϊόντος. Οι ιδιότητες μπορούν να χρησιμοποιηθούν για την περιγραφή των προϊόντων με περισσότερες λεπτομέρειες, με ευέλικτο τρόπο.';
 
   @override
+  String get product_tags_empty => 'Δεν υπάρχουν ακίνητα';
+
+  @override
+  String get product_tags_explanation =>
+      'Προσθέτοντας ιδιότητες (κλειδί/τιμή) σε ένα προϊόν, βοηθάτε στον εμπλουτισμό του.';
+
+  @override
   String get add_tag => 'Προσθήκη ιδιότητας';
 
   @override
@@ -2710,6 +2717,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_list_add_new_price => 'Προσθήκη νέας τιμής\n';
 
   @override
+  String get prices_list_empty_title => 'Δεν υπάρχει ακόμη τιμή!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Γίνετε ο πρώτος που θα προσθέσει ένα:\nΣαρώνοντας μια **απόδειξη** ή μια **τιμή**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Άγνωστο κατάστημα';
 
   @override
@@ -2799,9 +2813,23 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Δεν υπάρχει ακόμη συνεργάτης!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Γίνετε ο πρώτος που θα προσθέσει μια τιμή!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Κορυφαίοι $pageSize συνεισφέροντες (σύνολο: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Δεν υπάρχει ακόμα κατάστημα!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Γίνετε ο πρώτος που θα προσθέσει μια τιμή!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2907,7 +2935,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String get prices_proof_subtitle => 'Επαλήθευση';
 
   @override
+  String get prices_proof_empty_title => 'Δεν υπάρχει ακόμη απόδειξη!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Ξεκινήστε προσθέτοντας μια φωτογραφία μιας **απόδειξης** ή μιας **ετικέτας τιμής**!';
+
+  @override
   String get prices_proof_find => 'Επιλέξτε μια απόδειξη';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Απόδειξη';
@@ -3001,6 +3039,16 @@ class AppLocalizationsEl extends AppLocalizations {
       '(Συστατικά και συσκευασία)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Επαναφορά γλώσσας εφαρμογής';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Προσθήκη καρτών';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Εναλλαγή μεταξύ prices.openfoodfacts.org (PROD) και περιβάλλοντος δοκιμής';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης';
 
@@ -3044,6 +3092,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Η απόδειξή μου';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4897,6 +4950,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Δεν υπάρχει διαθέσιμη τιμή';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Γίνετε ο πρώτος που θα συνεισφέρει!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Κορυφαία $pageSize προϊόντα (σύνολο: $total)';
   }
@@ -5276,6 +5336,11 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Παρουσιαστής Folksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Κεντρικός υπολογιστής: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5684,4 +5749,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Προστέθηκε στις $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

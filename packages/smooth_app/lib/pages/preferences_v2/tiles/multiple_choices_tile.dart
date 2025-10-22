@@ -86,7 +86,7 @@ class MultipleChoicesTile<T> extends PreferenceTile {
           final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
             title: title,
             prefixIndicator: true,
-            bodyPadding: EdgeInsets.zero,
+            bodyPadding: EdgeInsetsDirectional.zero,
             body: SizedBox(
               height: itemHeight * labels.length,
               child: ListView.separated(
@@ -187,11 +187,11 @@ class _ChoiceItem<T> extends StatelessWidget {
                 label,
                 style: theme.textTheme.headlineMedium?.copyWith(
                   color: !lightTheme ? Colors.white : null,
-                  fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                  fontWeight: selected ? FontWeight.bold : FontWeight.w500,
                 ),
               ),
               subtitle: description != null ? Text(description!) : null,
-              contentPadding: const EdgeInsets.symmetric(
+              contentPadding: const EdgeInsetsDirectional.symmetric(
                 horizontal: LARGE_SPACE,
                 vertical: 5.0,
               ),

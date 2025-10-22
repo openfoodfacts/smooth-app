@@ -51,7 +51,9 @@ class PreferenceTile extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
-    final Color iconColor = context.lightTheme()
+    final bool lightTheme = context.lightTheme();
+
+    final Color iconColor = lightTheme
         ? extension.primarySemiDark
         : Colors.white;
 
@@ -100,7 +102,7 @@ class PreferenceTile extends StatelessWidget {
                       Text(
                         title,
                         style: TextStyle(
-                          color: context.lightTheme()
+                          color: lightTheme
                               ? extension.primaryBlack
                               : Colors.white,
                           fontWeight: FontWeight.bold,
@@ -110,15 +112,14 @@ class PreferenceTile extends StatelessWidget {
                       if (subtitle != null || subtitleText != null)
                         DefaultTextStyle.merge(
                           style: TextStyle(
-                            color: context.lightTheme()
+                            color: lightTheme
                                 ? extension.primarySemiDark.withValues(
                                     alpha: 0.7,
                                   )
-                                : Colors.white,
-                            fontStyle: FontStyle.italic,
+                                : Colors.white.withValues(alpha: 0.8),
                             fontWeight: FontWeight.w500,
                             fontSize: 13.5,
-                            height: 1.3,
+                            //height: 1.35,
                           ),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.only(

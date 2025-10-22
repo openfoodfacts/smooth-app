@@ -1262,6 +1262,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Engar eignir';
+
+  @override
+  String get product_tags_explanation =>
+      'Með því að bæta eiginleikum (lykil/gildi) við vöru hjálpar þú til við að auðga hana.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2647,6 +2654,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get prices_list_add_new_price => 'Bæta við nýju verði\n';
 
   @override
+  String get prices_list_empty_title => 'Ekkert verð ennþá!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Vertu fyrstur til að bæta við einum:\nMeð því að skanna **kvittun** eða **verðmiða**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Óþekkt verslun';
 
   @override
@@ -2735,9 +2749,23 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Enginn þátttakandi ennþá!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Vertu fyrstur til að bæta við verði!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Engin búð ennþá!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Vertu fyrstur til að bæta við verði!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2842,7 +2870,17 @@ class AppLocalizationsIs extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Engin sönnun ennþá!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Byrjaðu á að bæta við mynd af **kvittun** eða **verðmiða**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2935,6 +2973,16 @@ class AppLocalizationsIs extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Endurstilla forritstungumál';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Bæta við kortum';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Skipta á milli prices.openfoodfacts.org (PROD) og prófunarumhverfis';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2976,6 +3024,11 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4789,6 +4842,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Ekkert verð tiltækt';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Vertu fyrstur til að leggja þitt af mörkum!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5160,6 +5220,11 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Þjóðsonomy gestgjafi';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Gestgjafi: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5568,4 +5633,28 @@ class AppLocalizationsIs extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Bætt við $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

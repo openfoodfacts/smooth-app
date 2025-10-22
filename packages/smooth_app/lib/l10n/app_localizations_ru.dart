@@ -1292,6 +1292,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Нет свойств';
+
+  @override
+  String get product_tags_explanation =>
+      'Добавляя свойства (ключ/значение) к продукту, вы помогаете его обогатить.';
+
+  @override
   String get add_tag => 'Добавить свойство';
 
   @override
@@ -2705,6 +2712,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get prices_list_add_new_price => 'Добавьте новую цену\n';
 
   @override
+  String get prices_list_empty_title => 'Цена пока неизвестна!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Будьте первым, кто добавит:\nОтсканировав **чек** или **ценник**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Неизвестный магазин';
 
   @override
@@ -2799,9 +2813,23 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Пока нет участников!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Будьте первым, кто добавит цену!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Лучшие $pageSize участники (всего: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Магазина пока нет!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Будьте первым, кто добавит цену!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2914,7 +2942,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get prices_proof_subtitle => 'Доказательство';
 
   @override
+  String get prices_proof_empty_title => 'Пока нет доказательств!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Начните с добавления фотографии **чека** или **ценника**!';
+
+  @override
   String get prices_proof_find => 'Выберите доказательство';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Чек';
@@ -3008,6 +3046,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Состав и упаковка)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Сбросить язык приложения';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Добавить карты';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Повторно используйте и редактируйте этот поиск';
 
@@ -3051,6 +3099,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Моё доказательство';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4902,6 +4955,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Цена не указана';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Будьте первым, кто внесет свой вклад!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Лучшие $pageSize продукты (всего: $total)';
   }
@@ -5275,6 +5335,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'Хост Фолксономии';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Хост: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5683,4 +5748,28 @@ class AppLocalizationsRu extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Добавлено $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

@@ -1264,6 +1264,13 @@ class AppLocalizationsTa extends AppLocalizations {
       'தயாரிப்புப் பண்புகள் இல்லை. தயாரிப்புகளை மேலும் விவரங்களில், நெகிழ்வான முறையில் விவரிக்கப் பண்புகலைப் பயன்படுத்தப்படலாம்.';
 
   @override
+  String get product_tags_empty => 'சொத்துக்கள் இல்லை';
+
+  @override
+  String get product_tags_explanation =>
+      'ஒரு பொருளுக்கு பண்புகளை (திறவுகோல்/மதிப்பு) சேர்ப்பதன் மூலம், நீங்கள் அதை வளப்படுத்த உதவுகிறீர்கள்.';
+
+  @override
   String get add_tag => 'ஒரு குணத்தைச் சேர்க்கவும்';
 
   @override
@@ -2655,6 +2662,13 @@ class AppLocalizationsTa extends AppLocalizations {
   String get prices_list_add_new_price => '\nபுதிய விலையைச் சேர்க்கவும்';
 
   @override
+  String get prices_list_empty_title => 'இன்னும் விலை இல்லை!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      '**ரசீது** அல்லது **விலை குறிச்சொல்** ஐ ஸ்கேன் செய்வதன் மூலம்\nஐச் சேர்க்கும் முதல் நபராக இருங்கள்!';
+
+  @override
   String get prices_entry_shop_not_found => 'தெரியாத கடை';
 
   @override
@@ -2744,9 +2758,23 @@ class AppLocalizationsTa extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'இன்னும் பங்களிப்பாளர் இல்லை!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'விலையைச் சேர்க்கும் முதல் நபராக இருங்கள்!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'சிறந்த $pageSize பங்களிப்பாளர்கள் (மொத்தம்: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'இன்னும் கடை இல்லை!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'விலையைச் சேர்க்கும் முதல் நபராக இருங்கள்!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2851,7 +2879,17 @@ class AppLocalizationsTa extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'இன்னும் ஆதாரம் இல்லை!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      '**ரசீது** அல்லது **விலை குறி**யின் புகைப்படத்தைச் சேர்ப்பதன் மூலம் தொடங்குங்கள்!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2944,6 +2982,17 @@ class AppLocalizationsTa extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'பயன்பாட்டு மொழியை மீட்டமைக்கவும்';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'கார்டுகளைச் சேர்';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) மற்றும் சோதனை env க்கு இடையில் மாறவும்.';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2985,6 +3034,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4809,6 +4863,12 @@ class AppLocalizationsTa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'விலை எதுவும் கிடைக்கவில்லை.';
+
+  @override
+  String get prices_products_empty_explanation => 'முதலில் பங்களிக்கவும்!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5189,6 +5249,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ஃபோக்சோனமி ஹோஸ்ட்';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'தொகுப்பாளர்: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5603,4 +5668,28 @@ class AppLocalizationsTa extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return '$createdஇல் சேர்க்கப்பட்டது';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

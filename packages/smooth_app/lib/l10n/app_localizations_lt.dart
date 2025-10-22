@@ -1290,6 +1290,13 @@ class AppLocalizationsLt extends AppLocalizations {
       'Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.';
 
   @override
+  String get product_tags_empty => 'Nėra savybių';
+
+  @override
+  String get product_tags_explanation =>
+      'Pridėdami prie produkto savybių (raktą / vertę), padedate jį pagerinti.';
+
+  @override
   String get add_tag => 'Pridėti savybę';
 
   @override
@@ -2686,6 +2693,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_list_add_new_price => 'Pridėti\nnaują kainą';
 
   @override
+  String get prices_list_empty_title => 'Kainos dar nėra!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Būkite pirmas, kuris pridės:\nNuskaitydami **kvitą** arba **kainos etiketę**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Nežinoma parduotuvė';
 
   @override
@@ -2775,9 +2789,22 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Kol kas nėra bendraautorių!';
+
+  @override
+  String get prices_users_empty_explanation => 'Būkite pirmas, pridėjęs kainą!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Parduotuvės dar nėra!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Būkite pirmas, pridėjęs kainą!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2884,7 +2911,17 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_proof_subtitle => 'Įrodymai';
 
   @override
+  String get prices_proof_empty_title => 'Dar nėra įrodymų!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Pradėkite pridėdami **kvito** arba **kainos etiketės** nuotrauką!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Čekis';
@@ -2977,6 +3014,17 @@ class AppLocalizationsLt extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Nustatyti programėlės kalbą iš naujo';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Pridėti kortelių';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Perjungti tarp prices.openfoodfacts.org (PROD) ir bandomosios aplinkos';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Naudoti pakartotinai ir redaguoti šią paiešką';
 
@@ -3020,6 +3068,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4856,6 +4909,12 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Kaina nežinoma';
+
+  @override
+  String get prices_products_empty_explanation => 'Būkite pirmas, prisidėjęs!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Geriausi $pageSize produktai (iš viso: $total)';
   }
@@ -5234,6 +5293,11 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Folksonomy šeimininkas';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Pagrindinis kompiuteris: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5642,4 +5706,28 @@ class AppLocalizationsLt extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Pridėta $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

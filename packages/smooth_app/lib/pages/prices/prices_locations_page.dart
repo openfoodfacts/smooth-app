@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -14,6 +15,7 @@ import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 /// Page that displays the top prices locations with infinite scrolling.
 class PricesLocationsPage extends StatefulWidget {
@@ -150,4 +152,16 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
           )
         : appLocalizations.prices_locations_count(loadedItems);
   }
+
+  @override
+  Widget get emptyListIcon =>
+      const SvgPicture(AssetBytesLoader('assets/icons/location_empty.svg.vec'));
+
+  @override
+  String emptyListTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.prices_locations_empty_title;
+
+  @override
+  String emptyListExplanation(AppLocalizations appLocalizations) =>
+      appLocalizations.prices_locations_empty_explanation;
 }

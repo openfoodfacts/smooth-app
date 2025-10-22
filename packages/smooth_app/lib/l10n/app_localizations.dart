@@ -2584,6 +2584,18 @@ abstract class AppLocalizations {
   /// **'No product properties found. Properties can be used to describe products in more details, in a flexible way.'**
   String get no_product_tags_found_message;
 
+  /// No description provided for @product_tags_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties'**
+  String get product_tags_empty;
+
+  /// No description provided for @product_tags_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'By adding properties (key/value) to a product, you help enrich it.'**
+  String get product_tags_explanation;
+
   /// No description provided for @add_tag.
   ///
   /// In en, this message translates to:
@@ -4817,6 +4829,18 @@ abstract class AppLocalizations {
   /// **'Add a\nnew price'**
   String get prices_list_add_new_price;
 
+  /// No description provided for @prices_list_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No price yet!'**
+  String get prices_list_empty_title;
+
+  /// No description provided for @prices_list_empty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!'**
+  String get prices_list_empty_subtitle;
+
   /// No description provided for @prices_entry_shop_not_found.
   ///
   /// In en, this message translates to:
@@ -4912,11 +4936,35 @@ abstract class AppLocalizations {
   /// **'Latest {pageSize} proofs (total: {total})'**
   String prices_proofs_list_length_many_pages(int pageSize, int total);
 
+  /// No description provided for @prices_users_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No contributor yet!'**
+  String get prices_users_empty_title;
+
+  /// No description provided for @prices_users_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add a price!'**
+  String get prices_users_empty_explanation;
+
   /// Number of users for one-page result
   ///
   /// In en, this message translates to:
   /// **'Top {pageSize} contributors (total: {total})'**
   String prices_users_list_length_many_pages(int pageSize, int total);
+
+  /// No description provided for @prices_locations_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No shop yet!'**
+  String get prices_locations_empty_title;
+
+  /// No description provided for @prices_locations_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add a price!'**
+  String get prices_locations_empty_explanation;
 
   /// Number of locations for one-page result
   ///
@@ -5044,11 +5092,29 @@ abstract class AppLocalizations {
   /// **'Proof'**
   String get prices_proof_subtitle;
 
+  /// No description provided for @prices_proof_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No proof yet!'**
+  String get prices_proof_empty_title;
+
+  /// No description provided for @prices_proof_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Start by adding a photo of a **receipt** or a **price tag**!'**
+  String get prices_proof_empty_explanation;
+
   /// No description provided for @prices_proof_find.
   ///
   /// In en, this message translates to:
   /// **'Select a proof'**
   String get prices_proof_find;
+
+  /// No description provided for @prices_proof_change.
+  ///
+  /// In en, this message translates to:
+  /// **'Change proof'**
+  String get prices_proof_change;
 
   /// No description provided for @prices_proof_receipt.
   ///
@@ -5203,6 +5269,24 @@ abstract class AppLocalizations {
   /// **'(Ingredients and packaging)'**
   String get dev_mode_spellchecker_for_ocr_subtitle;
 
+  /// User dev preferences - Reset app language - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Reset app language'**
+  String get dev_mode_reset_app_language_title;
+
+  /// User dev preferences - Add cards - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Add cards'**
+  String get dev_mode_add_demo_cards_language_title;
+
+  /// User dev preferences - Switch server environment (Open Prices) - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Switch between prices.openfoodfacts.org (PROD) and test env'**
+  String get dev_mode_openprices_switch_env_title;
+
   /// A tooltip to explain the Pen button near a search term -> it allows to reuse the item
   ///
   /// In en, this message translates to:
@@ -5272,6 +5356,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My proof'**
   String get user_search_proof_title;
+
+  /// Proof viewer: page title (when not the user proof)
+  ///
+  /// In en, this message translates to:
+  /// **'Proof from \"{user}\"'**
+  String search_proof_title(String user);
 
   /// User prices (everybody except me): list tile title
   ///
@@ -8311,6 +8401,18 @@ abstract class AppLocalizations {
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
 
+  /// No description provided for @prices_products_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No price available'**
+  String get prices_products_empty_title;
+
+  /// No description provided for @prices_products_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to contribute!'**
+  String get prices_products_empty_explanation;
+
   /// Number of products for one-page result
   ///
   /// In en, this message translates to:
@@ -9007,6 +9109,12 @@ abstract class AppLocalizations {
   /// **'Folksonomy host'**
   String get preferences_dev_mode_folksonomy_host_title;
 
+  /// Subtitle for folksonomy host setting
+  ///
+  /// In en, this message translates to:
+  /// **'Host: {host}'**
+  String preferences_dev_mode_folksonomy_host_subtitle(String host);
+
   /// Title for accessibility experiments card
   ///
   /// In en, this message translates to:
@@ -9642,6 +9750,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Added on {created}'**
   String prices_adding_timestamp_tooltip(String created);
+
+  /// No description provided for @location_map_details_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Location details'**
+  String get location_map_details_title;
+
+  /// No description provided for @location_map_details_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get location_map_details_name;
+
+  /// No description provided for @location_map_details_street.
+  ///
+  /// In en, this message translates to:
+  /// **'Street'**
+  String get location_map_details_street;
+
+  /// No description provided for @location_map_details_city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get location_map_details_city;
+
+  /// No description provided for @location_map_details_postcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Postcode'**
+  String get location_map_details_postcode;
+
+  /// No description provided for @location_map_details_country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get location_map_details_country;
+
+  /// No description provided for @location_map_details_coordinates.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinates'**
+  String get location_map_details_coordinates;
+
+  /// No description provided for @location_map_details_osm_id.
+  ///
+  /// In en, this message translates to:
+  /// **'OSM ID'**
+  String get location_map_details_osm_id;
 }
 
 class _AppLocalizationsDelegate

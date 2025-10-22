@@ -1262,6 +1262,13 @@ class AppLocalizationsYi extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'קיין אייגנשאַפטן נישט';
+
+  @override
+  String get product_tags_explanation =>
+      'דורך צולייגן אייגנשאפטן (שליסל/ווערט) צו א פראדוקט, העלפט איר עס פאררייכערן.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2648,6 +2655,13 @@ class AppLocalizationsYi extends AppLocalizations {
   String get prices_list_add_new_price => 'לייג צו א\nנייעם פרייז';
 
   @override
+  String get prices_list_empty_title => 'קיין פרייז נאכנישט!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'זייט דער ערשטער צו לייגן איינס צו:\nדורך סקענען א **קװיטונג** אדער א **פרייז־טעקע**!';
+
+  @override
   String get prices_entry_shop_not_found => 'אומבאַקאַנטער קראָם';
 
   @override
@@ -2735,9 +2749,23 @@ class AppLocalizationsYi extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'קיין ביישטייערער נאכנישט!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'זייט דער ערשטער צו לייגן צו א פרייז!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'קיין קראָם נאָך נישט!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'זייט דער ערשטער צו לייגן צו א פרייז!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2842,7 +2870,17 @@ class AppLocalizationsYi extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'קיין באַווייַז נאָך נישט!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'הייבט אן דורך צולייגן א בילד פון א **קװיטונג** אדער א **פרייז־טעקע**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2935,6 +2973,17 @@ class AppLocalizationsYi extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'צוריקשטעלן די שפּראַך פון דער אַפּ';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'לייג צו קארטלעך';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'טוישן צווישן prices.openfoodfacts.org (PROD) און טעסט סביבה';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2976,6 +3025,11 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4794,6 +4848,13 @@ class AppLocalizationsYi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'קיין פרייז נישט פֿאַראַן';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'זייט דער ערשטער צו ביישטייערן!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5170,6 +5231,11 @@ class AppLocalizationsYi extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'פאָלקאָנאָמיע באַלעבאָס';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'באַלעבאָס: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5579,4 +5645,28 @@ class AppLocalizationsYi extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'צוגעגעבן אויף $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

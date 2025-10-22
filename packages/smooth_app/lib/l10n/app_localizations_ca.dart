@@ -1288,6 +1288,13 @@ class AppLocalizationsCa extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Sense propietats';
+
+  @override
+  String get product_tags_explanation =>
+      'En afegir propietats (clau/valor) a un producte, ajudeu a enriquir-lo.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2683,6 +2690,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_list_add_new_price => 'Afegeix un\npreu nou';
 
   @override
+  String get prices_list_empty_title => 'Encara no hi ha preu!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Sigues el primer a afegir-ne un:\nEscanejant un **rebut** o una **etiqueta de preu**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Botiga desconeguda';
 
   @override
@@ -2771,9 +2785,23 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Encara no hi ha cap col·laborador!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Sigues el primer a afegir un preu!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Encara no hi ha botiga!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Sigues el primer a afegir un preu!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2878,7 +2906,17 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_proof_subtitle => 'Prova';
 
   @override
+  String get prices_proof_empty_title => 'Encara no hi ha proves!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Comença afegint una foto d\'un **rebut** o una **etiqueta de preu**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2971,6 +3009,17 @@ class AppLocalizationsCa extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Restableix l\'idioma de l\'aplicació';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Afegeix targetes';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Canvia entre prices.openfoodfacts.org (PROD) i l\'entorn de prova';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -3013,6 +3062,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4849,6 +4903,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'No hi ha preu disponible';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Sigues el primer a contribuir!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5227,6 +5288,11 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Amfitrió de folksonomia';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Amfitrió: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5639,4 +5705,28 @@ class AppLocalizationsCa extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Afegit a $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

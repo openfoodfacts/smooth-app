@@ -305,7 +305,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(
                 top: 6.0,
                 bottom: SMALL_SPACE,
-                start: 6.0,
+                start: 5.0,
                 end: 6.0,
               ),
               child: Column(
@@ -332,7 +332,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
                       overflow: TextOverflow.fade,
                       textScaler: TextScaler.noScaling,
                       style: const TextStyle(
-                        height: 0.9,
+                        height: 1.0,
+                        fontSize: 11.0,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -349,7 +350,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
   double computeWidth(BuildContext context) {
     return math.min(
       90.0,
-      (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
+      (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (20 / 100),
     );
   }
 }

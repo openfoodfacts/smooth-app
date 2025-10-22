@@ -27,6 +27,9 @@ class ScannerMLKit extends Scanner {
     })
     trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
@@ -39,6 +42,9 @@ class ScannerMLKit extends Scanner {
       hasMoreThanOneCamera: hasMoreThanOneCamera,
       toggleCameraModeTooltip: toggleCameraModeTooltip,
       toggleFlashModeTooltip: toggleFlashModeTooltip,
+      barcodeScannerIcon: barcodeScannerIcon,
+      torchOnIcon: torchOnIcon,
+      torchOffIcon: torchOffIcon,
       contentPadding: contentPadding,
     );
   }
@@ -52,6 +58,9 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     required this.trackCustomEvent,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
+    required this.barcodeScannerIcon,
+    required this.torchOnIcon,
+    required this.torchOffIcon,
     this.toggleCameraModeTooltip,
     this.toggleFlashModeTooltip,
     this.contentPadding,
@@ -69,6 +78,10 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   trackCustomEvent;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
+
+  final Widget barcodeScannerIcon;
+  final Widget torchOnIcon;
+  final Widget torchOffIcon;
 
   final EdgeInsetsGeometry? contentPadding;
   final String? toggleCameraModeTooltip;
@@ -157,13 +170,14 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             ),
             Center(
               child: SmoothBarcodeScannerVisor(
+                icon: widget.barcodeScannerIcon,
                 contentPadding: widget.contentPadding,
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(
+                padding: const EdgeInsetsDirectional.all(
                   SmoothBarcodeScannerVisor.CORNER_PADDING,
                 ),
                 child: Row(
@@ -175,6 +189,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                       hapticFeedback: widget.hapticFeedback,
                     ),
                     _TorchIcon(
+                      torchOnIcon: widget.torchOnIcon,
+                      torchOffIcon: widget.torchOffIcon,
                       toggleFlashModeTooltip: widget.toggleFlashModeTooltip,
                       hapticFeedback: widget.hapticFeedback,
                       onCameraFlashError: widget.onCameraFlashError,
@@ -209,8 +225,13 @@ class _TorchIcon extends StatefulWidget {
   const _TorchIcon({
     required this.hapticFeedback,
     required this.onCameraFlashError,
+    required this.torchOnIcon,
+    required this.torchOffIcon,
     this.toggleFlashModeTooltip,
   });
+
+  final Widget torchOnIcon;
+  final Widget torchOffIcon;
 
   final String? toggleFlashModeTooltip;
   final Future<void> Function() hapticFeedback;
@@ -250,8 +271,8 @@ class _TorchIconState extends State<_TorchIcon> {
             }
           },
           child: switch (isTorchOn) {
-            true => const Icon(Icons.flash_off, color: Colors.white),
-            false => const Icon(Icons.flash_on, color: Colors.white),
+            true => widget.torchOnIcon,
+            false => widget.torchOffIcon,
           },
         );
       },

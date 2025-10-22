@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Ingen ejendomme",
+  "product_tags_explanation": "Ved at tilføje egenskaber (nøgle/værdi) til et produkt, hjælper du med at berige det.",
   "add_tag": "Add property",
   "add_tags": "Tilføj egenskaber",
   "add_edit_tags": "Tilføj eller rediger egenskaber",
@@ -2389,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Ingen pris endnu!",
+  "prices_list_empty_subtitle": "Vær den første til at tilføje en:\nVed at scanne en **kvittering** eller en **prisseddel**!",
   "prices_entry_shop_not_found": "Ukendt butik",
   "prices_entry_menu_title": "Prisindtastning fra \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2489,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Ingen bidragyder endnu!",
+  "prices_users_empty_explanation": "Vær den første til at tilføje en pris!",
   "prices_users_list_length_many_pages": "Top {pageSize} bidragydere (i alt: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Ingen butik endnu!",
+  "prices_locations_empty_explanation": "Vær den første til at tilføje en pris!",
   "prices_locations_list_length_many_pages": "Top {pageSize} placeringer (i alt: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,6 +2573,8 @@
   "prices_location_mandatory": "Du skal vælge en butik!",
   "prices_location_search_broader": "Kunne du ikke finde det, du ledte efter? Lad os prøve en bredere søgning!",
   "prices_proof_subtitle": "Bevis",
+  "prices_proof_empty_title": "Intet bevis endnu!",
+  "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
   "prices_proof_find": "Vælg et bevis",
   "prices_proof_receipt": "Kvittering",
   "prices_proof_price_tag": "Prisskilt",
@@ -2632,6 +2642,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredienser og emballage)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Nulstil appens sprog",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Tilføj kort",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Skift mellem prices.openfoodfacts.org (PROD) og testmiljø",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Genbrug og redigér denne søgning",
   "@search_history_item_edit_tooltip": {
@@ -4338,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Ingen pris tilgængelig",
+  "prices_products_empty_explanation": "Vær den første til at bidrage!",
   "prices_products_list_length_many_pages": "Top {pageSize} produkter (i alt: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4817,6 +4841,15 @@
   "preferences_dev_mode_folksonomy_host_title": "Folksonomy-vært",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Vært: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Tilgængelighedseksperimenter",
   "@preferences_dev_mode_accessibility_experiments_title": {
