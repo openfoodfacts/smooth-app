@@ -9,7 +9,6 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
