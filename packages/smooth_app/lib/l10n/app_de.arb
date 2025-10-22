@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Noch kein Beweis!",
   "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto einer **Quittung** oder eines **Preisschilds** hinzu!",
   "prices_proof_find": "Wählen Sie einen Nachweis",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Kassenbon",
   "prices_proof_price_tag": "Preisschild",
   "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Meine Nachweise",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Beitragspreise: {user}",
   "@user_any_search_prices_title": {
