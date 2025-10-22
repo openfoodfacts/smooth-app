@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Intet bevis endnu!",
   "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
   "prices_proof_find": "Vælg et bevis",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Kvittering",
   "prices_proof_price_tag": "Prisskilt",
   "prices_proof_mandatory": "Du skal vælge et bevis!",
@@ -2717,6 +2718,15 @@
   "user_search_proof_title": "Mit bevis",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Bidragyderpriser: {user}",
   "@user_any_search_prices_title": {
