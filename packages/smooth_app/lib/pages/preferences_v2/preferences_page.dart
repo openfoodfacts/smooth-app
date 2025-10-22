@@ -85,7 +85,9 @@ class PreferencesPage extends StatelessWidget {
               if (userPreferences.devMode > 0)
                 _buildDevModeTile(
                   appLocalizations,
-                  context.extension<SmoothColorsThemeExtension>().error,
+                  context
+                      .extension<SmoothColorsThemeExtension>()
+                      .error,
                 ),
               _buildAboutAppTile(appLocalizations),
             ],
@@ -96,23 +98,22 @@ class PreferencesPage extends StatelessWidget {
           GithubSearchPreferenceTile(),
           ForumSearchPreferenceTile(),
         ],
-        footer: (_) => Consumer<PreferencesRootSearchController>(
-          builder: (_, PreferencesRootSearchController controller, _) {
-            if (controller.query?.isNotEmpty == true) {
-              return EMPTY_WIDGET;
-            }
-            return const SocialNetworksFooter();
-          },
-        ),
+        footer: (_) =>
+            Consumer<PreferencesRootSearchController>(
+              builder: (_, PreferencesRootSearchController controller, _) {
+                if (controller.query?.isNotEmpty == true) {
+                  return EMPTY_WIDGET;
+                }
+                return const SocialNetworksFooter();
+              },
+            ),
       ),
     );
   }
 
   // Contribute section
-  PreferenceCard _buildContributeCard(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
+  PreferenceCard _buildContributeCard(BuildContext context,
+      AppLocalizations appLocalizations,) {
     final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
 
     return PreferenceCard(
@@ -125,11 +126,9 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  SquarePreferenceTile _buildPricesContributionTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    AutoSizeGroup autoSizeGroup,
-  ) {
+  SquarePreferenceTile _buildPricesContributionTile(BuildContext context,
+      AppLocalizations appLocalizations,
+      AutoSizeGroup autoSizeGroup,) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_add_prices,
       illustration: SvgPicture.asset(
@@ -152,10 +151,8 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  SquarePreferenceTile _buildHungerGamesTile(
-    BuildContext context,
-    AutoSizeGroup autoSizeGroup,
-  ) {
+  SquarePreferenceTile _buildHungerGamesTile(BuildContext context,
+      AutoSizeGroup autoSizeGroup,) {
     return SquarePreferenceTile(
       title: 'Hunger Games',
       illustration: SvgPicture.asset(
@@ -174,11 +171,9 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  SquarePreferenceTile _buildCompleteProductsTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    AutoSizeGroup autoSizeGroup,
-  ) {
+  SquarePreferenceTile _buildCompleteProductsTile(BuildContext context,
+      AppLocalizations appLocalizations,
+      AutoSizeGroup autoSizeGroup,) {
     return SquarePreferenceTile(
       title: appLocalizations.preferences_complete_products,
       illustration: SvgPicture.asset(
@@ -203,8 +198,7 @@ class PreferencesPage extends StatelessWidget {
 
   // Customize App section
   NavigationPreferenceTile _buildFoodPreferencesTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
@@ -214,8 +208,7 @@ class PreferencesPage extends StatelessWidget {
   }
 
   NavigationPreferenceTile _buildAppSettingsTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.Personalization.alt(size: 20.0),
       title: appLocalizations.myPreferences_settings_title,
@@ -226,13 +219,12 @@ class PreferencesPage extends StatelessWidget {
 
   // Project section
   NavigationPreferenceTile _buildContributeProjectTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.Contribute(),
       title: appLocalizations.preferences_page_contribute_project_title,
       subtitleText:
-          appLocalizations.preferences_page_contribute_project_subtitle,
+      appLocalizations.preferences_page_contribute_project_subtitle,
       root: ContributeRoot(
         title: appLocalizations.preferences_contribute_title,
       ),
@@ -244,6 +236,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
+      // the donate page includes javascript, not well accepted by webviews
       url: 'using onTap instead',
       onTap: () async => LaunchUrlHelper.launchURL(appLocalizations.donate_url),
     );
@@ -260,8 +253,7 @@ class PreferencesPage extends StatelessWidget {
   }
 
   NavigationPreferenceTile _buildConnectTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.Message(),
       title: appLocalizations.preferences_connect_title,
@@ -272,8 +264,7 @@ class PreferencesPage extends StatelessWidget {
 
   // About section
   NavigationPreferenceTile _buildLegalInformationTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.Law(),
       title: appLocalizations.preferences_legal_information_title,
@@ -285,8 +276,7 @@ class PreferencesPage extends StatelessWidget {
   }
 
   NavigationPreferenceTile _buildAboutAppTile(
-    AppLocalizations appLocalizations,
-  ) {
+      AppLocalizations appLocalizations,) {
     return NavigationPreferenceTile(
       leading: const icons.Info(),
       title: appLocalizations.preferences_about_app_title,
@@ -295,10 +285,8 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  NavigationPreferenceTile _buildDevModeTile(
-    AppLocalizations appLocalizations,
-    Color iconColor,
-  ) {
+  NavigationPreferenceTile _buildDevModeTile(AppLocalizations appLocalizations,
+      Color iconColor,) {
     return NavigationPreferenceTile(
       icon: const icons.DangerousZone(),
       title: appLocalizations.preferences_page_open_food_facts_labs_title,
