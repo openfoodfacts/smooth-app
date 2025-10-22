@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Немає властивостей",
+  "product_tags_explanation": "Додаючи властивості (ключ/значення) до продукту, ви допомагаєте його збагатити.",
   "add_tag": "Додати властивість",
   "add_tags": "Додати властивості",
   "add_edit_tags": "Додати або редагувати властивості",
@@ -2389,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Ціни ще немає!",
+  "prices_list_empty_subtitle": "Додайте першим:\nВідскануйте **чек** або **цінник**!",
   "prices_entry_shop_not_found": "Невідомий магазин",
   "prices_entry_menu_title": "Введена ціна від \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2489,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Ще немає учасників!",
+  "prices_users_empty_explanation": "Будьте першим, хто додасть ціну!",
   "prices_users_list_length_many_pages": "Топ {pageSize} учасників (всього: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Магазину ще немає!",
+  "prices_locations_empty_explanation": "Будьте першим, хто додасть ціну!",
   "prices_locations_list_length_many_pages": "Топ {pageSize} місць (всього: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,6 +2573,8 @@
   "prices_location_mandatory": "Вам потрібно вибрати магазин!",
   "prices_location_search_broader": "Не змогли знайти те, що шукали? Давайте спробуємо розширити пошук!",
   "prices_proof_subtitle": "Доказ",
+  "prices_proof_empty_title": "Поки що немає доказів!",
+  "prices_proof_empty_explanation": "Почніть із додавання фотографії **чек** або **цінника**!",
   "prices_proof_find": "Виберіть доказ",
   "prices_proof_receipt": "Квитанція",
   "prices_proof_price_tag": "Цінник",
@@ -2632,6 +2642,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Інгредієнти та упаковка)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Скинути мову програми",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Додати картки",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Перемикання між prices.openfoodfacts.org (PROD) та тестовим середовищем",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Повторно використовуйте та редагуйте цей пошук",
   "@search_history_item_edit_tooltip": {
@@ -4338,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Ціна недоступна",
+  "prices_products_empty_explanation": "Будьте першим, хто зробить свій внесок!",
   "prices_products_list_length_many_pages": "Топ {pageSize} продуктів (всього: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4817,6 +4841,15 @@
   "preferences_dev_mode_folksonomy_host_title": "Ведучий фолксономії",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Ведучий: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Експерименти з доступністю",
   "@preferences_dev_mode_accessibility_experiments_title": {

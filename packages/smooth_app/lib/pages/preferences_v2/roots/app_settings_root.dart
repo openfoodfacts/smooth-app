@@ -168,9 +168,9 @@ class AppSettingsRoot extends PreferencesRoot {
     return MultipleChoicesTile<UserPictureSource>(
       title: appLocalizations.choose_image_source_title,
       leadingBuilder: <WidgetBuilder>[
-        (_) => Icon(Icons.edit_note_rounded, color: iconColor),
-        (_) => Icon(Icons.camera, color: iconColor),
-        (_) => Icon(Icons.image, color: iconColor),
+        (_) => icons.User.question(color: iconColor),
+        (_) => icons.Camera.filled(color: iconColor),
+        (_) => icons.ImageGallery(color: iconColor),
       ],
       labels: <String>[
         appLocalizations.user_picture_source_ask,

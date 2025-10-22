@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
@@ -184,7 +185,10 @@ class _IllustrationWidget extends StatelessWidget {
             ),
           ),
         ),
-        SvgPicture.asset('assets/cache/nutriscore-a-new-en.svg', width: 86.0),
+        SvgPicture.asset(
+          SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, true),
+          width: 86.0,
+        ),
       ],
     );
   }

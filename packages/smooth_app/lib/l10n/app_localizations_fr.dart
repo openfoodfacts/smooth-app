@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Aidez-nous à améliorer Open Food Facts dans votre pays';
+      'Aidez-nous à améliorer Open Food Facts dans votre pays';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -501,8 +501,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Contribuez à Open Food Facts. Rejoignez la réserve de compétences !';
 
   @override
-  String get contribute_share_header =>
-      'Partagez Open Food Facts avec vos amis';
+  String get contribute_share_header => 'Partagez Open Food Facts à vos amis';
 
   @override
   String get contribute_share_content =>
@@ -1299,6 +1298,13 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get no_product_tags_found_message =>
       'Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible.';
+
+  @override
+  String get product_tags_empty => 'Aucune propriété';
+
+  @override
+  String get product_tags_explanation =>
+      'En ajoutant des propriétés (clé / valeur) à un produit, vous permettez de l’enrichir.';
 
   @override
   String get add_tag => 'Ajouter une propriété';
@@ -2433,7 +2439,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Tester les paramètres d\'environnement';
+      'Adresse de l\'environnement de TEST';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
@@ -2716,6 +2722,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_list_add_new_price => 'Ajouter un nouveau prix';
 
   @override
+  String get prices_list_empty_title => 'Pas encore de prix !';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Soyez le premier à en ajouter un :\nEn scannant un **reçu** ou une **étiquette de prix** !';
+
+  @override
   String get prices_entry_shop_not_found => 'Magasin inconnu';
 
   @override
@@ -2805,9 +2818,23 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Aucun contributeur pour le moment !';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Soyez le premier à ajouter un prix !';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributeurs (total : $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Pas encore de boutique !';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Soyez le premier à ajouter un prix !';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2912,7 +2939,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_proof_subtitle => 'Preuve';
 
   @override
+  String get prices_proof_empty_title => 'Aucune preuve pour l\'instant !';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !';
+
+  @override
   String get prices_proof_find => 'Choisir une preuve';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Ticket de caisse';
@@ -3008,6 +3045,17 @@ class AppLocalizationsFr extends AppLocalizations {
       '(Ingrédients et emballage)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Réinitialiser la langue de l\'application';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Ajouter des cartes';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Basculer entre prices.openfoodfacts.org (PROD) et l\'environnement de test';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Réutiliser et modifier cette recherche';
 
@@ -3051,6 +3099,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Ma preuve';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4900,6 +4953,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomie';
 
   @override
+  String get prices_products_empty_title => 'Aucun prix disponible';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Soyez le premier à contribuer !';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Meilleurs $pageSize produits  (total : $total)';
   }
@@ -5279,6 +5339,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Animateur de Folksonomy';
 
   @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Hôte : $host';
+  }
+
+  @override
   String get preferences_dev_mode_accessibility_experiments_title =>
       'Expériences d\'accessibilité';
 
@@ -5561,7 +5626,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Des moyens simples pour aider Open Food Facts';
+      'Des moyens simples pour aider Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5666,7 +5731,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Apportez Open Food Facts à votre langue';
+      'Traduire Open Food Facts dans votre langue';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -5687,4 +5752,28 @@ class AppLocalizationsFr extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Ajouté le $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

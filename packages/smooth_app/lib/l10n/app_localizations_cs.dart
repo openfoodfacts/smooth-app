@@ -1277,6 +1277,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nebyly nalezeny žádné vlastnosti produktu. Vlastnosti lze použít k podrobnějšímu a flexibilnímu popisu produktů. Klepnutím přidáte.';
 
   @override
+  String get product_tags_empty => 'Žádné nemovitosti';
+
+  @override
+  String get product_tags_explanation =>
+      'Přidáním vlastností (klíč/hodnota) k produktu ho pomáháte obohatit.';
+
+  @override
   String get add_tag => 'Přidat vlastnost';
 
   @override
@@ -2669,6 +2676,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_list_add_new_price => 'Přidat novou cenu\n';
 
   @override
+  String get prices_list_empty_title => 'Zatím žádná cena!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Buďte první, kdo jeden přidá:\nNaskenováním **účtenky** nebo **cenovky**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Neznámý obchod';
 
   @override
@@ -2757,9 +2771,22 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Zatím žádný přispěvatel!';
+
+  @override
+  String get prices_users_empty_explanation => 'Buďte první, kdo přidá cenu!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Nejlepší $pageSize přispěvatelé (celkem: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Zatím žádný obchod!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Buďte první, kdo přidá cenu!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2864,7 +2891,17 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_proof_subtitle => 'Doklad';
 
   @override
+  String get prices_proof_empty_title => 'Zatím žádný důkaz!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Začněte přidáním fotografie **účtenky** nebo **cenovky**!';
+
+  @override
   String get prices_proof_find => 'Vybrat doklad';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Účtenka';
@@ -2955,6 +2992,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get dev_mode_spellchecker_for_ocr_subtitle => '(Složení a balení)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Obnovit jazyk aplikace';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Přidat karty';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Přepínání mezi prices.openfoodfacts.org (PROD) a testovacím prostředím';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Znovu použijte a upravte toto vyhledávání';
 
@@ -2997,6 +3044,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Můj doklad';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4817,6 +4869,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomie';
 
   @override
+  String get prices_products_empty_title => 'Cena není k dispozici';
+
+  @override
+  String get prices_products_empty_explanation => 'Buďte první, kdo přispěje!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Nejlepších $pageSize produktů (celkem: $total)';
   }
@@ -5191,6 +5249,11 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Hostitel folksonomie';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Hostitel: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5600,4 +5663,28 @@ class AppLocalizationsCs extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Přidáno dne $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

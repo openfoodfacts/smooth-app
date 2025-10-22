@@ -100,7 +100,10 @@ class PageManagerState extends State<PageManager> {
               label: appLocalizations.profile_navbar_label,
             ),
             SmoothNavigationDestination(
-              icon: const icons.Search.alt(),
+              icon: const Padding(
+                padding: EdgeInsetsDirectional.only(bottom: 1.0),
+                child: icons.Search.offRounded(),
+              ),
               label: appLocalizations.scan_navbar_label,
             ),
             SmoothNavigationDestination(

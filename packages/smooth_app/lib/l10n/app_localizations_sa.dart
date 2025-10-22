@@ -1262,6 +1262,13 @@ class AppLocalizationsSa extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'न गुणाः';
+
+  @override
+  String get product_tags_explanation =>
+      'उत्पादे गुणाः (कुंजी/मूल्यं) योजयित्वा भवन्तः तस्य समृद्धीकरणे सहायतां कुर्वन्ति ।';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2647,6 +2654,13 @@ class AppLocalizationsSa extends AppLocalizations {
   String get prices_list_add_new_price => 'एकं\nनवीनं मूल्यं योजयन्तु';
 
   @override
+  String get prices_list_empty_title => 'अद्यापि मूल्यं नास्ति!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'एकं योजयितुं प्रथमः भवतु:\n**रसीद** अथवा **मूल्य टैग** स्कैन् कृत्वा!';
+
+  @override
   String get prices_entry_shop_not_found => 'अज्ञात भण्डार';
 
   @override
@@ -2734,9 +2748,22 @@ class AppLocalizationsSa extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'अद्यापि कोऽपि योगदानदाता नास्ति!';
+
+  @override
+  String get prices_users_empty_explanation => 'मूल्यं योजयितुं प्रथमः भवतु!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'अद्यापि कोऽपि दुकानः नास्ति!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'मूल्यं योजयितुं प्रथमः भवतु!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2841,7 +2868,17 @@ class AppLocalizationsSa extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'अद्यापि प्रमाणं नास्ति!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      '**रसीदस्य** अथवा **मूल्यचिह्नस्य** फोटो योजयित्वा आरभत!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2934,6 +2971,17 @@ class AppLocalizationsSa extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'एप् भाषा पुनः सेट् कुर्वन्तु';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'कार्ड्स् योजयन्तु';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) इत्यस्य मध्ये स्विच् कुर्वन्तु तथा च test env';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2975,6 +3023,11 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4791,6 +4844,12 @@ class AppLocalizationsSa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'मूल्यं उपलब्धं नास्ति';
+
+  @override
+  String get prices_products_empty_explanation => 'योगदानं दातुं प्रथमः भवतु!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5167,6 +5226,11 @@ class AppLocalizationsSa extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'लोकस्वरशास्त्र यजमान';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'यजमानः $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5574,4 +5638,28 @@ class AppLocalizationsSa extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return '$createdदिनाङ्के योजितम्';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

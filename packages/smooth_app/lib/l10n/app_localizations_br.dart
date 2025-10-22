@@ -1263,6 +1263,13 @@ class AppLocalizationsBr extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Perc\'henniezh ebet';
+
+  @override
+  String get product_tags_explanation =>
+      'Dre ouzhpennañ perzhioù (alc\'hwez/gwerzh) d\'ur produ e sikourit da binvidikaat anezhañ.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2649,6 +2656,13 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_list_add_new_price => 'Ouzhpennañ ur priz nevez\n';
 
   @override
+  String get prices_list_empty_title => 'Priz ebet c\'hoazh !';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Bezit ar c\'hentañ da ouzhpennañ unan :\nEn ur skaniñ ur **resi** pe ur **tikedenn priz** !';
+
+  @override
   String get prices_entry_shop_not_found => 'Stal dianav';
 
   @override
@@ -2737,9 +2751,23 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Kenlabourer ebet c\'hoazh !';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Bezit ar c\'hentañ da ouzhpennañ ur priz !';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Stal ebet c\'hoazh !';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Bezit ar c\'hentañ da ouzhpennañ ur priz !';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2844,7 +2872,17 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Prouenn ebet c\'hoazh !';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Kregiñ gant ouzhpennañ ul luc\'hskeudenn eus ur **resevet** pe ur **tikedenn priz** !';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2937,6 +2975,17 @@ class AppLocalizationsBr extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Adderaouekaat yezh an arload';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Ouzhpennañ kartennoù';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Tremen etre prices.openfoodfacts.org (PROD) hag env test';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2978,6 +3027,11 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4797,6 +4851,13 @@ class AppLocalizationsBr extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Priz ebet';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Bezit ar re gentañ o kemer perzh !';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5171,6 +5232,11 @@ class AppLocalizationsBr extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Aozer folksonomiezh';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ostiz : $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5581,4 +5647,28 @@ class AppLocalizationsBr extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Ouzhpennet d\'an $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

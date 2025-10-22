@@ -39,7 +39,10 @@ class SmoothBackButton extends StatelessWidget {
                       child: DecoratedBox(
                         decoration: ShapeDecoration(
                           shape: CircleBorder(
-                            side: BorderSide(color: iconColor ?? Colors.white),
+                            side: BorderSide(
+                              color: iconColor ?? Colors.white,
+                              width: 1.75,
+                            ),
                           ),
                         ),
                         child: icons.Arrow.left(

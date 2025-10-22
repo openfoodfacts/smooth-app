@@ -1262,6 +1262,13 @@ class AppLocalizationsTi extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ንብረት የለን';
+
+  @override
+  String get product_tags_explanation =>
+      'ኣብ ሓደ ፍርያት ባህርያት (ቁልፊ/ዋጋ) ብምውሳኽ፡ ንኽትህብትሞ ትሕግዝ።';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2647,6 +2654,13 @@ class AppLocalizationsTi extends AppLocalizations {
   String get prices_list_add_new_price => '\nሓድሽ ዋጋ ወስኹሉ።';
 
   @override
+  String get prices_list_empty_title => 'ገና ዋጋ የለን!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'ሓደ ክትውስኽ ቀዳማይ ኩን:\n**ቅብሊት** ወይ **ዋጋ* ብምስካን!';
+
+  @override
   String get prices_entry_shop_not_found => 'ዘይፍለጥ ድኳን';
 
   @override
@@ -2733,9 +2747,21 @@ class AppLocalizationsTi extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'ክሳብ ሕጂ ኣበርካቲ የለን!';
+
+  @override
+  String get prices_users_empty_explanation => 'ዋጋ ክትውስኽ ቀዳማይ ኩን!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'ገና ድኳን የለን!';
+
+  @override
+  String get prices_locations_empty_explanation => 'ዋጋ ክትውስኽ ቀዳማይ ኩን!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2840,7 +2866,17 @@ class AppLocalizationsTi extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'ዛጊት መርትዖ የለን!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'ስእሊ ናይ **ቅብሊት** ወይ **ዋጋ ምልክት** ብምውሳኽ ጀምር!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2933,6 +2969,16 @@ class AppLocalizationsTi extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'ቋንቋ ኣፕ ዳግማይ ምትካል';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'ካርድታት ምውሳኽ';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'ኣብ መንጎ prices.openfoodfacts.org (PROD)ን test envን ምቕያር';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2974,6 +3020,11 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4779,6 +4830,12 @@ class AppLocalizationsTi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'ዋጋ የለን';
+
+  @override
+  String get prices_products_empty_explanation => 'ቀዳማይ ኣበርክቶ ግበሩ!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5142,6 +5199,11 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ፎልክሶኖሚ ኣአንጋዲ';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'ኣአንጋዲ፡ $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5527,4 +5589,28 @@ class AppLocalizationsTi extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'ኣብ $createdተወሰኸ';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

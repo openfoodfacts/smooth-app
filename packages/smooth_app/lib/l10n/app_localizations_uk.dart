@@ -1282,6 +1282,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Властивості продукту не знайдено. Властивості можна використовувати для більш детального опису продуктів у гнучкий спосіб. Торкніться, щоб додати.';
 
   @override
+  String get product_tags_empty => 'Немає властивостей';
+
+  @override
+  String get product_tags_explanation =>
+      'Додаючи властивості (ключ/значення) до продукту, ви допомагаєте його збагатити.';
+
+  @override
   String get add_tag => 'Додати властивість';
 
   @override
@@ -2679,6 +2686,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_list_add_new_price => 'Додати нову ціну\n';
 
   @override
+  String get prices_list_empty_title => 'Ціни ще немає!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Додайте першим:\nВідскануйте **чек** або **цінник**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Невідомий магазин';
 
   @override
@@ -2767,9 +2781,23 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Ще немає учасників!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Будьте першим, хто додасть ціну!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Топ $pageSize учасників (всього: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Магазину ще немає!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Будьте першим, хто додасть ціну!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2874,7 +2902,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_proof_subtitle => 'Доказ';
 
   @override
+  String get prices_proof_empty_title => 'Поки що немає доказів!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Почніть із додавання фотографії **чек** або **цінника**!';
+
+  @override
   String get prices_proof_find => 'Виберіть доказ';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Квитанція';
@@ -2969,6 +3007,16 @@ class AppLocalizationsUk extends AppLocalizations {
       '(Інгредієнти та упаковка)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'Скинути мову програми';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Додати картки';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Перемикання між prices.openfoodfacts.org (PROD) та тестовим середовищем';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Повторно використовуйте та редагуйте цей пошук';
 
@@ -3011,6 +3059,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'Мої докази';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4846,6 +4899,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Ціна недоступна';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Будьте першим, хто зробить свій внесок!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Топ $pageSize продуктів (всього: $total)';
   }
@@ -5227,6 +5287,11 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Ведучий фолксономії';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Ведучий: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5637,4 +5702,28 @@ class AppLocalizationsUk extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Додано $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

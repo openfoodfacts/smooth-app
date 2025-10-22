@@ -144,7 +144,7 @@ class AppBarBackgroundPainter extends CustomPainter {
           bottomRight: borderRadius.bottomRight,
         ),
       );
-    canvas.drawShadow(path, shadowColor, (offset / 2.0).clamp(0.0, 5.0), false);
+    canvas.drawShadow(path, shadowColor, offset.clamp(0.0, 2.0), false);
   }
 
   void _drawFooterBackground(Canvas canvas, Size size) {

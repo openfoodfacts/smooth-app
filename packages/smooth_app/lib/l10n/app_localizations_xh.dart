@@ -1262,6 +1262,13 @@ class AppLocalizationsXh extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Akukho propati';
+
+  @override
+  String get product_tags_explanation =>
+      'Ngokudibanisa iipropati (isitshixo / ixabiso) kwimveliso, unceda ukuyityebisa.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2648,6 +2655,13 @@ class AppLocalizationsXh extends AppLocalizations {
   String get prices_list_add_new_price => 'Yongeza i\nixabiso elitsha';
 
   @override
+  String get prices_list_empty_title => 'Akukho xabiso okwangoku!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Yiba ngowokuqala ukongeza enye:\nNgokuskena **isiliphu** okanye **ithegi yexabiso**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Ivenkile engaziwayo';
 
   @override
@@ -2737,9 +2751,23 @@ class AppLocalizationsXh extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Akukho galelo okwangoku!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Yiba ngowokuqala ukongeza ixabiso!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Akukho venkile okwangoku!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Yiba ngowokuqala ukongeza ixabiso!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2844,7 +2872,17 @@ class AppLocalizationsXh extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Akukho bungqina okwangoku!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Qala ngokongeza ifoto **yerisithi** okanye **ithegi yexabiso**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2937,6 +2975,17 @@ class AppLocalizationsXh extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Lungisa kwakhona ulwimi lwe-app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Yongeza amakhadi';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Tshintsha phakathi kwamaxabiso.openfoodfacts.org (PROD) kunye novavanyo env';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2978,6 +3027,11 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4797,6 +4851,13 @@ class AppLocalizationsXh extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'Akukho xabiso likhoyo';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Yiba ngowokuqala ukufaka isandla!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5172,6 +5233,11 @@ class AppLocalizationsXh extends AppLocalizations {
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
       'Umamkeli weFolksonomy';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Umamkeli: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5581,4 +5647,28 @@ class AppLocalizationsXh extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Yongezwe kwi $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

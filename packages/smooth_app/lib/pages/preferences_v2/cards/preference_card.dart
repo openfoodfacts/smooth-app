@@ -14,7 +14,7 @@ class PreferenceCard extends StatelessWidget {
   PreferenceCard({
     required this.tiles,
     this.title,
-    this.gridView = false,
+    this.grid = false,
     this.header,
     this.titleBackgroundColor,
     this.bannerText,
@@ -28,7 +28,7 @@ class PreferenceCard extends StatelessWidget {
          'PreferenceCard must contain at least one tile.',
        ),
        assert(
-         !gridView ||
+         !grid ||
              tiles.every(
                (PreferenceTile tile) =>
                    tile.runtimeType == SquarePreferenceTile,
@@ -36,13 +36,13 @@ class PreferenceCard extends StatelessWidget {
          'When gridView is true, all tiles must be of type SquarePreferenceTile.',
        ),
        assert(
-         header == null || !gridView,
+         header == null || !grid,
          'Header must be null when gridView is true.',
        );
 
   final String? title;
   final List<PreferenceTile> tiles;
-  final bool gridView;
+  final bool grid;
   final Widget? header;
   final Color? titleBackgroundColor;
   final String? bannerText;
@@ -51,7 +51,8 @@ class PreferenceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const double leadingMargin = 6.0;
 
-    final bool darkTheme = context.darkTheme();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return SmoothCardWithRoundedHeader(
       leading: EMPTY_WIDGET,
@@ -65,7 +66,13 @@ class PreferenceCard extends StatelessWidget {
         context,
       ).textTheme.displaySmall!.copyWith(fontSize: 16.5),
       titleBackgroundColor:
-          titleBackgroundColor ?? (darkTheme ? Colors.black87 : null),
+          titleBackgroundColor ??
+          context.nullableColorThemeValue(
+            light: null,
+            dark: Colors.black87,
+            amoled: extension.primaryUltraBlack.withValues(alpha: 0.6),
+          ),
+
       banner: bannerText != null
           ? Padding(
               padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
@@ -73,24 +80,28 @@ class PreferenceCard extends StatelessWidget {
             )
           : null,
       titleSpacing: MEDIUM_SPACE * 2 - leadingMargin / 2,
-      contentPadding: !gridView ? EdgeInsetsDirectional.zero : null,
+      contentPadding: !grid ? EdgeInsetsDirectional.zero : null,
       clipBehavior: Clip.antiAlias,
-      contentBackgroundColor: (darkTheme
-          ? context.extension<SmoothColorsThemeExtension>().primaryUltraBlack
-          : null),
-      child: gridView
-          ? GridView.count(
-              crossAxisCount: 3,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsetsDirectional.only(
-                bottom: MEDIUM_SPACE,
-                start: MEDIUM_SPACE,
-                end: MEDIUM_SPACE,
+      contentBackgroundColor: context.colorThemeValue(
+        light: Colors.white,
+        dark: extension.primaryUltraBlack,
+        amoled: extension.primaryUltraBlack,
+      ),
+      child: grid
+          ? IntrinsicHeight(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: MEDIUM_SPACE,
+                  start: MEDIUM_SPACE,
+                  end: MEDIUM_SPACE,
+                ),
+                child: Row(
+                  spacing: MEDIUM_SPACE,
+                  children: tiles
+                      .map((PreferenceTile tile) => Expanded(child: tile))
+                      .toList(growable: false),
+                ),
               ),
-              mainAxisSpacing: MEDIUM_SPACE,
-              crossAxisSpacing: MEDIUM_SPACE,
-              children: tiles,
             )
           : Column(
               children: <Widget>[

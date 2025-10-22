@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +395,7 @@
   "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribuez à Open Food Facts. Rejoignez la réserve de compétences !",
-  "contribute_share_header": "Partagez Open Food Facts avec vos amis",
+  "contribute_share_header": "Partagez Open Food Facts à vos amis",
   "@contribute_share_header": {},
   "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
   "@contribute_share_content": {
@@ -1010,6 +1010,8 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Aucune propriété",
+  "product_tags_explanation": "En ajoutant des propriétés (clé / valeur) à un produit, vous permettez de l’enrichir.",
   "add_tag": "Ajouter une propriété",
   "add_tags": "Ajouter des propriétés",
   "add_edit_tags": "Ajouter ou modifier des propriétés",
@@ -2159,7 +2161,7 @@
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Tester les paramètres d'environnement",
+  "dev_preferences_test_environment_title": "Adresse de l'environnement de TEST",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
@@ -2389,6 +2391,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Pas encore de prix !",
+  "prices_list_empty_subtitle": "Soyez le premier à en ajouter un :\nEn scannant un **reçu** ou une **étiquette de prix** !",
   "prices_entry_shop_not_found": "Magasin inconnu",
   "prices_entry_menu_title": "Entrée de prix de \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2489,6 +2493,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Aucun contributeur pour le moment !",
+  "prices_users_empty_explanation": "Soyez le premier à ajouter un prix !",
   "prices_users_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2507,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Pas encore de boutique !",
+  "prices_locations_empty_explanation": "Soyez le premier à ajouter un prix !",
   "prices_locations_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,6 +2573,8 @@
   "prices_location_mandatory": "Vous devez choisir un magasin !",
   "prices_location_search_broader": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayons une recherche plus large !",
   "prices_proof_subtitle": "Preuve",
+  "prices_proof_empty_title": "Aucune preuve pour l'instant !",
+  "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
   "prices_proof_find": "Choisir une preuve",
   "prices_proof_receipt": "Ticket de caisse",
   "prices_proof_price_tag": "Étiquette de prix",
@@ -2632,6 +2642,18 @@
   "dev_mode_spellchecker_for_ocr_subtitle": "(Ingrédients et emballage)",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
+  },
+  "dev_mode_reset_app_language_title": "Réinitialiser la langue de l'application",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Ajouter des cartes",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Basculer entre prices.openfoodfacts.org (PROD) et l'environnement de test",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Réutiliser et modifier cette recherche",
   "@search_history_item_edit_tooltip": {
@@ -4338,6 +4360,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "prices_products_empty_title": "Aucun prix disponible",
+  "prices_products_empty_explanation": "Soyez le premier à contribuer !",
   "prices_products_list_length_many_pages": "Meilleurs {pageSize} produits  (total : {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4818,6 +4842,15 @@
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Hôte : {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
   "preferences_dev_mode_accessibility_experiments_title": "Expériences d'accessibilité",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"
@@ -5114,7 +5147,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5298,7 +5331,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Apportez Open Food Facts à votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

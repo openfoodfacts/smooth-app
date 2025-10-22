@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -157,8 +158,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                       _obscureText = !_obscureText;
                     }),
                     icon: _obscureText
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
+                        ? const icons.Eye.invisible(size: 18.0)
+                        : const icons.Eye.visible(size: 18.0),
                   )
                 : null),
         errorMaxLines: widget.maxLines ?? 2,

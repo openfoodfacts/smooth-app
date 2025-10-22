@@ -1262,6 +1262,13 @@ class AppLocalizationsMl extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'പ്രോപ്പർട്ടികൾ ഇല്ല';
+
+  @override
+  String get product_tags_explanation =>
+      'ഒരു ഉൽപ്പന്നത്തിലേക്ക് പ്രോപ്പർട്ടികൾ (കീ/മൂല്യം) ചേർക്കുന്നതിലൂടെ, നിങ്ങൾ അതിനെ സമ്പന്നമാക്കാൻ സഹായിക്കുന്നു.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -2648,6 +2655,13 @@ class AppLocalizationsMl extends AppLocalizations {
   String get prices_list_add_new_price => '\nപുതിയ വില ചേർക്കുക';
 
   @override
+  String get prices_list_empty_title => 'ഇതുവരെ വിലയില്ല!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      '**രസീത്** അല്ലെങ്കിൽ **പ്രൈസ് ടാഗ്** സ്കാൻ ചെയ്തുകൊണ്ട്\nചേർക്കുന്ന ആദ്യത്തെയാളാകൂ!';
+
+  @override
   String get prices_entry_shop_not_found => 'അജ്ഞാത സ്റ്റോർ';
 
   @override
@@ -2736,9 +2750,22 @@ class AppLocalizationsMl extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'ഇതുവരെ ഒരു സംഭാവകനുമില്ല!';
+
+  @override
+  String get prices_users_empty_explanation => 'വില ചേർക്കുന്ന ആദ്യത്തെയാളാകൂ!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'ഇതുവരെ കടയില്ല!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'വില ചേർക്കുന്ന ആദ്യത്തെയാളാകൂ!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2843,7 +2870,17 @@ class AppLocalizationsMl extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'ഇതുവരെ തെളിവില്ല!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'ഒരു **രസീതിന്റെ** ഫോട്ടോയോ **പ്രൈസ് ടാഗിന്റെ** ഫോട്ടോയോ ചേർത്ത് ആരംഭിക്കൂ!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2936,6 +2973,16 @@ class AppLocalizationsMl extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'ആപ്പ് ഭാഷ പുനഃസജ്ജമാക്കുക';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'കാർഡുകൾ ചേർക്കുക';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'prices.openfoodfacts.org (PROD) ഉം test env ഉം തമ്മിൽ മാറുക';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
@@ -2977,6 +3024,11 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -4794,6 +4846,13 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get prices_products_empty_title => 'വില ലഭ്യമല്ല.';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'സംഭാവന ചെയ്യുന്ന ആദ്യത്തെയാളാകൂ!';
+
+  @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize products (total: $total)';
   }
@@ -5172,6 +5231,11 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title => 'ഫോക്സോണമി ഹോസ്റ്റ്';
+
+  @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'ഹോസ്റ്റ്: $host';
+  }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
@@ -5580,4 +5644,28 @@ class AppLocalizationsMl extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return '$created-ൽ ചേർത്തു';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }
