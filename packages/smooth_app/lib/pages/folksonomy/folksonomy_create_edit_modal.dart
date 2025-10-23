@@ -168,7 +168,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             autocompleteManager: AutocompleteManager(
               const FolksonomyKeysAutocompleter(limit: 10),
             ),
-            suffixIcon: const icons.Search(),
+            suffixIcon: const icons.Search.offRounded(),
           ),
           const SizedBox(height: LARGE_SPACE),
           _FolksonomyEditTagContentTitle(
@@ -193,7 +193,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
                     limit: _autocompleteSuggestionsLimit,
                   ),
                 ),
-                suffixIcon: const icons.Search(),
+                suffixIcon: const icons.Search.offRounded(),
               );
             },
           ),
