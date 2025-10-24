@@ -80,11 +80,8 @@ Widget build(BuildContext context) {
     child: Material(
       color: extension.success,
       child: InkWell(
-        onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute&lt;void&gt;(
-            builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
-          ),
-        ),
+        onTap: () =&gt;
+            AppNavigator.of(context).push(AppRoutes.GUIDE_NUTRISCORE_V2),
         child: IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,

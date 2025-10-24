@@ -87,7 +87,11 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_faq_discover_project_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildDiscoverOffTile(appLocalizations),
+        _buildDiscoverOffTile(context, appLocalizations),
+        _buildDiscoverObfTile(context, appLocalizations),
+        _buildDiscoverOpffTile(context, appLocalizations),
+        _buildDiscoverOpfTile(context, appLocalizations),
+        _buildDiscoverOpTile(context, appLocalizations),
         _buildHowToContributeTile(appLocalizations),
         _buildFaqTile(appLocalizations),
       ],

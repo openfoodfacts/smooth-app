@@ -83,11 +83,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
   _getListTile(
     title: appLocalizations.faq_nutriscore_nutriscore,
     leadingSvg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
-    onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-      MaterialPageRoute&lt;void&gt;(
-        builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
-      ),
-    ),
+    onTap: () =&gt; AppNavigator.of(context).push(AppRoutes.GUIDE_NUTRISCORE_V2),
 
     &#47;&#47;&#47; Hide the icon
     icon: const Icon(Icons.info, size: 0.0),
@@ -100,11 +96,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
   _getListTile(
     title: appLocalizations.nova_group_generic_new,
     leadingSvg: &#39;assets&#47;cache&#47;nova-group-4.svg&#39;,
-    onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-      MaterialPageRoute&lt;void&gt;(
-        builder: (BuildContext context) =&gt; const GuideNOVA(),
-      ),
-    ),
+    onTap: () =&gt; AppNavigator.of(context).push(AppRoutes.GUIDE_NOVA),
 
     &#47;&#47;&#47; Hide the icon
     icon: const Icon(Icons.info, size: 0.0),
