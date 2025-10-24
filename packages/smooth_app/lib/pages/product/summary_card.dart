@@ -51,6 +51,7 @@ class SummaryCard extends StatefulWidget {
     this.contentPadding,
     this.buttonPadding,
     this.heroTag,
+    this.borderRadius,
   });
 
   final Product _product;
@@ -94,6 +95,8 @@ class SummaryCard extends StatefulWidget {
 
   final bool scrollableContent;
 
+  final BorderRadius? borderRadius;
+
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -125,6 +128,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
+        borderRadius: widget.borderRadius,
       );
     } else {
       return _buildLimitedSizeSummaryCard();
@@ -143,7 +147,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             vertical: VERY_SMALL_SPACE,
           ),
       child: ClipRRect(
-        borderRadius: ROUNDED_BORDER_RADIUS,
+        borderRadius: widget.borderRadius ?? BorderRadius.zero,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -152,7 +156,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                   padding: widget.contentPadding ?? SMOOTH_CARD_PADDING,
                   child: _buildSummaryCardContent(context),
                 ),
-                borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+                borderRadius: widget.borderRadius,
                 margin: EdgeInsets.zero,
               ),
             ),
@@ -165,9 +169,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 color: context.lightTheme()
                     ? themeExtension.primaryDark
                     : themeExtension.primarySemiDark,
-                borderRadius: const BorderRadius.vertical(
-                  bottom: ROUNDED_RADIUS,
-                ),
+                borderRadius:
+                    widget.borderRadius ??
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
