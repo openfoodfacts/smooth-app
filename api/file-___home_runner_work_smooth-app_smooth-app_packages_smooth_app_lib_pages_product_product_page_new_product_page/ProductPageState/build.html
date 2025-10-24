@@ -104,7 +104,12 @@ Widget build(BuildContext context) {
         value: _scrollController,
       ),
     ],
-    child: _buildTabLayout(hasPendingOperations),
+    child: ProductPageTabController(
+      product: upToDateProduct,
+      childBuilder: (List&lt;ProductPageTab&gt; tabs, TabController tabController) {
+        return _buildTabLayout(hasPendingOperations, tabs, tabController);
+      },
+    ),
   );
 }</code></pre>
 </section>
