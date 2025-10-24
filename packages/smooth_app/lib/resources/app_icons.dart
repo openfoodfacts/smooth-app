@@ -2615,6 +2615,24 @@ class Team extends AppIcon {
   }) : super._(_IconsFont.team);
 }
 
+class Thumb extends AppIcon {
+  const Thumb.down({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.thumb_down);
+
+  const Thumb.up({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.thumb_up);
+}
+
 class Traces extends AppIcon {
   const Traces({
     super.color,

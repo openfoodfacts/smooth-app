@@ -21,6 +21,7 @@ class PreferenceTile extends StatelessWidget {
     this.trailing,
     this.onTap,
     this.padding,
+    this.borderRadius,
     super.key,
   }) : assert(
          (subtitleText != null && subtitle == null) ||
@@ -42,6 +43,7 @@ class PreferenceTile extends StatelessWidget {
   final Widget? trailing;
   final Function()? onTap;
   final EdgeInsetsDirectional? padding;
+  final BorderRadius? borderRadius;
 
   String get keywords =>
       '${title.toLowerCase()} ${subtitleText?.toLowerCase() ?? ''}';
@@ -59,6 +61,7 @@ class PreferenceTile extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
+      borderRadius: borderRadius,
       child: ConstrainedBox(
         constraints: BoxConstraints(
           minHeight: subtitle != null || subtitleText != null ? 68.0 : 61.0,

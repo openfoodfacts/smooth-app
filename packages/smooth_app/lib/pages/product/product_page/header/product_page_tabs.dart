@@ -195,20 +195,36 @@ class ProductPageTabsGenerator {
           padding: EdgeInsetsDirectional.zero,
           children: <Widget>[PricesCard(product)],
         ),
-        prefix: FutureBuilder<int?>(
+        suffix: FutureBuilder<int?>(
           future: _getPricesTotal(product, context),
           builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
             if (!snapshot.hasData || snapshot.data == null) {
               return EMPTY_WIDGET;
             }
-            return SmoothCircle(
-              color: context
-                  .extension<SmoothColorsThemeExtension>()
-                  .secondaryNormal,
-              padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+            return Container(
+              constraints: const BoxConstraints(
+                minWidth: VERY_SMALL_SPACE * 2 + 16.0,
+              ),
+              decoration: BoxDecoration(
+                color: context
+                    .extension<SmoothColorsThemeExtension>()
+                    .secondaryNormal,
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: 6.0,
+              ),
               child: Text(
-                snapshot.data!.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                (snapshot.data == null || snapshot.data == 0)
+                    ? '-'
+                    : snapshot.data!.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.0,
+                  height: 1.0,
+                ),
               ),
             );
           },

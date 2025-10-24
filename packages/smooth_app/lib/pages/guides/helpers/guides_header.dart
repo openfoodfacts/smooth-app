@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A collapsing header with:
 /// In the expanded state:
@@ -21,8 +22,6 @@ class GuidesHeader extends StatelessWidget {
     required this.illustration,
     super.key,
   });
-
-  static const double HEADER_HEIGHT = 250.0;
 
   final String title;
   final Widget illustration;
@@ -41,6 +40,7 @@ class GuidesHeader extends StatelessWidget {
             title: title,
             illustration: illustration,
             topPadding: MediaQuery.viewPaddingOf(context).top,
+            height: context.read<GuidesHeaderType>().height,
           ),
         ),
       ),
@@ -48,17 +48,28 @@ class GuidesHeader extends StatelessWidget {
   }
 }
 
+enum GuidesHeaderType {
+  large(250.0),
+  small(200.0);
+
+  const GuidesHeaderType(this.height);
+
+  final double height;
+}
+
 class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
   const _GuidesHeaderDelegate({
     required this.title,
     required this.illustration,
     required this.topPadding,
+    required this.height,
   }) : assert(title.length > 0),
        assert(topPadding >= 0.0);
 
   final String title;
   final Widget illustration;
   final double topPadding;
+  final double height;
 
   @override
   Widget build(
@@ -84,7 +95,9 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               bottom: HEADER_ROUNDED_RADIUS * (1.0 - progress),
             ),
           ),
-          color: colors.primaryDark,
+          color: context.lightTheme()
+              ? colors.primaryDark
+              : colors.primaryUltraBlack,
           shadows: <BoxShadow>[
             BoxShadow(
               color: Colors.black.withValues(
@@ -109,9 +122,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                   child: OverflowBox(
                     fit: OverflowBoxFit.deferToChild,
                     maxHeight:
-                        GuidesHeader.HEADER_HEIGHT -
-                        10.0 -
-                        _CloseButtonLayout._CLOSE_BUTTON_SIZE,
+                        height - 10.0 - _CloseButtonLayout._CLOSE_BUTTON_SIZE,
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
@@ -134,7 +145,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               LayoutId(
                 id: _GuidesHeaderLayoutId.illustration,
                 child: OverflowBox(
-                  maxHeight: GuidesHeader.HEADER_HEIGHT - 33.0,
+                  maxHeight: height - 33.0,
                   fit: OverflowBoxFit.deferToChild,
                   child: Offstage(
                     offstage: progress == 1.0,
@@ -175,7 +186,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => GuidesHeader.HEADER_HEIGHT + topPadding;
+  double get maxExtent => height + topPadding;
 
   @override
   double get minExtent => kToolbarHeight + topPadding;

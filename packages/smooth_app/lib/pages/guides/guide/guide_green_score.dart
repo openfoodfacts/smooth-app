@@ -174,7 +174,9 @@ class _GreenScoreLogos extends StatelessWidget {
                       .map(
                         (String path) => Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsetsDirectional.all(
+                              SMALL_SPACE,
+                            ),
                             child: SvgPicture(
                               AssetBytesLoader(path),
                               width: maxWidth / (assets.length + 1),

@@ -39,6 +39,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData aperture = IconData(
+    0xe806,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData check = IconData(
     0xe807,
     fontFamily: _kFontFam,
@@ -81,6 +86,11 @@ class _IconsFont {
   );
   static const IconData environment = IconData(
     0xe80f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData thumb_up = IconData(
+    0xe810,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -649,11 +659,6 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData aperture = IconData(
-    0xe887,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
   static const IconData copy = IconData(
     0xe888,
     fontFamily: _kFontFam,
@@ -1031,6 +1036,11 @@ class _IconsFont {
   );
   static const IconData city = IconData(
     0xe916,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData thumb_down = IconData(
+    0xe917,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

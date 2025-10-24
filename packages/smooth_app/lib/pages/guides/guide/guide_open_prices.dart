@@ -4,11 +4,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
+import 'package:smooth_app/pages/guides/helpers/guides_extra.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:vector_graphics/vector_graphics.dart';
 
 class GuideOpenPrices extends StatelessWidget {
   const GuideOpenPrices({super.key});
@@ -17,7 +19,7 @@ class GuideOpenPrices extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return GuidesPage(
+    return GuidesPage.smallHeader(
       pageName: 'OpenPrices',
       header: const _OpenPricesHeader(),
       body: const <Widget>[
@@ -55,16 +57,18 @@ class _OpenPricesHeaderIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return const Align(
       alignment: AlignmentDirectional.centerEnd,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Expanded(
             flex: 32,
-            child: SvgPicture.asset(
-              'assets/guides/open_prices/open_prices_logo.svg',
-              width: 120.0,
+            child: SvgPicture(
+              AssetBytesLoader(
+                'assets/guides/open_prices/open_prices_logo.svg.vec',
+              ),
+              width: 140.0,
             ),
           ),
         ],
@@ -103,6 +107,7 @@ class _OpenPricesSection2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
+    final int ratio = MediaQuery.devicePixelRatioOf(context).toInt();
 
     return GuidesParagraph(
       title: appLocalizations.guide_open_prices_how_title,
@@ -116,8 +121,12 @@ class _OpenPricesSection2 extends StatelessWidget {
             children: <Widget>[
               ClipRRect(
                 borderRadius: ROUNDED_BORDER_RADIUS,
-                child: Image.network(
-                  'https://prices.openfoodfacts.org/img/0029/nCWeCVnpQJ.400.webp',
+                child: Image.asset(
+                  'assets/guides/open_prices/price_tags.webp',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 260.0,
+                  cacheHeight: 260 * ratio,
                 ),
               ),
               ClipRRect(
@@ -132,6 +141,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     title: appLocalizations.prices_add_price_tags,
                     subtitleText: appLocalizations
                         .preferences_prices_add_price_tags_subtitle,
+                    borderRadius: ROUNDED_BORDER_RADIUS,
                     onTap: () async => ProductPriceAddPage.showProductPage(
                       context: context,
                       proofType: ProofType.priceTag,
@@ -153,10 +163,11 @@ class _OpenPricesSection2 extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Expanded(
-                      child: Image.network(
-                        'https://prices.openfoodfacts.org/img/0064/B7XwYylM6V.400.webp',
+                      child: Image.asset(
+                        'assets/guides/open_prices/price_receipt.webp',
                         fit: BoxFit.cover,
-                        height: 260.0,
+                        height: 240.0,
+                        cacheHeight: 240 * ratio,
                       ),
                     ),
                   ],
@@ -174,6 +185,7 @@ class _OpenPricesSection2 extends StatelessWidget {
                     title: appLocalizations.prices_add_a_receipt,
                     subtitleText: appLocalizations
                         .preferences_prices_add_receipt_subtitle,
+                    borderRadius: ROUNDED_BORDER_RADIUS,
                     onTap: () async => ProductPriceAddPage.showProductPage(
                       context: context,
                       proofType: ProofType.receipt,
@@ -202,14 +214,16 @@ class _OpenPricesSection3 extends StatelessWidget {
         GuidesText(text: appLocalizations.guide_open_prices_why_paragraph1),
         GuidesTitleWithText(
           title: appLocalizations.guide_open_prices_why_arg1_title,
-          icon: const icons.Salt(),
+          icon: const icons.Graph(),
           text: appLocalizations.guide_open_prices_why_arg1_text,
         ),
+        const GuidesComingSoonLabel(),
         GuidesTitleWithText(
           title: appLocalizations.guide_open_prices_why_arg2_title,
           icon: const icons.Location(),
           text: appLocalizations.guide_open_prices_why_arg2_text,
         ),
+        const GuidesComingSoonLabel(),
       ],
     );
   }
