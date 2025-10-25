@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Морска и сладка вода (частици, подкиселяване, еутрофикация)",
   "guide_greenscore_lca_arg3_text8": "Изчерпване на ресурсите.",
   "guide_greenscore_bonuses_penalties_title": "Бонуси и наказания",
-  "guide_greenscore_bonuses_penalties_intro": "За да възнаградим по-добрите продукти в дадена категория, ние прилагаме бонуси и санкции въз основа на няколко критерия:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Начин на производство",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Бонус се присъжда на продукти, които имат официален етикет, етикет или сертификат, който гарантира ползи за околната среда (органичен, справедлива търговия, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Произход на съставките",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус се присъжда въз основа на произхода на съставките. Този бонус отчита въздействието върху транспорта, както и екологичната политика на всяка страна производител.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Застрашени видове",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Налага се наказание на продуктите, които съдържат съставки, които имат значително отрицателно въздействие върху биоразнообразието и екосистемите, като палмово масло, чието производство е отговорно за масово обезлесяване.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Опаковка",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Неустойката се изчислява, за да се вземе предвид кръговостта на опаковката (използване на рециклирана суровина и възможност за рециклиране) и свръхопаковане.",
+
   "guide_greenscore_transparency_title": "Повишена нужда от прозрачност за по-добро измерване и намаляване на въздействието върху околната среда",
-  "guide_greenscore_transparency_intro1": "За да се изчисли точно Green-Score, е необходимо да има информация, която не е задължително да е посочена на опаковката (като произхода и точния процент на всяка съставка) или която рядко е налична в използваема форма (като списък на всички компоненти на опаковката с точните видове използвани пластмаси).",
-  "guide_greenscore_transparency_intro2": "Средните стойности се използват, когато тази информация все още не е налична, но сега призоваваме всички да ни помогнат да съберем тази информация, която ще бъде много полезна за Green-Score, но и за много други приложения.",
-  "guide_greenscore_transparency_arg1_title": "Как гражданите могат да помогнат",
-  "guide_greenscore_transparency_arg1_text": "Всички граждани могат да ни помогнат да съберем и структурираме информацията, която се намира върху продуктите или която може да бъде извлечена от тях, като например информацията върху опаковките: Mission Emballages: мащабен съвместен инвентар на опаковките за всички хранителни продукти (на френски език)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Как производителите могат да помогнат",
   "guide_greenscore_transparency_arg2_text": "Производителите могат да ни изпращат информацията си директно чрез нашата безплатна платформа за производители.",
   "guide_greenscore_better_product_title": "Кой продукт е по-добър за планетата?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4-те NOVA групи",
   "guide_nova_groups_intro": "Има 4 групи NOVA, като проблемната е Група 4 - Ултрапреработени храни.",
   "guide_nova_groups_arg1_title": "Минимално преработени или непреработени храни",
-  "guide_nova_groups_arg1_text": "Непреработените (или натурални) храни са ядливите части на растения (семена, плодове, листа, стъбла, корени) или животни (мускули, карантии, яйца, мляко), както и гъби, водорасли и вода, след като са отделени от природата.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Преработени кулинарни съставки",
-  "guide_nova_groups_arg2_text": "Преработените кулинарни съставки, като масла, захар и сол, са вещества, получени от храни от Група 1 или от природата чрез процеси, които включват пресоване, рафиниране, смилане, фрезоване и сушене.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Преработени храни",
-  "guide_nova_groups_arg3_text": "Преработените храни, като например консервирани зеленчуци, консервирана риба, плодове в сироп, сирена и прясно приготвен хляб, се произвеждат предимно чрез добавяне на сол, олио, захар или други вещества от Група 2 към храни от Група 1. Процесите включват различни методи за консервиране или готвене, а в случая на хляб и сирене - безалкохолна ферментация. Повечето преработени храни имат две или три съставки и са разпознаваеми като модифицирани версии на храни от Група 1. Те могат да се консумират самостоятелно или, по-често, в комбинация с други храни.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include Various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. They can Be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Свръхпреработени храни",
-  "guide_nova_groups_arg4_text": "Ултрапреработените храни, като безалкохолни напитки, сладки или солени пакетирани закуски, реконституирани месни продукти и предварително приготвени замразени ястия, не са просто модифицирани храни, а формули, направени предимно или изцяло от вещества, получени от храни и добавки, с малко или никакво съдържание на непокътнати храни от Група 1. Съставките в тези формули обикновено включват тези, които се намират и в преработените храни, като захари, масла, мазнини или сол. Ултрапреработените продукти обаче съдържат и други източници на енергия и хранителни вещества, които обикновено не се използват в кулинарните приготовления. Някои от тях са директно извлечени от храни, като казеин, лактоза, суроватка и глутен.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. Ingredients In these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-Processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are Directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Проблемите с ултра-обработката",
   "guide_nova_explanations_arg1_title": "Екстремна обработка на хранителни съставки",
-  "guide_nova_explanations_arg1_text": "Много от тях се получават чрез по-нататъшна обработка на хранителни съставки, като хидрогенирани или интерестерифицирани масла, хидролизирани протеини, соев протеинов изолат, малтодекстрин, инвертна захар и царевичен сироп с високо съдържание на фруктоза.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Добавки, които надхвърлят чистата безопасност на храните",
-  "guide_nova_explanations_arg2_text": "Добавките в ултрапреработените храни включват някои, които се използват и в преработените храни, като консерванти, антиоксиданти и стабилизатори. Класовете добавки, които се срещат само в ултрапреработените продукти, включват тези, използвани за имитиране или подобряване на сензорните качества на храните или за прикриване на неприятни аспекти на крайния продукт. Тези добавки включват оцветители и други цветове, стабилизатори на цветовете; ароматизатори, подобрители на вкуса, подсладители без захар; и помощни вещества за обработка, като карбонизиращи, втвърдяващи, обемни и антиобемни агенти, обезпенващи, антислепващи и глазиращи агенти, емулгатори, секвестранти и овлажнители.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Обработка, която не можете да направите у дома",
-  "guide_nova_explanations_arg3_text": "Използва се множество последователности от процеси, за да се комбинират обикновено многото съставки и да се създаде крайният продукт (оттук и „ултраобработен“). Процесите включват няколко без местни еквиваленти, като хидрогениране и хидролизация, екструдиране и формоване, както и предварителна обработка за пържене.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Хищническите и финансовите аспекти на ултра-преработката",
-  "guide_nova_explanations_arg4_text": "Общата цел на ултрапреработката е да се създадат маркови, удобни (трайни, готови за консумация), атрактивни (свръхвкусни) и високорентабилни (с евтини съставки) хранителни продукти, предназначени да изместят всички останали хранителни групи. Ултрапреработените хранителни продукти обикновено са атрактивно опаковани и се предлагат на пазара интензивно.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

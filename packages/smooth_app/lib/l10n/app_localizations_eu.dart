@@ -2951,6 +2951,9 @@ class AppLocalizationsEu extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4367,7 +4370,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Kategoria bateko produktu hobeak saritzeko, hainbat irizpideren araberako hobariak eta zigorrak aplikatzen ditugu:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4375,7 +4378,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4383,7 +4386,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Osagaien jatorriaren araberako hobari bat ematen da. Hobari honek garraioan duen eragina eta ekoizle bakoitzaren herrialdeko ingurumen-politika kontuan hartzen ditu.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4391,14 +4394,14 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Ontziratzea';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4406,19 +4409,19 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Green-Score zehatz-mehatz kalkulatzeko, ontzian zehaztuta ez dagoen informazioa izan behar da (adibidez, osagai bakoitzaren jatorria eta ehuneko zehatza) edo gutxitan eskuragarri dagoen informazioa (adibidez, ontziko osagai guztien zerrenda, erabilitako plastiko mota zehatzekin).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Batez besteko balioak erabiltzen dira informazio hori oraindik eskuragarri ez dagoenean, baina orain guztioi dei egiten dizuegu informazio hau biltzen laguntzeko, oso erabilgarria izango baita Green-Score-rako, baina baita beste hainbat erabilerarako ere.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Nola lagundu dezaketen herritarrek';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Herritar guztiek lagun diezagukete produktuetan dagoen edo horietatik ondoriozta daitekeen informazioa biltzen eta egituratzen, hala nola ontziei buruzko informazioa: Emballages Misioa: elikagai-produktu guztien ontzien inbentario kolaboratibo handia (frantsesez)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4493,7 +4496,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Prozesatu gabeko (edo elikagai naturalak) landareen (haziak, fruituak, hostoak, zurtoinak, sustraiak) edo animalien (giharrak, erraiak, arrautzak, esnea) atal jangarriak dira, baita onddoak, algak eta ura ere, naturatik bereizi ondoren.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title =>
@@ -4501,21 +4504,21 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Sukaldaritzako osagai prozesatuak, hala nola olioak, gurina, azukrea eta gatza, 1. taldeko elikagaietatik edo naturatik eratorritako substantziak dira, prentsatzea, fintzea, ehotzea, fresatzea eta lehortzea barne hartzen dituzten prozesuen bidez.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Prozesatutako jakiak';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Prozesatutako elikagaiak, hala nola botilatutako barazkiak, kontserbak dituen arraina, almibarretan dauden frutak, gaztak eta ogi freskoak, batez ere 2. taldeko elikagaiei gatza, olioa, azukrea edo beste substantzia batzuk gehituz egiten dira 1. taldeko elikagaiei. Prozesuek hainbat kontserbazio edo sukaldaritza metodo barne hartzen dituzte, eta ogien eta gaztaren kasuan, hartzidura ez-alkoholikoa. Prozesatutako elikagai gehienek bi edo hiru osagai dituzte eta 1. taldeko elikagaien bertsio aldatu gisa ezagutzen dira. Beren kabuz edo, ohikoagoa dena, beste elikagai batzuekin konbinatuta jan daitezke.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic Fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultraprozesatutako elikagaiak, hala nola freskagarriak, gozoak edo gaziak diren pintxoak, haragi-produktu birkonposatuak eta aurrez prestatutako plater izoztuak, ez dira soilik elikagai eraldatuak, baizik eta elikagaietatik eta gehigarrietatik eratorritako substantziekin egindako formulazioak, gehienbat edo osorik, 1. taldeko elikagai osorik gabe. Formulazio horietako osagaien artean, normalean, elikagai prozesatuetan ere aurkitzen direnak daude, hala nola azukreak, olioak, gantzak edo gatza. Hala ere, ultraprozesatutako produktuek sukaldaritza-prestaketetan normalean erabiltzen ez diren beste energia eta mantenugai iturri batzuk ere badituzte. Horietako batzuk zuzenean elikagaietatik ateratzen dira, hala nola kaseina, laktosa, gazura eta glutena.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little To no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, Such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and Nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Ultraprozesamenduaren arazoak';
@@ -4526,7 +4529,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Asko elikagaien osagaien prozesamendu gehiagotik eratorriak dira, hala nola hidrogenatutako edo interesterifikatutako olioak, hidrolizatutako proteinak, soja proteina isolatua, maltodextrina, azukre alderantzikatua eta fruktosa handiko arto almibarra.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4534,7 +4537,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ultraprozesatutako elikagaietako gehigarrien artean, prozesatutako elikagaietan ere erabiltzen diren batzuk daude, hala nola kontserbatzaileak, antioxidatzaileak eta egonkortzaileak. Ultraprozesatutako produktuetan bakarrik aurkitzen diren gehigarrien klaseen artean, elikagaien zentzumen-ezaugarriak imitatu edo hobetzeko edo azken produktuaren alderdi desatseginak ezkutatzeko erabiltzen direnak daude. Gehigarri horien artean daude koloratzaileak eta beste kolore batzuk, kolore-egonkortzaileak; zaporeak, zapore-indartzaileak, azukrerik gabeko edulkoratzaileak; eta prozesatzeko laguntzaileak, hala nola karbonatatzaileak, sendotzaileak, bolumen-emaileak eta bolumen-kontrakoak, apar-kentzaileak, antiaglomeratzaileak eta glaseatzaileak, emultsionatzaileak, sekuestratzaileak eta hezetzaileak.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4542,7 +4545,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Osagai ugari konbinatzeko eta azken produktua sortzeko prozesu-segida ugari erabiltzen dira (horregatik \'ultra-prozesatua\'). Prozesu horien artean, etxeko baliokiderik ez duten hainbat daude, hala nola hidrogenazioa eta hidrolizazioa, estrusioa eta moldekatzea, eta frijitzeko aurre-prozesatzea.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4550,7 +4553,22 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Ultraprozesamenduaren helburu nagusia markako, erosoko (iraunkorrak, kontsumitzeko prest), erakargarriak (hiper-ahogozoak) eta oso errentagarriak (kostu baxuko osagaiak) diren elikagaiak sortzea da, gainerako elikagai-talde guztiak ordezkatzeko diseinatuta. Ultraprozesatutako elikagaiak normalean modu erakargarrian ontziratzen dira eta modu intentsiboan merkaturatzen dira.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4620,7 +4638,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

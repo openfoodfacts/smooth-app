@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Marine og ferskvann (partikler, forsuring, eutrofi)",
   "guide_greenscore_lca_arg3_text8": "Utarming av ressurser.",
   "guide_greenscore_bonuses_penalties_title": "Bonuser & straff",
-  "guide_greenscore_bonuses_penalties_intro": "For å belønne bedre produkter innenfor en kategori, bruker vi bonuser og straff etter flere kriterium:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Ingrediensopprinnelse",
-  "guide_greenscore_bonuses_penalties_arg2_text": "En bonus blir tildelt basert på opprinnelsen til ingrediensene. Bonusen tar hensyn til konsekvensene av transporten og miljøpolitikken til hver enkelt produsents land.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Emballasje",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "For å beregne den Gale Poengen, nøyaktig det er nødvendig å ha informasjon som ikke nødvendigvis er angitt på emballasjen (for eksempel opprinnelse og den nøyaktige prosentandelen av hver ingrediens), eller som er sjelden tilgjengelig i brukbar form (for eksempel en liste over alle komponenter i emballasjen med de nøyaktige plasttypene som er brukt).",
-  "guide_greenscore_transparency_intro2": "Gjennomsnittlige verdier brukes når denne informasjonen ennå ikke er tilgjengelig. Men vi oppfordrer nå alle til å hjelpe oss med å samle inn informasjon som vil være svært nyttig for Green-Score og også for mange andre brukere.",
-  "guide_greenscore_transparency_arg1_title": "Hvordan borgere kan hjelpe",
-  "guide_greenscore_transparency_arg1_text": "Alle borgere kan hjelpe oss med å samle inn og strukturere de opplysningene som finnes på de produktene eller som kan trekkes fra dem, slik som informasjon om emballasje: Mission Emballages: en omfattende samarbeid med emballasje til alle matprodukter (fransk)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Hvordan produsenter kan hjelpe",
   "guide_greenscore_transparency_arg2_text": "Produsenter kan sende oss informasjon direkte gjennom vår gratis plattform for produsenter.",
   "guide_greenscore_better_product_title": "Hvilket produkt er bedre for planet?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "De 4 NOVA-gruppene",
   "guide_nova_groups_intro": "Det er fire NOVA-grupper, den problematiske er gruppe 4 – ultraprosessert mat.",
   "guide_nova_groups_arg1_title": "Minimalt bearbeidet eller ubearbeidet mat",
-  "guide_nova_groups_arg1_text": "Ubearbeidet (eller naturlig) mat er de spiselige delene av planter (frø, frukt, blader, stilker, røtter) eller dyr (muskler, innmat, egg, melk), samt sopp, alger og vann, etter å ha blitt separert fra naturen.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Bearbeidede kulinariske ingredienser",
-  "guide_nova_groups_arg2_text": "Bearbeidede kulinariske ingredienser, som oljer, smør, sukker og salt, er stoffer som er utvunnet fra matvarer i gruppe 1 eller fra naturen gjennom prosesser som inkluderer pressing, raffinering, kverning, fresing og tørking.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Bearbeidet mat",
-  "guide_nova_groups_arg3_text": "Bearbeidet mat, som flaskegrønnsaker, hermetisk fisk, frukt i sirup, oster og ferskt brød, lages hovedsakelig ved å tilsette salt, olje, sukker eller andre stoffer fra gruppe 2 til gruppe 1-matvarer. Prosesser inkluderer ulike konserverings- eller tilberedningsmetoder, og når det gjelder brød og ost, alkoholfri gjæring. De fleste bearbeidede matvarer har to eller tre ingredienser og er gjenkjennelige som modifiserte versjoner av gruppe 1-matvarer. De kan spises alene eller, mer vanlig, i kombinasjon med annen mat.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various preservation or cooking methods, and in the case of Breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultrabearbeidet mat",
-  "guide_nova_groups_arg4_text": "Ultrabearbeidet mat, som brus, søte eller salte snacks i emballasjen, rekonstituerte kjøttprodukter og ferdiglagde frosne retter, er ikke bare modifisert mat, men formuleringer laget hovedsakelig eller utelukkende av stoffer utvunnet fra matvarer og tilsetningsstoffer, med lite eller ingen intakt Gruppe 1-mat. Ingredienser i disse formuleringene inkluderer vanligvis de som også finnes i bearbeidet mat, som sukker, oljer, fett eller salt. Ultrabearbeidede produkter inneholder imidlertid også andre energikilder og næringsstoffer som vanligvis ikke brukes i matlagingsprodukter. Noen av disse er direkte utvunnet fra matvarer, som kasein, laktose, myse og gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with Little to no Intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, Oils, fats, or salt. however, ultra-processed products also contain other sources of energy and Nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problemene med ultraprosessering",
   "guide_nova_explanations_arg1_title": "Ekstrem bearbeiding av matingredienser",
-  "guide_nova_explanations_arg1_text": "Mange er avledet fra videre bearbeiding av matbestanddeler, som hydrogenerte eller interesterifiserte oljer, hydrolyserte proteiner, soyaproteinisolat, maltodekstrin, invertsukker og maissirup med høyt fruktoseinnhold.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Tilsetningsstoffer som går utover ren mattrygghet",
-  "guide_nova_explanations_arg2_text": "Tilsetningsstoffer i ultrabearbeidet mat inkluderer noen som også brukes i bearbeidet mat, for eksempel konserveringsmidler, antioksidanter og stabilisatorer. Klasser av tilsetningsstoffer som bare finnes i ultrabearbeidede produkter inkluderer de som brukes til å imitere eller forbedre de sensoriske egenskapene til matvarer eller for å skjule usmakelige aspekter ved sluttproduktet. Disse tilsetningsstoffene inkluderer fargestoffer og andre farger, fargestabilisatorer; smakstilsetninger, smaksforsterkere, ikke-sukkerholdige søtningsmidler; og prosesseringshjelpemidler som kullsyre-, fasthets-, fyllstoff- og antifylstoffmidler, skumdempende, antiklumpe- og glaseringsmidler, emulgatorer, sekvestreringsmidler og fuktighetsbevarende midler.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Behandling du ikke kan gjøre hjemme",
-  "guide_nova_explanations_arg3_text": "En rekke prosesssekvenser brukes for å kombinere de vanligvis mange ingrediensene og for å lage sluttproduktet (derav «ultraprosessert»). Prosessene inkluderer flere uten innenlandske ekvivalenter, som hydrogenering og hydrolysering, ekstrudering og støping, og forbehandling for steking.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "De rovlystne og økonomiske aspektene ved ultraprosessering",
-  "guide_nova_explanations_arg4_text": "Det overordnede formålet med ultraprosessering er å skape merkevareprodukter som er praktiske (holdbare, klare til konsum), attraktive (hyper-velsmakende) og svært lønnsomme (lavkostingredienser) og er utformet for å erstatte alle andre matvaregrupper. Ultraprosesserte matvarer pakkes vanligvis attraktivt og markedsføres intensivt.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

@@ -2944,6 +2944,9 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4349,7 +4352,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Til að verðlauna betri vörur innan tiltekins flokks, beitum við síðan bónusum og refsingum byggðum á nokkrum viðmiðum:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bónus er veittur út frá uppruna innihaldsefnanna. Þessi bónus tekur mið af áhrifum á flutninga og einnig umhverfisstefnu lands hvers framleiðanda.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4373,14 +4376,14 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4388,19 +4391,19 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Til að reikna út Græna stigið nákvæmlega er nauðsynlegt að hafa upplýsingar sem eru ekki endilega tilgreindar á umbúðunum (eins og uppruni og nákvæmt hlutfall hvers innihaldsefnis) eða sem eru sjaldan tiltækar í nothæfu formi (eins og listi yfir alla íhluti umbúðanna ásamt nákvæmum tegundum plasts sem notaðar eru).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Meðalgildi eru notuð þegar þessar upplýsingar eru ekki enn tiltækar, en við köllum nú á alla til að hjálpa okkur að safna þessum upplýsingum sem verða mjög gagnlegar fyrir Green-Score en einnig til margra annarra nota.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Hvernig borgarar geta hjálpað';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Allir borgarar geta hjálpað okkur að safna og skipuleggja upplýsingar sem eru að finna á vörum eða sem hægt er að álykta út frá þeim, svo sem upplýsingar á umbúðum: Mission Emballages: stórfelld sameiginleg skrá yfir umbúðir fyrir allar matvæli (á frönsku).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4473,28 +4476,28 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Óunnin (eða náttúruleg) matvæli eru ætir hlutar plantna (fræja, ávaxta, laufblaða, stilka, rætur) eða dýra (vöðva, innmat, eggja, mjólkur), sem og sveppir, þörungar og vatn, eftir að hafa verið aðskilin frá náttúrunni.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Unnar hráefnisuppsetningar, svo sem olíur, smjör, sykur og salt, eru efni sem eru fengin úr matvælum í 1. flokki eða úr náttúrunni með ferlum eins og pressun, hreinsun, kvörnun, fræsingu og þurrkun.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Unninn matur, svo sem grænmeti á flöskum, niðursoðinn fiskur, ávextir í sírópi, ostar og nýbakað brauð, er aðallega framleiddur með því að bæta salti, olíu, sykri eða öðrum efnum úr 2. flokki við matvæli í 1. flokki. Ferlarnir fela í sér ýmsar varðveislu- eða eldunaraðferðir, og í tilviki brauðs og osta, óáfenga gerjun. Flest unnin matvæli innihalda tvö eða þrjú innihaldsefni og eru auðþekkjanleg sem breyttar útgáfur af matvælum í 1. flokki. Þau má borða eitt og sér eða, algengara, í samsetningu við önnur matvæli.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. They can Be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ofurunnar matvörur, svo sem gosdrykkir, sætar eða bragðmiklar pakkaðar snarlvörur, endurunnar kjötvörur og tilbúnir frosnir réttir, eru ekki bara breyttar matvörur heldur blöndur sem eru að mestu eða öllu leyti gerðar úr efnum sem eru unnin úr matvælum og aukefnum, með litlum sem engum óskemmdum matvælum úr flokki 1. Innihaldsefni í þessum blöndum innihalda venjulega þau sem einnig finnast í unnum matvælum, svo sem sykur, olíur, fita eða salt. Hins vegar innihalda ofurunnar vörur einnig aðrar orkugjafar og næringarefni sem venjulega eru ekki notuð í matreiðslu. Sum þessara eru unnin beint úr matvælum, svo sem kasein, laktósa, mysu og glúten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these Formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products Also contain other sources of energy and nutrients not typically used in culinary preparations. some of these Are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Vandamálin með ofurvinnslu';
@@ -4505,7 +4508,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Margar þeirra eru fengnar úr frekari vinnslu á innihaldsefnum matvæla, svo sem hertum eða interesteruðum olíum, vatnsrofnum próteinum, sojapróteineinangrun, maltódextrín, invertsykri og maíssírópi með háu frúktósainnihaldi.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4513,7 +4516,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Aukefni í öfgafullum matvælum eru meðal annars þau sem einnig eru notuð í unnum matvælum, svo sem rotvarnarefni, andoxunarefni og bindiefni. Meðal aukefna sem finnast eingöngu í öfgafullum vörum eru þau sem notuð eru til að líkja eftir eða auka skynjunareiginleika matvæla eða til að dylja óþægilega þætti fullunninnar vöru. Þessi aukefni eru meðal annars litarefni og aðrir litir, litabindandi efni; bragðefni, bragðbætandi efni, sætuefni án sykurs; og hjálparefni eins og kolsýrandi efni, stinnandi efni, fyllingarefni og efni til að draga úr fyllingu, froðumyndandi efni, kekkjavarnarefni og gljáefni, ýruefni, bindiefni og rakabindandi efni.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4521,7 +4524,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Fjölmargar ferlar eru notaðir til að sameina venjulega mörg innihaldsefni og búa til lokaafurðina (þess vegna „öfgafullunnið“). Ferlarnir fela í sér nokkrar sem ekki eiga sér innlenda sambærilegar, svo sem vetnun og vatnsrof, útpressun og mótun, og forvinnsla fyrir steikingu.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4529,7 +4532,22 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Megintilgangur öfgavinnslu er að skapa vörumerkjaðar, þægilegar (endingargóðar, tilbúnar til neyslu), aðlaðandi (ofurbragðgóðar) og mjög arðbærar (ódýr hráefni) matvörur sem eru hannaðar til að koma í stað allra annarra matvælaflokka. Ofurunnar matvörur eru yfirleitt pakkaðar á aðlaðandi hátt og markaðssettar á öflugan hátt.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4599,7 +4617,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

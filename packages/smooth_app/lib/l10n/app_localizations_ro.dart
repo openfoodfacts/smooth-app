@@ -2986,6 +2986,9 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Terminat';
 
   @override
@@ -4410,7 +4413,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Pentru a recompensa produsele mai bune dintr-o anumită categorie, aplicăm bonusuri și penalizări pe baza mai multor criterii:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4418,7 +4421,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Se acordă un bonus produselor care au o etichetă oficială, o etichetă sau o certificare care garantează beneficii pentru mediu (ecologic, comerț echitabil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4426,7 +4429,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Se acordă un bonus în funcție de originea ingredientelor. Acest bonus ia în considerare impactul asupra transportului și, de asemenea, politica de mediu a țării fiecărui producător.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4434,14 +4437,14 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Se aplică o penalizare pentru produsele care conțin ingrediente care au un impact negativ semnificativ asupra biodiversității și ecosistemelor, cum ar fi uleiul de palmier, a cărui producție este responsabilă de defrișările masive.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Ambalare';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Se calculează o sancțiune care să ia în considerare recircularea ambalajelor (utilizarea materiilor prime reciclate și posibilitatea de reciclare) și supraambalarea.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4449,19 +4452,19 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Pentru a calcula cu exactitate Green-Score, este necesar să existe informații care nu sunt neapărat specificate pe ambalaj (cum ar fi originea și procentul exact al fiecărui ingredient) sau care sunt rareori disponibile într-o formă utilizabilă (cum ar fi o listă a tuturor componentelor ambalajului cu tipurile precise de materiale plastice utilizate).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Valorile medii sunt utilizate atunci când aceste informații nu sunt încă disponibile, dar acum facem apel la toată lumea să ne ajute să colectăm aceste informații, care vor fi foarte utile pentru Green-Score, dar și pentru multe alte utilizări.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Cum pot cetățenii să ajute';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Toți cetățenii ne pot ajuta să colectăm și să structurăm informațiile prezente pe produse sau care pot fi deduse din acestea, cum ar fi informațiile despre ambalaje: Misiunea Emballages: un inventar colaborativ la scară largă al ambalajelor pentru toate produsele alimentare (în franceză)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4535,28 +4538,28 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Alimentele neprocesate (sau naturale) sunt părțile comestibile ale plantelor (semințe, fructe, frunze, tulpini, rădăcini) sau animalelor (mușchi, organe, ouă, lapte), precum și ciupercile, algele și apa, după ce au fost separate din natură.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Ingrediente culinare prelucrate';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Ingredientele culinare procesate, cum ar fi uleiurile, untul, zahărul și sarea, sunt substanțe derivate din alimente din grupa 1 sau din natură prin procese care includ presarea, rafinarea, măcinarea, măcinarea și uscarea.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Hrană procesată';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Alimentele procesate, cum ar fi legumele îmbuteliate, peștele conservat, fructele în sirop, brânzeturile și pâinea proaspăt preparată, sunt obținute în principal prin adăugarea de sare, ulei, zahăr sau alte substanțe din Grupa 2 la alimentele din Grupa 1. Procesele includ diverse metode de conservare sau gătire, iar în cazul pâinii și brânzeturilor, fermentarea nealcoolică. Majoritatea alimentelor procesate au două sau trei ingrediente și sunt recunoscute ca versiuni modificate ale alimentelor din Grupa 1. Acestea pot fi consumate ca atare sau, mai frecvent, în combinație cu alte alimente.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include Various preservation Or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed Foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they Can be Eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Alimente ultraprocesate';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Alimentele ultraprocesate, cum ar fi băuturile răcoritoare, gustările dulci sau sărate ambalate, produsele din carne reconstituite și mâncărurile congelate pre-preparate, nu sunt doar alimente modificate, ci formulări realizate în mare parte sau în întregime din substanțe derivate din alimente și aditivi, cu puține sau deloc alimente intacte din Grupa 1. Ingredientele din aceste formulări includ de obicei cele care se găsesc și în alimentele procesate, cum ar fi zaharurile, uleiurile, grăsimile sau sarea. Cu toate acestea, produsele ultraprocesate conțin și alte surse de energie și nutrienți care nu sunt utilizate de obicei în preparatele culinare. Unele dintre acestea sunt extrase direct din alimente, cum ar fi cazeina, lactoza, zerul și glutenul.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these Formulations usually Include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of Energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, And gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Problemele cu ultra-procesarea';
@@ -4567,7 +4570,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Multe sunt derivate din procesarea ulterioară a constituenților alimentari, cum ar fi uleiurile hidrogenate sau interesterificate, proteinele hidrolizate, izolatul proteic din soia, maltodextrina, zahărul invertit și siropul de porumb cu conținut ridicat de fructoză.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4575,7 +4578,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Aditivii din alimentele ultraprocesate includ unii care sunt utilizați și în alimentele procesate, cum ar fi conservanții, antioxidanții și stabilizatorii. Clasele de aditivi care se găsesc doar în produsele ultraprocesate includ pe cei utilizați pentru a imita sau a îmbunătăți calitățile senzoriale ale alimentelor sau pentru a deghiza aspectele neplăcute ale produsului final. Acești aditivi includ coloranți și alte culori, stabilizatori de culoare; arome, potențiatori de aromă, îndulcitori fără zahăr; și adjuvanți tehnologici, cum ar fi agenți de carbonatare, de întărire, de volumizare și anti-volumizare, agenți de dezumflare, antiaglomeranți și de glazurare, emulgatori, sechestranți și umectanți.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4583,7 +4586,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'O multitudine de secvențe de procese sunt utilizate pentru a combina ingredientele, de obicei numeroase, și pentru a crea produsul final (de unde și „ultra-procesat”). Printre procese se numără câteva fără echivalente interne, cum ar fi hidrogenarea și hidroliza, extrudarea și turnarea în matriță, precum și pre-procesarea pentru prăjire.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4591,7 +4594,22 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Scopul general al ultra-procesării este de a crea produse alimentare de marcă, convenabile (durabile, gata de consum), atractive (hiper-palatabile) și extrem de profitabile (ingrediente cu costuri reduse), concepute pentru a înlocui toate celelalte grupe de alimente. Produsele alimentare ultra-procesate sunt de obicei ambalate atractiv și comercializate intensiv.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4661,7 +4679,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

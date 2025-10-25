@@ -2943,6 +2943,9 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4350,7 +4353,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Ili zawadi bidhaa bora ndani ya aina, sisi kisha kutumia bonasi na adhabu kulingana na vigezo kadhaa:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4358,7 +4361,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4366,7 +4369,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonasi hutolewa kulingana na asili ya viungo. Bonasi hii inazingatia athari kwenye usafirishaji na pia sera ya mazingira ya kila nchi ya mzalishaji.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4374,14 +4377,14 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4389,19 +4392,19 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Ili kuhesabu kwa usahihi Alama ya Kijani, ni muhimu kuwa na habari ambayo haijabainishwa lazima kwenye kifungashio (kama vile asili na asilimia kamili ya kila kiungo) au ambayo haipatikani kwa urahisi katika fomu inayoweza kutumika (kama vile orodha ya vipengele vyote vya ufungaji na aina sahihi za plastiki zilizotumiwa).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Thamani za wastani hutumiwa wakati maelezo haya bado hayapatikani, lakini sasa tunatoa wito kwa kila mtu atusaidie kukusanya taarifa hii ambayo itakuwa muhimu sana kwa Alama ya Kijani lakini pia kwa matumizi mengine mengi.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Jinsi wananchi wanaweza kusaidia';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Raia wote wanaweza kutusaidia kukusanya na kupanga maelezo yaliyopo kwenye bidhaa au ambayo yanaweza kupatikana kutoka kwao, kama vile habari juu ya ufungashaji: Dhamana za Misheni: orodha kubwa ya shirikishi ya ufungaji wa bidhaa zote za chakula (kwa Kifaransa)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4476,28 +4479,28 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Vyakula visivyochakatwa (au asili) ni sehemu zinazoweza kuliwa za mimea (mbegu, matunda, majani, shina, mizizi) au wanyama (misuli, offal, mayai, maziwa), pamoja na kuvu, mwani, na maji, baada ya kutengwa na asili.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Viungo vya upishi vilivyochakatwa, kama vile mafuta, siagi, sukari, na chumvi, ni vitu vinavyotokana na vyakula vya Kundi la 1 au kutoka kwa asili kupitia michakato inayojumuisha kukandamiza, kusafisha, kusaga, kusaga na kukausha.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods Or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Vyakula vilivyosindikwa, kama vile mboga za chupa, samaki wa makopo, matunda kwenye sharubati, jibini, na mikate iliyotengenezwa upya, kimsingi hutengenezwa kwa kuongeza chumvi, mafuta, sukari, au vitu vingine kutoka Kundi la 2 hadi la Kundi la 1. Michakato ni pamoja na njia mbalimbali za kuhifadhi au kupika, na katika kesi ya mikate na jibini, fermentation isiyo ya pombe. Vyakula vingi vilivyochakatwa vina viambato viwili au vitatu na vinatambulika kama matoleo yaliyorekebishwa ya vyakula vya Kundi la 1. Wanaweza kuliwa peke yao au, kawaida zaidi, pamoja na vyakula vingine.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. Processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or Three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own Or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Vyakula vilivyochakatwa sana, kama vile vinywaji baridi, vitafunio vitamu au vitamu vilivyopakiwa, bidhaa za nyama zilizotengenezwa upya, na vyakula vilivyogandishwa vilivyotayarishwa awali, si vyakula vilivyorekebishwa tu bali ni michanganyiko inayotengenezwa kwa wingi au kabisa kutokana na vitu vinavyotokana na vyakula na viungio, pamoja na chakula cha Kundi 1 kidogo kabisa. Viungo katika uundaji huu kwa kawaida hujumuisha vile vinavyopatikana pia katika vyakula vilivyochakatwa, kama vile sukari, mafuta, mafuta, au chumvi. Hata hivyo, bidhaa zilizosindikwa zaidi pia zina vyanzo vingine vya nishati na virutubisho ambavyo hazitumiwi kwa kawaida katika maandalizi ya upishi. Baadhi ya hizi hutolewa moja kwa moja kutoka kwa vyakula, kama vile casein, lactose, whey, na gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. Ingredients in these formulations Usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also Contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, Such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4509,7 +4512,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Nyingi zinatokana na usindikaji zaidi wa viambajengo vya chakula, kama vile mafuta ya hidrojeni au ya kuvutia, protini za hidrolisisi, kutenganisha protini ya soya, maltodextrin, sukari ya kubadilisha, na sharubati ya mahindi yenye fructose.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4517,7 +4520,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Viungio katika vyakula vilivyochakatwa zaidi ni pamoja na vingine ambavyo hutumika pia katika vyakula vilivyochakatwa, kama vile vihifadhi, viondoa sumu mwilini, na vidhibiti. Aina za viungio vinavyopatikana tu katika bidhaa zilizochakatwa zaidi ni pamoja na zile zinazotumiwa kuiga au kuboresha sifa za hisia za vyakula au kuficha vipengele visivyopendeza vya bidhaa ya mwisho. Viongezeo hivi ni pamoja na rangi na rangi nyingine, vidhibiti vya rangi; ladha, viboreshaji vya ladha, vitamu visivyo na sukari; na vifaa vya usindikaji kama vile kaboni, uimarishaji, bulking na mawakala wa kuzuia bulking, de-povu, anti-caking na ukaushaji mawakala, emulsifiers, sequestrants, na humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4525,7 +4528,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Misururu mingi ya michakato hutumika kuchanganya viambato vingi vya kawaida na kuunda bidhaa ya mwisho (kwa hivyo \'iliyochakatwa zaidi\'). Michakato hiyo ni pamoja na kadhaa bila vilinganishi vya nyumbani, kama vile utiaji hidrojeni na uhaidrolisisi, utoboaji na ukingo, na uchakataji wa awali kwa kukaanga.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4533,7 +4536,22 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Madhumuni ya jumla ya usindikaji wa hali ya juu ni kuunda bidhaa za chakula zenye chapa, zinazofaa (zinazodumu, tayari kutumika), zinazovutia (zinazopendeza) na zenye faida kubwa (za bei ya chini) zilizoundwa kuondoa vikundi vingine vyote vya chakula. Bidhaa za chakula zilizochakatwa kwa kiwango cha juu huwekwa kwenye vifurushi vya kuvutia na kuuzwa kwa kasi.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4603,7 +4621,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

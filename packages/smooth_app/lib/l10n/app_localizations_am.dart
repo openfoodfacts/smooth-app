@@ -2941,6 +2941,9 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4342,7 +4345,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'በምድብ ውስጥ የተሻሉ ምርቶችን ለመሸለም፣ ከዚያም በብዙ መስፈርቶች ላይ ተመስርተን ጉርሻዎችን እና ቅጣቶችን እንተገብራለን፡';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4350,7 +4353,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4358,7 +4361,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'ጉርሻ የሚሰጠው በእቃዎቹ አመጣጥ ላይ በመመስረት ነው። ይህ ጉርሻ በትራንስፖርት ላይ ያለውን ተጽእኖ እና የእያንዳንዱን አምራች ሀገር የአካባቢ ጥበቃ ፖሊሲ ግምት ውስጥ ያስገባል.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4366,14 +4369,14 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4381,18 +4384,19 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ግሪን-ውጤትን በትክክል ለማስላት በማሸጊያው ላይ የግድ ያልተገለፀ መረጃ (እንደ መነሻ እና የእያንዳንዱ ንጥረ ነገር ትክክለኛ መቶኛ) ወይም በጥቅም ላይ ሊውል በሚችል መልኩ ብዙም የማይገኝ (ለምሳሌ የማሸጊያው ሁሉንም ክፍሎች ከትክክለኛዎቹ የፕላስቲክ ዓይነቶች ጋር ዝርዝር) ማግኘት ያስፈልጋል።';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'አማካኝ እሴቶች ጥቅም ላይ የሚውሉት ይህ መረጃ ገና በማይገኝበት ጊዜ ነው፣ አሁን ግን ሁሉም ሰው ይህንን መረጃ እንድንሰበስብ እንዲረዳን እንጠይቃለን ይህም ለግሪን-ውጤት በጣም ጠቃሚ ይሆናል ነገር ግን ለሌሎች በርካታ አገልግሎቶች።';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title => 'ዜጎች እንዴት መርዳት እንደሚችሉ';
+  String get guide_greenscore_transparency_arg1_title =>
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'ሁሉም ዜጎች በምርቶች ላይ ያለውን ወይም ከነሱ ሊወጡ የሚችሉ መረጃዎችን እንድንሰበስብ እና እንዲያዋቅር ሊረዱን ይችላሉ፤ እንደ ማሸግ ላይ ያለ መረጃ፡ Mission Emballages፡ ለሁሉም የምግብ ምርቶች (በፈረንሳይኛ) መጠነ ሰፊ የትብብር ክምችት';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title => 'አምራቾች እንዴት እንደሚረዱ';
@@ -4463,28 +4467,28 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'ያልተቀነባበሩ (ወይም ተፈጥሯዊ) ምግቦች ከተፈጥሮ ከተነጠሉ በኋላ የሚበሉት የእፅዋት ክፍሎች (ዘሮች፣ ፍራፍሬ፣ ቅጠሎች፣ ግንዶች፣ ሥሮች) ወይም እንስሳት (ጡንቻ፣ ፎል፣ እንቁላል፣ ወተት) እንዲሁም ፈንገሶች፣ አልጌ እና ውሃ ናቸው።';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'እንደ ዘይት፣ ቅቤ፣ ስኳር እና ጨው ያሉ የተቀነባበሩ የምግብ አዘገጃጀቶች ከቡድን 1 ምግቦች ወይም ከተፈጥሮ የሚመነጩት በመጫን፣ በማጣራት፣ መፍጨት፣ መፍጨት እና ማድረቅን በሚያካትቱ ሂደቶች ነው።';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'እንደ የታሸጉ አትክልቶች፣ የታሸጉ አሳዎች፣ በሽሮፕ ውስጥ ያሉ ፍራፍሬዎች፣ አይብ እና አዲስ የተሰሩ ዳቦዎች በዋነኛነት የሚዘጋጁት ጨው፣ ዘይት፣ ስኳር እና ሌሎች ንጥረ ነገሮችን ከቡድን 2 ወደ ቡድን 1 በመጨመር ነው። ሂደቶች የተለያዩ የመቆያ ወይም የማብሰያ ዘዴዎችን ያካትታሉ, እና በዳቦ እና አይብ ሁኔታ, አልኮል-አልባ መፍላት. አብዛኛዎቹ የተቀነባበሩ ምግቦች ሁለት ወይም ሶስት ንጥረ ነገሮች አሏቸው እና እንደ የተሻሻሉ የቡድን 1 ምግቦች ስሪቶች ይታወቃሉ። እነሱ በራሳቸው ሊበሉ ወይም, በተለምዶ, ከሌሎች ምግቦች ጋር በማጣመር ሊበሉ ይችላሉ.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'እጅግ በጣም የተቀነባበሩ ምግቦች፣ እንደ ለስላሳ መጠጦች፣ ጣፋጭ ወይም ጣፋጭ የታሸጉ መክሰስ፣ እንደገና የተዋሃዱ የስጋ ውጤቶች እና ቀድመው የተዘጋጁ የቀዘቀዙ ምግቦች የተሻሻሉ ምግቦች ብቻ ሳይሆኑ በአብዛኛው ወይም ሙሉ በሙሉ ከምግብ እና ተጨማሪ ንጥረ ነገሮች የተገኙ ቀመሮች ናቸው፣ ምንም ያልተነካ የቡድን 1 ምግብ። በእነዚህ ቀመሮች ውስጥ ያሉ ንጥረ ነገሮች እንደ ስኳር፣ ዘይት፣ ቅባት ወይም ጨው ባሉ በተዘጋጁ ምግቦች ውስጥ የሚገኙትንም ያካትታሉ። ነገር ግን፣ እጅግ በጣም የተቀነባበሩ ምርቶች ሌሎች የኃይል ምንጮችን እና በተለምዶ ለምግብ ዝግጅት ውስጥ ጥቅም ላይ ያልዋሉ ንጥረ ምግቦችን ይዘዋል ። ከእነዚህ ውስጥ አንዳንዶቹ እንደ ካሴይን፣ ላክቶስ፣ whey እና ግሉተን ካሉ ምግቦች በቀጥታ ይወጣሉ።';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'ከ ultra-processing ጋር ያሉ ችግሮች';
@@ -4494,7 +4498,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ብዙዎቹ እንደ ሃይድሮጂን ወይም ወለድ ዘይቶች፣ ሃይድሮላይድድ ፕሮቲኖች፣ የአኩሪ አተር ፕሮቲን ማግለል፣ ማልቶዴክስትሪን፣ ኢንቬንት ስኳር እና ከፍተኛ-ፍሩክቶስ የበቆሎ ሽሮፕ ካሉ የምግብ ንጥረ ነገሮች ተጨማሪ ሂደት የተገኙ ናቸው።';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4502,7 +4506,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'እጅግ በጣም በተቀነባበሩ ምግቦች ውስጥ ያሉ ተጨማሪዎች አንዳንዶቹ በተዘጋጁ ምግቦች ውስጥም ጥቅም ላይ የሚውሉ እንደ መከላከያዎች፣ አንቲኦክሲደንትስ እና ማረጋጊያዎች ያካትታሉ። እጅግ በጣም በተቀነባበሩ ምርቶች ውስጥ ብቻ የሚገኙት ተጨማሪዎች ምድቦች የምግብን የስሜት ህዋሳትን ለመኮረጅ ወይም ለማሻሻል ወይም የመጨረሻውን ምርት የማይወደዱ ገጽታዎችን ለመደበቅ የሚያገለግሉ ናቸው። እነዚህ ተጨማሪዎች ማቅለሚያዎች እና ሌሎች ቀለሞች, የቀለም ማረጋጊያዎች; ጣዕም, ጣዕም ማሻሻያ, ስኳር ያልሆኑ ጣፋጭ ምግቦች; እና እንደ ካርቦንዳይቲንግ፣ ማጠናከሪያ፣ የጅምላ እና ፀረ-ጅምላ ወኪሎች፣ የአረፋ ማስወገጃ፣ ፀረ-ኬኪንግ እና ግላዚንግ ወኪሎች፣ ኢሚልሲፋየሮች፣ ሴኬስትራንት እና ሆሚክታንትስ ያሉ የማቀነባበሪያ እርዳታዎች።';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4510,7 +4514,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'ብዙ ተከታታይ ሂደቶች አብዛኛውን ጊዜ ብዙ ንጥረ ነገሮችን በማጣመር እና የመጨረሻውን ምርት ለመፍጠር ጥቅም ላይ ይውላሉ (ስለዚህ \'እጅግ በጣም የተቀነባበረ\')። ሂደቶቹ እንደ ሃይድሮጂን እና ሃይድሮላይዜሽን፣ ማስወጣት እና መቅረጽ እና ለመጥበስ ቅድመ-ሂደትን የመሳሰሉ ምንም አይነት የቤት ውስጥ አቻ የሌላቸውን ያካትታሉ።';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4518,7 +4522,22 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'የ ultra-processing አጠቃላይ ዓላማ ሁሉንም ሌሎች የምግብ ቡድኖችን ለማፈናቀል የተነደፉ ብራንድ ያላቸው ፣ ምቹ (የሚበረክት ፣ ለመጠጣት ዝግጁ) ፣ ማራኪ (ከፍተኛ-የሚወደድ) እና ከፍተኛ ትርፋማ (ዝቅተኛ ዋጋ ያላቸው ንጥረ ነገሮች) የምግብ ምርቶችን መፍጠር ነው። እጅግ በጣም የተቀነባበሩ የምግብ ምርቶች በአብዛኛው በማራኪ የታሸጉ እና በከፍተኛ ሁኔታ ለገበያ ይቀርባሉ።';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4588,7 +4607,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

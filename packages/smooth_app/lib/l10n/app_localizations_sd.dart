@@ -2942,6 +2942,9 @@ class AppLocalizationsSd extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4345,7 +4348,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'ڪنهن به درجي ۾ بهتر شين کي انعام ڏيڻ لاءِ، اسان پوءِ ڪيترن ئي معيارن جي بنياد تي بونس ۽ ڏنڊ لاڳو ڪندا آهيون:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4353,7 +4356,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4361,7 +4364,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'اجزاء جي اصليت جي بنياد تي هڪ بونس ڏنو ويندو آهي. هي بونس ٽرانسپورٽ تي اثر ۽ هر پيدا ڪندڙ ملڪ جي ماحولياتي پاليسي کي پڻ مدنظر رکي ٿو.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4369,14 +4372,14 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4384,19 +4387,19 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'گرين اسڪور کي صحيح طور تي ڳڻڻ لاءِ، اهڙي معلومات هجڻ ضروري آهي جيڪا پيڪنگ تي ضروري طور تي بيان نه ڪئي وئي هجي (جهڙوڪ هر جزو جي اصليت ۽ صحيح سيڪڙو) يا جيڪا استعمال لائق صورت ۾ گهٽ ئي موجود هجي (جهڙوڪ پيڪنگ جي سڀني حصن جي فهرست استعمال ٿيل پلاسٽڪ جي صحيح قسمن سان).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'جڏهن هي معلومات اڃا تائين دستياب نه آهي ته سراسري قدر استعمال ڪيا ويندا آهن، پر هاڻي اسان سڀني کي اپيل ڪري رهيا آهيون ته اسان کي هي معلومات گڏ ڪرڻ ۾ مدد ڪن جيڪا گرين اسڪور لاءِ تمام گهڻي ڪارآمد هوندي پر ٻين ڪيترن ئي استعمالن لاءِ پڻ.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'شهري ڪيئن مدد ڪري سگهن ٿا';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'سڀئي شهري اسان کي شين تي موجود معلومات گڏ ڪرڻ ۽ ترتيب ڏيڻ ۾ مدد ڪري سگهن ٿا يا انهن مان حاصل ڪري سگهجي ٿو، جهڙوڪ پيڪنگنگ بابت معلومات: مشن ايمباليجز: سڀني کاڌي جي شين لاءِ پيڪنگنگ جي هڪ وڏي پيماني تي تعاون واري فهرست (فرانسيسي ۾)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4470,28 +4473,28 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'غير پروسيس ٿيل (يا قدرتي) کاڌو ٻوٽن جا کائڻ لائق حصا (ٻج، ميوا، پن، تنا، جڙ) يا جانورن (عضلات، آفل، آنا، کير)، انهي سان گڏ فنگس، الجي ۽ پاڻي، فطرت کان الڳ ٿيڻ کان پوءِ آهن.';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'پروسيس ٿيل کاڌي جا اجزا، جهڙوڪ تيل، مکڻ، کنڊ، ۽ لوڻ، اهي شيون آهن جيڪي گروپ 1 جي کاڌي مان يا فطرت مان حاصل ڪيل عملن ذريعي حاصل ڪيون وينديون آهن جن ۾ دٻائڻ، ريفائن ڪرڻ، پيسڻ، ملنگ ڪرڻ ۽ خشڪ ڪرڻ شامل آهن.';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'پروسيس ٿيل کاڌو، جهڙوڪ بوتل بند ڀاڄيون، ڊبيل مڇي، شربت ۾ ميوا، پنير، ۽ تازيون ٺهيل مانيون، بنيادي طور تي گروپ 2 کان گروپ 1 کاڌي ۾ لوڻ، تيل، کنڊ، يا ٻيون شيون شامل ڪري ٺاهيون وينديون آهن. عملن ۾ مختلف بچاءُ يا پچائڻ جا طريقا شامل آهن، ۽ ماني ۽ پنير جي صورت ۾، غير الڪوحل خمير. گهڻن پروسيس ٿيل کاڌي ۾ ٻه يا ٽي اجزا هوندا آهن ۽ گروپ 1 کاڌي جي تبديل ٿيل نسخن جي طور تي سڃاتل هوندا آهن. انهن کي پاڻ تي يا، عام طور تي، ٻين کاڌي سان گڏ کائي سگهجي ٿو.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'الٽرا پروسيس ٿيل کاڌو، جهڙوڪ نرم مشروبات، مٺي يا مزيدار پيڪيج ٿيل ناشتو، ٻيهر ٺهيل گوشت جون شيون، ۽ اڳ ۾ تيار ڪيل منجمد کاڌا، صرف تبديل ٿيل کاڌو نه آهن پر فارموليشن گهڻو ڪري يا مڪمل طور تي کاڌي ۽ اضافي شين مان نڪتل شين مان ٺهيل آهن، جن ۾ گروپ 1 جو کاڌو تمام گهٽ يا ڪو به برقرار نه هوندو آهي. انهن فارموليشن ۾ اجزاء عام طور تي اهي شامل آهن جيڪي پروسيس ٿيل کاڌي ۾ پڻ ملن ٿا، جهڙوڪ کنڊ، تيل، چربی، يا لوڻ. جڏهن ته، الٽرا پروسيس ٿيل شين ۾ توانائي ۽ غذائي اجزاء جا ٻيا ذريعا پڻ شامل آهن جيڪي عام طور تي کاڌي جي تيارين ۾ استعمال نه ٿيندا آهن. انهن مان ڪجهه سڌو سنئون کاڌي مان ڪڍيا ويندا آهن، جهڙوڪ ڪيسين، ليڪٽوز، ويه، ۽ گلوٽين.';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'الٽرا پروسيسنگ سان مسئلا';
@@ -4502,7 +4505,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ڪيتريون ئي کاڌي جي جزن جي وڌيڪ پروسيسنگ مان حاصل ڪيون وينديون آهن، جهڙوڪ هائيڊروجنيٽيڊ يا انٽرسٽريفائيڊ تيل، هائيڊولائيزڊ پروٽين، سويا پروٽين آئسوليٽ، مالٽوڊيڪسٽرين، انورٽ شوگر، ۽ هاءِ فرڪٽوز ڪارن سيرپ.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4510,7 +4513,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'الٽرا پروسيس ٿيل کاڌي ۾ شامل ڪيل اضافي شيون ڪجهه اهڙيون آهن جيڪي پروسيس ٿيل کاڌي ۾ پڻ استعمال ٿينديون آهن، جهڙوڪ پرزرويٽوز، اينٽي آڪسيڊنٽ، ۽ اسٽيبلائيزر. صرف الٽرا پروسيس ٿيل شين ۾ ملندڙ اضافي شين جا ڪلاس شامل آهن جيڪي کاڌي جي حسي خوبين جي نقل ڪرڻ يا وڌائڻ يا آخري پيداوار جي غير ذائقي پهلوئن کي لڪائڻ لاءِ استعمال ٿيندا آهن. انهن اضافي شين ۾ رنگ ۽ ٻيا رنگ، رنگ اسٽيبلائيزر؛ ذائقو، ذائقو وڌائڻ وارا، غير کنڊ مٺايون؛ ۽ پروسيسنگ ايڊز جهڙوڪ ڪاربونٽنگ، فرمنگ، بلڪنگ ۽ اينٽي بلڪنگ ايجنٽ، ڊي فومنگ، اينٽي ڪيڪنگ ۽ گليزنگ ايجنٽ، ايملسيفائر، سيڪوسٽرنٽ، ۽ هومڪٽنٽ شامل آهن.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4518,7 +4521,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'عام طور تي ڪيترن ئي اجزاء کي گڏ ڪرڻ ۽ آخري پيداوار ٺاهڻ لاءِ عملن جي ڪيترن ئي تسلسلن جو استعمال ڪيو ويندو آهي (تنهن ڪري \'الٽرا پروسيس ٿيل\'). عملن ۾ ڪيترائي شامل آهن جن ۾ ڪوبه گهريلو برابري ناهي، جهڙوڪ هائيڊروجنيشن ۽ هائيڊولائيزيشن، ايڪسٽروشن ۽ مولڊنگ، ۽ فرائينگ لاءِ پري پروسيسنگ.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4526,7 +4529,22 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'الٽرا پروسيسنگ جو مجموعي مقصد برانڊيڊ، آسان (پائيدار، استعمال لاءِ تيار)، پرڪشش (هائپر-لذيذ) ۽ انتهائي منافعي بخش (گهٽ قيمت وارا اجزا) کاڌي جون شيون ٺاهڻ آهي جيڪي ٻين سڀني کاڌي جي گروپن کي هٽائڻ لاءِ ٺهيل آهن. الٽرا پروسيس ٿيل کاڌي جون شيون عام طور تي پرڪشش پيڪيج ڪيون وينديون آهن ۽ شدت سان مارڪيٽ ڪيون وينديون آهن.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4596,7 +4614,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

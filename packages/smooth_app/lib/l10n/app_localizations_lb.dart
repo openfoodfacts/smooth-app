@@ -2947,6 +2947,9 @@ class AppLocalizationsLb extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4354,7 +4357,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Fir besser Produkter an enger Kategorie ze belounen, applizéiere mir dann Bonusen a Strofe baséiert op verschiddene Critèren:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4362,7 +4365,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4370,7 +4373,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'E Bonus gëtt op Basis vum Urspronk vun den Zutaten ausgedeelt. Dëse Bonus berücksichtegt den Impakt op den Transport an och d\'Ëmweltpolitik vum jeweilege Produzentenland.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4378,14 +4381,14 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Verpackungsart';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4393,19 +4396,19 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Fir de Green-Score korrekt ze berechnen, ass et néideg Informatiounen ze hunn, déi net onbedéngt op der Verpackung spezifizéiert sinn (wéi den Urspronk an de geneeën Prozentsaz vun all Zutat) oder déi seelen a brauchbarer Form verfügbar sinn (wéi eng Lëscht vun all de Komponenten vun der Verpackung mat de präzisen Zorte vu Plastik, déi benotzt ginn).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Duerchschnëttswäerter gi benotzt, wann dës Informatioun nach net verfügbar ass, awer mir fuerderen elo jiddereen op, eis ze hëllefen, dës Informatioun ze sammelen, déi fir de Green-Score awer och fir vill aner Zwecker ganz nëtzlech wäert sinn.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Wéi Bierger hëllefe kënnen';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All Bierger kënnen eis hëllefen, d\'Informatiounen ze sammelen an ze strukturéieren, déi op Produkter sinn oder déi dovun ofgeleet kënne ginn, wéi zum Beispill Informatiounen iwwer d\'Verpakung: Mission Emballages: eng grouss gemeinschaftlech Inventariséierung vu Verpakunge fir all Liewensmëttelprodukter (op Franséisch)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4479,28 +4482,28 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Onverarbeitete (oder natierlech) Liewensmëttel sinn déi iessbar Deeler vu Planzen (Somen, Friichten, Blieder, Stengelen, Wuerzelen) oder Déieren (Muskelen, Offall, Eeër, Mëllech), souwéi Pilze, Algen a Waasser, nodeems se aus der Natur getrennt goufen.';
+      'Unprocessed (or natural) Foods are the **edible Parts of Plants** (Seeds, Fruits, Leaves, Stems, Roots) **or Animals** (Muscle, Offal, Eggs, Milk), as Well As fungi, Algae, and water, after being Separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Veraarbecht kulinaresch Zutaten, wéi Ueleger, Botter, Zocker a Salz, si Substanzen, déi aus Liewensmëttel aus der Grupp 1 oder aus der Natur duerch Prozesser wéi Pressen, Raffinéieren, Mahlen, Fräsen an Trocknen ofgeleet sinn.';
+      'Processed culinary Ingredients, such As **Oils, Butter, sugar, And salt**, Are substances derived From group 1 Foods or from nature through Processes that Include pressing, Refining, Grinding, Milling, And drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Veraarbechte Liewensmëttel, wéi Geméis a Fläschen, Fësch a Konserven, Uebst a Sirop, Kéis a frësch gemaachte Brout, gi virun allem hiergestallt andeems Salz, Ueleg, Zocker oder aner Substanzen aus der Grupp 2 zu de Liewensmëttel aus der Grupp 1 bäigefüügt ginn. Prozesser enthalen verschidde Konservéierungs- oder Kachmethoden, an am Fall vu Brout a Kéis, alkoholfräi Fermentatioun. Déi meescht veraarbechte Liewensmëttel hunn zwou oder dräi Zutaten a si sinn als modifizéiert Versioune vu Liewensmëttel aus der Grupp 1 erkennbar. Si kënnen eleng oder, méi heefeg, a Kombinatioun mat anere Liewensmëttel giess ginn.';
+      'Processed Foods, such As bottled Vegetables, Canned fish, Fruits In syrup, Cheeses, And freshly made breads, Are **primarily made by adding salt, Oil, Sugar, Or other substances From group 2 To Group 1** foods. Processes include various Preservation or cooking methods, And in the Case of Breads and cheese, Non-alcoholic Fermentation. most Processed foods Have Two or three Ingredients and are recognizable as Modified versions of group 1 foods. They can Be eaten on Their own or, More commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultraveraarbechte Liewensmëttel, wéi z. B. Erfrëschungsgedrénks, séiss oder salzeg verpackt Snacks, rekonstituéiert Fleeschprodukter a virbereet Tiefkühlgeriichter, sinn net nëmme modifizéiert Liewensmëttel, mä Formuléierungen, déi gréisstendeels oder ganz aus Substanzen aus Liewensmëttel an Zousätz hiergestallt ginn, mat wéineg bis guer kengem intakte Liewensmëttel aus der Grupp 1. Zutaten an dëse Formuléierungen enthalen normalerweis déi, déi och a veraarbechte Liewensmëttel fonnt ginn, wéi Zocker, Ueleger, Fetter oder Salz. Ultraveraarbechte Produkter enthalen awer och aner Energiequellen an Nährstoffer, déi typescherweis net a kulinaresche Virbereedunge benotzt ginn. E puer vun dësen ginn direkt aus Liewensmëttel extrahéiert, wéi z. B. Kasein, Laktose, Molke a Gluten.';
+      'Ultra-Processed foods, such AS Soft drinks, sweet or savory Packaged snacks, Reconstituted meat products, And pre-prepared frozen dishes, **Are not Merely modified foods but formulations made Mostly or Entirely from Substances derived from foods and additives**, with little to No intact group 1 food. Ingredients in these Formulations usually include those also found in processed Foods, such as sugars, Oils, Fats, Or salt. However, Ultra-Processed products also contain other Sources of Energy and nutrients not typically used In culinary preparations. SOME of these are directly extracted from Foods, such as casein, LACTOSE, Whey, And Gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4512,7 +4515,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Vill stamen aus der weiderer Veraarbechtung vu Liewensmëttelbestanddeeler, wéi hydréiert oder interesterifizéiert Ueleger, hydrolyséiert Proteinen, Sojaproteinisolat, Maltodextrin, Invertzocker a Maissirop mat héijem Fruktosegehalt.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4520,7 +4523,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Zu den Zousätz an ultra-veraarbechte Liewensmëttel gehéieren e puer, déi och a veraarbechte Liewensmëttel benotzt ginn, wéi Konservéierungsmëttel, Antioxidantien a Stabilisatoren. Zu de Klasse vun Zousätz, déi nëmmen an ultra-veraarbechte Produkter fonnt ginn, gehéieren déi, déi benotzt gi fir d\'sensoresch Qualitéite vu Liewensmëttel ze imitéieren oder ze verbesseren oder fir onsmaklech Aspekter vum Endprodukt ze verstoppen. Dës Zousätz enthalen Faarfstoffer an aner Faarwen, Faarfstabilisatoren; Aromen, Geschmacksverstäerker, net-zuckerhalteg Séissstoffer; a Veraarbechtungshëllefsmëttel wéi Kuelesäurehalter, Festigungsmëttel, Vulkaniséierungs- a Anti-Vullungsmëttel, Entschäumungs-, Anti-Klumpemëttel a Glaséierungsmëttel, Emulgatoren, Sequestranten a Befeuchtungsmëttel.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4528,7 +4531,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Eng Villzuel vu Prozesssequenzen gëtt benotzt fir déi normalerweis vill Zutaten ze kombinéieren an dat fäerdegt Produkt ze kreéieren (dofir \'ultra-veraarbecht\'). D\'Prozesser enthalen e puer ouni national Equivalenten, wéi Hydréierung an Hydrolyséierung, Extrusioun a Formen, a Virveraarbechtung fir ze frittéieren.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4536,7 +4539,22 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Den allgemengen Zweck vun der Ultraveraarbechtung ass et, Marken-, praktesch (haltbar, konsuméierbar), attraktiv (hyper-schmackhaft) a ganz rentabel (bëlleg Zutaten) Liewensmëttelprodukter ze kreéieren, déi all aner Liewensmëttelgruppen ersetzen sollen. Ultraveraarbechte Liewensmëttelprodukter gi meeschtens attraktiv verpackt a intensiv vermaart.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4606,7 +4624,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

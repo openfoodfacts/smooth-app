@@ -2945,6 +2945,9 @@ class AppLocalizationsTg extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4351,7 +4354,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Барои мукофотонидани маҳсулоти беҳтар дар як категория, мо пас аз он дар асоси якчанд меъёрҳо мукофотпулӣ ва ҷаримаҳо татбиқ мекунем:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4359,7 +4362,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4367,7 +4370,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Бонус дар асоси пайдоиши компонентҳо дода мешавад. Ин бонус таъсир ба нақлиёт ва инчунин сиёсати экологии ҳар як кишвари истеҳсолкунандаро ба назар мегирад.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4375,14 +4378,14 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4390,19 +4393,19 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Барои дуруст ҳисоб кардани нишондиҳандаи сабз, маълумоте лозим аст, ки дар бастабандӣ ҳатман нишон дода нашудаанд (масалан, пайдоиш ва фоизи дақиқи ҳар як ингредиент) ё дар шакли қобили истифода хеле кам дастрас аст (масалан, рӯйхати ҳама ҷузъҳои бастабандӣ бо намудҳои дақиқи пластикии истифодашуда).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Арзиши миёна вақте истифода мешавад, ки ин маълумот ҳанӯз дастрас нест, аммо мо ҳоло ҳамаро даъват мекунем, ки ба мо дар ҷамъоварии ин маълумот кӯмак расонанд, ки барои Green-Score ва инчунин барои бисёр истифодаҳои дигар муфид хоҳанд буд.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Чӣ тавр шаҳрвандон метавонанд кӯмак расонанд';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Ҳама шаҳрвандон метавонанд ба мо дар ҷамъоварӣ ва сохтори маълумоте, ки дар маҳсулот мавҷуд аст ё аз онҳо баровардан мумкин аст, кӯмак расонанд, масалан, маълумот дар бораи бастабандӣ: Mission Emballages: инвентаризатсияи васеъмиқёси муштараки бастабандӣ барои ҳама маҳсулоти хӯрокворӣ (бо забони фаронсавӣ)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4476,28 +4479,28 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ғизоҳои коркарднашуда (ё табиӣ) қисмҳои хӯрдани растанӣ (тухмҳо, меваҳо, баргҳо, пояҳо, решаҳо) ё ҳайвонот (мушакҳо, ҳашаротҳо, тухмҳо, шир), инчунин занбӯруғҳо, алафҳо ва об пас аз ҷудо шудан аз табиат мебошанд.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Компонентҳои коркардшудаи пухтупаз, ба монанди равған, равған, шакар ва намак, моддаҳое мебошанд, ки аз хӯрокҳои гурӯҳи 1 ё аз табиат тавассути равандҳое, ки пресскунӣ, тозакунӣ, дастос кардан, резиши ва хушккуниро дар бар мегиранд, ҳосил мешаванд.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Хӯрокҳои коркардшуда, аз қабили сабзавоти шишагӣ, консерваҳои моҳӣ, меваҳо дар шарбат, панир ва нонҳои тару тоза, пеш аз ҳама бо илова кардани намак, равған, шакар ё дигар моддаҳои ғизои гурӯҳи 2 ба гурӯҳи 1 тайёр карда мешаванд. Равандҳо усулҳои гуногуни нигоҳдорӣ ё пухтупазро дар бар мегиранд ва дар мавриди нон ва панир, ферментатсияи ғайриспиртӣ. Аксари хӯрокҳои коркардшуда ду ё се компонент доранд ва ҳамчун версияҳои тағирёфтаи хӯрокҳои гурӯҳи 1 шинохта мешаванд. Онҳоро мустақилона ё бештар дар якҷоягӣ бо дигар хӯрокҳо истеъмол кардан мумкин аст.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed Foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they Can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Хӯрокҳои аз ҳад коркардшуда, аз қабили нӯшокиҳои спиртӣ, газакҳои бастабандии ширин ё болаззат, маҳсулоти гӯштии барқароршуда ва хӯрокҳои яхкардаи пешакӣ тайёршуда на танҳо хӯрокҳои тағирёфта, балки формулаҳое мебошанд, ки асосан ё пурра аз моддаҳои аз хӯрокҳо ва иловаҳо ҳосилшуда, бо кам ё тамоман бетағйири ғизои Гурӯҳи 1 сохта шудаанд. Компонентҳои ин формулаҳо одатан ҷузъҳоеро дар бар мегиранд, ки дар ғизоҳои коркардшуда, ба монанди қанд, равғанҳо, равғанҳо ё намак мавҷуданд. Бо вуҷуди ин, маҳсулоти ултра коркардшуда инчунин дорои дигар манбаъҳои энергия ва маводи ғизоӣ мебошанд, ки маъмулан дар тайёр кардани пухтупаз истифода намешаванд. Баъзе аз онҳо мустақиман аз хӯрокҳо, аз қабили казеин, лактоза, зардоб ва глютен истихроҷ карда мешаванд.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. Ingredients in these Formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products Also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such As casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Мушкилот бо коркарди ултра';
@@ -4508,7 +4511,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Бисёре аз онҳо аз коркарди минбаъдаи ҷузъҳои хӯрокворӣ, ба монанди равғанҳои гидрогеншуда ё манфиатдор, сафедаҳои гидролизшуда, изоляти протеини соя, мальтодекстрин, шакар инверт ва шарбати ҷуворимаккаи дорои фруктоза гирифта мешаванд.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Иловаҳо дар хӯрокҳои ултра коркардшуда баъзеҳо дар бар мегиранд, ки инчунин дар хӯрокҳои коркардшуда истифода мешаванд, ба монанди консервантҳо, антиоксидантҳо ва стабилизаторҳо. Синфҳои иловагиҳое, ки танҳо дар маҳсулоти ултра коркардшуда мавҷуданд, дохил мешаванд, ки барои тақлид ё баланд бардоштани сифатҳои ҳассосии ғизо ё пинҳон кардани ҷанбаҳои нописанди маҳсулоти ниҳоӣ истифода мешаванд. Ба ин иловаҳо рангҳо ва рангҳои дигар, стабилизаторҳои ранг дохил мешаванд; маззаҳо, беҳтаркунандаи мазза, ширинкунандаҳои ғайришакар; ва ёрирасони коркард, аз қабили агентҳои карбонаткунӣ, мустаҳкамкунӣ, ҳаҷм ва зидди ҳаҷм, агентҳои кафккунӣ, зидди қаҳваранг ва шишабандӣ, эмульгаторҳо, секвестрҳо ва намӣ.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4524,7 +4527,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Якчанд пайдарпайии равандҳо барои муттаҳид кардани компонентҳои маъмулан ва эҷоди маҳсулоти ниҳоӣ (аз ин рӯ, \"ултракоркардшуда\") истифода мешаванд. Равандҳо якчанд равандҳоро дар бар мегиранд, ки муодили ватанӣ надоранд, ба монанди гидрогенизатсия ва гидролизизатсия, экструзия ва қолибсозӣ ва коркарди пешакӣ барои пухтан.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4532,7 +4535,22 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Мақсади умумии коркарди ултра-коркард аз он иборат аст, ки маҳсулоти бренди, қулай (устувор, барои истеъмол омода), ҷолиб (гипер хушбӯй) ва сердаромад (компонентҳои камхарҷ), ки барои иваз кардани ҳама гурӯҳҳои дигари ғизо пешбинӣ шудаанд. Маҳсулоти хӯроквории ултра коркардшуда одатан ба таври ҷолиб бастабандӣ карда мешаванд ва ба таври интенсивӣ ба фурӯш бароварда мешаванд.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4602,7 +4620,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

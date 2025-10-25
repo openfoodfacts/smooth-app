@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Marin & air tawar (zarah, pengasidan, eutrofikasi)",
   "guide_greenscore_lca_arg3_text8": "Kehabisan sumber.",
   "guide_greenscore_bonuses_penalties_title": "Bonus & penalti",
-  "guide_greenscore_bonuses_penalties_intro": "Untuk memberi ganjaran kepada produk yang lebih baik dalam kategori, kami kemudiannya menggunakan bonus & penalti berdasarkan beberapa kriteria:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Asal-usul bahan ramuan",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus diberikan berdasarkan asal bahan. Bonus ini mengambil kira impak ke atas pengangkutan dan juga dasar alam sekitar setiap negara pengeluar.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Pembungkusan",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Sesuatu penalti dikira dengan mengambil kira pengitaran semula pembungkusan (penggunaan bahan mentah yang dikitar semula dan kebolehkitaran semula) dan pembungkusan berlebihan.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Untuk mengira Skor Hijau dengan tepat, adalah perlu untuk mempunyai maklumat yang tidak semestinya dinyatakan pada pembungkusan (seperti asal usul dan peratusan tepat setiap ramuan) atau yang jarang didapati dalam bentuk yang boleh digunakan (seperti senarai semua komponen pembungkusan dengan jenis plastik yang tepat digunakan).",
-  "guide_greenscore_transparency_intro2": "Nilai purata digunakan apabila maklumat ini belum tersedia, tetapi kami kini menyeru semua orang untuk membantu kami mengumpul maklumat ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lain.",
-  "guide_greenscore_transparency_arg1_title": "Bagaimana rakyat boleh membantu",
-  "guide_greenscore_transparency_arg1_text": "Semua rakyat boleh membantu kami mengumpulkan dan menyusun maklumat yang terdapat pada produk atau yang boleh disimpulkan daripadanya, seperti maklumat tentang pembungkusan: Mission Emballages: inventori pembungkusan kerjasama berskala besar untuk semua produk makanan (dalam bahasa Perancis)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Bagaimana pengilang boleh membantu",
   "guide_greenscore_transparency_arg2_text": "Pengilang boleh menghantar maklumat mereka terus kepada kami melalui platform percuma kami untuk pengeluar.",
   "guide_greenscore_better_product_title": "Produk manakah yang lebih baik untuk planet ini?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 kumpulan NOVA",
   "guide_nova_groups_intro": "Terdapat 4 kumpulan NOVA, yang bermasalah ialah Kumpulan 4 - Makanan ultra-proses.",
   "guide_nova_groups_arg1_title": "Makanan yang diproses secara minimum atau tidak diproses",
-  "guide_nova_groups_arg1_text": "Makanan yang tidak diproses (atau semula jadi) ialah bahagian tumbuhan yang boleh dimakan (biji, buah, daun, batang, akar) atau haiwan (otot, jeroan, telur, susu), serta kulat, alga, dan air, selepas dipisahkan daripada alam semula jadi.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Bahan masakan yang diproses, seperti minyak, mentega, gula dan garam, adalah bahan yang diperoleh daripada makanan Kumpulan 1 atau daripada alam semula jadi melalui proses yang termasuk menekan, menapis, mengisar, mengisar dan mengeringkan.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 Foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Makanan yang diproses, seperti sayur-sayuran dalam botol, ikan dalam tin, buah-buahan dalam sirap, keju dan roti yang baru dibuat, terutamanya dibuat dengan menambahkan garam, minyak, gula atau bahan lain daripada makanan Kumpulan 2 kepada Kumpulan 1. Proses termasuk pelbagai kaedah pengawetan atau memasak, dan dalam kes roti dan keju, penapaian bukan alkohol. Kebanyakan makanan yang diproses mempunyai dua atau tiga bahan dan boleh dikenali sebagai versi diubah suai bagi makanan Kumpulan 1. Mereka boleh dimakan sendiri atau, lebih biasa, digabungkan dengan makanan lain.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** Foods. Processes include Various preservation Or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed Foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can Be eaten On their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Makanan ultra-diproses, seperti minuman ringan, snek berbungkus manis atau berperisa, produk daging yang disusun semula, dan hidangan sejuk beku yang telah disediakan sebelum ini, bukan sekadar makanan yang diubah suai tetapi formulasi yang dibuat kebanyakannya atau keseluruhannya daripada bahan yang diperoleh daripada makanan dan bahan tambahan, dengan sedikit atau tiada makanan Kumpulan 1 yang utuh. Ramuan dalam formulasi ini biasanya termasuk yang juga terdapat dalam makanan yang diproses, seperti gula, minyak, lemak atau garam. Walau bagaimanapun, produk ultra-diproses juga mengandungi sumber tenaga dan nutrien lain yang biasanya tidak digunakan dalam penyediaan masakan. Sebahagian daripada ini diekstrak terus daripada makanan, seperti kasein, laktosa, whey, dan gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include Those also found in Processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy And nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, Lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Masalah dengan pemprosesan ultra",
   "guide_nova_explanations_arg1_title": "Pemprosesan bahan makanan yang melampau",
-  "guide_nova_explanations_arg1_text": "Kebanyakannya diperoleh daripada pemprosesan lanjut juzuk makanan, seperti minyak terhidrogenasi atau yang diminati, protein terhidrolisis, pengasingan protein soya, maltodekstrin, gula songsang dan sirap jagung fruktosa tinggi.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aditif yang melampaui keselamatan makanan tulen",
-  "guide_nova_explanations_arg2_text": "Aditif dalam makanan ultra-diproses termasuk beberapa yang juga digunakan dalam makanan yang diproses, seperti pengawet, antioksidan dan penstabil. Kelas aditif yang hanya terdapat dalam produk ultra-proses termasuk yang digunakan untuk meniru atau meningkatkan kualiti deria makanan atau untuk menyamarkan aspek produk akhir yang tidak enak. Bahan tambahan ini termasuk pewarna dan warna lain, penstabil warna; perisa, penambah rasa, pemanis bukan gula; dan bahan bantu pemprosesan seperti agen pengkarbonat, penegang, pukal dan anti pukal, penyahbuih, agen anti pecak dan kaca, pengemulsi, sekuestran dan humektan.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Pemprosesan yang anda tidak boleh lakukan di rumah",
-  "guide_nova_explanations_arg3_text": "Pelbagai urutan proses digunakan untuk menggabungkan bahan yang biasanya banyak dan untuk mencipta produk akhir (oleh itu 'ultra-diproses'). Proses tersebut termasuk beberapa tanpa setara domestik, seperti penghidrogenan dan hidrolisis, penyemperitan dan pengacuan, dan pra-pemprosesan untuk menggoreng.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Aspek pemangsa dan kewangan pemprosesan ultra",
-  "guide_nova_explanations_arg4_text": "Tujuan keseluruhan pemprosesan ultra adalah untuk mencipta produk makanan berjenama, mudah (tahan lama, sedia untuk dimakan), menarik (hiper sedap) dan sangat menguntungkan (ramuan kos rendah) yang direka untuk menggantikan semua kumpulan makanan lain. Produk makanan ultra-proses biasanya dibungkus dengan menarik dan dipasarkan secara intensif.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

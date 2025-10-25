@@ -131,7 +131,7 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           onTap: () => launchUrlString('https://impactco2.fr/'),
         ),
         GuidesTitleWithText(
-          icon: const icons.Build(color: Colors.white),
+          icon: const icons.Toolbox(),
           title: appLocalizations.guide_open_products_facts_features_arg2_title,
           text: appLocalizations.guide_open_products_facts_features_arg2_text,
         ),

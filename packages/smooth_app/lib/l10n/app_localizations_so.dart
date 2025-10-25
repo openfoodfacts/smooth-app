@@ -2945,6 +2945,9 @@ class AppLocalizationsSo extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4355,7 +4358,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Si loo abaalmariyo agabka ka wanaagsan qaybta, waxaanu markaas ku dabaqnaa gunno & ganaaxyo ku salaysan dhawr shuruudood:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4363,7 +4366,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4371,7 +4374,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Gunno ayaa lagu bixiyaa iyadoo lagu saleynayo asalka maaddooyinka. Gunnadani waxay tixgalinaysaa saamaynta ay ku leedahay gaadiidka iyo sidoo kale siyaasadda deegaanka ee waddan kasta oo soo-saare ah.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4379,14 +4382,14 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4394,19 +4397,19 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Si sax ah loo xisaabiyo Buundada Cagaaran, waxaa lagama maarmaan ah in la helo macluumaad aan daruuri ahayn in lagu caddeeyo baakooyinka (sida asalka iyo boqolleyda saxda ah ee walx kasta) ama si dhif ah loo heli karo qaab la isticmaali karo (sida liiska dhammaan qaybaha baakadaha oo ay ku jiraan noocyada saxda ah ee balaastikada loo isticmaalo).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Celceliska qiyamka ayaa la isticmaalaa marka macluumaadkan aan weli la heli karin, laakiin hadda waxaan ugu baaqaynaa qof walba inuu naga caawiyo ururinta macluumaadkan oo aad waxtar u leh Green-Score laakiin sidoo kale adeegyo kale oo badan.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Sidee muwaadiniintu u caawin karaan';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Dhammaan muwaadiniinta waxay naga caawin karaan ururinta iyo qaabaynta macluumaadka ku jira alaabada ama laga soo saari karo iyaga, sida macluumaadka ku saabsan baakadaha: Mission Emballages: alaab balaadhan oo wada shaqayneed oo baakad ah dhammaan alaabta cuntada (Faransiiska)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4481,28 +4484,28 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Cuntooyinka aan la warshadayn (ama dabiiciga ah) waa qaybaha la cuni karo ee dhirta (miraha, miraha, caleemaha, jirridda, xididdada) ama xayawaanka (murqaha, bararka, ukunta, caanaha), iyo sidoo kale fungi, algae, iyo biyaha, ka dib marka laga sooco dabeecadda.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Maaddooyinka cunto karinta ee la habeeyey, sida saliidaha, subagga, sonkorta, iyo milixda, waa maaddooyin laga helo Cuntooyinka Kooxda 1 ama dabeecadda iyada oo loo marayo habab ay ku jiraan cadaadis, sifeyn, shiidi, shiiditaan, iyo qallajin.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 Foods Or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Cuntooyinka la habeeyey, sida khudaarta dhalada ku jirta, kalluunka qasacadaysan, miraha sharoobada ku jira, farmaajo, iyo roodhida cusub ee la sameeyey, waxa ugu horrayn lagu sameeyaa iyadoo lagu darayo milix, saliid, sonkor, ama walxo kale oo ka socda kooxda 2 ilaa cuntooyinka kooxda 1. Nidaamyada waxaa ka mid ah dhawrid ama habab cunto karinta oo kala duwan, iyo marka laga hadlayo rootiga iyo farmaajo, halsano aan alkohol ahayn. Inta badan cuntooyinka la warshadeeyay waxay leeyihiin laba ama saddex maaddooyin waxaana loo aqoonsan karaa inay yihiin noocyada cuntada ee Kooxda 1. Iyaga waa la cuni karaa iskood ama, inta badan, marka lagu daro cuntooyinka kale.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the Case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Cuntooyinka aadka loo habeeyey, sida cabitaannada fudud, cuntooyinka fudud ee macaan ama macaan, hilibka dib loo habeeyey, iyo suxuunta barafaysan ee hore loo sii diyaariyey, maaha oo keliya cuntooyinka la beddelay ee waa kuwo laga sameeyey inta badan ama gebi ahaanba walxaha laga soo dheegtay cuntooyinka iyo waxyaalaha lagu daro, iyada oo ay yar tahay ama aanay jirin cunto Group 1 ah. Waxyaabaha ay ka kooban yihiin hab-raacyadan sida caadiga ah waxa ka mid ah kuwa sidoo kale laga helo cuntooyinka warshadaysan, sida sonkorta, saliidaha, dufanka, ama milixda. Si kastaba ha ahaatee, alaabta aadka loo habeeyey ayaa sidoo kale ka kooban ilo kale oo tamar ah iyo nafaqooyin aan sida caadiga ah loo isticmaalin diyaarinta cunto karinta. Qaar ka mid ah kuwan waxaa si toos ah looga soo saaraa cuntooyinka, sida casein, lactose, whey, iyo gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such As sugars, oils, Fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted From foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4514,7 +4517,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Kuwo badan ayaa laga soo qaatay habayn dheeraad ah oo ka kooban cuntada, sida saliidaha hydrogenated ama xiisaha leh, borotiinnada hydrolyzed, borotiinka soy go\'doominta, maltodextrin, sonkorta rogan, iyo sharoobada galleyda ee fructose-sare.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4522,7 +4525,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Waxyaalaha lagu daro cuntooyinka aadka loo habeeyey waxaa ka mid ah qaar sidoo kale loo isticmaalo cuntooyinka warshadaysan, sida kuwa ilaaliya, antioxidants, iyo stabilizers. Qaybaha wax lagu daro ee laga helo kaliya alaabta aadka loo habeeyey waxaa ka mid ah kuwa loo isticmaalo in lagu daydo ama kor loogu qaado tayada dareenka cuntooyinka ama in lagu qariyo dhinacyada aan la jeclayn ee sheyga kama dambaysta ah. Waxyaabaha lagu daro waxaa ka mid ah dheeha iyo midabyo kale, xasiliyeyaasha midabka; dhadhanka, kobciya dhadhanka, macaanayaasha aan sonkorta lahayn; iyo qalabka wax lagu farsameeyo sida kaarboonaysiinta, adkaynta, bulking iyo wakiilada ka-hortagga bulking, xumbaynta, ka-hortagga keega iyo wakiilada dhaldhalaalka, emulsifiers, sequestrants, iyo humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4530,7 +4533,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Nidaamyo badan oo isdaba-joog ah ayaa loo adeegsadaa in la isku daro maaddooyinka badan ee sida caadiga ah iyo in la abuuro wax soo saarka ugu dambeeya (sidaa darteed \'ultra-processed\'). Nidaamyada waxaa ka mid ah dhowr aan lahayn wax u dhigma gudaha, sida hydrogenation iyo hydrolysation, extrusion iyo molding, iyo ka hor-u-habaynta shiilitaanka.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4538,7 +4541,22 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Ujeedada guud ee hab-socodka aadka u sarreeya waa in la abuuro summad leh, habboon (raagi karta, diyaar u ah in la isticmaalo), soo jiidasho leh (sare-u-qaadi karo) iyo faa\'iido sare leh (waxyaabaha qiimahoodu jaban yahay) alaabta cuntada loogu talagalay in lagu baro dhammaan kooxaha kale ee cuntada. Alaabooyinka cuntada sida aadka ah loo farsameeyay ayaa inta badan loo baakadeeyaa si soo jiidasho leh waxaana si xoogan loo suuq geeyaa.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4608,7 +4626,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

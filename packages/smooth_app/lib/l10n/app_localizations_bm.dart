@@ -2947,6 +2947,9 @@ class AppLocalizationsBm extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4356,7 +4359,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Walasa ka fɛn ɲumanw sara kulu dɔ kɔnɔ, o kɔfɛ, an bɛ bonus & penalties (bonus & penalties) kɛ ka da sariya damadɔ kan:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4364,7 +4367,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4372,7 +4375,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonus bɛ di ka da a fɛnw bɔyɔrɔ kan. Nin bonyali in bɛ jateminɛ kɛ nɔ min bɛ sɔrɔ bolifɛnw na ani fana sɛnɛfɛn dilannikɛla kelen-kelen bɛɛ ka jamana ka sigidako politiki.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4380,14 +4383,14 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4395,19 +4398,19 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Walasa ka Green-Score jate tigitigi, a ka kan ka kunnafoniw sɔrɔ minnu ma fɔ kosɛbɛ foroko kan (i n’a fɔ a bɔyɔrɔ ani a kɛcogo kelen-kelen bɛɛ kɛmɛsarada la tigitigi) walima minnu man teli ka sɔrɔ cogo la min bɛ se ka baara kɛ (i n’a fɔ foroko kɔnɔfɛnw bɛɛ lisɛli ni plastiki suguya tigitigiw ye minnu bɛ kɛ).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Nafa hakɛ danmadɔw bɛ baara kɛ ni nin kunnafoniw ma sɔrɔ fɔlɔ, nka an bɛ wele bila sisan bɛɛ ma u k’an dɛmɛ ka nin kunnafoniw lajɛ min nafa bɛna bonya kosɛbɛ Green-Score la nka nafa caman wɛrɛw fana na.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Jamanadenw bɛ se ka dɛmɛ don cogo min na';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Jamanaden bɛɛ bɛ se k’an dɛmɛ ka kunnafoniw lajɛ ani k’u labɛn, kunnafoniw minnu bɛ sɔrɔ fɛnw kan walima minnu bɛ se ka bɔ u la, i n’a fɔ kunnafoniw minnu bɛ sɔrɔ pakew kan: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4481,28 +4484,28 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Dumuni minnu ma labɛn (walima minnu bɛ sɔrɔ u yɛrɛ la) ye jiriw yɔrɔ duntaw ye (kisɛw, jiridenw, furabuluw, jirisunw, jirisunw) walima baganw (fasa, kɔnɔbara, kɔnɔw, nɔnɔ), ka fara ɲɛgɛnw, jirisunw, ani ji kan, u faralen kɔ ɲɔgɔn kan ka bɔ fɛnɲɛnamaw la.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Tobilikɛminɛn minnu dilannen don, i n’a fɔ tulu, tulu, sukaro ani kɔgɔ, olu ye fɛnw ye minnu bɛ bɔ kulu 1 dumuniw na walima minnu bɛ bɔ fɛnɲɛnamaw la, fɛɛrɛw fɛ minnu bɛ kɛ ka u digidigi, ka u saniya, ka u sɔgɔ, ka u sɔgɔ ani ka u ja.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Dumuni dilannenw, i n’a fɔ nakɔfɛnw buteli kɔnɔ, jɛgɛ bidon kɔnɔ, jiriden minnu bɛ siro la, foromaziw, ani buru dilannen kuraw, olu bɛ dilan fɔlɔ ni kɔgɔ, tulu, sukaro walima fɛn wɛrɛw farali ye minnu bɛ bɔ kulu 2 la ka taa kulu 1 ka dumuniw na. Taabolo minnu bɛ Kɛ olu ye maracogo walima tobilikɛcogo suguya caman ye, ani buru ni foromazi ta la, dɔlɔ tɛ min na. Dumuni dilannen fanba bɛ kɛ ni fɛn fila walima saba ye, wa u bɛ dɔn ko kulu 1 dumuniw cogoya caman sɛmɛntiyalen don. U bɛ se ka dun u yɛrɛ ma walima a ka ca a la, u ni dumuni wɛrɛw faralen ɲɔgɔn kan.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic Fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Dumuni minnu dilannen don kosɛbɛ, i n’a fɔ minfɛn gazimaw, dumuni misɛnninw pakew kɔnɔ minnu ka di walima minnu ka di, sogofɛnw minnu dilannen don kokura, ani dumuni minnu dilannen don ka kɔn u ɲɛ, olu tɛ dumuni caman ye minnu dilannen don ni fɛn caman ye walima u bɛɛ ye fɛnw ye minnu bɛ bɔ dumuniw ni faralifɛnw na, ni kulu 1 ka dumuni caman tɛ walima minnu tɛ tiɲɛ. A ka ca a la, fɛn minnu bɛ nin furakɛcogo ninnu na, olu dɔw bɛ sɔrɔ dumuni dilannenw fana na, i n’a fɔ sukaro, tulu, tulu walima kɔgɔ. Nka, fanga ni balofɛn wɛrɛw fana bɛ sɔrɔ fɛn dilannenw na minnu tɛ kɛ ka caya dumunikɛminɛnw na. Olu dɔw bɛ bɔ dumuniw na k’a ɲɛsin u ma, i n’a fɔ kazeyin, lactose, whey ani gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other SOURCES of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4513,7 +4516,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'U caman bɛ sɔrɔ dumunifɛnw dilanni na ka taa a fɛ, i n’a fɔ tulu minnu bɛ ni hidrɔzɛni ye walima tulu minnu bɛ kɛ ni fɛnɲɛnamafagalan ye, farikolojɔli dumuniw, soja farikolojɔli dumuniw, maltodextrin, sukaro invert, ani ɲɔ siro min falen don fruktose caman na.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4521,7 +4524,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Fɛn minnu bɛ fara dumuniw kan minnu dilannen don kosɛbɛ, olu dɔw ye dɔw ye minnu bɛ kɛ fana dumuni dilannenw na, i n’a fɔ fɛnw minnu bɛ u tanga, farikolo tangalanw ani fɛnw sabatili. Fura suguya minnu bɛ sɔrɔ fɛnw na minnu dilannen don kosɛbɛ, olu dɔw ye minnu bɛ kɛ ka dumuniw dusukunnataw ladege walima ka u bonya walima ka fɛn laban yɔrɔ minnu man di, olu dogo. O faralifɛnw ye kalali ni kulɛri wɛrɛw ye, kulɛri sabatilifɛnw; dajiw, dajiw, dumuni duman minnu tɛ sukaro ye; ani baarakɛcogo dɛmɛnanw i n’a fɔ karɔbɔni, firimi, bulking ani bulking kɛlɛli, de-foaming, anti-caking ani glazing agents, emulsifiers, sequestrants, ani humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4529,7 +4532,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Taabolo caman bɛ kɛ ka tugu ɲɔgɔn kɔ walasa ka fɛn caman fara ɲɔgɔn kan a ka c’a la ani ka fɛn laban dilan (o de kama ‘a bɛ kɛ kosɛbɛ’). O kɛcogo dɔw ye damadɔ ye minnu tɛ sokɔnɔna bɔɲɔgɔnko ye, i n’a fɔ hidrɔzɛni ni jibɔ, bɔli ni fɛn dilanni, ani ka kɔn ka baara kɛ walasa ka tobi.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4537,7 +4540,22 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Ultra-processing kun bɛɛ ye ka dumunifɛnw dilan minnu tɔgɔ sɛbɛnnen don, minnu bɛ se ka mɛn, minnu bɛ mɛn, minnu bɛ se ka dun, minnu bɛ mɔgɔ ɲɛnajɛ (min ka di kosɛbɛ) ani minnu nafa ka bon kosɛbɛ (fɛn minnu musaka ka dɔgɔ) minnu dabɔra ka dumuni kulu tɔw bɛɛ bɔ u nɔ na. A ka c’a la, dumunifɛnw minnu dilannen don ni ultra-processed ye, olu bɛ kɛ pake kɔnɔ cogo la min bɛ mɔgɔ ɲɛnajɛ, wa u bɛ feere kosɛbɛ.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4607,7 +4625,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

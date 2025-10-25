@@ -2946,6 +2946,9 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Graet';
 
   @override
@@ -4355,7 +4358,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Evit gounit produioù gwelloc\'h e-barzh ur rummad e lakaomp neuze prizioù ha kastizoù diazezet war meur a dalvoudegezh :';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4363,7 +4366,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4371,7 +4374,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ur bonus a vez roet diwar orin ar c\'hementadoù. Gant ar bonus-mañ e vez kemeret e kont an efedoù war an treuzdougen hag ivez politikerezh an endro bro pep produer.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4379,14 +4382,14 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Enpakañ';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4394,19 +4397,19 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Evit jediñ ar Green-Score en un doare reizh eo ret kaout titouroù ha n\'int ket spisaet dre ret war ar pakad (evel orin ha dregantad resis pep elfenn) pe a vez kavet ral a wech e stumm implijus (evel ur roll eus holl elfennoù ar pakad gant ar seurt plastikoù resis implijet).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Arveret e vez talvoudoù keitat pa n\'eo ket hegerz an titouroù-mañ c\'hoazh, met goulenn a reomp bremañ digant an holl sikour ac\'hanomp da zastum an titouroù-se a vo talvoudus-kenañ evit ar Green-Score met ivez evit meur a implij all.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Penaos e c\'hall ar geodedourien sikour';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'An holl geodedourien a c’hell sikour ac’hanomp da zastum ha da frammañ an titouroù a zo war ar produioù pe a c’heller tennañ diwarno, evel titouroù diwar-benn an endalc’hadoù : Mission Emballages : un inventaire collaboratif à grand échelle des emballages pour tous les produits alimentaires (e galleg)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4481,28 +4484,28 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ar boued nann-treuzfurmet (pe naturel) a zo lodennoù debret ar plant (hadoù, frouezh, delioù, kefoù, gwrizioù) pe loened (kigennoù, boued, vioù, laezh), hag ivez ar c\'hoñkour, an algae, hag an dour, goude bezañ bet dispartiet diouzh an natur.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Elfennoù keginañ treuzfurmet, evel an eoul, an amann, ar sukr hag an holen, a zo danvezioù tennet eus bouedoù ar strollad 1 pe eus an natur dre argerzhioù a ya d\'ober ar gwaskañ, ar puraat, ar malañ, ar moullañ hag ar sec\'hañ.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Ar boued treuzfurmet, evel al legumaj e boutailhoù, ar pesked en ur c\'hontener, ar frouezh e sirop, ar fourmaj hag ar baraoù nevez-fardet, a vez graet dreist-holl dre ouzhpennañ holen, eoul, sukr pe danvezioù all eus ar boued eus ar strollad 2 d\'ar boued eus ar strollad 1. En argerzhioù e kaver meur a zoare da virout pe da boazhañ, hag evit ar baraoù hag ar fourmaj, ar goadur hep alkool. An darn vrasañ eus ar bouedoù treuzfurmet a zo daou pe dri elfenn enno hag anavezet e vezont evel stummoù kemmet eus bouedoù ar strollad 1. Debriñ a c\'haller anezho o-unan pe, peurliesañ, asambles gant bouedoù all.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on Their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ar bouedoù treuzfurmet dreist-holl, evel an evajoù dous, ar boued-koad dous pe sall, ar produioù kig adkempennet, hag ar bouedoù skornet rakprenet, n\'int ket bouedoù kemmet hepken met stummoù savet dreist-holl pe a-bezh diwar danvezioù tennet eus bouedoù ha danvezioù ouzhpenn, gant nebeut pe tamm boued ebet eus ar strollad 1. Elfennoù ar stummoù-se a vez kavet ivez e boued treuzfurmet, evel sukroù, eoul, greun pe holen. Koulskoude, ar produioù dreist-treuzfurmet a zo ivez enno fontoù energiezh ha bouedoù all na vezont ket implijet peurliesañ evit ar c\'heginañ. Lod anezho a vez tennet war-eeun eus bouedoù, evel ar c\'hazein, al laktoz, ar gwinieg hag ar gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in Processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources Of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, And gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4514,7 +4517,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Kalz anezho a zeu eus ar c\'henderc\'hañ elfennoù boued, evel eouloù hidrogenet pe interesterifiet, proteinoù hidrolizet, digenvez protein soja, maltodekstrin, sukr treuzfurmet ha sirop maiz uhel-fruktoz.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4522,7 +4525,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ouzhpennadennoù er boued treuzfurmet a zo lod a vez implijet ivez er boued treuzfurmet, evel gwarezourien, enepoksidantoù ha stabilaerien. Ar rummadoù ouzhpennadennoù a gaver er produioù treuzfurmet hepken a zo ar re a vez implijet evit heuliañ pe gwellaat perzhioù skiantel ar bouedoù pe evit kuzhat perzhioù dic\'hoantaus ar produ diwezhañ. En o zouez emañ livioù ha livioù all, stabilaerien livioù ; blaz, kreñvaerien blaz, sukr hep sukr ; ha skoazelloù evit ar c\'henderc\'hañ evel ar c\'harbonatañ, ar c\'hreñvaat, ar c\'hementad hag an enep-c\'hwezhañ, an dic\'hwezhañ, an enep-c\'hrouiñ hag ar glazur, an emulsifieroù, ar sec\'herien hag an humectantoù.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4530,7 +4533,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Ur bern heuliadoù argerzhioù a vez implijet evit kendeuziñ an elfennoù niverus peurliesañ ha krouiñ ar produ diwezhañ (setu \'treuzfurmet\'). En o zouez emañ meur a argerzh hep kevatal ebet, evel an hidrogenadur hag an hidrolizadur, an estrusiñ hag ar moullañ, hag ar rak-treuzfurmiñ evit ar fritañ.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4538,7 +4541,22 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket, aes (padus, prest da zebriñ), dedennus (tre-blev) ha gounezus-kenañ (elfennoù izel) savet evit dilec\'hiañ an holl strolladoù boued all. Ar produioù boued ultra-treuzfurmet a vez paket en un doare dedennus ha marc\'hataet kalz peurliesañ.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4608,7 +4626,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

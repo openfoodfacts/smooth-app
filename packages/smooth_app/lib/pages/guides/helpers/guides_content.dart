@@ -472,9 +472,9 @@ class _GuidesTextTitle extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          const SizedBox(width: 14.0),
+          const SizedBox(width: 15.0),
           icon,
-          const SizedBox(width: 11.0),
+          const SizedBox(width: 10.5),
           Expanded(
             child: DecoratedBox(
               decoration: BoxDecoration(

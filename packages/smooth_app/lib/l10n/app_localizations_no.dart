@@ -2944,6 +2944,9 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4349,7 +4352,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'For å belønne bedre produkter innenfor en kategori, bruker vi deretter bonuser og straffer basert på flere kriterier:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Det gis en bonus basert på ingrediensenes opprinnelse. Denne bonusen tar hensyn til transportpåvirkningen og miljøpolitikken i hver produsents land.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4373,14 +4376,14 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Emballasje';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4388,19 +4391,19 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'For å beregne Green-Score nøyaktig er det nødvendig med informasjon som ikke nødvendigvis er spesifisert på emballasjen (som opprinnelse og den nøyaktige prosentandelen av hver ingrediens), eller som sjelden er tilgjengelig i brukbar form (som en liste over alle komponentene i emballasjen med de nøyaktige plasttypene som brukes).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Gjennomsnittsverdier brukes når denne informasjonen ikke er tilgjengelig ennå, men vi oppfordrer nå alle til å hjelpe oss med å samle inn denne informasjonen, som vil være svært nyttig for Green-Score, men også for mange andre bruksområder.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Hvordan innbyggere kan hjelpe';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Alle borgere kan hjelpe oss med å samle og strukturere informasjonen som finnes på produkter eller som kan utledes fra dem, for eksempel informasjon om emballasje: Mission Emballages: en storstilt samarbeidende inventarisering av emballasje for alle matvarer (på fransk)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4474,28 +4477,28 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ubearbeidet (eller naturlig) mat er de spiselige delene av planter (frø, frukt, blader, stilker, røtter) eller dyr (muskler, innmat, egg, melk), samt sopp, alger og vann, etter å ha blitt separert fra naturen.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Bearbeidede kulinariske ingredienser, som oljer, smør, sukker og salt, er stoffer som er utvunnet fra matvarer i gruppe 1 eller fra naturen gjennom prosesser som inkluderer pressing, raffinering, kverning, fresing og tørking.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Bearbeidet mat, som flaskegrønnsaker, hermetisk fisk, frukt i sirup, oster og ferskt brød, lages hovedsakelig ved å tilsette salt, olje, sukker eller andre stoffer fra gruppe 2 til gruppe 1-matvarer. Prosesser inkluderer ulike konserverings- eller tilberedningsmetoder, og når det gjelder brød og ost, alkoholfri gjæring. De fleste bearbeidede matvarer har to eller tre ingredienser og er gjenkjennelige som modifiserte versjoner av gruppe 1-matvarer. De kan spises alene eller, mer vanlig, i kombinasjon med annen mat.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various preservation or cooking methods, and in the case of Breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultrabearbeidet mat, som brus, søte eller salte snacks i emballasjen, rekonstituerte kjøttprodukter og ferdiglagde frosne retter, er ikke bare modifisert mat, men formuleringer laget hovedsakelig eller utelukkende av stoffer utvunnet fra matvarer og tilsetningsstoffer, med lite eller ingen intakt Gruppe 1-mat. Ingredienser i disse formuleringene inkluderer vanligvis de som også finnes i bearbeidet mat, som sukker, oljer, fett eller salt. Ultrabearbeidede produkter inneholder imidlertid også andre energikilder og næringsstoffer som vanligvis ikke brukes i matlagingsprodukter. Noen av disse er direkte utvunnet fra matvarer, som kasein, laktose, myse og gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with Little to no Intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, Oils, fats, or salt. however, ultra-processed products also contain other sources of energy and Nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4507,7 +4510,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Mange er avledet fra videre bearbeiding av matbestanddeler, som hydrogenerte eller interesterifiserte oljer, hydrolyserte proteiner, soyaproteinisolat, maltodekstrin, invertsukker og maissirup med høyt fruktoseinnhold.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4515,7 +4518,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Tilsetningsstoffer i ultrabearbeidet mat inkluderer noen som også brukes i bearbeidet mat, for eksempel konserveringsmidler, antioksidanter og stabilisatorer. Klasser av tilsetningsstoffer som bare finnes i ultrabearbeidede produkter inkluderer de som brukes til å imitere eller forbedre de sensoriske egenskapene til matvarer eller for å skjule usmakelige aspekter ved sluttproduktet. Disse tilsetningsstoffene inkluderer fargestoffer og andre farger, fargestabilisatorer; smakstilsetninger, smaksforsterkere, ikke-sukkerholdige søtningsmidler; og prosesseringshjelpemidler som kullsyre-, fasthets-, fyllstoff- og antifylstoffmidler, skumdempende, antiklumpe- og glaseringsmidler, emulgatorer, sekvestreringsmidler og fuktighetsbevarende midler.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4523,7 +4526,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'En rekke prosesssekvenser brukes for å kombinere de vanligvis mange ingrediensene og for å lage sluttproduktet (derav «ultraprosessert»). Prosessene inkluderer flere uten innenlandske ekvivalenter, som hydrogenering og hydrolysering, ekstrudering og støping, og forbehandling for steking.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4531,7 +4534,22 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Det overordnede formålet med ultraprosessering er å skape merkevareprodukter som er praktiske (holdbare, klare til konsum), attraktive (hyper-velsmakende) og svært lønnsomme (lavkostingredienser) og er utformet for å erstatte alle andre matvaregrupper. Ultraprosesserte matvarer pakkes vanligvis attraktivt og markedsføres intensivt.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4601,7 +4619,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

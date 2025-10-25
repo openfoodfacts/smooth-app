@@ -2947,6 +2947,9 @@ class AppLocalizationsGd extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4356,7 +4359,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Gus duaisean a thoirt do thoraidhean nas fheàrr taobh a-staigh roinn, bidh sinn an uairsin a’ cur bònasan is peanasan an sàs stèidhichte air grunn shlatan-tomhais:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4364,7 +4367,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4372,7 +4375,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Thèid bònas a thoirt seachad a rèir tùs nan tàthchuid. Bidh am bònas seo a’ toirt aire don bhuaidh a th’ aig còmhdhail agus cuideachd do phoileasaidh àrainneachdail dùthaich gach riochdaire.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4380,14 +4383,14 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4395,19 +4398,19 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Gus an Sgòr Uaine obrachadh a-mach gu ceart, feumar fiosrachadh a bhith agad nach eil air a shònrachadh air a’ phacaid (leithid tùs agus an dearbh cheudad de gach tàthchuid) no nach eil ri fhaighinn ach ainneamh ann an cruth a ghabhas cleachdadh (leithid liosta de na pàirtean uile den phacaid leis na seòrsaichean plastaig a chaidh a chleachdadh).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Bithear a’ cleachdadh luachan cuibheasach nuair nach eil am fiosrachadh seo ri fhaighinn fhathast, ach tha sinn a-nis ag iarraidh air a h-uile duine ar cuideachadh le bhith a’ cruinneachadh an fhiosrachaidh seo a bhios glè fheumail airson an Sgòr Uaine ach cuideachd airson mòran chleachdaidhean eile.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Mar as urrainn do shaoranaich cuideachadh';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Faodaidh a h-uile saoranach ar cuideachadh le bhith a’ cruinneachadh agus a’ structaradh an fhiosrachaidh a tha an làthair air toraidhean no a ghabhas a thoirt a-mach bhuapa, leithid fiosrachadh air pacaigeadh: Mission Emballages: clàr-stuth co-obrachail mòr-sgèile de phacaigeadh airson a h-uile toradh bìdh (ann am Fraingis)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4483,28 +4486,28 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Is e biadhan neo-phròiseasaichte (no nàdarra) na pàirtean a ghabhas ithe de lusan (sìol, measan, duilleagan, gasan, freumhaichean) no bheathaichean (fèithean, sgeadachaidhean, uighean, bainne), a bharrachd air fungasan, algaich, agus uisge, às deidh dhaibh a bhith air an sgaradh bhon nàdar.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Tha grìtheidean còcaireachd giullaichte, leithid olan, ìm, siùcar agus salann, nan stuthan a tha air an toirt bho bhiadhan Buidheann 1 no bhon nàdar tro phròiseasan a tha a’ toirt a-steach brùthadh, grinneachadh, bleith, muilneachadh agus tiormachadh.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from Nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Bidh biadhan giullaichte, leithid glasraich ann am botail, iasg ann an tionaichean, measan ann an siorup, càiseagan, agus aran ùr-dhèanta, air an dèanamh sa mhòr-chuid le bhith a’ cur salann, ola, siùcar, no stuthan eile bho Bhuidheann 2 gu biadhan Buidheann 1. Tha pròiseasan a’ toirt a-steach diofar dhòighean glèidhteachais no còcaireachd, agus a thaobh aran is càise, coipeadh gun deoch làidir. Tha dà no trì tàthchuid anns a’ mhòr-chuid de bhiadhan giullaichte agus tha iad aithnichte mar dhreachan atharraichte de bhiadhan Buidheann 1. Faodar an ithe leotha fhèin no, nas trice, ann an co-bhonn ri biadhan eile.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation Or cooking methods, and In the Case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Chan e dìreach biadhan atharraichte a th’ ann am biadhan air an giullachd gu mòr, leithid deochan bog, greimean-bìdh pacaichte milis no blasta, toraidhean feòla ath-chruthaichte, agus soithichean reòta ro-ullaichte, ach foirmlean air an dèanamh sa mhòr-chuid no gu tur bho stuthan a tha air an toirt bho bhiadhan agus stuthan cur-ris, le glè bheag de bhiadh Buidheann 1 slàn. Mar as trice bidh grìtheidean anns na foirmlean sin a’ toirt a-steach an fheadhainn a lorgar ann am biadhan giullaichte cuideachd, leithid siùcaran, olan, geir no salann. Ach, tha stòran lùtha agus beathachaidh eile ann an toraidhean air an giullachd gu mòr nach eilear a’ cleachdadh mar as trice ann an ullachaidhean còcaireachd. Tha cuid dhiubh sin air an toirt a-mach gu dìreach bho bhiadhan, leithid casein, lactos, meadhg-bhìdh, agus gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, Fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as Casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Tha mòran dhiubh air an toirt bho bhith a’ giullachd phàirtean bìdh a bharrachd, leithid olan hydrogenated no interesterified, pròtainean hydrolyzed, pròtain soy air a sgaradh, maltodextrin, siùcar inverted, agus siorup arbhair àrd-fructose.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4524,7 +4527,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Am measg nan stuthan cur-ris ann am biadhan air an giullachd gu mòr tha cuid a thathas a’ cleachdadh ann am biadhan air an giullachd cuideachd, leithid stuthan-gleidhidh, stuthan-dìona antioxidants, agus stabilizers. Am measg nan clasaichean de stuthan cur-ris a lorgar ann am bathar air an giullachd gu mòr a-mhàin tha an fheadhainn a thathas a’ cleachdadh gus feartan mothachaidh biadhan ath-aithris no a neartachadh no gus taobhan mì-thlachdmhor den toradh deireannach fhalach. Tha na stuthan cur-ris sin a’ toirt a-steach dathan agus dathan eile, stabilizers dath; blasan, luchd-àrdachaidh blas, milsearan neo-shiùcair; agus taicean giullachd leithid riochdairean carbonating, daingneachaidh, bulking agus anti-bulking, riochdairean dì-fhoaming, anti-caking agus glazing, emulsifiers, sequestrants, agus humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4532,7 +4535,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Bithear a’ cleachdadh iomadh sreath de phròiseasan gus na grìtheidean, a bhios mar as trice mòran, a chur còmhla agus an toradh deireannach a chruthachadh (mar sin ‘air a phròiseasadh gu mòr’). Tha grunn phròiseasan anns na pròiseasan aig nach eil co-ionannachdan dachaigheil, leithid hydrogenation agus hydrolysation, eas-tharraing agus molltair, agus ro-phròiseasadh airson friogais.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4540,7 +4543,22 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Is e prìomh adhbhar giollachd-bhìdh toraidhean bìdh branndaichte, goireasach (maireannach, deiseil airson ithe), tarraingeach (ro-bhlasta) agus air leth prothaideach (tàthchuid aig prìs ìseal) a chruthachadh, air an dealbhadh gus a h-uile buidheann bìdh eile a chuir às. Mar as trice bidh toraidhean bìdh air an giollachd-bhìdh air am pacadh ann an dòigh tharraingeach agus air am margaidheachd gu dian.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4610,7 +4628,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

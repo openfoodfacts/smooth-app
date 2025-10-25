@@ -2937,6 +2937,9 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4343,7 +4346,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'เพื่อให้รางวัลแก่ผลิตภัณฑ์ที่ดีกว่าภายในหมวดหมู่หนึ่ง เราจึงใช้โบนัสและบทลงโทษตามเกณฑ์หลายประการ:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4351,7 +4354,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4359,7 +4362,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'โบนัสจะมอบให้ตามแหล่งที่มาของส่วนผสม โดยโบนัสนี้จะคำนึงถึงผลกระทบต่อการขนส่งและนโยบายด้านสิ่งแวดล้อมของแต่ละประเทศผู้ผลิตด้วย';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4367,14 +4370,14 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'บรรจุภัณฑ์';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4382,19 +4385,19 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ในการคำนวณ Green-Score อย่างแม่นยำ จำเป็นต้องมีข้อมูลที่ไม่ได้ระบุไว้บนบรรจุภัณฑ์อย่างชัดเจน (เช่น แหล่งที่มาและเปอร์เซ็นต์ที่แน่นอนของส่วนผสมแต่ละชนิด) หรือข้อมูลที่ไม่มีในรูปแบบที่ใช้งานได้จริง (เช่น รายการส่วนประกอบทั้งหมดของบรรจุภัณฑ์พร้อมประเภทของพลาสติกที่ใช้อย่างแม่นยำ)';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'ค่าเฉลี่ยจะใช้เมื่อข้อมูลนี้ยังไม่มีอยู่ แต่ขณะนี้เรากำลังขอให้ทุกคนช่วยเรารวบรวมข้อมูลซึ่งจะเป็นประโยชน์อย่างยิ่งสำหรับ Green-Score แต่ยังมีประโยชน์อื่นๆ อีกมากมายอีกด้วย';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'ประชาชนสามารถช่วยเหลือได้อย่างไร';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'พลเมืองทุกคนสามารถช่วยเรารวบรวมและจัดโครงสร้างข้อมูลที่มีอยู่ในผลิตภัณฑ์หรือที่สามารถอนุมานได้จากผลิตภัณฑ์ เช่น ข้อมูลเกี่ยวกับบรรจุภัณฑ์: ภารกิจ Emballages: การสำรวจสินค้าคงคลังบรรจุภัณฑ์ขนาดใหญ่สำหรับผลิตภัณฑ์อาหารทั้งหมด (ภาษาฝรั่งเศส)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4468,28 +4471,28 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'อาหารที่ไม่ผ่านการแปรรูป (หรือจากธรรมชาติ) คือส่วนที่รับประทานได้ของพืช (เมล็ด ผลไม้ ใบ ลำต้น ราก) หรือสัตว์ (กล้ามเนื้อ เครื่องใน ไข่ นม) เช่นเดียวกับเชื้อรา สาหร่าย และน้ำ หลังจากแยกออกจากธรรมชาติ';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'เครื่องปรุงอาหารที่ผ่านการแปรรูป';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'ส่วนผสมอาหารแปรรูป เช่น น้ำมัน เนย น้ำตาล และเกลือ เป็นสารที่ได้มาจากอาหารกลุ่ม 1 หรือจากธรรมชาติ โดยผ่านกระบวนการต่างๆ เช่น การกด การกลั่น การบด การโม่ และการอบแห้ง';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'อาหารแปรรูป';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'อาหารแปรรูป เช่น ผักบรรจุขวด ปลากระป๋อง ผลไม้ในน้ำเชื่อม ชีส และขนมปังสด ส่วนใหญ่ผลิตโดยการเติมเกลือ น้ำมัน น้ำตาล หรือสารอื่นๆ จากกลุ่ม 2 ลงในอาหารกลุ่ม 1 กระบวนการต่างๆ ประกอบด้วยวิธีการถนอมอาหารหรือการปรุงอาหารที่หลากหลาย และในกรณีของขนมปังและชีส จะมีการหมักแบบไม่มีแอลกอฮอล์ อาหารแปรรูปส่วนใหญ่มีส่วนผสมสองหรือสามอย่าง และเป็นที่รู้จักในฐานะอาหารกลุ่ม 1 ที่ผ่านการดัดแปลง ซึ่งสามารถรับประทานเดี่ยวๆ หรือโดยทั่วไปแล้วสามารถรับประทานร่วมกับอาหารอื่นๆ ได้';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'อาหารที่ผ่านการแปรรูประดับสูง';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'อาหารแปรรูปขั้นสูง เช่น น้ำอัดลม ขนมขบเคี้ยวบรรจุหีบห่อทั้งรสหวานและรสเค็ม ผลิตภัณฑ์เนื้อสัตว์แปรรูป และอาหารแช่แข็งสำเร็จรูป ไม่เพียงแต่เป็นอาหารแปรรูปเท่านั้น แต่ยังเป็นสูตรที่ผลิตจากสารต่างๆ ที่ได้จากอาหารและสารเติมแต่งเป็นส่วนใหญ่หรือทั้งหมด โดยแทบไม่มีหรือไม่มีอาหารกลุ่ม 1 ที่สมบูรณ์ ส่วนผสมในสูตรเหล่านี้มักประกอบด้วยส่วนผสมที่พบในอาหารแปรรูป เช่น น้ำตาล น้ำมัน ไขมัน หรือเกลือ อย่างไรก็ตาม ผลิตภัณฑ์แปรรูปขั้นสูงยังมีแหล่งพลังงานและสารอาหารอื่นๆ ที่ปกติแล้วไม่ได้ใช้ในการปรุงอาหาร บางชนิดสกัดโดยตรงจากอาหาร เช่น เคซีน แลคโตส เวย์ และกลูเตน';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'ปัญหาของการประมวลผลขั้นสูง';
@@ -4500,7 +4503,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'สารหลายชนิดได้มาจากการแปรรูปส่วนประกอบอาหารเพิ่มเติม เช่น น้ำมันไฮโดรจิเนตหรืออินเทอร์เอริฟายด์ โปรตีนไฮโดรไลซ์ โปรตีนแยกจากถั่วเหลือง มอลโตเดกซ์ทริน น้ำตาลอินเวิร์ต และน้ำเชื่อมข้าวโพดฟรุกโตสสูง';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4508,7 +4511,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'สารเติมแต่งในอาหารแปรรูปขั้นสูงประกอบด้วยสารบางชนิดที่ใช้ในอาหารแปรรูป เช่น สารกันบูด สารต้านอนุมูลอิสระ และสารให้ความคงตัว สารเติมแต่งประเภทที่พบเฉพาะในผลิตภัณฑ์แปรรูปขั้นสูง ได้แก่ สารที่ใช้เพื่อเลียนแบบหรือเพิ่มคุณภาพทางประสาทสัมผัสของอาหาร หรือเพื่อปกปิดส่วนที่ไม่น่ารับประทานของผลิตภัณฑ์ขั้นสุดท้าย สารเติมแต่งเหล่านี้ประกอบด้วยสีย้อมและสีอื่นๆ สารให้ความคงตัวของสี วัตถุแต่งกลิ่นรส สารเพิ่มรสชาติ สารให้ความหวานที่ไม่ใช่น้ำตาล และสารช่วยในกระบวนการแปรรูป เช่น สารให้คาร์บอเนต สารเพิ่มความแน่น สารเพิ่มปริมาณ และสารป้องกันการเพิ่มปริมาณ สารลดฟอง สารป้องกันการจับตัวเป็นก้อนและสารเคลือบ อิมัลซิไฟเออร์ สารจับตัว และสารเพิ่มความชื้น';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'มีการใช้กระบวนการหลายขั้นตอนเพื่อผสมผสานส่วนผสมต่างๆ ที่มักจะมีอยู่เป็นจำนวนมากเข้าด้วยกัน และสร้างสรรค์ผลิตภัณฑ์ขั้นสุดท้าย (จึงเรียกว่า \"กระบวนการแปรรูปขั้นสูง\") กระบวนการเหล่านี้ประกอบด้วยกระบวนการหลายอย่างที่ไม่มีกระบวนการเทียบเท่าในประเทศ เช่น ไฮโดรจิเนชันและไฮโดรไลเซชัน การอัดรีดและการขึ้นรูป และกระบวนการเตรียมการก่อนทอด';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4524,7 +4527,22 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'วัตถุประสงค์โดยรวมของการแปรรูปขั้นสูง (Ultra-Processing) คือการสร้างผลิตภัณฑ์อาหารที่มีตราสินค้า สะดวก (ทนทาน พร้อมบริโภค) น่าดึงดูด (น่ารับประทานมาก) และสร้างกำไรสูง (ใช้วัตถุดิบราคาถูก) ซึ่งออกแบบมาเพื่อแทนที่กลุ่มอาหารอื่นๆ ทั้งหมด ผลิตภัณฑ์อาหารแปรรูปขั้นสูงมักมีบรรจุภัณฑ์ที่สวยงามและจำหน่ายอย่างแพร่หลาย';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4594,7 +4612,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

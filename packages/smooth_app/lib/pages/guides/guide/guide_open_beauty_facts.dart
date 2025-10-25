@@ -123,7 +123,7 @@ class _OpenBeautyFactsSection2 extends StatelessWidget {
       title: appLocalizations.guide_open_beauty_facts_features_title,
       content: <Widget>[
         GuidesTitleWithText(
-          icon: const icons.Ingredients.alt(),
+          icon: const icons.StopSign(),
           title: appLocalizations.guide_open_beauty_facts_features_arg1_title,
           text:
               appLocalizations.guide_open_beauty_facts_features_arg1_paragraph1,

@@ -2984,6 +2984,9 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Atlikta';
 
   @override
@@ -4409,7 +4412,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Norėdami apdovanoti geresnius produktus tam tikroje kategorijoje, taikome premijas ir nuobaudas pagal kelis kriterijus:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4417,7 +4420,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4425,7 +4428,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Premija skiriama atsižvelgiant į ingredientų kilmę. Ši premija skiriama atsižvelgiant į poveikį transportui ir kiekvieno gamintojo šalies aplinkosaugos politiką.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4433,14 +4436,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Pakuotė';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4448,19 +4451,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Norint tiksliai apskaičiuoti „Green-Score“, būtina turėti informaciją, kuri nebūtinai nurodyta ant pakuotės (pvz., kiekvieno ingrediento kilmė ir tiksli procentinė dalis) arba kuri retai prieinama naudotina forma (pvz., visų pakuotės komponentų sąrašas su tiksliais panaudotų plastikų tipais).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Vidutinės vertės naudojamos, kai šios informacijos dar nėra, tačiau dabar raginame visus padėti mums rinkti šią informaciją, kuri bus labai naudinga ne tik „Green-Score“ sistemai, bet ir daugeliui kitų tikslų.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Kaip piliečiai gali padėti';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Visi piliečiai gali padėti mums rinkti ir susisteminti informaciją, esančią ant produktų arba kurią galima iš jų išvesti, pavyzdžiui, informaciją apie pakuotes: „Mission Emballages“: didelio masto bendradarbiaujant sudarytas visų maisto produktų pakuočių inventorius (prancūzų k.).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4534,28 +4537,28 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Neapdorotas (arba natūralus) maistas yra valgomosios augalų (sėklos, vaisiai, lapai, stiebai, šaknys) arba gyvūnų (raumenys, subproduktai, kiaušiniai, pienas), taip pat grybų, dumblių ir vandens dalys, atskirtos nuo gamtos.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Perdirbti kulinariniai ingredientai, tokie kaip aliejai, sviestas, cukrus ir druska, yra medžiagos, gautos iš 1 grupės maisto produktų arba iš gamtos taikant tokius procesus kaip presavimas, rafinavimas, malimas, malimas ir džiovinimas.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Perdirbti maisto produktai, pavyzdžiui, konservuotos daržovės, konservuota žuvis, vaisiai sirupe, sūriai ir šviežiai iškeptos duonos, daugiausia gaminami pridedant druskos, aliejaus, cukraus ar kitų medžiagų iš 2–1 grupės maisto produktų. Procesai apima įvairius konservavimo ar virimo metodus, o duonos ir sūrio atveju – nealkoholinę fermentaciją. Dauguma perdirbtų maisto produktų turi du ar tris ingredientus ir yra atpažįstami kaip modifikuotos 1 grupės maisto produktų versijos. Juos galima valgyti vienus arba, dažniau, kartu su kitais maisto produktais.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 To group 1** foods. processes include various preservation or cooking methods, and in the Case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable As modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultraperdirbti maisto produktai, tokie kaip gaivieji gėrimai, saldūs arba pikantiški supakuoti užkandžiai, atkurti mėsos produktai ir iš anksto paruošti šaldyti patiekalai, yra ne tik modifikuotas maistas, bet ir mišiniai, pagaminti daugiausia arba visiškai iš medžiagų, gautų iš maisto produktų ir priedų, kuriuose yra mažai arba visai nėra nepažeisto 1 grupės maisto. Šių mišinių ingredientai paprastai apima ir perdirbtuose maisto produktuose esančias medžiagas, tokias kaip cukrus, aliejai, riebalai ar druska. Tačiau ultraperdirbtuose produktuose taip pat yra kitų energijos ir maistinių medžiagų šaltinių, kurie paprastai nenaudojami kulinarijoje. Kai kurie iš jų yra tiesiogiai išgaunami iš maisto produktų, pavyzdžiui, kazeinas, laktozė, išrūgos ir glitimas.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually Include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products Also contain other sources of energy and nutrients not typically used in culinary preparations. some of These are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Ultraprocesoriaus problemos';
@@ -4566,7 +4569,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Daugelis jų gaunami toliau perdirbant maisto sudedamąsias dalis, pavyzdžiui, hidrinti arba interesterifikuoti aliejai, hidrolizuoti baltymai, sojų baltymų izoliatas, maltodekstrinas, invertuotas cukrus ir didelės fruktozės kukurūzų sirupas.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4574,7 +4577,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ultraperdirbtuose maisto produktuose esantys priedai apima ir tuos, kurie taip pat naudojami perdirbtuose maisto produktuose, pavyzdžiui, konservantus, antioksidantus ir stabilizatorius. Priedų, randamų tik ultraperdirbtuose produktuose, klasės apima tuos, kurie naudojami maisto produktų juslinėms savybėms imituoti arba sustiprinti arba galutinio produkto neskanumui paslėpti. Šie priedai apima dažiklius ir kitus dažiklius, spalvų stabilizatorius; kvapiąsias medžiagas, skonio stipriklius, necukrinius saldiklius; ir pagalbines perdirbimo medžiagas, tokias kaip gazavimo, standinimo, užpildai ir tūrį mažinančios medžiagos, putojimo mažinimo, lipnumą reguliuojančios ir glazūravimo medžiagos, emulsikliai, kompleksonai ir drėgmę išlaikančios medžiagos.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4582,7 +4585,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Įprastai daugeliui ingredientų sujungti ir galutiniam produktui (todėl ir vadinamam „ultra apdorotu“) sukurti naudojama daugybė procesų sekų. Šie procesai apima kelis, neturinčius atitikmenų namuose, pavyzdžiui, hidrinimą ir hidrolizę, ekstruziją ir liejimą, taip pat išankstinis apdorojimas kepimui.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4590,7 +4593,22 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Bendras ultraperdirbimo tikslas – kurti firminius, patogius (patvarius, paruoštus vartoti), patrauklius (itin skanius) ir labai pelningus (su pigiais ingredientais) maisto produktus, skirtus išstumti visas kitas maisto grupes. Ultraperdirbti maisto produktai paprastai yra patraukliai supakuoti ir intensyviai parduodami.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4660,7 +4678,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

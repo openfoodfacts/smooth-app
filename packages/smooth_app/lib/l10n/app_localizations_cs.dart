@@ -2964,6 +2964,9 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Hotovo';
 
   @override
@@ -4374,35 +4377,35 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Abychom odměnili lepší produkty v dané kategorii, uplatňujeme bonusy a sankce na základě několika kritérií:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Způsob výroby';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Bonus se uděluje produktům, které mají oficiální označení, označení nebo certifikaci zaručující přínos pro životní prostředí (organické, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => 'Původ přísad';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonus se uděluje na základě původu surovin. Tento bonus zohledňuje dopad na dopravu a také environmentální politiku země každého producenta.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title => 'Ohrožené druhy';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Pokuta je udělována produktům, které obsahují složky, které mají významný negativní dopad na biologickou rozmanitost a ekosystémy, jako je palmový olej, jehož produkce je zodpovědná za masivní odlesňování.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Obal';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Pokuta je vypočítána tak, aby byla zohledněna cirkularita balení (použití recyklované suroviny a recyklovatelnost) a přebalení.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4410,19 +4413,19 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Pro přesný výpočet Green-Score je nutné mít informace, které nemusí být nutně uvedeny na obalu (například původ a přesné procento každé složky) nebo které jsou zřídka dostupné v použitelné formě (například seznam všech součástí obalu s přesným uvedením použitých typů plastů).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Pokud tyto informace ještě nejsou k dispozici, používají se průměrné hodnoty, ale nyní vyzýváme všechny, aby nám pomohli tyto informace shromáždit, protože budou velmi užitečné pro Green-Score, ale i pro mnoho dalších použití.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Jak mohou občané pomoci';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Všichni občané nám mohou pomoci shromažďovat a strukturovat informace, které jsou na produktech uvedeny nebo z nich lze odvodit, například informace na obalech: Mission Emballages: rozsáhlý společný inventář obalů pro všechny potravinářské výrobky (ve francouzštině)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4496,7 +4499,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Nezpracované (nebo přírodní) potraviny jsou jedlé části rostlin (semena, plody, listy, stonky, kořeny) nebo zvířat (svalovina, droby, vejce, mléko), jakož i houby, řasy a voda, po oddělení od přírody.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title =>
@@ -4504,21 +4507,21 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Zpracované kulinářské přísady, jako jsou oleje, máslo, cukr a sůl, jsou látky získané z potravin skupiny 1 nebo z přírody procesy, které zahrnují lisování, rafinaci, mletí, mletí a sušení.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Běžně zpracované potraviny';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Zpracované potraviny, jako je balená zelenina, rybí konzervy, ovoce v sirupu, sýry a čerstvě upečený chléb, se vyrábějí primárně přidáním soli, oleje, cukru nebo jiných látek ze skupiny 2 do potravin skupiny 1. Procesy zahrnují různé metody konzervace nebo vaření a v případě chleba a sýrů nealkoholické kvašení. Většina zpracovaných potravin má dvě nebo tři složky a lze je rozpoznat jako upravené verze potravin skupiny 1. Lze je konzumovat samostatně nebo častěji v kombinaci s jinými potravinami.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** Foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions Of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra zpracované potraviny';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultrazpracované potraviny, jako jsou nealkoholické nápoje, sladké nebo slané balené pochutiny, rekonstituované masné výrobky a předpřipravené mražené pokrmy, nejsou jen modifikované potraviny, ale složení vyrobené převážně nebo výhradně z látek odvozených z potravin a přídatných látek, s malým nebo žádným obsahem intaktních potravin skupiny 1. Složky v těchto složení obvykle zahrnují ty, které se nacházejí i ve zpracovaných potravinách, jako jsou cukry, oleje, tuky nebo sůl. Ultrazpracované výrobky však obsahují i další zdroje energie a živin, které se v kulinářských přípravách obvykle nepoužívají. Některé z nich jsou přímo extrahovány z potravin, jako je kasein, laktóza, syrovátka a lepek.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, Ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Problémy s ultraprocessingem';
@@ -4529,7 +4532,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Mnoho z nich pochází z dalšího zpracování složek potravin, jako jsou hydrogenované nebo interesterifikované oleje, hydrolyzované bílkoviny, izolát sójových bílkovin, maltodextrin, invertní cukr a kukuřičný sirup s vysokým obsahem fruktózy.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4537,7 +4540,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Mezi přísady v ultrazpracovaných potravinách patří některé, které se používají i ve zpracovaných potravinách, jako jsou konzervanty, antioxidanty a stabilizátory. Mezi třídy přísad, které se nacházejí pouze v ultrazpracovaných produktech, patří ty, které se používají k napodobení nebo vylepšení senzorických vlastností potravin nebo k zakrytí nechutných aspektů konečného produktu. Mezi tyto přísady patří barviva a jiná barviva, stabilizátory barev, aromata, zvýrazňovače chuti, necukerná sladidla a pomocné látky při zpracování, jako jsou syticí, zpevňující, objemové a protiplísňové látky, odpěňovací, protispékavé a lešticí látky, emulgátory, sekvestranty a zvlhčovadla.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4545,7 +4548,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'K zkombinování obvykle mnoha ingrediencí a vytvoření konečného produktu (odtud „ultra zpracovaný“) se používá řada postupů. Mezi tyto postupy patří několik, které nemají v domácí srovnání, jako je hydrogenace a hydrolýza, extruze a tvarování a předzpracování pro smažení.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4553,7 +4556,22 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (levné ingredience) potravinářské výrobky určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4623,7 +4641,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

@@ -2946,6 +2946,9 @@ class AppLocalizationsCo extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4357,7 +4360,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Per ricumpensà i prudutti megliu in una categuria, applichemu bonus è penalità basati annantu à parechji criteri:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4373,7 +4376,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Un bonus hè attribuitu secondu l\'origine di l\'ingredienti. Stu bonus tene contu di l\'impattu nant\'à u trasportu è ancu di a pulitica ambientale di u paese di ogni pruduttore.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4381,14 +4384,14 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4396,19 +4399,19 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Per calculà currettamente u Green-Score, hè necessariu avè infurmazioni chì ùn sò micca necessariamente specificate nantu à l\'imballu (cum\'è l\'origine è a percentuale esatta di ogni ingrediente) o chì sò raramente dispunibili in forma utilizabile (cum\'è una lista di tutti i cumpunenti di l\'imballu cù i tipi precisi di plastiche aduprate).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'I valori medi sò aduprati quandu sta infurmazione ùn hè ancu dispunibile, ma avà facemu un appellu à tutti per aiutà ci à raccoglie sta infurmazione chì serà assai utile per u Green-Score ma ancu per parechji altri usi.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Cumu i citadini ponu aiutà';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Tutti i citadini ci ponu aiutà à raccoglie è strutturà l\'infurmazioni prisenti nantu à i prudutti o chì si ponu deduce da elli, cum\'è l\'infurmazioni nantu à l\'imballaggi: Mission Emballages: un inventariu collaborativu à grande scala di l\'imballaggi per tutti i prudutti alimentari (in francese)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4483,28 +4486,28 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'L\'alimenti micca trasfurmati (o naturali) sò e parti comestibili di e piante (semi, frutti, foglie, steli, radiche) o di l\'animali (musculi, frattaglie, ova, latte), è ancu i funghi, l\'alghe è l\'acqua, dopu esse stati separati da a natura.';
+      'UNPROCESSED (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'L\'ingredienti culinarii trasfurmati, cum\'è l\'olii, u burru, u zuccheru è u sale, sò sustanze derivate da alimenti di u Gruppu 1 o da a natura per mezu di prucessi chì includenu a pressatura, a raffinazione, a macinazione, a fresatura è l\'asciugatura.';
+      'PROCESSED culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes That include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'L\'alimenti trasfurmati, cum\'è i ligumi in buttiglia, u pesciu in scatula, a frutta in sciroppu, i casgi è i pani appena fatti, sò principalmente fatti aghjunghjendu sale, oliu, zuccheru o altre sustanze da l\'alimenti di u Gruppu 2 à l\'alimenti di u Gruppu 1. I prucessi includenu diversi metudi di cunservazione o di cottura, è in u casu di pani è casgi, a fermentazione senza alcolu. A maiò parte di l\'alimenti trasfurmati anu dui o trè ingredienti è sò ricunnisciuti cum\'è versioni mudificate di l\'alimenti di u Gruppu 1. Puderanu esse manghjati da soli o, più cumunimenti, in cumbinazione cù altri alimenti.';
+      'PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or Cooking methods, and in the case of Breads and CHEESE, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. THEY can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'L\'alimenti ultra-trasfurmati, cum\'è e bibite analcoliche, i spuntini imballati dolci o salati, i prudutti di carne ricostituiti è i piatti surgelati pre-preparati, ùn sò micca solu alimenti mudificati, ma formulazioni fatte principalmente o interamente da sustanzi derivati da alimenti è additivi, cù pocu o micca alimentu di u Gruppu 1 intattu. L\'ingredienti in queste formulazioni includenu di solitu quelli chì si trovanu ancu in l\'alimenti trasfurmati, cum\'è zuccheri, olii, grassi o sale. Tuttavia, i prudutti ultra-trasfurmati cuntenenu ancu altre fonti d\'energia è nutrienti chì ùn sò micca tipicamente aduprate in e preparazioni culinarie. Alcuni di questi sò estratti direttamente da l\'alimenti, cum\'è a caseina, u lattosiu, u sieru di latte è u glutine.';
+      'ULTRA-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include Those also found IN processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Molti sò derivati da l\'ulteriore trasfurmazione di i custituenti alimentari, cum\'è l\'olii idrogenati o interesterificati, e proteine idrolizzate, l\'isolatu di proteine di soia, a maltodestrina, u zuccheru invertitu è u sciroppu di mais à altu cuntenutu di fruttosio.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4524,7 +4527,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'L\'additivi in l\'alimenti ultra-trasfurmati includenu alcuni chì sò ancu usati in l\'alimenti trasfurmati, cum\'è cunservanti, antioxidanti è stabilizzanti. E classi di additivi truvati solu in i prudutti ultra-trasfurmati includenu quelli usati per imità o migliurà e qualità sensoriali di l\'alimenti o per dissimulà aspetti sgradevoli di u pruduttu finale. Quessi additivi includenu coloranti è altri culori, stabilizzanti di culore; aromi, esaltatori di sapidità, edulcoranti senza zuccheru; è aiuti di trasfurmazione cum\'è agenti carbonanti, rassodanti, volumizzanti è anti-volume, agenti antischiuma, antiagglomeranti è glassanti, emulsionanti, sequestranti è umettanti.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4532,7 +4535,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Una mansa di sequenze di prucessi hè aduprata per cumminà l\'ingredienti, di solitu numerosi, è per creà u pruduttu finale (dunque \"ultra-trasfurmatu\"). I prucessi includenu parechji senza equivalenti domestichi, cum\'è l\'idrogenazione è l\'idrolisazione, l\'estrusione è u stampaggio, è a pre-trasfurmazione per a frittura.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4540,7 +4543,22 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'U scopu generale di l\'ultra-trasfurmazione hè di creà prudutti alimentari di marca, pratichi (durevuli, pronti à cunsumà), attraenti (iper-appetibili) è assai redditizi (ingredienti à bassu costu) cuncepiti per rimpiazzà tutti l\'altri gruppi alimentari. I prudutti alimentari ultra-trasfurmati sò generalmente imballati in modu attraente è cummercializati intensivamente.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4610,7 +4628,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

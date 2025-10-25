@@ -2947,6 +2947,9 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4354,7 +4357,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Kako bismo nagradili bolje proizvode unutar kategorije, primjenjujemo bonuse i kazne na temelju nekoliko kriterija:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4362,7 +4365,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4370,7 +4373,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonus se dodjeljuje na temelju podrijetla sastojaka. Ovaj bonus uzima u obzir utjecaj na prijevoz, kao i politiku zaštite okoliša zemlje svakog proizvođača.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4378,14 +4381,14 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4393,19 +4396,19 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Za točan izračun Green-Scorea potrebno je imati informacije koje nisu nužno navedene na ambalaži (kao što su podrijetlo i točan postotak svakog sastojka) ili koje su rijetko dostupne u upotrebljivom obliku (kao što je popis svih komponenti ambalaže s točnim vrstama korištene plastike).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Prosječne vrijednosti se koriste kada te informacije još nisu dostupne, ali sada pozivamo sve da nam pomognu prikupiti ove informacije koje će biti vrlo korisne za Green-Score, ali i za mnoge druge namjene.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Kako građani mogu pomoći';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Svi građani mogu nam pomoći u prikupljanju i strukturiranju informacija koje se nalaze na proizvodima ili koje se iz njih mogu zaključiti, kao što su informacije na ambalaži: Mission Emballages: veliki kolaborativni popis ambalaže za sve prehrambene proizvode (na francuskom)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4478,28 +4481,28 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Neprerađena (ili prirodna) hrana su jestivi dijelovi biljaka (sjemenke, plodovi, lišće, stabljike, korijenje) ili životinja (mišići, iznutrice, jaja, mlijeko), kao i gljive, alge i voda, nakon što su odvojeni od prirode.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Procesirani kulinarski sastojci';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Prerađeni kulinarski sastojci, poput ulja, maslaca, šećera i soli, tvari su dobivene iz namirnica iz skupine 1 ili iz prirode kroz procese koji uključuju prešanje, rafiniranje, mljevenje, mljevenje i sušenje.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Procesirana hrana';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Prerađena hrana, poput konzerviranog povrća, konzervirane ribe, voća u sirupu, sireva i svježe pečenog kruha, prvenstveno se proizvodi dodavanjem soli, ulja, šećera ili drugih tvari iz 2. skupine u 1. skupinu. Procesi uključuju različite metode konzerviranja ili kuhanja, a u slučaju kruha i sira, bezalkoholnu fermentaciju. Većina prerađene hrane ima dva ili tri sastojka i prepoznatljiva je kao modificirane verzije hrane 1. skupine. Može se jesti samostalno ili, češće, u kombinaciji s drugom hranom.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various preservation or cooking methods, and in the case of Breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable As modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Industrijski prerađena hrana';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-prerađena hrana, poput bezalkoholnih pića, slatkih ili slanih pakiranih grickalica, rekonstituiranih mesnih proizvoda i unaprijed pripremljenih smrznutih jela, nije samo modificirana hrana, već formulacije napravljene uglavnom ili u potpunosti od tvari dobivenih iz hrane i aditiva, s malo ili nimalo netaknute hrane Skupine 1. Sastojci u tim formulacijama obično uključuju one koji se nalaze i u prerađenoj hrani, poput šećera, ulja, masti ili soli. Međutim, ultra-prerađeni proizvodi također sadrže druge izvore energije i hranjivih tvari koje se obično ne koriste u kulinarskim pripravcima. Neki od njih izravno su ekstrahirani iz hrane, poput kazeina, laktoze, sirutke i glutena.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of These are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Problemi s ultraprocesiranjem';
@@ -4510,7 +4513,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Mnogi se dobivaju daljnjom preradom sastojaka hrane, kao što su hidrogenirana ili interesterificirana ulja, hidrolizirani proteini, izolat sojinih proteina, maltodekstrin, invertni šećer i kukuruzni sirup s visokim udjelom fruktoze.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4518,7 +4521,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Aditivi u ultraprerađenoj hrani uključuju neke koji se također koriste u prerađenoj hrani, kao što su konzervansi, antioksidansi i stabilizatori. Klase aditiva koji se nalaze samo u ultraprerađenim proizvodima uključuju one koji se koriste za imitiranje ili poboljšanje senzornih svojstava hrane ili za prikrivanje neukusnih aspekata konačnog proizvoda. Ovi aditivi uključuju bojila i druge boje, stabilizatore boja; arome, pojačivače okusa, zaslađivače koji nisu šećeri; i pomoćne tvari u obradi kao što su karbonizatori, učvršćivači, sredstva za povećanje volumena i sredstva protiv zgrudnjavanja, sredstva za uklanjanje pjene, sredstva protiv zgrudnjavanja i glaziranje, emulgatori, sekvestranti i humektanti.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4526,7 +4529,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Za kombiniranje inače mnogih sastojaka i stvaranje konačnog proizvoda (dakle, \'ultra-obrađeno\') koristi se mnoštvo nizova procesa. Procesi uključuju nekoliko koji nemaju domaće ekvivalente, kao što su hidrogenacija i hidrolizacija, ekstruzija i oblikovanje te predobrada za prženje.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4534,7 +4537,22 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Opća svrha ultra-prerade je stvaranje brendiranih, praktičnih (izdržljivih, spremnih za konzumaciju), atraktivnih (hiper-ukusnih) i visoko profitabilnih (jeftini sastojci) prehrambenih proizvoda osmišljenih da istisnu sve ostale skupine hrane. Ultra-prerađeni prehrambeni proizvodi obično su atraktivno pakirani i intenzivno se prodaju.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4604,7 +4622,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

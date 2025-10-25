@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Sjávar- og ferskvatn (agnir, súrnun, ofauðgun)",
   "guide_greenscore_lca_arg3_text8": "Tæming auðlinda.",
   "guide_greenscore_bonuses_penalties_title": "Bónusar og refsingar",
-  "guide_greenscore_bonuses_penalties_intro": "Til að verðlauna betri vörur innan tiltekins flokks, beitum við síðan bónusum og refsingum byggðum á nokkrum viðmiðum:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Bónus er veittur út frá uppruna innihaldsefnanna. Þessi bónus tekur mið af áhrifum á flutninga og einnig umhverfisstefnu lands hvers framleiðanda.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Til að reikna út Græna stigið nákvæmlega er nauðsynlegt að hafa upplýsingar sem eru ekki endilega tilgreindar á umbúðunum (eins og uppruni og nákvæmt hlutfall hvers innihaldsefnis) eða sem eru sjaldan tiltækar í nothæfu formi (eins og listi yfir alla íhluti umbúðanna ásamt nákvæmum tegundum plasts sem notaðar eru).",
-  "guide_greenscore_transparency_intro2": "Meðalgildi eru notuð þegar þessar upplýsingar eru ekki enn tiltækar, en við köllum nú á alla til að hjálpa okkur að safna þessum upplýsingum sem verða mjög gagnlegar fyrir Green-Score en einnig til margra annarra nota.",
-  "guide_greenscore_transparency_arg1_title": "Hvernig borgarar geta hjálpað",
-  "guide_greenscore_transparency_arg1_text": "Allir borgarar geta hjálpað okkur að safna og skipuleggja upplýsingar sem eru að finna á vörum eða sem hægt er að álykta út frá þeim, svo sem upplýsingar á umbúðum: Mission Emballages: stórfelld sameiginleg skrá yfir umbúðir fyrir allar matvæli (á frönsku).",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Hvernig framleiðendur geta hjálpað",
   "guide_greenscore_transparency_arg2_text": "Framleiðendur geta sent okkur upplýsingar sínar beint í gegnum ókeypis vettvang okkar fyrir framleiðendur.",
   "guide_greenscore_better_product_title": "Hvaða vara er betri fyrir plánetuna?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Fjórir NOVA hóparnir",
   "guide_nova_groups_intro": "Það eru fjórir NOVA hópar, og sá vandasamasti er hópur 4 - Ofurunnin matvæli.",
   "guide_nova_groups_arg1_title": "Lítið unnar eða óunnar matvörur",
-  "guide_nova_groups_arg1_text": "Óunnin (eða náttúruleg) matvæli eru ætir hlutar plantna (fræja, ávaxta, laufblaða, stilka, rætur) eða dýra (vöðva, innmat, eggja, mjólkur), sem og sveppir, þörungar og vatn, eftir að hafa verið aðskilin frá náttúrunni.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Unnar hráefnisuppsetningar, svo sem olíur, smjör, sykur og salt, eru efni sem eru fengin úr matvælum í 1. flokki eða úr náttúrunni með ferlum eins og pressun, hreinsun, kvörnun, fræsingu og þurrkun.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Unninn matur, svo sem grænmeti á flöskum, niðursoðinn fiskur, ávextir í sírópi, ostar og nýbakað brauð, er aðallega framleiddur með því að bæta salti, olíu, sykri eða öðrum efnum úr 2. flokki við matvæli í 1. flokki. Ferlarnir fela í sér ýmsar varðveislu- eða eldunaraðferðir, og í tilviki brauðs og osta, óáfenga gerjun. Flest unnin matvæli innihalda tvö eða þrjú innihaldsefni og eru auðþekkjanleg sem breyttar útgáfur af matvælum í 1. flokki. Þau má borða eitt og sér eða, algengara, í samsetningu við önnur matvæli.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. They can Be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ofurunnar matvörur, svo sem gosdrykkir, sætar eða bragðmiklar pakkaðar snarlvörur, endurunnar kjötvörur og tilbúnir frosnir réttir, eru ekki bara breyttar matvörur heldur blöndur sem eru að mestu eða öllu leyti gerðar úr efnum sem eru unnin úr matvælum og aukefnum, með litlum sem engum óskemmdum matvælum úr flokki 1. Innihaldsefni í þessum blöndum innihalda venjulega þau sem einnig finnast í unnum matvælum, svo sem sykur, olíur, fita eða salt. Hins vegar innihalda ofurunnar vörur einnig aðrar orkugjafar og næringarefni sem venjulega eru ekki notuð í matreiðslu. Sum þessara eru unnin beint úr matvælum, svo sem kasein, laktósa, mysu og glúten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these Formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products Also contain other sources of energy and nutrients not typically used in culinary preparations. some of these Are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Vandamálin með ofurvinnslu",
   "guide_nova_explanations_arg1_title": "Öfgafull vinnsla á innihaldsefnum matvæla",
-  "guide_nova_explanations_arg1_text": "Margar þeirra eru fengnar úr frekari vinnslu á innihaldsefnum matvæla, svo sem hertum eða interesteruðum olíum, vatnsrofnum próteinum, sojapróteineinangrun, maltódextrín, invertsykri og maíssírópi með háu frúktósainnihaldi.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aukefni sem fara lengra en hreint matvælaöryggi",
-  "guide_nova_explanations_arg2_text": "Aukefni í öfgafullum matvælum eru meðal annars þau sem einnig eru notuð í unnum matvælum, svo sem rotvarnarefni, andoxunarefni og bindiefni. Meðal aukefna sem finnast eingöngu í öfgafullum vörum eru þau sem notuð eru til að líkja eftir eða auka skynjunareiginleika matvæla eða til að dylja óþægilega þætti fullunninnar vöru. Þessi aukefni eru meðal annars litarefni og aðrir litir, litabindandi efni; bragðefni, bragðbætandi efni, sætuefni án sykurs; og hjálparefni eins og kolsýrandi efni, stinnandi efni, fyllingarefni og efni til að draga úr fyllingu, froðumyndandi efni, kekkjavarnarefni og gljáefni, ýruefni, bindiefni og rakabindandi efni.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Vinnsla sem þú getur ekki gert heima",
-  "guide_nova_explanations_arg3_text": "Fjölmargar ferlar eru notaðir til að sameina venjulega mörg innihaldsefni og búa til lokaafurðina (þess vegna „öfgafullunnið“). Ferlarnir fela í sér nokkrar sem ekki eiga sér innlenda sambærilegar, svo sem vetnun og vatnsrof, útpressun og mótun, og forvinnsla fyrir steikingu.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Rándýr og fjárhagslegir þættir ofurvinnslu",
-  "guide_nova_explanations_arg4_text": "Megintilgangur öfgavinnslu er að skapa vörumerkjaðar, þægilegar (endingargóðar, tilbúnar til neyslu), aðlaðandi (ofurbragðgóðar) og mjög arðbærar (ódýr hráefni) matvörur sem eru hannaðar til að koma í stað allra annarra matvælaflokka. Ofurunnar matvörur eru yfirleitt pakkaðar á aðlaðandi hátt og markaðssettar á öflugan hátt.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

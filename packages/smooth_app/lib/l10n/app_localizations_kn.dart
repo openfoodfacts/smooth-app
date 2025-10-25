@@ -2947,6 +2947,9 @@ class AppLocalizationsKn extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4354,7 +4357,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'ಒಂದು ವರ್ಗದೊಳಗೆ ಉತ್ತಮ ಉತ್ಪನ್ನಗಳಿಗೆ ಪ್ರತಿಫಲ ನೀಡಲು, ನಾವು ಹಲವಾರು ಮಾನದಂಡಗಳ ಆಧಾರದ ಮೇಲೆ ಬೋನಸ್‌ಗಳು ಮತ್ತು ದಂಡಗಳನ್ನು ಅನ್ವಯಿಸುತ್ತೇವೆ:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4362,14 +4365,14 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => 'ಪದಾರ್ಥಗಳ ಮೂಲ:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'ಪದಾರ್ಥಗಳ ಮೂಲದ ಆಧಾರದ ಮೇಲೆ ಬೋನಸ್ ನೀಡಲಾಗುತ್ತದೆ. ಈ ಬೋನಸ್ ಸಾರಿಗೆಯ ಮೇಲಿನ ಪರಿಣಾಮ ಮತ್ತು ಪ್ರತಿ ಉತ್ಪಾದಕರ ದೇಶದ ಪರಿಸರ ನೀತಿಯನ್ನು ಸಹ ಗಣನೆಗೆ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4377,14 +4380,14 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'ಪ್ಯಾಕೇಜಿಂಗ್';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4392,19 +4395,19 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ನಿಖರವಾಗಿ ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು, ಪ್ಯಾಕೇಜಿಂಗ್‌ನಲ್ಲಿ ಅಗತ್ಯವಾಗಿ ನಿರ್ದಿಷ್ಟಪಡಿಸದ ಮಾಹಿತಿಯನ್ನು ಹೊಂದಿರುವುದು ಅವಶ್ಯಕ (ಉದಾಹರಣೆಗೆ ಪ್ರತಿ ಘಟಕಾಂಶದ ಮೂಲ ಮತ್ತು ನಿಖರವಾದ ಶೇಕಡಾವಾರು) ಅಥವಾ ಬಳಸಬಹುದಾದ ರೂಪದಲ್ಲಿ ವಿರಳವಾಗಿ ಲಭ್ಯವಿರುವ ಮಾಹಿತಿಯನ್ನು ಹೊಂದಿರುವುದು (ಉದಾಹರಣೆಗೆ ಪ್ಯಾಕೇಜಿಂಗ್‌ನ ಎಲ್ಲಾ ಘಟಕಗಳ ಪಟ್ಟಿ ಮತ್ತು ನಿಖರವಾದ ಪ್ಲಾಸ್ಟಿಕ್‌ಗಳ ಪ್ರಕಾರಗಳು).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'ಈ ಮಾಹಿತಿ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲದಿದ್ದಾಗ ಸರಾಸರಿ ಮೌಲ್ಯಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ, ಆದರೆ ಗ್ರೀನ್-ಸ್ಕೋರ್‌ಗೆ ಮಾತ್ರವಲ್ಲದೆ ಇತರ ಹಲವು ಬಳಕೆಗಳಿಗೂ ತುಂಬಾ ಉಪಯುಕ್ತವಾದ ಈ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡಲು ನಾವು ಈಗ ಎಲ್ಲರನ್ನೂ ಕರೆಯುತ್ತಿದ್ದೇವೆ.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'ನಾಗರಿಕರು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'ಉತ್ಪನ್ನಗಳಲ್ಲಿರುವ ಅಥವಾ ಅವುಗಳಿಂದ ಪಡೆಯಬಹುದಾದ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸಲು ಮತ್ತು ರೂಪಿಸಲು ಎಲ್ಲಾ ನಾಗರಿಕರು ನಮಗೆ ಸಹಾಯ ಮಾಡಬಹುದು, ಉದಾಹರಣೆಗೆ ಪ್ಯಾಕೇಜಿಂಗ್ ಮಾಹಿತಿ: ಮಿಷನ್ ಎಂಬಾಲೇಜಸ್: ಎಲ್ಲಾ ಆಹಾರ ಉತ್ಪನ್ನಗಳಿಗೆ ಪ್ಯಾಕೇಜಿಂಗ್‌ನ ದೊಡ್ಡ ಪ್ರಮಾಣದ ಸಹಯೋಗದ ದಾಸ್ತಾನು (ಫ್ರೆಂಚ್‌ನಲ್ಲಿ)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4478,28 +4481,28 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'ಸಂಸ್ಕರಿಸದ (ಅಥವಾ ನೈಸರ್ಗಿಕ) ಆಹಾರಗಳು ಸಸ್ಯಗಳ ಖಾದ್ಯ ಭಾಗಗಳು (ಬೀಜಗಳು, ಹಣ್ಣುಗಳು, ಎಲೆಗಳು, ಕಾಂಡಗಳು, ಬೇರುಗಳು) ಅಥವಾ ಪ್ರಾಣಿಗಳು (ಸ್ನಾಯುಗಳು, ಮಲ, ಮೊಟ್ಟೆಗಳು, ಹಾಲು), ಹಾಗೆಯೇ ಶಿಲೀಂಧ್ರಗಳು, ಪಾಚಿಗಳು ಮತ್ತು ನೀರು, ಪ್ರಕೃತಿಯಿಂದ ಬೇರ್ಪಟ್ಟ ನಂತರ.';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'ಸಂಸ್ಕರಿಸಿದ ಪಾಕಶಾಲೆಯ ಪದಾರ್ಥಗಳಾದ ಎಣ್ಣೆಗಳು, ಬೆಣ್ಣೆ, ಸಕ್ಕರೆ ಮತ್ತು ಉಪ್ಪು, ಗುಂಪು 1 ಆಹಾರಗಳಿಂದ ಅಥವಾ ಪ್ರಕೃತಿಯಿಂದ ಒತ್ತುವುದು, ಸಂಸ್ಕರಿಸುವುದು, ರುಬ್ಬುವುದು, ಮಿಲ್ಲಿಂಗ್ ಮತ್ತು ಒಣಗಿಸುವಿಕೆಯನ್ನು ಒಳಗೊಂಡಿರುವ ಪ್ರಕ್ರಿಯೆಗಳ ಮೂಲಕ ಪಡೆದ ಪದಾರ್ಥಗಳಾಗಿವೆ.';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳಾದ ಬಾಟಲ್ ತರಕಾರಿಗಳು, ಡಬ್ಬಿಯಲ್ಲಿಟ್ಟ ಮೀನುಗಳು, ಸಿರಪ್‌ನಲ್ಲಿರುವ ಹಣ್ಣುಗಳು, ಚೀಸ್‌ಗಳು ಮತ್ತು ಹೊಸದಾಗಿ ತಯಾರಿಸಿದ ಬ್ರೆಡ್‌ಗಳನ್ನು ಪ್ರಾಥಮಿಕವಾಗಿ ಉಪ್ಪು, ಎಣ್ಣೆ, ಸಕ್ಕರೆ ಅಥವಾ ಗುಂಪು 2 ರಿಂದ ಗುಂಪು 1 ಆಹಾರಗಳಿಗೆ ಇತರ ಪದಾರ್ಥಗಳನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ತಯಾರಿಸಲಾಗುತ್ತದೆ. ಪ್ರಕ್ರಿಯೆಗಳು ವಿವಿಧ ಸಂರಕ್ಷಣೆ ಅಥವಾ ಅಡುಗೆ ವಿಧಾನಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ ಮತ್ತು ಬ್ರೆಡ್‌ಗಳು ಮತ್ತು ಚೀಸ್‌ನ ಸಂದರ್ಭದಲ್ಲಿ, ಆಲ್ಕೊಹಾಲ್ಯುಕ್ತವಲ್ಲದ ಹುದುಗುವಿಕೆ ಸೇರಿವೆ. ಹೆಚ್ಚಿನ ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳು ಎರಡು ಅಥವಾ ಮೂರು ಪದಾರ್ಥಗಳನ್ನು ಹೊಂದಿರುತ್ತವೆ ಮತ್ತು ಗುಂಪು 1 ಆಹಾರಗಳ ಮಾರ್ಪಡಿಸಿದ ಆವೃತ್ತಿಗಳಾಗಿ ಗುರುತಿಸಲ್ಪಡುತ್ತವೆ. ಅವುಗಳನ್ನು ಸ್ವಂತವಾಗಿ ಅಥವಾ ಸಾಮಾನ್ಯವಾಗಿ ಇತರ ಆಹಾರಗಳೊಂದಿಗೆ ಸಂಯೋಜಿಸಿ ತಿನ್ನಬಹುದು.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'ತಂಪು ಪಾನೀಯಗಳು, ಸಿಹಿ ಅಥವಾ ಖಾರದ ಪ್ಯಾಕ್ ಮಾಡಿದ ತಿಂಡಿಗಳು, ಪುನರ್ರಚಿಸಿದ ಮಾಂಸ ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಮೊದಲೇ ತಯಾರಿಸಿದ ಹೆಪ್ಪುಗಟ್ಟಿದ ಭಕ್ಷ್ಯಗಳಂತಹ ಅಲ್ಟ್ರಾ-ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳು ಕೇವಲ ಮಾರ್ಪಡಿಸಿದ ಆಹಾರಗಳಲ್ಲ, ಬದಲಾಗಿ ಆಹಾರಗಳು ಮತ್ತು ಸೇರ್ಪಡೆಗಳಿಂದ ಪಡೆದ ವಸ್ತುಗಳಿಂದ ಹೆಚ್ಚಾಗಿ ಅಥವಾ ಸಂಪೂರ್ಣವಾಗಿ ತಯಾರಿಸಿದ ಸೂತ್ರೀಕರಣಗಳಾಗಿವೆ, ಗುಂಪು 1 ಆಹಾರವು ಸ್ವಲ್ಪ ಅಥವಾ ಸಂಪೂರ್ಣವಾಗಿ ಹಾನಿಗೊಳಗಾಗುವುದಿಲ್ಲ. ಈ ಸೂತ್ರೀಕರಣಗಳಲ್ಲಿನ ಪದಾರ್ಥಗಳು ಸಾಮಾನ್ಯವಾಗಿ ಸಕ್ಕರೆ, ಎಣ್ಣೆ, ಕೊಬ್ಬು ಅಥವಾ ಉಪ್ಪಿನಂತಹ ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳಲ್ಲಿ ಕಂಡುಬರುವ ಪದಾರ್ಥಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ. ಆದಾಗ್ಯೂ, ಅಲ್ಟ್ರಾ-ಸಂಸ್ಕರಿಸಿದ ಉತ್ಪನ್ನಗಳು ಸಾಮಾನ್ಯವಾಗಿ ಪಾಕಶಾಲೆಯ ಸಿದ್ಧತೆಗಳಲ್ಲಿ ಬಳಸದ ಇತರ ಶಕ್ತಿ ಮತ್ತು ಪೋಷಕಾಂಶಗಳನ್ನು ಸಹ ಒಳಗೊಂಡಿರುತ್ತವೆ. ಇವುಗಳಲ್ಲಿ ಕೆಲವನ್ನು ನೇರವಾಗಿ ಕ್ಯಾಸೀನ್, ಲ್ಯಾಕ್ಟೋಸ್, ಹಾಲೊಡಕು ಮತ್ತು ಗ್ಲುಟನ್‌ನಂತಹ ಆಹಾರಗಳಿಂದ ಹೊರತೆಗೆಯಲಾಗುತ್ತದೆ.';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸಿಂಗ್‌ನ ಸಮಸ್ಯೆಗಳು';
@@ -4510,7 +4513,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ಹೈಡ್ರೋಜನೀಕರಿಸಿದ ಅಥವಾ ಇಂಟರೆಸ್ಟರಿಫೈಡ್ ಎಣ್ಣೆಗಳು, ಹೈಡ್ರೊಲೈಸ್ಡ್ ಪ್ರೋಟೀನ್‌ಗಳು, ಸೋಯಾ ಪ್ರೋಟೀನ್ ಐಸೊಲೇಟ್, ಮಾಲ್ಟೋಡೆಕ್ಸ್ಟ್ರಿನ್, ಇನ್ವರ್ಟ್ ಸಕ್ಕರೆ ಮತ್ತು ಹೆಚ್ಚಿನ ಫ್ರಕ್ಟೋಸ್ ಕಾರ್ನ್ ಸಿರಪ್‌ನಂತಹ ಆಹಾರ ಘಟಕಗಳ ಮತ್ತಷ್ಟು ಸಂಸ್ಕರಣೆಯಿಂದ ಹಲವು ಪಡೆಯಲಾಗುತ್ತದೆ.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4518,7 +4521,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'ಅತಿ-ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳಲ್ಲಿನ ಸೇರ್ಪಡೆಗಳಲ್ಲಿ ಸಂರಕ್ಷಕಗಳು, ಉತ್ಕರ್ಷಣ ನಿರೋಧಕಗಳು ಮತ್ತು ಸ್ಥಿರಕಾರಿಗಳಂತಹ ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳಲ್ಲಿಯೂ ಬಳಸಲಾಗುವ ಕೆಲವು ಸೇರ್ಪಡೆಗಳು ಸೇರಿವೆ. ಅತಿ-ಸಂಸ್ಕರಿಸಿದ ಉತ್ಪನ್ನಗಳಲ್ಲಿ ಮಾತ್ರ ಕಂಡುಬರುವ ಸೇರ್ಪಡೆಗಳ ವರ್ಗಗಳಲ್ಲಿ ಆಹಾರಗಳ ಸಂವೇದನಾ ಗುಣಗಳನ್ನು ಅನುಕರಿಸಲು ಅಥವಾ ಹೆಚ್ಚಿಸಲು ಅಥವಾ ಅಂತಿಮ ಉತ್ಪನ್ನದ ರುಚಿಕರವಲ್ಲದ ಅಂಶಗಳನ್ನು ಮರೆಮಾಚಲು ಬಳಸಲಾಗುತ್ತದೆ. ಈ ಸೇರ್ಪಡೆಗಳಲ್ಲಿ ಬಣ್ಣಗಳು ಮತ್ತು ಇತರ ಬಣ್ಣಗಳು, ಬಣ್ಣ ಸ್ಥಿರೀಕಾರಕಗಳು; ಸುವಾಸನೆಗಳು, ಸುವಾಸನೆ ವರ್ಧಕಗಳು, ಸಕ್ಕರೆ ರಹಿತ ಸಿಹಿಕಾರಕಗಳು; ಮತ್ತು ಕಾರ್ಬೊನೇಟಿಂಗ್, ಫರ್ಮಿಂಗ್, ಬಲ್ಕಿಂಗ್ ಮತ್ತು ಆಂಟಿ-ಬಲ್ಕಿಂಗ್ ಏಜೆಂಟ್‌ಗಳು, ಡಿ-ಫೋಮಿಂಗ್, ಆಂಟಿ-ಕೇಕಿಂಗ್ ಮತ್ತು ಗ್ಲೇಜಿಂಗ್ ಏಜೆಂಟ್‌ಗಳು, ಎಮಲ್ಸಿಫೈಯರ್‌ಗಳು, ಸೀಕ್ವೆಸ್ಟ್ರಾಂಟ್‌ಗಳು ಮತ್ತು ಹ್ಯೂಮೆಕ್ಟಂಟ್‌ಗಳು ಸೇರಿವೆ.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4526,7 +4529,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'ಸಾಮಾನ್ಯವಾಗಿ ಹಲವು ಪದಾರ್ಥಗಳನ್ನು ಸಂಯೋಜಿಸಲು ಮತ್ತು ಅಂತಿಮ ಉತ್ಪನ್ನವನ್ನು ರಚಿಸಲು (ಆದ್ದರಿಂದ \'ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸ್ಡ್\') ಪ್ರಕ್ರಿಯೆಗಳ ಬಹುಸಂಖ್ಯೆಯ ಅನುಕ್ರಮಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಈ ಪ್ರಕ್ರಿಯೆಗಳು ಯಾವುದೇ ದೇಶೀಯ ಸಮಾನತೆಗಳಿಲ್ಲದ ಹಲವಾರು ಪ್ರಕ್ರಿಯೆಗಳನ್ನು ಒಳಗೊಂಡಿವೆ, ಉದಾಹರಣೆಗೆ ಹೈಡ್ರೋಜನೀಕರಣ ಮತ್ತು ಜಲವಿಚ್ಛೇದನ, ಹೊರತೆಗೆಯುವಿಕೆ ಮತ್ತು ಅಚ್ಚೊತ್ತುವಿಕೆ, ಮತ್ತು ಹುರಿಯಲು ಪೂರ್ವ-ಸಂಸ್ಕರಣೆ.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4534,7 +4537,22 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸಿಂಗ್‌ನ ಒಟ್ಟಾರೆ ಉದ್ದೇಶವೆಂದರೆ ಇತರ ಎಲ್ಲಾ ಆಹಾರ ಗುಂಪುಗಳನ್ನು ಬದಲಿಸಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಬ್ರ್ಯಾಂಡೆಡ್, ಅನುಕೂಲಕರ (ಬಾಳಿಕೆ ಬರುವ, ಸೇವಿಸಲು ಸಿದ್ಧ), ಆಕರ್ಷಕ (ಅತಿ-ರುಚಿಕರ) ಮತ್ತು ಹೆಚ್ಚು ಲಾಭದಾಯಕ (ಕಡಿಮೆ-ವೆಚ್ಚದ ಪದಾರ್ಥಗಳು) ಆಹಾರ ಉತ್ಪನ್ನಗಳನ್ನು ರಚಿಸುವುದು. ಅಲ್ಟ್ರಾ-ಪ್ರೊಸೆಸ್ಡ್ ಆಹಾರ ಉತ್ಪನ್ನಗಳನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಆಕರ್ಷಕವಾಗಿ ಪ್ಯಾಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ತೀವ್ರವಾಗಿ ಮಾರಾಟ ಮಾಡಲಾಗುತ್ತದೆ.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4604,7 +4622,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

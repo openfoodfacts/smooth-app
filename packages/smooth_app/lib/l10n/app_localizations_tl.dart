@@ -2948,6 +2948,9 @@ class AppLocalizationsTl extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4357,7 +4360,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Upang gantimpalaan ang mas mahuhusay na produkto sa loob ng isang kategorya, pagkatapos ay ilalapat namin ang mga bonus at parusa batay sa ilang pamantayan:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4373,7 +4376,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ang isang bonus ay iginawad batay sa pinagmulan ng mga sangkap. Isinasaalang-alang ng bonus na ito ang epekto sa transportasyon at gayundin ang patakaran sa kapaligiran ng bawat bansa ng producer.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4381,14 +4384,14 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Balot';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4396,19 +4399,19 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Upang tumpak na kalkulahin ang Green-Score, kinakailangan na magkaroon ng impormasyon na hindi kinakailangang tinukoy sa packaging (tulad ng pinagmulan at eksaktong porsyento ng bawat sangkap) o kung saan ay bihirang magagamit sa form na magagamit (tulad ng isang listahan ng lahat ng mga bahagi ng packaging na may mga tiyak na uri ng mga plastik na ginamit).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Ginagamit ang mga average na halaga kapag hindi pa available ang impormasyong ito, ngunit nananawagan kami ngayon sa lahat na tulungan kaming kolektahin ang impormasyong ito na magiging lubhang kapaki-pakinabang para sa Green-Score ngunit para din sa maraming iba pang gamit.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Paano makakatulong ang mga mamamayan';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Ang lahat ng mamamayan ay makakatulong sa amin na tipunin at ayusin ang impormasyong naroroon sa mga produkto o maaaring mahihinuha mula sa mga ito, tulad ng impormasyon sa packaging: Mission Emballages: isang malakihang collaborative na imbentaryo ng packaging para sa lahat ng produktong pagkain (sa French)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4483,28 +4486,28 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ang mga hindi pinroseso (o natural) na pagkain ay ang mga nakakain na bahagi ng halaman (mga buto, prutas, dahon, tangkay, ugat) o hayop (kalamnan, offal, itlog, gatas), gayundin ang fungi, algae, at tubig, pagkatapos na mahiwalay sa kalikasan.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Ang mga naprosesong sangkap sa pagluluto, gaya ng mga langis, mantikilya, asukal, at asin, ay mga sangkap na nagmula sa mga pagkain ng Pangkat 1 o mula sa kalikasan sa pamamagitan ng mga prosesong kinabibilangan ng pagpindot, pagpino, paggiling, paggiling, at pagpapatuyo.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that Include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Ang mga naprosesong pagkain, tulad ng mga de-boteng gulay, de-latang isda, prutas sa syrup, keso, at bagong gawang tinapay, ay pangunahing ginagawa sa pamamagitan ng pagdaragdag ng asin, langis, asukal, o iba pang mga sangkap mula sa Pangkat 2 hanggang sa Pangkat 1 na pagkain. Kasama sa mga proseso ang iba\'t ibang paraan ng pag-iimbak o pagluluto, at sa kaso ng mga tinapay at keso, ang non-alcoholic fermentation. Karamihan sa mga naprosesong pagkain ay may dalawa o tatlong sangkap at nakikilala bilang mga binagong bersyon ng mga pagkaing Grupo 1. Maaari silang kainin nang mag-isa o, mas karaniwan, kasama ng iba pang mga pagkain.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or Cooking methods, and in The case of breads And cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be Eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ang mga ultra-processed na pagkain, tulad ng mga soft drink, matamis o malasang nakabalot na meryenda, reconstituted meat products, at pre-prepared frozen dish, ay hindi lamang mga binagong pagkain kundi mga formulation na halos lahat o ganap na ginawa mula sa mga substance na nagmula sa mga pagkain at additives, na may kaunti hanggang walang buo na pagkain sa Grupo 1. Ang mga sangkap sa mga pormulasyon na ito ay kadalasang kinabibilangan ng mga matatagpuan din sa mga pagkaing naproseso, tulad ng mga asukal, langis, taba, o asin. Gayunpaman, ang mga ultra-processed na produkto ay naglalaman din ng iba pang pinagkukunan ng enerhiya at nutrients na hindi karaniwang ginagamit sa mga paghahanda sa pagluluto. Ang ilan sa mga ito ay direktang kinukuha mula sa mga pagkain, tulad ng casein, lactose, whey, at gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, Oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from Foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Marami ang hinango mula sa karagdagang pagproseso ng mga nasasakupan ng pagkain, tulad ng hydrogenated o interesadong mga langis, hydrolyzed na protina, soy protein isolate, maltodextrin, invert sugar, at high-fructose corn syrup.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4524,7 +4527,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Kasama sa mga additives sa mga ultra-processed na pagkain ang ilan na ginagamit din sa mga naprosesong pagkain, tulad ng mga preservative, antioxidant, at stabilizer. Kasama sa mga klase ng additives na makikita lamang sa mga ultra-processed na produkto ang mga ginagamit para gayahin o pagandahin ang mga sensory na katangian ng mga pagkain o para itago ang mga hindi masarap na aspeto ng huling produkto. Kasama sa mga additives na ito ang mga tina at iba pang mga kulay, mga stabilizer ng kulay; mga lasa, mga pampaganda ng lasa, mga pampatamis na hindi asukal; at mga pantulong sa pagproseso tulad ng carbonating, firming, bulking at anti-bulking agent, de-foaming, anti-caking at glazing agent, emulsifier, sequestrant, at humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4532,7 +4535,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Maraming mga pagkakasunud-sunod ng mga proseso ang ginagamit upang pagsamahin ang karaniwang maraming sangkap at upang lumikha ng panghuling produkto (kaya\'t \'ultra-processed\'). Kasama sa mga proseso ang ilang walang katumbas na domestic, tulad ng hydrogenation at hydrolysation, extrusion at molding, at pre-processing para sa pagprito.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4540,7 +4543,22 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Ang pangkalahatang layunin ng ultra-processing ay lumikha ng mga produktong pagkain na may tatak, maginhawa (matibay, handang ubusin), kaakit-akit (hyper-palatable) at lubos na kumikita (mababa ang halaga) na idinisenyo upang palitan ang lahat ng iba pang pangkat ng pagkain. Ang mga produktong ultra-processed na pagkain ay karaniwang nakabalot nang kaakit-akit at masinsinang ibinebenta.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4610,7 +4628,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

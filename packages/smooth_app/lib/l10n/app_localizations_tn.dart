@@ -2948,6 +2948,9 @@ class AppLocalizationsTn extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4358,7 +4361,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Go duela dikumo tse di botoka mo setlhopheng, re bo re dirisa dibonase le dikotlhao go ikaegilwe ka ditlhokego di le mmalwa:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4366,7 +4369,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4374,7 +4377,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonase e abelwa go ikaegilwe ka tshimologo ya metswako. Bonase ena e nahana ka tshusumetso ho dipalangwang mme hape le pholisi ya tikoloho ya naha e nngwe le e nngwe ya mohlahisi.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4382,14 +4385,14 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4397,19 +4400,19 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Go bala ka nepo Green-Score, go botlhokwa go nna le tshedimosetso e e sa tlhalosiwang mo sephuthelwaneng (jaaka tshimologo le phesente e e tlhomameng ya motswako mongwe le mongwe) kgotsa e e sa bonweng ka sewelo ka sebopego se se ka dirisiwang (jaaka lenaane la dikarolo tsotlhe tsa polasetiki tse di nang le mofuta o o tlhomameng wa tiriso).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Dipalopalo tsa palogare di dirisiwa fa tshedimosetso eno e ise e nne teng, mme jaanong re kopa mongwe le mongwe go re thusa go kokoanya tshedimosetso eno e e tla nnang mosola thata mo Green-Score mme gape le mo ditirisong tse dingwe tse dintsi.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Ka fa baagi ba ka thusang ka teng';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Baagi botlhe ba ka re thusa go kokoanya le go rulaganya tshedimosetso e e leng teng mo ditlhagisweng kgotsa e e ka tswang mo go tsone, jaaka tshedimosetso ka ga go phuthela: Mission Emballages: lenaane le legolo la tirisanommogo la go phuthela dikumo tsotlhe tsa dijo (ka Sefora)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4485,28 +4488,28 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Dijo tse di sa fetolwang (kgotsa tsa tlholego) ke dikarolo tse di jewang tsa dimela (dipeo, maungo, matlhare, dikutu, medi) kgotsa diphologolo (mesifa, di-offal, mae, mashi), mmogo le fungi, algae, le metsi, morago ga go kgaoganngwa le tlhago.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Metswako e e fetotsweng ya go apaya, e e jaaka dioli, botoro, sukiri le letswai, ke dilo tse di tswang mo dijong tsa Setlhopha sa 1 kgotsa mo tlhagong ka dithulaganyo tse di akaretsang go gatelela, go ntlafatsa, go sila, go sila le go omisa.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that Include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Dijo tse di fetotsweng, tse di jaaka merogo e e mo mabotlolong, tlhapi e e mo makotikoting, maungo a a mo sirapong, ditšhisi le marotho a a sa tswang go dirwa, di dirwa thata ka go tsenya letswai, oli, sukiri kgotsa dilo tse dingwe go tswa mo dijong tsa Setlhopha sa 2 go ya go tsa Setlhopha sa 1. Dithulaganyo di akaretsa mekgwa e e farologaneng ya go boloka kgotsa go apaya, mme mo ntlheng ya marotho le tšhisi, go bedisa go go senang bojalwa. Bontsi jwa dijo tse di fetotsweng di na le metswako e mebedi kgotsa e meraro mme di lemotshega jaaka mefuta e e fetotsweng ya dijo tsa Setlhopha sa 1. Di ka jewa di le tsosi kgotsa, ka tlwaelo, di kopantswe le dijo tse dingwe.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, Non-alcoholic fermentation. most processed foods have Two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Dijo tse di fetotsweng thata, jaaka dinotsididi, dijo tse di botshe tse di phuthetsweng tse di botshe kgotsa tse di monate, dikumo tsa nama tse di bopilweng sešwa, le dijo tse di gatseditsweng tse di apeilweng pele ga nako, ga se fela dijo tse di fetotsweng mme ke ditlhamo tse di dirilweng bontsi kgotsa gotlhelele go tswa mo dilong tse di tswang mo dijong le ditlaleletsi, tse di nang le dijo tse dinnye kgotsa tse di sa senyegang Group1 . Metswako e e mo ditlhamong tseno gantsi e akaretsa e gape e fitlhelwang mo dijong tse di fetotsweng, tse di jaaka sukiri, dioli, mafura kgotsa letswai. Le fa go ntse jalo, ditlhagiswa tse di dirilweng ka tsela e e feteletseng gape di na le metswedi e mengwe ya maatla le dikotla tse di sa dirisiweng thata mo dithulaganyong tsa go apaya. Dingwe tsa tsone di tsewa ka tlhamalalo mo dijong tse di jaaka casein, lactose, whey le gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not Typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4518,7 +4521,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Bontsi bo tswa mo go diriseng go ya pele ga dikarolo tsa dijo, tse di jaaka dioli tse di nang le haeterojene kgotsa tse di nang le kgatlhego, diporoteine tse di nang le haeterojene, poroteine ya soya e e kgaogantsweng, maltodextrin, sukiri e e fetotsweng le sirapo ya mmidi e e nang le fructose e ntsi.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4526,7 +4529,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ditlaleletsi tse di mo dijong tse di fetotsweng thata di akaretsa dingwe tse gape di dirisiwang mo dijong tse di fetotsweng, tse di jaaka dilo tse di bolokang dijo, di-antioxidant le di-stabilizer. Ditlhopha tsa ditlaleletsi tse di fitlhelwang fela mo ditlhagisweng tse di dirilweng thata di akaretsa tse di dirisiwang go etsisa kgotsa go tokafatsa dinonofo tsa maikutlo tsa dijo kgotsa go fitlha dikarolo tse di sa monate tsa setlhagiswa sa bofelo. Tsena additives kenyeletsa mebala le mebala e meng, mebala stabilizers; ditatso, dilo tse di tokafatsang tatso, dilo tse di senang sukiri; le dithusi tsa go dira jaaka diokobatsi tse di tsenyang khabone, tse di tiisa, tse di oketsang le tse di lwantshang go oketsa, go ntsha bubble, diokobatsi tse di lwantshang go tlhotlhorega le go tlhoma galase, di-emulsifier, di-sequestrant, le di-humectant.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4534,7 +4537,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Bontsi jwa tatelano ya dithulaganyo bo dirisiwa go kopanya metswako e gantsi e leng mentsi le go tlhama setlhagiswa sa bofelo (ka jalo \'ultra-processed\'). Dithulaganyo di akaretsa di le mmalwa tse di senang dilekanyo tsa selegae, jaaka hydrogenation le hydrolysis, go ntsha le go bopa, le go dira pele ga go gadika.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4542,7 +4545,22 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Maikaelelo a kakaretso a ultra-processing ke go tlhama ditlhagiswa tsa dijo tse di nang le letshwaokgwebo, tse di siameng (tse di tshwarelelang, tse di siametseng go jewa), tse di kgatlhang (tse di monate thata) le tse di nang le dipoelo tse di kwa godimo (metswako e e tlhwatlhwatlase) tse di diretsweng go emisetsa ditlhopha tse dingwe tsotlhe tsa dijo. Dikumo tsa dijo tse di dirilweng ka tsela e e feteletseng gantsi di phuthelwa ka tsela e e kgatlhang mme di bapadiwa thata.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4612,7 +4630,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

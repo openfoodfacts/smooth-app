@@ -5215,6 +5215,12 @@ abstract class AppLocalizations {
   /// **'No, keep {currency}'**
   String prices_currency_change_proposal_action_cancel(String currency);
 
+  /// Menu item to open the Open Prices guide
+  ///
+  /// In en, this message translates to:
+  /// **'Know more about Open Prices'**
+  String get prices_menu_know_more;
+
   /// User dev preferences - Import history - Result successful
   ///
   /// In en, this message translates to:
@@ -7564,7 +7570,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_intro.
   ///
   /// In en, this message translates to:
-  /// **'To reward better products within a category, we then apply bonuses & penalties based on several criterion:'**
+  /// **'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:'**
   String get guide_greenscore_bonuses_penalties_intro;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg1_title.
@@ -7576,7 +7582,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).'**
+  /// **'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).'**
   String get guide_greenscore_bonuses_penalties_arg1_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg2_title.
@@ -7588,7 +7594,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.'**
+  /// **'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.'**
   String get guide_greenscore_bonuses_penalties_arg2_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg3_title.
@@ -7600,7 +7606,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.'**
+  /// **'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.'**
   String get guide_greenscore_bonuses_penalties_arg3_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg4_title.
@@ -7612,7 +7618,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.'**
+  /// **'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.'**
   String get guide_greenscore_bonuses_penalties_arg4_text;
 
   /// No description provided for @guide_greenscore_transparency_title.
@@ -7624,25 +7630,25 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_transparency_intro1.
   ///
   /// In en, this message translates to:
-  /// **'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).'**
+  /// **'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).'**
   String get guide_greenscore_transparency_intro1;
 
   /// No description provided for @guide_greenscore_transparency_intro2.
   ///
   /// In en, this message translates to:
-  /// **'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.'**
+  /// **'**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.'**
   String get guide_greenscore_transparency_intro2;
 
   /// No description provided for @guide_greenscore_transparency_arg1_title.
   ///
   /// In en, this message translates to:
-  /// **'How citizens can help'**
+  /// **'How citizens can help?'**
   String get guide_greenscore_transparency_arg1_title;
 
   /// No description provided for @guide_greenscore_transparency_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)'**
+  /// **'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).'**
   String get guide_greenscore_transparency_arg1_text;
 
   /// No description provided for @guide_greenscore_transparency_arg2_title.
@@ -7726,7 +7732,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'The NOVA groups inform you about the level of food processing.'**
+  /// **'The NOVA groups inform you about **the level of food processing**.'**
   String get guide_nova_what_is_nova_paragraph1;
 
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
@@ -7762,7 +7768,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.'**
+  /// **'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.'**
   String get guide_nova_groups_arg1_text;
 
   /// No description provided for @guide_nova_groups_arg2_title.
@@ -7774,7 +7780,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.'**
+  /// **'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.'**
   String get guide_nova_groups_arg2_text;
 
   /// No description provided for @guide_nova_groups_arg3_title.
@@ -7786,7 +7792,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.'**
+  /// **'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.'**
   String get guide_nova_groups_arg3_text;
 
   /// No description provided for @guide_nova_groups_arg4_title.
@@ -7798,7 +7804,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.'**
+  /// **'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.'**
   String get guide_nova_groups_arg4_text;
 
   /// No description provided for @guide_nova_explanations_title.
@@ -7816,7 +7822,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.'**
+  /// **'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.'**
   String get guide_nova_explanations_arg1_text;
 
   /// No description provided for @guide_nova_explanations_arg2_title.
@@ -7828,7 +7834,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
+  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
   String get guide_nova_explanations_arg2_text;
 
   /// No description provided for @guide_nova_explanations_arg3_title.
@@ -7840,7 +7846,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.'**
+  /// **'**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.'**
   String get guide_nova_explanations_arg3_text;
 
   /// No description provided for @guide_nova_explanations_arg4_title.
@@ -7852,8 +7858,32 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.'**
+  /// **'**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.'**
   String get guide_nova_explanations_arg4_text;
+
+  /// No description provided for @guide_nova_explanations_arg5_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A health hazard'**
+  String get guide_nova_explanations_arg5_title;
+
+  /// No description provided for @guide_nova_explanations_arg5_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.'**
+  String get guide_nova_explanations_arg5_text;
+
+  /// No description provided for @guide_nova_explanations_arg6_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Countries recommend limiting them'**
+  String get guide_nova_explanations_arg6_title;
+
+  /// No description provided for @guide_nova_explanations_arg6_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.'**
+  String get guide_nova_explanations_arg6_text;
 
   /// No description provided for @guide_nova_share_link.
   ///
@@ -7966,7 +7996,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_food_facts_scores_title.
   ///
   /// In en, this message translates to:
-  /// **'Help Us build the \"Wikipedia of Food\"'**
+  /// **'Help us build the \"Wikipedia of Food\"'**
   String get guide_open_food_facts_scores_title;
 
   /// No description provided for @guide_open_food_facts_scores_arg1_title.

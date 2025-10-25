@@ -2945,6 +2945,9 @@ class AppLocalizationsMn extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4355,7 +4358,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Ангилал доторх илүү сайн бүтээгдэхүүнийг урамшуулахын тулд бид хэд хэдэн шалгуурт үндэслэн урамшуулал, торгууль хэрэглэдэг:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4363,7 +4366,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4371,7 +4374,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Найрлагын гарал үүслийг харгалзан урамшуулал олгоно. Энэхүү урамшуулал нь тээвэрлэлтэд үзүүлэх нөлөөлөл, мөн үйлдвэрлэгч бүрийн улс орны байгаль орчны бодлогыг харгалзан үздэг.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4379,14 +4382,14 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4394,18 +4397,19 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Ногоон оноог үнэн зөв тооцоолохын тулд сав баглаа боодол дээр заавал заагаагүй мэдээлэл (орц бүрдэл бүрийн гарал үүсэл, яг тодорхой хувь гэх мэт) эсвэл ашиглах боломжтой хэлбэрээр ховор байдаг (жишээ нь, ашигласан хуванцарын бүх бүрэлдэхүүн хэсгүүдийн жагсаалт гэх мэт) байх шаардлагатай.';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Энэ мэдээлэл хараахан гараагүй үед дундаж утгыг ашигладаг, гэхдээ бид Ногоон онооны хувьд төдийгүй бусад олон хэрэглээнд тустай энэ мэдээллийг цуглуулахад туслаач гэж бид хүн бүрийг уриалж байна.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title => 'Иргэд яаж туслах вэ';
+  String get guide_greenscore_transparency_arg1_title =>
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Сав баглаа боодлын талаарх мэдээлэл гэх мэт бүтээгдэхүүн дээр байгаа эсвэл тэдгээрээс гаргаж болох мэдээллийг цуглуулж, бүтэцжүүлэхэд бүх иргэд тусалж чадна: Эрхэм зорилго: Бүх хүнсний бүтээгдэхүүний сав баглаа боодлын томоохон хэмжээний хамтын тооллого (Франц хэлээр)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4479,28 +4483,28 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Боловсруулаагүй (эсвэл байгалийн) хүнс нь ургамал (үр, жимс, навч, иш, үндэс) эсвэл амьтдын (булчин, дотор эрхтэн, өндөг, сүү), мөн мөөгөнцөр, замаг, усыг байгалиас нь салгасны дараа идэж болох хэсэг юм.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Тос, цөцгийн тос, элсэн чихэр, давс зэрэг боловсруулсан хоолны орцууд нь 1-р бүлгийн хүнсний бүтээгдэхүүнээс эсвэл шахах, цэвэршүүлэх, нунтаглах, тээрэмдэх, хатаах зэрэг процессоор байгалиас гаргаж авсан бодис юм.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Савласан хүнсний ногоо, лаазалсан загас, сироп дахь жимс, бяслаг, шинэхэн талх зэрэг боловсруулсан хүнсний бүтээгдэхүүнийг 2-р бүлгийн 1-р бүлгийн хүнсний бүтээгдэхүүнд давс, тос, элсэн чихэр эсвэл бусад бодисыг нэмсэнээр хийдэг. Процессууд нь янз бүрийн хадгалалт эсвэл хоол хийх аргууд, талх, бяслагны хувьд согтууруулах ундаагүй исгэх зэрэг орно. Ихэнх боловсруулсан хоол хүнс нь хоёр, гурван орц найрлагатай бөгөөд 1-р бүлгийн хүнсний өөрчлөгдсөн хувилбарууд гэдгийг хүлээн зөвшөөрдөг. Тэдгээрийг дангаар нь эсвэл ихэвчлэн бусад хоолтой хослуулан идэж болно.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, Non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Зөөлөн ундаа, чихэрлэг эсвэл амтат савласан хөнгөн зууш, бэлтгэсэн махан бүтээгдэхүүн, урьдчилан бэлтгэсэн хөлдөөсөн таваг зэрэг хэт боловсруулсан хоол хүнс нь зөвхөн өөрчилсөн хоол биш, харин 1-р бүлгийн бүрэн бүтэн хоол хүнс, хоол хүнс, нэмэлтээс гаргаж авсан бодисоос голчлон эсвэл бүхэлд нь хийсэн найрлага юм. Эдгээр найрлага дахь найрлага нь ихэвчлэн элсэн чихэр, тос, өөх тос, давс гэх мэт боловсруулсан хүнсний бүтээгдэхүүнд агуулагддаг. Гэсэн хэдий ч хэт боловсруулсан бүтээгдэхүүн нь хоол хийхэд ихэвчлэн ашиглагддаггүй бусад эрчим хүч, шим тэжээлийн эх үүсвэрийг агуулдаг. Эдгээрийн заримыг казеин, лактоз, шар сүү, цавуулаг зэрэг хоол хүнснээс шууд гаргаж авдаг.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4512,7 +4516,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Ихэнх нь устөрөгчжүүлсэн эсвэл сонирхолтойжуулсан тос, гидролизжүүлсэн уураг, шар буурцагны уургийн тусгаарлалт, мальтодекстрин, инверт сахар, фруктоз өндөртэй эрдэнэ шишийн сироп зэрэг хүнсний бүрэлдэхүүн хэсгүүдийн цаашдын боловсруулалтаас гаралтай.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4520,7 +4524,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Хэт боловсруулсан хүнсний нэмэлтүүд нь хадгалалтын бодис, антиоксидант, тогтворжуулагч зэрэг боловсруулсан хүнсний бүтээгдэхүүнд ашиглагддаг зарим нэмэлтүүд юм. Зөвхөн хэт боловсруулсан бүтээгдэхүүнээс олддог нэмэлтүүдийн ангилалд хүнсний бүтээгдэхүүний мэдрэхүйн чанарыг дуурайх, сайжруулах эсвэл эцсийн бүтээгдэхүүний таагүй талыг далдлахад ашигладаг нэмэлт бодисууд орно. Эдгээр нэмэлтүүд нь будагч бодис болон бусад өнгө, өнгө тогтворжуулагч; амт, амтыг сайжруулагч, элсэн чихэргүй амтлагч; карбонатжуулах, чангаруулах, бөөгнөрөх болон бөөгнөрөхөөс хамгаалах бодис, хөөс арилгагч, хагалгааны болон шиллэгээний эсрэг бодис, эмульгатор, нягтруулагч, чийгшүүлэгч зэрэг боловсруулахад туслах хэрэгслүүд.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4528,7 +4532,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Ихэвчлэн олон орц найрлагыг нэгтгэж, эцсийн бүтээгдэхүүн (тиймээс \"хэт боловсруулсан\") бий болгохын тулд олон тооны дараалсан процессуудыг ашигладаг. Уг процесст устөрөгчжүүлэлт ба гидролизаци, шахмал болон хэлбэржүүлэлт, хайруулын урьдчилсан боловсруулалт гэх мэт дотоодын ижил төстэй зүйлгүй хэд хэдэн процесс орно.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4536,7 +4540,22 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Хэт боловсруулалтын ерөнхий зорилго нь бусад бүх хүнсний бүлгийг нүүлгэн шилжүүлэх зориулалттай брендийн, тохиромжтой (удаан эдэлгээтэй, хэрэглэхэд бэлэн), сэтгэл татам (хэт амттай) болон өндөр ашигтай (хямд өртөгтэй найрлагатай) хүнсний бүтээгдэхүүнийг бий болгох явдал юм. Хэт боловсруулсан хүнсний бүтээгдэхүүнийг ихэвчлэн сэтгэл татам байдлаар савлаж, эрчимтэй зах зээлд гаргадаг.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4606,7 +4625,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

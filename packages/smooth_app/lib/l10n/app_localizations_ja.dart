@@ -2885,6 +2885,9 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => '完了';
 
   @override
@@ -4250,7 +4253,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'カテゴリー内でより優れた製品に報酬を与えるために、いくつかの基準に基づいてボーナスとペナルティを適用します。';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4258,14 +4261,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => '成分の起源';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      '原材料の原産地に基づいてボーナスが付与されます。このボーナスは、輸送への影響と、各生産国の環境政策を考慮に入れています。';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4273,14 +4276,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'パッケージング';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4288,18 +4291,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'グリーンスコアを正確に計算するには、パッケージに必ずしも明記されていない情報（原産地や各成分の正確な割合など）や、使用可能な形式で入手できることがほとんどない情報（パッケージの全コンポーネントのリストと、使用されているプラスチックの正確な種類など）が必要です。';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'この情報がまだ入手できない場合は平均値が使用されますが、私たちは現在、グリーンスコアだけでなく他の多くの用途にも非常に役立つこの情報の収集に協力するよう皆様に呼びかけています。';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title => '市民がどのように支援できるか';
+  String get guide_greenscore_transparency_arg1_title =>
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'すべての市民は、製品に存在する情報や、包装に関する情報など、製品から推測できる情報を収集し、構造化することに協力できます。ミッション・エンバラージュ：すべての食品の包装に関する大規模な共同目録（フランス語）';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title => 'メーカーがどのように支援できるか';
@@ -4368,28 +4372,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      '加工されていない（または自然な）食品とは、自然から分離された植物（種子、果実、葉、茎、根）または動物（筋肉、内臓、卵、牛乳）の食用部分、および菌類、藻類、水です。';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => '加工された料理の材料';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      '油、バター、砂糖、塩などの加工された料理の材料は、圧縮、精製、粉砕、製粉、乾燥などのプロセスを通じてグループ 1 の食品または自然から得られる物質です。';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => '加工食品';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      '瓶詰め野菜、缶詰の魚、シロップ漬けの果物、チーズ、焼きたてのパンなどの加工食品は、主にグループ2の食品に塩、油、砂糖などの物質を加えて作られています。加工工程には、様々な保存方法や調理方法、そしてパンやチーズの場合は非アルコール発酵が含まれます。ほとんどの加工食品は2つまたは3つの材料から成り、グループ1の食品の改良版として認識されています。加工食品は単独で食べることもできますが、より一般的には他の食品と組み合わせて食べることもできます。';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      '超加工食品（ソフトドリンク、甘味または塩味の包装スナック、再生肉製品、調理済み冷凍食品など）は、単に加工食品であるだけでなく、グループ1の食品をほとんど、あるいは全く含まず、食品由来の物質や添加物から大部分または完全に作られた調合物です。これらの調合物に含まれる成分には、砂糖、油脂、脂肪、塩など、加工食品にも含まれるものが多く含まれています。しかし、超加工食品には、通常の料理には用いられないエネルギー源や栄養素も含まれています。これらの中には、カゼイン、乳糖、ホエイ、グルテンなど、食品から直接抽出されたものもあります。';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => '超処理の問題点';
@@ -4399,28 +4403,43 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      '多くは、水素化油やエステル交換油、加水分解タンパク質、大豆タンパク質分離物、マルトデキストリン、転化糖、高果糖コーンシロップなど、食品成分のさらなる加工から得られます。';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title => '純粋な食品安全性を超えた添加物';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      '超加工食品に含まれる添加物には、保存料、酸化防止剤、安定剤など、加工食品にも使用されているものが含まれます。超加工食品にのみ含まれる添加物には、食品の官能特性を模倣または強化したり、最終製品の不快な側面を隠したりするために使用されるものが含まれます。これらの添加物には、染料などの着色料、色安定剤、香料、風味増強剤、非糖類甘味料、そして炭酸化剤、固化剤、増量剤、膨張防止剤、消泡剤、固結防止剤、光沢剤、乳化剤、金属イオン封鎖剤、保湿剤などの加工助剤が含まれます。';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title => '自宅ではできない処理';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '通常、多くの材料を組み合わせ、最終製品を作るために、多数の工程が重ねられます（そのため「超加工」と呼ばれます）。これらの工程には、水素化、加水分解、押し出し、成形、揚げるための前処理など、国内では同等の工程が存在しないものもいくつか含まれています。';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title => '超加工の略奪的かつ経済的側面';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '超加工の全体的な目的は、ブランド力があり、利便性（耐久性があり、すぐに食べられる）、魅力（非常に美味しい）、そして収益性（低コストの原材料）に優れた食品を製造し、他のすべての食品群に取って代わることです。超加工食品は通常、魅力的なパッケージで包装され、集中的に販売されます。';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4490,7 +4509,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

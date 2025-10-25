@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Деңиз жана таза суу (бөлүкчөлөр, кычкылдануу, эвтрофикация)",
   "guide_greenscore_lca_arg3_text8": "Ресурстардын түгөнүшү.",
   "guide_greenscore_bonuses_penalties_title": "Бонустар жана айыптар",
-  "guide_greenscore_bonuses_penalties_intro": "Категориядагы жакшыраак өнүмдөрдү сыйлоо үчүн, биз бир нече критерийлердин негизинде бонустарды жана айыптарды колдонобуз:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус ингредиенттердин келип чыгышына жараша берилет. Бул бонус транспортко тийгизген таасирин, ошондой эле ар бир өндүрүүчүнүн өлкөнүн экологиялык саясатын эске алат.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Жашыл-Упайды так эсептөө үчүн таңгакта сөзсүз түрдө көрсөтүлбөгөн (мисалы, ар бир ингредиенттин келип чыгышы жана так пайызы) же колдонууга жарамдуу формада сейрек кездешүүчү маалымат (мисалы, колдонулган пластмассалардын так түрлөрү менен таңгактын бардык компоненттеринин тизмеси) болушу керек.",
-  "guide_greenscore_transparency_intro2": "Орточо маанилер бул маалымат жок болгон учурда колдонулат, бирок биз азыр бардыгын бул маалыматты чогултууга жардам берүүгө чакырып жатабыз, ал Жашыл-Упай үчүн, ошондой эле башка көптөгөн колдонуулар үчүн абдан пайдалуу болот.",
-  "guide_greenscore_transparency_arg1_title": "Жарандар кантип жардам бере алат",
-  "guide_greenscore_transparency_arg1_text": "Бардык жарандар бизге азыктарда бар же алардан чыгарыла турган маалыматты чогултууга жана түзүүгө жардам бере алышат, мисалы, таңгак жөнүндө маалымат: Mission Emballages: бардык тамак-аш азыктары үчүн таңгактардын кеңири масштабдуу биргелешкен инвентаризациясы (французча)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Өндүрүүчүлөр кантип жардам бере алышат",
   "guide_greenscore_transparency_arg2_text": "Өндүрүүчүлөр бизге өздөрүнүн маалыматын түздөн-түз өндүрүүчүлөр үчүн акысыз платформабыз аркылуу жөнөтө алышат.",
   "guide_greenscore_better_product_title": "Кайсы продукт планета үчүн жакшы?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 NOVA топтору",
   "guide_nova_groups_intro": "4 NOVA тобу бар, көйгөйлүү тобу 4-топ - Ультра иштетилген азыктар.",
   "guide_nova_groups_arg1_title": "Минималдуу иштетилген же иштетилбеген азыктар",
-  "guide_nova_groups_arg1_text": "Иштетилбеген (же табигый) азыктар - бул өсүмдүктөрдүн (уруктардын, мөмөлөрдүн, жалбырактардын, сабактардын, тамырлардын) же жаныбарлардын (булчуңдардын, ичегилердин, жумурткалардын, сүттүн), ошондой эле козу карындардын, балырлардын жана суунун жаратылыштан бөлүнгөндөн кийин жегенге жарактуу бөлүктөрү.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Майлар, май, кант жана туз сыяктуу иштетилген кулинардык ингредиенттер 1-топтогу тамак-аш азыктарынан же табияттан престөө, тазалоо, майдалоо, майдалоо жана кургатуу процесстери аркылуу алынган заттар.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Бөтөлкөгө куюлган жашылчалар, балык консервалары, сироптогу жемиштер, сырлар жана жаңы жасалган нандар сыяктуу кайра иштетилген азыктар негизинен 2-топтогу 1-топтогу тамак-ашка туз, май, кант же башка заттарды кошуу менен даярдалат. Процесстер ар кандай консервациялоо же бышыруу ыкмаларын, ал эми нан жана сырда алкоголсуз ачытууну камтыйт. Көпчүлүк кайра иштетилген тамак-аш эки же үч ингредиенттерди камтыйт жана 1-топтогу азыктардын өзгөртүлгөн версиялары катары таанылат. Алар өз алдынча же, адатта, башка тамак-аш менен бирге жесе болот.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads And cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Алкоголсуз суусундуктар, таттуу же даамдуу таңгакталган закускалар, калыбына келтирилген эт азыктары жана алдын ала даярдалган тоңдурулган идиштер сыяктуу ультра иштетилген тамак-аш азыктары жөн гана модификацияланган тамак-аш азыктары эмес, негизинен же толугу менен тамак-аш азыктарынан жана кошумчалардан алынган заттардан жасалган формулалар, 1-топтогу аз же такыр бузулбаган тамак-аш. Бул курамдагы ингредиенттер, адатта, кант, май, май же туз сыяктуу кайра иштетилген тамак-аш азыктарында кездешүүчүлөрдү камтыйт. Бирок, ультра кайра иштетилген азыктар адатта кулинардык препараттарда колдонулбаган башка энергия булактарын жана аш болумдуу заттарды камтыйт. Алардын кээ бирлери казеин, лактоза, сыворот жана глютен сыяктуу азыктардан түздөн-түз алынат.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. ingredients in these formulations usually Include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed Products also contain other sources of energy and nutrients not typically used in culinary preparations. some of These are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ультра иштетүү менен байланышкан көйгөйлөр",
   "guide_nova_explanations_arg1_title": "Тамак-аш ингредиенттерин экстремалдык иштетүү",
-  "guide_nova_explanations_arg1_text": "Көпчүлүгү гидрогенделген же кызыктырган майлар, гидролизденген протеиндер, соя протеининин изоляты, мальтодекстрин, инверттик кант жана фруктозасы жогору жүгөрү сиропу сыяктуу тамак-аш компоненттерин андан ары кайра иштетүүдөн алынат.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Таза тамак-аш коопсуздугунан тышкары кошумчалар",
-  "guide_nova_explanations_arg2_text": "Ультра иштетилген тамак-аш азыктарынын кошумчаларына консерванттар, антиоксиданттар жана стабилизаторлор сыяктуу кайра иштетилген тамак-аштарда да колдонулган кээ бирлери кирет. Ультра иштетилген азыктарда гана кездешүүчү кошумчалардын класстарына тамак-аштын сезүү сапаттарын тууроо же жогорулатуу же акыркы продуктунун жагымсыз жактарын жашыруу үчүн колдонулгандар кирет. Бул кошумчалар боёкторду жана башка түстөрдү, түс стабилизаторлорун камтыйт; даамдарды, даамды күчөткүчтөрдү, кантсыз таттууларды; жана кайра иштетүүчү каражаттар, мисалы, карбонациялоочу, бекемдөөчү, көлөмдөгү жана көлөмдөгү көлөмгө каршы каражаттар, көбүктү кетирүүчү, катып кетүүгө каршы жана жылтыратуучу агенттер, эмульгаторлор, секвестранттар жана нымдуу заттар.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Үйдө иштетүү мүмкүн эмес",
-  "guide_nova_explanations_arg3_text": "Адатта көп ингредиенттерди айкалыштыруу жана акыркы продуктуну (демек, \"ультра иштетилген\") түзүү үчүн процесстердин көп ырааттуулугу колдонулат. Процесстерге гидрогендөө жана гидролиздөө, экструзия жана калыптоо, кууруу үчүн алдын ала кайра иштетүү сыяктуу ата мекендик эквиваленттери жок бир нече процесстер кирет.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Ультра иштетүүнүн жырткычтык жана финансылык аспектилери",
-  "guide_nova_explanations_arg4_text": "Ультра кайра иштетүүнүн жалпы максаты – бренддүү, ыңгайлуу (узак, колдонууга даяр), жагымдуу (гипер даамдуу) жана жогорку рентабелдүү (арзан ингредиенттер) тамак-аш азыктарынын бардык башка тамак-аш топторун алмаштырууга багытталган. Ультра иштетилген тамак-аш азыктары, адатта, жагымдуу таңгакталган жана интенсивдүү сатылат.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

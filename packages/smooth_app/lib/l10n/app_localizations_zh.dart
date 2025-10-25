@@ -2816,6 +2816,9 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => '已完成';
 
   @override
@@ -4161,7 +4164,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      '为了奖励某一类别中更好的产品，我们会根据以下几个标准施加奖金和惩罚：';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4169,14 +4172,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => '成分來源';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      '根据原料的产地，我们会给予一定的奖励。该奖励会考虑运输的影响以及每个生产商所在国家的环境政策。';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4184,14 +4187,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => '包装';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4199,18 +4202,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      '为了准确计算绿色分数，需要获得包装上不一定指定的信息（例如每种成分的来源和确切百分比）或很少以可用形式提供的信息（例如包装所有组件的列表以及所用塑料的确切类型）。';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '当这些信息尚未可用时，将使用平均值，但我们现在呼吁大家帮助我们收集这些信息，这对于绿色评分以及其他许多用途都非常有用。';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title => '公民如何提供帮助';
+  String get guide_greenscore_transparency_arg1_title =>
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      '所有公民都可以帮助我们收集和整理产品上存在的信息或从产品中推断出的信息，例如包装信息：Mission Emballages：所有食品包装的大规模协作清单（法语）';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title => '制造商如何提供帮助';
@@ -4278,21 +4282,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      '未加工食品（或称天然食品）是指从自然界分离出来的植物（种子、果实、叶、茎、根）或动物（肌肉、内脏、蛋、奶）等可食用的部分，以及菌类、藻类和水。';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => '加工的烹飪用食品';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      '加工烹饪原料，例如油、黄油、糖和盐，是通过压榨、精炼、研磨、碾磨和干燥等工艺从第一类食品或自然界中提取的物质。';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => '第三類： 加工食品';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      '瓶装蔬菜、罐装鱼、糖浆水果、奶酪和新鲜面包等加工食品，主要通过在第一类食品中添加盐、油、糖或其他来自第二类食品的物质制成。加工过程包括各种保存或烹饪方法，对于面包和奶酪而言，还包括非酒精发酵。大多数加工食品含有两到三种成分，可识别为第一类食品的改良版。它们可以单独食用，或者更常见的是与其他食物搭配食用。';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title =>
@@ -4300,7 +4304,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg4_text =>
-      '超加工食品，例如软饮料、甜味或咸味包装零食、复原肉制品和预制冷冻食品，不仅仅是简单的改性食品，而是主要或完全由源自食品和添加剂的物质制成的配方，几乎不含或完全不含第一类食品。这些配方中的成分通常也包含在加工食品中，例如糖、油、脂肪或盐。然而，超加工产品也含有其他通常不用于烹饪的能量和营养来源。其中一些是直接从食品中提取的，例如酪蛋白、乳糖、乳清和麸质。';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => '超加工的问题';
@@ -4310,28 +4314,43 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      '许多都来自食品成分的进一步加工，例如氢化或酯交换油、水解蛋白、大豆分离蛋白、麦芽糊精、转化糖和高果糖玉米糖浆。';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title => '超越纯食品安全的添加剂';
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      '超加工食品中的添加剂包括一些也用于加工食品的添加剂，例如防腐剂、抗氧化剂和稳定剂。仅存在于超加工产品中的添加剂类别包括用于模仿或增强食品感官品质，或掩盖最终产品不良口感的添加剂。这些添加剂包括染料和其他色素、色素稳定剂；香精、增味剂、非糖甜味剂；以及加工助剂，例如碳酸化剂、固化剂、膨松剂和抗膨松剂、消泡剂、抗结剂和上光剂、乳化剂、螯合剂和保湿剂。';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title => '在家无法完成的处理';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '通常需要经过一系列工序，将多种原料组合在一起，才能制成最终产品（因此被称为“超加工”）。这些工序包括一些国内尚无的工艺，例如氢化和水解、挤压和成型，以及油炸的预处理。';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title => '超加工的掠夺性和财务方面';
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '超加工的总体目标是打造品牌化、便捷化（耐用、即食）、吸引力（超级美味）和高利润（低成本原料）的食品，旨在取代所有其他食品类别。超加工食品通常包装精美，营销力度强。';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4401,7 +4420,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

@@ -2946,6 +2946,9 @@ class AppLocalizationsGl extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4356,7 +4359,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Para recompensar os mellores produtos dentro dunha categoría, aplicamos bonificacións e penalizacións baseadas en varios criterios:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4364,7 +4367,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4372,7 +4375,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Outórgase unha bonificación en función da orixe dos ingredientes. Esta bonificación ten en conta o impacto no transporte e tamén a política ambiental do país de cada produtor.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4380,14 +4383,14 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Empaquetado';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4395,19 +4398,19 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Para calcular con precisión a puntuación verde, é necesario ter información que non está necesariamente especificada na embalaxe (como a orixe e a porcentaxe exacta de cada ingrediente) ou que raramente está dispoñible en forma utilizable (como unha lista de todos os compoñentes da embalaxe cos tipos precisos de plásticos utilizados).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Os valores medios úsanse cando esta información aínda non está dispoñible, pero agora facemos un chamamento a todos para que nos axuden a recompilar esta información, que será moi útil para o Green-Score, pero tamén para moitos outros usos.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Como poden axudar os cidadáns';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Todos os cidadáns poden axudarnos a recompilar e estruturar a información presente nos produtos ou que se pode deducir deles, como a información sobre os envases: Misión Emballages: un inventario colaborativo a grande escala de envases para todos os produtos alimenticios (en francés)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4481,28 +4484,28 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Os alimentos non procesados (ou naturais) son as partes comestibles das plantas (sementes, froitos, follas, talos, raíces) ou dos animais (músculo, vísceras, ovos, leite), así como os fungos, as algas e a auga, despois de seren separados da natureza.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Os ingredientes culinarios procesados, como os aceites, a manteiga, o azucre e o sal, son substancias derivadas de alimentos do Grupo 1 ou da natureza mediante procesos que inclúen o prensado, o refinado, a moenda, a moenda e o secado.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature Through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Os alimentos procesados, como as verduras envasadas, o peixe enlatado, as froitas en almíbar, os queixos e os pans acabados de facer, elabóranse principalmente engadindo sal, aceite, azucre ou outras substancias do Grupo 2 aos alimentos do Grupo 1. Os procesos inclúen varios métodos de conservación ou cocción e, no caso dos pans e os queixos, a fermentación non alcohólica. A maioría dos alimentos procesados teñen dous ou tres ingredientes e recoñécense como versións modificadas dos alimentos do Grupo 1. Pódense comer sós ou, máis habitualmente, en combinación con outros alimentos.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various Preservation or Cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients AND are recognizable as modified versions of group 1 foods. they can be eaten on their own or, More commonly, In combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Os alimentos ultraprocesados, como os refrescos, os aperitivos envasados doces ou salgados, os produtos cárnicos reconstituídos e os pratos conxelados prepreparados, non son simplemente alimentos modificados, senón formulacións feitas maioritariamente ou totalmente con substancias derivadas de alimentos e aditivos, con poucos ou ningún alimento do Grupo 1 intacto. Os ingredientes destas formulacións adoitan incluír os que tamén se atopan nos alimentos procesados, como azucres, aceites, graxas ou sal. Non obstante, os produtos ultraprocesados tamén conteñen outras fontes de enerxía e nutrientes que non se usan habitualmente nas preparacións culinarias. Algúns destes extráense directamente dos alimentos, como a caseína, a lactosa, o soro de leite e o glute.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. Ingredients in These formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed Products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted From foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4514,7 +4517,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Moitos derivan do procesamento posterior de constituíntes alimentarios, como aceites hidroxenados ou interesterificados, proteínas hidrolizadas, illado de proteína de soia, maltodextrina, azucre invertido e xarope de millo con alto contido en frutosa.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4522,7 +4525,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Entre os aditivos presentes nos alimentos ultraprocesados inclúense algúns que tamén se empregan nos alimentos procesados, como os conservantes, os antioxidantes e os estabilizantes. Entre as clases de aditivos que só se atopan nos produtos ultraprocesados inclúense os que se empregan para imitar ou mellorar as calidades sensoriais dos alimentos ou para disimular aspectos desagradables do produto final. Estes aditivos inclúen colorantes e outras cores, estabilizantes da cor; aromas, potenciadores do sabor, edulcorantes sen azucre; e auxiliares de procesamento como axentes carbonatantes, reafirmantes, dadores de volume e antivolumen, axentes antiespumantes, antiaglomerantes e de glaseado, emulsionantes, secuestrantes e humectantes.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4530,7 +4533,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Emprégase unha multitude de secuencias de procesos para combinar os ingredientes, que adoitan ser moitos, e crear o produto final (de aí o denominan \"ultraprocesado\"). Entre os procesos inclúense varios sen equivalentes domésticos, como a hidroxenación e a hidrolización, a extrusión e o moldeo, e o preprocesamento para fritura.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4538,7 +4541,22 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'O obxectivo xeral do ultraprocesamento é crear produtos alimenticios de marca, prácticos (duradeiros, listos para consumir), atractivos (hiperpalatables) e altamente rendibles (ingredientes de baixo custo) deseñados para desprazar a todos os demais grupos de alimentos. Os produtos alimenticios ultraprocesados adoitan envasarse de forma atractiva e comercializarse de forma intensiva.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4608,7 +4626,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

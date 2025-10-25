@@ -2944,6 +2944,9 @@ class AppLocalizationsNe extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4349,7 +4352,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'श्रेणी भित्र राम्रो उत्पादनहरूलाई पुरस्कृत गर्न, हामी त्यसपछि धेरै मापदण्डहरूमा आधारित बोनस र जरिवानाहरू लागू गर्छौं:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'सामग्रीको उत्पत्तिको आधारमा बोनस प्रदान गरिन्छ। यो बोनसले प्रत्येक उत्पादक देशको यातायातमा पर्ने प्रभाव र वातावरणीय नीतिलाई पनि ध्यानमा राख्छ।';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4373,14 +4376,14 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4388,19 +4391,19 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ग्रीन-स्कोरको सही गणना गर्न, प्याकेजिङमा निर्दिष्ट नगरिएको जानकारी (जस्तै प्रत्येक सामग्रीको उत्पत्ति र सही प्रतिशत) वा प्रयोगयोग्य रूपमा विरलै उपलब्ध हुने जानकारी (जस्तै प्रयोग गरिएको प्लास्टिकको सटीक प्रकारहरू सहित प्याकेजिङका सबै घटकहरूको सूची) हुनु आवश्यक छ।';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'यो जानकारी उपलब्ध नभएको बेला औसत मानहरू प्रयोग गरिन्छ, तर हामी अब सबैलाई यो जानकारी सङ्कलन गर्न मद्दत गर्न आह्वान गर्दैछौं जुन ग्रीन-स्कोरको लागि धेरै उपयोगी हुनेछ तर अन्य धेरै प्रयोगहरूको लागि पनि।';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'नागरिकहरूले कसरी मद्दत गर्न सक्छन्';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'सबै नागरिकहरूले हामीलाई उत्पादनहरूमा रहेको वा तिनीहरूबाट निकाल्न सकिने जानकारी सङ्कलन र संरचना गर्न मद्दत गर्न सक्छन्, जस्तै प्याकेजिङ सम्बन्धी जानकारी: मिसन एम्बालेजेस: सबै खाद्य उत्पादनहरूको लागि प्याकेजिङको ठूलो मात्रामा सहयोगी सूची (फ्रान्सेली भाषामा)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4474,28 +4477,28 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'प्रशोधन नगरिएका (वा प्राकृतिक) खानाहरू प्रकृतिबाट अलग भएपछि बिरुवाहरू (बीउ, फलफूल, पात, डाँठ, जरा) वा जनावरहरू (मांसपेशी, अफल, अण्डा, दूध), साथै फङ्गा, शैवाल र पानीका खाद्य भागहरू हुन्।';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'तेल, मक्खन, चिनी र नुन जस्ता प्रशोधित पाक सामग्रीहरू समूह १ का खाद्य पदार्थहरूबाट वा प्रकृतिबाट थिच्ने, परिष्कृत गर्ने, पिस्ने, मिलिङ गर्ने र सुकाउने प्रक्रियाहरू मार्फत प्राप्त हुने पदार्थहरू हुन्।';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'प्रशोधित खानाहरू, जस्तै बोतलबन्द तरकारीहरू, डिब्बाबंद माछा, सिरपमा फलफूल, चीजहरू, र ताजा बनाइएका रोटीहरू, मुख्यतया समूह २ बाट समूह १ का खानाहरूमा नुन, तेल, चिनी, वा अन्य पदार्थहरू थपेर बनाइन्छ। प्रक्रियाहरूमा विभिन्न संरक्षण वा खाना पकाउने विधिहरू समावेश छन्, र रोटी र चीजको मामलामा, गैर-अल्कोहल किण्वन। धेरैजसो प्रशोधित खानाहरूमा दुई वा तीन सामग्रीहरू हुन्छन् र समूह १ का खानाहरूको परिमार्जित संस्करणको रूपमा चिन्न सकिन्छ। तिनीहरू आफैंमा वा, सामान्यतया, अन्य खानाहरूसँग संयोजनमा खान सकिन्छ।';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'अल्ट्रा-प्रशोधित खानाहरू, जस्तै सफ्ट ड्रिंक्स, गुलियो वा स्वादिष्ट प्याकेज गरिएको खाजा, पुनर्गठित मासु उत्पादनहरू, र पूर्व-तयार फ्रोजन भाँडाहरू, केवल परिमार्जित खानाहरू होइनन् तर प्रायः वा पूर्ण रूपमा खाद्य पदार्थ र additives बाट प्राप्त पदार्थहरूबाट बनाइएका सूत्रहरू हुन्, जसमा थोरै वा कुनै पनि अक्षुण्ण समूह १ खाना हुँदैन। यी सूत्रहरूमा सामग्रीहरूमा सामान्यतया प्रशोधित खानाहरूमा पाइने चिनी, तेल, बोसो, वा नुन समावेश हुन्छन्। यद्यपि, अल्ट्रा-प्रशोधित उत्पादनहरूमा ऊर्जा र पोषक तत्वहरूका अन्य स्रोतहरू पनि हुन्छन् जुन सामान्यतया पाककला तयारीहरूमा प्रयोग हुँदैनन्। यी मध्ये केही सिधै केसिन, ल्याक्टोज, मट्ठा र ग्लुटेन जस्ता खानाहरूबाट निकालिन्छन्।';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'अल्ट्रा-प्रोसेसिङका समस्याहरू';
@@ -4506,7 +4509,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'धेरैजसो खाद्य घटकहरूको थप प्रशोधनबाट प्राप्त गरिन्छ, जस्तै हाइड्रोजनेटेड वा इन्टेरेस्टेरिफाइड तेल, हाइड्रोलाइज्ड प्रोटीन, सोया प्रोटीन आइसोलेट, माल्टोडेक्सट्रिन, इन्भर्ट चिनी, र उच्च-फ्रुक्टोज मकैको सिरप।';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4514,14 +4517,14 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'अल्ट्रा-प्रशोधित खानाहरूमा रहेका केही additives हरू प्रशोधित खानाहरूमा पनि प्रयोग गरिन्छ, जस्तै संरक्षक, एन्टिअक्सिडेन्ट, र स्टेबिलाइजरहरू। अल्ट्रा-प्रशोधित उत्पादनहरूमा मात्र पाइने additives को वर्गहरूमा खानाको संवेदी गुणहरूको नक्कल गर्न वा बढाउन वा अन्तिम उत्पादनको अप्रिय पक्षहरूलाई लुकाउन प्रयोग गरिने additives समावेश छन्। यी additives मा रङ र अन्य रङहरू, रङ स्थिरीकरणकर्ताहरू; स्वादहरू, स्वाद बढाउनेहरू, गैर-चिनी स्वीटनरहरू; र कार्बोनेटिंग, फर्मिङ, बल्किङ र एन्टी-बल्किङ एजेन्टहरू, डि-फोमिङ, एन्टी-केकिंग र ग्लेजिङ एजेन्टहरू, इमल्सीफायरहरू, सिक्वेस्ट्रन्टहरू, र ह्युमेक्टेन्टहरू जस्ता प्रशोधन सहायकहरू समावेश छन्।';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title => 'घरमा गर्न नसकिने प्रशोधन';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'सामान्यतया धेरै सामग्रीहरू संयोजन गर्न र अन्तिम उत्पादन सिर्जना गर्न (त्यसैले \'अल्ट्रा-प्रशोधित\') प्रक्रियाहरूको श्रृंखलाको प्रयोग गरिन्छ। यी प्रक्रियाहरूमा घरेलु समकक्षहरू बिना धेरै समावेश छन्, जस्तै हाइड्रोजनेशन र हाइड्रोलाइजेसन, एक्सट्रुजन र मोल्डिंग, र फ्राइङको लागि पूर्व-प्रशोधन।';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4529,7 +4532,22 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'अल्ट्रा-प्रशोधनको समग्र उद्देश्य ब्रान्डेड, सुविधाजनक (टिकाउ, उपभोग गर्न तयार), आकर्षक (अति-स्वादिष्ट) र अत्यधिक लाभदायक (कम लागत सामग्री) खाद्य उत्पादनहरू सिर्जना गर्नु हो जुन अन्य सबै खाद्य समूहहरूलाई विस्थापित गर्न डिजाइन गरिएको हो। अल्ट्रा-प्रशोधित खाद्य उत्पादनहरू सामान्यतया आकर्षक रूपमा प्याकेज गरिन्छ र गहन रूपमा बजारमा ल्याइन्छ।';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4599,7 +4617,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

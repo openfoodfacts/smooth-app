@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Tengeri és édesvíz (részecskék, savasodás, eutrofizáció)",
   "guide_greenscore_lca_arg3_text8": "Erőforrások kimerülése.",
   "guide_greenscore_bonuses_penalties_title": "Bónuszok és büntetések",
-  "guide_greenscore_bonuses_penalties_intro": "A kategórián belüli jobb termékek jutalmazása érdekében bónuszokat és büntetéseket alkalmazunk több kritérium alapján:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Összetevők eredete",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A bónusz az összetevők eredete alapján jár. Ez a bónusz figyelembe veszi a szállításra gyakorolt hatást, valamint az egyes termelők országának környezetvédelmi politikáját.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Csomagolás",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "A Green-Score pontos kiszámításához olyan információkra van szükség, amelyek nem feltétlenül szerepelnek a csomagoláson (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).",
-  "guide_greenscore_transparency_intro2": "Az átlagértékeket akkor használjuk, ha ez az információ még nem áll rendelkezésre, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.",
-  "guide_greenscore_transparency_arg1_title": "Hogyan segíthetnek a polgárok",
-  "guide_greenscore_transparency_arg1_text": "Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk, például a csomagoláson található információk összegyűjtésében és rendszerezésében: Mission Emballages: nagyszabású, közösen készített nyilvántartás az összes élelmiszertermék csomagolásáról (francia nyelven)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Hogyan segíthetnek a gyártók",
   "guide_greenscore_transparency_arg2_text": "A gyártók közvetlenül elküldhetik nekünk adataikat az ingyenes platformunkon keresztül.",
   "guide_greenscore_better_product_title": "Melyik termék jobb a bolygónak?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "A 4 NOVA csoport",
   "guide_nova_groups_intro": "4 NOVA csoport létezik, a problémás a 4. csoport - Ultrafeldolgozott élelmiszerek.",
   "guide_nova_groups_arg1_title": "Minimálisan feldolgozott vagy feldolgozatlan élelmiszerek",
-  "guide_nova_groups_arg1_text": "A feldolgozatlan (vagy természetes) élelmiszerek a növények (magvak, gyümölcsök, levelek, szárak, gyökerek) vagy az állatok (izom, belsőségek, tojás, tej), valamint a gombák, algák és a víz ehető részei, miután elválasztották őket a természettől.",
+    "guide_nova_groups_arg1_text": "UNPROCESSED (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Feldolgozott összetevők",
-  "guide_nova_groups_arg2_text": "A feldolgozott kulináris összetevők, mint például az olajok, a vaj, a cukor és a só, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyek olyan eljárásokon keresztül származnak, mint a préselés, finomítás, őrlés, marás és szárítás.",
+  "guide_nova_groups_arg2_text": "PROCESSED culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Feldolgozott élelmiszerek",
-  "guide_nova_groups_arg3_text": "A feldolgozott élelmiszerek, mint például a konzerv zöldségek, a konzerv hal, a szirupban tartósított gyümölcsök, a sajtok és a frissen sült kenyerek, elsősorban só, olaj, cukor vagy más, a 2. és 1. csoportba tartozó anyagok hozzáadásával készülnek. Az eljárások magukban foglalják a különféle tartósítási vagy főzési módszereket, a kenyerek és sajtok esetében pedig az alkoholmentes erjesztést. A legtöbb feldolgozott élelmiszer két vagy három összetevőből áll, és felismerhető az 1. csoportba tartozó élelmiszerek módosított változataként. Önmagukban vagy – gyakrabban – más élelmiszerekkel kombinálva fogyaszthatók.",
+  "guide_nova_groups_arg3_text": "PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have TWO or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Többszörösen feldolgozott élelmiszerek",
-  "guide_nova_groups_arg4_text": "Az ultrafeldolgozott élelmiszerek, mint például az üdítőitalok, az édes vagy sós csomagolt snackek, a húskészítmények és az előre elkészített fagyasztott ételek, nem pusztán módosított élelmiszerek, hanem olyan készítmények, amelyek nagyrészt vagy teljes egészében élelmiszerekből és adalékanyagokból készülnek, kevés vagy semmilyen ép 1. csoportú élelmiszerrel. Ezekben a készítményekben általában olyan összetevők találhatók, amelyek a feldolgozott élelmiszerekben is megtalálhatók, például cukrok, olajok, zsírok vagy só. Az ultrafeldolgozott termékek azonban más energiaforrásokat és tápanyagokat is tartalmaznak, amelyeket általában nem használnak a kulináris készítményekben. Ezek közül néhányat közvetlenül élelmiszerekből vonnak ki, például kazeint, laktózt, tejsavót és glutént.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Az ultra-feldolgozással kapcsolatos problémák",
   "guide_nova_explanations_arg1_title": "Az élelmiszer-összetevők extrém feldolgozása",
-  "guide_nova_explanations_arg1_text": "Sokuk élelmiszer-összetevők további feldolgozásából származik, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Adalékanyagok, amelyek túlmutatnak a puszta élelmiszerbiztonságon",
-  "guide_nova_explanations_arg2_text": "Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukba foglalják azokat, amelyeket az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, térfogatnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Otthon nem elvégezhető feldolgozás",
-  "guide_nova_explanations_arg3_text": "Számos folyamatsorozatot alkalmaznak a szokásosan sok összetevő kombinálására és a végtermék (innen ered az „ultrafeldolgozott”) előállítására. A folyamatok között több olyan is van, amelyeknek nincs hazai megfelelőjük, mint például a hidrogénezés és hidrolizálás, az extrudálás és formázás, valamint a sütéshez való előfeldolgozás.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Az ultrafeldolgozás ragadozó és pénzügyi vonatkozásai",
-  "guide_nova_explanations_arg4_text": "Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből álló) élelmiszertermékek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Előnézet",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

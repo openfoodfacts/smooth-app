@@ -2946,6 +2946,9 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4351,7 +4354,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Don ba da lada mafi kyawun samfura a cikin nau\'i, sannan mu yi amfani da kari & azabtarwa bisa la\'akari da yawa:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4359,7 +4362,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4367,7 +4370,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ana ba da kyauta bisa tushen abubuwan sinadaran. Wannan kari yana la\'akari da tasirin sufuri da kuma manufofin muhalli na kowace ƙasa mai samarwa.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4375,14 +4378,14 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4390,19 +4393,19 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Don ƙididdige Green-Score daidai, yana da mahimmanci a sami bayanan da ba lallai ba ne a kayyade kan marufi (kamar asalin da ainihin adadin kowane sashi) ko wanda ba kasafai ake samun su ta sigar da za a iya amfani da su ba (kamar jerin duk abubuwan da ke cikin marufi tare da takamaiman nau\'ikan robobi da aka yi amfani da su).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Ana amfani da matsakaicin ƙima lokacin da wannan bayanin bai kasance ba tukuna, amma yanzu muna kira ga kowa da kowa ya taimaka mana wajen tattara wannan bayanin wanda zai yi amfani sosai ga Green-Score amma har ma da sauran amfani.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Yadda \'yan ƙasa za su iya taimakawa';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Duk \'yan ƙasa za su iya taimaka mana mu tattara da tsara bayanan da ke kan samfuran ko waɗanda za a iya fitar da su daga gare su, kamar bayanai kan marufi: Ofishin Jakadancin: babban marufi na haɗin gwiwa na marufi don duk samfuran abinci (a cikin Faransanci)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4476,28 +4479,28 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Abincin da ba a sarrafa shi ba (ko na halitta) su ne sassan tsire-tsire ( iri, \'ya\'yan itace, ganye, mai tushe, tushen) ko dabbobi (tsokoki, ƙwai, qwai, madara), da fungi, algae, da ruwa, bayan an raba su da yanayi.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Abubuwan da aka sarrafa na dafuwa, kamar mai, man shanu, sukari, da gishiri, abubuwa ne waɗanda aka samo daga abinci na rukuni na 1 ko kuma daga yanayi ta hanyoyin da suka haɗa da latsawa, tacewa, niƙa, niƙa, da bushewa.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Abincin da aka sarrafa, kamar kayan lambu na kwalba, kifin gwangwani, \'ya\'yan itace a cikin syrup, cuku, da kuma sabbin burodi, ana yin su da farko ta hanyar ƙara gishiri, mai, sukari, ko wasu abubuwa daga rukuni na 2 zuwa abinci na rukuni na 1. Tsari sun haɗa da tsare-tsare daban-daban ko hanyoyin dafa abinci, kuma a cikin yanayin biredi da cuku, fermentation maras giya. Yawancin abincin da aka sarrafa suna da sinadirai biyu ko uku kuma ana iya gane su azaman gyare-gyaren nau\'ikan abinci na rukuni na 1. Ana iya cinye su da kansu ko kuma, yawanci, tare da sauran abinci.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of Breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Abincin da aka sarrafa sosai, irin su abubuwan sha mai laushi, kayan ciye-ciye masu daɗi ko kayan ciye-ciye, kayan nama da aka sake ginawa, da daskararrun jita-jita da aka riga aka shirya, ba abinci ne kawai aka gyara ba amma tsarin da aka yi galibi ko gabaɗaya daga abubuwan da aka samo daga abinci da ƙari, ba tare da ƙarancin abinci na rukuni na 1 ba. Sinadaran da ke cikin waɗannan sifofin yawanci sun haɗa da waɗanda kuma ake samu a cikin abinci da aka sarrafa, kamar sukari, mai, mai, ko gishiri. Koyaya, samfuran da aka sarrafa su ma sun ƙunshi wasu hanyoyin samar da kuzari da abubuwan gina jiki waɗanda ba a saba amfani da su ba a cikin shirye-shiryen dafa abinci. Wasu daga cikin waɗannan ana fitar dasu kai tsaye daga abinci, kamar casein, lactose, whey, da gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products Also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, Whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4509,7 +4512,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Yawancin ana samun su daga ƙarin sarrafa abubuwan abinci, irin su hydrogenated ko mai ban sha\'awa, sunadaran hydrolyzed, ware furotin soya, maltodextrin, invert sugar, da babban fructose masara syrup.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4517,7 +4520,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Abubuwan da ake ƙarawa a cikin abincin da aka sarrafa su sun haɗa da wasu waɗanda kuma ake amfani da su a cikin abincin da aka sarrafa, kamar su abubuwan kiyayewa, antioxidants, da stabilizers. Azuzuwan abubuwan ƙari da aka samu kawai a cikin samfuran da aka sarrafa su sun haɗa da waɗanda aka yi amfani da su don yin koyi ko haɓaka halayen abinci ko kuma canza ɓangarori marasa kyau na samfurin ƙarshe. Wadannan additives sun haɗa da dyes da sauran launuka, masu daidaita launi; abubuwan dandano, masu haɓaka dandano, masu zaƙi waɗanda ba masu sukari ba; da kayan aikin sarrafawa kamar carbonating, firming, bulking da anti-bulking agents, de-foaming, anti-caking da glazing jamiái, emulsifiers, sequestrants, da humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4525,7 +4528,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Ana amfani da ɗimbin jerin matakai don haɗa yawancin sinadirai masu yawa da ƙirƙirar samfur na ƙarshe (saboda haka \'masu sarrafa sosai\'). Hanyoyin sun haɗa da da yawa ba tare da daidaitattun gida ba, irin su hydrogenation da hydrolysation, extrusion da gyare-gyare, da pre-processing don soya.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4533,7 +4536,22 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Babban manufar aiwatar da matsananciyar aiki shine ƙirƙirar alama, dacewa (mai ɗorewa, shirye don cinyewa), kyakkyawa (mai daɗi mai daɗi) da riba mai fa\'ida (kayan abinci masu ƙarancin farashi) samfuran abinci waɗanda aka tsara don korar duk sauran rukunin abinci. Kayan abinci da aka sarrafa sosai yawanci ana tattara su cikin kayatarwa kuma ana sayar da su sosai.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4603,7 +4621,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

@@ -2944,6 +2944,9 @@ class AppLocalizationsMl extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4350,7 +4353,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'ഒരു വിഭാഗത്തിലെ മികച്ച ഉൽപ്പന്നങ്ങൾക്ക് പ്രതിഫലം നൽകുന്നതിന്, നിരവധി മാനദണ്ഡങ്ങൾ അടിസ്ഥാനമാക്കി ഞങ്ങൾ ബോണസുകളും പിഴകളും പ്രയോഗിക്കുന്നു:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4358,7 +4361,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4366,7 +4369,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'ചേരുവകളുടെ ഉത്ഭവത്തെ അടിസ്ഥാനമാക്കിയാണ് ബോണസ് നൽകുന്നത്. ഓരോ നിർമ്മാതാവിന്റെയും രാജ്യത്തിന്റെ ഗതാഗതത്തിലും പരിസ്ഥിതി നയത്തിലും ഉണ്ടാകുന്ന ആഘാതം കണക്കിലെടുത്താണ് ഈ ബോണസ് നൽകുന്നത്.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4374,14 +4377,14 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4389,19 +4392,19 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ഗ്രീൻ-സ്കോർ കൃത്യമായി കണക്കാക്കാൻ, പാക്കേജിംഗിൽ നിർബന്ധമായും വ്യക്തമാക്കിയിട്ടില്ലാത്ത വിവരങ്ങൾ (ഓരോ ചേരുവയുടെയും ഉത്ഭവസ്ഥാനവും കൃത്യമായ ശതമാനവും പോലുള്ളവ) അല്ലെങ്കിൽ ഉപയോഗയോഗ്യമായ രൂപത്തിൽ അപൂർവ്വമായി മാത്രം ലഭ്യമായ വിവരങ്ങൾ (ഉദാഹരണത്തിന്, പാക്കേജിംഗിലെ എല്ലാ ഘടകങ്ങളുടെയും, ഉപയോഗിക്കുന്ന പ്ലാസ്റ്റിക്കുകളുടെ കൃത്യമായ തരങ്ങളും അടങ്ങിയ ഒരു ലിസ്റ്റ്) ഉണ്ടായിരിക്കേണ്ടത് ആവശ്യമാണ്.';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'ഈ വിവരങ്ങൾ ഇതുവരെ ലഭ്യമല്ലാത്തപ്പോൾ ശരാശരി മൂല്യങ്ങൾ ഉപയോഗിക്കുന്നു, എന്നാൽ ഗ്രീൻ-സ്കോറിനും മറ്റ് പല ഉപയോഗങ്ങൾക്കും വളരെ ഉപയോഗപ്രദമാകുന്ന ഈ വിവരങ്ങൾ ശേഖരിക്കാൻ ഞങ്ങളെ സഹായിക്കാൻ ഞങ്ങൾ ഇപ്പോൾ എല്ലാവരോടും അഭ്യർത്ഥിക്കുന്നു.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'പൗരന്മാർക്ക് എങ്ങനെ സഹായിക്കാനാകും';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'ഉൽപ്പന്നങ്ങളിൽ അടങ്ങിയിരിക്കുന്നതോ അവയിൽ നിന്ന് അനുമാനിക്കാവുന്നതോ ആയ വിവരങ്ങൾ ശേഖരിക്കാനും ഘടനാപരമായി ക്രമീകരിക്കാനും എല്ലാ പൗരന്മാർക്കും ഞങ്ങളെ സഹായിക്കാനാകും, ഉദാഹരണത്തിന് പാക്കേജിംഗിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ: മിഷൻ എംബാലേജുകൾ: എല്ലാ ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്കുമുള്ള പാക്കേജിംഗിന്റെ വലിയ തോതിലുള്ള സഹകരണ ഇൻവെന്ററി (ഫ്രഞ്ചിൽ)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4476,28 +4479,28 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'സംസ്കരിക്കാത്ത (അല്ലെങ്കിൽ പ്രകൃതിദത്ത) ഭക്ഷണങ്ങൾ സസ്യങ്ങളുടെ (വിത്തുകൾ, പഴങ്ങൾ, ഇലകൾ, തണ്ടുകൾ, വേരുകൾ) അല്ലെങ്കിൽ മൃഗങ്ങളുടെ (പേശികൾ, പുറംതൊലി, മുട്ടകൾ, പാൽ), അതുപോലെ ഫംഗസ്, ആൽഗകൾ, വെള്ളം എന്നിവയുടെ ഭക്ഷ്യയോഗ്യമായ ഭാഗങ്ങളാണ്. പ്രകൃതിയിൽ നിന്ന് വേർപെടുത്തിയ ശേഷം ഇവ ഉപയോഗിക്കപ്പെടുന്നു.';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'എണ്ണകൾ, വെണ്ണ, പഞ്ചസാര, ഉപ്പ് തുടങ്ങിയ സംസ്കരിച്ച പാചക ചേരുവകൾ ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളിൽ നിന്നോ പ്രകൃതിയിൽ നിന്നോ ഉരുത്തിരിഞ്ഞ പദാർത്ഥങ്ങളാണ്, അമർത്തൽ, ശുദ്ധീകരിക്കൽ, പൊടിക്കൽ, മില്ലിങ്, ഉണക്കൽ എന്നിവ ഇതിൽ ഉൾപ്പെടുന്നു.';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'കുപ്പിയിലാക്കിയ പച്ചക്കറികൾ, ടിന്നിലടച്ച മത്സ്യം, സിറപ്പിലുള്ള പഴങ്ങൾ, ചീസുകൾ, പുതുതായി ഉണ്ടാക്കിയ ബ്രെഡുകൾ എന്നിവ പോലുള്ള സംസ്കരിച്ച ഭക്ഷണങ്ങൾ പ്രധാനമായും ഉപ്പ്, എണ്ണ, പഞ്ചസാര അല്ലെങ്കിൽ ഗ്രൂപ്പ് 2 ൽ നിന്നുള്ള ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളിലെ മറ്റ് വസ്തുക്കൾ എന്നിവ ചേർത്താണ് നിർമ്മിക്കുന്നത്. വിവിധ സംരക്ഷണ രീതികൾ അല്ലെങ്കിൽ പാചക രീതികൾ പ്രക്രിയകളിൽ ഉൾപ്പെടുന്നു, കൂടാതെ ബ്രെഡുകളുടെയും ചീസിന്റെയും കാര്യത്തിൽ, നോൺ-ആൽക്കഹോളിക് ഫെർമെന്റേഷൻ ഉൾപ്പെടുന്നു. മിക്ക സംസ്കരിച്ച ഭക്ഷണങ്ങളിലും രണ്ടോ മൂന്നോ ചേരുവകളുണ്ട്, കൂടാതെ ഗ്രൂപ്പ് 1 ഭക്ഷണങ്ങളുടെ പരിഷ്കരിച്ച പതിപ്പുകളായി തിരിച്ചറിയാൻ കഴിയും. അവ സ്വന്തമായി കഴിക്കാം അല്ലെങ്കിൽ സാധാരണയായി മറ്റ് ഭക്ഷണങ്ങളുമായി സംയോജിപ്പിച്ച് കഴിക്കാം.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'സോഫ്റ്റ് ഡ്രിങ്കുകൾ, മധുരമുള്ളതോ രുചികരമോ ആയ പായ്ക്ക് ചെയ്ത ലഘുഭക്ഷണങ്ങൾ, പുനർനിർമ്മിച്ച മാംസ ഉൽപ്പന്നങ്ങൾ, മുൻകൂട്ടി തയ്യാറാക്കിയ ഫ്രോസൺ വിഭവങ്ങൾ എന്നിവ പോലുള്ള അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ കേവലം പരിഷ്കരിച്ച ഭക്ഷണങ്ങളല്ല, മറിച്ച് ഭക്ഷണങ്ങളിൽ നിന്നും അഡിറ്റീവുകളിൽ നിന്നും ഉരുത്തിരിഞ്ഞ വസ്തുക്കളിൽ നിന്ന് കൂടുതലോ പൂർണ്ണമായും നിർമ്മിച്ച ഫോർമുലേഷനുകളാണ്, ഗ്രൂപ്പ് 1 ഭക്ഷണത്തിന് കേടുപാടുകളൊന്നുമില്ല. ഈ ഫോർമുലേഷനുകളിലെ ചേരുവകളിൽ സാധാരണയായി പഞ്ചസാര, എണ്ണ, കൊഴുപ്പ് അല്ലെങ്കിൽ ഉപ്പ് പോലുള്ള സംസ്കരിച്ച ഭക്ഷണങ്ങളിൽ കാണപ്പെടുന്നവയും ഉൾപ്പെടുന്നു. എന്നിരുന്നാലും, അൾട്രാ-പ്രോസസ്ഡ് ഉൽപ്പന്നങ്ങളിൽ സാധാരണയായി പാചക തയ്യാറെടുപ്പുകളിൽ ഉപയോഗിക്കാത്ത ഊർജ്ജ സ്രോതസ്സുകളും പോഷകങ്ങളും അടങ്ങിയിരിക്കുന്നു. ഇവയിൽ ചിലത് കസീൻ, ലാക്ടോസ്, വേ, ഗ്ലൂറ്റൻ തുടങ്ങിയ ഭക്ഷണങ്ങളിൽ നിന്ന് നേരിട്ട് വേർതിരിച്ചെടുക്കുന്നു.';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4509,7 +4512,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ഹൈഡ്രജനേറ്റഡ് അല്ലെങ്കിൽ ഇന്ററസ്റ്ററിഫൈഡ് എണ്ണകൾ, ഹൈഡ്രോലൈസ്ഡ് പ്രോട്ടീനുകൾ, സോയ പ്രോട്ടീൻ ഐസൊലേറ്റ്, മാൾട്ടോഡെക്സ്ട്രിൻ, ഇൻവെർട്ട് ഷുഗർ, ഉയർന്ന ഫ്രക്ടോസ് കോൺ സിറപ്പ് തുടങ്ങിയ ഭക്ഷ്യ ഘടകങ്ങളുടെ കൂടുതൽ സംസ്കരണത്തിൽ നിന്നാണ് ഇവയിൽ പലതും ഉരുത്തിരിഞ്ഞത്.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4517,7 +4520,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങളിലെ അഡിറ്റീവുകളിൽ പ്രിസർവേറ്റീവുകൾ, ആന്റിഓക്‌സിഡന്റുകൾ, സ്റ്റെബിലൈസറുകൾ എന്നിവ പോലുള്ളവ സംസ്കരിച്ച ഭക്ഷണങ്ങളിലും ഉപയോഗിക്കുന്നു. അൾട്രാ-പ്രോസസ്ഡ് ഉൽപ്പന്നങ്ങളിൽ മാത്രം കാണപ്പെടുന്ന അഡിറ്റീവുകളുടെ വിഭാഗങ്ങളിൽ ഭക്ഷണങ്ങളുടെ സെൻസറി ഗുണങ്ങൾ അനുകരിക്കാനോ വർദ്ധിപ്പിക്കാനോ അല്ലെങ്കിൽ അന്തിമ ഉൽപ്പന്നത്തിന്റെ രുചികരമല്ലാത്ത വശങ്ങൾ മറയ്ക്കാനോ ഉപയോഗിക്കുന്നവ ഉൾപ്പെടുന്നു. ഈ അഡിറ്റീവുകളിൽ ഡൈകളും മറ്റ് നിറങ്ങളും, കളർ സ്റ്റെബിലൈസറുകൾ; ഫ്ലേവറുകൾ, ഫ്ലേവർ എൻഹാൻസറുകൾ, പഞ്ചസാര ഇതര മധുരപലഹാരങ്ങൾ; കാർബണേറ്റിംഗ്, ഫിർമിംഗ്, ബൾക്കിംഗ്, ആന്റി-ബൾക്കിംഗ് ഏജന്റുകൾ, ഡി-ഫോമിംഗ്, ആന്റി-കേക്കിംഗ്, ഗ്ലേസിംഗ് ഏജന്റുകൾ, എമൽസിഫയറുകൾ, സീക്വെസ്ട്രാന്റുകൾ, ഹ്യൂമെക്റ്റന്റുകൾ എന്നിവ ഉൾപ്പെടുന്നു.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4525,7 +4528,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'സാധാരണയായി പല ചേരുവകളും സംയോജിപ്പിച്ച് അന്തിമ ഉൽപ്പന്നം സൃഷ്ടിക്കുന്നതിന് (അതിനാൽ \'അൾട്രാ-പ്രോസസ്ഡ്\') നിരവധി പ്രക്രിയകൾ ഉപയോഗിക്കുന്നു. ഹൈഡ്രജനേഷൻ, ഹൈഡ്രോലൈസേഷൻ, എക്സ്ട്രൂഷൻ, മോൾഡിംഗ്, ഫ്രൈയിംഗിനുള്ള പ്രീ-പ്രോസസ്സിംഗ് തുടങ്ങിയ ആഭ്യന്തര തുല്യതകളില്ലാത്ത നിരവധി പ്രക്രിയകൾ ഇതിൽ ഉൾപ്പെടുന്നു.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4533,7 +4536,22 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'അൾട്രാ-പ്രോസസ്സിംഗിന്റെ മൊത്തത്തിലുള്ള ലക്ഷ്യം, മറ്റെല്ലാ ഭക്ഷ്യ ഗ്രൂപ്പുകളെയും മാറ്റിസ്ഥാപിക്കുന്നതിനായി രൂപകൽപ്പന ചെയ്ത ബ്രാൻഡഡ്, സൗകര്യപ്രദമായ (ഈടുനിൽക്കുന്ന, കഴിക്കാൻ തയ്യാറായ), ആകർഷകമായ (അമിത-സ്വാദിഷ്ടമായ) ഉയർന്ന ലാഭകരമായ (കുറഞ്ഞ വിലയുള്ള ചേരുവകൾ) ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സൃഷ്ടിക്കുക എന്നതാണ്. അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾ സാധാരണയായി ആകർഷകമായ രീതിയിൽ പാക്കേജുചെയ്യുകയും തീവ്രമായി വിപണനം ചെയ്യുകയും ചെയ്യുന്നു.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4603,7 +4621,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

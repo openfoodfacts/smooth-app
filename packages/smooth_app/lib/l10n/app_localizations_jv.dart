@@ -2943,6 +2943,9 @@ class AppLocalizationsJv extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4349,7 +4352,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Kanggo menehi ganjaran produk sing luwih apik ing sawijining kategori, kita banjur ngetrapake bonus & denda adhedhasar sawetara kritéria:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bonus dianugerahi adhedhasar asal saka úa. Bonus iki njupuk menyang akun impact ing transportasi lan uga kabijakan lingkungan saben negara produser.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4373,14 +4376,14 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4388,19 +4391,19 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Kanggo ngetung Green-Score kanthi akurat, sampeyan kudu duwe informasi sing ora kudu ditemtokake ing kemasan (kayata asal-usul lan persentase pas saben bahan) utawa sing arang kasedhiya ing wangun sing bisa digunakake (kayata dhaptar kabeh komponen kemasan kanthi jinis plastik sing digunakake).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Nilai rata-rata digunakake nalika informasi iki durung kasedhiya, nanging kita saiki nelpon ing everyone kanggo bantuan kita ngumpulake informasi iki kang bakal banget migunani kanggo Green-Score nanging uga kanggo akeh kegunaan liyane.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Kepiye warga bisa mbantu';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Kabeh warga bisa mbantu kita ngumpulake lan nyusun informasi sing ana ing produk utawa sing bisa disimpulake, kayata informasi babagan kemasan: Mission Emballages: inventarisasi kolaborasi skala gedhe kanggo kabeh produk panganan (ing basa Prancis)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4475,28 +4478,28 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Panganan sing ora diolah (utawa alami) yaiku bagean saka tanduran (wiji, woh-wohan, godhong, batang, oyod) utawa kewan (otot, jeroan, endhog, susu), uga jamur, ganggang, lan banyu, sawise dipisahake saka alam.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Bahan kuliner olahan, kayata lenga, mentega, gula, lan uyah, yaiku zat sing asale saka panganan Kelompok 1 utawa saka alam liwat proses sing kalebu pencet, pemurnian, grinding, panggilingan, lan pangatusan.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Panganan olahan, kayata sayuran botol, iwak kaleng, woh-wohan ing sirup, keju, lan roti sing anyar digawe, utamane digawe kanthi nambah uyah, lenga, gula, utawa zat liyane saka grup 2 menyang panganan Grup 1. Proses kalebu macem-macem cara pengawetan utawa masak, lan ing kasus roti lan keju, fermentasi non-alkohol. Umume panganan olahan duwe loro utawa telu bahan lan bisa dingerteni minangka versi modifikasi saka panganan Grup 1. Padha bisa dipangan dhewe utawa, luwih umum, ing kombinasi karo panganan liyane.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic Fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 Foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Panganan sing diproses kanthi ultra, kayata omben-omben, cemilan sing dikemas manis utawa gurih, produk daging sing wis dikonstitusi, lan sajian beku sing wis disiapake, ora mung panganan sing diowahi nanging formulasi sing umume digawe utawa kabeh saka zat sing asale saka panganan lan aditif, kanthi panganan Grup 1 sing ora utuh. Bahan ing formulasi iki biasane kalebu sing uga ditemokake ing panganan olahan, kayata gula, lenga, lemak, utawa uyah. Nanging, produk ultra-diproses uga ngemot sumber energi lan nutrisi liyane sing ora umum digunakake ing persiapan kuliner. Sawetara iki langsung diekstrak saka panganan, kayata kasein, laktosa, whey, lan gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients In these formulations usually include Those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also Contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly Extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Masalah karo ultra-processing';
@@ -4507,7 +4510,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Akeh sing asalé saka pangolahan luwih saka konstituen pangan, kayata lenga hidrogenasi utawa interesterified, protein hidrolisis, isolat protein soya, maltodekstrin, gula invert, lan sirup jagung fruktosa dhuwur.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4515,7 +4518,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Aditif ing panganan ultra-diproses kalebu sawetara sing uga digunakake ing panganan olahan, kayata pengawet, antioksidan, lan stabilisator. Kelas aditif sing ditemokake mung ing produk sing diproses ultra kalebu sing digunakake kanggo niru utawa nambah kualitas sensori panganan utawa kanggo nyamarake aspek sing ora enak saka produk pungkasan. Aditif kasebut kalebu pewarna lan warna liyane, penstabil warna; rasa, penambah rasa, pemanis non-gula; lan bantuan pangolahan kayata carbonating, firming, bulking lan agen anti-bulking, de-foaming, anti-caking lan agen glazing, emulsifiers, sequestrants, lan humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4523,7 +4526,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Akeh urutan pangolahan digunakake kanggo nggabungake bahan sing biasane akeh lan nggawe produk pungkasan (mula \'ultra-diproses\'). Proses kasebut kalebu sawetara sing ora padha karo domestik, kayata hidrogenasi lan hidrolisis, ekstrusi lan cetakan, lan pra-proses kanggo nggoreng.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4531,7 +4534,22 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Tujuan sakabèhé saka ultra-processing yaiku kanggo nggawe produk pangan bermerek, trep (awet, siap dikonsumsi), menarik (hiper enak) lan duwe bathi (bahan murah) sing dirancang kanggo ngganti kabeh kelompok panganan liyane. Produk panganan sing wis diproses biasane dikemas kanthi apik lan dipasarake kanthi intensif.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4601,7 +4619,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

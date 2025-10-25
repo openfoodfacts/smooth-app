@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Apă marină și dulce (particule, acidificare, eutrofizare)",
   "guide_greenscore_lca_arg3_text8": "Epuizarea resurselor.",
   "guide_greenscore_bonuses_penalties_title": "Bonusuri și penalizări",
-  "guide_greenscore_bonuses_penalties_intro": "Pentru a recompensa produsele mai bune dintr-o anumită categorie, aplicăm bonusuri și penalizări pe baza mai multor criterii:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mod de producție",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Se acordă un bonus produselor care au o etichetă oficială, o etichetă sau o certificare care garantează beneficii pentru mediu (ecologic, comerț echitabil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Originea ingredientelor",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Se acordă un bonus în funcție de originea ingredientelor. Acest bonus ia în considerare impactul asupra transportului și, de asemenea, politica de mediu a țării fiecărui producător.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Specii amenințate",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Se aplică o penalizare pentru produsele care conțin ingrediente care au un impact negativ semnificativ asupra biodiversității și ecosistemelor, cum ar fi uleiul de palmier, a cărui producție este responsabilă de defrișările masive.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Ambalare",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Se calculează o sancțiune care să ia în considerare recircularea ambalajelor (utilizarea materiilor prime reciclate și posibilitatea de reciclare) și supraambalarea.",
+
   "guide_greenscore_transparency_title": "O necesitate sporită de transparență pentru o mai bună măsurare și reducere a impactului asupra mediului",
-  "guide_greenscore_transparency_intro1": "Pentru a calcula cu exactitate Green-Score, este necesar să existe informații care nu sunt neapărat specificate pe ambalaj (cum ar fi originea și procentul exact al fiecărui ingredient) sau care sunt rareori disponibile într-o formă utilizabilă (cum ar fi o listă a tuturor componentelor ambalajului cu tipurile precise de materiale plastice utilizate).",
-  "guide_greenscore_transparency_intro2": "Valorile medii sunt utilizate atunci când aceste informații nu sunt încă disponibile, dar acum facem apel la toată lumea să ne ajute să colectăm aceste informații, care vor fi foarte utile pentru Green-Score, dar și pentru multe alte utilizări.",
-  "guide_greenscore_transparency_arg1_title": "Cum pot cetățenii să ajute",
-  "guide_greenscore_transparency_arg1_text": "Toți cetățenii ne pot ajuta să colectăm și să structurăm informațiile prezente pe produse sau care pot fi deduse din acestea, cum ar fi informațiile despre ambalaje: Misiunea Emballages: un inventar colaborativ la scară largă al ambalajelor pentru toate produsele alimentare (în franceză)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Cum pot ajuta producătorii",
   "guide_greenscore_transparency_arg2_text": "Producătorii ne pot trimite informațiile lor direct prin intermediul platformei noastre gratuite pentru producători.",
   "guide_greenscore_better_product_title": "Ce produs este mai bun pentru planetă?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Cele 4 grupuri NOVA",
   "guide_nova_groups_intro": "Există 4 grupuri NOVA, cea problematică fiind Grupa 4 - Alimente ultraprocesate.",
   "guide_nova_groups_arg1_title": "Alimente minimal procesate sau neprocesate",
-  "guide_nova_groups_arg1_text": "Alimentele neprocesate (sau naturale) sunt părțile comestibile ale plantelor (semințe, fructe, frunze, tulpini, rădăcini) sau animalelor (mușchi, organe, ouă, lapte), precum și ciupercile, algele și apa, după ce au fost separate din natură.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Ingrediente culinare prelucrate",
-  "guide_nova_groups_arg2_text": "Ingredientele culinare procesate, cum ar fi uleiurile, untul, zahărul și sarea, sunt substanțe derivate din alimente din grupa 1 sau din natură prin procese care includ presarea, rafinarea, măcinarea, măcinarea și uscarea.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Hrană procesată",
-  "guide_nova_groups_arg3_text": "Alimentele procesate, cum ar fi legumele îmbuteliate, peștele conservat, fructele în sirop, brânzeturile și pâinea proaspăt preparată, sunt obținute în principal prin adăugarea de sare, ulei, zahăr sau alte substanțe din Grupa 2 la alimentele din Grupa 1. Procesele includ diverse metode de conservare sau gătire, iar în cazul pâinii și brânzeturilor, fermentarea nealcoolică. Majoritatea alimentelor procesate au două sau trei ingrediente și sunt recunoscute ca versiuni modificate ale alimentelor din Grupa 1. Acestea pot fi consumate ca atare sau, mai frecvent, în combinație cu alte alimente.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include Various preservation Or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed Foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they Can be Eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Alimente ultraprocesate",
-  "guide_nova_groups_arg4_text": "Alimentele ultraprocesate, cum ar fi băuturile răcoritoare, gustările dulci sau sărate ambalate, produsele din carne reconstituite și mâncărurile congelate pre-preparate, nu sunt doar alimente modificate, ci formulări realizate în mare parte sau în întregime din substanțe derivate din alimente și aditivi, cu puține sau deloc alimente intacte din Grupa 1. Ingredientele din aceste formulări includ de obicei cele care se găsesc și în alimentele procesate, cum ar fi zaharurile, uleiurile, grăsimile sau sarea. Cu toate acestea, produsele ultraprocesate conțin și alte surse de energie și nutrienți care nu sunt utilizate de obicei în preparatele culinare. Unele dintre acestea sunt extrase direct din alimente, cum ar fi cazeina, lactoza, zerul și glutenul.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these Formulations usually Include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of Energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, And gluten.",
   "guide_nova_explanations_title": "Problemele cu ultra-procesarea",
   "guide_nova_explanations_arg1_title": "Prelucrarea extremă a ingredientelor alimentare",
-  "guide_nova_explanations_arg1_text": "Multe sunt derivate din procesarea ulterioară a constituenților alimentari, cum ar fi uleiurile hidrogenate sau interesterificate, proteinele hidrolizate, izolatul proteic din soia, maltodextrina, zahărul invertit și siropul de porumb cu conținut ridicat de fructoză.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aditivi care depășesc simpla siguranță alimentară",
-  "guide_nova_explanations_arg2_text": "Aditivii din alimentele ultraprocesate includ unii care sunt utilizați și în alimentele procesate, cum ar fi conservanții, antioxidanții și stabilizatorii. Clasele de aditivi care se găsesc doar în produsele ultraprocesate includ pe cei utilizați pentru a imita sau a îmbunătăți calitățile senzoriale ale alimentelor sau pentru a deghiza aspectele neplăcute ale produsului final. Acești aditivi includ coloranți și alte culori, stabilizatori de culoare; arome, potențiatori de aromă, îndulcitori fără zahăr; și adjuvanți tehnologici, cum ar fi agenți de carbonatare, de întărire, de volumizare și anti-volumizare, agenți de dezumflare, antiaglomeranți și de glazurare, emulgatori, sechestranți și umectanți.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Prelucrare pe care nu o poți face acasă",
-  "guide_nova_explanations_arg3_text": "O multitudine de secvențe de procese sunt utilizate pentru a combina ingredientele, de obicei numeroase, și pentru a crea produsul final (de unde și „ultra-procesat”). Printre procese se numără câteva fără echivalente interne, cum ar fi hidrogenarea și hidroliza, extrudarea și turnarea în matriță, precum și pre-procesarea pentru prăjire.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Aspectele prădătoare și financiare ale ultra-procesării",
-  "guide_nova_explanations_arg4_text": "Scopul general al ultra-procesării este de a crea produse alimentare de marcă, convenabile (durabile, gata de consum), atractive (hiper-palatabile) și extrem de profitabile (ingrediente cu costuri reduse), concepute pentru a înlocui toate celelalte grupe de alimente. Produsele alimentare ultra-procesate sunt de obicei ambalate atractiv și comercializate intensiv.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

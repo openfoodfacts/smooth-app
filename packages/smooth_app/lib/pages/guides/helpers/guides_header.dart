@@ -4,7 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -86,6 +87,10 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
       1.0,
     );
 
+    final Color backgroundColor = context.lightTheme()
+        ? colors.primaryDark
+        : colors.primaryUltraBlack;
+
     return Provider<double>.value(
       value: progress,
       child: Container(
@@ -95,9 +100,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               bottom: HEADER_ROUNDED_RADIUS * (1.0 - progress),
             ),
           ),
-          color: context.lightTheme()
-              ? colors.primaryDark
-              : colors.primaryUltraBlack,
+          color: backgroundColor,
           shadows: <BoxShadow>[
             BoxShadow(
               color: Colors.black.withValues(
@@ -108,8 +111,9 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
             ),
           ],
         ),
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: VERY_LARGE_SPACE,
+        padding: const EdgeInsetsDirectional.only(
+          start: VERY_SMALL_SPACE,
+          end: VERY_LARGE_SPACE,
         ),
         child: ClipRRect(
           child: CustomMultiChildLayout(
@@ -126,7 +130,10 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: BALANCED_SPACE),
+                        padding: const EdgeInsetsDirectional.only(
+                          start: LARGE_SPACE,
+                          bottom: BALANCED_SPACE,
+                        ),
                         child: AutoSizeText(
                           title,
                           maxLines: 4,
@@ -176,7 +183,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
               LayoutId(
                 id: _GuidesHeaderLayoutId.closeButton,
-                child: const _BackButton(),
+                child: _BackButton(color: backgroundColor),
               ),
             ],
           ),
@@ -272,13 +279,13 @@ enum _GuidesHeaderLayoutId {
 }
 
 class _BackButton extends StatelessWidget {
-  const _BackButton();
+  const _BackButton({required this.color});
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SizedBox(
       height: _CloseButtonLayout._CLOSE_BUTTON_SIZE,
@@ -301,9 +308,9 @@ class _BackButton extends StatelessWidget {
                         ),
                         child: Opacity(
                           opacity: 1 - progress.progressAndClamp(0.0, 0.7, 1.0),
-                          child: const Text(
-                            'Guide',
-                            style: TextStyle(
+                          child: Text(
+                            appLocalizations.guide_title,
+                            style: const TextStyle(
                               fontSize: 18.0,
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -323,7 +330,7 @@ class _BackButton extends StatelessWidget {
                     ),
                     child: SizedBox.square(
                       dimension: 36.0,
-                      child: Close(size: 16.0, color: colors.primaryBlack),
+                      child: icons.Close.bold(size: 16.0, color: color),
                     ),
                   ),
                 ),

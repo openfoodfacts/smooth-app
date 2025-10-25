@@ -2947,6 +2947,9 @@ class AppLocalizationsTs extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4355,7 +4358,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Ku hakela switirhisiwa swo antswa endzeni ka xiyenge, hi tlhela hi tirhisa tibhonasi & swigwevo leswi simekiweke eka swipimelo swo hlayanyana:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4363,7 +4366,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4371,7 +4374,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bonasi yi nyikiwa kuya hi masungulo ya switirhisiwa. Bonasi leyi yi tekela enhlokweni nkucetelo eka vutleketli xikan’we na pholisi ya mbango ya tiko rin’wana na rin’wana ra muhumelerisi.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4379,14 +4382,14 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4394,19 +4397,19 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Ku hlayela kahle Green-Score, swa laveka kuva na mahungu lawa yanga boxiwangiki eka ku pakiwa (kufana na masungulo na tiphesente leti kongomeke ta xiaki xin’wana na xin’wana) kumbe lawa yanga tala ku kumeka hi xivumbeko lexi tirhisiwaka (kufana na nxaxamelo wa swiphemu hinkwaswo swa xipaci na tinxaka leti kongomeke ta tipulasitiki leti tirhisiweke).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Mimpimo ya le xikarhi ya tirhisiwa loko mahungu lawa ya nga si kumeka, kambe sweswi hi kombela un’wana na un’wana ku hi pfuna ku hlengeleta mahungu lawa lawa ya nga ta pfuna swinene eka Green-Score kambe na le ka matirhiselo man’wana yo tala.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Ndlela leyi vaaki va nga pfunaka ha yona';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Vaaki hinkwavo va nga hi pfuna ku hlengeleta na ku hlela mahungu lama nga kona eka swikumiwa kumbe leswi nga humesiwaka eka swona, ku fana na mahungu ya ku paka: Mission Emballages: nxaxamelo lowukulu wa ntirhisano wa ku pakiwa ka swikumiwa hinkwaswo swa swakudya (hi Xifurwa) .';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4480,28 +4483,28 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Swakudya leswinga lulamisiwangiki (kumbe swa ntumbuluko) i swiphemu leswi dyiwaka swa swimilani (mbewu, mihandzu, matluka, swirhabyani, timintsu) kumbe swifuwo (misiha, offal, matandza, masi), xikan’we na fungi, algae, na mati, endzhaku ko hambanisiwa na ntumbuluko.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Switirhisiwa swa culinary leswi lulamisiweke, swofana na mafurha, botere, chukele, na munyu, i swilo leswi humaka eka swakudya swa Group 1 kumbe kusuka eka ntumbuluko hiku tirhisa maendlelo lawa ya katsaka ku kandziyela, ku basisa, ku sila, ku sila na ku omisa.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from Nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Swakudya leswi swekiweke, swo tanihi miroho leyi nga emabodlheleni, tinhlampfi leti nga emathinini, mihandzu leyi nga eka sirapu, tichizi ni swinkwa leswi ha ku endliwaka, ngopfu-ngopfu swi endliwa hi ku chela munyu, mafurha, chukela kumbe swilo swin’wana leswi humaka eka swakudya swa Ntlawa wa 2 ku ya eka Ntlawa wa 1. Maendlelo ya katsa maendlelo yohambana hambana yo hlayisa kumbe ku sweka, naswona eka swinkwa na chizi, ku virisa lokunga riki na byala. Swakudya swotala leswi lulamisiweke swina switirhisiwa swimbirhi kumbe swinharhu naswona switiveka tani hi ti version leti cinciweke ta swakudya swa Group 1. Tinga dyiwa hi toxe kumbe, hi xitalo, ti hlanganisiwa na swakudya swin’wana.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the Case of breads and cheese, non-Alcoholic fermentation. Most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on Their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Swakudya leswi lulamisiweke hi ndlela ya ultra-processed, swofana na swakunwa swo kufumela, swakudya swo olova leswi pakiweke leswi nandzihaka kumbe swo nandziha, switirhisiwa swa nyama leswi vumbiweke nakambe, na swakudya leswi lulamisiweke ka ha ri emahlweni leswi titimelaka, ahi swakudya leswi cinciweke ntsena kambe swivumbeko leswi endliweke ngopfu kumbe hinkwaswo kusuka eka swilo leswi humaka eka swakudya na swiengeteri, laha kungana swakudya swintsongo kumbe leswinga onhakiki swa Ntlawa wa 1. Swilo leswi nga eka swivumbeko leswi hi ntolovelo swi katsa leswi tlhelaka swi kumeka eka swakudya leswi swekiweke, swo tanihi chukele, mafurha, mafurha kumbe munyu. Hambiswiritano, switirhisiwa leswi endliweke hi ultra-processed switlhela swiva na swihlovo swin’wana swa matimba na swakudya leswinga tirhisiwiki hi ntolovelo eka malunghiselelo ya swakudya. Swin’wana swa swona swi humesiwa hi ku kongoma eka swakudya, swo tanihi casein, lactose, whey na gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed Products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, And gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Swiphiqo swa ultra-processing';
@@ -4512,7 +4515,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Votala va huma eka ku lulamisiwa kun’wana ka swiaki swa swakudya, swofana na mafurha lawa yanga hydrogenated kumbe interesterified, ti proteins letinga hydrolyzed, soy protein isolate, maltodextrin, invert sugar, na high-fructose corn syrup.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4520,7 +4523,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Swiengeteri eka swakudya leswi endliweke hi ultra-processed swikatsa swin’wana leswi tlhelaka switirhisiwa eka swakudya leswi lulamisiweke, kufana na swilo swo hlayisa, ti antioxidants, na ti stabilizers. Titlilasi ta swiengeteri leswi kumekaka ntsena eka switirhisiwa leswi lulamisiweke swinene swikatsa leswi tirhisiwaka ku tekelela kumbe ku ndlandlamuxa timfanelo ta switwi swa swakudya kumbe ku fihla swiphemu leswinga nandzihiki swa xitirhisiwa xohetelela. Swiengeteri leswi swikatsa tidayi na mihlovo yin’wana, switiyisisi swa mihlovo; swin’wana leswi nandzihaka, swilo swo antswisa nantswo, swilo swo nandzihisa leswi nga riki swa chukele; na swipfuno swo lulamisa swofana na carbonating, firming, bulking na anti-bulking agents, de-foaming, anti-caking na glazing agents, emulsifiers, sequestrants, na humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4528,7 +4531,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Nhlayo yotala ya ntlhandlamano wa maendlelo ya tirhisiwa ku hlanganisa swiaki leswi hi ntolovelo switala ku endla xiendliwa xohetelela (hikokwalaho ‘ultra-processed’). Maendlelo ya katsa yotala lawa yangariki na swilo leswi ringanaka swale kaya, kufana na hydrogenation na hydrolysation, extrusion na moulding, na pre-processing kuva yi gayeriwa.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4536,7 +4539,22 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Xikongomelo hinkwaxo xa ultra-processing iku tumbuluxa switirhisiwa swa swakudya leswinga na branded, leswi olovaka (leswi tiyeke, leswi lulameleke ku dyiwa), leswi kokaka rinoko (hyper-palatable) na leswi vuyerisaka swinene (swiaki swa ntsengo wale hansi) leswi endleriweke ku susa mintlawa yin’wana hinkwayo ya swakudya. Switirhisiwa swa swakudya leswi endliweke hi ultra-processed hi ntolovelo swi pakiwa hi ndlela yo koka rinoko naswona swi xavisiwa ngopfu.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4606,7 +4624,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

@@ -117,8 +117,8 @@ class _OpenFoodFactsSection1 extends StatelessWidget {
   }
 }
 
-class _OpenFoodFactsSection2 extends StatelessWidget {
-  const _OpenFoodFactsSection2();
+class _OpenFoodFactsSection3 extends StatelessWidget {
+  const _OpenFoodFactsSection3();
 
   @override
   Widget build(BuildContext context) {
@@ -195,8 +195,8 @@ class _OpenFoodFactsSection2 extends StatelessWidget {
   }
 }
 
-class _OpenFoodFactsSection3 extends StatelessWidget {
-  const _OpenFoodFactsSection3();
+class _OpenFoodFactsSection2 extends StatelessWidget {
+  const _OpenFoodFactsSection2();
 
   @override
   Widget build(BuildContext context) {

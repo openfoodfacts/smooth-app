@@ -2940,6 +2940,9 @@ class AppLocalizationsTi extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4341,7 +4344,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'ኣብ ውሽጢ ሓደ ምድብ ዝሓሸ ፍርያት ንምሽላም፡ ድሕሪኡ ኣብ ሓያሎ መዐቀኒታት ተመርኲስና ቦነስ & መቕጻዕቲ ንጥቀም፤';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4349,7 +4352,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'ቦነስ ኣብ መበቆል ናይቶም ቀመማት ተመርኲሱ ይወሃብ። እዚ ቦነስ ኣብ መጓዓዝያን ከምኡ’ውን ፖሊሲ ከባቢ ነፍሲ ወከፍ ኣፍራዪ ሃገርን ኣብ ግምት ዘእተወ እዩ።';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4365,14 +4368,14 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4380,18 +4383,19 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ንሓምላይ-ነጥቢ ብትኽክል ንምሕሳብ፡ ኣብቲ መዐሸጊ ናይ ግድን ዘይተገልጸ (ከም መበቆልን ልክዕ ሚእታዊትን ነፍሲ ወከፍ ቀመም) ወይ ድማ ሳሕቲ ኣብ ጥቕሚ ዝውዕል መልክዕ ዝርከብ (ከም ዝርዝር ናይ ኩሎም ኣካላት ናይቲ መዐሸጊ ምስ ልክዕ ዓይነታት ዝተጠቕሙ ፕላስቲክ) ሓበሬታ ክህልወካ የድሊ።';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'እዚ ሓበሬታ ገና ኣብ ዘይተረኽበሉ እዋን ማእከላይ ክብርታት ይጥቀሙ፣ ሕጂ ግን ኩሉ ሰብ ነዚ ሓበሬታ ንምእካብ ክሕግዘና ንጽውዕ ኣለና እዚ ድማ ንGreen-Score ግን ከኣ ንብዙሕ ካልእ ኣጠቓቕማታት ኣዝዩ ጠቓሚ ክኸውን እዩ።';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
-  String get guide_greenscore_transparency_arg1_title => 'ዜጋታት ብኸመይ ክሕግዙ ይኽእሉ';
+  String get guide_greenscore_transparency_arg1_title =>
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'ኩሎም ዜጋታት ኣብ ፍርያት ዝርከብ ወይ ካብኡ ክውሰድ ዝኽእል ሓበሬታ ንምእካብን ንምውዳብን ክሕግዙና ይኽእሉ እዮም፣ ከም ሓበሬታ ብዛዕባ መዐሸጊ: Mission Emballages: ሰፊሕ ናይ ምትሕብባር ዝርዝር መዐሸጊ ንኹሎም ፍርያት መግቢ (ብፈረንሳ)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title => 'ኣፍረይቲ ብኸመይ ክሕግዙ ይኽእሉ';
@@ -4463,28 +4467,28 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'ዘይተመስርሑ (ወይ ተፈጥሮኣዊ) መግብታት፡ ካብ ተፈጥሮ ምስ ተፈልዩ፡ ዝብላዕ ክፋላት ተኽሊ (ዘርኢ፡ ፍረታት፡ ቆጽሊ፡ ጕንዲ፡ ሱር) ወይ እንስሳታት (ጭዋዳ፡ ስጋ፡ እንቋቑሖ፡ ጸባ)፡ ከምኡ’ውን ፋንጋስ፡ ኣልጌን ማይን እዮም።';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'ከም ዘይቲ፡ ሓርጭ፡ ሽኮርን ጨውን ዝኣመሰሉ ዝተመስርሑ ቀመማት ምግቢ፡ ካብ ጉጅለ 1 መግብታት ወይ ካብ ተፈጥሮ ብመገዲ ምጽቃጥ፡ ምጽራይ፡ ምፍሓር፡ ምፍሓርን ምንቃጽን ዘጠቓልል መስርሕ ዝመጹ ንጥረ ነገራት እዮም።';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'ዝተመስርሑ መግብታት፡ ከም ጥርሙዝ ኣሕምልቲ፡ ቆርቆሮ ዓሳ፡ ፍረታት ኣብ ሽሮፕ፡ በርበረን ሓድሽ ዝተሰርሑ ባኒን፡ ብቐንዱ ካብ ጉጅለ 2 ናብ ጉጅለ 1 መግብታት ጨው፡ ዘይቲ፡ ሽኮር ወይ ካልእ ንጥረ ነገራት ብምውሳኽ ይስራሕ። መስርሓት ዝተፈላለየ ኣገባብ ምዕቃብ ወይ ምብሳል ዘጠቓልል ኮይኑ፡ ኣብ ጉዳይ ባኒን በርበረን ድማ ኣልኮላዊ መስተ ዘይብሉ ምብላዕ ዘጠቓልል እዩ። መብዛሕትኦም ዝተመስርሑ መግብታት ክልተ ወይ ሰለስተ ቀመማት ዘለዎም ኮይኖም ከም ዝተመሓየሹ ስሪት ናይ ጉጅለ 1 መግብታት ይፍለጡ። ባዕሎም ወይ ድማ ብብዝሒ ምስ ካልኦት መግብታት ተደሚሮም ክምገቡ ይኽእሉ።';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'ኣዝዮም ዝተመስርሑ መግብታት፡ ከም ልስሉስ መስተታት፡ ምቁር ወይ ምቁር ዝተዓሸገ ምቁር መግቢ፡ ዳግማይ ዝተሃንጸ ፍርያት ስጋ፡ ከምኡ’ውን ቅድሚኡ ዝተዳለወ ፍሪዝ ምግቢ፡ ዝተቐየሩ መግብታት ጥራይ ዘይኮኑስ፡ መብዛሕትኡ ወይ ምሉእ ብምሉእ ካብ መግብታትን ተወሰኽቲ ነገራትን ዝመጹ ንጥረ ነገራት ዝተሰርሑ ቅመማት እዮም፡ ውሑድ ወይ ድማ ዋላ ሓንቲ ዘይተበላሸወ መግቢ ጉጅለ 1። ኣብዞም ቅመማት ዝርከቡ ቀመማት መብዛሕትኡ ግዜ ኣብ ዝተመስርሑ መግብታት እውን ዝርከቡ ከም ሽኮር፡ ዘይቲ፡ ስብሒ ወይ ጨው ዘጠቓልሉ እዮም። ይኹን እምበር፡ ኣዝዮም ዝተመስርሑ ፍርያት፡ ካልኦት ምንጪታት ጸዓትን መኣዛታትን እውን ኣለዎም፡ እዚ ድማ ብተለምዶ ኣብ ምድላዋት ምግቢ ዘይጥቀሙሉ እዮም። ገለ ካብዚኦም ብቐጥታ ካብ ከም ካዚን፣ ላክቶስ፣ ጸባ ጡብን ግሉተንን ዝኣመሰሉ መግብታት ዝወጽእ እዩ።';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'ኣብ ኣልትራ-ፕሮሰሲንግ ዘሎ ጸገማት';
@@ -4494,7 +4498,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ብዙሓት ካብ ተወሳኺ መስርሕ ናይ መግቢ ኣካላት ዝመጹ እዮም፣ ከም ሃይድሮጅን ዘለዎ ወይ ኢንተረስተሪፋይድ ዘይቲ፣ ሃይድሮላይዝድ ፕሮቲናት፣ ሶያ ፕሮቲን ተነጺሉ፣ ማልቶዴክስትሪን፣ ኢንቨርት ሽኮርን ልዑል ፍሩክቶስ ዘለዎ ሽሮፕ ቆሎን።';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4502,14 +4506,14 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'ኣብ ኣዝዮም ዝተመስርሑ መግብታት ዝርከቡ ተወሰኽቲ ገለ ኣብ ዝተመስርሑ መግብታት እውን ዝጥቀሙ ከም መዕቆቢ፣ ጸረ-ኦክስጅንን ረጋጊእን ዝኣመሰሉ ይርከብዎም። ኣብ ኣዝዮም ዝተመስርሑ ፍርያት ጥራይ ዝርከቡ መደባት ተወሰኽቲ፡ ንህዋሳዊ ባህርያት መግብታት ንምምሳል ወይ ንምዕባይ ወይ ድማ ነቲ ዘይጥዑም መዳያት ናይቲ ናይ መወዳእታ ፍርያት ንምሽፋን ዝጥቀሙሉ እዮም። እዞም ተወሰኽቲ ነገራት ቀለምን ካልኦት ሕብርታትን፣ ሕብሪ ዘረጋግኡ፤ መኣዛታት፣ መኣዛታት ዘደንፍዑ፣ ሽኮር ዘይኮኑ መመቐሪታት፤ ከምኡ’ውን ናይ መስርሕ ሓገዝቲ ከም ካርቦኒቲንግ፣ ፊርሚንግ፣ ቡልኪንግን ጸረ-ቡልኪንግን ኣጀንት፣ ዲ-ፎሚንግ፣ ጸረ-ኬኪንግን ግላዚንግን ኤጀንት፣ ኢሙልሳይፈርስ፣ ሴክዌስትራንትስን ሁሜክታንትን ዝኣመሰሉ።';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title => 'ኣብ ገዛኻ ክትገብሮ ዘይትኽእል መስርሕ';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'መብዛሕትኡ ግዜ ብዙሓት ቀመማት ንምውህሃድን ነቲ ናይ መወዳእታ ፍርያት ንምፍጣርን (ስለዚ ‘ኣልትራ-ፕሮሰስድ’) ብዙሕ ቅደም ተኸተል መስርሓት ይጥቀሙ። እቶም መስርሓት ናይ ውሽጢ ዓዲ መመዘኒ ዘይብሎም ሓያሎ ዘጠቓልሉ ኮይኖም፡ ከም ሃይድሮጅኔሽንን ሃይድሮላይዜሽንን፡ ኤክስትሩዥንን ሞልዲንግን፡ ከምኡ’ውን ቅድመ-መስርሕ ንመጥበሲ ዝኣመሰሉ እዮም።';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4517,7 +4521,22 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'ሓፈሻዊ ዕላማ ኣልትራ-ፕሮሰሲንግ ንኹሎም ካልኦት ጉጅለታት መግቢ ንምፍንቓል ዝተዳለዉ ምልክት ዘለዎም፣ ምቹኣት (ነባሪ፣ ንሃልኪ ድሉዋት)፣ ሰሓብቲ (ልዕሊ ዓቐን ጣዕሚ ዘለዎም)ን ልዑል መኽሰብ ዘለዎምን (ትሑት ዋጋ ዘለዎም ቀመማት) ፍርያት መግቢ ምፍጣር እዩ። መብዛሕትኡ ግዜ ኣዝዮም ዝተመስርሑ ፍርያት መግቢ ብሰሓቢ መንገዲ ይዕሸጉን ብጽዑቕ ዕዳጋ ይቐርቡን።';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4587,7 +4606,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

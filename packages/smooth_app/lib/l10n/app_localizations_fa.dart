@@ -2943,6 +2943,9 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4346,7 +4349,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'برای پاداش دادن به محصولات بهتر در یک دسته، ما بر اساس چندین معیار، پاداش‌ها و جریمه‌هایی را اعمال می‌کنیم:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4354,7 +4357,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4362,7 +4365,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'بر اساس منشأ مواد تشکیل‌دهنده، پاداشی اعطا می‌شود. این پاداش، تأثیر بر حمل‌ونقل و همچنین سیاست زیست‌محیطی هر کشور تولیدکننده را در نظر می‌گیرد.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4370,14 +4373,14 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4385,19 +4388,19 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'برای محاسبه دقیق امتیاز سبز، لازم است اطلاعاتی داشته باشیم که لزوماً روی بسته‌بندی مشخص نشده‌اند (مانند مبدا و درصد دقیق هر ماده) یا به ندرت به شکل قابل استفاده در دسترس هستند (مانند فهرستی از تمام اجزای بسته‌بندی با انواع دقیق پلاستیک‌های استفاده شده).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'مقادیر میانگین زمانی استفاده می‌شوند که این اطلاعات هنوز در دسترس نباشند، اما اکنون از همه می‌خواهیم که در جمع‌آوری این اطلاعات که برای امتیاز سبز و همچنین برای بسیاری از کاربردهای دیگر بسیار مفید خواهد بود، به ما کمک کنند.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'چگونه شهروندان می‌توانند کمک کنند';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'همه شهروندان می‌توانند به ما در جمع‌آوری و ساختاردهی اطلاعاتی که روی محصولات وجود دارد یا می‌توان از آنها استنباط کرد، مانند اطلاعات روی بسته‌بندی، کمک کنند: Mission Emballages: یک فهرست مشارکتی در مقیاس بزرگ از بسته‌بندی برای همه محصولات غذایی (به زبان فرانسه)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4470,28 +4473,28 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'غذاهای فرآوری نشده (یا طبیعی) به بخش‌های خوراکی گیاهان (دانه‌ها، میوه‌ها، برگ‌ها، ساقه‌ها، ریشه‌ها) یا حیوانات (ماهیچه، امعاء و احشاء، تخم‌مرغ، شیر) و همچنین قارچ‌ها، جلبک‌ها و آب، پس از جدا شدن از طبیعت گفته می‌شود.';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'مواد اولیه فرآوری‌شده آشپزی، مانند روغن‌ها، کره، شکر و نمک، موادی هستند که از غذاهای گروه ۱ یا از طبیعت از طریق فرآیندهایی شامل پرس کردن، تصفیه، آسیاب کردن، آسیاب کردن و خشک کردن به دست می‌آیند.';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'غذاهای فرآوری‌شده، مانند سبزیجات بطری‌شده، ماهی کنسروشده، میوه‌های شربت‌دار، پنیرها و نان‌های تازه، در درجه اول با اضافه کردن نمک، روغن، شکر یا سایر مواد از غذاهای گروه ۲ به غذاهای گروه ۱ تهیه می‌شوند. این فرآیندها شامل روش‌های مختلف نگهداری یا پخت و پز و در مورد نان و پنیر، تخمیر غیرالکلی است. اکثر غذاهای فرآوری‌شده دارای دو یا سه ماده تشکیل‌دهنده هستند و به عنوان نسخه‌های اصلاح‌شده غذاهای گروه ۱ قابل تشخیص هستند. آن‌ها را می‌توان به تنهایی یا معمولاً در ترکیب با سایر غذاها مصرف کرد.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'غذاهای فوق فرآوری شده، مانند نوشابه‌ها، تنقلات بسته‌بندی شده شیرین یا خوش طعم، فرآورده‌های گوشتی بازسازی شده و غذاهای منجمد از پیش آماده شده، صرفاً غذاهای اصلاح شده نیستند، بلکه فرمولاسیون‌هایی هستند که عمدتاً یا کاملاً از مواد مشتق شده از غذاها و افزودنی‌ها ساخته شده‌اند و غذای گروه ۱ دست نخورده در آنها وجود ندارد یا مقدار کمی از آنها در این فرمولاسیون‌ها یافت می‌شود. مواد تشکیل دهنده این فرمولاسیون‌ها معمولاً شامل موادی است که در غذاهای فرآوری شده نیز یافت می‌شوند، مانند قندها، روغن‌ها، چربی‌ها یا نمک. با این حال، محصولات فوق فرآوری شده همچنین حاوی منابع دیگری از انرژی و مواد مغذی هستند که معمولاً در آماده‌سازی‌های آشپزی استفاده نمی‌شوند. برخی از این منابع مستقیماً از غذاها استخراج می‌شوند، مانند کازئین، لاکتوز، آب پنیر و گلوتن.';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'مشکلات پردازش فوق العاده';
@@ -4501,7 +4504,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'بسیاری از آنها از فرآوری بیشتر اجزای غذایی مانند روغن‌های هیدروژنه یا اینتراستریفی شده، پروتئین‌های هیدرولیز شده، ایزوله پروتئین سویا، مالتودکسترین، قند اینورت و شربت ذرت با فروکتوز بالا به دست می‌آیند.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4509,7 +4512,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'افزودنی‌های موجود در غذاهای فوق فرآوری‌شده شامل برخی از افزودنی‌هایی هستند که در غذاهای فرآوری‌شده نیز استفاده می‌شوند، مانند مواد نگهدارنده، آنتی‌اکسیدان‌ها و تثبیت‌کننده‌ها. دسته‌هایی از افزودنی‌ها که فقط در محصولات فوق فرآوری‌شده یافت می‌شوند، شامل مواردی هستند که برای تقلید یا افزایش کیفیت حسی غذاها یا برای پنهان کردن جنبه‌های نامطلوب محصول نهایی استفاده می‌شوند. این افزودنی‌ها شامل رنگ‌ها و سایر رنگ‌ها، تثبیت‌کننده‌های رنگ؛ طعم‌دهنده‌ها، تقویت‌کننده‌های طعم، شیرین‌کننده‌های غیرقندی؛ و کمک‌فرآوری‌هایی مانند عوامل گازدارکننده، سفت‌کننده، حجیم‌کننده و ضدحجم‌کننده، عوامل ضدکف، ضدکلوخه شدن و لعاب‌دارکننده، امولسیفایرها، ترکیبات جداکننده رطوبت و مواد مرطوب‌کننده هستند.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4517,7 +4520,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'برای ترکیب معمولاً بسیاری از مواد اولیه و ایجاد محصول نهایی (از این رو «فوق فرآوری شده») از توالی‌های متعددی از فرآیندها استفاده می‌شود. این فرآیندها شامل چندین فرآیند بدون معادل داخلی مانند هیدروژناسیون و هیدرولیز، اکستروژن و قالب‌گیری و پیش‌پردازش برای سرخ کردن هستند.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4525,7 +4528,22 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'هدف کلی فرافرآوری، ایجاد محصولات غذایی برنددار، مناسب (بادوام، آماده مصرف)، جذاب (بسیار خوش‌طعم) و بسیار سودآور (با مواد اولیه کم‌هزینه) است که برای جایگزینی سایر گروه‌های غذایی طراحی شده‌اند. محصولات غذایی فرافرآوری شده معمولاً به صورت جذاب بسته‌بندی و به صورت فشرده به بازار عرضه می‌شوند.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4595,7 +4613,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

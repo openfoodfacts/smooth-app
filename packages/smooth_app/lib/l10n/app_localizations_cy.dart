@@ -2945,6 +2945,9 @@ class AppLocalizationsCy extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4353,7 +4356,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'I wobrwyo cynhyrchion gwell o fewn categori, yna rydym yn rhoi bonysau a chosbau yn seiliedig ar sawl maen prawf:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4361,7 +4364,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4369,7 +4372,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Dyfernir bonws yn seiliedig ar darddiad y cynhwysion. Mae\'r bonws hwn yn ystyried yr effaith ar gludiant a hefyd polisi amgylcheddol gwlad pob cynhyrchydd.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4377,14 +4380,14 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4392,19 +4395,19 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Er mwyn cyfrifo\'r Sgôr Werdd yn gywir, mae angen cael gwybodaeth nad yw o reidrwydd wedi\'i nodi ar y pecynnu (megis tarddiad a chanran union pob cynhwysyn) neu sydd anaml ar gael mewn ffurf ddefnyddiadwy (megis rhestr o holl gydrannau\'r pecynnu gyda\'r union fathau o blastigion a ddefnyddir).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Defnyddir gwerthoedd cyfartalog pan nad yw\'r wybodaeth hon ar gael eto, ond rydym nawr yn galw ar bawb i\'n helpu i gasglu\'r wybodaeth hon a fydd yn ddefnyddiol iawn ar gyfer y Sgôr Werdd ond hefyd ar gyfer llawer o ddefnyddiau eraill.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Sut gall dinasyddion helpu';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Gall pob dinesydd ein helpu i gasglu a strwythuro\'r wybodaeth sydd ar gael ar gynhyrchion neu y gellir ei chasglu ohonynt, fel gwybodaeth ar becynnu: Mission Emballages: rhestr eiddo gydweithredol ar raddfa fawr o becynnu ar gyfer pob cynnyrch bwyd (yn Ffrangeg)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4479,28 +4482,28 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Bwydydd heb eu prosesu (neu naturiol) yw rhannau bwytadwy o blanhigion (hadau, ffrwythau, dail, coesynnau, gwreiddiau) neu anifeiliaid (cyhyrau, offal, wyau, llaeth), yn ogystal â ffyngau, algâu a dŵr, ar ôl cael eu gwahanu oddi wrth natur.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Mae cynhwysion coginio wedi\'u prosesu, fel olewau, menyn, siwgr a halen, yn sylweddau sy\'n deillio o fwydydd Grŵp 1 neu o natur trwy brosesau sy\'n cynnwys gwasgu, mireinio, malu, melino a sychu.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from Nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Mae bwydydd wedi\'u prosesu, fel llysiau mewn poteli, pysgod tun, ffrwythau mewn surop, cawsiau, a bara ffres, yn cael eu gwneud yn bennaf trwy ychwanegu halen, olew, siwgr, neu sylweddau eraill o fwydydd Grŵp 2 i fwydydd Grŵp 1. Mae prosesau\'n cynnwys amrywiol ddulliau cadw neu goginio, ac yn achos bara a chaws, eplesu di-alcohol. Mae gan y rhan fwyaf o fwydydd wedi\'u prosesu ddau neu dri chynhwysyn ac maent yn adnabyddadwy fel fersiynau wedi\'u haddasu o fwydydd Grŵp 1. Gellir eu bwyta ar eu pen eu hunain neu, yn fwy cyffredin, mewn cyfuniad â bwydydd eraill.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include various preservation Or cooking Methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or Three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with Other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Nid bwydydd wedi\'u prosesu\'n ormodol, fel diodydd meddal, byrbrydau melys neu sawrus wedi\'u pecynnu, cynhyrchion cig wedi\'u hailgyfansoddi, a seigiau wedi\'u rhewi wedi\'u paratoi ymlaen llaw, yn fwydydd wedi\'u haddasu yn unig ond yn fformwleiddiadau a wneir yn bennaf neu\'n gyfan gwbl o sylweddau sy\'n deillio o fwydydd ac ychwanegion, gyda fawr ddim bwyd Grŵp 1 cyfan. Mae cynhwysion yn y fformwleiddiadau hyn fel arfer yn cynnwys y rhai a geir hefyd mewn bwydydd wedi\'u prosesu, fel siwgrau, olewau, brasterau neu halen. Fodd bynnag, mae cynhyrchion wedi\'u prosesu\'n ormodol hefyd yn cynnwys ffynonellau eraill o ynni a maetholion nad ydynt fel arfer yn cael eu defnyddio mewn paratoadau coginio. Mae rhai o\'r rhain yn cael eu tynnu\'n uniongyrchol o fwydydd, fel casein, lactos, maidd a glwten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, Ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such As casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Y problemau gyda phrosesu uwch';
@@ -4511,7 +4514,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Mae llawer yn deillio o brosesu ymhellach o gydrannau bwyd, fel olewau hydrogenedig neu rhyng-esteriedig, proteinau wedi\'u hydrolyze, ynysu protein soi, maltodextrin, siwgr gwrthdro, a surop corn ffrwctos uchel.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4519,7 +4522,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Mae ychwanegion mewn bwydydd wedi\'u prosesu\'n ormodol yn cynnwys rhai a ddefnyddir hefyd mewn bwydydd wedi\'u prosesu, fel cadwolion, gwrthocsidyddion, a sefydlogwyr. Mae dosbarthiadau o ychwanegion a geir mewn cynhyrchion wedi\'u prosesu\'n ormodol yn unig yn cynnwys y rhai a ddefnyddir i efelychu neu wella rhinweddau synhwyraidd bwydydd neu i guddio agweddau annymunol y cynnyrch terfynol. Mae\'r ychwanegion hyn yn cynnwys llifynnau a lliwiau eraill, sefydlogwyr lliw; blasau, gwellawyr blas, melysyddion di-siwgr; a chymhorthion prosesu fel asiantau carboneiddio, cadarnhau, swmpio a gwrth-swmpio, asiantau dad-ewynnu, gwrth-geulo a gwydro, emwlsyddion, atafaelwyr, a lleithyddion.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4527,7 +4530,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Defnyddir llu o ddilyniannau o brosesau i gyfuno\'r cynhwysion sydd fel arfer yn niferus ac i greu\'r cynnyrch terfynol (felly \'wedi\'i brosesu\'n uwch\'). Mae\'r prosesau\'n cynnwys sawl un heb unrhyw gyfwerth domestig, megis hydrogeniad a hydrolysiad, allwthio a mowldio, a rhagbrosesu ar gyfer ffrio.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4535,7 +4538,22 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Pwrpas cyffredinol prosesu uwch-dechnolegol yw creu cynhyrchion bwyd brand, cyfleus (gwydn, parod i\'w bwyta), deniadol (hyper-flasus) a hynod broffidiol (cynhwysion cost isel) sydd wedi\'u cynllunio i ddisodli pob grŵp bwyd arall. Fel arfer, mae cynhyrchion bwyd wedi\'u prosesu\'n uwch-dechnolegol yn cael eu pecynnu\'n ddeniadol a\'u marchnata\'n ddwys.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4605,7 +4623,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

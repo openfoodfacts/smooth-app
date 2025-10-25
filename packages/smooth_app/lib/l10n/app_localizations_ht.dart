@@ -2943,6 +2943,9 @@ class AppLocalizationsHt extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4349,7 +4352,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Pou rekonpanse pi bon pwodwi nan yon kategori, nou aplike bonis ak penalite ki baze sou plizyè kritè:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4357,7 +4360,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Yo bay yon bonis selon orijin engredyan yo. Bonis sa a pran an kont enpak sou transpò ak politik anviwònman chak peyi pwodiktè.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4373,14 +4376,14 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4388,19 +4391,19 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Pou kalkile Green-Score la avèk presizyon, li nesesè pou gen enfòmasyon ki pa nesesèman espesifye sou anbalaj la (tankou orijin nan ak pousantaj egzak chak engredyan) oubyen ki raman disponib nan yon fòm itilizab (tankou yon lis tout konpozan anbalaj la ak kalite plastik egzak yo itilize yo).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Yo itilize valè mwayèn lè enfòmasyon sa a poko disponib, men kounye a n ap mande tout moun pou ede nou kolekte enfòmasyon sa a ki pral trè itil pou Green-Score la men tou pou anpil lòt itilizasyon.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Kijan sitwayen yo ka ede';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Tout sitwayen ka ede nou rasanble epi estriktire enfòmasyon ki prezan sou pwodwi yo oubyen ki ka dedwi de yo, tankou enfòmasyon sou anbalaj: Misyon Emballages: yon gwo envantè kolaboratif sou anbalaj pou tout pwodwi alimantè (an franse)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4474,28 +4477,28 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Manje ki pa trete (oswa natirèl) se pati manjab plant yo (grenn, fwi, fèy, tij, rasin) oswa bèt yo (misk, trip, ze, lèt), ansanm ak chanpiyon, alg ak dlo, apre yo fin separe yo ak lanati.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Engredyan kulinè trete, tankou lwil, bè, sik, ak sèl, se sibstans ki sòti nan manje Gwoup 1 oswa nan lanati atravè pwosesis ki gen ladan peze, rafine, moulen, moulen, ak siye.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Manje trete yo, tankou legim nan boutèy, pwason nan bwat, fwi nan siwo, fwomaj, ak pen ki fèk fèt, yo fèt prensipalman lè yo ajoute sèl, lwil, sik, oswa lòt sibstans ki soti nan Gwoup 2 nan manje Gwoup 1 yo. Pwosesis yo gen ladan yo divès metòd prezèvasyon oswa kwit manje, epi nan ka pen ak fwomaj, fèmantasyon san alkòl. Pifò manje trete yo gen de oswa twa engredyan epi yo rekonèt kòm vèsyon modifye nan manje Gwoup 1 yo. Yo ka manje poukont yo oswa, pi souvan, an konbinezon ak lòt manje.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include various preservation Or cooking methods, And in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and Are recognizable as modified versions of group 1 foods. they can be eaten on their own or, More commonly, in Combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Manje ultra-trete yo, tankou bwason gazez, ti goute dous oswa sale ki nan pake, pwodui vyann rekonstitye, ak plat konjele ki prepare davans, se pa sèlman manje modifye men fòmilasyon ki fèt sitou oswa antyèman ak sibstans ki sòti nan manje ak aditif, ak ti kras oswa pa gen manje Gwoup 1 entak. Engredyan nan fòmilasyon sa yo anjeneral gen ladan yo sa yo jwenn tou nan manje trete yo, tankou sik, lwil, grès, oswa sèl. Sepandan, pwodui ultra-trete yo genyen tou lòt sous enèji ak eleman nitritif yo pa tipikman itilize nan preparasyon kilinè. Gen kèk nan sa yo ki ekstrè dirèkteman nan manje, tankou kazein, laktoz, laktoseròm, ak gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually Include those also Found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients Not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and Gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Pwoblèm ak ultra-pwosesis';
@@ -4506,7 +4509,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Anpil ladan yo sòti nan plis pwosesis konstitiyan manje yo, tankou lwil idwojèn oswa enterèsterifye, pwoteyin idrolize, pwoteyin soya izole, maltodekstrin, sik envèse, ak siwo mayi ki gen anpil fruktoz.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4514,7 +4517,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Aditif nan manje ultra-trete yo gen ladan yo kèk ki itilize tou nan manje trete, tankou préservatif, antioksidan, ak estabilizatè. Klas aditif yo jwenn sèlman nan pwodwi ultra-trete yo gen ladan yo sa yo itilize pou imite oswa amelyore kalite sansoryèl manje yo oswa pou kache aspè dezagreyab nan pwodwi final la. Aditif sa yo gen ladan yo koloran ak lòt koulè, estabilizatè koulè; gou, amelyoratè gou, edulkoran ki pa sik; ak èd pwosesis tankou ajan kabonisatè, rafermisan, ajan ankonbran ak anti-ankonbran, ajan de-mous, ajan anti-aglomerasyon ak ajan glase, emulsifyan, sekwestran, ak idratan.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4522,7 +4525,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Yo itilize yon pakèt sekans pwosesis pou konbine engredyan yo ki anjeneral anpil epi pou kreye pwodwi final la (kidonk yo rele l \'ultra-trete\'). Pwosesis yo gen ladan plizyè ki pa gen ekivalan domestik, tankou idrojenasyon ak idrolizasyon, èkstruzyon ak bòdi, ak pre-tretman pou fri.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4530,7 +4533,22 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Objektif jeneral ultra-pwosesis la se kreye pwodui alimantè ki gen mak, pratik (dirab, pare pou konsome), atiran (ipè-gou) epi trè pwofitab (engredyan ki pa koute chè), ki fèt pou ranplase tout lòt gwoup alimantè yo. Pwodui alimantè ultra-pwosesis yo anjeneral anbale yon fason atiran epi yo vann yo yon fason entansif.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4600,7 +4618,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

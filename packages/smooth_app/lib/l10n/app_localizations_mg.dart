@@ -2948,6 +2948,9 @@ class AppLocalizationsMg extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4357,7 +4360,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Mba hanomezana valisoa vokatra tsara kokoa ao anatin\'ny sokajy iray, dia mampihatra tambiny sy sazy mifototra amin\'ny fepetra maromaro izahay:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4365,7 +4368,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4373,7 +4376,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ny bonus dia omena arakaraka ny niandohan\'ny akora. Ity bonus ity dia mirakitra ny fiantraikan\'ny fitaterana ary koa ny politika momba ny tontolo iainana any amin\'ny firenena mpamokatra tsirairay.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4381,14 +4384,14 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Fonosana';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4396,19 +4399,19 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Mba hanaovana kajy marina ny Green-Score, dia ilaina ny manana fampahalalana izay tsy voatery voafaritra ao amin\'ny fonosana (toy ny fiaviana sy ny isan-jaton\'ny akora tsirairay) na izay tsy dia misy amin\'ny endrika azo ampiasaina (toy ny lisitry ny singa rehetra amin\'ny fonosana miaraka amin\'ireo karazana plastika ampiasaina).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Ny soatoavina antonony dia ampiasaina rehefa tsy mbola misy ity fampahalalana ity, saingy miantso ny rehetra izahay ankehitriny mba hanampy anay hanangona ity fampahalalana ity izay tena ilaina ho an\'ny Green-Score fa koa ho an\'ny fampiasana maro hafa.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Ahoana no ahafahan\'ny olom-pirenena manampy';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Ny olom-pirenena rehetra dia afaka manampy antsika hanangona sy handrafetana ny vaovao misy eo amin\'ny vokatra na azo tsoahina avy amin\'izy ireo, toy ny fampahalalana momba ny fonosana: Mission Emballages: firaketana fiaraha-miasa lehibe momba ny fonosana ho an\'ny vokatra sakafo rehetra (amin\'ny teny frantsay)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4483,28 +4486,28 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ny sakafo tsy voahodina (na voajanahary) dia ny ampahany azo hanina amin\'ny zavamaniry (voa, voankazo, raviny, taho, fakany) na biby (hozatra, atiny, atody, ronono), ary koa holatra, ahidrano, ary rano, rehefa tafasaraka amin\'ny natiora.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Ny akora hohanina voahodina, toy ny menaka, dibera, siramamy, ary sira, dia akora azo avy amin\'ny sakafo Vondrona 1 na avy amin\'ny natiora amin\'ny alalan\'ny dingana izay ahitana fanerena, fanadiovana, fitotoana, fitotoana ary fanamainana.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or From nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Ny sakafo voahodina, toy ny legioma anaty tavoahangy, trondro am-bifotsy, voankazo ao anaty sirop, fromazy, ary mofo vao vita, dia atao amin\'ny fanampiana sira, menaka, siramamy, na zavatra hafa avy amin\'ny vondrona 2 ka hatramin\'ny sakafo Vondrona 1. Ny dingana dia ahitana fomba fitehirizana na fandrahoan-tsakafo isan-karazany, ary amin\'ny resaka mofo sy fromazy, fermentation tsy misy alikaola. Ny ankamaroan\'ny sakafo voahodina dia misy akora roa na telo ary azo fantarina ho dika novaina amin\'ny sakafo Vondrona 1. Azo hanina samirery izy ireo na, matetika kokoa, miaraka amin\'ny sakafo hafa.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking Methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as Modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other Foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ny sakafo faran\'izay voahodina, toy ny zava-pisotro malefaka, tsakitsaky mamy na mamy, vokatra avy amin\'ny hena amboarina, ary lovia mangatsiaka efa voaomana mialoha, dia tsy sakafo novaina fotsiny fa fandrafetana vita amin\'ny ankapobeny na tanteraka avy amin\'ny akora azo avy amin\'ny sakafo sy ny fanampin-tsakafo, miaraka amin\'ny sakafon\'ny Vondrona 1 kely. Ny akora ao anatin\'ireo fandrafetana ireo matetika dia ahitana izay hita ao amin\'ny sakafo voahodina, toy ny siramamy, menaka, tavy, na sira. Na izany aza, ny vokatra vita amin\'ny ultra-processed dia misy loharanom-angovo sy otrikaina hafa tsy ampiasaina amin\'ny fikarakarana sakafo. Ny sasany amin\'izy ireo dia nalaina mivantana avy amin\'ny sakafo, toy ny casein, lactose, whey, ary gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed Foods, such as Sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some Of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4516,7 +4519,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Maro no azo avy amin\'ny fanodinana bebe kokoa ny singa ara-tsakafo, toy ny menaka hydrogenated na mahaliana, proteinina hydrolyzed, soja proteinina mitoka-monina, maltodextrin, siramamy invert, ary sirop katsaka be fructose.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4524,7 +4527,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ny additives amin\'ny sakafo vita amin\'ny ultra-processed dia misy ny sasany izay ampiasaina amin\'ny sakafo voahodina, toy ny preservatives, antioxidants, ary stabilizers. Ny kilasin\'ny additives tsy hita afa-tsy amin\'ny vokatra vita amin\'ny ultra-processed dia ahitana ireo ampiasaina hanahaka na hanatsara ny toetran\'ny sakafo na hanafenana ireo endrika tsy mahafinaritra amin\'ny vokatra farany. Ireo additives ireo dia ahitana loko sy loko hafa, stabilizers loko; tsiro, fanampin-tsakafo, tsy misy siramamy; ary fitaovana fanodinana toy ny karbônina, fanamafisana, fanamafisam-peo ary anti-bulking agents, de-foaming, anti-caking sy glazing agents, emulsifiers, sequestrants ary humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4532,7 +4535,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Betsaka ny filaharan\'ny dingana ampiasaina mba hanambatra ireo akora maro mazàna sy hamoronana ny vokatra farany (noho izany dia \'voahodina be\'). Ny dingana dia misy maromaro tsy misy mitovy amin\'ny an-trano, toy ny hydrogenation sy hydrolysation, extrusion sy moulding, ary ny fanodinana mialoha ho an\'ny endasina.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4540,7 +4543,22 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Ny tanjona ankapoben\'ny fanodinana ultra dia ny hamorona vokatra sakafo misy marika, mety (maharitra, vonona hohanina), mahasarika (hiper-mahafinaritra) ary tena mahazo tombony (engaron\'ny vidiny mora) natao hamindrana ireo vondrona sakafo hafa rehetra. Ny vokatra sakafo vita amin\'ny fomba faran\'izay bitika dia mazàna nofonosina amin\'ny fomba mahasarika sy amidin\'ny tsena.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4610,7 +4628,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

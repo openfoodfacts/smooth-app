@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Aqua marina et dulcis (particulae, acidificatio, eutrophicatio)",
   "guide_greenscore_lca_arg3_text8": "Depletio opum.",
   "guide_greenscore_bonuses_penalties_title": "Praemia et poenae",
-  "guide_greenscore_bonuses_penalties_intro": "Ut meliora producta intra categoriam praemientur, deinde praemia et poenas secundum plura criteria adhibemus:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Praemium secundum originem ingredientium tribuitur. Hoc praemium et effectum in transportationem et etiam rationem rerum naturalium cuiusque patriae productoris considerat.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Ad accurate Viridis Punctum computandum, necesse est habere informationem quae non necessario in involucro specificatur (velut origo et exacta proportio cuiusque ingredientis) vel quae raro in forma utili praesto est (velut index omnium partium involucri cum generibus precisis plasticarum adhibitarum).",
-  "guide_greenscore_transparency_intro2": "Valores medii adhibentur cum hae informationes nondum praesto sunt, sed nunc omnes ad auxilium nostrum in colligendis his informationibus, quae non solum non solum pro Green-Score sed etiam pro multis aliis usibus perutilis erit, rogamus.",
-  "guide_greenscore_transparency_arg1_title": "Quomodo cives adiuvare possint",
-  "guide_greenscore_transparency_arg1_text": "Omnes cives nobis auxilium ferre possunt ad informationem, quae in productis adest vel ex eis deduci potest, colligendam et ordinandam: Mission Emballages: inventarium collaborativum amplum involucrorum omnium productorum alimentariorum (Francogallice).",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Quomodo fabri adiuvare possunt",
   "guide_greenscore_transparency_arg2_text": "Fabricatores nobis suas informationes directe per suggestum nostrum gratuitum fabricatoribus destinatum mittere possunt.",
   "guide_greenscore_better_product_title": "Quod productum planetae melius est?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Quattuor greges NOVA",
   "guide_nova_groups_intro": "Quattuor greges NOVA sunt, quorum problematicus est Grex IV - Cibi ultra-processi.",
   "guide_nova_groups_arg1_title": "Cibi minimaliter confecti vel non confecti",
-  "guide_nova_groups_arg1_text": "Cibi non confecti (seu naturalia) sunt partes edules plantarum (semina, fructus, folia, caules, radices) vel animalium (musculi, viscera, ova, lac), necnon fungi, algae et aqua, postquam a natura separata sunt.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Ingredientia culinaria processa, ut olea, butyrum, saccharum et sal, sunt substantiae ex cibis Gregis 1 vel ex natura derivatae per processus qui prelum, purificationem, trituram, et exsiccationem includunt.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived From Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Cibi confecti, ut olera in ampullis condita, pisces in vasis conservati, fructus in syrupo, casei, et panes recens confecti, imprimis fiunt addendo salem, oleum, saccharum, vel alias substantias e Grege 2 ad cibos Gregis 1. Processus includunt varias methodos conservationis vel coctionis, et in casu panum et caseorum, fermentationem non alcoholicam. Plerique cibi confecti duo vel tria ingredientia habent et agnoscuntur ut versiones modificatae ciborum Gregis 1. Per se vel, saepius, in combinatione cum aliis cibis edi possunt.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** Foods. Processes Include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic Fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of Group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Cibi ultra-confecti, ut potiones non alcoholicae, dulcia vel salsa cibaria involucris, carnes reconstitutae, et fercula congelata prae-parata, non solum cibi modificati sunt, sed formulae plerumque vel omnino ex substantiis derivatis ex cibis et additivis factae, cum parvo vel nullo cibo integro Gregis 1. Ingredientia in his formulis plerumque includunt ea quae etiam in cibis confectis inveniuntur, ut saccharum, olea, adipes, vel sal. Attamen, producta ultra-confecta etiam alias fontes energiae et nutrimentorum continent quae non typice in praeparationibus culinariis adhibentur. Quaedam ex his directe ex cibis extrahuntur, ut caseinum, lactosum, serum lactis, et gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary Preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Difficultates cum ultra-processu",
   "guide_nova_explanations_arg1_title": "Processus extremus ingredientium cibariorum",
-  "guide_nova_explanations_arg1_text": "Multa ex ulteriore processu constituentium cibi derivantur, ut olea hydrogenata vel interesterificata, proteina hydrolyzata, proteinum soiae isolato, maltodextrinum, saccharum inversum, et syrupum frumenti alto fructoso.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Additiva quae ultra puram salutem cibariam progrediuntur",
-  "guide_nova_explanations_arg2_text": "Inter additiva in cibis ultra-processis sunt quaedam quae etiam in cibis processis adhibentur, ut conservantia, antioxidantia, et stabilimenta. Inter genera additivorum quae tantum in productis ultra-processis inveniuntur sunt ea quae ad imitandas vel augendas qualitates sensorias ciborum vel ad occultandas partes insuaves producti finalis adhibentur. Haec additiva includunt tincturas et alios colores, stabilimenta coloris; sapores, amplificatores saporis, dulcificantia non saccharo; et adiuvantia processus, ut agentes carbonantes, firmantes, voluminantes et anti-volumenantes, agentes de-spumantes, anti-coagulantes et vitreantes, emulsores, sequestrantes, et humectantes.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Processus quem domi facere non potes",
-  "guide_nova_explanations_arg3_text": "Multitudo serierum processuum adhibetur ad ingredientia, quae plerumque multa sunt, coniungenda et ad productum finale creandum (hinc 'ultra-processum'). Inter processus sunt plures sine aequivalentibus domesticis, ut hydrogenatio et hydrolysatio, extrusio et formatio, et prae-processus ad frigendum.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Aspectus rapaces et pecuniarii ultra-processus",
-  "guide_nova_explanations_arg4_text": "Propositum generale ultra-processus est creare cibos nobiles, commodos (durabiles, ad consumendum paratos), attractivos (hyper-sapidos) et valde lucrativos (ingredientibus vilis) destinatos ad omnes alias genera ciborum substituenda. Cibi ultra-processi plerumque attractive involucris involuuntur et intensive venduntur.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

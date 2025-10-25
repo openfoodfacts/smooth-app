@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Omi & omi titun (awọn patikulu, acidification, eutrophication)",
   "guide_greenscore_lca_arg3_text8": "Idinku awọn ohun elo.",
   "guide_greenscore_bonuses_penalties_title": "imoriri & ifiyaje",
-  "guide_greenscore_bonuses_penalties_intro": "Lati san awọn ọja to dara julọ laarin ẹka kan, lẹhinna a lo awọn ẹbun & awọn ijiya ti o da lori awọn ami-ẹri pupọ:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A ajeseku ti wa ni fun un da lori awọn Oti ti awọn eroja. Ajeseku yii ṣe akiyesi ipa lori gbigbe ati tun eto imulo ayika ti orilẹ-ede olupilẹṣẹ kọọkan.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Lati ṣe iṣiro deede Green-Score, o jẹ dandan lati ni alaye eyiti ko ṣe pataki ni pato lori apoti (bii ipilẹṣẹ ati ipin gangan ti eroja kọọkan) tabi eyiti o ṣọwọn wa ni fọọmu lilo (gẹgẹbi atokọ ti gbogbo awọn paati ti apoti pẹlu awọn iru pilasitik deede ti a lo).",
-  "guide_greenscore_transparency_intro2": "Awọn iye apapọ ni a lo nigbati alaye yii ko ti wa, ṣugbọn a n pe gbogbo eniyan ni bayi lati ṣe iranlọwọ fun wa lati gba alaye yii eyiti yoo wulo pupọ fun Green-Score ṣugbọn fun ọpọlọpọ awọn lilo miiran.",
-  "guide_greenscore_transparency_arg1_title": "Bawo ni awọn ara ilu ṣe le ṣe iranlọwọ",
-  "guide_greenscore_transparency_arg1_text": "Gbogbo awọn ara ilu le ṣe iranlọwọ fun wa lati ṣajọ ati ṣeto alaye ti o wa lori awọn ọja tabi ti o le ṣe yọkuro lati ọdọ wọn, gẹgẹbi alaye lori apoti: Awọn emballages Mission: atokọ ifọwọsowọpọ titobi nla ti apoti fun gbogbo awọn ọja ounjẹ (ni Faranse)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Bawo ni awọn olupese le ṣe iranlọwọ",
   "guide_greenscore_transparency_arg2_text": "Awọn aṣelọpọ le firanṣẹ alaye wọn taara si wa nipasẹ pẹpẹ ọfẹ wa fun awọn olupilẹṣẹ.",
   "guide_greenscore_better_product_title": "Ọja wo ni o dara julọ fun aye?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Awọn ẹgbẹ 4 NOVA",
   "guide_nova_groups_intro": "Awọn ẹgbẹ NOVA mẹrin wa, iṣoro naa jẹ Ẹgbẹ 4 - Awọn ounjẹ ti a ṣe ilana Ultra.",
   "guide_nova_groups_arg1_title": "Awọn ounjẹ ti a ti ni ilọsiwaju tabi awọn ounjẹ ti a ko ṣe ilana",
-  "guide_nova_groups_arg1_text": "Awọn ounjẹ ti a ko ṣe ilana (tabi adayeba) jẹ awọn ẹya ti o jẹun ti awọn irugbin (awọn irugbin, awọn eso, awọn ewe, awọn eso, awọn gbongbo) tabi ẹranko (isan, awọn ẹyin, ẹyin, wara), ati elu, ewe, ati omi, lẹhin ti a yapa kuro ninu ẹda.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Awọn eroja ounjẹ ti a ṣe ilana, gẹgẹbi awọn epo, bota, suga, ati iyọ, jẹ awọn nkan ti o wa lati awọn ounjẹ Ẹgbẹ 1 tabi lati iseda nipasẹ awọn ilana ti o ni titẹ, isọdọtun, lilọ, milling, ati gbigbe.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that Include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ẹfọ ti a fi sinu igo, ẹja ti a fi sinu akolo, awọn eso ninu omi ṣuga oyinbo, awọn warankasi, ati awọn akara titun ti a ṣe, ni akọkọ ṣe nipasẹ fifi iyọ, epo, suga, tabi awọn nkan miiran lati Ẹgbẹ 2 si awọn ounjẹ Ẹgbẹ 1. Awọn ilana pẹlu ọpọlọpọ awọn itọju tabi awọn ọna sise, ati ninu ọran ti akara ati warankasi, bakteria ti kii-ọti-lile. Pupọ awọn ounjẹ ti a ṣe ilana ni awọn eroja meji tabi mẹta ati pe o jẹ idanimọ bi awọn ẹya ti a yipada ti awọn ounjẹ Ẹgbẹ 1. Wọn le jẹ lori ara wọn tabi, ni igbagbogbo, ni apapo pẹlu awọn ounjẹ miiran.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic fermentation. most Processed foods Have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own Or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Awọn ounjẹ ti a ṣe ilana ultra, gẹgẹbi awọn ohun mimu rirọ, awọn ounjẹ ipanu ti o dun tabi didùn, awọn ọja ẹran ti a tun ṣe, ati awọn ounjẹ ti a ti mura silẹ tẹlẹ, kii ṣe awọn ounjẹ ti a tunṣe lasan ṣugbọn awọn agbekalẹ ti a ṣe ni okeene tabi patapata lati awọn nkan ti o wa lati awọn ounjẹ ati awọn afikun, pẹlu diẹ si ko si ounjẹ Ẹgbẹ 1 mule. Awọn eroja ninu awọn agbekalẹ wọnyi nigbagbogbo pẹlu awọn ti a tun rii ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn suga, awọn epo, awọn ọra, tabi iyọ. Bibẹẹkọ, awọn ọja ti a ṣe ilana ultra tun ni awọn orisun agbara miiran ati awọn ounjẹ ti kii ṣe lo deede ni awọn igbaradi ounjẹ. Diẹ ninu awọn wọnyi ni a fa jade taara lati awọn ounjẹ, gẹgẹbi casein, lactose, whey, ati gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other Sources of energy And nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Awọn iṣoro pẹlu ultra-processing",
   "guide_nova_explanations_arg1_title": "Awọn iwọn processing ti ounje eroja",
-  "guide_nova_explanations_arg1_text": "Ọpọlọpọ ni o wa lati iṣelọpọ siwaju sii ti awọn eroja ounjẹ, gẹgẹbi hydrogenated tabi awọn epo ti o nifẹ si, awọn ọlọjẹ hydrolyzed, soy protein isolate, maltodextrin, suga invert, ati omi ṣuga oyinbo agbado fructose giga.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Awọn afikun ti o kọja aabo ounje mimọ",
-  "guide_nova_explanations_arg2_text": "Awọn afikun ninu awọn ounjẹ ti a ṣe ilana ultra pẹlu diẹ ninu awọn ti a tun lo ninu awọn ounjẹ ti a ṣe ilana, gẹgẹbi awọn ohun itọju, awọn antioxidants, ati awọn amuduro. Awọn kilasi ti awọn afikun ti a rii nikan ni awọn ọja ti a ṣe ilana ultra pẹlu awọn ti a lo lati ṣe afarawe tabi mu awọn agbara ifarako ti awọn ounjẹ jẹ tabi lati paarọ awọn abala aibikita ti ọja ikẹhin. Awọn afikun wọnyi pẹlu awọn awọ ati awọn awọ miiran, awọn amuduro awọ; awọn adun, awọn imudara adun, awọn aladun ti kii ṣe suga; ati awọn iranlọwọ processing gẹgẹbi carbonating, firming, bulking ati egboogi-bulking òjíṣẹ, de-foaming, egboogi-caking ati glazing òjíṣẹ, emulsifiers, sequestrants, ati humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Ṣiṣeto o ko le ṣe ni ile",
-  "guide_nova_explanations_arg3_text": "Ọpọlọpọ awọn ilana ti awọn ilana ni a lo lati ṣajọpọ ọpọlọpọ awọn eroja nigbagbogbo ati lati ṣẹda ọja ikẹhin (nitorinaa 'iṣakoso-ilọsiwaju'). Awọn ilana naa pẹlu ọpọlọpọ pẹlu ko si awọn deede ile, gẹgẹbi hydrogenation ati hydrolysation, extrusion ati mimu, ati ṣiṣe-ṣaaju fun didin.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Awọn aperanje ati owo ise ti olekenka-processing",
-  "guide_nova_explanations_arg4_text": "Idi gbogbogbo ti iṣelọpọ olekenka ni lati ṣẹda iyasọtọ, irọrun (ti o tọ, ṣetan lati jẹ), ẹwa (hyper-palatable) ati ere pupọ (awọn eroja idiyele kekere) awọn ọja ounjẹ ti a ṣe apẹrẹ lati yi gbogbo awọn ẹgbẹ ounjẹ miiran pada. Awọn ọja ounjẹ ti a ṣe ilana Ultra ni a maa n ṣajọ ni ẹwa ati tita ni itara.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

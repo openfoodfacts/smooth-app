@@ -2947,6 +2947,9 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -4360,7 +4363,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Kuvuza imikhicito lencono ngaphakatsi kwesigaba, sibese sifaka emabhonasi & tinhlawulo ngekuya ngemigomo leminyenti:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4368,7 +4371,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4376,7 +4379,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ibhonasi iniketwa ngekuya ngemvelaphi yetitsako. Lebhonasi itsatsa umtselela wekutfutsa kanye nenchubomgomo yemvelo yelive lemkhiciti ngamunye.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4384,14 +4387,14 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4399,19 +4402,19 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Kubala kahle iGreen-Score, kuyadzingeka kutsi ube nelwati lolungakacaciswa ngalokucondzile emaphaketheni (njengemvelaphi kanye neliphesenti lelicondzile lesitsako ngasinye) noma lelingakavami kutfolakala ngendlela lesebentako (njengeluhlu lwato tonkhe tincenye temaphakethe ngeluhlobo lolucondzile lwepulasitiki lesetjentiswako).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Emanani lasemkhatsini asetjentiswa uma lolwati lungakatfolakali, kepha nyalo sicela wonkhe umuntfu kutsi asisite sibutsele ndzawonye lolwati lolutawuba lusito kakhulu ku-Green-Score kepha nakuletinye tintfo letinyenti letisetjentiswako.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Indlela takhamuti letingasita ngayo .';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Tonkhe takhamuti tingasisita kutsi sibutsele ndzawonye futsi sihlele lwati lolukhona kumikhicito noma lolungatsatfwa kuyo, njengelwati ngekupakisha: Mission Emballages: luhlu lolukhulu lwekubambisana lwekupakisha yonkhe imikhicito yekudla (ngesiFulentshi)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4487,28 +4490,28 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Kudla lokungakalungiswa (noma kwemvelo) tincenye letidliwako tetitjalo (tinhlanyelo, titselo, emacembe, ticu, timphandze) noma tilwane (imisipha, i-offal, emacandza, lubisi), kanye ne fungi, algae, kanye nemanti, ngemuva kwekuhlukaniswa nemvelo.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Tintfo letilungisiwe tekupheka, njengemafutsa, ibhotela, shukela, kanye neluswayi, tintfo letisuselwa ekudleni kweLicembu 1 noma kusuka emvelweni ngetinchubo letifaka ekhatsi kucindzetela, kucolisa, kugaya, kugaya, kanye nekomisa.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Kudla lokuphekiwe, njengetibhidvo letisemabhodleleni, imfishi lefakwe emathinini, titselo letisesiraphu, emashizi, kanye nesinkhwa lesisandza kwentiwa, kwentiwa kakhulu ngekufaka luswayi, emafutsa, shukela, noma letinye tintfo kusuka ekudleni kweLicembu 2 kuya kuLicembu 1. Tinchubo tifaka tindlela letehlukene tekulondvolota noma tekupheka, futsi esimeni sesinkhwa kanye nashizi, kubiliswa lokungekho tjwala. Kudla lokuningi lokucubunguliwe kunetintfo letimbili noma letintsatfu futsi kuyabonakala njengetinhlobo letiguculwe tekudla kweLicembu 1. Tingadliwa todvwa noma, ngalokuvamile, tihlanganiswe nalokunye kudla.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 To group 1** foods. processes include various preservation or cooking methods, and in the case Of breads and cheese, non-alcoholic fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Kudla lokucubungulwe kakhulu, njengetiphuzo letinongotelako, kudla lokuncane lokupakishiwe lokumnandzi noma lokunongotelako, imikhicito yenyama lephindze yakhiwe, kanye netidlo letilungiswe ngaphambilini letifriziwe, akusiko nje kudla lokuguculwe kepha kwakheka lokwentiwe kakhulu noma ngalokuphelele kusuka etintfweni letisuselwa ekudleni kanye nekwengeteka, ngekudla lokuncane noma lokute Group1 . Titsako letikuletinhlobo tivame kufaka ekhatsi leto letitfolakala ekudleni lokucubunguliwe, njengashukela, emafutsa, emafutsa, noma luswayi. Nomakunjalo, imikhicito lecubungulwe kakhulu iphindze ibe naleminye imitfombo yemandla kanye nemanutrients langakavami kusetjentiswa ekulungiseleleni kwekupheka. Letinye taletintfo titsatfwa ngco ekudleni, njenge-casein, i-lactose, i-whey, ne-gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little To No intact group 1 food. ingredients in these formulations usually include those also found In processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also Contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Tinkinga tekucubungula kakhulu';
@@ -4519,7 +4522,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Letinyenti titsatfwa ngekucubungula lokunyenti kwetintfo tekudla, njengemafutsa lane hydrogen noma lanesitsakatelo, emaprotein lane hydrogen, emaprotein e soy isolate, imaltodextrin, shukela logucukile, kanye nesiraphu yemabele lene fructose lesetulu.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4527,7 +4530,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Tintfo letingetiwe ekudleni lokucubunguliwe kakhulu tifaka ekhatsi letinye letiphindze tisetjentiswe ekudleni lokucubunguliwe, njengetintfo letilondvolotako, ema-antioxidants, kanye neticinisa. Emakilasi etintfo letingetiwe letitfolakala kuphela kumikhicito lecubungulwe kakhulu afaka ekhatsi leto letisetjentiselwa kulingisa noma kutfutfukisa timfanelo tetinzwa tekudla noma kufihla tincenye letingajabulisi temkhicito wekugcina. Letintfo letingetiwe tifaka ekhatsi emadayi kanye naleminye imibala, tintfo leticinisa imibala; tinongo, tintfo letikhutsata kunambitseka, tintfo letingashukela; kanye netinsita tekucubungula letifana nekukhipha icarbonate, kucinisa, kukhulisa kanye nekulwa nekukhulisa, kukhipha igwebu, kulwa nekukheka kanye nekugcobisa, tintfo letihlanganisako, tintfo letifaka emanti, kanye netintfo letifaka emanti.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4535,7 +4538,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Incumbi yekulandzelana kwetinchubo isetjentiswa kuhlanganisa tintfo letivame kuba tiningi kanye nekwakha umkhicito wekugcina (ngako ‘ultra-processed’). Letinchubo tifaka letiningi letite letilinganako tasekhaya, njenge hydrogenation kanye ne hydrolysis, kukhipha kanye nekubumba, kanye nekucubungula ngaphambi kwekuthosa.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4543,7 +4546,22 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Inhloso jikelele ye ultra-processing kwenta imikhicito yekudla leneluphawu, lelula (lehlala sikhatsi lesidze, lekulungele kudliwa), lekhangako (hyper-palatable) kanye nenzuzo lenkhulu (titsako letibita kancane) leyentelwe kususa onkhe lamanye emacembu ekudla. Imikhicito yekudla lecubunguliwe kakhulu ivame kupakishwa ngendlela lekhangako futsi itsengiswe kakhulu.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4613,7 +4631,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

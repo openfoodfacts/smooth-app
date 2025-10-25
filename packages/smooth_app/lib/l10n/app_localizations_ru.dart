@@ -3017,6 +3017,9 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Готово';
 
   @override
@@ -4455,7 +4458,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Чтобы поощрить лучшие продукты в категории, мы применяем бонусы и штрафы на основе нескольких критериев:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4463,7 +4466,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Бонус присуждается продуктам, имеющим официальную маркировку, этикетку или сертификацию, гарантирующую экологические преимущества (органический, справедливая торговля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4471,21 +4474,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Бонус присуждается в зависимости от происхождения ингредиентов. Этот бонус учитывает воздействие на транспортировку, а также экологическую политику страны-производителя.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title => 'Вымирающие виды';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Штраф взимается за продукты, содержащие ингредиенты, которые оказывают существенное негативное воздействие на биоразнообразие и экосистемы, например, пальмовое масло, производство которого приводит к массовой вырубке лесов.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Штраф рассчитывается с учетом цикличности упаковки (использование переработанного сырья и пригодности к вторичной переработке), а также избыточной упаковки.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4493,19 +4496,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Для точного расчета Green-Score необходимо иметь информацию, которая не обязательно указана на упаковке (например, происхождение и точное процентное содержание каждого ингредиента) или которая редко доступна в удобной для использования форме (например, список всех компонентов упаковки с указанием точных типов использованного пластика).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Средние значения используются, когда эта информация еще недоступна, но сейчас мы призываем всех помочь нам собрать эту информацию, которая будет очень полезна для Green-Score, а также для многих других целей.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Как граждане могут помочь';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Все граждане могут помочь нам собрать и структурировать информацию, которая присутствует на продуктах или которую можно из них вывести, например, информацию на упаковке: Mission Emballages: масштабная совместная инвентаризация упаковки для всех пищевых продуктов (на французском языке)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4579,7 +4582,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Необработанные (или натуральные) продукты питания — это съедобные части растений (семена, плоды, листья, стебли, корни) или животных (мышцы, субпродукты, яйца, молоко), а также грибы, водоросли и вода после отделения от природы.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title =>
@@ -4587,21 +4590,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Обработанные кулинарные ингредиенты, такие как масла, сливочное масло, сахар и соль, представляют собой вещества, полученные из продуктов группы 1 или из природы с помощью процессов, включающих прессование, рафинирование, измельчение, помол и сушку.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Обработанные пищевые продукты';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Переработанные продукты, такие как консервированные овощи, рыбные консервы, фрукты в сиропе, сыры и свежеиспечённый хлеб, в основном производятся с добавлением соли, масла, сахара или других веществ из групп 2 и 1. Процессы включают различные методы консервирования или приготовления, а в случае хлеба и сыра – безалкогольную ферментацию. Большинство переработанных продуктов состоят из двух или трёх ингредиентов и представляют собой модифицированные версии продуктов группы 1. Их можно употреблять отдельно или, что встречается чаще, в сочетании с другими продуктами.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. processes include various preservation or cooking methods, and in the case of Breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable As modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ультра-обработанные продукты';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ультраобработанные продукты, такие как безалкогольные напитки, сладкие или соленые упакованные закуски, восстановленные мясные продукты и полуфабрикаты замороженных блюд, – это не просто модифицированные продукты, а рецептуры, изготовленные преимущественно или полностью из веществ, полученных из пищевых продуктов и добавок, с минимальным содержанием или полным отсутствием цельных продуктов Группы 1. Ингредиенты в этих рецептурах обычно содержат те же ингредиенты, что и в обработанных продуктах, например, сахара, масла, жиры или соль. Однако ультраобработанные продукты содержат и другие источники энергии и питательных веществ, обычно не используемые в кулинарии. Некоторые из них, например, казеин, лактоза, сывороточный белок и глютен, напрямую извлекаются из пищевых продуктов.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. Ingredients In these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-Processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Проблемы с ультра-обработкой';
@@ -4612,7 +4615,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Многие из них получены путем дальнейшей переработки пищевых компонентов, таких как гидрогенизированные или переэтерифицированные масла, гидролизованные белки, изолят соевого белка, мальтодекстрин, инвертный сахар и кукурузный сироп с высоким содержанием фруктозы.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4620,7 +4623,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Добавки в ультраобработанных продуктах включают в себя те же, что используются и в обработанных продуктах, например, консерванты, антиоксиданты и стабилизаторы. К классам добавок, встречающихся только в ультраобработанных продуктах, относятся те, которые используются для имитации или улучшения сенсорных качеств продуктов или для маскировки неприятных вкусовых качеств конечного продукта. К таким добавкам относятся красители и другие красители, стабилизаторы цвета, ароматизаторы, усилители вкуса, подсластители, не содержащие сахара, а также технологические добавки, такие как карбонизаторы, уплотнители, наполнители и антинаполнители, пеногасители, антислеживатели и глазирующие агенты, эмульгаторы, секвестранты и увлажнители.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4628,7 +4631,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Для объединения обычно многочисленных ингредиентов и создания конечного продукта (отсюда и название «ультраобработанный») используется множество последовательностей процессов. Некоторые из них не имеют аналогов в отечественном производстве, например, гидрогенизация и гидролиз, экструзия и формование, а также предварительная обработка для жарки.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4636,7 +4639,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Основная цель ультрапереработки — создание фирменных, удобных (долговечных, готовых к употреблению), привлекательных (очень вкусных) и высокорентабельных (с использованием недорогих ингредиентов) пищевых продуктов, призванных вытеснить все другие группы продуктов питания. Ультрапереработанные продукты обычно имеют привлекательную упаковку и активно продвигаются на рынке.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4706,7 +4724,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>

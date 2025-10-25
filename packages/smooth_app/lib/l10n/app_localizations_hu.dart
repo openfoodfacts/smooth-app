@@ -2975,6 +2975,9 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Kész';
 
   @override
@@ -4389,7 +4392,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'A kategórián belüli jobb termékek jutalmazása érdekében bónuszokat és büntetéseket alkalmazunk több kritérium alapján:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4397,7 +4400,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4405,7 +4408,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A bónusz az összetevők eredete alapján jár. Ez a bónusz figyelembe veszi a szállításra gyakorolt hatást, valamint az egyes termelők országának környezetvédelmi politikáját.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4413,14 +4416,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Csomagolás';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4428,19 +4431,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'A Green-Score pontos kiszámításához olyan információkra van szükség, amelyek nem feltétlenül szerepelnek a csomagoláson (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Az átlagértékeket akkor használjuk, ha ez az információ még nem áll rendelkezésre, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Hogyan segíthetnek a polgárok';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk, például a csomagoláson található információk összegyűjtésében és rendszerezésében: Mission Emballages: nagyszabású, közösen készített nyilvántartás az összes élelmiszertermék csomagolásáról (francia nyelven)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4515,21 +4518,21 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'A feldolgozatlan (vagy természetes) élelmiszerek a növények (magvak, gyümölcsök, levelek, szárak, gyökerek) vagy az állatok (izom, belsőségek, tojás, tej), valamint a gombák, algák és a víz ehető részei, miután elválasztották őket a természettől.';
+      'UNPROCESSED (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Feldolgozott összetevők';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'A feldolgozott kulináris összetevők, mint például az olajok, a vaj, a cukor és a só, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyek olyan eljárásokon keresztül származnak, mint a préselés, finomítás, őrlés, marás és szárítás.';
+      'PROCESSED culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Feldolgozott élelmiszerek';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'A feldolgozott élelmiszerek, mint például a konzerv zöldségek, a konzerv hal, a szirupban tartósított gyümölcsök, a sajtok és a frissen sült kenyerek, elsősorban só, olaj, cukor vagy más, a 2. és 1. csoportba tartozó anyagok hozzáadásával készülnek. Az eljárások magukban foglalják a különféle tartósítási vagy főzési módszereket, a kenyerek és sajtok esetében pedig az alkoholmentes erjesztést. A legtöbb feldolgozott élelmiszer két vagy három összetevőből áll, és felismerhető az 1. csoportba tartozó élelmiszerek módosított változataként. Önmagukban vagy – gyakrabban – más élelmiszerekkel kombinálva fogyaszthatók.';
+      'PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have TWO or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title =>
@@ -4537,7 +4540,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Az ultrafeldolgozott élelmiszerek, mint például az üdítőitalok, az édes vagy sós csomagolt snackek, a húskészítmények és az előre elkészített fagyasztott ételek, nem pusztán módosított élelmiszerek, hanem olyan készítmények, amelyek nagyrészt vagy teljes egészében élelmiszerekből és adalékanyagokból készülnek, kevés vagy semmilyen ép 1. csoportú élelmiszerrel. Ezekben a készítményekben általában olyan összetevők találhatók, amelyek a feldolgozott élelmiszerekben is megtalálhatók, például cukrok, olajok, zsírok vagy só. Az ultrafeldolgozott termékek azonban más energiaforrásokat és tápanyagokat is tartalmaznak, amelyeket általában nem használnak a kulináris készítményekben. Ezek közül néhányat közvetlenül élelmiszerekből vonnak ki, például kazeint, laktózt, tejsavót és glutént.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4549,7 +4552,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Sokuk élelmiszer-összetevők további feldolgozásából származik, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4557,7 +4560,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukba foglalják azokat, amelyeket az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, térfogatnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4565,7 +4568,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Számos folyamatsorozatot alkalmaznak a szokásosan sok összetevő kombinálására és a végtermék (innen ered az „ultrafeldolgozott”) előállítására. A folyamatok között több olyan is van, amelyeknek nincs hazai megfelelőjük, mint például a hidrogénezés és hidrolizálás, az extrudálás és formázás, valamint a sütéshez való előfeldolgozás.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4573,7 +4576,22 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből álló) élelmiszertermékek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
@@ -4643,7 +4661,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help Us build the \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
