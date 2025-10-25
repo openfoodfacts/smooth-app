@@ -1,15 +1,21 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode) : super(const FolksonomyStateLoading()) {
+  FolksonomyProvider(this.barcode, this.localDatabase)
+    : super(const FolksonomyStateLoading()) {
     fetchProductTags();
   }
 
   final String barcode;
+  final LocalDatabase localDatabase;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
   final ProductRefresher _productRefresher = ProductRefresher();
@@ -57,9 +63,19 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
+  // Display tags from local database first (to see it offline), then update from API.
   Future<void> fetchProductTags() async {
     try {
-      value = const FolksonomyStateLoading();
+      final List<ProductTag> localTags = await DaoFolksonomy(
+        localDatabase,
+      ).getTags(barcode);
+      if (localTags.isNotEmpty) {
+        _tags.clear();
+        _tags.addAll(localTags);
+        value = FolksonomyStateLoaded(tags: _tags);
+      } else {
+        value = const FolksonomyStateLoading();
+      }
 
       final Map<String, ProductTag> tags =
           await FolksonomyAPIClient.getProductTags(
@@ -70,9 +86,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       _tags.clear();
       _tags.addAll(tags.values);
 
+      unawaited(DaoFolksonomy(localDatabase).saveTags(barcode, _tags));
+
       value = FolksonomyStateLoaded(tags: _tags);
     } catch (e) {
-      value = FolksonomyStateError(error: e);
+      // value = FolksonomyStateError(error: e);
     }
   }
 
