@@ -717,7 +717,7 @@
   },
   "hey_incomplete_product_message": "¡Toque para responder 3 preguntas AHORA para calcular Nutri-Score, Green-Score y Ultraprocesado (NOVA)!",
   "hey_incomplete_product_message_beauty": "¡Toca aquí para responder 2 preguntas para ayudarnos a analizar este cosmético!",
-  "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+  "hey_incomplete_product_message_pet_food": "",
   "hey_incomplete_product_message_product": "Tap now to help complete this product!",
   "nutritional_facts_photo_uploaded": "Imagen sobre información nutricional subida",
   "@nutritional_facts_photo_uploaded": {},
