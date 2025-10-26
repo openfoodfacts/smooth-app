@@ -36,10 +36,16 @@ class DaoFolksonomy extends AbstractSqlDao {
     }
   }
 
-  Future<void> saveTags(
-    final String barcode,
-    final List<ProductTag> tags,
-  ) async {
+  Future<void> put(final String barcode, final List<ProductTag>? tags) async {
+    if (tags == null) {
+      await localDatabase.database.delete(
+        _table,
+        where: '$_columnBarcode = ?',
+        whereArgs: <String>[barcode],
+      );
+      return;
+    }
+
     final String tagsString = jsonEncode(
       tags.map((ProductTag tag) => tag.toJson()).toList(),
     );
@@ -50,7 +56,7 @@ class DaoFolksonomy extends AbstractSqlDao {
     });
   }
 
-  Future<List<ProductTag>> getTags(final String barcode) async {
+  Future<List<ProductTag>?> get(final String barcode) async {
     final List<Map<String, dynamic>> result = await localDatabase.database
         .query(
           _table,
@@ -60,7 +66,7 @@ class DaoFolksonomy extends AbstractSqlDao {
         );
 
     if (result.isEmpty) {
-      return <ProductTag>[];
+      return null;
     }
 
     final List<dynamic> tags =

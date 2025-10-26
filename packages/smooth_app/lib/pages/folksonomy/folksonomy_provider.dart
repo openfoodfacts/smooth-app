@@ -65,16 +65,15 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   // Display tags from local database first (to see it offline), then update from API.
   Future<void> fetchProductTags() async {
+    if (_tags.isEmpty) {
+      value = const FolksonomyStateLoading();
+    }
+
     try {
-      final List<ProductTag> localTags = await DaoFolksonomy(
-        localDatabase,
-      ).getTags(barcode);
-      if (localTags.isNotEmpty) {
-        _tags.clear();
-        _tags.addAll(localTags);
-        value = FolksonomyStateLoaded(tags: _tags);
-      } else {
-        value = const FolksonomyStateLoading();
+      final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
+      final List<ProductTag>? localTags = await daoFolksonomy.get(barcode);
+      if (localTags != null) {
+        _updateTags(localTags);
       }
 
       final Map<String, ProductTag> tags =
@@ -83,14 +82,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
             uriHelper: ProductQuery.uriFolksonomyHelper,
           );
 
-      _tags.clear();
-      _tags.addAll(tags.values);
-
-      unawaited(DaoFolksonomy(localDatabase).saveTags(barcode, _tags));
-
-      value = FolksonomyStateLoaded(tags: _tags);
+      await daoFolksonomy.put(barcode, tags.values.toList());
+      _updateTags(tags.values.toList());
     } catch (e) {
-      // value = FolksonomyStateError(error: e);
+      if (_tags.isEmpty) {
+        value = FolksonomyStateError(error: e);
+      }
     }
   }
 
@@ -259,6 +256,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   void _sortTags() {
     _tags.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
+  }
+
+  void _updateTags(final List<ProductTag> tags) {
+    _tags.clear();
+    _tags.addAll(tags);
+    value = FolksonomyStateLoaded(tags: _tags);
   }
 }
 
