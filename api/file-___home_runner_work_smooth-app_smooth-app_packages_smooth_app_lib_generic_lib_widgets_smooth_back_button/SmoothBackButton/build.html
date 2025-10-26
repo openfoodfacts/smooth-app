@@ -85,25 +85,12 @@ Widget build(BuildContext context) {
             Navigator.of(context).maybePop();
           },
           child: SizedBox.expand(
-            child: backButtonType == BackButtonType.minimize
-                ? const icons.Chevron.down(size: 16.0)
-                : Padding(
-                    padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                    child: DecoratedBox(
-                      decoration: ShapeDecoration(
-                        shape: CircleBorder(
-                          side: BorderSide(
-                            color: iconColor ?? Colors.white,
-                            width: 1.75,
-                          ),
-                        ),
-                      ),
-                      child: icons.Arrow.left(
-                        size: 16.0,
-                        color: iconColor ?? Colors.white,
-                      ),
-                    ),
-                  ),
+            child: _circledIcon(switch (backButtonType ??
+                BackButtonType.back) {
+              BackButtonType.back =&gt; const icons.Arrow.left(),
+              BackButtonType.close =&gt; const icons.Close.bold(),
+              BackButtonType.minimize =&gt; const icons.Chevron.down(),
+            }),
           ),
         ),
       ),

@@ -72,6 +72,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;PreferenceCard&gt; getCards(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final bool lightTheme = context.lightTheme();
 
   return &lt;PreferenceCard&gt;[
     PreferenceCard(
@@ -87,11 +88,11 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.preferences_faq_discover_project_title,
       tiles: &lt;PreferenceTile&gt;[
-        _buildDiscoverOffTile(context, appLocalizations),
-        _buildDiscoverObfTile(context, appLocalizations),
-        _buildDiscoverOpffTile(context, appLocalizations),
-        _buildDiscoverOpfTile(context, appLocalizations),
-        _buildDiscoverOpTile(context, appLocalizations),
+        _buildDiscoverOffTile(context, appLocalizations, lightTheme),
+        _buildDiscoverObfTile(context, appLocalizations, lightTheme),
+        _buildDiscoverOpffTile(context, appLocalizations, lightTheme),
+        _buildDiscoverOpfTile(context, appLocalizations, lightTheme),
+        _buildDiscoverOpTile(context, appLocalizations, lightTheme),
         _buildHowToContributeTile(appLocalizations),
         _buildFaqTile(appLocalizations),
       ],

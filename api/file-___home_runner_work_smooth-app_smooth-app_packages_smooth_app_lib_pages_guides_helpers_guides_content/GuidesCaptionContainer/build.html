@@ -71,27 +71,37 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  Widget body = Column(
+    spacing: spacing ?? 5.0,
+    children: &lt;Widget&gt;[
+      child,
+      Text(
+        caption,
+        style: TextStyle(
+          fontSize: 13.0,
+          fontStyle: FontStyle.italic,
+          color: context.lightTheme() ? Colors.black : Colors.white,
+        ),
+      ),
+    ],
+  );
+
+  if (trailing != null) {
+    body = Row(
+      mainAxisSize: MainAxisSize.min,
+      spacing: MEDIUM_SPACE,
+      children: &lt;Widget&gt;[
+        Expanded(child: body),
+        trailing!,
+      ],
+    );
+  }
+
   return Semantics(
     label: caption,
     image: true,
     excludeSemantics: true,
-    child: GuidesContainer(
-      onTap: onTap,
-      child: Column(
-        spacing: 5.0,
-        children: &lt;Widget&gt;[
-          child,
-          Text(
-            caption,
-            style: TextStyle(
-              fontSize: 13.0,
-              fontStyle: FontStyle.italic,
-              color: context.lightTheme() ? Colors.black : Colors.white,
-            ),
-          ),
-        ],
-      ),
-    ),
+    child: GuidesContainer(onTap: onTap, child: body),
   );
 }</code></pre>
 </section>
@@ -129,6 +139,8 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_guides_helpers_guides_content/GuidesCaptionContainer/onTap.html">onTap</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_guides_helpers_guides_content/GuidesCaptionContainer/spacing.html">spacing</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_guides_helpers_guides_content/GuidesCaptionContainer/trailing.html">trailing</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_guides_helpers_guides_content/GuidesCaptionContainer-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_guides_helpers_guides_content/GuidesCaptionContainer/build.html">build</a></li>
