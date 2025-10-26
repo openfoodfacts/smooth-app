@@ -72,7 +72,8 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return ChangeNotifierProvider&lt;FolksonomyProvider&gt;(
-    create: (_) =&gt; FolksonomyProvider(product.barcode!),
+    create: (_) =&gt;
+        FolksonomyProvider(product.barcode!, context.read&lt;LocalDatabase&gt;()),
     child: Provider&lt;Product&gt;.value(
       value: product,
       child: const _FolksonomyCard(),
