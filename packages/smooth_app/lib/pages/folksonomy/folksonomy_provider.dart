@@ -81,9 +81,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
             barcode: barcode,
             uriHelper: ProductQuery.uriFolksonomyHelper,
           );
+      final List<ProductTag> remoteTags = tags.values.toList();
+      print('hehe remote tags - $remoteTags');
 
-      await daoFolksonomy.put(barcode, tags.values.toList());
-      _updateTags(tags.values.toList());
+      await daoFolksonomy.put(barcode, remoteTags);
+      _updateTags(remoteTags);
     } catch (e) {
       if (_tags.isEmpty) {
         value = FolksonomyStateError(error: e);
@@ -254,14 +256,28 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   ProductTag? _getTag(String key) =>
       _tags.firstWhereOrNull((ProductTag tag) => tag.key == key);
 
-  void _sortTags() {
-    _tags.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
-  }
-
   void _updateTags(final List<ProductTag> tags) {
+    if (_equals(tags)) {
+      if (value is FolksonomyStateLoading) {
+        value = FolksonomyStateLoaded(tags: _tags);
+      }
+      return;
+    }
     _tags.clear();
     _tags.addAll(tags);
+    _sortTags();
     value = FolksonomyStateLoaded(tags: _tags);
+  }
+
+  bool _equals(final List<ProductTag> tags) {
+    final List<ProductTag> sortedTags = List<ProductTag>.from(tags);
+    _sortTags(sortedTags);
+    return const DeepCollectionEquality().equals(_tags, sortedTags);
+  }
+
+  void _sortTags([List<ProductTag>? tags]) {
+    final List<ProductTag> toSort = tags ?? _tags;
+    toSort.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
   }
 }
 
