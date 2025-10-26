@@ -82,7 +82,6 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
             uriHelper: ProductQuery.uriFolksonomyHelper,
           );
       final List<ProductTag> remoteTags = tags.values.toList();
-      print('hehe remote tags - $remoteTags');
 
       await daoFolksonomy.put(barcode, remoteTags);
       _updateTags(remoteTags);
