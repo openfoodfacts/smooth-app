@@ -7,6 +7,7 @@ import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class GuideOpenProductsFacts extends StatelessWidget {
   const GuideOpenProductsFacts({super.key});
@@ -15,7 +16,7 @@ class GuideOpenProductsFacts extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return GuidesPage(
+    return GuidesPage.smallHeader(
       pageName: 'OpenProductsFacts',
       header: const _OpenProductsFactsHeader(),
       body: const <Widget>[
@@ -52,16 +53,18 @@ class _OpenProductsFactsHeaderIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return const Align(
       alignment: AlignmentDirectional.centerEnd,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Expanded(
             flex: 32,
-            child: SvgPicture.asset(
-              'assets/guides/open_products_facts/open_products_facts_logo.svg',
-              width: 120.0,
+            child: SvgPicture(
+              AssetBytesLoader(
+                'assets/guides/open_products_facts/open_products_facts_logo.svg.vec',
+              ),
+              width: 140.0,
             ),
           ),
         ],
@@ -89,10 +92,12 @@ class _OpenProductsFactsSection1 extends StatelessWidget {
           text: appLocalizations
               .guide_open_products_facts_what_is_open_products_facts_paragraph2,
         ),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-          child: SvgPicture.asset(
-            'assets/guides/open_products_facts/washing_machine.svg',
+        const Padding(
+          padding: EdgeInsetsDirectional.only(top: LARGE_SPACE),
+          child: SvgPicture(
+            AssetBytesLoader(
+              'assets/guides/open_products_facts/washing_machine.svg.vec',
+            ),
             width: 80.0,
           ),
         ),
@@ -120,23 +125,24 @@ class _OpenProductsFactsSection2 extends StatelessWidget {
           text: appLocalizations.guide_open_products_facts_features_arg1_text,
         ),
         GuidesImage(
-          imagePath: 'assets/guides/open_products_facts/impact_co2.svg',
+          imagePath: 'assets/guides/open_products_facts/impact_co2.svg.vec',
           caption: appLocalizations.guide_learn_more_subtitle,
           desiredWidthPercent: 0.3,
-          onTap: () {
-            launchUrlString('https://impactco2.fr/');
-          },
+          onTap: () => launchUrlString('https://impactco2.fr/'),
         ),
         GuidesTitleWithText(
-          icon: const icons.Build(color: Colors.white),
+          icon: const icons.Toolbox(),
           title: appLocalizations.guide_open_products_facts_features_arg2_title,
           text: appLocalizations.guide_open_products_facts_features_arg2_text,
         ),
         GuidesImage(
           imagePath:
-              'assets/guides/open_products_facts/reparability_index_9_3.svg',
+              'assets/guides/open_products_facts/reparability_index.svg.vec',
           caption: appLocalizations.guide_learn_more_subtitle,
           desiredWidthPercent: 0.3,
+          onTap: () => launchUrlString(
+            'https://www.ecologie.gouv.fr/politiques-publiques/indice-reparabilite',
+          ),
         ),
         GuidesTitleWithText(
           icon: const icons.Donate(),
@@ -158,9 +164,7 @@ class _OpenProductsFactsSection3 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_open_products_facts_information_title,
       content: <Widget>[
-        GuidesTitleWithText(
-          title: appLocalizations.guide_open_products_facts_information_title,
-          icon: const icons.Gears(),
+        GuidesText(
           text: appLocalizations.guide_open_products_facts_information_text,
         ),
       ],

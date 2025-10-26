@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -408,6 +409,9 @@ class _ProductImageDetailsButton extends StatelessWidget {
           title: appLocalizations.photo_viewer_details_contributor_title,
           subTitle: image.contributor ?? '-',
           leading: const icons.Profile(),
+          trailing: image.contributor?.startsWith('org') == true
+              ? const OwnerFieldIcon()
+              : null,
         ),
         ModalSheetItem(
           title: appLocalizations.photo_viewer_details_date_title,

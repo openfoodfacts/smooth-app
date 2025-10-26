@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Mara kaj dolĉa akvo (partikloj, acidiĝo, eŭtrofiĝo)",
   "guide_greenscore_lca_arg3_text8": "Malplenigo de rimedoj.",
   "guide_greenscore_bonuses_penalties_title": "Gratifikoj kaj punoj",
-  "guide_greenscore_bonuses_penalties_intro": "Por rekompenci pli bonajn produktojn ene de kategorio, ni aplikas gratifikojn kaj punojn bazitajn sur pluraj kriterioj:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origino de ingrediencoj",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Gratifiko estas aljuĝata surbaze de la deveno de la ingrediencoj. Ĉi tiu gratifiko konsideras la efikon sur transportadon kaj ankaŭ la median politikon de la lando de ĉiu produktanto.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Pakaĵo",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Por precize kalkuli la Verdan Poentaron, necesas havi informojn, kiuj ne nepre estas specifitaj sur la pakaĵo (kiel ekzemple la origino kaj la preciza procento de ĉiu ingredienco) aŭ kiuj malofte haveblas en uzebla formo (kiel ekzemple listo de ĉiuj komponantoj de la pakaĵo kun la precizaj specoj de uzitaj plastoj).",
-  "guide_greenscore_transparency_intro2": "Mezaj valoroj estas uzataj kiam ĉi tiu informo ankoraŭ ne haveblas, sed ni nun alvokas ĉiujn helpi nin kolekti ĉi tiun informon, kiu estos tre utila por la Verda-Poentaro sed ankaŭ por multaj aliaj uzoj.",
-  "guide_greenscore_transparency_arg1_title": "Kiel civitanoj povas helpi",
-  "guide_greenscore_transparency_arg1_text": "Ĉiuj civitanoj povas helpi nin kolekti kaj strukturi la informojn, kiuj troviĝas sur produktoj aŭ kiujn oni povas dedukti el ili, kiel ekzemple informojn pri pakaĵoj: Misio Emballages: grandskala kunlabora inventaro de pakaĵoj por ĉiuj nutraĵaj produktoj (en la franca)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Kiel fabrikantoj povas helpi",
   "guide_greenscore_transparency_arg2_text": "Fabrikistoj povas sendi al ni siajn informojn rekte per nia senpaga platformo por produktantoj.",
   "guide_greenscore_better_product_title": "Kiu produkto estas pli bona por la planedo?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "La 4 NOVA-grupoj",
   "guide_nova_groups_intro": "Ekzistas 4 NOVA-grupoj, la problema estas Grupo 4 - Ultra-prilaboritaj manĝaĵoj.",
   "guide_nova_groups_arg1_title": "Minimume prilaboritaj aŭ neprilaboritaj manĝaĵoj",
-  "guide_nova_groups_arg1_text": "Neprilaboritaj (aŭ naturaj) manĝaĵoj estas la manĝeblaj partoj de plantoj (semoj, fruktoj, folioj, tigoj, radikoj) aŭ bestoj (muskoloj, buĉruboj, ovoj, lakto), same kiel fungoj, algoj kaj akvo, post apartigo de la naturo.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Prilaboritaj kuirartaj ingrediencoj, kiel ekzemple oleoj, butero, sukero kaj salo, estas substancoj derivitaj de Grupo 1 manĝaĵoj aŭ de la naturo per procezoj kiuj inkluzivas premadon, rafinadon, mueladon, mueladon kaj sekigadon.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Pretigitaj manĝaĵoj, kiel ekzemple botelitaj legomoj, konservitaj fiŝoj, fruktoj en siropo, fromaĝoj kaj freŝe faritaj panoj, estas ĉefe faritaj per aldono de salo, oleo, sukero aŭ aliaj substancoj el Grupo 2 al manĝaĵoj de Grupo 1. Procezoj inkluzivas diversajn konservadajn aŭ kuiradajn metodojn, kaj en la kazo de panoj kaj fromaĝo, senalkoholan fermentadon. Plej multaj pretigitaj manĝaĵoj havas du aŭ tri ingrediencojn kaj estas rekoneblaj kiel modifitaj versioj de manĝaĵoj de Grupo 1. Ili povas esti manĝataj solaj aŭ, pli ofte, kombine kun aliaj manĝaĵoj.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include Various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they Can be Eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ultra-prilaboritaj manĝaĵoj, kiel ekzemple nealkoholaĵoj, dolĉaj aŭ bongustaj pakitaj manĝetoj, rekonstruitaj viandproduktoj kaj antaŭpreparitaj frostaj pladoj, ne estas nur modifitaj manĝaĵoj, sed formuloj faritaj plejparte aŭ tute el substancoj derivitaj de manĝaĵoj kaj aldonaĵoj, kun malmulte aŭ neniu sendifekta Grupo 1 manĝaĵo. Ingrediencoj en ĉi tiuj formuloj kutime inkluzivas tiujn ankaŭ troveblajn en prilaboritaj manĝaĵoj, kiel ekzemple sukeroj, oleoj, grasoj aŭ salo. Tamen, ultra-prilaboritaj produktoj ankaŭ enhavas aliajn fontojn de energio kaj nutraĵoj ne tipe uzataj en kuirartaj preparoj. Kelkaj el ĉi tiuj estas rekte ekstraktitaj el manĝaĵoj, kiel ekzemple kazeino, laktozo, selakto kaj gluteno.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little To no intact Group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "La problemoj kun ultra-prilaborado",
   "guide_nova_explanations_arg1_title": "Ekstrema prilaborado de manĝaĵingrediencoj",
-  "guide_nova_explanations_arg1_text": "Multaj devenas de plia prilaborado de manĝeroj, kiel ekzemple hidrogenigitaj aŭ interesterigitaj oleoj, hidroligitaj proteinoj, sojproteina izolitaĵo, maltodekstrino, inversa sukero kaj maiza siropo kun alta fruktozo.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aldonaĵoj kiuj iras preter pura manĝaĵsekureco",
-  "guide_nova_explanations_arg2_text": "Aldonaĵoj en ultra-prilaboritaj manĝaĵoj inkluzivas kelkajn, kiuj ankaŭ estas uzataj en prilaboritaj manĝaĵoj, kiel ekzemple konserviloj, antioksidantoj kaj stabiligiloj. Klasoj de aldonaĵoj troveblaj nur en ultra-prilaboritaj produktoj inkluzivas tiujn uzatajn por imiti aŭ plibonigi la sensajn kvalitojn de manĝaĵoj aŭ por kaŝi nemanĝeblajn aspektojn de la fina produkto. Ĉi tiuj aldonaĵoj inkluzivas tinkturfarbojn kaj aliajn kolorojn, kolorstabiligilojn; gustojn, gustoplibonigilojn, ne-sukerajn dolĉigilojn; kaj prilaborajn helpaĵojn kiel ekzemple karbonigiloj, firmigiloj, volumigiloj kaj kontraŭ-volumigiloj, senŝaŭmigaj, kontraŭkunpremiĝaj kaj glazuraj agentoj, emulsiigiloj, sekvestrantoj kaj humidigiloj.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Prilaborado, kiun vi ne povas fari hejme",
-  "guide_nova_explanations_arg3_text": "Amaso da sekvencoj de procezoj estas uzataj por kombini la kutime multajn ingrediencojn kaj krei la finan produkton (tial \"ultra-prilaborita\"). La procezoj inkluzivas plurajn sen hejmaj ekvivalentoj, kiel ekzemple hidratigo kaj hidrolizo, eltrudado kaj muldado, kaj antaŭprilaborado por fritado.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "La rabaj kaj financaj aspektoj de ultra-prilaborado",
-  "guide_nova_explanations_arg4_text": "La ĝenerala celo de ultra-prilaborado estas krei markitajn, oportunajn (daŭremajn, pretajn por konsumo), allogajn (hiper-bongustajn) kaj tre profitodonajn (malaltkostajn ingrediencojn) manĝaĵojn, desegnitajn por anstataŭigi ĉiujn aliajn nutraĵgrupojn. Ultra-prilaboritaj manĝaĵoj kutime estas alloge pakitaj kaj intense surmerkatigitaj.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

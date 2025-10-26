@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Amanzi olwandle nahlanzekile (izinhlayiya, i-acidification, i-eutrophication)",
   "guide_greenscore_lca_arg3_text8": "Ukuqedwa kwezinsiza.",
   "guide_greenscore_bonuses_penalties_title": "Amabhonasi nezijeziso",
-  "guide_greenscore_bonuses_penalties_intro": "Ukuze siklomelise imikhiqizo engcono phakathi kwesigaba, sibe sesisebenzisa amabhonasi nezinhlawulo ngokusekelwe kumbandela othile:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Ibhonasi inikezwa ngokusekelwe kumsuka wezithako. Le bhonasi ibheka umthelela kwezokuthutha kanye nenqubomgomo yezemvelo yezwe ngalinye lomkhiqizi.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Ukuze ubale kahle i-Green-Score, kuyadingeka ukuthi ube nolwazi olungacaciswanga ngempela emaphaketheni (njengomsuka kanye nephesenti eliqondile lesithako ngasinye) noma olungatholakali ngendlela esebenzisekayo (njengohlu lwazo zonke izingxenye zephakeji ezinezinhlobo eziqondile zamapulasitiki asetshenzisiwe).",
-  "guide_greenscore_transparency_intro2": "Amanani amaphakathi asetshenziswa uma lolu lwazi lungakatholakali, kodwa manje sicela wonke umuntu ukuthi asisize siqoqe lolu lwazi oluzoba usizo kakhulu ku-Green-Score kodwa nakwezinye izinto eziningi.",
-  "guide_greenscore_transparency_arg1_title": "Izakhamizi zingasiza kanjani",
-  "guide_greenscore_transparency_arg1_text": "Zonke izakhamizi zingasisiza ukuthi siqoqe futhi sihlele imininingwane ekhona emikhiqizweni noma engathathwa kuyo, njengolwazi lokupakishwa: I-Mission Emballages: uhlu olubanzi lokuhlanganisa lokupakishwa kwayo yonke imikhiqizo yokudla (ngesiFulentshi)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Abakhiqizi bangasiza kanjani",
   "guide_greenscore_transparency_arg2_text": "Abakhiqizi bangasithumela imininingwane yabo ngokuqondile ngenkundla yethu yamahhala yabakhiqizi.",
   "guide_greenscore_better_product_title": "Imuphi umkhiqizo ongcono emhlabeni?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Amaqembu angu-4 we-NOVA",
   "guide_nova_groups_intro": "Kunamaqembu angu-4 e-NOVA, eliyinkinga i-Group 4 - ukudla okucutshungulwe kakhulu.",
   "guide_nova_groups_arg1_title": "Ukudla okugayiwe kancane noma okungacutshunguliwe",
-  "guide_nova_groups_arg1_text": "Ukudla okungacutshungulwayo (noma okungokwemvelo) yizingxenye ezidliwayo zezitshalo (imbewu, izithelo, amaqabunga, iziqu, izimpande) noma izilwane (imisipha, i-offal, amaqanda, ubisi), kanye nesikhunta, ulwelwe, namanzi, ngemva kokuhlukaniswa nemvelo.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Izithako zokupheka ezicutshungulwayo, ezifana namafutha, ibhotela, ushukela, nosawoti, yizinto ezitholakala ekudleni kweQembu 1 noma emvelweni ngezinqubo ezihlanganisa ukucindezela, ukucwenga, ukugaya, ukugaya, nokomisa.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Ukudla okugayiwe, okufana nemifino esemabhodleleni, inhlanzi ekheniwe, izithelo kusiraphu, ushizi, nezinkwa ezisanda kwenziwa, ngokuyinhloko kwenziwa ngokufaka usawoti, uwoyela, ushukela, noma ezinye izinto ezivela kuQembu 2 kuya ekudleni kweQembu 1. Izinqubo zihlanganisa izindlela ezihlukahlukene zokulondoloza noma zokupheka, futhi endabeni yezinkwa noshizi, ukuvutshelwa okungenalo utshwala. Ukudla okuningi okugayiwe kunezithako ezimbili noma ezintathu futhi kubonakala njengezinguqulo eziguquliwe zokudla kweQembu 1. Zingadliwa zodwa noma, ngokuvamile, zihlanganiswe nokunye ukudla.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** foods. processes include various preservation or cooking methods, and in The case of breads and cheese, non-alcoholic fermentation. most processed foods have two Or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ukudla okugayiwe kakhulu, okufana neziphuzo ezibandayo, ukudla okulula okupakishwe okumnandi noma okumnandi, imikhiqizo yenyama ehlanganiswe kabusha, nezitsha eziqandisiwe ezilungiselelwe kusengaphambili, akukhona nje ukudla okushintshiwe kodwa okwenziwa kakhulu noma ngokuphelele ngezinto ezithathwe ekudleni nasezithasiselweni, nokudla okungaphelele kweQembu 1. Izithako kulokhu kwakheka ngokuvamile zihlanganisa lezo ezitholakala nasekudleni okugayiwe, njengoshukela, amafutha, amafutha, noma usawoti. Kodwa-ke, imikhiqizo ecutshungulwe kakhulu iqukethe eminye imithombo yamandla nemisoco engavamile ukusetshenziselwa ukupheka. Ezinye zazo zikhishwa ngokuqondile ekudleni, njenge-casein, i-lactose, i-whey, ne-gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and Additives**, with little to no intact group 1 food. ingredients in these formulations usually Include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Izinkinga nge-ultra-processing",
   "guide_nova_explanations_arg1_title": "Ukucubungula ngokwedlulele kwezithako zokudla",
-  "guide_nova_explanations_arg1_text": "Eziningi zitholakala ekuqhubekiseni phambili ukucubungula kwezakhi zokudla, njengamafutha e-hydrogenated noma anentshisekelo, amaprotheni e-hydrolyzed, i-soy protein isolate, i-maltodextrin, i-invert sugar, nesiraphu yommbila we-fructose ephezulu.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Izithasiselo ezedlula ukuphepha kokudla okumsulwa",
-  "guide_nova_explanations_arg2_text": "Izithasiselo zokudla okugayiwe kakhulu zihlanganisa okunye okubuye kusetshenziswe ekudleni okugayiwe, njengama-preservatives, ama-antioxidant, nama-stabilizers. Izigaba zezithasiselo ezitholakala kuphela emikhiqizweni esetshenzwe kakhulu zifaka lezo ezisetshenziselwa ukulingisa noma ukuthuthukisa izinzwa zokudla noma ukufihla izici ezingathandeki zomkhiqizo wokugcina. Lezi zithako zihlanganisa odayi neminye imibala, iziqinisi zombala; ama-flavour, ama-flavour enhancers, ama-sweeteners angenawo ushukela; kanye nezinsiza zokucubungula ezifana ne-carbonating, ukuqinisa, i-bulking kanye ne-anti-bulking ejenti, ukususa amagwebu, ama-anti-caking kanye nama-glazing, ama-emulsifiers, ama-sequestrants, nama-humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Ukucubungula awukwazi ukukwenza ekhaya",
-  "guide_nova_explanations_arg3_text": "Inqwaba yokulandelana kwezinqubo isetshenziswa ukuhlanganisa izithako ngokuvamile eziningi nokudala umkhiqizo wokugcina (okungakho 'kucutshungulwa kakhulu'). Izinqubo zihlanganisa eziningana ezingenakho okulingana kwasekhaya, njenge-hydrogenation kanye ne-hydrolysation, i-extrusion kanye nokubunjwa, kanye nokucutshungulwa kwangaphambili kokuthosa.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Izici eziyingozi nezezezimali zokucubungula okuphezulu",
-  "guide_nova_explanations_arg4_text": "Inhloso iyonke yokucubungula okuphezulu ukudala imikhiqizo yokudla ebhalwe uphawu, elula (ehlala isikhathi eside, elungele ukusetshenziswa), ekhangayo (e-hyper-flatable) futhi enenzuzo enkulu (izithako ezingabizi kakhulu) eklanyelwe ukususa wonke amanye amaqembu okudla. Imikhiqizo yokudla okucutshungulwe kakhulu ivamise ukupakishwa ngendlela ekhangayo futhi imakethwe kakhulu.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

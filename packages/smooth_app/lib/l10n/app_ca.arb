@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Aigua marina i dolça (partícules, acidificació, eutrofització)",
   "guide_greenscore_lca_arg3_text8": "Esgotament de recursos.",
   "guide_greenscore_bonuses_penalties_title": "Bonificacions i penalitzacions",
-  "guide_greenscore_bonuses_penalties_intro": "Per recompensar els millors productes dins d'una categoria, apliquem bonificacions i penalitzacions basades en diversos criteris:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode de producció",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Es concedeix una bonificació als productes que tinguin una etiqueta oficial, una etiqueta o una certificació que garanteixi beneficis mediambientals (ecològic, comerç just, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origen dels ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Es concedeix una bonificació en funció de l'origen dels ingredients. Aquesta bonificació té en compte l'impacte en el transport i també la política mediambiental del país de cada productor.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Espècies en perill d'extinció",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Es sancionen els productes que contenen ingredients que tenen impactes negatius significatius en la biodiversitat i els ecosistemes, com l'oli de palma, la producció del qual és responsable de la desforestació massiva.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Empaquetament",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "Augment de la necessitat de transparència per mesurar i reduir millor els impactes ambientals",
-  "guide_greenscore_transparency_intro1": "Per calcular amb precisió el Green-Score, cal tenir informació que no necessàriament s'especifica a l'envàs (com ara l'origen i el percentatge exacte de cada ingredient) o que rarament està disponible en forma utilitzable (com ara una llista de tots els components de l'envàs amb els tipus precisos de plàstics utilitzats).",
-  "guide_greenscore_transparency_intro2": "Els valors mitjans s'utilitzen quan aquesta informació encara no està disponible, però ara fem una crida a tothom per ajudar-nos a recopilar aquesta informació, que serà molt útil per al Green-Score, però també per a molts altres usos.",
-  "guide_greenscore_transparency_arg1_title": "Com poden ajudar els ciutadans",
-  "guide_greenscore_transparency_arg1_text": "Tots els ciutadans ens poden ajudar a recopilar i estructurar la informació que hi ha als productes o que se'n pot deduir, com ara la informació sobre els envasos: Missió Emballages: un inventari col·laboratiu a gran escala d'envasos per a tots els productes alimentaris (en francès)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Com poden ajudar els fabricants",
   "guide_greenscore_transparency_arg2_text": "Els fabricants ens poden enviar la seva informació directament a través de la nostra plataforma gratuïta per a productors.",
   "guide_greenscore_better_product_title": "Quin producte és millor per al planeta?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Els 4 grups NOVA",
   "guide_nova_groups_intro": "Hi ha 4 grups NOVA, i el problemàtic és el Grup 4: aliments ultraprocessats.",
   "guide_nova_groups_arg1_title": "Aliments mínimament processats o sense processar",
-  "guide_nova_groups_arg1_text": "Els aliments no processats (o naturals) són les parts comestibles de les plantes (llavors, fruits, fulles, tiges, arrels) o dels animals (múscul, despulles, ous, llet), així com els fongs, les algues i l'aigua, després d'haver estat separats de la natura.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Ingredients culinaris processats",
-  "guide_nova_groups_arg2_text": "Els ingredients culinaris processats, com ara olis, mantega, sucre i sal, són substàncies derivades d'aliments del grup 1 o de la natura mitjançant processos que inclouen el premsat, el refinament, la mòlta, la moldre i l'assecat.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Aliments processats",
-  "guide_nova_groups_arg3_text": "Els aliments processats, com ara les verdures envasades, el peix en conserva, les fruites en almívar, els formatges i els pans acabats de fer, es fabriquen principalment afegint sal, oli, sucre o altres substàncies del Grup 2 als aliments del Grup 1. Els processos inclouen diversos mètodes de conservació o cocció, i en el cas dels pans i els formatges, la fermentació sense alcohol. La majoria dels aliments processats tenen dos o tres ingredients i es poden reconèixer com a versions modificades dels aliments del Grup 1. Es poden menjar sols o, més habitualment, en combinació amb altres aliments.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes Include various preservation or cooking Methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as Modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Aliments ultraprocessats",
-  "guide_nova_groups_arg4_text": "Els aliments ultraprocessats, com ara refrescos, aperitius envasats dolços o salats, productes carnis reconstituïts i plats congelats preparats prèviament, no són simplement aliments modificats, sinó formulacions fetes majoritàriament o totalment amb substàncies derivades d'aliments i additius, amb poc o cap aliment intacte del Grup 1. Els ingredients d'aquestes formulacions solen incloure els que també es troben en aliments processats, com ara sucres, olis, greixos o sal. Tanmateix, els productes ultraprocessats també contenen altres fonts d'energia i nutrients que no s'utilitzen normalment en preparacions culinàries. Alguns d'aquests s'extreuen directament dels aliments, com ara la caseïna, la lactosa, el sèrum de llet i el gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed Products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly Extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Els problemes amb l'ultraprocessament",
   "guide_nova_explanations_arg1_title": "Processament extrem d'ingredients alimentaris",
-  "guide_nova_explanations_arg1_text": "Molts es deriven del processament posterior de constituents alimentaris, com ara olis hidrogenats o interesterificats, proteïnes hidrolitzades, aïllat de proteïna de soja, maltodextrina, sucre invertit i xarop de blat de moro amb alt contingut en fructosa.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Additius que van més enllà de la pura seguretat alimentària",
-  "guide_nova_explanations_arg2_text": "Els additius dels aliments ultraprocessats inclouen alguns que també s'utilitzen en aliments processats, com ara conservants, antioxidants i estabilitzadors. Les classes d'additius que només es troben en productes ultraprocessats inclouen els que s'utilitzen per imitar o millorar les qualitats sensorials dels aliments o per dissimular aspectes desagradables del producte final. Aquests additius inclouen colorants i altres colorants, estabilitzadors del color; sabors, potenciadors del sabor, edulcorants sense sucre; i coadjuvants de processament com ara agents carbonatants, reafirmants, volumitzants i antivoluminants, agents antiespumants, antiaglomerants i glacejants, emulsionants, segrestants i humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Processament que no pots fer a casa",
-  "guide_nova_explanations_arg3_text": "S'utilitza una multitud de seqüències de processos per combinar els ingredients, que solen ser nombrosos, i crear el producte final (d'aquí el que es coneix com a \"ultraprocessat\"). Els processos n'inclouen diversos sense equivalents domèstics, com ara la hidrogenació i la hidrolització, l'extrusió i el modelat, i el preprocessament per a la fregidura.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Els aspectes depredadors i financers de l'ultraprocessament",
-  "guide_nova_explanations_arg4_text": "L'objectiu general de l'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i comercialitzar-se intensivament.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

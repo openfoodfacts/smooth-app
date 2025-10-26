@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "සමුද්‍ර සහ මිරිදිය (අංශු, ආම්ලිකකරණය, යුට්‍රොෆිකේෂන්)",
   "guide_greenscore_lca_arg3_text8": "සම්පත් ක්ෂය වීම.",
   "guide_greenscore_bonuses_penalties_title": "බෝනස් සහ දඬුවම්",
-  "guide_greenscore_bonuses_penalties_intro": "කාණ්ඩයක් තුළ වඩා හොඳ නිෂ්පාදන සඳහා ප්‍රතිලාභ ලබා දීම සඳහා, අපි නිර්ණායක කිහිපයක් මත පදනම්ව ප්‍රසාද දීමනා සහ දඬුවම් යොදන්නෙමු:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "අමුද්‍රව්‍යවල මූලාරම්භය මත පදනම්ව ප්‍රසාද දීමනාවක් ප්‍රදානය කෙරේ. මෙම ප්‍රසාද දීමනාව ප්‍රවාහනයට ඇති බලපෑම සහ එක් එක් නිෂ්පාදකයාගේ රටේ පාරිසරික ප්‍රතිපත්තිය ද සැලකිල්ලට ගනී.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "හරිත-ලකුණු නිවැරදිව ගණනය කිරීම සඳහා, ඇසුරුම්කරණයේ අනිවාර්යයෙන්ම නිශ්චිතව දක්වා නොමැති තොරතුරු (එක් එක් අමුද්‍රව්‍යයේ සම්භවය සහ නිශ්චිත ප්‍රතිශතය වැනි) හෝ භාවිතා කළ හැකි ආකාරයෙන් කලාතුරකින් ලබා ගත හැකි තොරතුරු (භාවිතා කරන ලද නිශ්චිත ප්ලාස්ටික් වර්ග සහිත ඇසුරුම්කරණයේ සියලුම සංරචක ලැයිස්තුවක් වැනි) තිබීම අවශ්‍ය වේ.",
-  "guide_greenscore_transparency_intro2": "මෙම තොරතුරු තවමත් නොමැති විට සාමාන්‍ය අගයන් භාවිතා කරනු ලැබේ, නමුත් හරිත-ලකුණු සඳහා පමණක් නොව තවත් බොහෝ භාවිතයන් සඳහාද ඉතා ප්‍රයෝජනවත් වන මෙම තොරතුරු රැස් කිරීමට අපට උදව් කරන ලෙස අපි දැන් සැමගෙන් ඉල්ලා සිටිමු.",
-  "guide_greenscore_transparency_arg1_title": "පුරවැසියන්ට උදව් කළ හැකි ආකාරය",
-  "guide_greenscore_transparency_arg1_text": "නිෂ්පාදනවල ඇති හෝ ඒවායින් නිගමනය කළ හැකි තොරතුරු රැස් කර ව්‍යුහගත කිරීමට සියලුම පුරවැසියන්ට අපට උදව් කළ හැකිය, උදාහරණයක් ලෙස ඇසුරුම්කරණය පිළිබඳ තොරතුරු: මිෂන් එම්බලේජ්ස්: සියලුම ආහාර නිෂ්පාදන සඳහා ඇසුරුම්කරණයේ මහා පරිමාණ සහයෝගී ඉන්වෙන්ටරියක් (ප්‍රංශ භාෂාවෙන්)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "නිෂ්පාදකයින්ට උදව් කළ හැකි ආකාරය",
   "guide_greenscore_transparency_arg2_text": "නිෂ්පාදකයින්ට අපගේ නොමිලේ නිෂ්පාදකයින් සඳහා වූ වේදිකාව හරහා ඔවුන්ගේ තොරතුරු අපට කෙලින්ම එවිය හැකිය.",
   "guide_greenscore_better_product_title": "පෘථිවියට වඩා හොඳ කුමන නිෂ්පාදනයද?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "NOVA කණ්ඩායම් 4",
   "guide_nova_groups_intro": "NOVA කාණ්ඩ 4ක් ඇත, ගැටළු සහගත එක වන්නේ 4 වන කාණ්ඩය - අතිශයින් සැකසූ ආහාර.",
   "guide_nova_groups_arg1_title": "අවම වශයෙන් සැකසූ හෝ සකස් නොකළ ආහාර",
-  "guide_nova_groups_arg1_text": "සකස් නොකළ (හෝ ස්වාභාවික) ආහාර යනු ස්වභාවධර්මයෙන් වෙන් වූ පසු ශාකවල ආහාරයට ගත හැකි කොටස් (බීජ, පලතුරු, කොළ, කඳන්, මුල්) හෝ සතුන්ගේ (මාංශ පේශි, ඕෆල්, බිත්තර, කිරි) මෙන්ම දිලීර, ඇල්ගී සහ ජලය වේ.",
+    "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "තෙල්, බටර්, සීනි සහ ලුණු වැනි සැකසූ සූපශාස්ත්‍ර අමුද්‍රව්‍ය යනු 1 වන කාණ්ඩයේ ආහාර වලින් හෝ එබීම, පිරිපහදු කිරීම, ඇඹරීම, ඇඹරීම සහ වියළීම ඇතුළත් ක්‍රියාවලීන් හරහා ස්වභාවධර්මයෙන් ලබාගත් ද්‍රව්‍ය වේ.",
+  "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "බෝතල් කළ එළවළු, ටින් කළ මාළු, සිරප් වල පලතුරු, චීස් සහ නැවුම්ව සාදන ලද පාන් වැනි සැකසූ ආහාර ප්‍රධාන වශයෙන් සාදනු ලබන්නේ ලුණු, තෙල්, සීනි හෝ 2 වන කාණ්ඩයේ සිට 1 වන කාණ්ඩයේ ආහාර දක්වා වෙනත් ද්‍රව්‍ය එකතු කිරීමෙනි. ක්‍රියාවලීන්ට විවිධ සංරක්ෂණය හෝ පිසීමේ ක්‍රම ඇතුළත් වන අතර, පාන් සහ චීස් සම්බන්ධයෙන්, මධ්‍යසාර නොවන පැසවීම ඇතුළත් වේ. බොහෝ සැකසූ ආහාරවල අමුද්‍රව්‍ය දෙකක් හෝ තුනක් ඇති අතර ඒවා 1 වන කාණ්ඩයේ ආහාරවල වෙනස් කළ අනුවාද ලෙස හඳුනාගත හැකිය. ඒවා තනිවම හෝ, වඩාත් බහුලව, වෙනත් ආහාර සමඟ ඒකාබද්ධව අනුභව කළ හැකිය.",
+  "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "මෘදු පාන වර්ග, පැණිරස හෝ රසවත් ඇසුරුම් කළ කෙටි ආහාර, ප්‍රතිනිර්මාණය කරන ලද මස් නිෂ්පාදන සහ පෙර සූදානම් කළ ශීත කළ කෑම වැනි අතිශයින් සැකසූ ආහාර, හුදෙක් වෙනස් කරන ලද ආහාර නොව, බොහෝ දුරට හෝ සම්පූර්ණයෙන්ම ආහාර සහ ආකලන වලින් ලබාගත් ද්‍රව්‍ය වලින් සාදන ලද සූත්‍ර වන අතර, 1 වන කාණ්ඩයේ ආහාර ස්වල්පයක් හෝ කිසිදු අඛණ්ඩතාවයක් නොමැතිව. මෙම සූත්‍රවල ඇති අමුද්‍රව්‍යවලට සාමාන්‍යයෙන් සීනි, තෙල්, මේද හෝ ලුණු වැනි සැකසූ ආහාරවල ද දක්නට ලැබෙන ඒවා ඇතුළත් වේ. කෙසේ වෙතත්, අතිශයින් සැකසූ නිෂ්පාදනවල සාමාන්‍යයෙන් සූපශාස්ත්‍ර සූදානමේදී භාවිතා නොකරන වෙනත් ශක්ති ප්‍රභවයන් සහ පෝෂ්‍ය පදාර්ථ ද අඩංගු වේ. මේවායින් සමහරක් කැසීන්, ලැක්ටෝස්, තිරිඟු සහ ග්ලූටන් වැනි ආහාර වලින් සෘජුවම නිස්සාරණය කරනු ලැබේ.",
+  "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "අල්ට්‍රා-සැකසුම් කිරීමේ ගැටළු",
   "guide_nova_explanations_arg1_title": "ආහාර ද්‍රව්‍ය අධික ලෙස සැකසීම",
-  "guide_nova_explanations_arg1_text": "බොහෝ ඒවා ලබා ගන්නේ හයිඩ්‍රජනීකෘත හෝ පොලිස්ටරීකරණය කළ තෙල්, ජල විච්ඡේදනය කළ ප්‍රෝටීන, සෝයා ප්‍රෝටීන් හුදකලා, මෝල්ටෝඩෙක්ස්ට්‍රින්, ප්‍රතිලෝම සීනි සහ ඉහළ ෆෲක්ටෝස් ඉරිඟු සිරප් වැනි ආහාර සංඝටක තවදුරටත් සැකසීමෙනි.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "පිරිසිදු ආහාර සුරක්ෂිතතාවයෙන් ඔබ්බට යන ආකලන",
-  "guide_nova_explanations_arg2_text": "අතිශයින් සැකසූ ආහාරවල ඇති ආකලනවලට කල් තබා ගන්නා ද්‍රව්‍ය, ප්‍රතිඔක්සිකාරක සහ ස්ථායීකාරක වැනි සැකසූ ආහාරවල ද භාවිතා වන සමහරක් ඇතුළත් වේ. අතිශයින් සැකසූ නිෂ්පාදනවල පමණක් දක්නට ලැබෙන ආකලන කාණ්ඩවලට ආහාරවල සංවේදක ගුණාංග අනුකරණය කිරීමට හෝ වැඩි දියුණු කිරීමට හෝ අවසාන නිෂ්පාදනයේ අප්‍රසන්න අංග සැඟවීමට භාවිතා කරන ඒවා ඇතුළත් වේ. මෙම ආකලනවලට ඩයි වර්ග සහ අනෙකුත් වර්ණ, වර්ණ ස්ථායීකාරක; රසකාරක, රස වර්ධක, සීනි නොවන රසකාරක; සහ කාබනීකරණය, ස්ථිර කිරීම, තොග කිරීම සහ ප්‍රති-බල්කින් කාරක, පෙන ඉවත් කිරීම, ප්‍රති-කේකින් සහ ග්ලැසියර කාරක, ඉමල්සිෆයර්, සීක්වෙස්ට්‍රන්ට් සහ හියුමෙක්ටන්ට් වැනි සැකසුම් ආධාරක ඇතුළත් වේ.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "නිවසේදී කළ නොහැකි සැකසුම්",
-  "guide_nova_explanations_arg3_text": "සාමාන්‍යයෙන් බොහෝ අමුද්‍රව්‍ය ඒකාබද්ධ කර අවසාන නිෂ්පාදනය නිර්මාණය කිරීම සඳහා ක්‍රියාවලි අනුපිළිවෙලවල් රාශියක් භාවිතා කරනු ලැබේ (එබැවින් 'අතිශයින්ම සැකසූ'). හයිඩ්‍රජනීකරණය සහ ජල විච්ඡේදනය, නිස්සාරණය සහ අච්චු කිරීම සහ බැදීම සඳහා පූර්ව සැකසුම් වැනි ගෘහස්ථ සමානකම් නොමැති ක්‍රියාවලීන් කිහිපයක් මෙම ක්‍රියාවලීන්ට ඇතුළත් වේ.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "අල්ට්‍රා-සැකසුම්කරණයේ කොල්ලකාරී සහ මූල්‍ය අංශ",
-  "guide_nova_explanations_arg4_text": "අල්ට්‍රා-සැකසීමේ සමස්ත අරමුණ වන්නේ අනෙකුත් සියලුම ආහාර කාණ්ඩ විස්ථාපනය කිරීම සඳහා නිර්මාණය කර ඇති සන්නාමගත, පහසු (කල් පවතින, පරිභෝජනයට සූදානම්), ආකර්ශනීය (අධි-රසවත්) සහ ඉහළ ලාභදායී (අඩු වියදම් අමුද්‍රව්‍ය) ආහාර නිෂ්පාදන නිර්මාණය කිරීමයි. අල්ට්‍රා-සැකසූ ආහාර නිෂ්පාදන සාමාන්‍යයෙන් ආකර්ශනීය ලෙස ඇසුරුම් කර දැඩි ලෙස අලෙවි කරනු ලැබේ.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

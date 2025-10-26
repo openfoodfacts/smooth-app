@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Morská a sladká voda (častice, okysľovanie, eutrofizácia)",
   "guide_greenscore_lca_arg3_text8": "Vyčerpanie zdrojov.",
   "guide_greenscore_bonuses_penalties_title": "Bonusy a sankcie",
-  "guide_greenscore_bonuses_penalties_intro": "Aby sme odmenili lepšie produkty v rámci kategórie, uplatňujeme bonusy a penalizácie na základe niekoľkých kritérií:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Spôsob výroby",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Bonus sa udeľuje produktom, ktoré majú oficiálnu značku, označenie alebo certifikáciu zaručujúcu environmentálne výhody (organické, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Pôvod surovín",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus sa udeľuje na základe pôvodu surovín. Tento bonus zohľadňuje vplyv na dopravu a tiež environmentálnu politiku krajiny každého výrobcu.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Ohrozené druhy",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Pokuta sa udeľuje za produkty, ktoré obsahujú zložky, ktoré majú výrazný negatívny vplyv na biodiverzitu a ekosystémy, ako napríklad palmový olej, ktorého produkcia je zodpovedná za masívne odlesňovanie.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Balenie",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Pokuta sa vypočíta tak, aby sa zohľadnila kruhovosť balenia (použitie recyklovanej suroviny a recyklovateľnosť) a nadmerného balenia.",
+
   "guide_greenscore_transparency_title": "Zvýšená potreba transparentnosti na lepšie meranie a znižovanie vplyvov na životné prostredie",
-  "guide_greenscore_transparency_intro1": "Na presný výpočet Green-Score je potrebné mať informácie, ktoré nie sú nevyhnutne uvedené na obale (ako napríklad pôvod a presné percento každej zložky) alebo ktoré sú zriedkavo dostupné v použiteľnej forme (ako napríklad zoznam všetkých zložiek obalu s presným uvedením použitých typov plastov).",
-  "guide_greenscore_transparency_intro2": "Priemerné hodnoty sa používajú, keď tieto informácie ešte nie sú k dispozícii, ale teraz vyzývame všetkých, aby nám pomohli zhromaždiť tieto informácie, ktoré budú veľmi užitočné pre Green-Score, ale aj pre mnoho ďalších použití.",
-  "guide_greenscore_transparency_arg1_title": "Ako môžu občania pomôcť",
-  "guide_greenscore_transparency_arg1_text": "Všetci občania nám môžu pomôcť zhromaždiť a štruktúrovať informácie, ktoré sú uvedené na výrobkoch alebo ktoré sa z nich dajú odvodiť, ako napríklad informácie o obaloch: Mission Emballages: rozsiahly kolaboratívny inventár obalov pre všetky potravinárske výrobky (vo francúzštine)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Ako môžu pomôcť výrobcovia",
   "guide_greenscore_transparency_arg2_text": "Výrobcovia nám môžu posielať svoje informácie priamo prostredníctvom našej bezplatnej platformy pre výrobcov.",
   "guide_greenscore_better_product_title": "Ktorý produkt je lepší pre planétu?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 skupiny NOVA",
   "guide_nova_groups_intro": "Existujú 4 skupiny NOVA, pričom problematickou je skupina 4 – Ultraspracované potraviny.",
   "guide_nova_groups_arg1_title": "Minimálne spracované alebo nespracované potraviny",
-  "guide_nova_groups_arg1_text": "Nespracované (alebo prírodné) potraviny sú jedlé časti rastlín (semená, plody, listy, stonky, korene) alebo zvierat (svaly, vnútornosti, vajcia, mlieko), ako aj húb, rias a vody po oddelení od prírody.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Spracované kulinárske prísady",
-  "guide_nova_groups_arg2_text": "Spracované kulinárske prísady, ako sú oleje, maslo, cukor a soľ, sú látky získané z potravín skupiny 1 alebo z prírody prostredníctvom procesov, ktoré zahŕňajú lisovanie, rafináciu, mletie, mletie a sušenie.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Spracované jedlá",
-  "guide_nova_groups_arg3_text": "Spracované potraviny, ako napríklad balená zelenina, konzervované ryby, ovocie v sirupe, syry a čerstvo upečený chlieb, sa vyrábajú predovšetkým pridaním soli, oleja, cukru alebo iných látok zo skupiny 2 do potravín skupiny 1. Procesy zahŕňajú rôzne metódy konzervácie alebo varenia a v prípade chleba a syra nealkoholickú fermentáciu. Väčšina spracovaných potravín má dve alebo tri zložky a sú rozpoznateľné ako upravené verzie potravín skupiny 1. Môžu sa konzumovať samostatne alebo, častejšie, v kombinácii s inými potravinami.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** Foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra spracované potraviny",
-  "guide_nova_groups_arg4_text": "Ultraspracované potraviny, ako sú nealkoholické nápoje, sladké alebo slané balené pochutiny, rekonštituované mäsové výrobky a predpripravené mrazené jedlá, nie sú len modifikované potraviny, ale receptúry vyrobené prevažne alebo výlučne z látok odvodených z potravín a prísad, s malým alebo žiadnym obsahom intaktných potravín skupiny 1. Zložky v týchto receptúrach zvyčajne zahŕňajú tie, ktoré sa nachádzajú aj v spracovaných potravinách, ako sú cukry, oleje, tuky alebo soľ. Ultraspracované výrobky však obsahujú aj iné zdroje energie a živín, ktoré sa bežne nepoužívajú v kulinárskych prípravách. Niektoré z nich sa priamo extrahujú z potravín, ako je kazeín, laktóza, srvátka a lepok.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, Ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problémy s ultraprocesovaním",
   "guide_nova_explanations_arg1_title": "Extrémne spracovanie potravinárskych zložiek",
-  "guide_nova_explanations_arg1_text": "Mnohé pochádzajú z ďalšieho spracovania zložiek potravín, ako sú hydrogenované alebo interesterifikované oleje, hydrolyzované bielkoviny, izolát sójových bielkovín, maltodextrín, invertný cukor a kukuričný sirup s vysokým obsahom fruktózy.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Prísady, ktoré idú nad rámec čistej bezpečnosti potravín",
-  "guide_nova_explanations_arg2_text": "Medzi prísady v ultraspracovaných potravinách patria niektoré, ktoré sa používajú aj v spracovaných potravinách, ako sú konzervačné látky, antioxidanty a stabilizátory. Medzi triedy prísad, ktoré sa nachádzajú iba v ultraspracovaných výrobkoch, patria tie, ktoré sa používajú na napodobnenie alebo zlepšenie senzorických vlastností potravín alebo na zamaskovanie nechutných aspektov konečného výrobku. Medzi tieto prísady patria farbivá a iné farby, stabilizátory farieb, arómy, zvýrazňovače chuti, necukrové sladidlá a pomocné látky pri spracovaní, ako sú sýtiace, spevňujúce, objemové a protihrudkujúce činidlá, odpeňovacie, protihrudkujúce a leštiace činidlá, emulgátory, sekvestranty a zvlhčovadlá.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Spracovanie, ktoré doma nezvládnete",
-  "guide_nova_explanations_arg3_text": "Na kombinovanie zvyčajne veľkého množstva zložiek a vytvorenie konečného produktu (odtiaľ „ultra spracovaný“) sa používa množstvo postupov. Medzi tieto procesy patrí niekoľko procesov, ktoré nemajú domáce ekvivalenty, ako je hydrogenácia a hydrolýza, extrúzia a tvarovanie a predbežné spracovanie na vyprážanie.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Predátorské a finančné aspekty ultraprocesovania",
-  "guide_nova_explanations_arg4_text": "Celkovým cieľom ultraspracovania je vytvoriť značkové, pohodlné (trvanlivé, pripravené na konzumáciu), atraktívne (hyperchutné) a vysoko ziskové (lacné zložky) potravinárske výrobky určené na nahradenie všetkých ostatných skupín potravín. Ultraspracované potraviny sú zvyčajne atraktívne balené a intenzívne predávané.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Náhľad",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

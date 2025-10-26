@@ -162,6 +162,7 @@ flutter:
     - assets/guides/open_prices/
     - assets/guides/open_pet_food_facts/
     - assets/guides/open_products_facts/
+    - assets/guides/shared/
     - assets/metadata/
     - assets/misc/
     - assets/network/cert.pem

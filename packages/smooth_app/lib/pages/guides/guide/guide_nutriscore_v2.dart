@@ -117,7 +117,7 @@ class _NutriScoreSection2 extends StatelessWidget {
         GuidesText(text: appLocalizations.guide_nutriscore_v2_why_v2_intro),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg1_title,
-          icon: const icons.Milk(),
+          icon: const icons.Milk.happy(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg1_text,
         ),
         GuidesTitleWithText(

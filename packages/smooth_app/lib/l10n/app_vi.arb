@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Nước biển và nước ngọt (các hạt, axit hóa, phú dưỡng)",
   "guide_greenscore_lca_arg3_text8": "Sự cạn kiệt tài nguyên.",
   "guide_greenscore_bonuses_penalties_title": "Tiền thưởng và tiền phạt",
-  "guide_greenscore_bonuses_penalties_intro": "Để thưởng cho những sản phẩm tốt hơn trong một danh mục, chúng tôi sẽ áp dụng tiền thưởng và hình phạt dựa trên một số tiêu chí:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Phương thức sản xuất",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Điểm cộng được thêm cho các sản phẩm có nhãn chính thức, nhãn hoặc chứng nhận đảm bảo lợi ích môi trường (hữu cơ, thương mại công bằng, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Nguồn gốc của các thành phần",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Tiền thưởng được trao dựa trên nguồn gốc của nguyên liệu. Khoản tiền thưởng này có tính đến tác động đến vận chuyển và chính sách môi trường của từng quốc gia sản xuất.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Những loài có nguy có bị tuyệt chủng",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Một hình phạt được đưa ra đối với các sản phẩm có chứa các thành phần có tác động tiêu cực đáng kể đến đa dạng sinh học và hệ sinh thái, chẳng hạn như dầu cọ, việc sản xuất dầu cọ là nguyên nhân gây ra nạn phá rừng lớn.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Bao bì",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Hình phạt được tính để tính đến tính tuần hoàn của bao bì (sử dụng nguyên liệu thô tái chế và khả năng tái chế) và đóng gói quá mức.",
+
   "guide_greenscore_transparency_title": "Nhu cầu về sự minh bạch ngày càng tăng để có thể đo lường tốt hơn và giảm tác động môi trường",
-  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Điểm Xanh, cần phải có thông tin không nhất thiết phải ghi trên bao bì (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
-  "guide_greenscore_transparency_intro2": "Giá trị trung bình được sử dụng khi thông tin này chưa có sẵn, nhưng hiện chúng tôi đang kêu gọi mọi người giúp chúng tôi thu thập thông tin này, điều này sẽ rất hữu ích cho Green-Score cũng như nhiều mục đích sử dụng khác.",
-  "guide_greenscore_transparency_arg1_title": "Người dân có thể giúp đỡ như thế nào",
-  "guide_greenscore_transparency_arg1_text": "Mọi công dân có thể giúp chúng tôi thu thập và cấu trúc thông tin có trên sản phẩm hoặc có thể suy ra từ chúng, chẳng hạn như thông tin về bao bì: Mission Emballages: một kho lưu trữ bao bì hợp tác quy mô lớn cho tất cả các sản phẩm thực phẩm (bằng tiếng Pháp)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Các nhà sản xuất có thể giúp đỡ như thế nào",
   "guide_greenscore_transparency_arg2_text": "Các nhà sản xuất có thể gửi thông tin trực tiếp cho chúng tôi thông qua nền tảng miễn phí dành cho nhà sản xuất.",
   "guide_greenscore_better_product_title": "Sản phẩm nào tốt hơn cho hành tinh?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 nhóm NOVA",
   "guide_nova_groups_intro": "Có 4 nhóm NOVA, nhóm có vấn đề là Nhóm 4 - Thực phẩm siêu chế biến.",
   "guide_nova_groups_arg1_title": "Thực phẩm chế biến tối thiểu hoặc chưa chế biến",
-  "guide_nova_groups_arg1_text": "Thực phẩm chưa qua chế biến (hay tự nhiên) là những phần ăn được của thực vật (hạt, quả, lá, thân, rễ) hoặc động vật (cơ, nội tạng, trứng, sữa), cũng như nấm, tảo và nước, sau khi được tách ra khỏi thiên nhiên.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Các thành phần ẩm thực đã qua chế biến",
-  "guide_nova_groups_arg2_text": "Các thành phần ẩm thực đã qua chế biến, chẳng hạn như dầu, bơ, đường và muối, là những chất có nguồn gốc từ thực phẩm Nhóm 1 hoặc từ thiên nhiên thông qua các quá trình bao gồm ép, tinh chế, nghiền, xay và sấy khô.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, Grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Thực phẩm đã qua chế biến",
-  "guide_nova_groups_arg3_text": "Thực phẩm chế biến, chẳng hạn như rau đóng chai, cá đóng hộp, trái cây ngâm siro, pho mát và bánh mì tươi, chủ yếu được chế biến bằng cách thêm muối, dầu, đường hoặc các chất khác từ thực phẩm Nhóm 2 vào thực phẩm Nhóm 1. Các quy trình bao gồm nhiều phương pháp bảo quản hoặc chế biến khác nhau, và trong trường hợp bánh mì và pho mát, là lên men không cồn. Hầu hết thực phẩm chế biến đều có hai hoặc ba thành phần và được nhận biết là phiên bản biến thể của thực phẩm Nhóm 1. Chúng có thể được ăn riêng hoặc phổ biến hơn là kết hợp với các thực phẩm khác.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of Breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own Or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Thức ăn siêu chế biến",
-  "guide_nova_groups_arg4_text": "Thực phẩm siêu chế biến, chẳng hạn như nước ngọt, đồ ăn nhẹ đóng gói ngọt hoặc mặn, các sản phẩm thịt tái chế và các món ăn đông lạnh chế biến sẵn, không chỉ đơn thuần là thực phẩm biến đổi gen mà còn là các công thức được chế biến chủ yếu hoặc hoàn toàn từ các chất có nguồn gốc từ thực phẩm và phụ gia, với rất ít hoặc không có thực phẩm Nhóm 1 nguyên vẹn. Các thành phần trong các công thức này thường bao gồm các thành phần cũng có trong thực phẩm chế biến, chẳng hạn như đường, dầu, chất béo hoặc muối. Tuy nhiên, các sản phẩm siêu chế biến cũng chứa các nguồn năng lượng và chất dinh dưỡng khác thường không được sử dụng trong chế biến ẩm thực. Một số trong số này được chiết xuất trực tiếp từ thực phẩm, chẳng hạn như casein, lactose, whey và gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients Not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Các vấn đề với quá trình xử lý siêu việt",
   "guide_nova_explanations_arg1_title": "Xử lý cực độ các thành phần thực phẩm",
-  "guide_nova_explanations_arg1_text": "Nhiều loại có nguồn gốc từ quá trình chế biến thêm các thành phần thực phẩm, chẳng hạn như dầu hydro hóa hoặc dầu este hóa, protein thủy phân, protein đậu nành cô lập, maltodextrin, đường nghịch chuyển và xi-rô ngô có hàm lượng fructose cao.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Phụ gia vượt xa tiêu chuẩn an toàn thực phẩm thuần túy",
-  "guide_nova_explanations_arg2_text": "Phụ gia trong thực phẩm siêu chế biến bao gồm một số loại cũng được sử dụng trong thực phẩm chế biến, chẳng hạn như chất bảo quản, chất chống oxy hóa và chất ổn định. Các loại phụ gia chỉ có trong sản phẩm siêu chế biến bao gồm những loại được sử dụng để mô phỏng hoặc tăng cường chất lượng cảm quan của thực phẩm hoặc để che giấu những đặc tính không ngon miệng của sản phẩm cuối cùng. Các phụ gia này bao gồm thuốc nhuộm và các loại màu khác, chất ổn định màu; hương liệu, chất tăng cường hương vị, chất tạo ngọt không đường; và các chất hỗ trợ chế biến như chất tạo ga, chất làm săn chắc, chất tạo khối và chất chống tạo khối, chất phá bọt, chất chống vón cục và chất tạo bóng, chất nhũ hóa, chất tạo phức kim loại và chất giữ ẩm.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Xử lý bạn không thể làm ở nhà",
-  "guide_nova_explanations_arg3_text": "Hàng loạt chuỗi quy trình được sử dụng để kết hợp các thành phần thường rất đa dạng và tạo ra sản phẩm cuối cùng (do đó được gọi là \"siêu chế biến\"). Các quy trình này bao gồm một số quy trình không có sản phẩm tương đương trong nước, chẳng hạn như hydro hóa và thủy phân, đùn và đúc khuôn, và sơ chế để chiên.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Các khía cạnh săn mồi và tài chính của quá trình siêu chế biến",
-  "guide_nova_explanations_arg4_text": "Mục đích chung của siêu chế biến là tạo ra các sản phẩm thực phẩm có thương hiệu, tiện lợi (bền, dễ tiêu thụ), hấp dẫn (siêu ngon miệng) và có lợi nhuận cao (nguyên liệu giá rẻ) được thiết kế để thay thế tất cả các nhóm thực phẩm khác. Các sản phẩm thực phẩm siêu chế biến thường được đóng gói hấp dẫn và tiếp thị rầm rộ.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

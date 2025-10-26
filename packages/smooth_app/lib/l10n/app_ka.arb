@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "ზღვის და მტკნარი წყალი (ნაწილაკები, მჟავიანობა, ევტროფიკაცია)",
   "guide_greenscore_lca_arg3_text8": "რესურსების გამოფიტვა.",
   "guide_greenscore_bonuses_penalties_title": "ბონუსები და ჯარიმები",
-  "guide_greenscore_bonuses_penalties_intro": "კატეგორიაში უკეთესი პროდუქტების დასაჯილდოებლად, ჩვენ ვიყენებთ ბონუსებსა და ჯარიმებს რამდენიმე კრიტერიუმის საფუძველზე:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "ბონუსი გაიცემა ინგრედიენტების წარმოშობის მიხედვით. ეს ბონუსი ითვალისწინებს ტრანსპორტირებაზე ზემოქმედებას და ასევე თითოეული მწარმოებლის ქვეყნის გარემოსდაცვით პოლიტიკას.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "„მწვანე ქულის“ ზუსტად გამოსათვლელად აუცილებელია ისეთი ინფორმაციის ქონა, რომელიც შეფუთვაზე აუცილებლად არ არის მითითებული (მაგალითად, წარმომავლობა და თითოეული ინგრედიენტის ზუსტი პროცენტული მაჩვენებელი) ან რომელიც იშვიათად არის ხელმისაწვდომი გამოსაყენებელი ფორმით (მაგალითად, შეფუთვის ყველა კომპონენტის სია გამოყენებული პლასტმასის ზუსტი ტიპებით).",
-  "guide_greenscore_transparency_intro2": "საშუალო მნიშვნელობები გამოიყენება მაშინ, როდესაც ეს ინფორმაცია ჯერ არ არის ხელმისაწვდომი, თუმცა ახლა ყველას მოვუწოდებთ, დაგვეხმარონ ამ ინფორმაციის შეგროვებაში, რაც ძალიან სასარგებლო იქნება როგორც მწვანე ქულისთვის, ასევე მრავალი სხვა გამოყენებისთვის.",
-  "guide_greenscore_transparency_arg1_title": "როგორ შეუძლიათ მოქალაქეებს დახმარება",
-  "guide_greenscore_transparency_arg1_text": "ყველა მოქალაქეს შეუძლია დაგვეხმაროს პროდუქტებზე არსებული ან მათგან გამოტანილი ინფორმაციის შეგროვებასა და სტრუქტურირებაში, მაგალითად, შეფუთვაზე არსებული ინფორმაციის: Mission Emballages: ყველა საკვები პროდუქტის შეფუთვის მასშტაბური კოლაბორაციული ინვენტარი (ფრანგულად)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "როგორ შეუძლიათ მწარმოებლებს დახმარება",
   "guide_greenscore_transparency_arg2_text": "მწარმოებლებს შეუძლიათ გამოგვიგზავნონ თავიანთი ინფორმაცია პირდაპირ ჩვენი უფასო პლატფორმის საშუალებით, რომელიც მწარმოებლებისთვისაა განკუთვნილი.",
   "guide_greenscore_better_product_title": "რომელი პროდუქტია უკეთესი პლანეტისთვის?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 NOVA ჯგუფი",
   "guide_nova_groups_intro": "არსებობს 4 NOVA ჯგუფი, რომელთაგან ყველაზე პრობლემურია მე-4 ჯგუფი - ულტრადამუშავებული საკვები.",
   "guide_nova_groups_arg1_title": "მინიმალურად დამუშავებული ან დაუმუშავებელი საკვები",
-  "guide_nova_groups_arg1_text": "დაუმუშავებელი (ანუ ნატურალური) საკვები არის მცენარეების (თესლი, ნაყოფი, ფოთლები, ღეროები, ფესვები) ან ცხოველების (კუნთები, სუბპროდუქტები, კვერცხი, რძე), ასევე სოკოები, წყალმცენარეები და წყალი, ბუნებისგან გამოყოფის შემდეგ.",
+    "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "დამუშავებული კულინარიული ინგრედიენტები, როგორიცაა ზეთები, კარაქი, შაქარი და მარილი, არის ნივთიერებები, რომლებიც მიიღება პირველი ჯგუფის საკვები პროდუქტებიდან ან ბუნებიდან ისეთი პროცესების მეშვეობით, როგორიცაა დაპრესილი, რაფინირებული, დაფქული, დაფქული და გაშრობა.",
+  "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "გადამუშავებული საკვები, როგორიცაა ბოთლში დაკონსერვებული ბოსტნეული, დაკონსერვებული თევზი, ხილი სიროფში, ყველი და ახლად გამომცხვარი პური, ძირითადად მზადდება მე-2 ჯგუფის პროდუქტებში მარილის, ზეთის, შაქრის ან სხვა ნივთიერებების დამატებით. პროცესები მოიცავს სხვადასხვა შენახვის ან მომზადების მეთოდს, ხოლო პურისა და ყველის შემთხვევაში, უალკოჰოლო დუღილს. გადამუშავებული საკვების უმეტესობა შეიცავს ორ ან სამ ინგრედიენტს და ამოსაცნობია, როგორც პირველი ჯგუფის პროდუქტების მოდიფიცირებული ვერსიები. მათი მირთმევა შესაძლებელია დამოუკიდებლად ან, უფრო ხშირად, სხვა საკვებთან ერთად.",
+  "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "ულტრა-დამუშავებული საკვები, როგორიცაა გამაგრილებელი სასმელები, ტკბილი ან მარილიანი შეფუთული საჭმელები, აღდგენილი ხორცპროდუქტები და წინასწარ მომზადებული გაყინული კერძები, არ არის მხოლოდ მოდიფიცირებული საკვები, არამედ ფორმულირებები, რომლებიც ძირითადად ან მთლიანად მზადდება საკვებიდან და დანამატებიდან მიღებული ნივთიერებებისგან, თითქმის არ შეიცავს ან საერთოდ არ შეიცავს პირველი ჯგუფის საკვებს. ამ ფორმულირებების ინგრედიენტები, როგორც წესი, მოიცავს დამუშავებულ საკვებში არსებულ ინგრედიენტებს, როგორიცაა შაქარი, ზეთები, ცხიმები ან მარილი. თუმცა, ულტრა-დამუშავებული პროდუქტები ასევე შეიცავს ენერგიისა და საკვები ნივთიერებების სხვა წყაროებს, რომლებიც ჩვეულებრივ არ გამოიყენება კულინარიულ პრეპარატებში. ზოგიერთი მათგანი პირდაპირ მიიღება საკვებიდან, როგორიცაა კაზეინი, ლაქტოზა, შრატი და გლუტენი.",
+  "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "ულტრა-დამუშავების პრობლემები",
   "guide_nova_explanations_arg1_title": "საკვები ინგრედიენტების ექსტრემალური დამუშავება",
-  "guide_nova_explanations_arg1_text": "ბევრი მათგანი მიიღება საკვები კომპონენტების შემდგომი დამუშავებით, როგორიცაა ჰიდროგენიზებული ან ინტერესტერიფიცირებული ზეთები, ჰიდროლიზებული ცილები, სოიოს ცილის იზოლატი, მალტოდექსტრინი, ინვერტული შაქარი და მაღალი ფრუქტოზის შემცველი სიმინდის სიროფი.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "დანამატები, რომლებიც წმინდა საკვების უვნებლობას სცილდება",
-  "guide_nova_explanations_arg2_text": "ულტრა-დამუშავებულ საკვებში არსებული დანამატები მოიცავს ისეთ დანამატებს, რომლებიც ასევე გამოიყენება დამუშავებულ საკვებში, როგორიცაა კონსერვანტები, ანტიოქსიდანტები და სტაბილიზატორები. მხოლოდ ულტრა-დამუშავებულ პროდუქტებში არსებული დანამატების კლასები მოიცავს ისეთ დანამატებს, რომლებიც გამოიყენება საკვების სენსორული თვისებების იმიტაციის ან გაძლიერების ან საბოლოო პროდუქტის არასასიამოვნო ასპექტების დასაფარად. ეს დანამატები მოიცავს საღებავებს და სხვა საღებავებს, ფერის სტაბილიზატორებს; არომატიზატორებს, გემოს გამაძლიერებლებს, უშაქრო დამატკბობლებს; და გადამუშავების დამხმარე საშუალებებს, როგორიცაა კარბონატული, გამამკვრივებელი, შემავსებელი და შემავსებლის საწინააღმდეგო აგენტები, ქაფის საწინააღმდეგო, შეწებების საწინააღმდეგო და გლაზურის აგენტები, ემულგატორები, სეკვესტრანტები და დამატენიანებელი საშუალებები.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "დამუშავება, რომლის გაკეთებაც სახლში არ შეგიძლიათ",
-  "guide_nova_explanations_arg3_text": "როგორც წესი, მრავალი ინგრედიენტის შესაერთებლად და საბოლოო პროდუქტის (აქედან გამომდინარე, „ულტრა-დამუშავებული“) შესაქმნელად გამოიყენება პროცესების მრავალი თანმიმდევრობა. პროცესები მოიცავს რამდენიმეს, რომლებსაც ადგილობრივი ეკვივალენტები არ აქვთ, როგორიცაა ჰიდროგენიზაცია და ჰიდროლიზება, ექსტრუზია და ჩამოსხმა, ასევე წინასწარი დამუშავება შესაწვავად.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "ულტრა-დამუშავების მტაცებლური და ფინანსური ასპექტები",
-  "guide_nova_explanations_arg4_text": "ულტრა-დამუშავების საერთო მიზანია ბრენდირებული, მოსახერხებელი (ხანგრძლივი, მოხმარებისთვის მზა), მიმზიდველი (ჰიპერ-გემრიელი) და მაღალმომგებიანი (დაბალი ღირებულების ინგრედიენტები) საკვები პროდუქტების შექმნა, რომლებიც შექმნილია ყველა სხვა საკვები ჯგუფის ჩასანაცვლებლად. ულტრა-დამუშავებული საკვები პროდუქტები, როგორც წესი, მიმზიდველად არის შეფუთული და ინტენსიურად იყიდება ბაზარზე.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

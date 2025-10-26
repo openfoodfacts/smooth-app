@@ -220,6 +220,16 @@ class _NOVASection3 extends StatelessWidget {
           icon: const icons.Lab.alt(),
           text: appLocalizations.guide_nova_explanations_arg4_text,
         ),
+        GuidesTitleWithText(
+          title: appLocalizations.guide_nova_explanations_arg5_title,
+          icon: const icons.Hearth.monitoring(),
+          text: appLocalizations.guide_nova_explanations_arg5_text,
+        ),
+        GuidesTitleWithText(
+          title: appLocalizations.guide_nova_explanations_arg6_title,
+          icon: const icons.Thumb.up(),
+          text: appLocalizations.guide_nova_explanations_arg6_text,
+        ),
       ],
     );
   }

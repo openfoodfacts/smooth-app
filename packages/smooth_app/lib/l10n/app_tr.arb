@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Deniz ve tatlı su (partiküller, asitlenme, ötrofikasyon)",
   "guide_greenscore_lca_arg3_text8": "Kaynakların tükenmesi.",
   "guide_greenscore_bonuses_penalties_title": "Bonuslar ve cezalar",
-  "guide_greenscore_bonuses_penalties_intro": "Bir kategorideki daha iyi ürünleri ödüllendirmek için, aşağıdaki kriterlere göre bonuslar ve cezalar uygularız:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Üretim modu",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Resmi etiketi, etiketi veya çevresel faydaları garanti eden bir sertifikası (organik, adil ticaret, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC) olan ürünlere bir bonus verilir.",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Malzemelerin kaynağı",
-  "guide_greenscore_bonuses_penalties_arg2_text": "İçeriklerin menşeine göre bir bonus verilir. Bu bonus, her üreticinin ülkesinin nakliye üzerindeki etkisini ve çevre politikasını da dikkate alır.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Nesli tükenmekte olan türler",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Üretimi büyük çaplı ormansızlaşmaya neden olan hurma yağı gibi biyoçeşitlilik ve ekosistemler üzerinde önemli olumsuz etkileri olan bileşenler içeren ürünlere ceza verilir.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Ambalaj",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Paketlemenin döngüselliği (geri dönüştürülmüş hammadde kullanımı ve geri dönüştürülebilirlik) ve aşırı paketleme dikkate alınarak bir ceza hesaplanır.",
+
   "guide_greenscore_transparency_title": "Çevresel etkileri daha iyi ölçmek ve azaltmak için artan şeffaflık ihtiyacı",
-  "guide_greenscore_transparency_intro1": "Yeşil Puanı doğru bir şekilde hesaplamak için, ambalaj üzerinde belirtilmeyen (örneğin menşei ve her bir bileşenin tam yüzdesi) veya nadiren kullanılabilir formda bulunan (örneğin ambalajın tüm bileşenlerinin listesi ve kullanılan plastiklerin tam türleri) bilgilere ihtiyaç vardır.",
-  "guide_greenscore_transparency_intro2": "Bu bilgiler henüz mevcut olmadığında ortalama değerler kullanılır, ancak şimdi herkesi bu bilgileri toplamamıza yardımcı olmaya çağırıyoruz; bu bilgiler Yeşil Puan için ve aynı zamanda birçok başka kullanım için çok faydalı olacak.",
-  "guide_greenscore_transparency_arg1_title": "Vatandaşlar nasıl yardımcı olabilir?",
-  "guide_greenscore_transparency_arg1_text": "Tüm vatandaşlar, ürünlerde bulunan veya bunlardan çıkarılabilecek bilgileri (örneğin ambalaj bilgileri) toplamamıza ve yapılandırmamıza yardımcı olabilir: Mission Emballages: tüm gıda ürünleri için ambalajların geniş ölçekli ortak envanteri (Fransızca)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Üreticiler nasıl yardımcı olabilir?",
   "guide_greenscore_transparency_arg2_text": "Üreticiler bilgilerini doğrudan üreticilere özel ücretsiz platformumuz üzerinden bize gönderebilirler.",
   "guide_greenscore_better_product_title": "Hangi ürün gezegenimiz için daha iyidir?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 NOVA grubu",
   "guide_nova_groups_intro": "4 adet NOVA grubu var, sorunlu olanı ise Grup 4 - Ultra işlenmiş gıdalar.",
   "guide_nova_groups_arg1_title": "Minimum işlenmiş veya işlenmemiş gıdalar",
-  "guide_nova_groups_arg1_text": "İşlenmemiş (veya doğal) gıdalar, doğadan ayrıştırıldıktan sonra bitkilerin (tohumlar, meyveler, yapraklar, gövdeler, kökler) veya hayvanların (kas, sakatat, yumurta, süt) yenilebilir kısımlarının yanı sıra mantarlar, algler ve sudur.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "İşlenmiş yemek malzemeleri",
-  "guide_nova_groups_arg2_text": "İşlenmiş mutfak malzemeleri, yağlar, tereyağı, şeker ve tuz gibi, presleme, rafinasyon, öğütme, değirmencilik ve kurutma gibi işlemlerle Grup 1 gıdalardan veya doğadan elde edilen maddelerdir.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods Or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "İşlenmiş gıdalar",
-  "guide_nova_groups_arg3_text": "Şişelenmiş sebzeler, konserve balıklar, şuruplu meyveler, peynirler ve taze ekmekler gibi işlenmiş gıdalar, çoğunlukla 1. Grup gıdalara 2. Gruptan tuz, yağ, şeker veya diğer maddeler eklenerek üretilir. İşlemler arasında çeşitli muhafaza veya pişirme yöntemleri ve ekmek ve peynirlerde alkolsüz fermantasyon bulunur. İşlenmiş gıdaların çoğu iki veya üç bileşen içerir ve 1. Grup gıdaların modifiye edilmiş versiyonları olarak kabul edilirler. Tek başlarına veya daha yaygın olarak diğer gıdalarla birlikte tüketilebilirler.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made Breads, are **primarily Made by adding salt, oil, sugar, or other substances From group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of breads and cheese, non-alcoholic Fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Aşırı işlenmiş gıdalar",
-  "guide_nova_groups_arg4_text": "Gazlı içecekler, tatlı veya tuzlu paketlenmiş atıştırmalıklar, yeniden yapılandırılmış et ürünleri ve önceden hazırlanmış dondurulmuş yemekler gibi aşırı işlenmiş gıdalar, yalnızca modifiye gıdalar değil, aynı zamanda çoğunlukla veya tamamen gıdalardan elde edilen maddelerden ve katkı maddelerinden yapılmış, bozulmamış Grup 1 gıda içermeyen veya çok az içeren formülasyonlardır. Bu formülasyonlardaki bileşenler genellikle şeker, yağ, katı yağ veya tuz gibi işlenmiş gıdalarda da bulunan bileşenleri içerir. Bununla birlikte, aşırı işlenmiş ürünler, mutfak hazırlıklarında tipik olarak kullanılmayan diğer enerji ve besin kaynaklarını da içerir. Bunlardan bazıları, kazein, laktoz, peynir altı suyu ve glüten gibi doğrudan gıdalardan elde edilir.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, With little to no intact group 1 food. ingredients In these formulations usually include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ultra işlemeyle ilgili sorunlar",
   "guide_nova_explanations_arg1_title": "Gıda bileşenlerinin aşırı işlenmesi",
-  "guide_nova_explanations_arg1_text": "Birçoğu hidrojene veya interesterifikasyonlu yağlar, hidrolize proteinler, soya proteini izolatı, maltodekstrin, invert şeker ve yüksek fruktozlu mısır şurubu gibi gıda bileşenlerinin daha ileri işlenmesiyle elde edilir.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Saf gıda güvenliğinin ötesine geçen katkı maddeleri",
-  "guide_nova_explanations_arg2_text": "Ultra işlenmiş gıdalardaki katkı maddeleri, işlenmiş gıdalarda da kullanılan koruyucular, antioksidanlar ve stabilizatörler gibi bazı maddeleri içerir. Yalnızca ultra işlenmiş ürünlerde bulunan katkı maddesi sınıfları arasında, gıdaların duyusal özelliklerini taklit etmek veya geliştirmek ya da nihai ürünün tatsız yönlerini gizlemek için kullanılanlar bulunur. Bu katkı maddeleri arasında boyalar ve diğer renkler, renk stabilizatörleri; aromalar, aroma arttırıcılar, şekersiz tatlandırıcılar; karbonatlaştırıcı, sıkılaştırıcı, hacim artırıcı ve hacim önleyici maddeler, köpük giderici, topaklanmayı önleyici ve sırlayıcı maddeler, emülgatörler, bağlayıcılar ve nemlendiriciler gibi işleme yardımcıları bulunur.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Evde yapamayacağınız işlemler",
-  "guide_nova_explanations_arg3_text": "Genellikle çok sayıda bileşenin bir araya getirilerek nihai ürünün (dolayısıyla \"ultra işlenmiş\") elde edilmesi için çok sayıda işlem dizisi kullanılır. Bu işlemler arasında, hidrojenasyon ve hidrolizasyon, ekstrüzyon ve kalıplama ve kızartma için ön işlem gibi evde benzeri olmayan birkaç işlem bulunur.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Ultra işleme sürecinin yırtıcı ve finansal yönleri",
-  "guide_nova_explanations_arg4_text": "Ultra işlemenin genel amacı, diğer tüm gıda gruplarının yerini alacak şekilde tasarlanmış, markalı, kullanışlı (dayanıklı, tüketime hazır), çekici (aşırı lezzetli) ve oldukça kârlı (düşük maliyetli içerikler) gıda ürünleri yaratmaktır. Ultra işlenmiş gıda ürünleri genellikle çekici bir şekilde paketlenir ve yoğun bir şekilde pazarlanır.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Ön izleme",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

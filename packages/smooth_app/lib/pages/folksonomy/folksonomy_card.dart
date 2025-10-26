@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -17,7 +18,8 @@ class FolksonomyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
-      create: (_) => FolksonomyProvider(product.barcode!),
+      create: (_) =>
+          FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: Provider<Product>.value(
         value: product,
         child: const _FolksonomyCard(),
