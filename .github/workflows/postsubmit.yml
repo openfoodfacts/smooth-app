@@ -63,7 +63,7 @@ jobs:
 
       # Upload generated apk to the artifacts.
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
