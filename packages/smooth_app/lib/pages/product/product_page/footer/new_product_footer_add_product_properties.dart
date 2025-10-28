@@ -44,8 +44,7 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
 
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext context) =>
-            FolksonomyPage(product: product, provider: provider),
+        builder: (BuildContext context) => FolksonomyPage(product: product),
       ),
     );
 

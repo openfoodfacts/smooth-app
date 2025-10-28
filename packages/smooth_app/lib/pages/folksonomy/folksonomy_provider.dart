@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -11,14 +12,31 @@ import 'package:smooth_app/query/product_query.dart';
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   FolksonomyProvider(this.barcode, this.localDatabase)
     : super(const FolksonomyStateLoading()) {
-    fetchProductTags();
+    _daoTransientFolksonomyOperation = DaoTransientFolksonomyOperation(
+      localDatabase,
+    );
+    _daoFolksonomy = DaoFolksonomy(localDatabase);
   }
 
   final String barcode;
   final LocalDatabase localDatabase;
+  late final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
+  late final DaoFolksonomy _daoFolksonomy;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
   final ProductRefresher _productRefresher = ProductRefresher();
+
+  Future<void> init(BuildContext context) async {
+    await fetchProductTags();
+    try {
+      if (!context.mounted) {
+        return;
+      }
+      _syncProductTags(context);
+    } catch (e) {
+      debugPrint('Failed to sync product tags: $e');
+    }
+  }
 
   Future<String?> _getBearerToken(BuildContext context) async {
     if (_bearerToken != null) {
@@ -69,13 +87,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       value = const FolksonomyStateLoading();
     }
 
-    try {
-      final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
-      final List<ProductTag>? localTags = await daoFolksonomy.get(barcode);
-      if (localTags != null) {
-        _updateTags(localTags);
-      }
+    final List<ProductTag>? localTags = await _daoFolksonomy.get(barcode);
+    if (localTags != null) {
+      _updateTags(localTags);
+    }
 
+    try {
       final Map<String, ProductTag> tags =
           await FolksonomyAPIClient.getProductTags(
             barcode: barcode,
@@ -83,7 +100,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
           );
       final List<ProductTag> remoteTags = tags.values.toList();
 
-      await daoFolksonomy.put(barcode, remoteTags);
+      await _daoFolksonomy.put(barcode, remoteTags);
       _updateTags(remoteTags);
     } catch (e) {
       if (_tags.isEmpty) {
@@ -92,27 +109,40 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> addTag(BuildContext context, String key, String value) async {
-    try {
-      final String? bearerToken = await _getBearerToken(context);
-      if (bearerToken == null) {
+  Future<void> _syncProductTags(BuildContext context) async {
+    final Iterable<TransientFolksonomyOperation> pendingOperations =
+        _daoTransientFolksonomyOperation.getAll(barcode);
+    if (pendingOperations.isEmpty) {
+      return;
+    }
+
+    for (final TransientFolksonomyOperation operation in pendingOperations) {
+      if (!context.mounted) {
         return;
       }
+      final FolksonomyOperationValue value = operation.value;
+      switch (value.type) {
+        case FolksonomyAction.add:
+          await _syncAdd(context, operation.key, value.tag);
+          break;
+        case FolksonomyAction.edit:
+          await _syncEdit(context, operation.key, value.tag);
+          break;
+        case FolksonomyAction.remove:
+          await _syncDelete(context, operation.key, value.tag);
+          break;
+      }
+    }
+  }
 
+  Future<void> addTag(BuildContext context, String key, String value) async {
+    try {
       final ProductTag? tag = _getTag(key);
       if (tag != null) {
         throw Exception('This tag already exists!');
       }
 
-      // to-do: The addProduct tag method does not yet have a way to add a comment.
-      await FolksonomyAPIClient.addProductTag(
-        barcode: barcode,
-        key: key,
-        value: value,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
-
+      final String operationKey = 'add_${barcode}_$key';
       final ProductTag newProductTag = ProductTag(
         barcode: barcode,
         key: key,
@@ -124,6 +154,14 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         comment: '',
       );
 
+      await _daoTransientFolksonomyOperation.put(
+        operationKey,
+        FolksonomyOperationValue(
+          type: FolksonomyAction.add,
+          tag: newProductTag,
+        ),
+      );
+
       _tags.add(newProductTag);
       _sortTags();
 
@@ -132,6 +170,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         addedPosition: _getPosition(key),
         item: newProductTag,
       );
+
+      if (!context.mounted) {
+        return;
+      }
+      unawaited(_syncAdd(context, operationKey, newProductTag));
     } catch (e) {
       this.value = FolksonomyStateError(
         error: e,
@@ -141,10 +184,10 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> editTag(
+  Future<void> _syncAdd(
     BuildContext context,
-    String key,
-    String newValue,
+    String operationKey,
+    ProductTag tag,
   ) async {
     try {
       final String? bearerToken = await _getBearerToken(context);
@@ -152,20 +195,34 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         return;
       }
 
+      // to-do: The addProduct tag method does not yet have a way to add a comment.
+      await FolksonomyAPIClient.addProductTag(
+        barcode: barcode,
+        key: tag.key,
+        value: tag.value,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
+
+      await _daoTransientFolksonomyOperation.delete(operationKey);
+      await _daoFolksonomy.put(barcode, _tags);
+    } catch (e) {
+      debugPrint('Failed to add tag $operationKey: $e');
+    }
+  }
+
+  Future<void> editTag(
+    BuildContext context,
+    String key,
+    String newValue,
+  ) async {
+    try {
       final ProductTag? tag = _getTag(key);
       if (tag == null) {
         throw Exception('Tag not found');
       }
 
-      await FolksonomyAPIClient.updateProductTag(
-        barcode: barcode,
-        key: key,
-        value: newValue,
-        version: tag.version + 1,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
-
+      final String operationKey = 'edit_${barcode}_$key';
       final ProductTag editedProductTag = ProductTag(
         barcode: barcode,
         key: key,
@@ -177,6 +234,14 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         comment: '',
       );
 
+      await _daoTransientFolksonomyOperation.put(
+        operationKey,
+        FolksonomyOperationValue(
+          type: FolksonomyAction.edit,
+          tag: editedProductTag,
+        ),
+      );
+
       final int position = _getPosition(key);
       _tags[position] = editedProductTag;
       value = FolksonomyStateEditedItem(
@@ -184,6 +249,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         item: editedProductTag,
         position: position,
       );
+
+      if (!context.mounted) {
+        return;
+      }
+      unawaited(_syncEdit(context, operationKey, editedProductTag));
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
@@ -193,24 +263,49 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> deleteTag(BuildContext context, String key) async {
+  Future<void> _syncEdit(
+    BuildContext context,
+    String operationKey,
+    ProductTag tag,
+  ) async {
     try {
       final String? bearerToken = await _getBearerToken(context);
       if (bearerToken == null) {
         return;
       }
 
+      await FolksonomyAPIClient.updateProductTag(
+        barcode: barcode,
+        key: tag.key,
+        value: tag.value,
+        version: tag.version,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
+
+      await _daoTransientFolksonomyOperation.delete(operationKey);
+      await _daoFolksonomy.put(barcode, _tags);
+    } catch (e) {
+      debugPrint('Failed to edit tag $operationKey: $e');
+    }
+  }
+
+  Future<void> deleteTag(BuildContext context, String key) async {
+    try {
       final ProductTag? tag = _getTag(key);
       if (tag == null) {
         throw Exception('Tag not found');
       }
 
-      await FolksonomyAPIClient.deleteProductTag(
-        barcode: barcode,
-        key: key,
-        version: tag.version,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
+      final String operationKey = 'delete_${barcode}_$key';
+      final ProductTag deletedProductTag = tag;
+
+      await _daoTransientFolksonomyOperation.put(
+        operationKey,
+        FolksonomyOperationValue(
+          type: FolksonomyAction.remove,
+          tag: deletedProductTag,
+        ),
       );
 
       final int position = _getPosition(key);
@@ -221,12 +316,43 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         removedPosition: position,
         item: tag,
       );
+
+      if (!context.mounted) {
+        return;
+      }
+      unawaited(_syncDelete(context, operationKey, deletedProductTag));
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
         action: FolksonomyAction.remove,
         tags: _tags,
       );
+    }
+  }
+
+  Future<void> _syncDelete(
+    BuildContext context,
+    String operationKey,
+    ProductTag tag,
+  ) async {
+    try {
+      final String? bearerToken = await _getBearerToken(context);
+      if (bearerToken == null) {
+        return;
+      }
+
+      await FolksonomyAPIClient.deleteProductTag(
+        barcode: barcode,
+        key: tag.key,
+        version: tag.version,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
+
+      await _daoTransientFolksonomyOperation.delete(operationKey);
+      await _daoFolksonomy.put(barcode, _tags);
+    } catch (e) {
+      debugPrint('Failed to delete tag $operationKey: $e');
     }
   }
 
@@ -257,7 +383,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   void _updateTags(final List<ProductTag> tags) {
     if (_equals(tags)) {
-      if (value is FolksonomyStateLoading) {
+      if (value is! FolksonomyStateLoaded) {
         value = FolksonomyStateLoaded(tags: _tags);
       }
       return;

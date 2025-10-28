@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
@@ -21,15 +22,21 @@ import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class FolksonomyPage extends StatelessWidget {
-  const FolksonomyPage({required this.product, required this.provider});
+  const FolksonomyPage({required this.product});
 
   final Product product;
-  final FolksonomyProvider provider;
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<FolksonomyProvider>.value(
-      value: provider,
+    return ChangeNotifierProvider<FolksonomyProvider>(
+      create: (BuildContext context) {
+        final FolksonomyProvider provider = FolksonomyProvider(
+          product.barcode!,
+          context.read<LocalDatabase>(),
+        );
+        provider.init(context);
+        return provider;
+      },
       child: _FolksonomyContent(product),
     );
   }

@@ -18,8 +18,14 @@ class FolksonomyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
-      create: (_) =>
-          FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
+      create: (BuildContext context) {
+        final FolksonomyProvider provider = FolksonomyProvider(
+          product.barcode!,
+          context.read<LocalDatabase>(),
+        );
+        provider.init(context);
+        return provider;
+      },
       child: Provider<Product>.value(
         value: product,
         child: const _FolksonomyCard(),
@@ -117,10 +123,7 @@ class _FolksonomyCard extends StatelessWidget {
   ) async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext lContext) => FolksonomyPage(
-          product: product,
-          provider: context.read<FolksonomyProvider>(),
-        ),
+        builder: (BuildContext lContext) => FolksonomyPage(product: product),
       ),
     );
     if (context.mounted) {
