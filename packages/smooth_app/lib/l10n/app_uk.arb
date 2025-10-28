@@ -1782,11 +1782,11 @@
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "Приклади кодів відстеження",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**Коди ЄС**, що використовуються в Європейському Співтоваристві для ідентифікації виробників або пакувальників харчових продуктів:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
@@ -1794,11 +1794,11 @@
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: код країни **Франція**\n**72.264.002**: географічні дані\n**CE**: Європейський Союз",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "**EMB коди**, що використовуються у Франції:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1830,27 +1830,27 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "Рекомендовані практики: Категорії",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "Вкажіть **тільки найбільш конкретну категорію**.\nБатьківські категорії будуть додані автоматично.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Відсутня категорія?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Якщо категорія **недоступна в автозаповненні**, однаково додайте її. \nЦе допоможе нам покращити Open Food Facts у вашій країні.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Сардини в оливковій олії",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Апельсиновий сік з концентрату",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1870,7 +1870,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "За допомогою **Pinch-to-zoom жесту** можна збільшувати або зменшувати масштаб фотографії:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
@@ -1897,11 +1897,11 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Корисні практики: Харчова цінність",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Харчова цінність",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
