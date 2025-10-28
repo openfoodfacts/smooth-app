@@ -24,6 +24,7 @@
                   "id" : "low_salt",
                   "match" : 75,
                   "name" : "Salt",
+                  "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in moderate quantity"
                },
@@ -34,6 +35,7 @@
                   "id" : "low_fat",
                   "match" : 96.6666666666667,
                   "name" : "Fat",
+                  "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in low quantity"
                },
@@ -44,6 +46,7 @@
                   "id" : "low_sugars",
                   "match" : 98,
                   "name" : "Sugars",
+                  "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in low quantity"
                },
@@ -54,6 +57,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 97.3333333333333,
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
                   "title" : "Saturated fat in low quantity"
                }
@@ -242,7 +246,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -273,8 +278,7 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Unknown environmental impact",
+                  "description_short" : "Missing a precise category",
                   "grade" : "unknown",
                   "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg",
                   "id" : "ecoscore",
@@ -330,9 +334,10 @@
       ],
       "brands" : "Open Food Facts",
       "categories_tags_fr" : [
-         "en:tinned-potatoes"
+         "en:republic-of-tea",
+         "en:honey-ginseng-green-tea"
       ],
-      "code" : "093270067481501",
+      "code" : "93270067481501",
       "ecoscore_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
@@ -557,6 +562,7 @@
                   {
                      "environmental_score_material_score" : 81,
                      "environmental_score_shape_ratio" : 1,
+                     "food_contact" : 1,
                      "material" : "en:glass",
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle"
@@ -564,6 +570,7 @@
                   {
                      "environmental_score_material_score" : 76,
                      "environmental_score_shape_ratio" : 0.1,
+                     "food_contact" : 1,
                      "material" : "en:steel",
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle-cap"
@@ -583,47 +590,48 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "agb_category" : 1
          },
          "missing_agribalyse_match_warning" : 1,
          "previous_data" : {
             "agribalyse" : {
-               "agribalyse_food_code" : "36016",
-               "co2_agriculture" : 4.1407915,
-               "co2_consumption" : 0.0066736979,
-               "co2_distribution" : 0.037353873,
-               "co2_packaging" : 0.27530877,
-               "co2_processing" : 0.82298078,
-               "co2_total" : 5.5155941709,
-               "co2_transportation" : 0.23248555,
-               "code" : "36016",
-               "dqr" : "2.66",
-               "ef_agriculture" : 0.57882141,
-               "ef_consumption" : 0.002442269,
-               "ef_distribution" : 0.0090139963,
-               "ef_packaging" : 0.017876062,
-               "ef_processing" : 0.073724399,
-               "ef_total" : 0.7000516923,
-               "ef_transportation" : 0.018173556,
+               "agribalyse_proxy_food_code" : "25903",
+               "co2_agriculture" : 0.10371296,
+               "co2_consumption" : 0.011022624,
+               "co2_distribution" : 0.01567597,
+               "co2_packaging" : 0.09985047,
+               "co2_processing" : 0.14982524,
+               "co2_total" : 0.510081444,
+               "co2_transportation" : 0.12999418,
+               "code" : "25903",
+               "dqr" : "2.42",
+               "ef_agriculture" : 0.023583571,
+               "ef_consumption" : 0.0040337776,
+               "ef_distribution" : 0.0044793367,
+               "ef_packaging" : 0.0099157882,
+               "ef_processing" : 0.029435401,
+               "ef_total" : 0.0817923135,
+               "ef_transportation" : 0.010344439,
                "is_beverage" : 0,
-               "name_en" : "Chicken, meat and skin, raw",
-               "name_fr" : "Poulet, viande et peau, cru",
-               "score" : 42,
+               "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
+               "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
+               "score" : 98,
                "version" : "3.1.1"
             },
-            "grade" : "b",
-            "score" : 67
+            "grade" : "a-plus",
+            "score" : 123
          },
          "scores" : {},
          "status" : "unknown"
       },
       "ecoscore_grade" : "unknown",
-      "ecoscore_score" : 122,
-      "environment_impact_level_tags" : [],
-      "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.200.jpg",
-      "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.400.jpg",
-      "image_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.200.jpg",
+      "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
+      "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.400.jpg",
+      "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
+      "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
+      "image_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
          "en:vegan",
@@ -712,7 +720,7 @@
                      "actions" : [
                         "add_categories"
                      ],
-                     "html" : "Could you add a precise product category so that we can compute the Green-Score?"
+                     "html" : "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
                   },
                   "element_type" : "action"
                }
@@ -721,7 +729,8 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg",
-               "title" : "Green-Score not computed - Unknown environmental impact",
+               "subtitle" : "Missing a precise category",
+               "title" : "Green-Score not computed",
                "type" : "grade"
             },
             "topics" : [
@@ -733,6 +742,34 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "image" : {
+                        "alt" : "A good product for you - Nutrition facts",
+                        "id" : "nutrition_en",
+                        "lc" : "en",
+                        "sizes" : {
+                           "100" : {
+                              "h" : 100,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.100.jpg",
+                              "w" : 91
+                           },
+                           "200" : {
+                              "h" : 200,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.200.jpg",
+                              "w" : 182
+                           },
+                           "400" : {
+                              "h" : 390,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
+                              "w" : 355
+                           },
+                           "full" : {
+                              "h" : 390,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.full.jpg",
+                              "w" : 355
+                           }
+                        },
+                        "type" : "nutrition"
+                     },
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
                         "nutriscore_2023",
@@ -746,8 +783,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
+                        "nutrition_facts_table"
                      ],
                      "title" : ""
                   }
@@ -755,6 +791,34 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "image" : {
+                        "alt" : "A good product for you - Ingredients",
+                        "id" : "ingredients_en",
+                        "lc" : "en",
+                        "sizes" : {
+                           "100" : {
+                              "h" : 100,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.100.jpg",
+                              "w" : 100
+                           },
+                           "200" : {
+                              "h" : 199,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.200.jpg",
+                              "w" : 200
+                           },
+                           "400" : {
+                              "h" : 383,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
+                              "w" : 384
+                           },
+                           "full" : {
+                              "h" : 383,
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.full.jpg",
+                              "w" : 384
+                           }
+                        },
+                        "type" : "ingredients"
+                     },
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -837,6 +901,83 @@
                "problem"
             ]
          },
+         "ingredient_1" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Butternut squash: 50.0%"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Water: 25.0% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Carrot: 10.0%"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Sweet potato: 5.0% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_5" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Leek: 5.0% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_6" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Potato: 2.5% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_7" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Salt: 2.5% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -848,6 +989,12 @@
                      "html" : "Butternut squash 50%, water, carrots 10%, sweet potato, leeks, potatoes, salt.",
                      "language" : "English",
                      "lc" : "en"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -909,7 +1056,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20128 - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;18066 - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20009 - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4101 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20039 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4003 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;11058 - percent_min:&nbsp;0 - percent_max:&nbsp;0.4</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;20128 – percent_min:&nbsp;50 – percent:&nbsp;50 – percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;10 – percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;20009 – percent_min:&nbsp;10 – percent:&nbsp;10 – percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;4101 – percent_min:&nbsp;0 – percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;20039 – percent_min:&nbsp;0 – percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;4003 – percent_min:&nbsp;0 – percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;11058 – percent_min:&nbsp;0 – percent_max:&nbsp;0.4</li>\n</ol>\n"
                   }
                },
                {
@@ -996,6 +1143,60 @@
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/vegetarian.svg",
                "title" : "Vegetarian"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_5"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_6"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_7"
+                  }
+               }
+            ],
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Ingredient information"
             },
             "topics" : [
                "health"
@@ -1545,13 +1746,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (115g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1564,10 +1758,7 @@
                                  "text" : "Energy"
                               },
                               {
-                                 "text" : "120 kj<br>(59 kcal)"
-                              },
-                              {
-                                 "text" : "138 kj<br>(67 kcal)"
+                                 "text" : "120 kj<br>(29 kcal)"
                               }
                            ]
                         },
@@ -1580,9 +1771,6 @@
                               },
                               {
                                  "text" : "0.5 g"
-                              },
-                              {
-                                 "text" : "0.575 g"
                               }
                            ]
                         },
@@ -1595,9 +1783,6 @@
                               },
                               {
                                  "text" : "0.2 g"
-                              },
-                              {
-                                 "text" : "0.23 g"
                               }
                            ]
                         },
@@ -1610,9 +1795,6 @@
                               },
                               {
                                  "text" : "0.4 g"
-                              },
-                              {
-                                 "text" : "0.46 g"
                               }
                            ]
                         },
@@ -1621,13 +1803,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Carbohydrates"
+                                 "text" : "Total carbohydrates (includes fiber)"
                               },
                               {
-                                 "text" : "4 g"
-                              },
-                              {
-                                 "text" : "4.6 g"
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -1640,9 +1819,6 @@
                               },
                               {
                                  "text" : "3 g"
-                              },
-                              {
-                                 "text" : "3.45 g"
                               }
                            ]
                         },
@@ -1655,9 +1831,6 @@
                               },
                               {
                                  "text" : "0.5 g"
-                              },
-                              {
-                                 "text" : "0.575 g"
                               }
                            ]
                         },
@@ -1670,9 +1843,6 @@
                               },
                               {
                                  "text" : "1 g"
-                              },
-                              {
-                                 "text" : "1.15 g"
                               }
                            ]
                         },
@@ -1685,9 +1855,18 @@
                               },
                               {
                                  "text" : "65 %"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "65 %"
+                                 "text" : "4 g"
                               }
                            ]
                         }
@@ -1771,7 +1950,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                                \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
@@ -1903,6 +2082,118 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_brands"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_countries"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_origins"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_labels"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
+         "raw_brands" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/brands/open-food-facts\">open-food-facts</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Brands"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
+         "raw_countries" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/countries/france\">France</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Countries where sold"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
+         "raw_labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/labels/fair-trade\">Fair trade</a></li>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/labels/organic\">Organic</a></li>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/labels/eu-organic\">EU Organic</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, awards"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
+         "raw_origins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/origins/france\">France</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Origin of ingredients"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
          "report_problem_card" : {
             "elements" : [
                {
@@ -1940,26 +2231,16 @@
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
                   }
-               }
-            ],
-            "expanded" : true,
-            "type" : "root"
-         },
-         "serving_size" : {
-            "elements" : [
+               },
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <strong>Serving size:</strong>\n                    115g\n                "
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],
             "expanded" : true,
-            "level" : "info",
-            "topics" : [
-               "health"
-            ],
-            "type" : "inline"
+            "type" : "root"
          }
       },
       "labels_tags" : [
@@ -1982,37 +2263,23 @@
       "nutriments" : {
          "carbohydrates" : 4,
          "carbohydrates_100g" : 4,
-         "carbohydrates_serving" : 4.6,
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 4,
-         "carbon-footprint-from-known-ingredients_100g" : 18,
-         "carbon-footprint-from-known-ingredients_product" : 36,
-         "carbon-footprint-from-known-ingredients_serving" : 20.7,
          "energy" : 120,
-         "energy-kcal" : 59,
-         "energy-kcal_100g" : 59,
-         "energy-kcal_serving" : 67.8,
-         "energy-kcal_unit" : "kcal",
-         "energy-kcal_value" : 59,
-         "energy-kcal_value_computed" : 30.5,
          "energy-kj" : 120,
          "energy-kj_100g" : 120,
-         "energy-kj_serving" : 138,
          "energy-kj_unit" : "kJ",
          "energy-kj_value" : 120,
          "energy-kj_value_computed" : 127.5,
          "energy_100g" : 120,
-         "energy_serving" : 138,
          "energy_unit" : "kJ",
          "energy_value" : 120,
          "fat" : 0.5,
          "fat_100g" : 0.5,
-         "fat_serving" : 0.575,
          "fat_unit" : "g",
          "fat_value" : 0.5,
          "fiber" : 3,
          "fiber_100g" : 3,
-         "fiber_serving" : 3.45,
          "fiber_unit" : "g",
          "fiber_value" : 3,
          "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 65,
@@ -2026,48 +2293,88 @@
          "nutrition-score-fr_100g" : -1,
          "proteins" : 1,
          "proteins_100g" : 1,
-         "proteins_serving" : 1.15,
          "proteins_unit" : "g",
          "proteins_value" : 1,
          "salt" : 0.4,
          "salt_100g" : 0.4,
-         "salt_serving" : 0.46,
          "salt_unit" : "g",
          "salt_value" : 0.4,
          "saturated-fat" : 0.2,
          "saturated-fat_100g" : 0.2,
-         "saturated-fat_serving" : 0.23,
          "saturated-fat_unit" : "g",
          "saturated-fat_value" : 0.2,
          "sodium" : 0.16,
          "sodium_100g" : 0.16,
-         "sodium_serving" : 0.184,
          "sodium_unit" : "g",
          "sodium_value" : 0.16,
          "sugars" : 0.5,
          "sugars_100g" : 0.5,
-         "sugars_serving" : 0.575,
          "sugars_unit" : "g",
          "sugars_value" : 0.5
       },
       "nutrition_grade_fr" : "a",
       "product_name" : "A good product for you",
-      "product_quantity" : "200",
-      "quantity" : "200 g",
+      "product_quantity" : 200,
+      "quantity" : "200 gr",
       "selected_images" : {
          "front" : {
             "display" : {
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.400.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.400.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.400.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.400.jpg"
             },
             "small" : {
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.200.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.200.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.200.jpg"
             },
             "thumb" : {
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.359.100.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.100.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.100.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.100.jpg"
+            }
+         },
+         "ingredients" : {
+            "display" : {
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.400.jpg"
+            },
+            "small" : {
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.200.jpg"
+            },
+            "thumb" : {
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.100.jpg"
+            }
+         },
+         "nutrition" : {
+            "display" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.400.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.400.jpg"
+            },
+            "small" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.200.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.200.jpg"
+            },
+            "thumb" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.100.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.100.jpg"
             }
          }
       },
-      "serving_size" : "115g",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -2083,8 +2390,8 @@
          "en:product-name-completed",
          "en:photos-to-be-validated",
          "en:packaging-photo-to-be-selected",
-         "en:nutrition-photo-to-be-selected",
-         "en:ingredients-photo-to-be-selected",
+         "en:nutrition-photo-selected",
+         "en:ingredients-photo-selected",
          "en:front-photo-selected",
          "en:photos-uploaded"
       ]
