@@ -567,18 +567,20 @@
                   {
                      "environmental_score_material_score" : 81,
                      "environmental_score_shape_ratio" : 1,
-                     "food_contact" : 1,
                      "material" : "en:glass",
+                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
-                     "shape" : "en:bottle"
+                     "shape" : "en:bottle",
+                     "weight_measured" : 300
                   },
                   {
                      "environmental_score_material_score" : 76,
                      "environmental_score_shape_ratio" : 0.1,
-                     "food_contact" : 1,
                      "material" : "en:steel",
+                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
-                     "shape" : "en:bottle-cap"
+                     "shape" : "en:bottle-cap",
+                     "weight_measured" : 3
                   }
                ],
                "score" : 78.6,
@@ -780,11 +782,11 @@
       },
       "ecoscore_grade" : "a-plus",
       "ecoscore_score" : 111,
-      "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
-      "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.400.jpg",
+      "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
+      "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.400.jpg",
       "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
       "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
-      "image_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
+      "image_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
          "en:vegan",
@@ -1266,7 +1268,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "Bottle"
+                                 "text" : "1 Bottle"
                               },
                               {
                                  "text" : "Glass"
@@ -1284,7 +1286,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "Bottle cap"
+                                 "text" : "1 Bottle cap"
                               },
                               {
                                  "text" : "Steel"
@@ -1420,7 +1422,8 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "nutrition_facts_table"
+                        "nutrition_facts_table",
+                        "serving_size"
                      ],
                      "title" : ""
                   }
@@ -2385,6 +2388,13 @@
                            "type" : "text"
                         },
                         {
+                           "column_group_id" : "product",
+                           "shown_by_default" : false,
+                           "text" : "As sold<br>per serving (100 g)",
+                           "text_for_small_screens" : "per serving",
+                           "type" : "text"
+                        },
+                        {
                            "column_group_id" : "comparisons",
                            "shown_by_default" : true,
                            "text" : "Compared to: Vegetable soups",
@@ -2399,6 +2409,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Energy"
+                              },
+                              {
+                                 "text" : "120 kj<br>(29 kcal)"
                               },
                               {
                                  "text" : "120 kj<br>(29 kcal)"
@@ -2420,6 +2433,9 @@
                                  "text" : "0.5 g"
                               },
                               {
+                                 "text" : "0.5 g"
+                              },
+                              {
                                  "evaluation" : "good",
                                  "text" : "-68%"
                               }
@@ -2431,6 +2447,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "0.2 g"
                               },
                               {
                                  "text" : "0.2 g"
@@ -2452,6 +2471,9 @@
                                  "text" : "0.4 g"
                               },
                               {
+                                 "text" : "0.4 g"
+                              },
+                              {
                                  "evaluation" : "good",
                                  "text" : "-39%"
                               }
@@ -2468,6 +2490,9 @@
                                  "text" : "?"
                               },
                               {
+                                 "text" : "?"
+                              },
+                              {
                                  "text" : ""
                               }
                            ]
@@ -2478,6 +2503,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "3 g"
                               },
                               {
                                  "text" : "3 g"
@@ -2499,6 +2527,9 @@
                                  "text" : "0.5 g"
                               },
                               {
+                                 "text" : "0.5 g"
+                              },
+                              {
                                  "evaluation" : "good",
                                  "text" : "-81%"
                               }
@@ -2510,6 +2541,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "1 g"
                               },
                               {
                                  "text" : "1 g"
@@ -2531,6 +2565,9 @@
                                  "text" : "65 %"
                               },
                               {
+                                 "text" : "65 %"
+                              },
+                              {
                                  "text" : ""
                               }
                            ]
@@ -2541,6 +2578,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "4 g"
                               },
                               {
                                  "text" : "4 g"
@@ -2630,7 +2670,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                                \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass: 300 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel: 3 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
@@ -2678,13 +2718,13 @@
                                  "text" : "Glass"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "99%"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "300 g"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "150 g"
                               }
                            ]
                         },
@@ -2694,13 +2734,13 @@
                                  "text" : "Metal"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "1%"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "3 g"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "1.5 g"
                               }
                            ]
                         },
@@ -2711,13 +2751,13 @@
                                  "text" : "Total"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "100%"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "303 g"
                               },
                               {
-                                 "text" : ""
+                                 "text" : "151.5 g"
                               }
                            ]
                         }
@@ -2779,7 +2819,19 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
+                     "panel_id" : "raw_stores"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
                      "panel_id" : "raw_origins"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_manufacturing-places"
                   }
                },
                {
@@ -2855,6 +2907,25 @@
                "product"
             ]
          },
+         "raw_manufacturing-places" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/manufacturing-places/france\">France</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Manufacturing or processing places"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
          "raw_origins" : {
             "elements" : [
                {
@@ -2869,6 +2940,25 @@
             "level" : "info",
             "title_element" : {
                "title" : "Origin of ingredients"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
+         "raw_stores" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/stores/open-food-facts-is-not-a-store\">Open-food-facts-is-not-a-store</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Stores"
             },
             "topics" : [
                "product"
@@ -2921,6 +3011,22 @@
             ],
             "expanded" : true,
             "type" : "root"
+         },
+         "serving_size" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <strong>Serving size:</strong>\n                    100 g\n                "
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
          }
       },
       "labels_tags" : [
@@ -2943,23 +3049,28 @@
       "nutriments" : {
          "carbohydrates" : 4,
          "carbohydrates_100g" : 4,
+         "carbohydrates_serving" : 4,
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 4,
          "energy" : 120,
          "energy-kj" : 120,
          "energy-kj_100g" : 120,
+         "energy-kj_serving" : 120,
          "energy-kj_unit" : "kJ",
          "energy-kj_value" : 120,
          "energy-kj_value_computed" : 127.5,
          "energy_100g" : 120,
+         "energy_serving" : 120,
          "energy_unit" : "kJ",
          "energy_value" : 120,
          "fat" : 0.5,
          "fat_100g" : 0.5,
+         "fat_serving" : 0.5,
          "fat_unit" : "g",
          "fat_value" : 0.5,
          "fiber" : 3,
          "fiber_100g" : 3,
+         "fiber_serving" : 3,
          "fiber_unit" : "g",
          "fiber_value" : 3,
          "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 65,
@@ -2973,22 +3084,27 @@
          "nutrition-score-fr_100g" : -1,
          "proteins" : 1,
          "proteins_100g" : 1,
+         "proteins_serving" : 1,
          "proteins_unit" : "g",
          "proteins_value" : 1,
          "salt" : 0.4,
          "salt_100g" : 0.4,
+         "salt_serving" : 0.4,
          "salt_unit" : "g",
          "salt_value" : 0.4,
          "saturated-fat" : 0.2,
          "saturated-fat_100g" : 0.2,
+         "saturated-fat_serving" : 0.2,
          "saturated-fat_unit" : "g",
          "saturated-fat_value" : 0.2,
          "sodium" : 0.16,
          "sodium_100g" : 0.16,
+         "sodium_serving" : 0.16,
          "sodium_unit" : "g",
          "sodium_value" : 0.16,
          "sugars" : 0.5,
          "sugars_100g" : 0.5,
+         "sugars_serving" : 0.5,
          "sugars_unit" : "g",
          "sugars_value" : 0.5
       },
@@ -2999,37 +3115,40 @@
       "selected_images" : {
          "front" : {
             "display" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.400.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.400.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.400.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.400.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2606.400.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.400.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2608.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2609.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2610.400.jpg"
             },
             "small" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.200.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.200.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.200.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.200.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2606.200.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2608.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2609.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2610.200.jpg"
             },
             "thumb" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2587.100.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2588.100.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2589.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2590.100.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2591.100.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_de.2606.100.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.100.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_es.2608.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_fr.2609.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_it.2610.100.jpg"
             }
          },
          "ingredients" : {
             "display" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.400.jpg",
                "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
                "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.400.jpg"
             },
             "small" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.200.jpg",
                "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.200.jpg",
                "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.200.jpg"
             },
             "thumb" : {
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.100.jpg",
                "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.100.jpg",
                "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.100.jpg"
             }
@@ -3055,6 +3174,7 @@
             }
          }
       },
+      "serving_size" : "100 g",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
