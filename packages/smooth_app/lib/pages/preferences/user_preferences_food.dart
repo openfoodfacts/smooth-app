@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
-class UserPreferencesFood extends AbstractUserPreferences {
+class UserPreferencesFood {
   UserPreferencesFood({
     required this.productPreferences,
-    required super.context,
-    required super.userPreferences,
-    required super.appLocalizations,
-    required super.themeData,
+    required this.context,
+    required this.userPreferences,
+    required this.appLocalizations,
+    required this.themeData,
   });
 
   final ProductPreferences productPreferences;
+  final BuildContext context;
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
     AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
@@ -34,25 +37,12 @@ class UserPreferencesFood extends AbstractUserPreferences {
     AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
-  @override
-  PreferencePageType getPreferencePageType() => PreferencePageType.FOOD;
-
-  @override
   String getTitleString() => appLocalizations.myPreferences_food_title;
 
-  @override
-  String getSubtitleString() => appLocalizations.myPreferences_food_subtitle;
-
-  @override
-  IconData getLeadingIconData() => Icons.ramen_dining;
-
-  @override
   String? getHeaderAsset() => 'assets/onboarding/preferences.svg';
 
-  @override
   Color? getHeaderColor() => const Color(0xFFEBF1FF);
 
-  @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
     // we don't want this on the onboarding
     UserPreferencesItemTile(

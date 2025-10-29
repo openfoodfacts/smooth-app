@@ -78,7 +78,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
           _buildEditIngredientsTile(context, appLocalizations, userPreferences),
-          _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -450,34 +449,6 @@ class DevModeRoot extends PreferencesRoot {
       onToggle: (bool value) async {
         await userPreferences.setFlag(
           UserPreferencesDevMode.userPreferencesFlagPricesReceiptMultiSelection,
-          value,
-        );
-
-        if (!context.mounted) {
-          return;
-        }
-
-        _showSuccessMessage(context, appLocalizations);
-      },
-    );
-  }
-
-  TogglePreferenceTile _buildUserOrderedKpTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
-      icon: const icons.Panel(),
-      state:
-          userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
-          ) ??
-          false,
-      onToggle: (bool value) async {
-        await userPreferences.setFlag(
-          UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
           value,
         );
 

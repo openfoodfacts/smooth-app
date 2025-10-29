@@ -209,7 +209,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const UserPreferencesPage(type: PreferencePageType.FOOD),
+      target: const UserPreferencesFoodPage(),
     );
   }
 
