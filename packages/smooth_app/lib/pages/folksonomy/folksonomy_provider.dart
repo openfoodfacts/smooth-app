@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
