@@ -110,6 +110,7 @@ History:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'
   - any-glob-to-any-file: 'packages/smooth_app/assets/onboarding/**/*'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/onboarding_loader.dart'
 
 🤳🥫 Scan:
 - changed-files:
