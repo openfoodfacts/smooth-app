@@ -373,7 +373,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       await _daoTransientFolksonomyOperation.delete(operationKey);
       await _daoFolksonomy.put(barcode, _tags);
     } catch (e) {
-      throw Exception('Failed to add tag $operationKey: $e');
+      throw Exception('Failed to edit tag $operationKey: $e');
     }
   }
 
@@ -399,7 +399,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       await _daoTransientFolksonomyOperation.delete(operationKey);
       await _daoFolksonomy.put(barcode, _tags);
     } catch (e) {
-      throw Exception('Failed to add tag $operationKey: $e');
+      throw Exception('Failed to delete tag $operationKey: $e');
     }
   }
 
