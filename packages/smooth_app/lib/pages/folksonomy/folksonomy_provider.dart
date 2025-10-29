@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -13,6 +14,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     this.barcode,
     this._daoFolksonomy,
     this._daoTransientFolksonomyOperation,
+    this._productRefresher,
   ) : super(const FolksonomyStateLoading());
 
   final String barcode;
@@ -20,7 +22,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   final DaoFolksonomy _daoFolksonomy;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
-  final ProductRefresher _productRefresher = ProductRefresher();
+  final ProductRefresher _productRefresher;
+  final OperationType _operationType = OperationType.folksonomy;
 
   Future<void> init(BuildContext context) async {
     await fetchProductTags();
@@ -108,7 +111,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         throw Exception('This tag already exists!');
       }
 
-      final String operationKey = 'add_${barcode}_$key';
+      final String operationKey = await _daoTransientFolksonomyOperation
+          .getNewKey(_operationType, barcode);
       final ProductTag newProductTag = ProductTag(
         barcode: barcode,
         key: key,
@@ -161,7 +165,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         throw Exception('Tag not found');
       }
 
-      final String operationKey = 'edit_${barcode}_$key';
+      final String operationKey = await _daoTransientFolksonomyOperation
+          .getNewKey(_operationType, barcode);
       final ProductTag editedProductTag = ProductTag(
         barcode: barcode,
         key: key,
@@ -209,7 +214,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         throw Exception('Tag not found');
       }
 
-      final String operationKey = 'delete_${barcode}_$key';
+      final String operationKey = await _daoTransientFolksonomyOperation
+          .getNewKey(_operationType, barcode);
       final ProductTag deletedProductTag = tag;
 
       await _daoTransientFolksonomyOperation.put(
@@ -293,7 +299,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> _syncProductTags(BuildContext context) async {
     final Iterable<TransientFolksonomyOperation> pendingOperations =
-        _daoTransientFolksonomyOperation.getAll(barcode);
+        _getSortedOperations(barcode);
     if (pendingOperations.isEmpty) {
       return;
     }
@@ -340,7 +346,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       await _daoTransientFolksonomyOperation.delete(operationKey);
       await _daoFolksonomy.put(barcode, _tags);
     } catch (e) {
-      debugPrint('Failed to add tag $operationKey: $e');
+      throw Exception('Failed to add tag $operationKey: $e');
     }
   }
 
@@ -367,7 +373,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       await _daoTransientFolksonomyOperation.delete(operationKey);
       await _daoFolksonomy.put(barcode, _tags);
     } catch (e) {
-      debugPrint('Failed to edit tag $operationKey: $e');
+      throw Exception('Failed to add tag $operationKey: $e');
     }
   }
 
@@ -393,8 +399,18 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       await _daoTransientFolksonomyOperation.delete(operationKey);
       await _daoFolksonomy.put(barcode, _tags);
     } catch (e) {
-      debugPrint('Failed to delete tag $operationKey: $e');
+      throw Exception('Failed to add tag $operationKey: $e');
     }
+  }
+
+  Iterable<TransientFolksonomyOperation> _getSortedOperations(
+    final String barcode,
+  ) {
+    final List<TransientFolksonomyOperation> result =
+        <TransientFolksonomyOperation>[];
+    result.addAll(_daoTransientFolksonomyOperation.getAll(barcode));
+    result.sort(OperationType.sortFolksonomy);
+    return result;
   }
 }
 

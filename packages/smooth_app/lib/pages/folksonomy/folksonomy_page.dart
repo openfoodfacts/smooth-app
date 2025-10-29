@@ -37,6 +37,7 @@ class FolksonomyPage extends StatelessWidget {
           product.barcode!,
           DaoFolksonomy(localDatabase),
           DaoTransientFolksonomyOperation(localDatabase),
+          ProductRefresher(),
         );
         unawaited(provider.init(context));
         return provider;

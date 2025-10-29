@@ -15,6 +15,7 @@ import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_top_barcodes.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
@@ -40,7 +41,8 @@ enum OperationType {
   languageRefresh('L', 'LANGUAGE_REFRESH'),
   addPrice('A', 'ADD_PRICE'),
   addOtherPrice('E', 'ADD_OTHER_PRICE'),
-  details('D', 'PRODUCT_EDIT');
+  details('D', 'PRODUCT_EDIT'),
+  folksonomy('X', 'UPDATE_PRODUCT_TAG');
 
   const OperationType(this.header, this.processName);
 
@@ -88,6 +90,7 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
+    folksonomy => BackgroundTaskDetails.fromJson(map), // to update
   };
 
   bool matches(final TransientOperation action) =>
@@ -109,9 +112,19 @@ enum OperationType {
     OperationType.fullRefresh => 'Refreshing the full local database',
     OperationType.languageRefresh =>
       'Refreshing the local database to a new language',
+    OperationType.folksonomy => 'Updating product tags',
   };
 
   static int getSequentialId(final TransientOperation operation) {
+    final List<String> keyItems = operation.key.split(
+      _transientHeaderSeparator,
+    );
+    return int.parse(keyItems[1]);
+  }
+
+  static int getSequentialIdFolksonomy(
+    final TransientFolksonomyOperation operation,
+  ) {
     final List<String> keyItems = operation.key.split(
       _transientHeaderSeparator,
     );
@@ -159,4 +172,11 @@ enum OperationType {
     final TransientOperation operationA,
     final TransientOperation operationB,
   ) => getSequentialId(operationA).compareTo(getSequentialId(operationB));
+
+  static int sortFolksonomy(
+    final TransientFolksonomyOperation operationA,
+    final TransientFolksonomyOperation operationB,
+  ) => getSequentialIdFolksonomy(
+    operationA,
+  ).compareTo(getSequentialIdFolksonomy(operationB));
 }

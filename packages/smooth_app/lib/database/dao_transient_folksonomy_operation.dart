@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 
@@ -70,6 +71,10 @@ class DaoTransientFolksonomyOperation extends AbstractDao {
       _getBox().put(key, value);
 
   Future<void> delete(final String key) async => _getBox().delete(key);
+
+  Future<String> getNewKey(OperationType type, String barcode) async {
+    return type.getNewKey(localDatabase, barcode: barcode);
+  }
 
   Iterable<TransientFolksonomyOperation> getAll(final String barcode) {
     final Box<FolksonomyOperationValue> box = _getBox();

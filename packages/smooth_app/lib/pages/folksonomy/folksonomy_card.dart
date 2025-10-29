@@ -12,6 +12,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_page.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/folksonomy/tag.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class FolksonomyCard extends StatelessWidget {
@@ -28,6 +29,7 @@ class FolksonomyCard extends StatelessWidget {
           product.barcode!,
           DaoFolksonomy(localDatabase),
           DaoTransientFolksonomyOperation(localDatabase),
+          ProductRefresher(),
         );
         unawaited(provider.init(context));
         return provider;
