@@ -289,7 +289,7 @@ class SearchBarIcon extends StatelessWidget {
 class SearchFieldUIHelper {
   const SearchFieldUIHelper._();
 
-  static const double SEARCH_BAR_HEIGHT = 47.0;
+  static const double SEARCH_BAR_HEIGHT = 48.0;
   static const BorderRadius SEARCH_BAR_BORDER_RADIUS = BorderRadius.all(
     Radius.circular(30.0),
   );

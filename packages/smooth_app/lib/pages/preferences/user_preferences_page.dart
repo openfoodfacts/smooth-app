@@ -11,232 +11,85 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_donation.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_prices.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-enum PreferencePageType {
-  ACCOUNT('account'),
-  FOOD('food'),
-  DEV_MODE('dev_mode'),
-  SETTINGS('settings'),
-  CONTRIBUTE('contribute'),
-  FAQ('faq'),
-  DONATION('donation'),
-  PRICES('prices'),
-  CONNECT('connect');
+/// Food Preferences page.
+class UserPreferencesFoodPage extends StatefulWidget {
+  const UserPreferencesFoodPage();
 
-  const PreferencePageType(this.tag);
-
-  /// A tag used when opening a new screen
-  /// eg: preferences/account
-  final String tag;
-
-  AbstractUserPreferences getUserPreferences({
+  static UserPreferencesFood _getUserPreferences({
     required final UserPreferences userPreferences,
     required final BuildContext context,
   }) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     BackgroundTaskManager.runAgain(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final ProductPreferences productPreferences = context
         .read<ProductPreferences>();
     // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
     context.read<UserManagementProvider>();
 
-    return switch (this) {
-      PreferencePageType.ACCOUNT => UserPreferencesAccount(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.FOOD => UserPreferencesFood(
-        productPreferences: productPreferences,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.SETTINGS => UserPreferencesSettings(
-        themeProvider: themeProvider,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.DEV_MODE => UserPreferencesDevMode(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.CONTRIBUTE => UserPreferencesContribute(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.FAQ => UserPreferencesFaq(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.DONATION => UserPreferencesDonation(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.PRICES => UserPreferencesPrices(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-      PreferencePageType.CONNECT => UserPreferencesConnect(
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-    };
+    return UserPreferencesFood(
+      productPreferences: productPreferences,
+      context: context,
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    );
   }
-
-  static List<PreferencePageType> getPreferencePageTypes(
-    final UserPreferences userPreferences,
-  ) => <PreferencePageType>[
-    PreferencePageType.ACCOUNT,
-    PreferencePageType.FOOD,
-    PreferencePageType.PRICES,
-    PreferencePageType.DONATION,
-    PreferencePageType.SETTINGS,
-    PreferencePageType.CONTRIBUTE,
-    PreferencePageType.FAQ,
-    PreferencePageType.CONNECT,
-    if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
-  ];
-
-  static PreferencePageType? fromTag(String? tag) {
-    if (tag == null) {
-      return null;
-    }
-    for (final PreferencePageType type in PreferencePageType.values) {
-      if (type.tag == tag) {
-        return type;
-      }
-    }
-    return null;
-  }
-}
-
-/// Preferences page: main or detailed.
-class UserPreferencesPage extends StatefulWidget {
-  const UserPreferencesPage({this.type});
-
-  /// Detailed page if not null, or else main page.
-  final PreferencePageType? type;
 
   @override
-  State<UserPreferencesPage> createState() => _UserPreferencesPageState();
+  State<UserPreferencesFoodPage> createState() =>
+      _UserPreferencesFoodPageState();
 }
 
-class _UserPreferencesPageState extends State<UserPreferencesPage>
+class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
     with TraceableClientMixin {
   final ScrollController _controller = ScrollController();
 
   @override
-  String get actionName => 'Opened user_preferences_page';
+  String get actionName => 'Opened user_preferences_food_page';
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     final String appBarTitle;
     final List<Widget> children = <Widget>[];
-    final bool addDividers;
 
     final String? headerAsset;
     final Color? headerColor;
 
-    if (widget.type == null) {
-      final List<PreferencePageType> items =
-          PreferencePageType.getPreferencePageTypes(userPreferences);
-      for (final PreferencePageType type in items) {
-        final AbstractUserPreferences abstractUserPreferences = type
-            .getUserPreferences(
-              userPreferences: userPreferences,
-              context: context,
-            );
-        children.add(abstractUserPreferences.getOnlyHeader());
-        final Widget? additionalSubtitle = abstractUserPreferences
-            .getAdditionalSubtitle();
-        if (additionalSubtitle != null) {
-          children.add(additionalSubtitle);
-        }
-      }
+    final UserPreferencesFood abstractUserPreferences =
+        UserPreferencesFoodPage._getUserPreferences(
+          userPreferences: userPreferences,
+          context: context,
+        );
 
-      headerAsset = 'assets/preferences/main.svg';
-      headerColor = const Color(0xFFEBF1FF);
-
-      appBarTitle = appLocalizations.myPreferences;
-      addDividers = true;
-    } else {
-      final AbstractUserPreferences abstractUserPreferences = widget.type!
-          .getUserPreferences(
-            userPreferences: userPreferences,
-            context: context,
-          );
-
-      for (final UserPreferencesItem item
-          in abstractUserPreferences.getChildren()) {
-        children.add(item.builder(context));
-      }
-      appBarTitle = abstractUserPreferences.getTitleString();
-      addDividers = false;
-
-      headerAsset = abstractUserPreferences.getHeaderAsset();
-      headerColor = abstractUserPreferences.getHeaderColor();
+    for (final UserPreferencesItem item
+        in abstractUserPreferences.getChildren()) {
+      children.add(item.builder(context));
     }
+    appBarTitle = abstractUserPreferences.getTitleString();
+
+    headerAsset = abstractUserPreferences.getHeaderAsset();
+    headerColor = abstractUserPreferences.getHeaderColor();
 
     final EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
       top: MEDIUM_SPACE,
       bottom: MediaQuery.viewPaddingOf(context).bottom,
     );
     final ListView list;
-    if (addDividers) {
-      list = ListView.separated(
-        controller: _controller,
-        padding: padding,
-        itemCount: children.length,
-        itemBuilder: (BuildContext context, int position) => children[position],
-        separatorBuilder: (BuildContext context, int position) =>
-            const UserPreferencesListItemDivider(),
-      );
-    } else {
-      list = ListView.builder(
-        controller: _controller,
-        padding: padding,
-        itemCount: children.length,
-        itemBuilder: (BuildContext context, int position) => children[position],
-      );
-    }
+    list = ListView.builder(
+      controller: _controller,
+      padding: padding,
+      itemCount: children.length,
+      itemBuilder: (BuildContext context, int position) => children[position],
+    );
 
     if (headerAsset == null) {
       return SmoothScaffold(

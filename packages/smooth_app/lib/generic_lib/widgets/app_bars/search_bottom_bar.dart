@@ -19,7 +19,7 @@ class _SearchBottomBarState extends State<SearchBottomBar> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(
-        vertical: BALANCED_SPACE,
+        vertical: SMALL_SPACE,
         horizontal: MEDIUM_SPACE,
       ),
       child: SearchField(

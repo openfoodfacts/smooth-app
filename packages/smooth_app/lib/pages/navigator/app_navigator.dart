@@ -218,13 +218,9 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
+              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/food',
               builder: (BuildContext context, GoRouterState state) =>
-                  UserPreferencesPage(
-                    type: PreferencePageType.fromTag(
-                      state.pathParameters['preferenceType'],
-                    ),
-                  ),
+                  const UserPreferencesFoodPage(),
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
@@ -540,8 +536,8 @@ class AppRoutes {
       '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
 
   // App preferences
-  static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.tag}';
+  static String get FOOD_PREFERENCES =>
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/food';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
