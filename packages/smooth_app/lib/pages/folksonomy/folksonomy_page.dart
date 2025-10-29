@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -30,11 +32,13 @@ class FolksonomyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
       create: (BuildContext context) {
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
         final FolksonomyProvider provider = FolksonomyProvider(
           product.barcode!,
-          context.read<LocalDatabase>(),
+          DaoFolksonomy(localDatabase),
+          DaoTransientFolksonomyOperation(localDatabase),
         );
-        provider.init(context);
+        unawaited(provider.init(context));
         return provider;
       },
       child: _FolksonomyContent(product),

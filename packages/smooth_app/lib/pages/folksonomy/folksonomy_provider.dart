@@ -10,32 +10,25 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode, this.localDatabase)
-    : super(const FolksonomyStateLoading()) {
-    _daoTransientFolksonomyOperation = DaoTransientFolksonomyOperation(
-      localDatabase,
-    );
-    _daoFolksonomy = DaoFolksonomy(localDatabase);
-  }
+  FolksonomyProvider(
+    this.barcode,
+    this._daoFolksonomy,
+    this._daoTransientFolksonomyOperation,
+  ) : super(const FolksonomyStateLoading());
 
   final String barcode;
-  final LocalDatabase localDatabase;
-  late final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
-  late final DaoFolksonomy _daoFolksonomy;
+  final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
+  final DaoFolksonomy _daoFolksonomy;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
   final ProductRefresher _productRefresher = ProductRefresher();
 
   Future<void> init(BuildContext context) async {
     await fetchProductTags();
-    try {
-      if (!context.mounted) {
-        return;
-      }
-      _syncProductTags(context);
-    } catch (e) {
-      debugPrint('Failed to sync product tags: $e');
+    if (!context.mounted) {
+      return;
     }
+    unawaited(_syncProductTags(context));
   }
 
   Future<String?> _getBearerToken(BuildContext context) async {

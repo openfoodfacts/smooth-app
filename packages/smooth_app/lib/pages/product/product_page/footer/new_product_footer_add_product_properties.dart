@@ -37,19 +37,10 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
       return;
     }
 
-    final FolksonomyProvider provider = FolksonomyProvider(
-      product.barcode!,
-      context.read<LocalDatabase>(),
-    );
-
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => FolksonomyPage(product: product),
       ),
     );
-
-    if (context.mounted) {
-      await provider.fetchProductTags();
-    }
   }
 }
