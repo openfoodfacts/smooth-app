@@ -279,15 +279,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Very low environmental impact",
-                  "grade" : "a",
-                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+                  "description_short" : "Moderate environmental impact",
+                  "grade" : "c",
+                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg",
                   "id" : "ecoscore",
-                  "match" : 100,
+                  "match" : 48,
                   "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Green-Score A+"
+                  "title" : "Green-Score C"
                },
                {
                   "description" : "",
@@ -335,12 +335,13 @@
       ],
       "brands" : "Open Food Facts",
       "categories_tags_fr" : [
-         "Aliments et boissons à base de végétaux",
-         "Aliments d'origine végétale",
-         "Aliments à base de fruits et de légumes",
-         "Plats préparés",
-         "Soupes",
-         "Soupes de légumes"
+         "Snacks",
+         "Snacks sucrés",
+         "Cacao et dérivés",
+         "Chocolats",
+         "Chocolats noirs",
+         "Chocolat noir en tablette extra dégustation à 70% de cacao minimum",
+         "en:tinned-potatoes"
       ],
       "code" : "93270067481501",
       "ecoscore_data" : {
@@ -567,6 +568,7 @@
                   {
                      "environmental_score_material_score" : 81,
                      "environmental_score_shape_ratio" : 1,
+                     "food_contact" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
@@ -576,6 +578,7 @@
                   {
                      "environmental_score_material_score" : 76,
                      "environmental_score_shape_ratio" : 0.1,
+                     "food_contact" : 1,
                      "material" : "en:steel",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
@@ -595,94 +598,94 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_proxy_food_code" : "25903",
-            "co2_agriculture" : 0.10371296,
-            "co2_consumption" : 0.011022624,
-            "co2_distribution" : 0.01567597,
-            "co2_packaging" : 0.09985047,
-            "co2_processing" : 0.14982524,
-            "co2_total" : 0.510081444,
-            "co2_transportation" : 0.12999418,
-            "code" : "25903",
-            "dqr" : "2.42",
-            "ef_agriculture" : 0.023583571,
-            "ef_consumption" : 0.0040337776,
-            "ef_distribution" : 0.0044793367,
-            "ef_packaging" : 0.0099157882,
-            "ef_processing" : 0.029435401,
-            "ef_total" : 0.0817923135,
-            "ef_transportation" : 0.010344439,
+            "agribalyse_food_code" : "31074",
+            "co2_agriculture" : 15.887773,
+            "co2_consumption" : 0,
+            "co2_distribution" : 0.017263204,
+            "co2_packaging" : 0.10402936,
+            "co2_processing" : 0.45803597,
+            "co2_total" : 16.878582384,
+            "co2_transportation" : 0.41148085,
+            "code" : "31074",
+            "dqr" : "2.99",
+            "ef_agriculture" : 0.77882279,
+            "ef_consumption" : 0,
+            "ef_distribution" : 0.0046101581,
+            "ef_packaging" : 0.010330022,
+            "ef_processing" : 0.043605116,
+            "ef_total" : 0.8797669371,
+            "ef_transportation" : 0.042398851,
             "is_beverage" : 0,
-            "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
-            "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
-            "score" : 98,
+            "name_en" : "Dark chocolate bar, more than 70% cocoa",
+            "name_fr" : "Chocolat noir à 70% cacao minimum, extra, dégustation, tablette",
+            "score" : 35,
             "version" : "3.1.1"
          },
-         "grade" : "a-plus",
+         "grade" : "c",
          "grades" : {
-            "ad" : "a-plus",
-            "al" : "a-plus",
-            "at" : "a-plus",
-            "ax" : "a-plus",
-            "ba" : "a-plus",
-            "be" : "a-plus",
-            "bg" : "a-plus",
-            "ch" : "a-plus",
-            "cy" : "a-plus",
-            "cz" : "a-plus",
-            "de" : "a-plus",
-            "dk" : "a-plus",
-            "dz" : "a-plus",
-            "ee" : "a-plus",
-            "eg" : "a-plus",
-            "es" : "a-plus",
-            "fi" : "a-plus",
-            "fo" : "a-plus",
-            "fr" : "a-plus",
-            "gg" : "a-plus",
-            "gi" : "a-plus",
-            "gr" : "a-plus",
-            "hr" : "a-plus",
-            "hu" : "a-plus",
-            "ie" : "a-plus",
-            "il" : "a-plus",
-            "im" : "a-plus",
-            "is" : "a-plus",
-            "it" : "a-plus",
-            "je" : "a-plus",
-            "lb" : "a-plus",
-            "li" : "a-plus",
-            "lt" : "a-plus",
-            "lu" : "a-plus",
-            "lv" : "a-plus",
-            "ly" : "a-plus",
-            "ma" : "a-plus",
-            "mc" : "a-plus",
-            "md" : "a-plus",
-            "me" : "a-plus",
-            "mk" : "a-plus",
-            "mt" : "a-plus",
-            "nl" : "a-plus",
-            "no" : "a-plus",
-            "pl" : "a-plus",
-            "ps" : "a-plus",
-            "pt" : "a-plus",
-            "ro" : "a-plus",
-            "rs" : "a-plus",
-            "se" : "a-plus",
-            "si" : "a-plus",
-            "sj" : "a-plus",
-            "sk" : "a-plus",
-            "sm" : "a-plus",
-            "sy" : "a-plus",
-            "tn" : "a-plus",
-            "tr" : "a-plus",
-            "ua" : "a-plus",
-            "uk" : "a-plus",
-            "us" : "a-plus",
-            "va" : "a-plus",
-            "world" : "a-plus",
-            "xk" : "a-plus"
+            "ad" : "c",
+            "al" : "c",
+            "at" : "c",
+            "ax" : "c",
+            "ba" : "c",
+            "be" : "b",
+            "bg" : "c",
+            "ch" : "c",
+            "cy" : "c",
+            "cz" : "c",
+            "de" : "c",
+            "dk" : "c",
+            "dz" : "c",
+            "ee" : "c",
+            "eg" : "c",
+            "es" : "c",
+            "fi" : "c",
+            "fo" : "c",
+            "fr" : "b",
+            "gg" : "b",
+            "gi" : "c",
+            "gr" : "c",
+            "hr" : "c",
+            "hu" : "c",
+            "ie" : "c",
+            "il" : "c",
+            "im" : "c",
+            "is" : "c",
+            "it" : "c",
+            "je" : "c",
+            "lb" : "c",
+            "li" : "c",
+            "lt" : "c",
+            "lu" : "b",
+            "lv" : "c",
+            "ly" : "c",
+            "ma" : "c",
+            "mc" : "c",
+            "md" : "c",
+            "me" : "c",
+            "mk" : "c",
+            "mt" : "c",
+            "nl" : "b",
+            "no" : "c",
+            "pl" : "c",
+            "ps" : "c",
+            "pt" : "c",
+            "ro" : "c",
+            "rs" : "c",
+            "se" : "c",
+            "si" : "c",
+            "sj" : "c",
+            "sk" : "c",
+            "sm" : "c",
+            "sy" : "c",
+            "tn" : "c",
+            "tr" : "c",
+            "ua" : "c",
+            "uk" : "c",
+            "us" : "c",
+            "va" : "c",
+            "world" : "c",
+            "xk" : "c"
          },
          "previous_data" : {
             "agribalyse" : {
@@ -712,80 +715,80 @@
             "grade" : "a-plus",
             "score" : 123
          },
-         "score" : 111,
+         "score" : 48,
          "scores" : {
-            "ad" : 120,
-            "al" : 111,
-            "at" : 117,
-            "ax" : 121,
-            "ba" : 113,
-            "be" : 123,
-            "bg" : 114,
-            "ch" : 121,
-            "cy" : 117,
-            "cz" : 118,
-            "de" : 120,
-            "dk" : 117,
-            "dz" : 118,
-            "ee" : 122,
-            "eg" : 116,
-            "es" : 117,
-            "fi" : 121,
-            "fo" : 120,
-            "fr" : 123,
-            "gg" : 123,
-            "gi" : 112,
-            "gr" : 118,
-            "hr" : 116,
-            "hu" : 115,
-            "ie" : 118,
-            "il" : 116,
-            "im" : 119,
-            "is" : 119,
-            "it" : 118,
-            "je" : 122,
-            "lb" : 117,
-            "li" : 121,
-            "lt" : 120,
-            "lu" : 123,
-            "lv" : 122,
-            "ly" : 119,
-            "ma" : 120,
-            "mc" : 119,
-            "md" : 115,
-            "me" : 117,
-            "mk" : 115,
-            "mt" : 120,
-            "nl" : 123,
-            "no" : 114,
-            "pl" : 115,
-            "ps" : 117,
-            "pt" : 113,
-            "ro" : 116,
-            "rs" : 112,
-            "se" : 113,
-            "si" : 117,
-            "sj" : 119,
-            "sk" : 115,
-            "sm" : 117,
-            "sy" : 115,
-            "tn" : 112,
-            "tr" : 112,
-            "ua" : 117,
-            "uk" : 121,
-            "us" : 111,
-            "va" : 115,
-            "world" : 111,
-            "xk" : 115
+            "ad" : 57,
+            "al" : 48,
+            "at" : 54,
+            "ax" : 58,
+            "ba" : 50,
+            "be" : 60,
+            "bg" : 51,
+            "ch" : 58,
+            "cy" : 54,
+            "cz" : 55,
+            "de" : 57,
+            "dk" : 54,
+            "dz" : 55,
+            "ee" : 59,
+            "eg" : 53,
+            "es" : 54,
+            "fi" : 58,
+            "fo" : 57,
+            "fr" : 60,
+            "gg" : 60,
+            "gi" : 49,
+            "gr" : 55,
+            "hr" : 53,
+            "hu" : 52,
+            "ie" : 55,
+            "il" : 53,
+            "im" : 56,
+            "is" : 56,
+            "it" : 55,
+            "je" : 59,
+            "lb" : 54,
+            "li" : 58,
+            "lt" : 57,
+            "lu" : 60,
+            "lv" : 59,
+            "ly" : 56,
+            "ma" : 57,
+            "mc" : 56,
+            "md" : 52,
+            "me" : 54,
+            "mk" : 52,
+            "mt" : 57,
+            "nl" : 60,
+            "no" : 51,
+            "pl" : 52,
+            "ps" : 54,
+            "pt" : 50,
+            "ro" : 53,
+            "rs" : 49,
+            "se" : 50,
+            "si" : 54,
+            "sj" : 56,
+            "sk" : 52,
+            "sm" : 54,
+            "sy" : 52,
+            "tn" : 49,
+            "tr" : 49,
+            "ua" : 54,
+            "uk" : 58,
+            "us" : 48,
+            "va" : 52,
+            "world" : 48,
+            "xk" : 52
          },
          "status" : "known"
       },
-      "ecoscore_grade" : "a-plus",
-      "ecoscore_score" : 111,
+      "ecoscore_grade" : "c",
+      "ecoscore_score" : 48,
       "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
       "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.400.jpg",
-      "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
-      "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
+      "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.400.jpg",
+      "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.400.jpg",
       "image_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
@@ -798,7 +801,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
+                     "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/31074\">Dark chocolate bar, more than 70% cocoa</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -825,8 +828,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 20.3326275087945,
-                                 "text" : "20.3 %"
+                                 "percent" : 94.1297831686431,
+                                 "text" : "94.1 %"
                               }
                            ]
                         },
@@ -838,8 +841,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 29.3728073746592,
-                                 "text" : "29.4 %"
+                                 "percent" : 2.71371113746018,
+                                 "text" : "2.7 %"
                               }
                            ]
                         },
@@ -851,8 +854,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 19.5753974535878,
-                                 "text" : "19.6 %"
+                                 "percent" : 0.616339439138054,
+                                 "text" : "0.6 %"
                               }
                            ]
                         },
@@ -864,8 +867,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 25.484985099752,
-                                 "text" : "25.5 %"
+                                 "percent" : 2.43788749930837,
+                                 "text" : "2.4 %"
                               }
                            ]
                         },
@@ -877,8 +880,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 3.0732288312766,
-                                 "text" : "3.1 %"
+                                 "percent" : 0.102278755450248,
+                                 "text" : "0.1 %"
                               }
                            ]
                         },
@@ -890,8 +893,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 2.16095373192992,
-                                 "text" : "2.2 %"
+                                 "percent" : 0,
+                                 "text" : "0.0 %"
                               }
                            ]
                         }
@@ -901,14 +904,14 @@
                   }
                }
             ],
-            "evaluation" : "good",
+            "evaluation" : "bad",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "51 g CO₂e per 100g of product",
-               "title" : "Equal to driving 0.3 km in a petrol car"
+               "subtitle" : "1688 g CO₂e per 100g of product",
+               "title" : "Equal to driving 8.7 km in a petrol car"
             },
             "topics" : [
                "environment"
@@ -1045,11 +1048,11 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+               "grade" : "c",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg",
                "name" : "Green-Score",
-               "subtitle" : "Very low environmental impact",
-               "title" : "Green-Score A+",
+               "subtitle" : "Moderate environmental impact",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
@@ -1061,7 +1064,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.08\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.51\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/31074\">Dark chocolate bar, more than 70% cocoa</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.88\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 16.88\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -1088,8 +1091,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 28.8334807891208,
-                                 "text" : "28.8 %"
+                                 "percent" : 88.5260353801491,
+                                 "text" : "88.5 %"
                               }
                            ]
                         },
@@ -1101,8 +1104,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 35.987979481715,
-                                 "text" : "36.0 %"
+                                 "percent" : 4.95643950245922,
+                                 "text" : "5.0 %"
                               }
                            ]
                         },
@@ -1114,8 +1117,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 12.1231296385815,
-                                 "text" : "12.1 %"
+                                 "percent" : 1.17417711036643,
+                                 "text" : "1.2 %"
                               }
                            ]
                         },
@@ -1127,8 +1130,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 12.6472018669578,
-                                 "text" : "12.6 %"
+                                 "percent" : 4.81932762099023,
+                                 "text" : "4.8 %"
                               }
                            ]
                         },
@@ -1140,8 +1143,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 5.47647634395376,
-                                 "text" : "5.5 %"
+                                 "percent" : 0.524020386035032,
+                                 "text" : "0.5 %"
                               }
                            ]
                         },
@@ -1153,8 +1156,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 4.93173187967106,
-                                 "text" : "4.9 %"
+                                 "percent" : 0,
+                                 "text" : "0.0 %"
                               }
                            ]
                         }
@@ -1166,12 +1169,12 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
+               "grade" : "d",
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/lca.svg",
-               "subtitle" : "Category: Soup, mixed vegetables, prepacked, to be reheated",
-               "title" : "Average impact of products of the same category: A+ (Score: 98/100)",
+               "subtitle" : "Category: Dark chocolate bar, more than 70% cocoa",
+               "title" : "Average impact of products of the same category: D (Score: 35/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1359,17 +1362,17 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 100/100\n                ",
+                     "html" : "\n                Life cycle analysis score: 35<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 48/100\n                ",
                      "type" : "summary"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+               "grade" : "c",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Product: A good product for you – Open Food Facts – 200 gr",
-               "title" : "Impact for this product: A+ (Score: 100/100)",
+               "title" : "Impact for this product: C (Score: 48/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1388,22 +1391,22 @@
                         "sizes" : {
                            "100" : {
                               "h" : 100,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.100.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.100.jpg",
                               "w" : 91
                            },
                            "200" : {
                               "h" : 200,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.200.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.200.jpg",
                               "w" : 182
                            },
                            "400" : {
                               "h" : 390,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.400.jpg",
                               "w" : 355
                            },
                            "full" : {
                               "h" : 390,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.full.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.full.jpg",
                               "w" : 355
                            }
                         },
@@ -1438,22 +1441,22 @@
                         "sizes" : {
                            "100" : {
                               "h" : 100,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.100.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.100.jpg",
                               "w" : 100
                            },
                            "200" : {
                               "h" : 199,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.200.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.200.jpg",
                               "w" : 200
                            },
                            "400" : {
                               "h" : 383,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.400.jpg",
                               "w" : 384
                            },
                            "full" : {
                               "h" : 383,
-                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.full.jpg",
+                              "url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.full.jpg",
                               "w" : 384
                            }
                         },
@@ -1876,7 +1879,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Meals</li>\n            \n                <li>Ingredient: Salt</li>\n            \n            </ul>\n        \n    \n\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Chocolates</li>\n            \n                <li>Ingredient: Salt</li>\n            \n                <li>Category: Sweet snacks</li>\n            \n            </ul>\n        \n    \n\n"
                   }
                },
                {
@@ -2397,7 +2400,7 @@
                         {
                            "column_group_id" : "comparisons",
                            "shown_by_default" : true,
-                           "text" : "Compared to: Vegetable soups",
+                           "text" : "Compared to: Dark chocolate bar with more than 70% cocoa",
                            "type" : "text"
                         }
                      ],
@@ -2418,7 +2421,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-54%"
+                                 "text" : "-94%"
                               }
                            ]
                         },
@@ -2437,7 +2440,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-68%"
+                                 "text" : "-99%"
                               }
                            ]
                         },
@@ -2456,7 +2459,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-43%"
+                                 "text" : "-99%"
                               }
                            ]
                         },
@@ -2474,8 +2477,8 @@
                                  "text" : "0.4 g"
                               },
                               {
-                                 "evaluation" : "good",
-                                 "text" : "-39%"
+                                 "evaluation" : "bad",
+                                 "text" : "+1,823%"
                               }
                            ]
                         },
@@ -2511,8 +2514,8 @@
                                  "text" : "3 g"
                               },
                               {
-                                 "evaluation" : "good",
-                                 "text" : "+94%"
+                                 "evaluation" : "bad",
+                                 "text" : "-64%"
                               }
                            ]
                         },
@@ -2531,7 +2534,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-81%"
+                                 "text" : "-97%"
                               }
                            ]
                         },
@@ -2550,7 +2553,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-58%"
+                                 "text" : "-88%"
                               }
                            ]
                         },
@@ -2586,7 +2589,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-62%"
+                                 "text" : "-88%"
                               }
                            ]
                         }
@@ -3139,38 +3142,41 @@
          "ingredients" : {
             "display" : {
                "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.400.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.400.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2614.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_it.2616.400.jpg"
             },
             "small" : {
                "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.200.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.200.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2614.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_it.2616.200.jpg"
             },
             "thumb" : {
                "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_de.2612.100.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2592.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2593.100.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_fr.2614.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_it.2616.100.jpg"
             }
          },
          "nutrition" : {
             "display" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.400.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.400.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.400.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2617.400.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2619.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2620.400.jpg"
             },
             "small" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.200.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.200.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.200.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2617.200.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2619.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2620.200.jpg"
             },
             "thumb" : {
-               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2595.100.jpg",
-               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2597.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2599.100.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2601.100.jpg"
+               "de" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_de.2617.100.jpg",
+               "en" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_en.2618.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_fr.2619.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/nutrition_it.2620.100.jpg"
             }
          }
       },
