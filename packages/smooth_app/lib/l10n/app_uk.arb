@@ -810,7 +810,7 @@
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Дозволені одинці** такі: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
@@ -1730,7 +1730,7 @@
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "Додайте **всі вказівки про походження, які ви можете знайти на пакуванні**.\nНе потрібно турбуватися про походження, вказане безпосередньо в списку інгредієнтів.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
@@ -1921,7 +1921,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Якщо якась позиція відсутня, ви можете **натиснути на значок «Плюс»**, щоб додати її (наприклад: вітамін D, магній…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2583,10 +2583,10 @@
   "prices_add_validation_error": "Помилка перевірки",
   "prices_privacy_warning_title": "Попередження про конфіденційність",
   "prices_unknown_product": "Невідомий продукт",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+  "prices_privacy_warning_main_message": "Ціни **будуть оприлюднені** разом із магазином, до якого вони відносяться.\n\nЦе може дозволити людям, які знають про ваш псевдонім в Open Food Facts:",
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+  "prices_privacy_warning_sub_message": "Якщо вас це турбує, будь ласка, змініть свій псевдонім або створіть новий обліковий запис Open Food Facts і увійдіть в додаток за допомогою нього.",
   "i_refuse": "I refuse",
   "i_accept": "I accept",
   "prices_currency_change_proposal_title": "Change the currency?",
@@ -4060,7 +4060,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts розширює нашу місію на наших пухнастих друзів! Це **база даних продуктів харчування для котів, собак та інших домашніх тварин**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4144,7 +4144,7 @@
   "guide_open_prices_scrapping_paragraph1": "З юридичних та технічних причин **ми не вважаємо копіювання цін з веб-сайтів роздрібних продавців дійсним способом внеску в Open Prices**. Ми хочемо бути впевнені, що ціни, які ми збираємо, є точними та актуальними, а отримання скопійованих цін від учасників не дозволяє нам цього зробити.",
   "guide_open_prices_scrapping_paragraph2": "Скрейпінг цін є варіантом, який розглядається в майбутній версії Open Prices, але це буде робити сама Open Prices, щоб ми могли отримати підтвердження ціни на основі HTML-сторінки.",
   "guide_open_prices_retailers_title": "Я роздрібний продавець і хочу вказати ціни. Як я можу це зробити?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Ви можете надавати ціни, використовуючи наш API.\nЯкщо ви хочете надавати ціни у великих обсягах, зв'яжіться з нами за адресою prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
@@ -4172,7 +4172,7 @@
   "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
   "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
   "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
