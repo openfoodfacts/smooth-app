@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -203,32 +204,7 @@ class ProductPageTabsGenerator {
             if (!snapshot.hasData || snapshot.data == null) {
               return EMPTY_WIDGET;
             }
-            return Container(
-              constraints: const BoxConstraints(
-                minWidth: VERY_SMALL_SPACE * 2 + 16.0,
-              ),
-              decoration: BoxDecoration(
-                color: context
-                    .extension<SmoothColorsThemeExtension>()
-                    .secondaryNormal,
-                borderRadius: ANGULAR_BORDER_RADIUS,
-              ),
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: SMALL_SPACE,
-                vertical: 6.0,
-              ),
-              child: Text(
-                (snapshot.data == null || snapshot.data == 0)
-                    ? '-'
-                    : snapshot.data!.toString(),
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12.0,
-                  height: 1.0,
-                ),
-              ),
-            );
+            return _ProductPageTabBadge(snapshot.data!);
           },
         ),
       ),
@@ -240,6 +216,15 @@ class ProductPageTabsGenerator {
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_folksonomy,
         builder: (_, Product product) => FolksonomyCard(product),
+        suffix: FutureBuilder<int?>(
+          future: _getFolksonomyTotal(product),
+          builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+            if (!snapshot.hasData || snapshot.data == null) {
+              return EMPTY_WIDGET;
+            }
+            return _ProductPageTabBadge(snapshot.data!);
+          },
+        ),
       ),
     );
 
@@ -261,6 +246,15 @@ class ProductPageTabsGenerator {
     await refresher.runIfNeeded();
 
     return refresher.pricesResult?.total;
+  }
+
+  Future<int?> _getFolksonomyTotal(Product product) async {
+    final Map<String, ProductTag> tags =
+        await FolksonomyAPIClient.getProductTags(
+          barcode: product.barcode!,
+          uriHelper: ProductQuery.uriFolksonomyHelper,
+        );
+    return tags.length;
   }
 
   Widget? _extractPrefix(Product product, KnowledgePanelTitle title) {
@@ -317,4 +311,28 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(covariant _TabBarDelegate oldDelegate) {
     return tabBar != oldDelegate.tabBar;
   }
+}
+
+class _ProductPageTabBadge extends StatelessWidget {
+  const _ProductPageTabBadge(this.count);
+
+  final int count;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    constraints: const BoxConstraints(minWidth: VERY_SMALL_SPACE * 2 + 16.0),
+    decoration: BoxDecoration(
+      color: context.extension<SmoothColorsThemeExtension>().secondaryNormal,
+      borderRadius: ANGULAR_BORDER_RADIUS,
+    ),
+    padding: const EdgeInsetsDirectional.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: 6.0,
+    ),
+    child: Text(
+      (count == 0) ? '-' : count.toString(),
+      textAlign: TextAlign.center,
+      style: const TextStyle(color: Colors.white, fontSize: 12.0, height: 1.0),
+    ),
+  );
 }
