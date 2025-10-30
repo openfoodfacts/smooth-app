@@ -31,7 +31,7 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
       _tabController = TabController(
         length: _tabs.length,
         vsync: this,
-        initialIndex: 1,
+        initialIndex: 0,
       );
       _isInitialized = true;
     }
