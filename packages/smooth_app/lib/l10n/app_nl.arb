@@ -1,5 +1,5 @@
 {
-  "app_name": "Open voedselfeiten",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1011,7 +1011,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Geen eigenschappen",
-  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.",
+  "product_tags_explanation": "By adding properties (key/value) to a product, you help enrich it.",
   "add_tag": "Voeg een eigenschap toe",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
@@ -2493,7 +2493,7 @@
       }
     }
   },
-  "prices_users_empty_title": "Nog geen bijdrage!",
+  "prices_users_empty_title": "No contributor yet!",
   "prices_users_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_users_list_length_many_pages": "Top {pageSize} bijdragers (totaal: {total})",
   "@prices_users_list_length_many_pages": {
@@ -2507,7 +2507,7 @@
       }
     }
   },
-  "prices_locations_empty_title": "Nog geen winkel!",
+  "prices_locations_empty_title": "No shop yet!",
   "prices_locations_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locaties (totaal: {total})",
   "@prices_locations_list_length_many_pages": {
@@ -3970,7 +3970,7 @@
   "guide_greenscore_transparency_title": "Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen",
   "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
   "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
+  "guide_greenscore_transparency_arg1_title": "Hoe kunnen burgers helpen?",
   "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Hoe fabrikanten kunnen helpen",
   "guide_greenscore_transparency_arg2_text": "Fabrikanten kunnen hun informatie rechtstreeks aan ons doorgeven via ons gratis platform voor producenten.",
@@ -3988,7 +3988,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nova_what_is_nova_title": "Wat is ultra-bewerking?",
-  "guide_nova_what_is_nova_paragraph1": "The NOVA groups inform you about **the level of food processing**.",
+  "guide_nova_what_is_nova_paragraph1": "De NOVA-groepen informeren u over **het niveau van voedselverwerking**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4016,7 +4016,7 @@
   "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
   "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_title": "Een gezondheidsrisico",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
@@ -4024,11 +4024,11 @@
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Welkom bij Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Wat is Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4037,29 +4037,29 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_food_facts_features_title": "Kenmerken van Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
+  "guide_open_food_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_food_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_food_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_food_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_food_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_food_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
   "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_food_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_food_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
+  "guide_open_food_facts_tips_arg2_text4": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_food_facts_scores_title": "Help ons de \"Wikipedia van Voedsel\" te bouwen",
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_scores_arg2_title": "Een score om ultrabewerkte voedingsmiddelen te vermijden",
+  "guide_open_food_facts_scores_arg3_title": "Een score voor de planeet",
   "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Welkom bij Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Wat is Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4068,28 +4068,28 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_pet_food_facts_features_title": "Kenmerken van Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is uw huisdier allergisch voor bepaalde ingrediënten? U kunt direct in de app een lijst met te vermijden ingrediënten instellen!",
+  "guide_open_pet_food_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_pet_food_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
   "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_pet_food_facts_scores_title": "Een opmerking over het scoren",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
   "guide_open_pet_food_facts_share_link": "https://en.openfoodfacts.org/openpetfoodfacts",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Welkom bij Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Wat is Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4098,30 +4098,30 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_title": "Kenmerken van Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_beauty_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_beauty_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_beauty_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
   "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_beauty_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
   "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
   "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_beauty_facts_scores_title": "Een opmerking over het scoren",
+  "guide_open_beauty_facts_scores_paragraph1": "In tegenstelling tot voedingsproducten kent de cosmeticawereld **geen universeel erkend, door de overheid ondersteund scoresysteem zoals de Nutri-Score**. De effecten van ingrediënten kunnen zeer persoonlijk zijn en hangen af van huidtype, allergieën en individuele behoeften.",
   "guide_open_beauty_facts_share_link": "https://en.openfoodfacts.org/openbeautyfacts",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Welkom bij Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Wat is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4130,15 +4130,15 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Hoe werkt Open Prices?",
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
   "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_how_arg2_title": "Verzamel foto's van bonnetjes",
+  "guide_open_prices_why_title": "Waarom doet Open Food Facts dit?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
   "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
   "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_title": "Vergelijk prijzen bij u in de buurt",
   "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
   "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
@@ -4167,7 +4167,7 @@
   "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
   "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
   "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_title": "Welke informatie is nuttig?",
   "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
   "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
@@ -4175,8 +4175,8 @@
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
   "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_coming_soon_button_title": "Binnenkort beschikbaar",
+  "guide_learn_more_subtitle": "Tik om meer te weten te komen",
   "preview_badge": "Voorbeeld",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -5070,19 +5070,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Ontdek Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Ontdek Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Ontdek Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Ontdek Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5549,12 +5549,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Locatiedetails",
   "location_map_details_name": "Naam",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
+  "location_map_details_street": "Straat",
+  "location_map_details_city": "Stad",
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Land",
-  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_coordinates": "Coördinaten",
   "location_map_details_osm_id": "OSM ID"
 }
