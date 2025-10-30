@@ -87,16 +87,16 @@
   if (!checkScores) {
     return false;
   }
-  final List&lt;ProductFieldEditor&gt; editors = &lt;ProductFieldEditor&gt;[
-    ProductFieldSimpleEditor(SimpleInputPageCategoryHelper()),
-    ProductFieldNutritionEditor(),
-    ProductFieldOcrIngredientEditor(),
-  ];
-
-  for (final ProductFieldEditor editor in editors) {
-    if (!editor.isPopulated(product)) {
-      return true;
-    }
+  if (product.categoriesTagsInLanguages == null ||
+      product.categoriesTagsInLanguages!.isEmpty) {
+    return true;
+  }
+  if (product.nutriments == null || product.nutriments!.isEmpty()) {
+    return true;
+  }
+  if (product.ingredientsTextInLanguages == null ||
+      product.ingredientsTextInLanguages!.isEmpty) {
+    return true;
   }
   return false;
 }</code></pre>
