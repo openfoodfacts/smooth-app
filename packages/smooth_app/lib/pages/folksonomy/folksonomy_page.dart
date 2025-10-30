@@ -32,12 +32,8 @@ class FolksonomyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
       create: (BuildContext context) {
-        final LocalDatabase localDatabase = context.read<LocalDatabase>();
         final FolksonomyProvider provider = FolksonomyProvider(
           product.barcode!,
-          DaoFolksonomy(localDatabase),
-          DaoTransientFolksonomyOperation(localDatabase),
-          ProductRefresher(),
         );
         unawaited(provider.init(context));
         return provider;

@@ -3,29 +3,34 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(
-    this.barcode,
-    this._daoFolksonomy,
-    this._daoTransientFolksonomyOperation,
-    this._productRefresher,
-  ) : super(const FolksonomyStateLoading());
+  FolksonomyProvider(this.barcode) : super(const FolksonomyStateLoading());
 
   final String barcode;
-  final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
-  final DaoFolksonomy _daoFolksonomy;
+  late final LocalDatabase _localDatabase;
+  late final DaoFolksonomy _daoFolksonomy;
+  late final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
+  late final ProductRefresher _productRefresher;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
-  final ProductRefresher _productRefresher;
   final OperationType _operationType = OperationType.folksonomy;
 
   Future<void> init(BuildContext context) async {
+    _localDatabase = context.read<LocalDatabase>();
+    _daoFolksonomy = DaoFolksonomy(_localDatabase);
+    _daoTransientFolksonomyOperation = DaoTransientFolksonomyOperation(
+      _localDatabase,
+    );
+    _productRefresher = ProductRefresher();
+
     await fetchProductTags();
     if (!context.mounted) {
       return;

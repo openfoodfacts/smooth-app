@@ -3,16 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_folksonomy.dart';
-import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_page.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/folksonomy/tag.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class FolksonomyCard extends StatelessWidget {
@@ -24,12 +20,8 @@ class FolksonomyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
       create: (BuildContext context) {
-        final LocalDatabase localDatabase = context.read<LocalDatabase>();
         final FolksonomyProvider provider = FolksonomyProvider(
           product.barcode!,
-          DaoFolksonomy(localDatabase),
-          DaoTransientFolksonomyOperation(localDatabase),
-          ProductRefresher(),
         );
         unawaited(provider.init(context));
         return provider;
