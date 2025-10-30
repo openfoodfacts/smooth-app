@@ -161,6 +161,7 @@ class ProductPageTabsGenerator {
     Product product,
     List<ProductPageTab> tabs,
   ) {
+    /* until we have something interesting to put there
     tabs.insert(
       0,
       ProductPageTab(
@@ -173,6 +174,7 @@ class ProductPageTabsGenerator {
         ),
       ),
     );
+    */
     if (product.website?.trim().isNotEmpty == true) {
       tabs.add(
         ProductPageTab(
