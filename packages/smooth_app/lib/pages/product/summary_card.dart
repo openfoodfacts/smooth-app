@@ -42,7 +42,6 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.isRemovable = true,
     this.isSettingVisible = true,
-    this.isProductEditable = true,
     this.isPictureVisible = true,
     this.attributeGroupsClickable = true,
     this.scrollableContent = false,
@@ -68,9 +67,6 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, the icon setting will be clickable.
   final bool isSettingVisible;
-
-  /// If true, the product will be editable
-  final bool isProductEditable;
 
   /// If true, a picture will be display next to the product name…
   final bool isPictureVisible;
@@ -318,9 +314,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         summaryCardButtons.add(
           addPanelButton(
             editor.getLabel(localizations),
-            onPressed: () async => widget.isProductEditable
-                ? editor.edit(context: context, product: upToDateProduct)
-                : null,
+            onPressed: () async =>
+                editor.edit(context: context, product: upToDateProduct),
           ),
         );
       }
