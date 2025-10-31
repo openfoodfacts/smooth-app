@@ -19,13 +19,8 @@ class FolksonomyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
-      create: (BuildContext context) {
-        final FolksonomyProvider provider = FolksonomyProvider(
-          product.barcode!,
-        );
-        unawaited(provider.init(context));
-        return provider;
-      },
+      create: (BuildContext context) =>
+          FolksonomyProvider(product.barcode!, context),
       child: Provider<Product>.value(
         value: product,
         child: const _FolksonomyCard(),

@@ -12,24 +12,27 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode) : super(const FolksonomyStateLoading());
+  FolksonomyProvider(this.barcode, this.context)
+    : super(const FolksonomyStateLoading()) {
+    unawaited(_init(context));
+  }
 
   final String barcode;
+  final BuildContext context;
   late final LocalDatabase _localDatabase;
   late final DaoFolksonomy _daoFolksonomy;
   late final DaoTransientFolksonomyOperation _daoTransientFolksonomyOperation;
-  late final ProductRefresher _productRefresher;
+  final ProductRefresher _productRefresher = ProductRefresher();
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
   final OperationType _operationType = OperationType.folksonomy;
 
-  Future<void> init(BuildContext context) async {
+  Future<void> _init(BuildContext context) async {
     _localDatabase = context.read<LocalDatabase>();
     _daoFolksonomy = DaoFolksonomy(_localDatabase);
     _daoTransientFolksonomyOperation = DaoTransientFolksonomyOperation(
       _localDatabase,
     );
-    _productRefresher = ProductRefresher();
 
     await fetchProductTags();
     if (!context.mounted) {
@@ -339,7 +342,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         return;
       }
 
-      // to-do: The addProduct tag method does not yet have a way to add a comment.
+      // FIXME: The addProduct tag method does not yet have a way to add a comment.
       await FolksonomyAPIClient.addProductTag(
         barcode: barcode,
         key: tag.key,

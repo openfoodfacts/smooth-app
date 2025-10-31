@@ -90,7 +90,9 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
-    folksonomy => BackgroundTaskDetails.fromJson(map), // to update
+    folksonomy => BackgroundTaskDetails.fromJson(
+      map,
+    ), // FIXME: Implement correct background task process for folksonomy.
   };
 
   bool matches(final TransientOperation action) =>
@@ -112,7 +114,7 @@ enum OperationType {
     OperationType.fullRefresh => 'Refreshing the full local database',
     OperationType.languageRefresh =>
       'Refreshing the local database to a new language',
-    OperationType.folksonomy => 'Updating product tags',
+    OperationType.folksonomy => 'Updating folksonomy product tags',
   };
 
   static int getSequentialId(final TransientOperation operation) {
