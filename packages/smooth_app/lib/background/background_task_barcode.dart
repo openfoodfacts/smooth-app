@@ -30,6 +30,15 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   static const String _jsonTagBarcode = 'barcode';
   static const String _jsonTagProductType = 'productType';
 
+  // cf. https://github.com/openfoodfacts/smooth-app/issues/7103
+  static const List<String> _forbiddenProducts = <String>[
+    '93270067481501',
+    '093270067481501',
+  ];
+
+  static bool isBarcodeToBeIgnored(final String barcode) =>
+      _forbiddenProducts.contains(barcode);
+
   @override
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = super.toJson();

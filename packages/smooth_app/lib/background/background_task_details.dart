@@ -83,6 +83,11 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     LocalDatabase? localDatabase,
     final bool showSnackBar = true,
   }) async {
+    if (BackgroundTaskBarcode.isBarcodeToBeIgnored(
+      minimalistProduct.barcode!,
+    )) {
+      return;
+    }
     assert(context != null || localDatabase != null);
     localDatabase ??= context!.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
