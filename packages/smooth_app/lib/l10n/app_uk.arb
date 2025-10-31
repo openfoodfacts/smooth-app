@@ -1913,7 +1913,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Потім введіть харчову цінність **відповідно до інформації на пакуванні**. Якщо цінність не вказана, ви можете натиснути на піктограму «Око».",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -4151,7 +4151,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts — це величезна відкрита база даних про **будь-які товари зі штрих-кодом, за винятком продуктів харчування, косметики та кормів для домашніх тварин**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
