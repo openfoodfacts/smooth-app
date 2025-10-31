@@ -355,4 +355,4 @@ class FolksonomyStateError extends FolksonomyState {
   final FolksonomyAction? action;
 }
 
-enum FolksonomyAction { add, edit, remove }
+enum FolksonomyAction { add, edit, remove, visitUrl }
