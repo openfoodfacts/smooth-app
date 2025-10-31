@@ -12,8 +12,8 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_product_tag_helper.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -175,7 +175,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 const SmoothPopupMenuItem<FolksonomyAction>(
                   label: 'Open external link',
                   value: FolksonomyAction.visitUrl,
-                  icon: const icons.ExternalLink(),
+                  icon: icons.ExternalLink(),
                 ),
               SmoothPopupMenuItem<FolksonomyAction>(
                 label: appLocalizations.edit_tag,

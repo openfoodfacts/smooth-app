@@ -21,10 +21,10 @@ class FolksonomyProductTagHelper {
         title: 'Open external link',
         body: Column(
           spacing: SMALL_SPACE,
-          children: [
-            Text('About to open the following external link:'),
+          children: <Widget>[
+            const Text('About to open the following external link:'),
             Text(productTag.value),
-            Text(
+            const Text(
               'External links may be unsafe. Do you really want to visit it?',
             ),
           ],
