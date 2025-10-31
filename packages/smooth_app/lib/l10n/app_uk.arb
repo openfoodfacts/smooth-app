@@ -715,7 +715,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультра-обробки (ЗАРАЗ)!",
+  "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультраобробки (NOVA)!",
   "hey_incomplete_product_message_beauty": "Торкніться зараз, щоб відповісти на 2 запитання, щоб допомогти проаналізувати цю косметику!",
   "hey_incomplete_product_message_pet_food": "Торкніться зараз, щоб відповісти на 3 запитання, щоб допомогти проаналізувати цей корм для домашніх тварин!",
   "hey_incomplete_product_message_product": "Торкніться зараз, щоб допомогти завершити цей продукт!",
@@ -1742,7 +1742,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Країна",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5166,7 +5166,7 @@
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
-  "preferences_connect_press_title": "Натисніть",
+  "preferences_connect_press_title": "Преса",
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },
@@ -5554,7 +5554,7 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Країна",
+  "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID"
 }
