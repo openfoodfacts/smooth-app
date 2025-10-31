@@ -88,7 +88,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
           'https://nutripatrol.openfoodfacts.org/flag/product/'
           '?barcode=${product.barcode}'
           '&source=mobile'
-          '&flavor=${product.productType?.offTag}',
+          '&flavor=${product.productType?.flavor.offTag}',
         ),
       );
     }
@@ -142,4 +142,14 @@ class KnowledgePanelActionCard extends StatelessWidget {
     properties.add(StringProperty('html', element.html));
     properties.add(IterableProperty<String>('actions', element.actions));
   }
+}
+
+// TODO(monsieurtanuki): move code to off-dart
+extension ProductTypeFlavorExtension on ProductType {
+  Flavor get flavor => switch (this) {
+    ProductType.food => Flavor.openFoodFacts,
+    ProductType.beauty => Flavor.openBeautyFacts,
+    ProductType.petFood => Flavor.openPetFoodFacts,
+    ProductType.product => Flavor.openProductFacts,
+  };
 }
