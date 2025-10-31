@@ -1742,7 +1742,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "País",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5554,7 +5554,7 @@
   "location_map_details_street": "Calle",
   "location_map_details_city": "Ciudad",
   "location_map_details_postcode": "Código postal",
-  "location_map_details_country": "País",
+  "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordenadas",
   "location_map_details_osm_id": "ID de OSM"
 }
