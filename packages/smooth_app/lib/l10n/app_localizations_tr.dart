@@ -2005,7 +2005,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Soya Avrupa Birliği\'nden gelmiyor';
 
   @override
-  String get edit_product_form_item_countries_title => 'Ülke';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4477,7 +4477,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'NOVA grupları size gıdaların işlenme düzeyi hakkında bilgi verir.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4506,21 +4506,21 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods Or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'İşlenmiş gıdalar';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made Breads, are **primarily Made by adding salt, oil, sugar, or other substances From group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of breads and cheese, non-alcoholic Fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Aşırı işlenmiş gıdalar';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, With little to no intact group 1 food. ingredients In these formulations usually include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Ultra işlemeyle ilgili sorunlar';
@@ -4840,7 +4840,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Şu anda barkod düzeyinde ürün fiyatlarına ilişkin büyük veri tabanlarına sahip çok az şirket bulunmaktadır. Bu fiyatlar serbestçe erişilebilir olmayıp, bunları karşılayabilen özel sektör aktörlerine, araştırmacılara ve diğer kuruluşlara yüksek bir fiyattan satılmaktadır.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4893,7 +4893,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Ben bir perakendeciyim ve fiyatlara katkıda bulunmak istiyorum. Bunu nasıl yapabilirim?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6124,7 +6124,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'İsim';
 
   @override
   String get location_map_details_street => 'Street';

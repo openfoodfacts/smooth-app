@@ -2019,7 +2019,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Kraj';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -6152,7 +6152,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Nazwa';
 
   @override
   String get location_map_details_street => 'Street';

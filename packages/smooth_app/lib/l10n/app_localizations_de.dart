@@ -2034,7 +2034,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Das Soja stammt nicht aus der Europäischen Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Land';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4904,7 +4904,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Derzeit gibt es nur wenige Unternehmen, die über große Datenbanken mit Produktpreisen auf Strichcode-Ebene verfügen. Diese Preise sind nicht frei verfügbar, sondern werden zu einem hohen Preis an private Akteure, Forscher und andere Organisationen verkauft, die sie sich auch leisten können.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4957,7 +4957,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Ich bin ein Einzelhändler und möchte Preise beisteuern. Wie kann ich das tun?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>

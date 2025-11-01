@@ -6097,7 +6097,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Ad';
 
   @override
   String get location_map_details_street => 'Street';

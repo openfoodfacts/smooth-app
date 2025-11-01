@@ -6106,7 +6106,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'ಹೆಸರು';
 
   @override
   String get location_map_details_street => 'Street';

@@ -2000,7 +2000,7 @@ class AppLocalizationsNb extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Land';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -6111,7 +6111,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Navn';
 
   @override
   String get location_map_details_street => 'Street';
