@@ -133,7 +133,7 @@ class LanguagesSelector extends StatelessWidget {
   /// [disabledLanguages] will be visible, but disabled (= not selectable).
   static Future<OpenFoodFactsLanguage?> openLanguageSelector(
     final BuildContext context, {
-    required final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
+    final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
     final Iterable<OpenFoodFactsLanguage>? disabledLanguages,
     final bool showSelectedLanguages = false,
     final Widget? checkedIcon,
