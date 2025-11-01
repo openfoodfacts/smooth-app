@@ -85,14 +85,6 @@ class _FolksonomyCard extends StatelessWidget {
                           tags: final List<ProductTag> tags,
                         ) =>
                           getIcon(tags),
-                        FolksonomyStateAddedItem(
-                          tags: final List<ProductTag> tags,
-                        ) =>
-                          getIcon(tags),
-                        FolksonomyStateRemovedItem(
-                          tags: final List<ProductTag> tags,
-                        ) =>
-                          getIcon(tags),
                         _ => EMPTY_WIDGET,
                       };
                     },
