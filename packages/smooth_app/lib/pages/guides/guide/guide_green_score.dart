@@ -127,12 +127,12 @@ class _GreenScoreSection2 extends StatelessWidget {
           text: appLocalizations.guide_greenscore_better_product_arg2_text,
         ),
         GuidesTitleWithText(
-          icon: const icons.Transparency(),
+          icon: const icons.Split(),
           title: appLocalizations.guide_greenscore_better_product_arg3_title,
           text: appLocalizations.guide_greenscore_better_product_arg3_text,
         ),
         GuidesTitleWithText(
-          icon: const icons.Document.sparkles(),
+          icon: const icons.Search.offRounded(),
           title: appLocalizations.guide_greenscore_better_product_arg4_title,
           text: appLocalizations.guide_greenscore_better_product_arg4_text,
         ),
@@ -174,7 +174,9 @@ class _GreenScoreLogos extends StatelessWidget {
                       .map(
                         (String path) => Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsetsDirectional.all(
+                              SMALL_SPACE,
+                            ),
                             child: SvgPicture(
                               AssetBytesLoader(path),
                               width: maxWidth / (assets.length + 1),
@@ -220,7 +222,7 @@ class _GreenScoreSection3 extends StatelessWidget {
         GuidesText(text: appLocalizations.guide_greenscore_lca_arg1_text3),
         GuidesTitleContainer(
           title: appLocalizations.guide_greenscore_lca_arg2_title,
-          icon: const icons.Gears(),
+          icon: const icons.Lifecycle(),
           child: GuidesGrid(
             columns: 3,
             verticalSpacing: SMALL_SPACE,
@@ -262,7 +264,7 @@ class _GreenScoreSection3 extends StatelessWidget {
         ),
         GuidesTitleWithBulletPoints(
           title: appLocalizations.guide_greenscore_lca_arg3_title,
-          icon: const icons.Gears(),
+          icon: const icons.TrafficLights(),
           bulletPoints: <String>[
             appLocalizations.guide_greenscore_lca_arg3_text1,
             appLocalizations.guide_greenscore_lca_arg3_text2,

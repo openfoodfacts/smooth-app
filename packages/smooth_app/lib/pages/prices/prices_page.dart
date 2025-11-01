@@ -47,7 +47,7 @@ class PricesPage extends StatelessWidget {
       ),
       injectPaddingInBody: model.displayEachProduct,
       belowTopBar: !model.displayEachProduct,
-      padding: EdgeInsets.zero,
+      padding: EdgeInsetsDirectional.zero,
       floatingBottomBar: ConsumerFilter<UserPreferences>(
         buildWhen:
             (UserPreferences? previousValue, UserPreferences currentValue) =>

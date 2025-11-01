@@ -39,7 +39,7 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData categories = IconData(
+  static const IconData aperture = IconData(
     0xe806,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
@@ -86,6 +86,11 @@ class _IconsFont {
   );
   static const IconData environment = IconData(
     0xe80f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData thumb_up = IconData(
+    0xe810,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -254,12 +259,12 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData qrcode = IconData(
+  static const IconData hearth = IconData(
     0xe832,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData qrcode_corners = IconData(
+  static const IconData hearth_monitor = IconData(
     0xe833,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
@@ -664,11 +669,6 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData aperture = IconData(
-    0xe887,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
   static const IconData copy = IconData(
     0xe888,
     fontFamily: _kFontFam,
@@ -1004,13 +1004,103 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData clipboard_down = IconData(
+    0xe90e,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard_left = IconData(
+    0xe90f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard_right = IconData(
+    0xe910,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData clipboard = IconData(
+    0xe911,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData search_off_rounded = IconData(
+    0xe912,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData search_off = IconData(
+    0xe913,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData osm = IconData(
+    0xe914,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData postal_code = IconData(
+    0xe915,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData city = IconData(
+    0xe916,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData thumb_down = IconData(
+    0xe917,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData street = IconData(
+    0xe918,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData check_circled = IconData(
+    0xe919,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData split = IconData(
+    0xe91a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData traffic_lights = IconData(
+    0xe91b,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData remove = IconData(
     0xe91c,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData transparency = IconData(
-    0xe948,
+  static const IconData chef = IconData(
+    0xe91d,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData recipe = IconData(
+    0xe91e,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData stop_sign = IconData(
+    0xe91f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData lifecycle = IconData(
+    0xe920,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData toolbox = IconData(
+    0xe921,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -1311,6 +1401,16 @@ class _IconsFont {
   );
   static const IconData collapse = IconData(
     0xea02,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData close_bold = IconData(
+    0xea19,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData close_circled = IconData(
+    0xea1a,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

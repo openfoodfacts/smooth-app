@@ -13,6 +13,7 @@ class UrlPreferenceTile extends PreferenceTile {
     super.icon,
     super.subtitleText,
     super.key,
+    super.onTap,
   }) : assert(url.isNotEmpty);
 
   final String url;
@@ -31,8 +32,9 @@ class UrlPreferenceTile extends PreferenceTile {
         size: 16.0,
         color: context.lightTheme() ? theme.primaryColor : Colors.white,
       ),
-      onTap: () async =>
-          LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
+      onTap:
+          onTap ??
+          () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
     );
   }
 }

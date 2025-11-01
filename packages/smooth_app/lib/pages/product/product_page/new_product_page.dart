@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -17,6 +18,7 @@ import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
+import 'package:smooth_app/pages/product/product_page/product_page_tab_controller.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
@@ -44,11 +46,8 @@ class ProductPage extends StatefulWidget {
 }
 
 class ProductPageState extends State<ProductPage>
-    with TraceableClientMixin, UpToDateMixin, SingleTickerProviderStateMixin {
+    with TraceableClientMixin, UpToDateMixin {
   final ScrollController _scrollController = ScrollController();
-
-  late final TabController _tabController;
-  late List<ProductPageTab> _tabs;
 
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
@@ -64,17 +63,6 @@ class ProductPageState extends State<ProductPage>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     initUpToDate(widget.product, localDatabase);
     DaoProductLastAccess(localDatabase).put(barcode);
-
-    _tabs = ProductPageTabBar.extractTabsFromProduct(
-      context: context,
-      product: upToDateProduct,
-    );
-
-    _tabController = TabController(
-      length: _tabs.length,
-      vsync: this,
-      initialIndex: 1,
-    );
 
     onNextFrame(() {
       _updateLocalDatabaseWithProductHistory(context);
@@ -116,11 +104,20 @@ class ProductPageState extends State<ProductPage>
           value: _scrollController,
         ),
       ],
-      child: _buildTabLayout(hasPendingOperations),
+      child: ProductPageTabController(
+        product: upToDateProduct,
+        childBuilder: (List<ProductPageTab> tabs, TabController tabController) {
+          return _buildTabLayout(hasPendingOperations, tabs, tabController);
+        },
+      ),
     );
   }
 
-  Widget _buildTabLayout(bool hasPendingOperations) {
+  Widget _buildTabLayout(
+    bool hasPendingOperations,
+    List<ProductPageTab> tabs,
+    TabController tabController,
+  ) {
     return SmoothScaffold(
       contentBehindStatusBar: true,
       spaceBehindStatusBar: false,
@@ -135,6 +132,7 @@ class ProductPageState extends State<ProductPage>
                 statusBarHeight: MediaQuery.viewPaddingOf(context).top,
               ),
               pinned: true,
+              floating: false,
             ),
             SliverToBoxAdapter(
               child: HeroMode(
@@ -146,15 +144,16 @@ class ProductPageState extends State<ProductPage>
                   _productPreferences,
                   heroTag: widget.heroTag,
                   isFullVersion: true,
+                  borderRadius: ROUNDED_BORDER_RADIUS,
                 ),
               ),
             ),
-            ProductPageTabBar(tabController: _tabController, tabs: _tabs),
+            ProductPageTabBar(tabController: tabController, tabs: tabs),
           ];
         },
         body: TabBarView(
-          controller: _tabController,
-          children: _tabs
+          controller: tabController,
+          children: tabs
               .map(
                 (ProductPageTab tab) => tab.builder(context, upToDateProduct),
               )

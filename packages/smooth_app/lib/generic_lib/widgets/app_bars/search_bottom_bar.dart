@@ -19,18 +19,13 @@ class _SearchBottomBarState extends State<SearchBottomBar> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(
-        vertical: BALANCED_SPACE,
+        vertical: SMALL_SPACE,
         horizontal: MEDIUM_SPACE,
       ),
       child: SearchField(
         searchHelper: context.read<PreferencesRootSearchController>(),
         showNavigationButton: false,
         searchOnChange: true,
-        hintTextStyle: const TextStyle(
-          fontSize: 15.0,
-          fontStyle: FontStyle.italic,
-          color: Colors.black54,
-        ),
       ),
     );
   }
