@@ -351,3 +351,9 @@ moderation:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_header.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_page.dart'
+
+folksonomy engine:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/folksonomy/folksonomy_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/folksonomy/folksonomy_provider.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/folksonomy/folksonomy_product_tag_helper.dart'
