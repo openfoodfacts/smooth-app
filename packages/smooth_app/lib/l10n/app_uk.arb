@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
   "guide_open_pet_food_facts_scores_title": "A note on scoring",
   "guide_open_pet_food_facts_scores_paragraph1": "Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.",
-  "guide_open_pet_food_facts_share_link": "https://en.openfoodfacts.org/openpetfoodfacts",
+  "guide_open_pet_food_facts_share_link": "https://world.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
   "guide_open_beauty_facts_scores_title": "A note on scoring",
   "guide_open_beauty_facts_scores_paragraph1": "На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.",
-  "guide_open_beauty_facts_share_link": "https://en.openfoodfacts.org/openbeautyfacts",
+  "guide_open_beauty_facts_share_link": "https://world.openfoodfacts.org/discover",
   "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4145,7 +4145,7 @@
   "guide_open_prices_scrapping_paragraph2": "Скрейпінг цін є варіантом, який розглядається в майбутній версії Open Prices, але це буде робити сама Open Prices, щоб ми могли отримати підтвердження ціни на основі HTML-сторінки.",
   "guide_open_prices_retailers_title": "Я роздрібний продавець і хочу вказати ціни. Як я можу це зробити?",
   "guide_open_prices_retailers_paragraph1": "Ви можете надавати ціни, використовуючи наш API.\nЯкщо ви хочете надавати ціни у великих обсягах, зв'яжіться з нами за адресою prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
-  "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
+  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
   "guide_learn_more_subtitle": "Tap to learn more",
