@@ -129,12 +129,12 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     final List<ProductTag> localTags =
         await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
     final Iterable<TransientFolksonomyOperation> pendingOperations =
-    _folksonomyManager.getSortedOperations(barcode);
+        _folksonomyManager.getSortedOperations(barcode);
     for (final TransientFolksonomyOperation operation in pendingOperations) {
       final FolksonomyAction type = operation.value.type;
       final ProductTag tag = operation.value.tag;
       final int index = localTags.indexWhere(
-            (ProductTag t) => t.key == tag.key,
+        (ProductTag t) => t.key == tag.key,
       );
 
       switch (type) {
