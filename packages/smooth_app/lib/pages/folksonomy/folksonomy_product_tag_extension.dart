@@ -5,28 +5,25 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 
-/// Helper around Folksonomy's [ProductTag].
-class FolksonomyProductTagHelper {
-  FolksonomyProductTagHelper(this.productTag);
-
-  final ProductTag productTag;
-
-  bool isAnUrl() => productTag.value.startsWith('https://');
+/// Extension on Folksonomy's [ProductTag].
+extension FolksonomyProductTagExtension on ProductTag {
+  bool isAnUrl() => value.startsWith('https://');
 
   Future<void> visitUrl(final BuildContext context) async {
+    if (!isAnUrl()) {
+      // Not supposed to happen
+      return;
+    }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool? accepted = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
-        title: 'Open external link',
+        title: appLocalizations.folksonomy_action_external_link_title,
         body: Column(
           spacing: SMALL_SPACE,
           children: <Widget>[
-            const Text('About to open the following external link:'),
-            Text(productTag.value),
-            const Text(
-              'External links may be unsafe. Do you really want to visit it?',
-            ),
+            Text(value, style: const TextStyle(color: Colors.blue)),
+            Text(appLocalizations.folksonomy_action_external_link_warning),
           ],
         ),
         negativeAction: SmoothActionButton(
@@ -42,6 +39,6 @@ class FolksonomyProductTagHelper {
     if (accepted != true) {
       return;
     }
-    await LaunchUrlHelper.launchURL(productTag.value);
+    await LaunchUrlHelper.launchURL(value);
   }
 }

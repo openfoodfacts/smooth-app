@@ -9085,6 +9085,18 @@ abstract class AppLocalizations {
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
 
+  /// Label of the 'open external link' action on a folksonomy entry
+  ///
+  /// In en, this message translates to:
+  /// **'Open external link'**
+  String get folksonomy_action_external_link_title;
+
+  /// Warning about the 'open external link' action on a folksonomy entry
+  ///
+  /// In en, this message translates to:
+  /// **'External links may be unsafe. Do you really want to visit it?'**
+  String get folksonomy_action_external_link_warning;
+
   /// No description provided for @prices_products_empty_title.
   ///
   /// In en, this message translates to:
