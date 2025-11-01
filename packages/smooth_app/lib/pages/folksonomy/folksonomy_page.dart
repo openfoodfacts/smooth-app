@@ -284,7 +284,6 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           i,
           (BuildContext context, Animation<double> animation) =>
               _buildItem(context, tag, animation),
-          duration: const Duration(milliseconds: 250),
         );
       }
     }
@@ -293,10 +292,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       final ProductTag tag = newTags[i];
       if (!_tags.any((ProductTag oldTag) => oldTag.key == tag.key)) {
         _tags.insert(i, tag);
-        _listKey.currentState?.insertItem(
-          i,
-          duration: const Duration(milliseconds: 400),
-        );
+        _listKey.currentState?.insertItem(i);
       }
     }
 
