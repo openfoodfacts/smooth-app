@@ -2624,9 +2624,9 @@
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
   "prices_menu_know_more": "Know more about Open Prices",
-    "@prices_menu_know_more": {
-        "description": "Menu item to open the Open Prices guide"
-    },
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Done",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -4534,6 +4534,14 @@
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_action_external_link_title": "Open external link",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
   "prices_products_empty_title": "No price available",
   "prices_products_empty_explanation": "Be the first to contribute!",
