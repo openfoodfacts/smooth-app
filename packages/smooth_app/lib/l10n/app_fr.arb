@@ -1742,7 +1742,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Pays",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2623,7 +2623,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "En savoir plus sur Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4039,7 +4039,7 @@
   },
   "guide_open_food_facts_features_title": "Features of Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_title": "Conseils pour prendre de bonnes photos",
   "guide_open_food_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
   "guide_open_food_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
   "guide_open_food_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
@@ -4047,19 +4047,19 @@
   "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
   "guide_open_food_facts_tips_arg2_title": "Do’s",
   "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
+  "guide_open_food_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_food_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
+  "guide_open_food_facts_scores_title": "Aidez-nous à construire le « Wikipédia de l'alimentation »",
+  "guide_open_food_facts_scores_arg1_title": "Une note sur la qualité nutritionnelle",
+  "guide_open_food_facts_scores_arg2_title": "Une note pour éviter les aliments ultra-transformés",
   "guide_open_food_facts_scores_arg3_title": "Un score pour la planète",
   "guide_open_food_facts_share_link": "https://fr.openfoodfacts.org/openfoodfacts",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Bienvenue sur Open Pet Food Facts !",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Qu'est-ce que Open Pet Food Facts ?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4069,54 +4069,54 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_pet_food_facts_features_arg1_title": "Recevez des alertes sur les ingrédients que vous souhaitez éviter",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_title": "Conseils pour prendre de bonnes photos",
   "guide_open_pet_food_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
   "guide_open_pet_food_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
   "guide_open_pet_food_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Ne rognez pas de parties du texte.",
   "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_pet_food_facts_tips_arg2_title": "À faire",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Utilisez un éclairage uniforme et de bonne qualité.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
   "guide_open_pet_food_facts_scores_title": "A note on scoring",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
-  "guide_open_pet_food_facts_share_link": "https://en.openfoodfacts.org/openpetfoodfacts",
+  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/decouvrir",
   "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Qu'est-ce qu'Open Beauty Facts ?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts est une base de données collaborative de **produits cosmétiques**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Notre objectif est de décrypter les listes d'ingrédients pour vous aider à **comprendre la composition de vos produits de soins personnels**. Des crèmes hydratantes au maquillage, nous collectons des données sur les ingrédients, les allergènes et les emballages afin de promouvoir la transparence dans l'industrie cosmétique.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_title": "Recevez des alertes sur les ingrédients que vous souhaitez éviter",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_tips_title": "Conseils pour prendre de bonnes photos",
   "guide_open_beauty_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
   "guide_open_beauty_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
   "guide_open_beauty_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Ne rognez pas de parties du texte.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Évitez les arrière-plans chargés.",
+  "guide_open_beauty_facts_tips_arg2_title": "À faire",
+  "guide_open_beauty_facts_tips_arg2_text1": "Utilisez un éclairage uniforme et de bonne qualité.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Prenez autant de photos que nécessaire si la bouteille est incurvée.",
   "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
+  "guide_open_beauty_facts_tips_arg2_text6": "Gardez le produit sur une surface plane.",
+  "guide_open_beauty_facts_scores_title": "Note sur la notation",
   "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
-  "guide_open_beauty_facts_share_link": "https://en.openfoodfacts.org/openbeautyfacts",
+  "guide_open_beauty_facts_share_link": "https://world-fr.openfoodfacts.org/decouvrir",
   "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4130,11 +4130,11 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Comment fonctionne Open Prices ?",
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
   "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_how_arg2_title": "Collectez des photos des reçus",
+  "guide_open_prices_why_title": "Pourquoi Open Food Facts fait-il cela ?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
   "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
   "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
@@ -5562,7 +5562,7 @@
   "location_map_details_street": "Rue",
   "location_map_details_city": "Ville",
   "location_map_details_postcode": "Code postal",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Pays",
   "location_map_details_coordinates": "Coordonnées",
   "location_map_details_osm_id": "ID OSM"
 }
