@@ -1283,6 +1283,24 @@ class Farmer extends AppIcon {
   }) : super._(_IconsFont.farmer);
 }
 
+class Favorite extends AppIcon {
+  const Favorite.check({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.favorite_check);
+
+  const Favorite.star({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.favorite_star);
+}
+
 class Feedback extends AppIcon {
   const Feedback({
     super.color,

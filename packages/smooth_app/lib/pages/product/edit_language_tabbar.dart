@@ -292,7 +292,9 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
           context,
-          selectedLanguages: selectedLanguages,
+          selectedLanguages: <OpenFoodFactsLanguage>[],
+          disabledLanguages: selectedLanguages,
+          showSelectedLanguages: true,
         );
 
     if (language != null && context.mounted) {
