@@ -142,6 +142,8 @@ class FolksonomyManager {
             notifyListeners: false,
           );
           break;
+        case FolksonomyAction.visitUrl:
+          break;
       }
     }
 

@@ -68,6 +68,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
             localTags.removeAt(index);
           }
           break;
+        case FolksonomyAction.visitUrl:
+          break;
       }
     }
 

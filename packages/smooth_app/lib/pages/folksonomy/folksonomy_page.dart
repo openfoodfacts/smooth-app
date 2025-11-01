@@ -276,6 +276,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
 
     final List<ProductTag> newTags = newState.tags!;
 
+    // Delete tags that are not in the new list.
     for (int i = _tags.length - 1; i >= 0; i--) {
       final ProductTag tag = _tags[i];
       if (!newTags.any((ProductTag newTag) => newTag.key == tag.key)) {
@@ -288,6 +289,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       }
     }
 
+    // Add tags that are new.
     for (int i = 0; i < newTags.length; i++) {
       final ProductTag tag = newTags[i];
       if (!_tags.any((ProductTag oldTag) => oldTag.key == tag.key)) {
@@ -296,6 +298,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       }
     }
 
+    // Edit tags that have changed.
     for (int i = 0; i < newTags.length; i++) {
       if (i < _tags.length &&
           newTags[i].key == _tags[i].key &&
