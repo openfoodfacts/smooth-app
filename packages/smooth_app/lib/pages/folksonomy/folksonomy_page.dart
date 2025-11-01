@@ -320,7 +320,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     } else if (state is FolksonomyStateLoaded && state.tags!.isEmpty) {
       return const FolksonomyEmptyPage();
     } else if (state is FolksonomyStateError && state.action == null) {
-      return Center(child: Text('Error: ${state.error}'));
+      return const FolksonomyEmptyPage();
     }
 
     return AnimatedList.separated(
