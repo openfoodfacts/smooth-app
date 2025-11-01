@@ -4838,7 +4838,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'பார்கோடு அளவில் தயாரிப்பு விலைகளின் பெரிய தரவுத்தளங்களை வைத்திருக்கும் நிறுவனங்கள் தற்போது மிகக் குறைவு. இந்த விலைகள் இலவசமாகக் கிடைக்காது, ஆனால் தனியார் நிறுவனங்கள், ஆராய்ச்சியாளர்கள் மற்றும் அவற்றை வாங்கக்கூடிய பிற நிறுவனங்களுக்கு அதிக விலைக்கு விற்கப்படுகின்றன.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4891,7 +4891,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'நான் ஒரு சில்லறை விற்பனையாளர், விலைகளைப் பங்களிக்க விரும்புகிறேன். அதை நான் எப்படி செய்வது?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>

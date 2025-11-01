@@ -2016,7 +2016,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Страна';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -6149,7 +6149,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Име';
 
   @override
   String get location_map_details_street => 'Street';

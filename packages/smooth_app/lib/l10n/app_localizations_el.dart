@@ -4916,7 +4916,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Υπάρχουν επί του παρόντος λίγες εταιρείες που διαθέτουν μεγάλες βάσεις δεδομένων τιμών προϊόντων σε επίπεδο γραμμωτού κώδικα. Αυτές οι τιμές δεν είναι ελεύθερα διαθέσιμες, αλλά πωλούνται σε υψηλές τιμές σε ιδιώτες φορείς, ερευνητές και άλλους οργανισμούς που μπορούν να τις αντέξουν οικονομικά.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -6209,7 +6209,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Όνομα';
 
   @override
   String get location_map_details_street => 'Street';
@@ -6221,7 +6221,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Χώρα';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

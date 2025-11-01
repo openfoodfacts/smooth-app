@@ -2041,7 +2041,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Le soja ne provient pas de l\'Union Européenne';
 
   @override
-  String get edit_product_form_item_countries_title => 'Pays';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2949,7 +2949,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_proof_find => 'Choisir une preuve';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Preuve de changement';
 
   @override
   String get prices_proof_receipt => 'Ticket de caisse';
@@ -3105,7 +3105,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Preuve de \"$user\"';
   }
 
   @override
@@ -4922,7 +4922,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Actuellement, seules quelques entreprises détiennent une base de données de prix de produits au niveau des code-barres. Ces bases de données ne sont pas librement disponibles, mais vendues à un prix élevé à des acteurs privés, des chercheurs et d\'autres organisations qui sont en mesure de les acheter.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4975,7 +4975,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -5777,7 +5777,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
-      'Animateur de Folksonomy';
+      'Hôte de Folksonomy Engine';
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
@@ -6209,26 +6209,26 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Détails de la localisation';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Nom';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Rue';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Ville';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Code postal';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Coordonnées';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

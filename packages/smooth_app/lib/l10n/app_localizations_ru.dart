@@ -2035,7 +2035,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Соя не из Европейского Союза';
 
   @override
-  String get edit_product_form_item_countries_title => 'Страна';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4924,7 +4924,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'В настоящее время лишь немногие компании владеют большими базами данных цен на продукты на уровне штрих-кодов. Эти цены не находятся в свободном доступе, а продаются по высокой цене частным лицам, исследователям и другим организациям, которые могут себе их позволить.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4977,7 +4977,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Я розничный торговец и хочу внести цены. Как я могу это сделать?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6208,7 +6208,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Название';
 
   @override
   String get location_map_details_street => 'Street';
