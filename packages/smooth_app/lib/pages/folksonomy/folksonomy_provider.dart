@@ -23,59 +23,6 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   late final FolksonomyManager _folksonomyManager;
   final List<ProductTag> _tags = <ProductTag>[];
 
-  Future<void> _init(BuildContext context) async {
-    _localDatabase = context.read<LocalDatabase>();
-    _daoFolksonomy = DaoFolksonomy(_localDatabase);
-    _folksonomyManager = FolksonomyManager(_localDatabase);
-
-    _localDatabase.addListener(_refreshFromDb);
-
-    await fetchProductTags();
-    unawaited(_folksonomyManager.syncProductTags(barcode));
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.removeListener(_refreshFromDb);
-    super.dispose();
-  }
-
-  Future<void> _refreshFromDb() async {
-    final List<ProductTag> localTags =
-        await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
-    final Iterable<TransientFolksonomyOperation> pendingOperations =
-        _folksonomyManager.getSortedOperations(barcode);
-    for (final TransientFolksonomyOperation operation in pendingOperations) {
-      final FolksonomyAction type = operation.value.type;
-      final ProductTag tag = operation.value.tag;
-      final int index = localTags.indexWhere(
-        (ProductTag t) => t.key == tag.key,
-      );
-
-      switch (type) {
-        case FolksonomyAction.add:
-          if (index == -1) {
-            localTags.add(tag);
-          }
-          break;
-        case FolksonomyAction.edit:
-          if (index != -1) {
-            localTags[index] = tag;
-          }
-          break;
-        case FolksonomyAction.remove:
-          if (index != -1) {
-            localTags.removeAt(index);
-          }
-          break;
-        case FolksonomyAction.visitUrl:
-          break;
-      }
-    }
-
-    _updateTags(localTags);
-  }
-
   // Display tags from local database first (to see it offline), then update from API.
   Future<void> fetchProductTags() async {
     if (_tags.isEmpty) {
@@ -159,6 +106,59 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   void _sortTags([List<ProductTag>? tags]) {
     final List<ProductTag> toSort = tags ?? _tags;
     toSort.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
+  }
+
+  Future<void> _init(BuildContext context) async {
+    _localDatabase = context.read<LocalDatabase>();
+    _daoFolksonomy = DaoFolksonomy(_localDatabase);
+    _folksonomyManager = FolksonomyManager(_localDatabase);
+
+    _localDatabase.addListener(_refreshFromDb);
+
+    await fetchProductTags();
+    unawaited(_folksonomyManager.syncProductTags(barcode));
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.removeListener(_refreshFromDb);
+    super.dispose();
+  }
+
+  Future<void> _refreshFromDb() async {
+    final List<ProductTag> localTags =
+        await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
+    final Iterable<TransientFolksonomyOperation> pendingOperations =
+    _folksonomyManager.getSortedOperations(barcode);
+    for (final TransientFolksonomyOperation operation in pendingOperations) {
+      final FolksonomyAction type = operation.value.type;
+      final ProductTag tag = operation.value.tag;
+      final int index = localTags.indexWhere(
+            (ProductTag t) => t.key == tag.key,
+      );
+
+      switch (type) {
+        case FolksonomyAction.add:
+          if (index == -1) {
+            localTags.add(tag);
+          }
+          break;
+        case FolksonomyAction.edit:
+          if (index != -1) {
+            localTags[index] = tag;
+          }
+          break;
+        case FolksonomyAction.remove:
+          if (index != -1) {
+            localTags.removeAt(index);
+          }
+          break;
+        case FolksonomyAction.visitUrl:
+          break;
+      }
+    }
+
+    _updateTags(localTags);
   }
 }
 
