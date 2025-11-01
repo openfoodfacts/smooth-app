@@ -2587,7 +2587,7 @@
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
   "prices_privacy_warning_sub_message": "Якщо вас це турбує, будь ласка, змініть свій псевдонім або створіть новий обліковий запис Open Food Facts і увійдіть в додаток за допомогою нього.",
-  "i_refuse": "I refuse",
+  "i_refuse": "Відмовляюсь",
   "i_accept": "I accept",
   "prices_currency_change_proposal_title": "Change the currency?",
   "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
@@ -2723,7 +2723,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
