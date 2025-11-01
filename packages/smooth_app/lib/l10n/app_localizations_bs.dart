@@ -5281,6 +5281,13 @@ class AppLocalizationsBs extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get folksonomy_action_external_link_title => 'Open external link';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'External links may be unsafe. Do you really want to visit it?';
+
+  @override
   String get prices_products_empty_title => 'Cijena nije dostupna';
 
   @override
