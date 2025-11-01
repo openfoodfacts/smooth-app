@@ -10,7 +10,6 @@ import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/prices/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
-import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_existing_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
@@ -139,8 +138,6 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                               context,
                             ).updateCurrency(location, model),
                       ),
-                      const SizedBox(height: LARGE_SPACE),
-                      const PriceCurrencyCard(),
                       const SizedBox(height: LARGE_SPACE),
                       if (model.existingPrices != null)
                         for (final Price price in model.existingPrices!)

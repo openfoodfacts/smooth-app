@@ -4854,6 +4854,12 @@ abstract class AppLocalizations {
   /// **' / unit'**
   String get prices_per_unit_short;
 
+  /// No description provided for @prices_category_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get prices_category_title;
+
   /// No description provided for @prices_category_mandatory.
   ///
   /// In en, this message translates to:
@@ -4865,6 +4871,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional'**
   String get prices_category_optional;
+
+  /// No description provided for @prices_origins_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Origins'**
+  String get prices_origins_title;
 
   /// No description provided for @prices_category_error_mandatory.
   ///
@@ -5128,6 +5140,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mandatory value'**
   String get prices_amount_price_mandatory;
+
+  /// No description provided for @prices_amount_update_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Update currency'**
+  String get prices_amount_update_currency;
 
   /// No description provided for @prices_currency_subtitle.
   ///

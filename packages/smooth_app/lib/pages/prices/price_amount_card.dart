@@ -4,11 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_currency_selector.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_per_extension.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
@@ -57,6 +63,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
           '${appLocalizations.prices_amount_subtitle}'
           '${total == 1 ? '' : ' (${widget.index + 1}/$total)'}',
       leading: const Icon(Icons.calculate_rounded),
+      trailing: const _PriceAmountCurrencyButton(),
       contentPadding: const EdgeInsetsDirectional.symmetric(
         vertical: MEDIUM_SPACE,
         horizontal: SMALL_SPACE,
@@ -99,6 +106,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                 setState(() => model.promo = !model.promo),
             title: Text(appLocalizations.prices_amount_is_discounted),
             controlAffinity: ListTileControlAffinity.leading,
+            contentPadding: EdgeInsets.zero,
           ),
           const SizedBox(height: SMALL_SPACE),
           Row(
@@ -123,6 +131,63 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _PriceAmountCurrencyButton extends StatelessWidget {
+  const _PriceAmountCurrencyButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final PriceModel model = context.watch<PriceModel>();
+
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final Color color = context.lightTheme()
+        ? extension.primaryBlack
+        : extension.primaryUltraBlack;
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: VERY_SMALL_SPACE,
+      ),
+      child: Material(
+        color: Colors.white,
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Tooltip(
+          message: AppLocalizations.of(context).prices_amount_update_currency,
+          child: InkWell(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            onTap: () async =>
+                PriceCurrencySelector.openSelector(context: context),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: BALANCED_SPACE,
+                vertical: BALANCED_SPACE,
+              ),
+              child: icons.AppIconTheme(
+                color: color,
+                child: Row(
+                  children: <Widget>[
+                    const icons.Currency(),
+                    const SizedBox(width: SMALL_SPACE),
+                    Text(
+                      model.currency.getFullName(),
+                      style: TextStyle(
+                        color: color,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: LARGE_SPACE),
+                    const icons.Chevron.down(size: 10.0),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

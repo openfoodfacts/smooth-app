@@ -15,6 +15,7 @@ import 'package:smooth_app/pages/prices/price_category_input_page.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_scan_page.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Card where the user can input a price product: type the barcode or scan.
 class PriceAddProductCard extends StatefulWidget {
@@ -99,7 +100,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
           ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_category_enter,
-            leadingIcon: const Icon(Icons.restaurant),
+            leadingIcon: const icons.Ingredients(),
             onPressed: () async {
               final PriceMetaProduct? priceMetaProduct =
                   await Navigator.push<PriceMetaProduct>(
