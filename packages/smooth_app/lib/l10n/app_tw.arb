@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Po & nsuo pa (nneɛma nketenkete, acidification, eutrophication) .",
   "guide_greenscore_lca_arg3_text8": "Nneɛma a wɔde yɛ adwuma a ɛresɛe.",
   "guide_greenscore_bonuses_penalties_title": "Bonuses & asotwe a wɔde ma",
-  "guide_greenscore_bonuses_penalties_intro": "Sɛ yɛbɛtua nneɛma a eye wɔ ɔfã bi mu ka a, afei yɛde bonus & asotwe a egyina gyinapɛn ahorow pii so di dwuma:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Wogyina faako a nneɛma a wɔde yɛ aduan no fi so na ɛma wonya akatua. Saa akatua yi susuw nkɛntɛnso a ɛwɔ akwantu so ne nneɛma a atwa yɛn ho ahyia ho nhyehyɛe a ɛwɔ ɔman a wɔyɛ nneɛma biara mu nso ho.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Sɛ wobɛbu Green-Score no pɛpɛɛpɛ a, ɛho hia sɛ wonya nsɛm a ɛnyɛ nea wɔakyerɛ wɔ nneɛma a wɔde ahyɛ mu no so (te sɛ nea efi mu ba ne ɔha biara mu nkyem pɔtee a ɛwɔ ade biara mu) anaasɛ ɛntaa mma wɔ ɔkwan a wobetumi de adi dwuma so (te sɛ nneɛma a wɔde ahyɛ mu no nyinaa din a wɔakyerɛw a plastic ahorow pɔtee a wɔde di dwuma wom).",
-  "guide_greenscore_transparency_intro2": "Wɔde average values di dwuma bere a saa nsɛm yi nnya mmae, nanso seesei yɛrefrɛ obiara sɛ ɔmmoa yɛn mma yɛnboaboa saa nsɛm yi ano a ɛbɛyɛ mfasoɔ kɛseɛ ama Green-Score nanso ɛbɛyɛ mfasoɔ kɛseɛ ama dwumadie foforɔ pii nso.",
-  "guide_greenscore_transparency_arg1_title": "Sɛnea ɔman mma betumi aboa",
-  "guide_greenscore_transparency_arg1_text": "Ɔman mma nyinaa betumi aboa yɛn ma yɛaboaboa nsɛm a ɛwɔ nneɛma a wɔyɛ ho anaasɛ wobetumi anya afi mu no ano na yɛahyehyɛ, te sɛ nsɛm a ɛfa nneɛma a wɔde kyekyere nneɛma ho: Mission Emballages: nneɛma a wɔde kyekyere nnuan nyinaa ho nsɛm a wɔbom yɛ kɛse (wɔ Franse kasa mu)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Sɛnea wɔn a wɔyɛ nneɛma betumi aboa",
   "guide_greenscore_transparency_arg2_text": "Wɔn a wɔyɛ nneɛma no betumi de wɔn nsɛm amena yɛn tẽẽ denam yɛn kwan a wontua hwee a yɛde ma wɔn a wɔyɛ nneɛma no so.",
   "guide_greenscore_better_product_title": "Ade bɛn na eye ma okyinnsoromma yi?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "NOVA akuw 4 no",
   "guide_nova_groups_intro": "NOVA akuw 4 na ɛwɔ hɔ, nea ɛwɔ ɔhaw no ne Kuw 4 - Ultra-processed foods.",
   "guide_nova_groups_arg1_title": "Nnuan a wɔayɛ ho adwuma kakraa bi anaasɛ wɔannyɛ ho adwuma",
-  "guide_nova_groups_arg1_text": "Nnuan a wɔnyɛ ho adwuma (anaasɛ abɔde mu nneɛma) ne afifide (aba, nnuaba, nhaban, ntini, ntini) anaa mmoa (ntini, awotwaa, nkesua, nufusu), ne fungi, atɛkyɛ, ne nsu, bere a wɔatew wɔn ho afi abɔde ho awie no afã horow a wotumi di.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Nneɛma a wɔayɛ wɔ aduannoa mu, te sɛ ngo, bɔta, asikre, ne nkyene, yɛ nneɛma a wonya fi Kuw 1 nnuan mu anaasɛ efi abɔde mu denam akwan horow a nea ɛka ho ne sɛ wɔde mia, wɔtew, wɔyam, wɔyam, na wɔyow so.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or From nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Wɔde nkyene, ngo, asikre, anaa nneɛma afoforo a efi Kuw 2 mu kɔ Kuw 1 nnuan mu ka ho titiriw na ɛyɛ nnuan a wɔayɛ no foforo, te sɛ nhabannuru a wɔde ahyɛ toa mu, mpataa a wɔde ahyɛ toa mu, nnuaba a wɔde srade ayɛ, kyiisi, ne paanoo a wɔayɛ no foforo. Nneɛma a wɔyɛ no bi ne akwan horow a wɔfa so kora nneɛma so anaasɛ wɔfa so noa aduan, na wɔ paanoo ne kyiisi fam no, wɔde aduru a wɔmfa nsa nni dwuma. Nnuan dodow no ara a wɔayɛ no foforo no wɔ nneɛma abien anaa abiɛsa na wotumi hu sɛ ɛyɛ Kuw 1 nnuan a wɔayɛ mu nsakrae. Wobetumi adi wɔn ankasa anaasɛ, mpɛn pii no, wɔde ka nnuan afoforo ho.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits In syrup, cheeses, and Freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Nnuan a wɔayɛ no yiye, te sɛ anonne a ɛyɛ dɛ anaa ɛyɛ dɛ a wɔakyekyere, nam a wɔasan ayɛ, ne nnuan a wɔadi kan asiesie a wɔahyɛ no nwini no nyɛ nnuan a wɔayɛ mu nsakrae ara kwa na mmom nnuru a wɔde nneɛma a wonya fi nnuan ne nneɛma a wɔde ka ho mu dodow no ara anaasɛ ne nyinaa, a Kuw 1 nnuan kakraa bi anaasɛ enni dɛm biara nni mu. Mpɛn pii no, nneɛma a wɔde yɛ saa nnuru yi bi ne nea wohu wɔ nnuan a wɔayɛ no foforo te sɛ asikre, ngo, srade, anaa nkyene nso mu. Nanso, ahoɔden ne aduannuru afoforo nso wɔ nneɛma a wɔayɛ no yiye a wɔmfa nni dwuma wɔ aduannoa mu. Woyi eyinom bi fi nnuan te sɛ casein, lactose, whey, ne gluten mu tẽẽ.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of Energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ɔhaw ahorow a ɛwɔ ultra-processing mu",
   "guide_nova_explanations_arg1_title": "Aduan mu nneɛma a wɔyɛ no yiye",
-  "guide_nova_explanations_arg1_text": "Wonya pii fi aduan mu nneɛma te sɛ ngo a wɔde hydrogen anaa interesterified, protein a wɔde nsu afra mu, soya protein a wɔayi afi mu, maltodextrin, asikre a wɔdannan no, ne atoko srade a fructose pii wom mu.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Nneɛma a wɔde ka ho a ɛkɔ akyiri sen aduan a ɛho tew a ahobammɔ wom",
-  "guide_nova_explanations_arg2_text": "Nneɛma a wɔde ka nnuan a wɔayɛ no yiye ho no bi ne ebinom a wɔde di dwuma wɔ nnuan a wɔayɛ no foforo mu, te sɛ nneɛma a wɔde kora nnuan so, nneɛma a ɛko tia ɔyare mmoawa, ne nea ɛma ɛyɛ den. Nneɛma a wɔde ka ho a wohu wɔ nneɛma a wɔayɛ no yiye nkutoo mu no bi ne nea wɔde suasua nnuan mu nkate su anaasɛ ɛma ɛyɛ kɛse anaasɛ wɔde kata ade a etwa to no afã horow a ɛnyɛ dɛ so. Saa nneɛma a wɔde ka ho yi bi ne nnuru a wɔde yɛ nneɛma ne kɔla afoforo, nneɛma a ɛma kɔla gyina; nneɛma a ɛyɛ dɛ, nneɛma a ɛma ɛyɛ dɛ, nneɛma a ɛnyɛ asikre a ɛma ɛyɛ dɛ; ne nneɛma a wɔde boa ma wɔyɛ adwuma te sɛ carbonating, firming, bulking ne anti-bulking agents, de-foaming, anti-caking ne glazing agents, emulsifiers, sequestrants, ne humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Processing a wuntumi nyɛ wɔ fie",
-  "guide_nova_explanations_arg3_text": "Wɔde akwan horow pii a ɛtoatoa so di dwuma de ka nneɛma a ɛtaa yɛ pii no bom na wɔyɛ ade a etwa to (enti ‘wɔayɛ no kɛse’). Nneɛma a wɔyɛ no bi ne pii a wonni ofie mu nneɛma a ɛne no sɛ, te sɛ hydrogenation ne hydrolysation, extrusion ne moulding, ne pre-processing de frying.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Nneɛma a ɛyɛ predatory ne sikasɛm afã horow a ɛwɔ ultra-processing mu",
-  "guide_nova_explanations_arg4_text": "Atirimpɔw titiriw a ɛwɔ ultra-processing mu ne sɛ wɔbɛyɛ nnuan a wɔakyerɛw so, ɛyɛ mmerɛw (ɛtra hɔ kyɛ, ɛyɛ krado sɛ wobedi), ɛyɛ fɛ (ɛyɛ dɛ dodo) na mfaso wɔ so kɛse (nneɛma a ne bo nyɛ den) a wɔayɛ sɛ ɛbɛma wɔatu nnuan akuw afoforo nyinaa afi hɔ. Mpɛn pii no, wɔkyekyere nnuan a wɔayɛ no yiye kɛse wɔ ɔkwan a ɛyɛ fɛ so na wɔtɔn no kɛse.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

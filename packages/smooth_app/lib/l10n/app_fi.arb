@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Meri- ja makea vesi (hiukkaset, happamoituminen, rehevöityminen)",
   "guide_greenscore_lca_arg3_text8": "Resurssien ehtyminen.",
   "guide_greenscore_bonuses_penalties_title": "Bonukset ja rangaistukset",
-  "guide_greenscore_bonuses_penalties_intro": "Palkitsemaan parempia tuotteita tietyssä kategoriassa käytämme bonuksia ja rangaistuksia useiden kriteerien perusteella:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Tuotantotapa",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Bonus myönnetään tuotteille, joilla on virallinen merkki, merkki tai ympäristöhyödyt takaava sertifikaatti (luomu, reilu kauppa, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Ainesosien alkuperä",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus myönnetään ainesosien alkuperän perusteella. Tämä bonus ottaa huomioon kuljetukseen kohdistuvat vaikutukset sekä kunkin tuottajamaan ympäristöpolitiikan.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Uhanalaiset lajit",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Rangaistus tuomitaan tuotteille, jotka sisältävät ainesosia, joilla on merkittäviä kielteisiä vaikutuksia luonnon monimuotoisuuteen ja ekosysteemeihin, kuten palmuöljy, jonka tuotanto on vastuussa massiivisesta metsäkadosta.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Pakkaus",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Pakkauksen (kierrätetyn raaka-aineen käyttö ja kierrätettävyys) ja ylipakkauksen kiertokulun huomioon ottamiseksi lasketaan rangaistus.",
+
   "guide_greenscore_transparency_title": "Lisääntynyt avoimuuden tarve parantamaan ympäristövaikutusten mittaamista ja vähentämistä",
-  "guide_greenscore_transparency_intro1": "Green-Score-pistemäärän tarkka laskeminen edellyttää tietoja, joita ei välttämättä ole eritelty pakkauksessa (kuten alkuperä ja kunkin ainesosan tarkka prosenttiosuus) tai joita on harvoin saatavilla käyttökelpoisessa muodossa (kuten luettelo kaikista pakkauksen osista ja käytetyistä muovityypeistä).",
-  "guide_greenscore_transparency_intro2": "Keskiarvoja käytetään, kun tätä tietoa ei ole vielä saatavilla, mutta nyt pyydämme kaikkia auttamaan meitä keräämään tätä tietoa, joka on erittäin hyödyllistä Green-Scoren lisäksi myös monissa muissa tarkoituksissa.",
-  "guide_greenscore_transparency_arg1_title": "Miten kansalaiset voivat auttaa",
-  "guide_greenscore_transparency_arg1_text": "Kaikki kansalaiset voivat auttaa meitä keräämään ja jäsentämään tuotteissa olevia tai niistä johdettavia tietoja, kuten pakkaustietoja: Mission Emballages: laaja yhteistyöhön perustuva pakkauskartoitus kaikille elintarvikkeille (ranskaksi)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Miten valmistajat voivat auttaa",
   "guide_greenscore_transparency_arg2_text": "Valmistajat voivat lähettää meille tietonsa suoraan ilmaisen tuottaja-alustamme kautta.",
   "guide_greenscore_better_product_title": "Kumpi tuote on parempi planeetalle?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 NOVA-ryhmää",
   "guide_nova_groups_intro": "NOVA-ryhmiä on neljä, joista ongelmallisin on ryhmä 4 – erittäin prosessoidut elintarvikkeet.",
   "guide_nova_groups_arg1_title": "Minimaalisesti prosessoidut tai prosessoimattomat elintarvikkeet",
-  "guide_nova_groups_arg1_text": "Käsittelemättömät (tai luonnolliset) elintarvikkeet ovat kasvien (siemenet, hedelmät, lehdet, varret, juuret) tai eläinten (lihakset, sisäelimet, munat, maito) sekä sienten, levien ja veden syötäviä osia sen jälkeen, kun ne on erotettu luonnosta.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Jalostetut ruoanvalmistusaineet",
-  "guide_nova_groups_arg2_text": "Jalostetut ruoanlaittoainesosat, kuten öljyt, voi, sokeri ja suola, ovat aineita, jotka on saatu ryhmän 1 elintarvikkeista tai luonnosta puristamalla, puhdistamalla, jauhamalla, jauhamalla ja kuivaamalla.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Jalostetut ruoat",
-  "guide_nova_groups_arg3_text": "Jalostetut elintarvikkeet, kuten pullotetut vihannekset, säilykekala, sokeriliemeen säilötyt hedelmät, juustot ja vastaleivotut leivät, valmistetaan pääasiassa lisäämällä suolaa, öljyä, sokeria tai muita aineita ryhmän 2 elintarvikkeista ryhmän 1 elintarvikkeisiin. Prosesseihin kuuluvat erilaiset säilöntä- tai kypsennysmenetelmät ja leipien ja juustojen tapauksessa alkoholiton käyminen. Useimmissa jalostetuissa elintarvikkeissa on kaksi tai kolme ainesosaa, ja ne voidaan tunnistaa ryhmän 1 elintarvikkeiden muunnelluiksi versioiksi. Niitä voidaan syödä sellaisenaan tai yleisemmin yhdessä muiden elintarvikkeiden kanssa.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or Three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultrajalostetut ruoat",
-  "guide_nova_groups_arg4_text": "Erittäin prosessoidut elintarvikkeet, kuten virvoitusjuomat, makeat tai suolaiset pakatut välipalat, uudelleenkäsitellyt lihatuotteet ja valmiiksi valmistetut pakasteruoat, eivät ole pelkästään muunneltuja elintarvikkeita, vaan koostumuksia, jotka on valmistettu enimmäkseen tai kokonaan elintarvikkeista ja lisäaineista peräisin olevista aineista, joissa on vain vähän tai ei lainkaan ehjiä ryhmän 1 elintarvikkeita. Näiden koostumusten ainesosat sisältävät yleensä ainesosia, joita löytyy myös prosessoiduista elintarvikkeista, kuten sokereita, öljyjä, rasvoja tai suolaa. Erittäin prosessoidut tuotteet sisältävät kuitenkin myös muita energian ja ravintoaineiden lähteitä, joita ei tyypillisesti käytetä ruoanlaitossa. Jotkut näistä uutetaan suoraan elintarvikkeista, kuten kaseiini, laktoosi, hera ja gluteeni.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ultraprosessoinnin ongelmat",
   "guide_nova_explanations_arg1_title": "Elintarvikkeiden ainesosien äärimmäinen käsittely",
-  "guide_nova_explanations_arg1_text": "Monet ovat peräisin elintarvikkeiden ainesosien jatkojalostuksesta, kuten hydratut tai vaihtoesteröidyt öljyt, hydrolysoidut proteiinit, soijaproteiini-isolaatit, maltodekstriini, inverttisokeri ja runsasfruktoosinen maissisiirappi.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Lisäaineet, jotka ylittävät pelkän elintarviketurvallisuuden rajat",
-  "guide_nova_explanations_arg2_text": "Erittäin jalostettujen elintarvikkeiden lisäaineisiin kuuluu joitakin sellaisia, joita käytetään myös jalostetuissa elintarvikkeissa, kuten säilöntäaineita, antioksidantteja ja stabilointiaineita. Vain erittäin jalostetuissa tuotteissa esiintyviin lisäaineisiin kuuluvat sellaiset, joita käytetään jäljittelemään tai parantamaan elintarvikkeiden aistinvaraisia ominaisuuksia tai peittämään lopputuotteen epämiellyttäviä puolia. Näitä lisäaineita ovat väriaineet ja muut väriaineet, värinvakauttajat, aromit, arominvahventeet, sokerittomat makeutusaineet; ja valmistuksen apuaineet, kuten hiilihapotus-, kiinteyttämis-, täyte- ja paakkuuntumisenestoaineet, vaahdonestoaineet, paakkuuntumisenestoaineet ja kiillotusaineet, emulgointiaineet, kompleksointiaineet ja kosteudensäilyttäjät.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Käsittelyä, jota ei voi tehdä kotona",
-  "guide_nova_explanations_arg3_text": "Useita prosessisarjoja käytetään yhdistämään tavallisesti monia ainesosia ja luomaan lopputuote (tästä syystä 'ultraprosessoitu'). Prosesseihin kuuluu useita, joille ei ole kotimaisia vastineita, kuten hydraus ja hydrolysointi, ekstruusio ja muovaus sekä esikäsittely paistamista varten.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Ultraprosessoinnin saalistushinnoittelu ja taloudelliset näkökohdat",
-  "guide_nova_explanations_arg4_text": "Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä, käteviä (kestäviä, valmiita kuluttamaan), houkuttelevia (hypermaukkaita) ja erittäin kannattavia (edullisia ainesosia) elintarvikkeita, joiden on tarkoitus syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Esikatselu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

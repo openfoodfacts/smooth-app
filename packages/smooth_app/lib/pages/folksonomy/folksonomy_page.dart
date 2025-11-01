@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,9 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_product_tag_extension.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
@@ -44,6 +48,7 @@ class _FolksonomyContent extends StatefulWidget {
 class _FolksonomyContentState extends State<_FolksonomyContent> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  final ProductRefresher _productRefresher = ProductRefresher();
 
   @override
   Widget build(BuildContext context) {
@@ -80,13 +85,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                     Animation<double> animation,
                   ) {
                     final ProductTag entry = provider.value.tags![index];
-
-                    return _buildItem(
-                      context,
-                      entry,
-                      animation,
-                      provider.isAuthorized,
-                    );
+                    return _buildItem(context, entry, animation);
                   },
               separatorBuilder: (_, _, Animation<double> animation) =>
                   SizeTransition(sizeFactor: animation, child: const Divider()),
@@ -103,17 +102,20 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           },
         ),
       ),
-      floatingActionButton: provider.isAuthorized
-          ? SmoothExpandableFloatingActionButton(
-              scrollController: _scrollController,
-              onPressed: () async => _showEditDialog(
-                action: FolksonomyAction.add,
-                existingKeys: _getExistingKeys(provider),
-              ),
-              label: Text(appLocalizations.add_tag),
-              icon: const icons.AddProperty.alt(),
-            )
-          : EMPTY_WIDGET,
+      floatingActionButton: SmoothExpandableFloatingActionButton(
+        scrollController: _scrollController,
+        onPressed: () async {
+          if (!await _checkIfLoggedIn()) {
+            return;
+          }
+          await _showEditDialog(
+            action: FolksonomyAction.add,
+            existingKeys: _getExistingKeys(provider),
+          );
+        },
+        label: Text(appLocalizations.add_tag),
+        icon: const icons.AddProperty.alt(),
+      ),
     );
   }
 
@@ -121,13 +123,13 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     BuildContext context,
     ProductTag entry,
     Animation<double> animation,
-    bool isAuthorized,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SizeTransition(
       sizeFactor: animation,
       child: ListTile(
+        onTap: entry.isAnUrl() ? () async => entry.visitUrl(context) : null,
         title: Padding(
           padding: const EdgeInsetsDirectional.only(
             start: SMALL_SPACE,
@@ -157,7 +159,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       text: appLocalizations.tag_value_item,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(text: ' ${entry.value}'),
+                    TextSpan(
+                      text: ' ${entry.value}',
+                      style: entry.isAnUrl()
+                          ? const TextStyle(color: Colors.blue)
+                          : null,
+                    ),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -165,39 +172,58 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
             ],
           ),
         ),
-        trailing: isAuthorized
-            ? SmoothPopupMenuButton<FolksonomyAction>(
-                buttonIcon: const Icon(Icons.more_vert),
-                itemBuilder: (BuildContext context) {
-                  return <SmoothPopupMenuItem<FolksonomyAction>>[
-                    SmoothPopupMenuItem<FolksonomyAction>(
-                      label: appLocalizations.edit_tag,
-                      value: FolksonomyAction.edit,
-                      icon: const icons.Edit(),
-                    ),
-                    SmoothPopupMenuItem<FolksonomyAction>(
-                      label: appLocalizations.remove_tag,
-                      value: FolksonomyAction.remove,
-                      icon: const icons.Trash(),
-                    ),
-                  ];
-                },
-                onSelected: (FolksonomyAction value) {
-                  if (value == FolksonomyAction.edit) {
-                    _showEditDialog(
-                      action: value,
-                      existingKeys: _getExistingKeys(
-                        context.read<FolksonomyProvider>(),
-                      ),
-                      key: entry.key,
-                      value: entry.value,
-                    );
-                  } else if (value == FolksonomyAction.remove) {
-                    context.read<FolksonomyProvider>().deleteTag(entry.key);
-                  }
-                },
-              )
-            : null,
+        trailing: SmoothPopupMenuButton<FolksonomyAction>(
+          buttonIcon: const Icon(Icons.more_vert),
+          itemBuilder: (BuildContext context) {
+            return <SmoothPopupMenuItem<FolksonomyAction>>[
+              if (entry.isAnUrl())
+                SmoothPopupMenuItem<FolksonomyAction>(
+                  label: appLocalizations.folksonomy_action_external_link_title,
+                  value: FolksonomyAction.visitUrl,
+                  icon: const icons.ExternalLink(),
+                ),
+              SmoothPopupMenuItem<FolksonomyAction>(
+                label: appLocalizations.edit_tag,
+                value: FolksonomyAction.edit,
+                icon: const icons.Edit(),
+              ),
+              SmoothPopupMenuItem<FolksonomyAction>(
+                label: appLocalizations.remove_tag,
+                value: FolksonomyAction.remove,
+                icon: const icons.Trash(),
+              ),
+            ];
+          },
+          onSelected: (FolksonomyAction value) async {
+            if (value == FolksonomyAction.visitUrl) {
+              await entry.visitUrl(context);
+              return;
+            }
+            if (value == FolksonomyAction.edit) {
+              if (!await _checkIfLoggedIn()) {
+                return;
+              }
+              if (!context.mounted) {
+                return;
+              }
+              await _showEditDialog(
+                action: value,
+                existingKeys: _getExistingKeys(
+                  context.read<FolksonomyProvider>(),
+                ),
+                key: entry.key,
+                value: entry.value,
+              );
+            } else if (value == FolksonomyAction.remove) {
+              unawaited(
+                context.read<FolksonomyProvider>().deleteTag(
+                  context,
+                  entry.key,
+                ),
+              );
+            }
+          },
+        ),
       ),
     );
   }
@@ -215,7 +241,8 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     String? value,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final FolksonomyProvider folksonomyProvider = context
+        .read<FolksonomyProvider>();
     final FolksonomyTag? res = await showSmoothModalSheetForTextField(
       context: context,
       header: SmoothModalSheetHeader(
@@ -223,22 +250,40 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
       ),
       bodyBuilder: (BuildContext context) {
-        return FolksonomyEditTagContent(
-          action: action,
-          existingKeys: existingKeys,
-          oldKey: key,
-          oldValue: value,
+        return ChangeNotifierProvider<FolksonomyProvider>.value(
+          value: folksonomyProvider,
+          child: FolksonomyEditTagContent(
+            action: action,
+            existingKeys: existingKeys,
+            oldKey: key,
+            oldValue: value,
+          ),
         );
       },
     );
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(res.key, res.value);
+        unawaited(
+          context.read<FolksonomyProvider>().editTag(
+            context,
+            res.key,
+            res.value,
+          ),
+        );
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(res.key, res.value);
+          unawaited(
+            context.read<FolksonomyProvider>().addTag(
+              context,
+              res.key,
+              res.value,
+            ),
+          );
         } catch (e) {
+          if (!mounted) {
+            return;
+          }
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(
               context: context,
@@ -270,16 +315,18 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       ) {
         return FadeTransition(
           opacity: animation,
-          child: _buildItem(
-            context,
-            state.item,
-            animation,
-            provider.isAuthorized,
-          ),
+          child: _buildItem(context, state.item, animation),
         );
       });
 
       onNextFrame(() => provider.markAsConsumed());
     }
+  }
+
+  Future<bool> _checkIfLoggedIn() {
+    return _productRefresher.checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: true,
+    );
   }
 }

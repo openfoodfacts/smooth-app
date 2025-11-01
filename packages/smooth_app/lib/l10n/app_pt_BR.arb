@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Água marinha e doce (partículas, acidificação, eutrofização)",
   "guide_greenscore_lca_arg3_text8": "Esgotamento de recursos.",
   "guide_greenscore_bonuses_penalties_title": "Bônus e penalidades",
-  "guide_greenscore_bonuses_penalties_intro": "Para recompensar melhores produtos dentro de uma categoria, aplicamos bônus e penalidades com base em vários critérios:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Modo de produção",
-  "guide_greenscore_bonuses_penalties_arg1_text": "É concedido um bónus aos produtos que possuem um rótulo oficial, um rótulo ou uma certificação que garanta benefícios ambientais (orgânico, comércio justo, HVE, Label Rouge, Bleu Blanc Cœur, MSC / ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origem dos ingredientes",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Um bônus é concedido com base na origem dos ingredientes. Este bônus leva em consideração o impacto no transporte e também a política ambiental do país de cada produtor.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Espécies ameaçadas",
-  "guide_greenscore_bonuses_penalties_arg3_text": "É aplicada uma penalidade a produtos que contenham ingredientes que tenham impactos negativos significativos sobre a biodiversidade e os ecossistemas, como o óleo de palma, cuja produção é responsável por uma grande desflorestação.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Embalagem",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Uma penalidade é calculada para levar em conta a circularidade das embalagens (uso de matéria-prima reciclada e reciclabilidade) ou se há muita embalagem.",
+
   "guide_greenscore_transparency_title": "Uma maior necessidade de transparência para melhor medir e reduzir os impactos ambientais",
-  "guide_greenscore_transparency_intro1": "Para calcular o Green-Score com precisão, é necessário ter informações que não estão necessariamente especificadas na embalagem (como a origem e a porcentagem exata de cada ingrediente) ou que raramente estão disponíveis em formato utilizável (como uma lista de todos os componentes da embalagem com os tipos precisos de plásticos usados).",
-  "guide_greenscore_transparency_intro2": "Valores médios são usados quando essas informações ainda não estão disponíveis, mas agora estamos pedindo a todos que nos ajudem a coletar essas informações, que serão muito úteis para o Green-Score, mas também para muitos outros usos.",
-  "guide_greenscore_transparency_arg1_title": "Como os cidadãos podem ajudar",
-  "guide_greenscore_transparency_arg1_text": "Todos os cidadãos podem ajudar-nos a reunir e a estruturar as informações presentes nos produtos ou que podem ser deduzidas a partir deles, como as informações sobre embalagens: Missão Emballages: um inventário colaborativo em larga escala de embalagens para todos os produtos alimentares (em francês)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Como os fabricantes podem ajudar",
   "guide_greenscore_transparency_arg2_text": "Os fabricantes podem nos enviar suas informações diretamente por meio de nossa plataforma gratuita para produtores.",
   "guide_greenscore_better_product_title": "Qual produto é melhor para o planeta?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Os 4 grupos NOVA",
   "guide_nova_groups_intro": "Existem 4 grupos NOVA, sendo o problemático o Grupo 4 - Alimentos ultraprocessados.",
   "guide_nova_groups_arg1_title": "Alimentos minimamente processados ou não processados",
-  "guide_nova_groups_arg1_text": "Alimentos não processados (ou naturais) são as partes comestíveis de plantas (sementes, frutas, folhas, caules, raízes) ou animais (músculos, vísceras, ovos, leite), assim como fungos, algas e água, após serem separados da natureza.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Ingredientes culinários processados",
-  "guide_nova_groups_arg2_text": "Ingredientes culinários processados, como óleos, manteiga, açúcar e sal, são substâncias derivadas de alimentos do Grupo 1 ou da natureza por meio de processos que incluem prensagem, refino, moagem, moagem e secagem.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Comidas Processadas",
-  "guide_nova_groups_arg3_text": "Alimentos processados, como vegetais enlatados, peixe enlatado, frutas em calda, queijos e pães frescos, são produzidos principalmente pela adição de sal, óleo, açúcar ou outras substâncias do Grupo 2 aos alimentos do Grupo 1. Os processos incluem vários métodos de conservação ou cozimento e, no caso de pães e queijos, fermentação sem álcool. A maioria dos alimentos processados tem dois ou três ingredientes e são reconhecidos como versões modificadas de alimentos do Grupo 1. Eles podem ser consumidos sozinhos ou, mais comumente, em combinação com outros alimentos.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances From Group 2 to group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most PROCESSED foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can Be eaten On their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Alimentos ultraprocessados",
-  "guide_nova_groups_arg4_text": "Alimentos ultraprocessados, como refrigerantes, salgadinhos doces ou salgados, produtos cárneos reconstituídos e pratos congelados pré-preparados, não são meramente alimentos modificados, mas formulações feitas principalmente ou inteiramente de substâncias derivadas de alimentos e aditivos, com pouco ou nenhum alimento intacto do Grupo 1. Os ingredientes nessas formulações geralmente incluem aqueles também encontrados em alimentos processados, como açúcares, óleos, gorduras ou sal. No entanto, produtos ultraprocessados também contêm outras fontes de energia e nutrientes que normalmente não são utilizadas em preparações culinárias. Algumas delas são extraídas diretamente de alimentos, como caseína, lactose, soro de leite e glúten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to No intact Group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, Oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Os problemas com o ultraprocessamento",
   "guide_nova_explanations_arg1_title": "Processamento extremo de ingredientes alimentares",
-  "guide_nova_explanations_arg1_text": "Muitos são derivados do processamento posterior de constituintes alimentares, como óleos hidrogenados ou interesterificados, proteínas hidrolisadas, proteína isolada de soja, maltodextrina, açúcar invertido e xarope de milho rico em frutose.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aditivos que vão além da pura segurança alimentar",
-  "guide_nova_explanations_arg2_text": "Aditivos em alimentos ultraprocessados incluem alguns que também são usados em alimentos processados, como conservantes, antioxidantes e estabilizantes. Classes de aditivos encontradas apenas em produtos ultraprocessados incluem aqueles usados para imitar ou aprimorar as qualidades sensoriais dos alimentos ou para disfarçar aspectos desagradáveis do produto final. Esses aditivos incluem corantes e outras cores, estabilizantes de cor; aromatizantes, intensificadores de sabor, adoçantes sem açúcar; e auxiliares de processamento, como agentes carbonatantes, firmadores, de volume e antiaglomerantes, agentes antiespumantes, antiaglomerantes e de glaceamento, emulsificantes, sequestrantes e umectantes.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Processamento que você não pode fazer em casa",
-  "guide_nova_explanations_arg3_text": "Uma infinidade de sequências de processos é usada para combinar os ingredientes, geralmente numerosos, e criar o produto final (daí o nome \"ultraprocessado\"). Os processos incluem vários sem equivalentes nacionais, como hidrogenação e hidrólise, extrusão e moldagem, e pré-processamento para fritura.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Os aspectos predatórios e financeiros do ultraprocessamento",
-  "guide_nova_explanations_arg4_text": "O objetivo geral do ultraprocessamento é criar produtos alimentícios de marca, práticos (duráveis, prontos para consumo), atraentes (hiperpalatáveis) e altamente lucrativos (ingredientes de baixo custo), projetados para substituir todos os outros grupos alimentares. Produtos alimentícios ultraprocessados geralmente são embalados de forma atraente e comercializados de forma intensiva.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Pré-visualizar",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

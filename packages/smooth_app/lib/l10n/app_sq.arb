@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Ujë detar dhe i ëmbël (grimca, acidifikim, eutrofikim)",
   "guide_greenscore_lca_arg3_text8": "Shterimi i burimeve.",
   "guide_greenscore_bonuses_penalties_title": "Bonuse dhe penalitete",
-  "guide_greenscore_bonuses_penalties_intro": "Për të shpërblyer produktet më të mira brenda një kategorie, ne aplikojmë bonuse dhe penalitete bazuar në disa kritere:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Një bonus jepet në bazë të origjinës së përbërësve. Ky bonus merr në konsideratë ndikimin në transport dhe gjithashtu politikën mjedisore të vendit të secilit prodhues.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Për të llogaritur me saktësi Green-Score, është e nevojshme të keni informacion që nuk specifikohet domosdoshmërisht në paketim (siç është origjina dhe përqindja e saktë e secilit përbërës) ose që rrallë është i disponueshëm në formë të përdorshme (siç është një listë e të gjithë përbërësve të paketimit me llojet e sakta të plastikës së përdorur).",
-  "guide_greenscore_transparency_intro2": "Vlerat mesatare përdoren kur ky informacion nuk është ende i disponueshëm, por tani po u bëjmë thirrje të gjithëve që të na ndihmojnë të mbledhim këtë informacion i cili do të jetë shumë i dobishëm për Green-Score, por edhe për shumë përdorime të tjera.",
-  "guide_greenscore_transparency_arg1_title": "Si mund të ndihmojnë qytetarët",
-  "guide_greenscore_transparency_arg1_text": "Të gjithë qytetarët mund të na ndihmojnë të mbledhim dhe strukturojmë informacionin që është i pranishëm në produkte ose që mund të nxirret prej tyre, siç është informacioni mbi paketimin: Mission Emballages: një inventar bashkëpunues në shkallë të gjerë i paketimit për të gjitha produktet ushqimore (në frëngjisht)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Si mund të ndihmojnë prodhuesit",
   "guide_greenscore_transparency_arg2_text": "Prodhuesit mund të na dërgojnë informacionin e tyre direkt përmes platformës sonë falas për prodhuesit.",
   "guide_greenscore_better_product_title": "Cili produkt është më i mirë për planetin?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "4 grupet NOVA",
   "guide_nova_groups_intro": "Ekzistojnë 4 grupe NOVA, ku problematiku është Grupi 4 - Ushqime ultra të përpunuara.",
   "guide_nova_groups_arg1_title": "Ushqime të përpunuara minimalisht ose të papërpunuara",
-  "guide_nova_groups_arg1_text": "Ushqimet e papërpunuara (ose natyrale) janë pjesët e ngrënshme të bimëve (fara, fruta, gjethe, kërcell, rrënjë) ose kafshëve (muskuj, të brendshme, vezë, qumësht), si dhe kërpudhat, algat dhe uji, pasi janë ndarë nga natyra.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Përbërësit e përpunuar të kuzhinës, siç janë vajrat, gjalpi, sheqeri dhe kripa, janë substanca që rrjedhin nga ushqimet e Grupit 1 ose nga natyra përmes proceseve që përfshijnë presimin, rafinimin, bluarjen, bluarjen dhe tharjen.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from Nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Ushqimet e përpunuara, të tilla si perimet e ambalazhuara, peshku i konservuar, frutat në shurup, djathërat dhe bukët e sapobëra, bëhen kryesisht duke shtuar kripë, vaj, sheqer ose substanca të tjera nga ushqimet e Grupit 2 në ato të Grupit 1. Proceset përfshijnë metoda të ndryshme ruajtjeje ose gatimi, dhe në rastin e bukës dhe djathit, fermentim joalkoolik. Shumica e ushqimeve të përpunuara kanë dy ose tre përbërës dhe njihen si versione të modifikuara të ushqimeve të Grupit 1. Ato mund të hahen vetëm ose, më shpesh, në kombinim me ushqime të tjera.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. Processes include various preservation or Cooking methods, And in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or Three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own Or, more Commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ushqimet ultra të përpunuara, siç janë pijet joalkoolike, ushqimet e ëmbla ose të kripura të paketuara, produktet e mishit të rikonstituar dhe gatimet e ngrira të parapërgatitura, nuk janë thjesht ushqime të modifikuara, por formulime të bëra kryesisht ose tërësisht nga substanca të nxjerra nga ushqimet dhe aditivë, me pak ose aspak ushqim të paprekur të Grupit 1. Përbërësit në këto formulime zakonisht përfshijnë ato që gjenden edhe në ushqimet e përpunuara, siç janë sheqernat, vajrat, yndyrnat ose kripa. Megjithatë, produktet ultra të përpunuara përmbajnë edhe burime të tjera energjie dhe lëndësh ushqyese që nuk përdoren zakonisht në përgatitjet kulinare. Disa prej tyre nxirren direkt nga ushqimet, siç janë kazeina, laktoza, hirra dhe gluteni.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in Processed foods, Such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problemet me ultra-përpunimin",
   "guide_nova_explanations_arg1_title": "Përpunim ekstrem i përbërësve të ushqimit",
-  "guide_nova_explanations_arg1_text": "Shumë prej tyre rrjedhin nga përpunimi i mëtejshëm i përbërësve të ushqimit, siç janë vajrat e hidrogjenizuara ose të interesterifikuara, proteinat e hidrolizuara, izolati i proteinës së sojës, maltodekstrina, sheqeri invert dhe shurupi i misrit me përmbajtje të lartë fruktoze.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Aditivë që shkojnë përtej sigurisë së pastër ushqimore",
-  "guide_nova_explanations_arg2_text": "Shtesat në ushqimet ultra të përpunuara përfshijnë disa që përdoren edhe në ushqimet e përpunuara, siç janë konservuesit, antioksidantët dhe stabilizuesit. Klasat e shtesave që gjenden vetëm në produktet ultra të përpunuara përfshijnë ato që përdoren për të imituar ose përmirësuar cilësitë shqisore të ushqimeve ose për të maskuar aspektet e pakëndshme të produktit përfundimtar. Këto shtesa përfshijnë ngjyrues dhe ngjyra të tjera, stabilizues ngjyrash; aroma, përmirësues shijesh, ëmbëlsues jo-sheqer; dhe ndihmës përpunimi siç janë agjentët karbonizues, forcimi, mbushës dhe anti-mbushës, agjentët kundër shkumëzimit, anti-grumbullimit dhe lustrimit, emulsifikuesit, sekuestruesit dhe humektantët.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Përpunim që nuk mund të bëhet në shtëpi",
-  "guide_nova_explanations_arg3_text": "Një mori sekuencash procesesh përdoren për të kombinuar zakonisht shumë përbërës dhe për të krijuar produktin përfundimtar (pra 'ultra të përpunuar'). Proceset përfshijnë disa pa ekuivalentë vendas, siç janë hidrogjenizimi dhe hidroliza, nxjerrja dhe formëzimi, dhe parapërpunimi për skuqje.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Aspektet grabitqare dhe financiare të ultra-përpunimit",
-  "guide_nova_explanations_arg4_text": "Qëllimi i përgjithshëm i ultra-përpunimit është të krijojë produkte ushqimore të markës, të përshtatshme (të qëndrueshme, të gatshme për t’u konsumuar), tërheqëse (hiper-të shijshme) dhe shumë fitimprurëse (me përbërës me kosto të ulët), të dizajnuara për të zëvendësuar të gjitha grupet e tjera ushqimore. Produktet ushqimore të ultra-përpunuara zakonisht paketohen në mënyrë tërheqëse dhe tregtohen intensivisht.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

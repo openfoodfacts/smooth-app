@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences_v2/preferences_page.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -56,7 +56,7 @@ void main() {
             themeProvider,
             textContrastProvider,
             colorProvider,
-            const UserPreferencesPage(),
+            PreferencesPage(),
             localDatabase: MockLocalDatabase(),
           ),
         );
@@ -65,7 +65,7 @@ void main() {
         // We need to lowercase the theme, as on some platforms
         // the name is always lowercase
         await expectGoldenMatches(
-          find.byType(UserPreferencesPage),
+          find.byType(PreferencesPage),
           'user_preferences_page-${theme.toLowerCase()}.png',
         );
         expect(tester, meetsGuideline(textContrastGuideline));

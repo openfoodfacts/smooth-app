@@ -24,7 +24,10 @@ class SvgIconChip extends StatelessWidget {
               width: 1.0,
               strokeAlign: BorderSide.strokeAlignOutside,
             ),
-            borderRadius: const BorderRadius.all(Radius.circular(6.5)),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(6.5),
+              bottom: Radius.circular(8.0),
+            ),
           ),
           child: child,
         ),

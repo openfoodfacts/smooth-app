@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Θαλάσσιο και γλυκό νερό (σωματίδια, οξίνιση, ευτροφισμός)",
   "guide_greenscore_lca_arg3_text8": "Εξάντληση πόρων.",
   "guide_greenscore_bonuses_penalties_title": "Μπόνους και κυρώσεις",
-  "guide_greenscore_bonuses_penalties_intro": "Για να ανταμείψουμε καλύτερα προϊόντα σε μια κατηγορία, εφαρμόζουμε μπόνους και κυρώσεις με βάση διάφορα κριτήρια:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Τρόπος παραγωγής",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Ένα μπόνους απονέμεται σε προϊόντα που έχουν επίσημη ετικέτα, ετικέτα ή πιστοποίηση που εγγυάται περιβαλλοντικά οφέλη (βιολογικά, δίκαιου εμπορίου, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Προέλευση των συστατικών",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Απονέμεται ένα μπόνους με βάση την προέλευση των συστατικών. Αυτό το μπόνους λαμβάνει υπόψη τον αντίκτυπο στις μεταφορές, καθώς και την περιβαλλοντική πολιτική της χώρας κάθε παραγωγού.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Είδη υπό εξαφάνιση",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Επιβάλλεται ποινή σε προϊόντα που περιέχουν συστατικά που έχουν σημαντικές αρνητικές επιπτώσεις στη βιοποικιλότητα και στα οικοσυστήματα, όπως το φοινικέλαιο, η παραγωγή του οποίου ευθύνεται για τη μαζική αποψίλωση των δασών.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Συσκευασία",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Υπολογίζεται ποινή για να ληφθεί υπόψη η κυκλικότητα της συσκευασίας (χρήση ανακυκλωμένης πρώτης ύλης και δυνατότητα ανακύκλωσης) και η υπερβολική συσκευασία.",
+
   "guide_greenscore_transparency_title": "Αυξημένη ανάγκη για διαφάνεια για την καλύτερη μέτρηση και τη μείωση των περιβαλλοντικών επιπτώσεων",
-  "guide_greenscore_transparency_intro1": "Για τον ακριβή υπολογισμό του Green-Score, είναι απαραίτητο να υπάρχουν πληροφορίες που δεν αναφέρονται απαραίτητα στη συσκευασία (όπως η προέλευση και το ακριβές ποσοστό κάθε συστατικού) ή που σπάνια είναι διαθέσιμες σε χρησιμοποιήσιμη μορφή (όπως μια λίστα με όλα τα συστατικά της συσκευασίας με τους ακριβείς τύπους πλαστικών που χρησιμοποιούνται).",
-  "guide_greenscore_transparency_intro2": "Οι μέσες τιμές χρησιμοποιούνται όταν αυτές οι πληροφορίες δεν είναι ακόμη διαθέσιμες, αλλά τώρα καλούμε όλους να μας βοηθήσουν να συλλέξουμε αυτές τις πληροφορίες, οι οποίες θα είναι πολύ χρήσιμες για το Green-Score αλλά και για πολλές άλλες χρήσεις.",
-  "guide_greenscore_transparency_arg1_title": "Πώς μπορούν να βοηθήσουν οι πολίτες",
-  "guide_greenscore_transparency_arg1_text": "Όλοι οι πολίτες μπορούν να μας βοηθήσουν να συλλέξουμε και να δομήσουμε τις πληροφορίες που υπάρχουν στα προϊόντα ή που μπορούν να εξαχθούν από αυτά, όπως πληροφορίες σχετικά με τις συσκευασίες: Mission Emballages: μια μεγάλης κλίμακας συνεργατική απογραφή συσκευασιών για όλα τα τρόφιμα (στα γαλλικά)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Πώς μπορούν να βοηθήσουν οι κατασκευαστές",
   "guide_greenscore_transparency_arg2_text": "Οι κατασκευαστές μπορούν να μας στείλουν τις πληροφορίες τους απευθείας μέσω της δωρεάν πλατφόρμας μας για παραγωγούς.",
   "guide_greenscore_better_product_title": "Ποιο προϊόν είναι καλύτερο για τον πλανήτη;",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Οι 4 ομάδες NOVA",
   "guide_nova_groups_intro": "Υπάρχουν 4 ομάδες NOVA, με την προβληματική να είναι η Ομάδα 4 - Υπερεπεξεργασμένα τρόφιμα.",
   "guide_nova_groups_arg1_title": "Ελάχιστα επεξεργασμένα ή μη επεξεργασμένα τρόφιμα",
-  "guide_nova_groups_arg1_text": "Τα μη επεξεργασμένα (ή φυσικά) τρόφιμα είναι τα βρώσιμα μέρη των φυτών (σπόροι, καρποί, φύλλα, μίσχοι, ρίζες) ή των ζώων (μύες, εντόσθια, αυγά, γάλα), καθώς και μύκητες, φύκια και νερό, αφού διαχωριστούν από τη φύση.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Επεξεργασμένα μαγειρικά συστατικά",
-  "guide_nova_groups_arg2_text": "Τα επεξεργασμένα μαγειρικά συστατικά, όπως τα έλαια, το βούτυρο, η ζάχαρη και το αλάτι, είναι ουσίες που προέρχονται από τρόφιμα της Ομάδας 1 ή από τη φύση μέσω διαδικασιών που περιλαμβάνουν συμπίεση, ραφινάρισμα, άλεση, άλεση και ξήρανση.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through Processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Επεξεργασμένα τρόφιμα",
-  "guide_nova_groups_arg3_text": "Τα επεξεργασμένα τρόφιμα, όπως τα εμφιαλωμένα λαχανικά, τα κονσερβοποιημένα ψάρια, τα φρούτα σε σιρόπι, τα τυριά και τα φρεσκοψημένα ψωμιά, παρασκευάζονται κυρίως με την προσθήκη αλατιού, λαδιού, ζάχαρης ή άλλων ουσιών από τα τρόφιμα της Ομάδας 2 στα τρόφιμα της Ομάδας 1. Οι διαδικασίες περιλαμβάνουν διάφορες μεθόδους συντήρησης ή μαγειρέματος και, στην περίπτωση των ψωμιών και των τυριών, μη αλκοολική ζύμωση. Τα περισσότερα επεξεργασμένα τρόφιμα έχουν δύο ή τρία συστατικά και είναι αναγνωρίσιμα ως τροποποιημένες εκδοχές των τροφίμων της Ομάδας 1. Μπορούν να καταναλωθούν μόνα τους ή, πιο συχνά, σε συνδυασμό με άλλα τρόφιμα.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes Include various preservation or cooking Methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and Are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more Commonly, in Combination with other foods.",
   "guide_nova_groups_arg4_title": "Υπερεπεξεργασμένα τρόφιμα",
-  "guide_nova_groups_arg4_text": "Τα υπερεπεξεργασμένα τρόφιμα, όπως τα αναψυκτικά, τα γλυκά ή αλμυρά συσκευασμένα σνακ, τα ανασυσταμένα προϊόντα κρέατος και τα προπαρασκευασμένα κατεψυγμένα πιάτα, δεν είναι απλώς τροποποιημένα τρόφιμα, αλλά σκευάσματα που παρασκευάζονται κυρίως ή εξ ολοκλήρου από ουσίες που προέρχονται από τρόφιμα και πρόσθετα, με ελάχιστα έως καθόλου άθικτα τρόφιμα Ομάδας 1. Τα συστατικά σε αυτά τα σκευάσματα συνήθως περιλαμβάνουν εκείνα που βρίσκονται επίσης σε επεξεργασμένα τρόφιμα, όπως σάκχαρα, έλαια, λίπη ή αλάτι. Ωστόσο, τα υπερεπεξεργασμένα προϊόντα περιέχουν επίσης άλλες πηγές ενέργειας και θρεπτικών συστατικών που δεν χρησιμοποιούνται συνήθως σε μαγειρικά παρασκευάσματα. Μερικά από αυτά εξάγονται απευθείας από τρόφιμα, όπως καζεΐνη, λακτόζη, ορός γάλακτος και γλουτένη.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in These formulations Usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from Foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Τα προβλήματα με την υπερεπεξεργασία",
   "guide_nova_explanations_arg1_title": "Ακραία επεξεργασία συστατικών τροφίμων",
-  "guide_nova_explanations_arg1_text": "Πολλά προέρχονται από περαιτέρω επεξεργασία συστατικών τροφίμων, όπως υδρογονωμένα ή διεστεροποιημένα έλαια, υδρολυμένες πρωτεΐνες, απομονωμένη πρωτεΐνη σόγιας, μαλτοδεξτρίνη, ιμβερτοσάκχαρο και σιρόπι καλαμποκιού υψηλής περιεκτικότητας σε φρουκτόζη.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Πρόσθετα που ξεπερνούν την απλή ασφάλεια των τροφίμων",
-  "guide_nova_explanations_arg2_text": "Τα πρόσθετα στα υπερεπεξεργασμένα τρόφιμα περιλαμβάνουν ορισμένα που χρησιμοποιούνται επίσης σε επεξεργασμένα τρόφιμα, όπως συντηρητικά, αντιοξειδωτικά και σταθεροποιητές. Κατηγορίες προσθέτων που βρίσκονται μόνο σε υπερεπεξεργασμένα προϊόντα περιλαμβάνουν εκείνα που χρησιμοποιούνται για να μιμηθούν ή να ενισχύσουν τις οργανοληπτικές ιδιότητες των τροφίμων ή για να συγκαλύψουν δυσάρεστες πτυχές του τελικού προϊόντος. Αυτά τα πρόσθετα περιλαμβάνουν χρωστικές και άλλα χρώματα, σταθεροποιητές χρώματος, αρώματα, ενισχυτικά γεύσης, γλυκαντικά χωρίς ζάχαρη και βοηθητικά επεξεργασίας όπως παράγοντες ενανθράκωσης, σύσφιξης, διόγκωσης και αντιδιογκωτικοί παράγοντες, παράγοντες αποαφρισμού, αντισυσσωματικούς και γυαλιστικούς παράγοντες, γαλακτωματοποιητές, απομονωτικά και υγραντικά.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Επεξεργασία που δεν μπορείτε να κάνετε στο σπίτι",
-  "guide_nova_explanations_arg3_text": "Χρησιμοποιείται μια πληθώρα αλληλουχιών διεργασιών για τον συνδυασμό των συνήθως πολλών συστατικών και τη δημιουργία του τελικού προϊόντος (εξ ου και «υπερεπεξεργασμένο»). Οι διεργασίες περιλαμβάνουν αρκετές χωρίς εγχώρια ισοδύναμα, όπως υδρογόνωση και υδρόλυση, εξώθηση και χύτευση, και προεπεξεργασία για τηγάνισμα.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Οι επιθετικές και οικονομικές πτυχές της υπερεπεξεργασίας",
-  "guide_nova_explanations_arg4_text": "Ο γενικός σκοπός της υπερεπεξεργασίας είναι η δημιουργία επώνυμων, βολικών (ανθεκτικών, έτοιμων προς κατανάλωση), ελκυστικών (υπερεύγευστων) και εξαιρετικά κερδοφόρων (χαμηλού κόστους συστατικά) τροφίμων, σχεδιασμένων να εκτοπίσουν όλες τις άλλες ομάδες τροφίμων. Τα υπερεπεξεργασμένα τρόφιμα συνήθως συσκευάζονται ελκυστικά και διατίθενται στην αγορά εντατικά.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Προεπισκόπηση",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

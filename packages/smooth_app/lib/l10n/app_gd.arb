@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Uisge mara is uisge ùr (mìrean, searbhachadh, eutrofachadh)",
   "guide_greenscore_lca_arg3_text8": "Crìonadh ghoireasan.",
   "guide_greenscore_bonuses_penalties_title": "Bònasan is peanasan",
-  "guide_greenscore_bonuses_penalties_intro": "Gus duaisean a thoirt do thoraidhean nas fheàrr taobh a-staigh roinn, bidh sinn an uairsin a’ cur bònasan is peanasan an sàs stèidhichte air grunn shlatan-tomhais:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Thèid bònas a thoirt seachad a rèir tùs nan tàthchuid. Bidh am bònas seo a’ toirt aire don bhuaidh a th’ aig còmhdhail agus cuideachd do phoileasaidh àrainneachdail dùthaich gach riochdaire.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Gus an Sgòr Uaine obrachadh a-mach gu ceart, feumar fiosrachadh a bhith agad nach eil air a shònrachadh air a’ phacaid (leithid tùs agus an dearbh cheudad de gach tàthchuid) no nach eil ri fhaighinn ach ainneamh ann an cruth a ghabhas cleachdadh (leithid liosta de na pàirtean uile den phacaid leis na seòrsaichean plastaig a chaidh a chleachdadh).",
-  "guide_greenscore_transparency_intro2": "Bithear a’ cleachdadh luachan cuibheasach nuair nach eil am fiosrachadh seo ri fhaighinn fhathast, ach tha sinn a-nis ag iarraidh air a h-uile duine ar cuideachadh le bhith a’ cruinneachadh an fhiosrachaidh seo a bhios glè fheumail airson an Sgòr Uaine ach cuideachd airson mòran chleachdaidhean eile.",
-  "guide_greenscore_transparency_arg1_title": "Mar as urrainn do shaoranaich cuideachadh",
-  "guide_greenscore_transparency_arg1_text": "Faodaidh a h-uile saoranach ar cuideachadh le bhith a’ cruinneachadh agus a’ structaradh an fhiosrachaidh a tha an làthair air toraidhean no a ghabhas a thoirt a-mach bhuapa, leithid fiosrachadh air pacaigeadh: Mission Emballages: clàr-stuth co-obrachail mòr-sgèile de phacaigeadh airson a h-uile toradh bìdh (ann am Fraingis)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Mar as urrainn do luchd-saothrachaidh cuideachadh",
   "guide_greenscore_transparency_arg2_text": "Faodaidh luchd-saothrachaidh am fiosrachadh aca a chuir thugainn gu dìreach tron àrd-ùrlar an-asgaidh againn do luchd-dèanaimh.",
   "guide_greenscore_better_product_title": "Dè an toradh a tha nas fheàrr airson a’ phlanaid?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Na 4 buidhnean NOVA",
   "guide_nova_groups_intro": "Tha 4 buidhnean NOVA ann, agus is e am buidheann trioblaideach Buidheann 4 - Biadhan air an giullachd gu mòr.",
   "guide_nova_groups_arg1_title": "Biadhan air an giullachd gu ìre bheag no gun phròiseasadh",
-  "guide_nova_groups_arg1_text": "Is e biadhan neo-phròiseasaichte (no nàdarra) na pàirtean a ghabhas ithe de lusan (sìol, measan, duilleagan, gasan, freumhaichean) no bheathaichean (fèithean, sgeadachaidhean, uighean, bainne), a bharrachd air fungasan, algaich, agus uisge, às deidh dhaibh a bhith air an sgaradh bhon nàdar.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Tha grìtheidean còcaireachd giullaichte, leithid olan, ìm, siùcar agus salann, nan stuthan a tha air an toirt bho bhiadhan Buidheann 1 no bhon nàdar tro phròiseasan a tha a’ toirt a-steach brùthadh, grinneachadh, bleith, muilneachadh agus tiormachadh.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from Nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Bidh biadhan giullaichte, leithid glasraich ann am botail, iasg ann an tionaichean, measan ann an siorup, càiseagan, agus aran ùr-dhèanta, air an dèanamh sa mhòr-chuid le bhith a’ cur salann, ola, siùcar, no stuthan eile bho Bhuidheann 2 gu biadhan Buidheann 1. Tha pròiseasan a’ toirt a-steach diofar dhòighean glèidhteachais no còcaireachd, agus a thaobh aran is càise, coipeadh gun deoch làidir. Tha dà no trì tàthchuid anns a’ mhòr-chuid de bhiadhan giullaichte agus tha iad aithnichte mar dhreachan atharraichte de bhiadhan Buidheann 1. Faodar an ithe leotha fhèin no, nas trice, ann an co-bhonn ri biadhan eile.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation Or cooking methods, and In the Case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Chan e dìreach biadhan atharraichte a th’ ann am biadhan air an giullachd gu mòr, leithid deochan bog, greimean-bìdh pacaichte milis no blasta, toraidhean feòla ath-chruthaichte, agus soithichean reòta ro-ullaichte, ach foirmlean air an dèanamh sa mhòr-chuid no gu tur bho stuthan a tha air an toirt bho bhiadhan agus stuthan cur-ris, le glè bheag de bhiadh Buidheann 1 slàn. Mar as trice bidh grìtheidean anns na foirmlean sin a’ toirt a-steach an fheadhainn a lorgar ann am biadhan giullaichte cuideachd, leithid siùcaran, olan, geir no salann. Ach, tha stòran lùtha agus beathachaidh eile ann an toraidhean air an giullachd gu mòr nach eilear a’ cleachdadh mar as trice ann an ullachaidhean còcaireachd. Tha cuid dhiubh sin air an toirt a-mach gu dìreach bho bhiadhan, leithid casein, lactos, meadhg-bhìdh, agus gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, Fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as Casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Na duilgheadasan le ultra-phròiseasadh",
   "guide_nova_explanations_arg1_title": "Giullachd anabarrach de ghrìtheidean bìdh",
-  "guide_nova_explanations_arg1_text": "Tha mòran dhiubh air an toirt bho bhith a’ giullachd phàirtean bìdh a bharrachd, leithid olan hydrogenated no interesterified, pròtainean hydrolyzed, pròtain soy air a sgaradh, maltodextrin, siùcar inverted, agus siorup arbhair àrd-fructose.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Stuthan a bharrachd a tha a’ dol nas fhaide na sàbhailteachd bìdh fìor-ghlan",
-  "guide_nova_explanations_arg2_text": "Am measg nan stuthan cur-ris ann am biadhan air an giullachd gu mòr tha cuid a thathas a’ cleachdadh ann am biadhan air an giullachd cuideachd, leithid stuthan-gleidhidh, stuthan-dìona antioxidants, agus stabilizers. Am measg nan clasaichean de stuthan cur-ris a lorgar ann am bathar air an giullachd gu mòr a-mhàin tha an fheadhainn a thathas a’ cleachdadh gus feartan mothachaidh biadhan ath-aithris no a neartachadh no gus taobhan mì-thlachdmhor den toradh deireannach fhalach. Tha na stuthan cur-ris sin a’ toirt a-steach dathan agus dathan eile, stabilizers dath; blasan, luchd-àrdachaidh blas, milsearan neo-shiùcair; agus taicean giullachd leithid riochdairean carbonating, daingneachaidh, bulking agus anti-bulking, riochdairean dì-fhoaming, anti-caking agus glazing, emulsifiers, sequestrants, agus humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Giullachd nach urrainn dhut a dhèanamh aig an taigh",
-  "guide_nova_explanations_arg3_text": "Bithear a’ cleachdadh iomadh sreath de phròiseasan gus na grìtheidean, a bhios mar as trice mòran, a chur còmhla agus an toradh deireannach a chruthachadh (mar sin ‘air a phròiseasadh gu mòr’). Tha grunn phròiseasan anns na pròiseasan aig nach eil co-ionannachdan dachaigheil, leithid hydrogenation agus hydrolysation, eas-tharraing agus molltair, agus ro-phròiseasadh airson friogais.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Na taobhan creachaidh is ionmhais a tha an lùib ultra-phròiseasadh",
-  "guide_nova_explanations_arg4_text": "Is e prìomh adhbhar giollachd-bhìdh toraidhean bìdh branndaichte, goireasach (maireannach, deiseil airson ithe), tarraingeach (ro-bhlasta) agus air leth prothaideach (tàthchuid aig prìs ìseal) a chruthachadh, air an dealbhadh gus a h-uile buidheann bìdh eile a chuir às. Mar as trice bidh toraidhean bìdh air an giollachd-bhìdh air am pacadh ann an dòigh tharraingeach agus air am margaidheachd gu dian.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

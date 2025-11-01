@@ -3944,20 +3944,20 @@
   "guide_greenscore_lca_arg3_text7": "Te wai moana me te wai māori (matūriki, waikawa, eutrophication)",
   "guide_greenscore_lca_arg3_text8": "Te whakaheke i nga rauemi.",
   "guide_greenscore_bonuses_penalties_title": "Nga putea me nga whiu",
-  "guide_greenscore_bonuses_penalties_intro": "Ki te utu i nga hua pai ake i roto i tetahi waahanga, ka tukuna e matou nga putea me nga whiu i runga i te maha o nga tohu:",
+
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Ka whakawhiwhia he bonus i runga i te takenga mai o nga kai. Ka whai whakaaro tenei bonus ki te paanga ki te kawe waka me te kaupapa here taiao o ia whenua kaihanga.",
+
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Kia tika ai te tatau i te Tohu-Kakariki, me whai korero kaore i te tino tohuhia ki runga i te kete (penei i te takenga mai me te paheketanga tika o ia whakauru) he iti nei ranei te waatea i roto i te ahua ka taea te whakamahi (penei i te raarangi o nga waahanga katoa o te kete me nga momo kirihou e whakamahia ana).",
-  "guide_greenscore_transparency_intro2": "Ka whakamahia nga uara toharite ina kare ano enei korero i te watea, engari kei te karanga matou ki nga tangata katoa ki te awhina i a matou ki te kohikohi i enei korero ka tino whai hua mo te Green-Score engari mo etahi atu whakamahinga.",
-  "guide_greenscore_transparency_arg1_title": "Me pehea e taea ai e te tangata whenua te awhina",
-  "guide_greenscore_transparency_arg1_text": "Ka taea e nga tangata whenua katoa te awhina i a tatou ki te kohikohi me te hanga i nga korero kei runga i nga hua, ka taea ranei te tango mai i a raatau, penei i nga korero mo te kohinga: Mission Emballages: he pukapuka mahi tahi nui mo te kohinga mo nga hua kai katoa (i te reo Wīwī)",
+
+
+
+
   "guide_greenscore_transparency_arg2_title": "Me pehea e taea ai e nga kaihanga te awhina",
   "guide_greenscore_transparency_arg2_text": "Ka taea e nga Kaihanga te tuku mai i a raatau korero ki a maatau na roto i ta maatau papaahi koreutu mo nga kaihanga.",
   "guide_greenscore_better_product_title": "Ko tehea hua te pai ake mo te ao?",
@@ -3986,22 +3986,22 @@
   "guide_nova_groups_title": "Ko nga roopu NOVA e wha",
   "guide_nova_groups_intro": "E 4 nga roopu NOVA, ko te raruraru ko te Rōpū 4 - Nga kai kua tukatukahia.",
   "guide_nova_groups_arg1_title": "He iti rawa nga kai kua tukatukahia, kaore ano kia tukatukahia",
-  "guide_nova_groups_arg1_text": "Ko nga kai kaore i tukatukahia (maori ranei) ko nga waahanga kai o te tipu (nga kakano, hua, rau, kakau, pakiaka) kararehe ranei (he uaua, whea, hua, miraka), tae atu ki te harore, te pukohu me te wai, i muri i te wehenga mai i te taiao.",
+    "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "Ko nga kai kai tukatuka, penei i te hinu, te pata, te huka, me te tote, he matū i ahu mai i nga kai a te Rōpū 1, mai i te taiao ranei na roto i nga tikanga penei i te pehi, te para, te huri, te mira, me te whakamaroke.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, Grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "Ko nga kai tukatuka, penei i nga huawhenua pounamu, nga ika kēne, nga hua o te tirikara, nga tiihi, me nga parāoa hou, ka mahia ma te taapiri i te tote, te hinu, te huka, me etahi atu matū mai i te Rōpū 2 ki te Rōpū 1 kai. Kei roto i nga mahinga nga momo tikanga tiaki, tunu kai ranei, a, mo te taro me te tiihi, ko te FERMENTATION kore-waipiro. Ko te nuinga o nga kai tukatuka e rua, e toru ranei nga kai, ka mohiohia he putanga whakarereke o nga kai Rōpū 1. Ka taea te kai i a raatau ake, i te nuinga ake, me te whakakotahi me etahi atu kai.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and In the case of Breads and cheese, Non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. THEY can be Eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "Ko nga kai kua oti te tukatuka, penei i nga inu ngawari, nga paramanawa reka me nga paramanawa kua oti te takai, nga hua mīti kua oti te hanga, me nga rīhi tio kua oti te taka, ehara i te kai whakarerekē noa engari ko te hanga i te nuinga, i te katoa ranei mai i nga matū i ahu mai i nga kai me nga taapiri, he iti noa te kai o te Rōpū 1. Ko nga mea whakauru kei roto i enei hanganga ko te nuinga o nga mea ka kitea i roto i nga kai tukatuka, penei i te huka, te hinu, te ngako, te tote ranei. Heoi ano, kei roto ano i nga hua tino-tukatuka etahi atu puna o te kaha me nga matūkai kaore i te whakamahia i roto i nga mahi tunu kai. Ko etahi o enei ka tangohia tika mai i nga kai, penei i te casein, lactose, whey, me te gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of Energy and Nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Nga raruraru ki te tukatuka ultra",
   "guide_nova_explanations_arg1_title": "Te tino tukatuka o nga kai kai",
-  "guide_nova_explanations_arg1_text": "He maha nga mea i ahu mai i te tukatuka ano o nga mea kai, penei i te hinu hauwai, i nga hinu whakahiahia ranei, nga pūmua hauwai, te wehea o te pūmua soy, te maltodextrin, te huka huri, me te tirikara witi-fructose teitei.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Ko nga taapiri kei tua atu i te haumaru kai parakore",
-  "guide_nova_explanations_arg2_text": "Ko nga taapiri kei roto i nga kai tino tukatuka ko etahi e whakamahia ana i roto i nga kai tukatuka, penei i te whakamarumaru, te antioxidants, me te whakapumau. Ko nga karaehe o nga taapiri ka kitea anake i roto i nga hua tino tukatuka ko era e whakamahia ana hei tauira, hei whakarei ake ranei i nga ahuatanga o nga kai, hei huna ranei i nga ahuatanga o te hua whakamutunga. Ko enei taapiri ko nga tae me etahi atu tae, he whakapumau tae; nga mea kakara, te whakanui i te reka, te kai reka kore-huka; me nga awhina tukatuka penei i te warowai, te whakau, te pupuhi me te aukati i te pupuhi, te whakakore i te hukahuka, te aukati i te keke me te karaehe, te whakaemulsifiers, te whakahiato, me te humectants.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Kare e taea e koe te mahi i te kainga",
-  "guide_nova_explanations_arg3_text": "He maha nga raupapa o nga tukanga e whakamahia ana ki te whakakotahi i nga kai maha me te hanga i te hua whakamutunga (no reira 'tukatuka-nui'). Kei roto i nga tukanga he maha nga mea karekau he orite o te kainga, penei i te hauwai me te hauwai, te tangohanga me te whakarewa, me te tukatuka i mua mo te parai.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Ko nga ahuatanga kino me te putea o te tukatuka ultra",
-  "guide_nova_explanations_arg4_text": "Ko te kaupapa katoa o te tukatuka ultra ko te hanga parani, watea (te roa, kua rite ki te kai), ataahua (he tino reka) me te tino whai hua (nga kai iti-utu) i hangaia hei whakakore i nga roopu kai katoa. Ko nga hua kai kua oti te tukatuka i te nuinga o te waa he tino ataahua, ka kaha te maakete.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"

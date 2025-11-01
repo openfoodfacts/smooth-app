@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -372,11 +373,19 @@ class _ProductImageDetailsButton extends StatelessWidget {
               excludeSemantics: true,
               child: Row(
                 children: <Widget>[
-                  const icons.Info(size: 15.0, color: Colors.white),
-                  const SizedBox(width: SMALL_SPACE),
-                  Text(
-                    appLocalizations.photo_viewer_details_button,
-                    style: const TextStyle(color: Colors.white),
+                  const icons.Info(size: 18.0, color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                      bottom: 2.0,
+                    ),
+                    child: Text(
+                      appLocalizations.photo_viewer_details_button,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -400,6 +409,9 @@ class _ProductImageDetailsButton extends StatelessWidget {
           title: appLocalizations.photo_viewer_details_contributor_title,
           subTitle: image.contributor ?? '-',
           leading: const icons.Profile(),
+          trailing: image.contributor?.startsWith('org') == true
+              ? const OwnerFieldIcon()
+              : null,
         ),
         ModalSheetItem(
           title: appLocalizations.photo_viewer_details_date_title,
@@ -446,7 +458,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: BALANCED_SPACE,
+          vertical: SMALL_SPACE,
+        ),
         child: Selector<PageController, int>(
           selector: (_, PageController value) {
             if (!value.position.hasPixels) {
@@ -467,7 +482,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
           builder: (BuildContext context, int progress, _) {
             return Text(
               '${progress + 1} / $items',
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             );
           },
         ),
