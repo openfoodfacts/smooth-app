@@ -924,11 +924,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      '¡Toca aquí para responder 2 preguntas para ayudarnos a analizar este cosmético!';
 
   @override
-  String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+  String get hey_incomplete_product_message_pet_food => '';
 
   @override
   String get hey_incomplete_product_message_product =>
@@ -2027,7 +2026,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'País';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4901,7 +4900,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Actualmente son pocas las empresas que poseen grandes bases de datos de precios de productos a nivel de código de barras. Estos precios no están disponibles libremente, pero se venden a un alto precio a actores privados, investigadores y otras organizaciones que pueden pagarlos.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4954,7 +4953,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Soy un distribuidor y quiero contribuir con los precios. ¿Cómo puedo hacerlo?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6183,26 +6182,26 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Detalles de la ubicación';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Nombre';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Calle';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Ciudad';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Código postal';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Coordenadas';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID de OSM';
 }
