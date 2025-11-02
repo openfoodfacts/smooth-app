@@ -71,6 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final SmoothColorsThemeExtension extension = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
+
   List&lt;(String, TextStyle?)&gt; parts;
   try {
     final TextStyle defaultStyle =
@@ -78,9 +81,11 @@ Widget build(BuildContext context) {
     parts = _getParts(
       defaultStyle: defaultStyle,
       highlightedStyle: defaultStyle.copyWith(
-        backgroundColor: Theme.of(
-          context,
-        ).primaryColor.withValues(alpha: 0.2),
+        backgroundColor:
+            (context.lightTheme()
+                    ? extension.primaryBlack
+                    : extension.primaryLight)
+                .withValues(alpha: 0.2),
       ),
     );
   } catch (e, trace) {
