@@ -239,7 +239,7 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
           context,
-          selectedLanguages: selectedLanguages,
+          disabledLanguages: selectedLanguages,
           title: AppLocalizations.of(
             context,
           ).add_basic_details_product_name_add_translation,

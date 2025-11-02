@@ -2013,7 +2013,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'A szója nem az Európai Unióból származik';
 
   @override
-  String get edit_product_form_item_countries_title => 'Ország';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -6148,7 +6148,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Név';
 
   @override
   String get location_map_details_street => 'Street';

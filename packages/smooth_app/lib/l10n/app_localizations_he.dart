@@ -4530,14 +4530,14 @@ class AppLocalizationsHe extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://il.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'ברוך בואך ל־Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'מה זה Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4549,47 +4549,45 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'היכולות של Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'קבלת התראות על מרכיבים שאינם רצויים לך';
 
   @override
   String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'מה לא לעשות';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'להימנע מצלליות וסנוורים.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'בלי טקסט מטושטש או לא ממוקד.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+  String get guide_open_food_facts_tips_arg1_text3 => 'לא לחתוך חלקים מהטקסט.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'להימנע מרקעים עמוסים.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'מה כן לעשות';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'להשתמש בתאורה טובה ואחידה.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+  String get guide_open_food_facts_tips_arg2_text2 => 'לוודא שהטקסט חד וקריא.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'לצלם את כל רשימת הרכיבים.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
@@ -4637,7 +4635,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'קבלת התראות על מרכיבים שאינם רצויים לך';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
@@ -4648,38 +4646,38 @@ class AppLocalizationsHe extends AppLocalizations {
       'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'מה לא לעשות';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'להימנע מצלליות וסנוורים.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'בלי טקסט מטושטש או לא ממוקד.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'לא לחתוך חלקים מהטקסט.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'להימנע מרקעים עמוסים.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'מה כן לעשות';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'להשתמש בתאורה טובה ואחידה.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'לוודא שהטקסט חד וקריא.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'לצלם את כל רשימת הרכיבים.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
@@ -4717,7 +4715,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'קבלת התראות על מרכיבים שאינם רצויים לך';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
@@ -4728,38 +4726,37 @@ class AppLocalizationsHe extends AppLocalizations {
       'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'מה לא לעשות';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'להימנע מצלליות וסנוורים.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'בלי טקסט מטושטש או לא ממוקד.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'לא לחתוך חלקים מהטקסט.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+  String get guide_open_beauty_facts_tips_arg1_text4 => 'להימנע מרקעים עמוסים.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'מה כן לעשות';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'להשתמש בתאורה טובה ואחידה.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'לוודא שהטקסט חד וקריא.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'לצלם את כל רשימת הרכיבים.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
@@ -4797,7 +4794,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'כרגע יש מעט חברות שמחזיקות מסדי נתונים גדולים של מחירים מוצרים ברמת ברקודים. המחירים האלה אינם גלויים לציבור באופן חופשי אך נמכרים במחיר גבוה לשחקנים פרטיים, חוקרים ושלל ארגונים שיכולים להרשות לעצמם לקנות אותם.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4850,7 +4847,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'אני קמעונאי ואני רוצה לתרום מחירים. איך אפשר לעשות את זה?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6044,7 +6041,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'שם';
 
   @override
   String get location_map_details_street => 'Street';
@@ -6056,7 +6053,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'מדינה';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

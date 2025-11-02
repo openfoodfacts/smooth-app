@@ -2013,7 +2013,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Sója nepochází z Evropské unie';
 
   @override
-  String get edit_product_form_item_countries_title => 'Země';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4841,7 +4841,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'V současnosti je málo společností, které vlastní rozsáhlé databáze cen produktů na úrovni čárových kódů. Tyto ceny nejsou volně dostupné, ale prodávají se za vysokou cenu soukromým subjektům, výzkumníkům a dalším organizacím, které si je mohou dovolit.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4894,7 +4894,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Jsem maloobchodník a chci přispět cenami. Jak to mohu udělat?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6123,7 +6123,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Jméno';
 
   @override
   String get location_map_details_street => 'Street';

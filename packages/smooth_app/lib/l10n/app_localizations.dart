@@ -8146,7 +8146,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_pet_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openpetfoodfacts'**
+  /// **'https://world.openpetfoodfacts.org/discover'**
   String get guide_open_pet_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8284,7 +8284,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_beauty_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openbeautyfacts'**
+  /// **'https://world.openfoodfacts.org/discover'**
   String get guide_open_beauty_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8404,7 +8404,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_prices_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openprices'**
+  /// **'https://prices.openfoodfacts.org/about'**
   String get guide_open_prices_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8518,7 +8518,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_products_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openproductsfacts'**
+  /// **'https://en.openproductsfacts.org/discover'**
   String get guide_open_products_facts_share_link;
 
   /// No description provided for @guide_open_preferences_button_title.
