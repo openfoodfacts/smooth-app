@@ -133,6 +133,7 @@ class _PriceCategoryInputPageState extends State<PriceCategoryInputPage> {
     _categoryController.dispose();
     _originController.removeListener(_changes);
     _originController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 

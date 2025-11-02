@@ -106,7 +106,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                 setState(() => model.promo = !model.promo),
             title: Text(appLocalizations.prices_amount_is_discounted),
             controlAffinity: ListTileControlAffinity.leading,
-            contentPadding: EdgeInsets.zero,
+            contentPadding: EdgeInsetsDirectional.zero,
           ),
           const SizedBox(height: SMALL_SPACE),
           Row(
@@ -121,7 +121,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
               const SizedBox(width: LARGE_SPACE),
               Expanded(
                 child: !model.promo
-                    ? Container()
+                    ? EMPTY_WIDGET
                     : PriceAmountField(
                         controller: _controllerWithoutDiscount,
                         isPaidPrice: false,
@@ -163,10 +163,7 @@ class _PriceAmountCurrencyButton extends StatelessWidget {
             onTap: () async =>
                 PriceCurrencySelector.openSelector(context: context),
             child: Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: BALANCED_SPACE,
-                vertical: BALANCED_SPACE,
-              ),
+              padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
               child: icons.AppIconTheme(
                 color: color,
                 child: Row(
