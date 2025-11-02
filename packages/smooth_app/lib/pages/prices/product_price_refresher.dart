@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -10,16 +9,10 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Async refresh of the prices of a product, with several loading phases.
 class ProductPriceRefresher {
-  ProductPriceRefresher({
-    required this.pricesResult,
-    required this.model,
-    required this.userPreferences,
-    required this.refreshDisplay,
-  });
+  ProductPriceRefresher({required this.model, required this.userPreferences});
 
   final GetPricesModel model;
   final UserPreferences userPreferences;
-  final VoidCallback refreshDisplay;
 
   GetPricesResult? pricesResult;
 
@@ -57,7 +50,6 @@ class ProductPriceRefresher {
 
   Future<void> _asyncLoad() async {
     _loadingStatus = LoadingStatus.LOADING;
-    refreshDisplay();
     final MaybeError<GetPricesResult> result;
     if (pricesResult != null) {
       result = MaybeError<GetPricesResult>.value(pricesResult!);
@@ -84,7 +76,6 @@ class ProductPriceRefresher {
         _setLatestRefresh(_barcode!);
       }
     }
-    refreshDisplay();
   }
 
   static final Map<String, int> _latestUpdates = <String, int>{};

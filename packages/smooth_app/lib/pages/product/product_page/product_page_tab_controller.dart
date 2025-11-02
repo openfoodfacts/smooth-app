@@ -22,12 +22,14 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
   late List<ProductPageTab> _tabs;
   late TabController _tabController;
   bool _isInitialized = false;
+  final ProductPageTabsGenerator _productPageTabsGenerator =
+      ProductPageTabsGenerator();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (!_isInitialized) {
-      _tabs = const ProductPageTabsGenerator().getTabs(context, widget.product);
+      _tabs = _productPageTabsGenerator.getTabs(context, widget.product);
       _tabController = TabController(
         length: _tabs.length,
         vsync: this,
@@ -42,8 +44,10 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
     super.didUpdateWidget(oldWidget);
     if (widget.product != oldWidget.product) {
       setState(() {
-        final List<ProductPageTab> newTabs = const ProductPageTabsGenerator()
-            .getTabs(context, widget.product);
+        final List<ProductPageTab> newTabs = _productPageTabsGenerator.getTabs(
+          context,
+          widget.product,
+        );
 
         final int oldIndex = _tabController.index;
         _tabController.dispose();

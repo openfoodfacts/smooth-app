@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
@@ -22,44 +21,18 @@ class WebsiteCard extends StatelessWidget {
       link: true,
       excludeSemantics: true,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: VERY_LARGE_SPACE,
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
-        ),
+        padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
         child: InkWell(
           onTap: () async => LaunchUrlHelper.launchURL(website),
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: buildProductSmoothCard(
-            title: Text(localizations.product_field_website_title),
-            body: Container(
-              width: double.infinity,
-              padding: const EdgeInsetsDirectional.only(
-                start: LARGE_SPACE,
-                top: LARGE_SPACE,
-                bottom: LARGE_SPACE,
-                // To be perfectly aligned with arrows
-                end: 21.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                website,
+                style: const TextStyle(fontSize: 15.5, color: Colors.blue),
               ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      website,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium?.copyWith(color: Colors.blue),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsetsDirectional.only(start: 5.0, end: 3.0),
-                    child: icons.ExternalLink(size: 20.0),
-                  ),
-                ],
-              ),
-            ),
-            margin: EdgeInsets.zero,
+              const icons.ExternalLink(),
+            ],
           ),
         ),
       ),

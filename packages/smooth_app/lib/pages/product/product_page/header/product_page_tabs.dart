@@ -93,7 +93,10 @@ class ProductPageTabBar extends StatelessWidget {
 }
 
 class ProductPageTabsGenerator {
-  const ProductPageTabsGenerator();
+  ProductPageTabsGenerator();
+
+  GetPricesModel? model;
+  ProductPriceRefresher? refresher;
 
   List<ProductPageTab> getTabs(BuildContext context, Product product) {
     final List<ProductPageTab> tabs = <ProductPageTab>[];
@@ -189,6 +192,15 @@ class ProductPageTabsGenerator {
         ),
       );
     }
+    model ??= GetPricesModel.product(
+      product: PriceMetaProduct.product(product),
+      context: context,
+    );
+    refresher ??= ProductPriceRefresher(
+      model: model!,
+      userPreferences: context.read<UserPreferences>(),
+    );
+
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.PRICES.key,
@@ -196,15 +208,18 @@ class ProductPageTabsGenerator {
             AppLocalizations.of(context).product_page_tab_prices,
         builder: (_, Product product) => ListView(
           padding: EdgeInsetsDirectional.zero,
-          children: <Widget>[PricesCard(product)],
+          children: <Widget>[
+            PricesCard(product, model: model!, refresher: refresher!),
+          ],
         ),
         suffix: FutureBuilder<int?>(
-          future: _getPricesTotal(product, context),
+          future: _getPricesTotal(refresher!),
           builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
-            if (!snapshot.hasData || snapshot.data == null) {
+            final int? value = refresher?.pricesResult?.total;
+            if (value == null) {
               return EMPTY_WIDGET;
             }
-            return _ProductPageTabBadge(snapshot.data!);
+            return _ProductPageTabBadge(value);
           },
         ),
       ),
@@ -231,18 +246,7 @@ class ProductPageTabsGenerator {
     return tabs;
   }
 
-  Future<int?> _getPricesTotal(Product product, BuildContext context) async {
-    final GetPricesModel model = GetPricesModel.product(
-      product: PriceMetaProduct.product(product),
-      context: context,
-    );
-    final ProductPriceRefresher refresher = ProductPriceRefresher(
-      model: model,
-      userPreferences: context.read<UserPreferences>(),
-      pricesResult: null,
-      refreshDisplay: () {},
-    );
-
+  Future<int?> _getPricesTotal(final ProductPriceRefresher refresher) async {
     await refresher.runIfNeeded();
 
     return refresher.pricesResult?.total;
