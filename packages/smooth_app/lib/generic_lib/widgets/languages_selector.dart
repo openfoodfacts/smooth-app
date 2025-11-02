@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -21,6 +22,7 @@ class LanguagesSelector extends StatelessWidget {
   const LanguagesSelector({
     required this.setLanguage,
     this.selectedLanguages,
+    this.disabledLanguages,
     this.displayedLanguage,
     this.foregroundColor,
     this.icon,
@@ -35,6 +37,9 @@ class LanguagesSelector extends StatelessWidget {
 
   /// Languages that are already selected (and will be displayed differently).
   final Iterable<OpenFoodFactsLanguage>? selectedLanguages;
+
+  /// Languages that cannot be selected.
+  final Iterable<OpenFoodFactsLanguage>? disabledLanguages;
 
   /// Initial language displayed, before even calling the dialog.
   final OpenFoodFactsLanguage? displayedLanguage;
@@ -76,6 +81,7 @@ class LanguagesSelector extends StatelessWidget {
           final OpenFoodFactsLanguage? language = await openLanguageSelector(
             context,
             selectedLanguages: selectedLanguages,
+            disabledLanguages: disabledLanguages,
             showSelectedLanguages: true,
             checkedIcon: checkedIcon,
           );
@@ -124,9 +130,11 @@ class LanguagesSelector extends StatelessWidget {
   ///
   /// [selectedLanguages] will be displayed first if [showSelectedLanguages] is [true].
   /// Otherwise, they will be filtered
+  /// [disabledLanguages] will be visible, but disabled (= not selectable).
   static Future<OpenFoodFactsLanguage?> openLanguageSelector(
     final BuildContext context, {
-    required final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
+    final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
+    final Iterable<OpenFoodFactsLanguage>? disabledLanguages,
     final bool showSelectedLanguages = false,
     final Widget? checkedIcon,
     final String? title,
@@ -143,6 +151,8 @@ class LanguagesSelector extends StatelessWidget {
         <OpenFoodFactsLanguage>[];
     List<OpenFoodFactsLanguage> popularLanguagesList =
         <OpenFoodFactsLanguage>[];
+    final List<OpenFoodFactsLanguage> disabledLanguagesList =
+        <OpenFoodFactsLanguage>[];
     final List<OpenFoodFactsLanguage> otherLanguagesList =
         <OpenFoodFactsLanguage>[];
 
@@ -153,6 +163,8 @@ class LanguagesSelector extends StatelessWidget {
         } else {
           selectedLanguagesList.add(language);
         }
+      } else if (disabledLanguages?.contains(language) == true) {
+        disabledLanguagesList.add(language);
       } else if (popularList.containsKey(language.code)) {
         popularLanguagesList.add(language);
         otherLanguagesList.add(language);
@@ -170,6 +182,7 @@ class LanguagesSelector extends StatelessWidget {
     // Sort the languages alphabetically
     final Languages languagesHelper = Languages();
     _sortLanguages(selectedLanguagesList, languagesHelper);
+    _sortLanguages(disabledLanguagesList, languagesHelper);
     _sortLanguages(popularLanguagesList, languagesHelper);
     _sortLanguages(
       otherLanguagesList.diff(popularLanguagesList).toList(growable: false),
@@ -187,6 +200,7 @@ class LanguagesSelector extends StatelessWidget {
           bodyBuilder: (BuildContext context) {
             return _LanguagesList(
               selectedLanguages: selectedLanguagesList,
+              disabledLanguages: disabledLanguagesList,
               popularLanguages: popularLanguagesList,
               otherLanguages: otherLanguagesList,
               checkedIcon: checkedIcon,
@@ -239,12 +253,14 @@ class LanguagesSelector extends StatelessWidget {
 class _LanguagesList extends StatefulWidget {
   const _LanguagesList({
     required this.selectedLanguages,
+    required this.disabledLanguages,
     required this.popularLanguages,
     required this.otherLanguages,
     required this.checkedIcon,
   });
 
   final List<OpenFoodFactsLanguage> selectedLanguages;
+  final List<OpenFoodFactsLanguage> disabledLanguages;
   final List<OpenFoodFactsLanguage> popularLanguages;
   final List<OpenFoodFactsLanguage> otherLanguages;
   final Widget? checkedIcon;
@@ -256,18 +272,22 @@ class _LanguagesList extends StatefulWidget {
 class _LanguagesListState extends State<_LanguagesList> {
   final TextEditingController languageTextController = TextEditingController();
 
-  late List<OpenFoodFactsLanguage> _otherLanguages;
-  late List<OpenFoodFactsLanguage> _popularLanguages;
   late List<OpenFoodFactsLanguage> _selectedLanguages;
+  late List<OpenFoodFactsLanguage> _disabledLanguages;
+  late List<OpenFoodFactsLanguage> _popularLanguages;
+  late List<OpenFoodFactsLanguage> _otherLanguages;
 
   @override
   void initState() {
     super.initState();
-    _otherLanguages = List<OpenFoodFactsLanguage>.of(widget.otherLanguages);
-    _popularLanguages = List<OpenFoodFactsLanguage>.of(widget.popularLanguages);
     _selectedLanguages = List<OpenFoodFactsLanguage>.of(
       widget.selectedLanguages,
     );
+    _disabledLanguages = List<OpenFoodFactsLanguage>.of(
+      widget.disabledLanguages,
+    );
+    _popularLanguages = List<OpenFoodFactsLanguage>.of(widget.popularLanguages);
+    _otherLanguages = List<OpenFoodFactsLanguage>.of(widget.otherLanguages);
   }
 
   @override
@@ -380,14 +400,20 @@ class _LanguagesListState extends State<_LanguagesList> {
       title: TextHighlighter(
         text: LanguagesSelector._getCompleteName(language!),
         filter: languageTextController.text,
+        textStyle: type == _LanguageType.disabled
+            ? Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Theme.of(context).disabledColor,
+                fontStyle: FontStyle.italic,
+              )
+            : null,
       ),
       trailing: switch (type) {
         _LanguageType.selected =>
-          widget.checkedIcon ?? const Icon(Icons.check_rounded),
-        _LanguageType.popular => const Icon(Icons.stars_rounded),
+          widget.checkedIcon ?? const icons.Favorite.check(),
+        _LanguageType.popular => const icons.Favorite.star(),
         _ => null,
       },
-      onTap: () => Navigator.of(context).pop(language),
+      onTap: type.selectable ? () => Navigator.of(context).pop(language) : null,
     );
   }
 
@@ -416,9 +442,23 @@ class _LanguagesListState extends State<_LanguagesList> {
       diff++;
     }
 
+    final int otherLength = _otherLanguages.length;
+    if (otherLength > 0) {
+      if (index < selectedLength + popularLength + otherLength + diff) {
+        return (
+          _otherLanguages[index - selectedLength - popularLength - diff],
+          _LanguageType.other,
+        );
+      }
+    }
+
     return (
-      _otherLanguages[index - selectedLength - popularLength - diff],
-      _LanguageType.other,
+      _disabledLanguages[index -
+          selectedLength -
+          popularLength -
+          otherLength -
+          diff],
+      _LanguageType.disabled,
     );
   }
 
@@ -430,12 +470,13 @@ class _LanguagesListState extends State<_LanguagesList> {
     if (_popularLanguages.isNotEmpty) {
       count += 1 + _popularLanguages.length;
     }
-    count += _otherLanguages.length;
+    count += _otherLanguages.length + _disabledLanguages.length;
     return count;
   }
 
   void _filterLanguages(String query) {
     _selectedLanguages = _filterList(widget.selectedLanguages, query);
+    _disabledLanguages = _filterList(widget.disabledLanguages, query);
     _popularLanguages = _filterList(widget.popularLanguages, query);
     _otherLanguages = _filterList(widget.otherLanguages, query);
     setState(() {});
@@ -464,4 +505,15 @@ class _LanguagesListState extends State<_LanguagesList> {
   }
 }
 
-enum _LanguageType { selected, selectedTitle, popular, popularTitle, other }
+enum _LanguageType {
+  selected,
+  selectedTitle,
+  popular,
+  popularTitle,
+  disabled(selectable: false),
+  other;
+
+  const _LanguageType({this.selectable = true});
+
+  final bool selectable;
+}

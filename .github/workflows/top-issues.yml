@@ -9,7 +9,7 @@ on:
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     permissions:
       contents: read
       issues: write
