@@ -38,11 +38,7 @@ class _FolksonomyCard extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: SMALL_SPACE,
-        start: SMALL_SPACE,
-        end: SMALL_SPACE,
-      ),
+      padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
       child: ListView(
         padding: EdgeInsetsDirectional.zero,
         children: <Widget>[
