@@ -2041,7 +2041,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Le soja ne provient pas de l\'Union Européenne';
 
   @override
-  String get edit_product_form_item_countries_title => 'Pays';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2949,7 +2949,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prices_proof_find => 'Choisir une preuve';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Preuve de changement';
 
   @override
   String get prices_proof_receipt => 'Ticket de caisse';
@@ -3105,7 +3105,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Preuve de \"$user\"';
   }
 
   @override
@@ -4453,7 +4453,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Pour récompenser les meilleurs produits d\'une catégorie, on applique ensuite des **bonus et des pénalités basés sur plusieurs critères** :';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4461,7 +4461,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'Un **bonus** est accordé aux produits qui possèdent un **label officiel, un label ou une certification qui garantit des avantages environnementaux** (bio, commerce équitable, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4469,7 +4469,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'Un **bonus** est attribué en fonction de l\'origine des ingrédients. Ce bonus tient compte de l\'impact **sur les transports** ainsi que de la **politique environnementale** du pays de chaque producteur.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4477,7 +4477,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      'Un **malus** est appliqué aux produits contenant des ingrédients ayant des **impacts négatifs importants sur la biodiversité et les écosystèmes**, comme l\'huile de palme, dont la production est responsable d\'une déforestation massive.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Emballage';
@@ -4500,7 +4500,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Comment les citoyens peuvent-ils aider ?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
@@ -4684,15 +4684,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title =>
+      'Ce qu\'il ne faut pas faire';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Évitez les ombres et les reflets.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Aucun texte flou ou hors focus.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
@@ -4734,11 +4735,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+      'Un score pour la planète';
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://fr.openfoodfacts.org/openfoodfacts';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4773,15 +4774,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title =>
+      'Ce qu\'il ne faut pas faire';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Évitez les ombres et les reflets.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Aucun texte flou ou hors focus.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
@@ -4853,15 +4855,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title =>
+      'Ce qu\'il ne faut pas faire';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Évitez les ombres et les reflets.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Aucun texte flou ou hors focus.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
@@ -4922,7 +4925,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Actuellement, seules quelques entreprises détiennent une base de données de prix de produits au niveau des code-barres. Ces bases de données ne sont pas librement disponibles, mais vendues à un prix élevé à des acteurs privés, des chercheurs et d\'autres organisations qui sont en mesure de les acheter.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4975,7 +4978,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -5777,7 +5780,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_dev_mode_folksonomy_host_title =>
-      'Animateur de Folksonomy';
+      'Hôte de Folksonomy Engine';
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
@@ -6209,26 +6212,26 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Détails de la localisation';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Nom';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Rue';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Ville';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Code postal';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Coordonnées';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

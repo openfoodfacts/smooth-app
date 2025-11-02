@@ -1990,7 +1990,7 @@ class AppLocalizationsHt extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Peyi';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>

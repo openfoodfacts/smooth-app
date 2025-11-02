@@ -2013,7 +2013,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Kedelai tidak berasal dari Uni Eropa';
 
   @override
-  String get edit_product_form_item_countries_title => 'Negara';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4854,7 +4854,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Saat ini hanya ada sedikit perusahaan yang memiliki database besar harga produk pada tingkat barcode. Harga-harga ini tidak tersedia secara gratis, tetapi dijual dengan harga tinggi kepada pihak swasta, peneliti, dan organisasi lain yang mampu membelinya.';
 
   @override
   String get guide_open_prices_how_title => 'How does Open Prices work?';
@@ -4907,7 +4907,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Saya seorang pengecer dan saya ingin memberikan kontribusi harga. Bagaimana saya bisa melakukan itu?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -6139,7 +6139,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Nama';
 
   @override
   String get location_map_details_street => 'Street';

@@ -9,7 +9,7 @@ class AppLocalizationsEt extends AppLocalizations {
   AppLocalizationsEt([String locale = 'et']) : super(locale);
 
   @override
-  String get app_name => 'Avatud toidufaktid';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -1266,7 +1266,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get product_tags_explanation =>
-      'Tootele omaduste (võti/väärtus) lisamisega aitate seda rikastada.';
+      'Tootele omaduste (võti/väärtus) lisamisega aitad andmeid täiendada.';
 
   @override
   String get add_tag => 'Add property';
@@ -1693,7 +1693,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Kustuta minu konto';
+  String get account_delete_title => 'Kustuta minu kasutajakonto';
 
   @override
   String get user_profile => 'Account';
@@ -1990,7 +1990,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Riik';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2513,7 +2513,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Avatud Open Prices\'i veebisaidil';
+  String get prices_website_button => 'Ava Open Prices\'i veebisaidis';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -2659,7 +2659,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get prices_list_empty_subtitle =>
-      'Ole esimene, kes selle lisab:\nSkanneerides **kviitungi** või **hinnasilti**!';
+      'Ole esimene, kes selle lisab:\nSkanneerides **kviitungit** või **hinnasilti**!';
 
   @override
   String get prices_entry_shop_not_found => 'Tundmatu pood';
@@ -2749,7 +2749,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'Kaastöölisi veel pole!';
+  String get prices_users_empty_title => 'Kaasautoreid veel pole!';
 
   @override
   String get prices_users_empty_explanation => 'Ole esimene, kes hinna lisab!';
@@ -2873,7 +2873,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get prices_proof_empty_explanation =>
-      'Alusta **tšeki** või **hinnasildi** foto lisamisega!';
+      'Alusta **kviitungi** või **hinnasildi** foto lisamisega!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -5288,7 +5288,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get prices_products_empty_title => 'Hinda pole saadaval';
 
   @override
-  String get prices_products_empty_explanation => 'Ole esimene, kes panustab!';
+  String get prices_products_empty_explanation =>
+      'Ole esimene, kes osaleb ja täiendab andmeid!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -5330,10 +5331,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_in_progress =>
-      'Ekstraheerimine on pooleli…';
+      'Lahtipakkimine on pooleli…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Ekstraheerimine õnnestus';
+  String get nutrition_facts_extract_successful => 'Lahtipakkimine õnnestus';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5563,7 +5564,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts on toiduainete andmebaas, **mille on **loonud kõik ja kõigile**.\nSaate seda kasutada paremate toiduvalikute tegemiseks ja kuna tegemist on **avatud andmetega**, saab igaüks seda **mis tahes otstarbel taaskasutada**.';
+      'Open Food Facts on toiduainete andmebaas, **mille on loonud kõik ja kõigile**.\nSaad seda kasutada paremate toiduvalikute tegemiseks ja kuna tegemist on **avatud andmetega**, saab igaüks seda **mis tahes otstarbel taaskasutada**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5620,7 +5621,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_manage_account_title => 'Halda minu kontot';
 
   @override
-  String get preferences_manage_account_tooltip => 'Halda oma kontot';
+  String get preferences_manage_account_tooltip => 'Halda oma kasutajakontot';
 
   @override
   String get preferences_change_password_title => 'Muuda minu salasõna';
@@ -6026,7 +6027,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count $total kaastöölisest';
+    return '$count / $total kaasautorist';
   }
 
   @override
@@ -6036,7 +6037,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count $total asukohast';
+    return '$count / $total asukohast';
   }
 
   @override

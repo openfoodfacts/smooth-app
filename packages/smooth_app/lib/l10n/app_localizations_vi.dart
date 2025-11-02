@@ -2003,7 +2003,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Quốc gia';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -4479,7 +4479,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'Nhóm NOVA cung cấp cho bạn thông tin về mức độ chế biến thực phẩm.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4509,21 +4509,21 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, Grinding, milling, and drying.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Thực phẩm đã qua chế biến';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of Breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own Or, more commonly, in combination with other foods.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Thức ăn siêu chế biến';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients Not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -6120,7 +6120,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Tên';
 
   @override
   String get location_map_details_street => 'Street';

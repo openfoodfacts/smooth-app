@@ -4454,7 +4454,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'NOVA төркемнәре сезгә азык эшкәртү дәрәҗәсе турында хәбәр итә.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4483,21 +4483,21 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, With little to no intact group 1 food. ingredients in these formulations usually include Those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed Products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Ультра эшкәртү проблемалары';
@@ -6090,7 +6090,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Исем';
 
   @override
   String get location_map_details_street => 'Street';
