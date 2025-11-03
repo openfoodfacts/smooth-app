@@ -3,10 +3,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-# A script that will run pub upgrade for each package in the repo.
-# NOTE: This script updates dependencies and modifies lockfiles.
-# For CI/CD workflows, use pub_get.sh instead to ensure reproducible builds.
-# This script is intended for manual dependency updates by developers.
+# A script that will run pub get for each package in the repo.
+# This script respects lockfiles for reproducible builds.
 set -e
 
 if [[ -n '$CI' ]]; then
@@ -17,15 +15,14 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 
-function pub_upgrade() {
+function pub_get() {
   local dir="$1"
   if [[ -e "$dir/pubspec.yaml" ]]; then
-    echo "Running 'flutter pub upgrade' in $dir"
-    (cd $dir; flutter pub upgrade)
+    echo "Running 'flutter pub get' in $dir"
+    (cd $dir; flutter pub get)
   fi
 }
 
 for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
-  pub_upgrade "$dir"
+  pub_get "$dir"
 done
-
