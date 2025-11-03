@@ -15,7 +15,6 @@ import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_top_barcodes.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/dao_int.dart';
-import 'package:smooth_app/database/dao_transient_folksonomy_operation.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
@@ -90,8 +89,8 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
-    folksonomy => BackgroundTaskDetails.fromJson(
-      map,
+    folksonomy => throw Exception(
+      'Not implemented yet',
     ), // FIXME: Implement correct background task process for folksonomy.
   };
 
@@ -118,15 +117,6 @@ enum OperationType {
   };
 
   static int getSequentialId(final TransientOperation operation) {
-    final List<String> keyItems = operation.key.split(
-      _transientHeaderSeparator,
-    );
-    return int.parse(keyItems[1]);
-  }
-
-  static int getSequentialIdFolksonomy(
-    final TransientFolksonomyOperation operation,
-  ) {
     final List<String> keyItems = operation.key.split(
       _transientHeaderSeparator,
     );
@@ -174,11 +164,4 @@ enum OperationType {
     final TransientOperation operationA,
     final TransientOperation operationB,
   ) => getSequentialId(operationA).compareTo(getSequentialId(operationB));
-
-  static int sortFolksonomy(
-    final TransientFolksonomyOperation operationA,
-    final TransientFolksonomyOperation operationB,
-  ) => getSequentialIdFolksonomy(
-    operationA,
-  ).compareTo(getSequentialIdFolksonomy(operationB));
 }
