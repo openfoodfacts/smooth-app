@@ -4692,7 +4692,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openpetfoodfacts';
+      'https://world-he.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4779,7 +4779,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://en.openfoodfacts.org/openbeautyfacts';
+      'https://world-he.openfoodfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4855,7 +4855,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://en.openfoodfacts.org/openprices';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4931,7 +4931,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://en.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5249,11 +5249,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'פתיחת קישור חיצוני';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'קישורים חיצוניים עלולים להיות מפוקפקים. בכל זאת לבקר בו?';
 
   @override
   String get prices_products_empty_title => 'אין מחיר זמין';

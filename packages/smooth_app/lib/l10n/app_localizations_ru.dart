@@ -2536,7 +2536,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get product_type_label_food => 'Еда';
 
   @override
-  String get product_type_label_beauty => 'Уход за собой';
+  String get product_type_label_beauty => 'Личная гигиена';
 
   @override
   String get product_type_label_pet_food => 'Корм';
@@ -4821,7 +4821,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openpetfoodfacts';
+      'https://world-ru.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4909,7 +4909,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://en.openfoodfacts.org/openbeautyfacts';
+      'https://world-ru.openfoodfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4985,7 +4985,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://en.openfoodfacts.org/openprices';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5061,7 +5061,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://en.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
