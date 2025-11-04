@@ -20,7 +20,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class UserPreferencesFoodPage extends StatefulWidget {
   const UserPreferencesFoodPage();
 
-  static UserPreferencesFood _getUserPreferences({
+  static UserPreferencesFood getUserPreferences({
     required final UserPreferences userPreferences,
     required final BuildContext context,
   }) {
@@ -65,7 +65,7 @@ class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
     final Color? headerColor;
 
     final UserPreferencesFood abstractUserPreferences =
-        UserPreferencesFoodPage._getUserPreferences(
+        UserPreferencesFoodPage.getUserPreferences(
           userPreferences: userPreferences,
           context: context,
         );

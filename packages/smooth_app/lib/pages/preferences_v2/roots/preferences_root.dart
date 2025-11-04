@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/external_search_tiles/external_search_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/navigation_preference_tile.dart';
@@ -111,6 +114,15 @@ abstract class PreferencesRoot extends StatelessWidget {
     return matchingTiles;
   }
 
+  List<PreferenceTile> searchFoodTiles(BuildContext context, String query) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final UserPreferencesFood food = UserPreferencesFoodPage.getUserPreferences(
+      userPreferences: userPreferences,
+      context: context,
+    );
+    return food.searchTiles(context, query);
+  }
+
   Widget buildSearchResults(BuildContext context, List<PreferenceTile> tiles) {
     final ThemeData theme = Theme.of(context);
 
@@ -159,6 +171,7 @@ abstract class PreferencesRoot extends StatelessWidget {
     if (displayTiles) {
       tiles = <PreferenceTile>[
         ...searchTiles(context, searchController.query!),
+        ...searchFoodTiles(context, searchController.query!),
         ...getExternalSearchTiles(context),
       ];
     }
