@@ -30,20 +30,6 @@ class TransientFolksonomy {
   final String operations;
 }
 
-class _FolksonomyOperationAdapter
-    extends TypeAdapter<List<FolksonomyOperation>> {
-  @override
-  final int typeId = 3;
-
-  @override
-  List<FolksonomyOperation> read(BinaryReader reader) =>
-      _getFolksonomyOperationsFromJson(reader.toString());
-
-  @override
-  void write(BinaryWriter writer, List<FolksonomyOperation> obj) =>
-      writer.writeString(_writeFolksonomyOperationsToJson(obj));
-}
-
 class DaoTransientFolksonomy extends AbstractDao {
   DaoTransientFolksonomy(super.localDatabase);
 
@@ -53,20 +39,27 @@ class DaoTransientFolksonomy extends AbstractDao {
   Future<void> init() async => Hive.openBox<String>(_hiveBoxName);
 
   @override
-  void registerAdapter() => Hive.registerAdapter(_FolksonomyOperationAdapter());
+  void registerAdapter() {
+    // We don't need it here since we encode/decode Strings.
+  }
 
   Box<String> _getBox() => Hive.box<String>(_hiveBoxName);
 
-  List<FolksonomyOperation> get(final String key) =>
-      _getFolksonomyOperationsFromJson(_getBox().get(key) ?? '[]');
+  List<FolksonomyOperation> get(final String barcode) =>
+      _getFolksonomyOperationsFromJson(_getBox().get(barcode) ?? '[]');
+
+  FolksonomyOperation? getFirst(final String barcode) =>
+      get(barcode).firstOrNull;
 
   List<String> getAllBarcodes() =>
-      _getBox().keys.map((dynamic key) => key.toString()).toList();
+      _getBox().keys.map((dynamic barcode) => barcode.toString()).toList();
 
-  Future<void> put(final String key, final List<FolksonomyOperation> value) =>
-      _getBox().put(key, _writeFolksonomyOperationsToJson(value));
+  Future<void> put(
+    final String barcode,
+    final List<FolksonomyOperation> operations,
+  ) => _getBox().put(barcode, _writeFolksonomyOperationsToJson(operations));
 
-  Future<void> delete(final String key) async => _getBox().delete(key);
+  Future<void> delete(final String barcode) async => _getBox().delete(barcode);
 
   List<FolksonomyOperation> _getFolksonomyOperationsFromJson(
     final String operations,
@@ -85,20 +78,3 @@ class DaoTransientFolksonomy extends AbstractDao {
         .toList(),
   );
 }
-
-List<FolksonomyOperation> _getFolksonomyOperationsFromJson(
-  final String operations,
-) => (jsonDecode(operations) as List<dynamic>)
-    .map(
-      (dynamic json) =>
-          FolksonomyOperation.fromJson(json as Map<String, dynamic>),
-    )
-    .toList();
-
-String _writeFolksonomyOperationsToJson(
-  final List<FolksonomyOperation> operations,
-) => jsonEncode(
-  operations
-      .map((FolksonomyOperation operation) => operation.toJson())
-      .toList(),
-);

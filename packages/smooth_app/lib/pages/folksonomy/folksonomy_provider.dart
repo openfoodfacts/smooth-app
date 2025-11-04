@@ -29,7 +29,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     _refreshDisplayableTags();
 
     try {
-      await _folksonomyManager.refreshTagsFromRemote(barcode);
+      await _folksonomyManager.serverRefresh(barcode);
     } catch (e) {
       if (_tags.isEmpty) {
         value = FolksonomyStateError(error: e);
@@ -115,15 +115,15 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
     await fetchProductTags();
     unawaited(
-      _folksonomyManager.syncProductTags(barcode),
-    ); // Do we refresh for all barcodes here?
+      _folksonomyManager.serverPerformActions(barcode),
+    ); // TODO(darshanhtailor): Do we refresh for all barcodes here?
   }
 
   Future<void> _refreshDisplayableTags() async {
     final List<ProductTag> localTags =
         await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
     final List<FolksonomyOperation> pendingOperations = _folksonomyManager
-        .getPendingOperationsByBarcode(barcode);
+        .getPendingOperations(barcode);
 
     for (final FolksonomyOperation operation in pendingOperations) {
       final FolksonomyAction type = operation.type;
