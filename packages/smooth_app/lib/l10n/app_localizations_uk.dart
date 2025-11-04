@@ -1073,11 +1073,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'Належна практика: Розмір порції';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Це значення допомагає **пропорційно розрахувати кількість кожної поживної речовини на порцію**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
@@ -1085,11 +1085,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 г**, **60г** або **60 Г** (бажано перший варіант)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 мл** або **1л**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
@@ -1097,7 +1097,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **gr**';
+      '30 **гр**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
@@ -1105,7 +1105,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **цукерок** та 2 **печива**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
@@ -1934,11 +1934,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'Належна практика: Етикетки';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Будь-яка характеристика продукту, яка є фактичною і відрізняється від інших полів.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1946,7 +1946,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Зроблено в Бельгії, вироблено в Британії…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2016,7 +2016,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Країна';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3343,11 +3343,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230г** або **230 г**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (для 6 яєць)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
@@ -4769,7 +4769,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openpetfoodfacts';
+      'https://world.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4857,7 +4857,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://en.openfoodfacts.org/openbeautyfacts';
+      'https://world.openfoodfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4933,7 +4933,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://en.openfoodfacts.org/openprices';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5009,7 +5009,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://en.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -6174,7 +6174,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Країна';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

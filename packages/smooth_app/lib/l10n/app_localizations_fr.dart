@@ -2041,7 +2041,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Le soja ne provient pas de l\'Union Européenne';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Pays';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3013,7 +3013,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'En savoir plus sur Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Fait';
@@ -4681,7 +4681,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Conseils pour prendre de bonnes photos';
 
   @override
   String get guide_open_food_facts_tips_arg1_title =>
@@ -4711,27 +4712,27 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Veillez à ce que le texte soit net et lisible.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Capturez la liste complète des ingrédients.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Gardez le produit sur une surface plane.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Aidez-nous à construire le « Wikipédia de l\'alimentation »';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Une note sur la qualité nutritionnelle';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Une note pour éviter les aliments ultra-transformés';
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
@@ -4743,11 +4744,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Bienvenue sur Open Pet Food Facts !';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Qu\'est-ce que Open Pet Food Facts ?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4763,7 +4764,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Recevez des alertes sur les ingrédients que vous souhaitez éviter';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
@@ -4771,7 +4772,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Conseils pour prendre de bonnes photos';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_title =>
@@ -4787,30 +4788,30 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ne rognez pas de parties du texte.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
       'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'À faire';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Utilisez un éclairage uniforme et de bonne qualité.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Veillez à ce que le texte soit net et lisible.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Capturez la liste complète des ingrédients.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Gardez le produit sur une surface plane.';
 
   @override
   String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
@@ -4821,22 +4822,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openpetfoodfacts';
+      'https://world-fr.openpetfoodfacts.org/decouvrir';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Qu\'est-ce qu\'Open Beauty Facts ?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts est une base de données collaborative de **produits cosmétiques**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Notre objectif est de décrypter les listes d\'ingrédients pour vous aider à **comprendre la composition de vos produits de soins personnels**. Des crèmes hydratantes au maquillage, nous collectons des données sur les ingrédients, les allergènes et les emballages afin de promouvoir la transparence dans l\'industrie cosmétique.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
@@ -4844,7 +4845,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Recevez des alertes sur les ingrédients que vous souhaitez éviter';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
@@ -4852,7 +4853,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Conseils pour prendre de bonnes photos';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_title =>
@@ -4868,30 +4869,30 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ne rognez pas de parties du texte.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Évitez les arrière-plans chargés.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'À faire';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Utilisez un éclairage uniforme et de bonne qualité.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Veillez à ce que le texte soit net et lisible.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Capturez la liste complète des ingrédients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Prenez autant de photos que nécessaire si la bouteille est incurvée.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
@@ -4899,10 +4900,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Gardez le produit sur une surface plane.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'Note sur la notation';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
@@ -4910,7 +4911,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://en.openfoodfacts.org/openbeautyfacts';
+      'https://world-fr.openfoodfacts.org/decouvrir';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4928,7 +4929,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Actuellement, seules quelques entreprises détiennent une base de données de prix de produits au niveau des code-barres. Ces bases de données ne sont pas librement disponibles, mais vendues à un prix élevé à des acteurs privés, des chercheurs et d\'autres organisations qui sont en mesure de les acheter.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Comment fonctionne Open Prices ?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4939,11 +4940,12 @@ class AppLocalizationsFr extends AppLocalizations {
       'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title =>
+      'Collectez des photos des reçus';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Pourquoi Open Food Facts fait-il cela ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
@@ -6227,7 +6229,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get location_map_details_postcode => 'Code postal';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Pays';
 
   @override
   String get location_map_details_coordinates => 'Coordonnées';

@@ -4710,7 +4710,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openpetfoodfacts';
+      'https://world.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4798,7 +4798,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://en.openfoodfacts.org/openbeautyfacts';
+      'https://world-fa.openfoodfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4874,7 +4874,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://en.openfoodfacts.org/openprices';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4950,7 +4950,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://en.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
