@@ -1,4 +1,6 @@
 name: Create internal releases of the Mobile app for Android & iOS
+permissions:
+  contents: read
 on:
   workflow_dispatch:
 
@@ -7,6 +9,8 @@ env:
 
 jobs:
   tag-commit:
+    permissions:
+      contents: write
     concurrency: 
       group: release
       cancel-in-progress: true
