@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_product_tag_extension.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -128,6 +129,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     return SizeTransition(
       sizeFactor: animation,
       child: ListTile(
+        onTap: entry.isAnUrl() ? () async => entry.visitUrl(context) : null,
         title: Padding(
           padding: const EdgeInsetsDirectional.only(
             start: SMALL_SPACE,
@@ -157,7 +159,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       text: appLocalizations.tag_value_item,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(text: ' ${entry.value}'),
+                    TextSpan(
+                      text: ' ${entry.value}',
+                      style: entry.isAnUrl()
+                          ? const TextStyle(color: Colors.blue)
+                          : null,
+                    ),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -169,6 +176,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
           buttonIcon: const Icon(Icons.more_vert),
           itemBuilder: (BuildContext context) {
             return <SmoothPopupMenuItem<FolksonomyAction>>[
+              if (entry.isAnUrl())
+                SmoothPopupMenuItem<FolksonomyAction>(
+                  label: appLocalizations.folksonomy_action_external_link_title,
+                  value: FolksonomyAction.visitUrl,
+                  icon: const icons.ExternalLink(),
+                ),
               SmoothPopupMenuItem<FolksonomyAction>(
                 label: appLocalizations.edit_tag,
                 value: FolksonomyAction.edit,
@@ -182,6 +195,10 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
             ];
           },
           onSelected: (FolksonomyAction value) async {
+            if (value == FolksonomyAction.visitUrl) {
+              await entry.visitUrl(context);
+              return;
+            }
             if (value == FolksonomyAction.edit) {
               if (!await _checkIfLoggedIn()) {
                 return;
@@ -224,7 +241,8 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     String? value,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final FolksonomyProvider folksonomyProvider = context
+        .read<FolksonomyProvider>();
     final FolksonomyTag? res = await showSmoothModalSheetForTextField(
       context: context,
       header: SmoothModalSheetHeader(
@@ -232,11 +250,14 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
       ),
       bodyBuilder: (BuildContext context) {
-        return FolksonomyEditTagContent(
-          action: action,
-          existingKeys: existingKeys,
-          oldKey: key,
-          oldValue: value,
+        return ChangeNotifierProvider<FolksonomyProvider>.value(
+          value: folksonomyProvider,
+          child: FolksonomyEditTagContent(
+            action: action,
+            existingKeys: existingKeys,
+            oldKey: key,
+            oldValue: value,
+          ),
         );
       },
     );

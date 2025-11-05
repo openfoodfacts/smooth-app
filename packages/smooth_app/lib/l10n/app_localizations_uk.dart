@@ -907,7 +907,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get hey_incomplete_product_message =>
-      'Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультра-обробки (ЗАРАЗ)!';
+      'Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультраобробки (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
@@ -1047,7 +1047,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Іноді інформація про харчову цінність **не вказана на пакуванні** або в документі, що додається до продукту. У цьому випадку, і тільки в цьому випадку, ви можете встановити значення **НІ**.';
 
   @override
   String get nutrition_page_serving_type_label => 'Харчова цінність:';
@@ -1073,23 +1073,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'Належна практика: Розмір порції';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Це значення допомагає **пропорційно розрахувати кількість кожної поживної речовини на порцію**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Дозволені одинці** такі: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 г**, **60г** або **60 Г** (бажано перший варіант)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 мл** або **1л**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
@@ -1097,7 +1097,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **gr**';
+      '30 **гр**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
@@ -1105,7 +1105,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **цукерок** та 2 **печива**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
@@ -1934,11 +1934,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'Належна практика: Етикетки';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Будь-яка характеристика продукту, яка є фактичною і відрізняється від інших полів.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1946,7 +1946,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Зроблено в Бельгії, вироблено в Британії…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2005,7 +2005,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Додайте **всі вказівки про походження, які ви можете знайти на пакуванні**.\nНе потрібно турбуватися про походження, вказане безпосередньо в списку інгредієнтів.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
@@ -2053,11 +2053,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Приклади кодів відстеження';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**Коди ЄС**, що використовуються в Європейському Співтоваристві для ідентифікації виробників або пакувальників харчових продуктів:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2065,11 +2065,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: код країни **Франція**\n**72.264.002**: географічні дані\n**CE**: Європейський Союз';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**EMB коди**, що використовуються у Франції:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2097,27 +2097,27 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'Рекомендовані практики: Категорії';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Вкажіть **тільки найбільш конкретну категорію**.\nБатьківські категорії будуть додані автоматично.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Відсутня категорія?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Якщо категорія **недоступна в автозаповненні**, однаково додайте її. \nЦе допоможе нам покращити Open Food Facts у вашій країні.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Сардини в оливковій олії';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Апельсиновий сік з концентрату';
 
   @override
   String get edit_product_form_item_exit_title => 'Вийти без збереження?';
@@ -2147,7 +2147,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'За допомогою **Pinch-to-zoom жесту** можна збільшувати або зменшувати масштаб фотографії:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Додати';
@@ -2180,11 +2180,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'Корисні практики: Харчова цінність';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Харчова цінність';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
@@ -2196,7 +2196,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Потім введіть харчову цінність **відповідно до інформації на пакуванні**. Якщо цінність не вказана, ви можете натиснути на піктограму «Око».';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
@@ -2204,7 +2204,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Якщо якась позиція відсутня, ви можете **натиснути на значок «Плюс»**, щоб додати її (наприклад: вітамін D, магній…).';
 
   @override
   String get edit_product_form_save => 'Редагувати';
@@ -2935,7 +2935,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Ціни **будуть оприлюднені** разом із магазином, до якого вони відносяться.\n\nЦе може дозволити людям, які знають про ваш псевдонім в Open Food Facts:';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
@@ -2947,10 +2947,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Якщо вас це турбує, будь ласка, змініть свій псевдонім або створіть новий обліковий запис Open Food Facts і увійдіть в додаток за допомогою нього.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Відмовляюсь';
 
   @override
   String get i_accept => 'I accept';
@@ -2975,6 +2975,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String prices_currency_change_proposal_action_cancel(String currency) {
     return 'No, keep $currency';
   }
+
+  @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Виконано';
@@ -3062,7 +3065,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return '';
   }
 
   @override
@@ -3340,11 +3343,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230г** або **230 г**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (для 6 яєць)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
@@ -4404,7 +4407,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Щоб винагородити кращі продукти в категорії, ми застосовуємо бонуси та штрафи на основі кількох критеріїв:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4412,7 +4415,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Бонус присвоюється продуктами, які мають офіційну етикетку, мітку або сертифікацію, яка гарантує екологічні переваги (органічна, чесна торгівля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Бонус** надається продуктам, які мають **офіційну етикетку, маркування або сертифікат, що гарантує екологічні переваги** (органічний, справедлива торгівля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4420,7 +4423,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Бонус надається залежно від походження інгредієнтів. Цей бонус враховує вплив на транспортування, а також екологічну політику країни кожного виробника.';
+      '**Бонус** надається залежно від походження інгредієнтів. Цей бонус враховує **вплив на транспортування**, а також **екологічну політику** країни кожного виробника.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4428,14 +4431,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Продукти, що містять інгредієнти, які мають негативний вплив на біорізноманіття та екосистеми, підлягають покаранню, наприклад пальмова олія, виробництво якої спричиняє масову вирубку лісів.';
+      '**Штраф** накладається на продукти, що містять інгредієнти, які мають значний **негативний вплив на біорізноманіття та екосистеми**, такі як пальмова олія, виробництво якої є причиною масового вирубування лісів.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Штраф розраховується з урахуванням округлості упакування (використовуючи перероблену сировину та можливість вторинного перероблення) та перепакування.';
+      '**Штраф** розраховується з урахуванням **циклічності пакування** (використання переробленої сировини та можливість вторинної переробки) та перепакування.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4443,19 +4446,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Для точного розрахунку Green-Score необхідно мати інформацію, яка не обов\'язково вказана на упаковці (наприклад, походження та точний відсоток кожного інгредієнта) або яка рідко доступна у зручній для використання формі (наприклад, список усіх компонентів упаковки з точними типами використаного пластику).';
+      'Для точного розрахунку Green-Score необхідно мати **інформацію, яка не обов\'язково вказана на упаковці** (таку як походження та точний відсоток кожного інгредієнта) або яка рідко доступна у придатній для використання формі (таку як перелік усіх компонентів упаковки з точним зазначенням типів використаних пластиків).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Середні значення використовуються, коли ця інформація ще недоступна, але зараз ми закликаємо всіх допомогти нам зібрати цю інформацію, яка буде дуже корисною для Green-Score, а також для багатьох інших цілей.';
+      '**Якщо ця інформація ще не доступна, використовуються середні значення**, але зараз ми звертаємося до всіх із проханням допомогти нам зібрати цю інформацію, яка буде дуже корисною для Green-Score, а також для багатьох інших цілей.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Як громадяни можуть допомогти';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Усі громадяни можуть допомогти нам зібрати та структурувати інформацію, яка присутня на продуктах або яку можна з них вивести, наприклад, інформацію про упаковку: Mission Emballages: масштабна спільна інвентаризація упаковки для всіх харчових продуктів (французькою мовою)';
+      'Всі громадяни можуть допомогти нам зібрати та систематизувати інформацію, яка міститься на продуктах або може бути виведена з них, наприклад, інформацію на **упаковці**: «Mission Emballages»: великомасштабний спільний інвентар упаковки для всіх харчових продуктів (французькою мовою).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4506,7 +4509,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'Групи NOVA інформують вас про рівень обробки харчових продуктів.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4528,28 +4531,28 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Необроблені (або натуральні) продукти харчування – це їстівні частини рослин (насіння, плоди, листя, стебла, коріння) або тварин (м’язи, субпродукти, яйця, молоко), а також гриби, водорості та вода, після того, як їх відокремили від природи.';
+      'Неперероблені (або натуральні) продукти харчування — це **їстівні частини рослин** (насіння, плоди, листя, стебла, коріння) **або тварин** (м\'язові тканини, субпродукти, яйця, молоко), а також гриби, водорості та вода після їх відокремлення від природи.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Оброблені кулінарні інгредієнти';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Оброблені кулінарні інгредієнти, такі як олії, масло, цукор та сіль, – це речовини, отримані з продуктів Групи 1 або з природи за допомогою процесів, що включають пресування, рафінування, подрібнення, фрезерування та сушіння.';
+      'Перероблені кулінарні інгредієнти, такі як **олії, масло, цукор і сіль**, є речовинами, отриманими з продуктів групи 1 або з природних джерел шляхом пресування, рафінування, подрібнення, помелу та сушіння.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Напівфабрикати';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Перероблені харчові продукти, такі як овочі в пляшках, рибні консерви, фрукти в сиропі, сири та свіжоспечений хліб, в основному виготовляються шляхом додавання солі, олії, цукру або інших речовин з 2-ї групи до продуктів 1-ї групи. Процеси включають різні методи консервування або приготування їжі, а у випадку хліба та сиру - безалкогольне бродіння. Більшість перероблених харчових продуктів містять два або три інгредієнти та є модифікованими версіями продуктів 1-ї групи. Їх можна вживати окремо або, що частіше, у поєднанні з іншими продуктами.';
+      'Перероблені харчові продукти, такі як консервовані овочі, рибні консерви, фрукти в сиропі, сир та свіжоспечений хліб, **переважно виготовляються шляхом додавання солі, олії, цукру або інших речовин з продуктів 2-ї до 1-ї групи**. Процеси включають різні методи консервування або приготування їжі, а у випадку хліба та сиру – безалкогольне бродіння. Більшість перероблених харчових продуктів містять два або три інгредієнти та є модифікованими версіями продуктів 1-ї групи. Їх можна вживати окремо або, що частіше, у поєднанні з іншими продуктами.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ультраоброблені продукти';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ультраоброблені харчові продукти, такі як безалкогольні напої, солодкі або солоні упаковані снеки, відновлені м\'ясні продукти та попередньо приготовані заморожені страви, – це не просто модифіковані харчові продукти, а рецептури, виготовлені переважно або повністю з речовин, отриманих з харчових продуктів та добавок, з малою кількістю або взагалі без неушкоджених харчових продуктів Групи 1. Інгредієнти в цих рецептурах зазвичай включають ті, що також містяться в оброблених харчових продуктах, такі як цукри, олії, жири або сіль. Однак ультраоброблені продукти також містять інші джерела енергії та поживних речовин, які зазвичай не використовуються в кулінарних приготуваннях. Деякі з них безпосередньо видобуваються з харчових продуктів, такі як казеїн, лактоза, сироватка та глютен.';
+      'Ультраоброблені харчові продукти, такі як безалкогольні напої, солодкі або солоні упаковані снеки, відновлені м\'ясні продукти та попередньо приготовані заморожені страви, **це не просто модифіковані харчові продукти, а рецептури, виготовлені переважно або повністю з речовин, отриманих з харчових продуктів та добавок**, з малою кількістю або взагалі без незмінних харчових продуктів Групи 1. Інгредієнти в цих рецептурах зазвичай включають ті, що також містяться в оброблених харчових продуктах, такі як цукри, олії, жири або сіль. Однак ультраоброблені продукти також містять інші джерела енергії та поживних речовин, які зазвичай не використовуються в кулінарних приготуваннях. Деякі з них безпосередньо видобуваються з харчових продуктів, такі як казеїн, лактоза, сироватка та глютен.';
 
   @override
   String get guide_nova_explanations_title => 'Проблеми з ультраобробкою';
@@ -4560,7 +4563,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Багато з них отримують в результаті подальшої обробки харчових компонентів, таких як гідрогенізовані або переетерифіковані олії, гідролізовані білки, ізолят соєвого білка, мальтодекстрин, інвертний цукор та кукурудзяний сироп з високим вмістом фруктози.';
+      'Багато з них **отримують шляхом подальшої переробки харчових компонентів**, таких як гідрогенізовані або переетерифіковані олії, гідролізовані білки, ізолят соєвого білка, мальтодекстрин, інвертний цукор та кукурудзяний сироп з високим вмістом фруктози.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4568,7 +4571,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Добавки в ультраоброблених харчових продуктах включають деякі, що також використовуються в оброблених харчових продуктах, такі як консерванти, антиоксиданти та стабілізатори. Класи добавок, що містяться лише в ультраоброблених продуктах, включають ті, що використовуються для імітації або покращення сенсорних якостей харчових продуктів або для маскування несмачних аспектів кінцевого продукту. Ці добавки включають барвники та інші барвники, стабілізатори кольору; ароматизатори, підсилювачі смаку, нецукрові підсолоджувачі; та допоміжні речовини для обробки, такі як карбонізатори, зміцнювачі, наповнювачі та антинаповнювачі, піногасники, антизлежувачі та глазурувальники, емульгатори, секвестранти та зволожувачі.';
+      'Добавки в надмірно оброблених продуктах харчування включають деякі, які також використовуються в оброблених продуктах харчування, такі як консерванти, антиоксиданти та стабілізатори. Класи добавок, які містяться тільки в надмірно оброблених продуктах, включають ті, що використовуються **для імітації або поліпшення сенсорних якостей продуктів харчування або для маскування неприємних смакових якостей кінцевого продукту**. До цих добавок належать барвники та інші кольорові речовини, стабілізатори кольору; ароматизатори, підсилювачі смаку, нецукрові підсолоджувачі; а також технологічні добавки, такі як карбонізуючі, зміцнювальні, наповнювальні та антинаповнювальні агенти, антипінні, антизлежувальні та глазурувальні агенти, емульгатори, секвестранти та зволожувачі.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4576,7 +4579,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Для поєднання зазвичай багатьох інгредієнтів та створення кінцевого продукту (звідси й «ультраоброблений») використовується безліч послідовностей процесів. Ці процеси включають кілька, які не мають побутових аналогів, таких як гідрогенізація та гідролізація, екструзія та формування, а також попередня обробка для смаження.';
+      '**Використовується безліч послідовностей процесів** для поєднання, як правило, багатьох інгредієнтів і створення кінцевого продукту (звідси і назва «ультраоброблені»). Ці процеси включають кілька **процесів, які не мають аналогів у побуті**, таких як гідрогенізація та гідролізація, екструзія та формування, а також попередня обробка для смаження.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4584,7 +4587,438 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Загальна мета ультраобробки полягає у створенні брендованих, зручних (міцних, готових до вживання), привабливих (надто смачних) та високоприбуткових (з низькими витратами на інгредієнти) харчових продуктів, призначених для витіснення всіх інших груп продуктів харчування. Ультраоброблені харчові продукти зазвичай привабливо упаковуються та інтенсивно просуваються на ринку.';
+      '**Загальна мета ультраобробки полягає у створенні брендових**, **зручних** (довготривалих, готових до споживання), **привабливих** (надзвичайно смачних) та **високоприбуткових** (з дешевими інгредієнтами) харчових продуктів, призначених для витіснення всіх інших груп харчових продуктів. Ультраоброблені харчові продукти зазвичай мають привабливу упаковку та інтенсивно рекламуються.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'З 2018 року, завдяки NutriNet-Santé, було виявлено перші зв\'язки між **споживанням надмірно оброблених продуктів харчування та підвищеним ризиком розвитку раку, серцево-судинних захворювань і діабету**. На сьогоднішній день понад 90 досліджень у всьому світі підтверджують ці висновки.\nНайсильніші зв\'язки стосуються **ожиріння, серцево-судинної смертності та депресивних симптомів**. У дітей ефекти в першу чергу спостерігаються на вазі та ліпідному дисбалансі.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров\'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.';
+
+  @override
+  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+
+  @override
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_title =>
+      'What is Open Food Facts?';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'Ми вважаємо, що кожен повинен мати доступ до інформації про те, що він їсть. Збираючи дані про інгредієнти, алергени, харчову цінність та інше, **ми даємо споживачам можливість робити обґрунтований вибір** і сприяємо **підвищенню прозорості** в харчовій промисловості.';
+
+  @override
+  String get guide_open_food_facts_features_title =>
+      'Features of Open Food Facts';
+
+  @override
+  String get guide_open_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_food_facts_scores_title =>
+      'Help us build the \"Wikipedia of Food\"';
+
+  @override
+  String get guide_open_food_facts_scores_arg1_title =>
+      'A score on the nutritional quality';
+
+  @override
+  String get guide_open_food_facts_scores_arg2_title =>
+      'A score to avoid ultra-processed foods';
+
+  @override
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
+
+  @override
+  String get guide_open_food_facts_share_link =>
+      'https://en.openfoodfacts.org/openfoodfacts';
+
+  @override
+  String get guide_open_pet_food_facts_title =>
+      'Welcome to Open Pet Food Facts!';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
+      'What is Open Pet Food Facts?';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
+      'Open Pet Food Facts розширює нашу місію на наших пухнастих друзів! Це **база даних продуктів харчування для котів, собак та інших домашніх тварин**.';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
+      'Ми збираємо інформацію про **інгредієнти**, **харчову цінність** та рекомендації щодо годування, щоб допомогти власникам домашніх тварин вибрати найкращий корм для потреб своїх улюбленців.';
+
+  @override
+  String get guide_open_pet_food_facts_features_title =>
+      'Features of Open Pet Food Facts';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_pet_food_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_pet_food_facts_scores_paragraph1 =>
+      'Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров\'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.';
+
+  @override
+  String get guide_open_pet_food_facts_share_link =>
+      'https://world.openpetfoodfacts.org/discover';
+
+  @override
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
+      'What is Open Beauty Facts?';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
+      'Наша мета — розшифрувати списки інгредієнтів, щоб допомогти вам **зрозуміти, що міститься у ваших засобах особистої гігієни**. Від зволожуючих кремів до косметики — ми збираємо дані про інгредієнти, алергени та упаковку, щоб сприяти прозорості в косметичній галузі.';
+
+  @override
+  String get guide_open_beauty_facts_features_title =>
+      'Features of Open Beauty Facts';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_paragraph1 =>
+      'Ви маєте алергію на якісь інгредієнти? Хочете уникати комедогенних речовин? Хочете уникати суперечливих компонентів? Ви можете створити список косметичних інгредієнтів, яких слід уникати, прямо в додатку!';
+
+  @override
+  String get guide_open_beauty_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text4 =>
+      'Take as many picture as need if the bottle is curved.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text5 =>
+      'You might need to peel the label to see the list of ingredients.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text6 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_beauty_facts_scores_paragraph1 =>
+      'На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.';
+
+  @override
+  String get guide_open_beauty_facts_share_link =>
+      'https://world.openfoodfacts.org/discover';
+
+  @override
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_title =>
+      'What is Open Prices?';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph1 =>
+      'Open Prices — це проект, спрямований на **збір та обмін інформацією про ціни на товари по всьому світу**. Це загальнодоступний набір даних, який можна використовувати для досліджень, аналізу та інших цілей. Open Prices розроблений та підтримується Open Food Facts.';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph2 =>
+      'Зараз мало компаній, які мають великі бази даних про ціни на продукцію на рівні штрих-коду. Цих цін нема у вільному доступі, а продаються вони за високу ціну приватним гравцям, дослідникам та іншим організаціям, які можуть їх собі дозволити.';
+
+  @override
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
+
+  @override
+  String get guide_open_prices_how_paragraph1 =>
+      '**Ми збираємо відкритий набір даних про ціни за допомогою краудсорсингу**. Користувачі можуть додавати ціни через цей веб-додаток або через офіційний мобільний додаток Open Food Facts. Роздрібні продавці або сторонні додатки також можуть брати участь у цьому процесі, використовуючи наш API.';
+
+  @override
+  String get guide_open_prices_how_arg1_title =>
+      'Collect photos of price tags in aisles';
+
+  @override
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+
+  @override
+  String get guide_open_prices_why_title =>
+      'Why is Open Food Facts doing this ?';
+
+  @override
+  String get guide_open_prices_why_paragraph1 =>
+      'Інформація про ціни має надзвичайно важливе значення для розуміння продовольчих систем. Це ключовий фактор для розуміння вартості продуктів харчування та сприяння здоровому харчуванню. Відкриття даних про ціни є способом полегшити дослідникам, журналістам та громадянам **краще розуміння того, як ціни на продукти харчування змінюються в залежності від географічного положення та часу**.';
+
+  @override
+  String get guide_open_prices_why_arg1_title =>
+      'Track the evolution of prices over time';
+
+  @override
+  String get guide_open_prices_why_arg1_text =>
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+
+  @override
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+
+  @override
+  String get guide_open_prices_why_arg2_text =>
+      'As we get more prices, you can spot **the cheapest stores around you**.';
+
+  @override
+  String get guide_open_prices_scrapping_title =>
+      'Did you consider scraping prices from retailers\' websites?';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph1 =>
+      'З юридичних та технічних причин **ми не вважаємо копіювання цін з веб-сайтів роздрібних продавців дійсним способом внеску в Open Prices**. Ми хочемо бути впевнені, що ціни, які ми збираємо, є точними та актуальними, а отримання скопійованих цін від учасників не дозволяє нам цього зробити.';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph2 =>
+      'Скрейпінг цін є варіантом, який розглядається в майбутній версії Open Prices, але це буде робити сама Open Prices, щоб ми могли отримати підтвердження ціни на основі HTML-сторінки.';
+
+  @override
+  String get guide_open_prices_retailers_title =>
+      'Я роздрібний продавець і хочу вказати ціни. Як я можу це зробити?';
+
+  @override
+  String get guide_open_prices_retailers_paragraph1 =>
+      'Ви можете надавати ціни, використовуючи наш API.\nЯкщо ви хочете надавати ціни у великих обсягах, зв\'яжіться з нами за адресою prices@openfoodfacts.org.';
+
+  @override
+  String get guide_open_prices_share_link =>
+      'https://prices.openfoodfacts.org/about';
+
+  @override
+  String get guide_open_products_facts_title =>
+      'Welcome to Open Products Facts!';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_title =>
+      'What is Open Products Facts?';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
+      'Open Products Facts — це величезна відкрита база даних про **будь-які товари зі штрих-кодом, за винятком продуктів харчування, косметики та кормів для домашніх тварин**.';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
+      'Від **електроніки** до **іграшок**, від **одягу** до **чистячих засобів** — якщо на товарі є штрих-код, його можна додати. Цей проект має на меті створити «Інтернет речей» для повсякденних предметів, зробивши інформацію про них загальнодоступною.';
+
+  @override
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
+
+  @override
+  String get guide_open_products_facts_features_text =>
+      'Open Products Facts має на меті допомогти споживачам **продовжити термін експлуатації предметів**, пропонуючи циркулярні рішення для їхнього обслуговування, **ремонту**, **переробки** або передачі новому власнику.';
+
+  @override
+  String get guide_open_products_facts_features_arg1_title =>
+      'Carbon footprints for some products';
+
+  @override
+  String get guide_open_products_facts_features_arg1_text =>
+      '**Вплив CO2** від французького агентства з охорони навколишнього середовища ADEME надає інформацію про **вплив вуглецю** для багатьох категорій, тому переконайтеся, що ви точно класифікували продукти.';
+
+  @override
+  String get guide_open_products_facts_features_arg2_title =>
+      'Reparability index for many products';
+
+  @override
+  String get guide_open_products_facts_features_arg2_text =>
+      'Коли французький індекс ремонтопридатності буде доступний, ми його відобразимо. Більше того, **ви можете почати збирати змінні за допомогою Folksonomy Engine**, щоб ми могли перерахувати його самостійно в майбутньому, навіть у країнах, де він недоступний.';
+
+  @override
+  String get guide_open_products_facts_features_arg3_title =>
+      'Find ways to donate/resell your product';
+
+  @override
+  String get guide_open_products_facts_features_arg3_text =>
+      'Ми надаємо посилання на **послуги третіх сторін, що сприяють циркулярній економіці**, які допоможуть вам знайти продукт, який ви шукаєте, у вигляді вживаного товару, щоб бути більш дбайливими до ресурсів планети.\nЗверніть увагу, що ми не отримуємо за це винагороду, і що система працює лише як приклад для двох веб-сайтів у Франції. Ви можете допомогти розширити цю систему, додавши інформацію про інші сайти на вікі.';
+
+  @override
+  String get guide_open_products_facts_information_title =>
+      'What information is useful?';
+
+  @override
+  String get guide_open_products_facts_information_text =>
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph1 =>
+      'Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph2 =>
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph3 =>
+      'Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.';
+
+  @override
+  String get guide_open_products_facts_share_link =>
+      'https://en.openproductsfacts.org/discover';
+
+  @override
+  String get guide_open_preferences_button_title => 'Open food preferences';
+
+  @override
+  String get guide_coming_soon_button_title => 'Coming soon';
+
+  @override
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
   String get preview_badge => 'Попередній перегляд';
@@ -4897,6 +5331,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Open external link';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Ціна недоступна';
@@ -5338,6 +5779,20 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відкрийте для себе факти про відкриту їжу';
 
   @override
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+
+  @override
+  String get preferences_faq_discover_opff_title =>
+      'Discover Open Pet Food Facts';
+
+  @override
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+
+  @override
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
+
+  @override
   String get preferences_faq_faq_title => 'FAQ - Часті запитання';
 
   @override
@@ -5414,7 +5869,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Зв\'яжіться з нами, щоб розпочати';
 
   @override
-  String get preferences_connect_press_title => 'Натисніть';
+  String get preferences_connect_press_title => 'Преса';
 
   @override
   String get preferences_connect_press_page_subtitle =>
@@ -5707,7 +6162,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Ім’я';
 
   @override
   String get location_map_details_street => 'Street';
@@ -5719,7 +6174,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Країна';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

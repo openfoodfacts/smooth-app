@@ -1,5 +1,5 @@
 {
-  "app_name": "Open voedselfeiten",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1011,7 +1011,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Geen eigenschappen",
-  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.",
+  "product_tags_explanation": "By adding properties (key/value) to a product, you help enrich it.",
   "add_tag": "Voeg een eigenschap toe",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
@@ -1392,7 +1392,7 @@
       "count": {}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural,  one {}=0{Product} =1{Product} other{Producten}} vernieuwing voltooid",
+  "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Producten}} vernieuwing voltooid",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
@@ -1742,7 +1742,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Land",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2493,7 +2493,7 @@
       }
     }
   },
-  "prices_users_empty_title": "Nog geen bijdrage!",
+  "prices_users_empty_title": "No contributor yet!",
   "prices_users_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_users_list_length_many_pages": "Top {pageSize} bijdragers (totaal: {total})",
   "@prices_users_list_length_many_pages": {
@@ -2507,7 +2507,7 @@
       }
     }
   },
-  "prices_locations_empty_title": "Nog geen winkel!",
+  "prices_locations_empty_title": "No shop yet!",
   "prices_locations_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locaties (totaal: {total})",
   "@prices_locations_list_length_many_pages": {
@@ -2530,7 +2530,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
+  "prices_button_count_product": "{count,plural, =0{Geen product} =1{Eén product} other{{count} producten}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2576,6 +2576,7 @@
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
   "prices_proof_find": "Selecteer een bewijs",
+  "prices_proof_change": "Wijzig bewijs",
   "prices_proof_receipt": "Bon",
   "prices_proof_price_tag": "Prijskaartje",
   "prices_proof_mandatory": "Je moet een bewijs selecteren!",
@@ -2621,6 +2622,10 @@
   },
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
+  },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
   },
   "dev_preferences_import_history_result_success": "Voltooid",
   "@dev_preferences_import_history_result_success": {
@@ -2717,6 +2722,15 @@
   "user_search_proof_title": "Mijn bewijs",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Bewijs van \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Prijzen van bijdrager: {user}",
   "@user_any_search_prices_title": {
@@ -3944,20 +3958,20 @@
   "guide_greenscore_lca_arg3_text7": "Zee- en zoetwater (deeltjes, verzuring, eutrofiëring)",
   "guide_greenscore_lca_arg3_text8": "Uitputting van hulpbronnen.",
   "guide_greenscore_bonuses_penalties_title": "Bonussen en malussen",
-  "guide_greenscore_bonuses_penalties_intro": "Om betere producten binnen een categorie te belonen, passen we bonussen en malussen toe op basis van verschillende criteria:",
+  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Productiewijze",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Er wordt een bonus toegekend aan producten die een officieel label, een label of een certificering hebben die milieuvoordelen garandeert (biologisch, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Herkomst van de ingrediënten",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Er wordt een bonus toegekend op basis van de herkomst van de ingrediënten. Deze bonus houdt rekening met de impact op transport en het milieubeleid van het land van de producent.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Bedreigde soorten",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Producten die ingrediënten bevatten die aanzienlijke negatieve gevolgen hebben voor de biodiversiteit en ecosystemen, worden bestraft. Zoals palmolie, waarvan de productie tot massale ontbossing leidt.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Verpakking",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Er wordt een boete berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclede grondstof en recycleerbaarheid) en oververpakking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen",
-  "guide_greenscore_transparency_intro1": "Om de Green-Score nauwkeurig te kunnen berekenen, is informatie nodig die niet per se op de verpakking staat (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst met alle bestanddelen van de verpakking en de precieze soorten plastic die zijn gebruikt).",
-  "guide_greenscore_transparency_intro2": "Wanneer deze informatie (nog) niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.",
-  "guide_greenscore_transparency_arg1_title": "Hoe burgers kunnen helpen",
-  "guide_greenscore_transparency_arg1_text": "Alle burgers kunnen ons helpen bij het verzamelen en structureren van de informatie die op producten aanwezig is of die daaruit kan worden afgeleid, zoals informatie op verpakkingen: Mission Emballages: een grootschalige, gezamenlijke inventarisatie van verpakkingen voor alle voedingsproducten (in het Frans)",
+  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
+  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_arg1_title": "Hoe kunnen burgers helpen?",
+  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Hoe fabrikanten kunnen helpen",
   "guide_greenscore_transparency_arg2_text": "Fabrikanten kunnen hun informatie rechtstreeks aan ons doorgeven via ons gratis platform voor producenten.",
   "guide_greenscore_better_product_title": "Welk product is beter voor de planeet?",
@@ -3974,7 +3988,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nova_what_is_nova_title": "Wat is ultra-bewerking?",
-  "guide_nova_what_is_nova_paragraph1": "De NOVA-groepen informeren u over het niveau van voedselverwerking.",
+  "guide_nova_what_is_nova_paragraph1": "De NOVA-groepen informeren u over **het niveau van voedselverwerking**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3986,22 +4000,183 @@
   "guide_nova_groups_title": "De 4 NOVA-groepen",
   "guide_nova_groups_intro": "Er zijn 4 NOVA-groepen, waarvan Groep 4 - Ultrabewerkte voedingsmiddelen de problematische is.",
   "guide_nova_groups_arg1_title": "Minimaal bewerkte of onbewerkte voedingsmiddelen",
-  "guide_nova_groups_arg1_text": "Onbewerkte (of natuurlijke) voedingsmiddelen zijn de eetbare delen van planten (zaden, vruchten, bladeren, stengels, wortels) of dieren (spieren, orgaanvlees, eieren, melk), maar ook van schimmels, algen en water, nadat ze uit de natuur zijn gehaald.",
+  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Bewerkte ingrediënten",
-  "guide_nova_groups_arg2_text": "Bewerkte culinaire ingrediënten, zoals oliën, boter, suiker en zout, zijn stoffen die afkomstig zijn van voedingsmiddelen uit groep 1 of uit de natuur komen via processen als persen, raffineren, malen, frezen en drogen.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Bewerkte levensmiddelen",
-  "guide_nova_groups_arg3_text": "Bewerkte voedingsmiddelen, zoals groenten uit blik, vis uit blik, fruit op siroop, kaas en versgebakken brood, worden voornamelijk gemaakt door zout, olie, suiker of andere stoffen uit groep 2 toe te voegen aan producten uit groep 1. Deze processen omvatten verschillende conserverings- of kookmethoden, en in het geval van brood en kaas, alcoholvrije fermentatie. De meeste bewerkte voedingsmiddelen bestaan uit twee of drie ingrediënten en zijn herkenbaar als aangepaste versies van producten uit groep 1. Ze kunnen op zichzelf worden gegeten of, meestal, in combinatie met andere voedingsmiddelen.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-verwerkte voedingsmiddelen",
-  "guide_nova_groups_arg4_text": "Ultrabewerkte voedingsmiddelen, zoals frisdranken, zoete of hartige snacks, gereconstitueerde vleesproducten en kant-en-klare diepvriesmaaltijden, zijn niet zomaar gemodificeerde voedingsmiddelen, maar formules die grotendeels of volledig bestaan uit stoffen die afkomstig zijn van voedingsmiddelen en additieven, met weinig tot geen intacte groep 1-voedingsmiddelen. De ingrediënten in deze formules bevatten meestal ingrediënten die ook in bewerkte voedingsmiddelen voorkomen, zoals suikers, oliën, vetten of zout. Ultrabewerkte producten bevatten echter ook andere energiebronnen en voedingsstoffen die doorgaans niet in culinaire bereidingen worden gebruikt. Sommige hiervan worden rechtstreeks uit voedingsmiddelen gewonnen, zoals caseïne, lactose, wei en gluten.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "De problemen met ultra-bewerking",
   "guide_nova_explanations_arg1_title": "Extreme bewerking van voedselingrediënten",
-  "guide_nova_explanations_arg1_text": "Veel ervan worden verkregen door verdere verwerking van bestanddelen in voedingsmiddelen, zoals gehydrogeneerde of geësterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en glucosestroop met een hoog fructosegehalte.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Additieven die verder gaan dan pure voedselveiligheid",
-  "guide_nova_explanations_arg2_text": "Additieven in ultrabewerkte voedingsmiddelen omvatten stoffen die ook in bewerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultrabewerkte producten voorkomen, zijn onder andere stoffen die worden gebruikt om de sensorische eigenschappen van voedingsmiddelen te imiteren of te versterken of om onaangename aspecten van het eindproduct te verhullen. Deze additieven omvatten kleurstoffen, kleurstabilisatoren; smaakstoffen, smaakversterkers, zoetstoffen zonder suiker; en verwerkingshulpmiddelen zoals carbonatatiemiddelen, verstevigingsmiddelen, vul- en anti-vulmiddelen, anti-schuimmiddelen, antiklontemiddelen en glansmiddelen, emulgatoren, sequestreermiddelen en bevochtigingsmiddelen.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Bewerking die je niet thuis kan uitvoeren",
-  "guide_nova_explanations_arg3_text": "Er wordt een verscheidenheid aan processen gebruikt om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultra-bewerkt'). De processen omvatten zaken die geen equivalent hebben in de huishoudelijke context, zoals hydrogenering en hydrolysering, extrusie en manipulatie, en voorbewerkingen voor frituren.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
-  "guide_nova_explanations_arg4_text": "Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_explanations_arg5_title": "Een gezondheidsrisico",
+  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
+  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Welkom bij Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Wat is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Kenmerken van Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
+  "guide_open_food_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_food_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_food_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_food_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_food_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_food_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
+  "guide_open_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_food_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_food_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_food_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
+  "guide_open_food_facts_tips_arg2_text4": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_food_facts_scores_title": "Help ons de \"Wikipedia van Voedsel\" te bouwen",
+  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
+  "guide_open_food_facts_scores_arg2_title": "Een score om ultrabewerkte voedingsmiddelen te vermijden",
+  "guide_open_food_facts_scores_arg3_title": "Een score voor de planeet",
+  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
+  "guide_open_pet_food_facts_title": "Welkom bij Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Wat is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Kenmerken van Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is uw huisdier allergisch voor bepaalde ingrediënten? U kunt direct in de app een lijst met te vermijden ingrediënten instellen!",
+  "guide_open_pet_food_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_pet_food_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_pet_food_facts_scores_title": "Een opmerking over het scoren",
+  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_share_link": "https://world-nl.openpetfoodfacts.org/ontdekken",
+  "guide_open_beauty_facts_title": "Welkom bij Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Wat is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Kenmerken van Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_beauty_facts_tips_title": "Tips voor het maken van geweldige foto's",
+  "guide_open_beauty_facts_tips_arg1_title": "Wat je niet moet doen",
+  "guide_open_beauty_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Geen wazige of onscherpe tekst.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Knip geen delen van de tekst weg.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Vermijd drukke achtergronden.",
+  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
+  "guide_open_beauty_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Plaats het product op een vlakke ondergrond.",
+  "guide_open_beauty_facts_scores_title": "Een opmerking over het scoren",
+  "guide_open_beauty_facts_scores_paragraph1": "In tegenstelling tot voedingsproducten kent de cosmeticawereld **geen universeel erkend, door de overheid ondersteund scoresysteem zoals de Nutri-Score**. De effecten van ingrediënten kunnen zeer persoonlijk zijn en hangen af van huidtype, allergieën en individuele behoeften.",
+  "guide_open_beauty_facts_share_link": "https://world-nl.openfoodfacts.org/ontdekken",
+  "guide_open_prices_title": "Welkom bij Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "Wat is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Er zijn momenteel weinig bedrijven die grote databases met productprijzen op barcodeniveau bezitten. Deze prijzen zijn niet vrij beschikbaar, maar worden tegen een hoge prijs verkocht aan private actoren, onderzoekers en andere organisaties die ze zich kunnen veroorloven.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "Hoe werkt Open Prices?",
+  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
+  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
+  "guide_open_prices_how_arg2_title": "Verzamel foto's van bonnetjes",
+  "guide_open_prices_why_title": "Waarom doet Open Food Facts dit?",
+  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
+  "guide_open_prices_why_arg2_title": "Vergelijk prijzen bij u in de buurt",
+  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
+  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_retailers_title": "Ik ben een detailhandelaar en ik wil prijzen bijdragen. Hoe kan ik dat doen?",
+  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prijzen.openfoodfacts.org/over",
+  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
+  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
+  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
+  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
+  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
+  "guide_open_products_facts_information_title": "Welke informatie is nuttig?",
+  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
+  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_share_link": "https://nl.openproductsfacts.org/ontdekken",
+  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_coming_soon_button_title": "Binnenkort beschikbaar",
+  "guide_learn_more_subtitle": "Tik om meer te weten te komen",
   "preview_badge": "Voorbeeld",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4359,6 +4534,14 @@
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_action_external_link_title": "Open external link",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
   "prices_products_empty_title": "Geen prijs beschikbaar",
   "prices_products_empty_explanation": "Wees de eerste om bij te dragen!",
@@ -4895,6 +5078,22 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
+  "preferences_faq_discover_obf_title": "Ontdek Open Beauty Facts",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Ontdek Open Pet Food Facts",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Ontdek Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Ontdek Open Products Facts",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
   "preferences_faq_faq_title": "FAQ - Veelgestelde vragen",
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
@@ -5357,5 +5556,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Locatiedetails",
+  "location_map_details_name": "Naam",
+  "location_map_details_street": "Straat",
+  "location_map_details_city": "Stad",
+  "location_map_details_postcode": "Postcode",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Coördinaten",
+  "location_map_details_osm_id": "OSM ID"
 }

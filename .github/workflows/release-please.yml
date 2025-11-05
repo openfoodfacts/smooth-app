@@ -10,7 +10,7 @@ env:
 
 jobs:
   release-please:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     if: github.repository_owner == 'openfoodfacts'
     #permissions:
       #contents: read
@@ -23,7 +23,7 @@ jobs:
       tag_name: ${{ steps.release_please.outputs.tag_name }}
     steps:
       - name: Release-please
-        uses: googleapis/release-please-action@v4.3.0
+        uses: googleapis/release-please-action@v4.4.0
         id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,7 +44,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     #permissions:
       #contents: read
       #packages: write

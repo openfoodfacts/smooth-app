@@ -27,6 +27,7 @@ import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
 import 'package:smooth_app/pages/product/query_results_banner.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -425,7 +426,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final bool editableAppBarTitle,
   ) => _Action(
     text: appLocalizations.world_results_action,
-    iconData: Icons.public,
+    iconData: const icons.World.help().icon,
     onPressed: () async => ProductQueryPageHelper.openBestChoice(
       productQuery: worldQuery,
       localDatabase: context.read<LocalDatabase>(),

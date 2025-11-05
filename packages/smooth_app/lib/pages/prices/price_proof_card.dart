@@ -123,8 +123,8 @@ enum _ProofSource {
   };
 
   IconData getIconData() => switch (this) {
-    _ProofSource.camera => Icons.camera_rounded,
-    _ProofSource.gallery => Icons.perm_media_rounded,
+    _ProofSource.camera => const icons.Camera.aperture().icon,
+    _ProofSource.gallery => const icons.ImageGallery().icon,
     _ProofSource.history => const icons.PriceReceipt().icon,
   };
 

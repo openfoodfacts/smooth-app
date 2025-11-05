@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -23,9 +24,29 @@ import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/proof_bulk_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 class PricesRoot extends PreferencesRoot {
   const PricesRoot({required super.title});
+
+  @override
+  SmoothPopupMenuButton<dynamic>? actions(BuildContext context) {
+    return SmoothPopupMenuButton<void>(
+      onSelected: (_) =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
+      itemBuilder: (_) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return <SmoothPopupMenuItem<void>>[
+          SmoothPopupMenuItem<void>(
+            label: appLocalizations.prices_menu_know_more,
+            value: null,
+            icon: const icons.Faq(),
+          ),
+        ];
+      },
+    );
+  }
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {

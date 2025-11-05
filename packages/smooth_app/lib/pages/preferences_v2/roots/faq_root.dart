@@ -3,15 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 class FaqRoot extends PreferencesRoot {
@@ -20,6 +19,7 @@ class FaqRoot extends PreferencesRoot {
   @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool lightTheme = context.lightTheme();
 
     return <PreferenceCard>[
       PreferenceCard(
@@ -35,7 +35,11 @@ class FaqRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_faq_discover_project_title,
         tiles: <PreferenceTile>[
-          _buildDiscoverOffTile(appLocalizations),
+          _buildDiscoverOffTile(context, appLocalizations, lightTheme),
+          _buildDiscoverObfTile(context, appLocalizations, lightTheme),
+          _buildDiscoverOpffTile(context, appLocalizations, lightTheme),
+          _buildDiscoverOpfTile(context, appLocalizations, lightTheme),
+          _buildDiscoverOpTile(context, appLocalizations, lightTheme),
           _buildHowToContributeTile(appLocalizations),
           _buildFaqTile(appLocalizations),
         ],
@@ -69,13 +73,10 @@ class FaqRoot extends PreferencesRoot {
       leading: _createLeadingIcon(
         SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
       ),
+      leadingSize: 31.0,
       title: appLocalizations.faq_nutriscore_nutriscore,
       subtitleText: appLocalizations.preferences_faq_nutriscore_v2_subtitle,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNutriscoreV2(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NUTRISCORE_V2),
     );
   }
 
@@ -88,11 +89,7 @@ class FaqRoot extends PreferencesRoot {
         'assets/guides/greenscore/greenscore_a.svg.vec',
       ),
       title: appLocalizations.environmental_score_generic_new,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideGreenScore(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_GREEN_SCORE),
     );
   }
 
@@ -103,11 +100,7 @@ class FaqRoot extends PreferencesRoot {
     return PreferenceTile(
       leading: _createLeadingIcon('assets/cache/nova-group-4.svg'),
       title: appLocalizations.nova_group_generic_new,
-      onTap: () => Navigator.of(context, rootNavigator: true).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const GuideNOVA(),
-        ),
-      ),
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NOVA),
     );
   }
 
@@ -121,13 +114,87 @@ class FaqRoot extends PreferencesRoot {
   }
 
   // Discover Project section
-  PreferenceTile _buildDiscoverOffTile(AppLocalizations appLocalizations) {
-    return UrlPreferenceTile(
-      icon: const icons.Discover(),
-      title: appLocalizations.preferences_faq_discover_off_title,
-      url: ProductQuery.replaceSubdomain(
-        'https://world.openfoodfacts.org/discover',
+  PreferenceTile _buildDiscoverOffTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    bool lightTheme,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        'assets/guides/open_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+        padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
+      title: appLocalizations.preferences_faq_discover_off_title,
+      subtitleText: null,
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_FOOD_FACTS),
+    );
+  }
+
+  PreferenceTile _buildDiscoverObfTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    bool lightTheme,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        'assets/guides/open_beauty_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+        padding: const EdgeInsetsDirectional.only(start: 2.0),
+      ),
+      title: appLocalizations.preferences_faq_discover_obf_title,
+      subtitleText: null,
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_BEAUTY_FACTS),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpffTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    bool lightTheme,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        'assets/guides/open_pet_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+        padding: const EdgeInsetsDirectional.only(start: 2.0),
+      ),
+      title: appLocalizations.preferences_faq_discover_opff_title,
+      subtitleText: null,
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PET_FOOD_FACTS),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpfTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    bool lightTheme,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        'assets/guides/open_products_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+        padding: const EdgeInsetsDirectional.only(start: 2.0),
+      ),
+      title: appLocalizations.preferences_faq_discover_opf_title,
+      subtitleText: null,
+      onTap: () =>
+          AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRODUCTS_FACTS),
+    );
+  }
+
+  PreferenceTile _buildDiscoverOpTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    bool lightTheme,
+  ) {
+    return PreferenceTile(
+      leading: _createLeadingIcon(
+        'assets/guides/open_prices/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+        padding: const EdgeInsetsDirectional.only(start: 2.0),
+      ),
+      title: appLocalizations.preferences_faq_discover_op_title,
+      subtitleText: null,
+      onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
     );
   }
 
@@ -170,12 +237,18 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  Widget _createLeadingIcon(String svg) {
+  Widget _createLeadingIcon(String svg, {EdgeInsetsGeometry? padding}) {
+    final Widget child;
     if (svg.endsWith('vec')) {
-      return SvgPicture(AssetBytesLoader(svg), width: 48.0);
+      child = SvgPicture(AssetBytesLoader(svg), width: 48.0);
     } else {
-      return SvgPicture.asset(svg, width: 48.0);
+      child = SvgPicture.asset(svg, width: 48.0);
     }
+
+    if (padding != null) {
+      return Padding(padding: padding, child: child);
+    }
+    return child;
   }
 
   PreferenceTile _createScoreTile({

@@ -1,15 +1,21 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode) : super(const FolksonomyStateLoading()) {
+  FolksonomyProvider(this.barcode, this.localDatabase)
+    : super(const FolksonomyStateLoading()) {
     fetchProductTags();
   }
 
   final String barcode;
+  final LocalDatabase localDatabase;
   String? _bearerToken;
   final List<ProductTag> _tags = <ProductTag>[];
   final ProductRefresher _productRefresher = ProductRefresher();
@@ -57,22 +63,32 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
+  // Display tags from local database first (to see it offline), then update from API.
   Future<void> fetchProductTags() async {
-    try {
+    if (_tags.isEmpty) {
       value = const FolksonomyStateLoading();
+    }
+
+    try {
+      final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
+      final List<ProductTag>? localTags = await daoFolksonomy.get(barcode);
+      if (localTags != null) {
+        _updateTags(localTags);
+      }
 
       final Map<String, ProductTag> tags =
           await FolksonomyAPIClient.getProductTags(
             barcode: barcode,
             uriHelper: ProductQuery.uriFolksonomyHelper,
           );
+      final List<ProductTag> remoteTags = tags.values.toList();
 
-      _tags.clear();
-      _tags.addAll(tags.values);
-
-      value = FolksonomyStateLoaded(tags: _tags);
+      await daoFolksonomy.put(barcode, remoteTags);
+      _updateTags(remoteTags);
     } catch (e) {
-      value = FolksonomyStateError(error: e);
+      if (_tags.isEmpty) {
+        value = FolksonomyStateError(error: e);
+      }
     }
   }
 
@@ -218,14 +234,49 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     value = FolksonomyStateLoaded(tags: _tags);
   }
 
+  Future<void> fetchKeys({String? query}) async {
+    try {
+      value = const FolksonomyStateLoading();
+
+      final Map<String, KeyStats> keyStats = await FolksonomyAPIClient.getKeys(
+        query: query,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
+
+      value = FolksonomyStateKeysLoaded(keys: keyStats, tags: _tags);
+    } catch (e) {
+      value = FolksonomyStateError(error: e);
+    }
+  }
+
   int _getPosition(String key) =>
       _tags.indexWhere((ProductTag tag) => tag.key == key);
 
   ProductTag? _getTag(String key) =>
       _tags.firstWhereOrNull((ProductTag tag) => tag.key == key);
 
-  void _sortTags() {
-    _tags.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
+  void _updateTags(final List<ProductTag> tags) {
+    if (_equals(tags)) {
+      if (value is FolksonomyStateLoading) {
+        value = FolksonomyStateLoaded(tags: _tags);
+      }
+      return;
+    }
+    _tags.clear();
+    _tags.addAll(tags);
+    _sortTags();
+    value = FolksonomyStateLoaded(tags: _tags);
+  }
+
+  bool _equals(final List<ProductTag> tags) {
+    final List<ProductTag> sortedTags = List<ProductTag>.from(tags);
+    _sortTags(sortedTags);
+    return const DeepCollectionEquality().equals(_tags, sortedTags);
+  }
+
+  void _sortTags([List<ProductTag>? tags]) {
+    final List<ProductTag> toSort = tags ?? _tags;
+    toSort.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
   }
 }
 
@@ -288,6 +339,15 @@ class FolksonomyStateEditedItem extends FolksonomyState {
   List<ProductTag>? get tags => super.tags!;
 }
 
+class FolksonomyStateKeysLoaded extends FolksonomyState {
+  FolksonomyStateKeysLoaded({
+    required this.keys,
+    required List<ProductTag> tags,
+  }) : super(tags: tags);
+
+  final Map<String, KeyStats> keys;
+}
+
 class FolksonomyStateError extends FolksonomyState {
   FolksonomyStateError({required this.error, this.action, super.tags});
 
@@ -295,4 +355,4 @@ class FolksonomyStateError extends FolksonomyState {
   final FolksonomyAction? action;
 }
 
-enum FolksonomyAction { add, edit, remove }
+enum FolksonomyAction { add, edit, remove, visitUrl }

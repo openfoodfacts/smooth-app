@@ -13,6 +13,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PreferencesRootSearchController extends SearchHelper {
@@ -76,10 +77,13 @@ abstract class PreferencesRoot extends StatelessWidget {
       return customAppBar!;
     }
 
+    final SmoothPopupMenuButton<dynamic>? menu = actions(context);
+
     return SliverPinnedHeader(
       child: SmoothAppBar(
         title: Text(title!),
         leading: const SmoothBackButton(),
+        actions: menu != null ? <Widget>[menu] : null,
       ),
     );
   }
@@ -132,6 +136,7 @@ abstract class PreferencesRoot extends StatelessWidget {
   Widget buildScaffold(BuildContext context, Widget content) {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
+
     return SmoothScaffold(
       backgroundColor: !context.darkTheme()
           ? themeExtension.primaryLight
@@ -190,4 +195,6 @@ abstract class PreferencesRoot extends StatelessWidget {
 
     return buildScaffold(context, content);
   }
+
+  SmoothPopupMenuButton<dynamic>? actions(BuildContext context) => null;
 }

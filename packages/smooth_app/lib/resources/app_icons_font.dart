@@ -39,6 +39,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData aperture = IconData(
+    0xe806,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData check = IconData(
     0xe807,
     fontFamily: _kFontFam,
@@ -81,6 +86,11 @@ class _IconsFont {
   );
   static const IconData environment = IconData(
     0xe80f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData thumb_up = IconData(
+    0xe810,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -249,6 +259,16 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData hearth = IconData(
+    0xe832,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData hearth_monitor = IconData(
+    0xe833,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData hamburger_menu = IconData(
     0xe834,
     fontFamily: _kFontFam,
@@ -414,8 +434,18 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData favorite_check = IconData(
+    0xe855,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData currency = IconData(
     0xe856,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData favorite_star = IconData(
+    0xe857,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -646,11 +676,6 @@ class _IconsFont {
   );
   static const IconData nutrition_facts = IconData(
     0xe886,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
-  static const IconData aperture = IconData(
-    0xe887,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -1034,6 +1059,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData thumb_down = IconData(
+    0xe917,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData street = IconData(
     0xe918,
     fontFamily: _kFontFam,
@@ -1044,13 +1074,43 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData split = IconData(
+    0xe91a,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData traffic_lights = IconData(
+    0xe91b,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData remove = IconData(
     0xe91c,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData transparency = IconData(
-    0xe948,
+  static const IconData chef = IconData(
+    0xe91d,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData recipe = IconData(
+    0xe91e,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData stop_sign = IconData(
+    0xe91f,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData lifecycle = IconData(
+    0xe920,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData toolbox = IconData(
+    0xe921,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

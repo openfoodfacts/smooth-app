@@ -333,7 +333,7 @@ class _ProductImageGalleryFooterButtonState
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    const icons.Add(color: Colors.black),
+                    const icons.Camera.add(color: Colors.black),
                     Offstage(
                       offstage: _animation?.value == 1.0,
                       child: MeasureSize(
