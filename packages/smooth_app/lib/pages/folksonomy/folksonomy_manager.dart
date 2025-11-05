@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_operation.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -32,7 +33,7 @@ class FolksonomyManager {
     );
 
     await _daoTransientFolksonomy.put(barcode, <FolksonomyOperation>[
-      ...getPendingOperations(barcode),
+      ...getPendingOperations(barcode) ?? <FolksonomyOperation>[],
       FolksonomyOperation(type: FolksonomyAction.add, tag: newProductTag),
     ]);
     unawaited(serverPerformActions(barcode));
@@ -56,7 +57,7 @@ class FolksonomyManager {
     );
 
     await _daoTransientFolksonomy.put(barcode, <FolksonomyOperation>[
-      ...getPendingOperations(barcode),
+      ...getPendingOperations(barcode) ?? <FolksonomyOperation>[],
       FolksonomyOperation(type: FolksonomyAction.edit, tag: editedProductTag),
     ]);
     unawaited(serverPerformActions(barcode));
@@ -75,7 +76,7 @@ class FolksonomyManager {
     );
 
     await _daoTransientFolksonomy.put(barcode, <FolksonomyOperation>[
-      ...getPendingOperations(barcode),
+      ...getPendingOperations(barcode) ?? <FolksonomyOperation>[],
       FolksonomyOperation(type: FolksonomyAction.remove, tag: tagToDelete),
     ]);
     unawaited(serverPerformActions(barcode));
@@ -90,9 +91,11 @@ class FolksonomyManager {
 
   Future<void> serverPerformActions(String barcode) async {
     while (true) {
-      final FolksonomyOperation? operation = _getFirstPendingOperation(barcode);
+      final FolksonomyOperation? operation = getPendingOperations(
+        barcode,
+      )?.firstOrNull;
       if (operation == null) {
-        break;
+        return;
       }
 
       try {
@@ -107,7 +110,7 @@ class FolksonomyManager {
         await serverRefresh(barcode);
 
         final List<FolksonomyOperation> pendingOperations =
-            getPendingOperations(barcode);
+            getPendingOperations(barcode) ?? <FolksonomyOperation>[];
         if (pendingOperations.isNotEmpty) {
           pendingOperations.removeAt(0);
           if (pendingOperations.isEmpty) {
@@ -117,7 +120,7 @@ class FolksonomyManager {
           }
         }
       } catch (e) {
-        break;
+        return;
       }
     }
   }
@@ -209,9 +212,6 @@ class FolksonomyManager {
     return token.value;
   }
 
-  FolksonomyOperation? _getFirstPendingOperation(final String barcode) =>
-      _daoTransientFolksonomy.getFirst(barcode);
-
-  List<FolksonomyOperation> getPendingOperations(final String barcode) =>
+  List<FolksonomyOperation>? getPendingOperations(final String barcode) =>
       _daoTransientFolksonomy.get(barcode);
 }

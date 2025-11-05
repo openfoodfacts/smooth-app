@@ -4,20 +4,21 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
-import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_manager.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_operation.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode, this._localDatabase)
-    : super(const FolksonomyStateLoading()) {
+  FolksonomyProvider(this.barcode, LocalDatabase localDatabase)
+    : _daoFolksonomy = DaoFolksonomy(localDatabase),
+      _folksonomyManager = FolksonomyManager(localDatabase),
+      super(const FolksonomyStateLoading()) {
     unawaited(_init());
   }
 
   final String barcode;
-  final LocalDatabase _localDatabase;
-  late final DaoFolksonomy _daoFolksonomy;
-  late final FolksonomyManager _folksonomyManager;
+  final DaoFolksonomy _daoFolksonomy;
+  final FolksonomyManager _folksonomyManager;
   final List<ProductTag> _tags = <ProductTag>[];
 
   // Display tags from local database first (to see it offline), then update from API.
@@ -26,7 +27,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       value = const FolksonomyStateLoading();
     }
 
-    _refreshDisplayableTags();
+    unawaited(_refreshDisplayableTags());
 
     try {
       await _folksonomyManager.serverRefresh(barcode);
@@ -40,7 +41,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   Future<void> addTag(String key, String value) async {
     try {
       await _folksonomyManager.addTag(barcode, key, value);
-      _refreshDisplayableTags();
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       this.value = FolksonomyStateError(
         error: e,
@@ -58,7 +59,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         newValue,
         _getCurrentTagVersion(key) + 1,
       );
-      _refreshDisplayableTags();
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
@@ -75,7 +76,7 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         key,
         _getCurrentTagVersion(key),
       );
-      _refreshDisplayableTags();
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
@@ -110,9 +111,6 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   }
 
   Future<void> _init() async {
-    _daoFolksonomy = DaoFolksonomy(_localDatabase);
-    _folksonomyManager = FolksonomyManager(_localDatabase);
-
     await fetchProductTags();
     unawaited(
       _folksonomyManager.serverPerformActions(barcode),
@@ -122,8 +120,9 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
   Future<void> _refreshDisplayableTags() async {
     final List<ProductTag> localTags =
         await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
-    final List<FolksonomyOperation> pendingOperations = _folksonomyManager
-        .getPendingOperations(barcode);
+    final List<FolksonomyOperation> pendingOperations =
+        _folksonomyManager.getPendingOperations(barcode) ??
+        <FolksonomyOperation>[];
 
     for (final FolksonomyOperation operation in pendingOperations) {
       final FolksonomyAction type = operation.type;

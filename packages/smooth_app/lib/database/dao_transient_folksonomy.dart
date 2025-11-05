@@ -1,34 +1,8 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
-
-class FolksonomyOperation {
-  FolksonomyOperation({required this.type, required this.tag});
-
-  final FolksonomyAction type;
-  final ProductTag tag;
-
-  Map<String, dynamic> toJson() => <String, dynamic>{
-    'type': type.name,
-    'tag': tag.toJson(),
-  };
-
-  static FolksonomyOperation fromJson(Map<String, dynamic> json) =>
-      FolksonomyOperation(
-        type: FolksonomyAction.values.byName(json['type'] as String),
-        tag: ProductTag.fromJson(json['tag'] as Map<String, dynamic>),
-      );
-}
-
-class TransientFolksonomy {
-  const TransientFolksonomy(this.barcode, this.operations);
-
-  final String barcode;
-  final String operations;
-}
+import 'package:smooth_app/pages/folksonomy/folksonomy_operation.dart';
 
 class DaoTransientFolksonomy extends AbstractDao {
   DaoTransientFolksonomy(super.localDatabase);
@@ -39,17 +13,17 @@ class DaoTransientFolksonomy extends AbstractDao {
   Future<void> init() async => Hive.openBox<String>(_hiveBoxName);
 
   @override
-  void registerAdapter() {
-    // We don't need it here since we encode/decode Strings.
-  }
+  void registerAdapter() {}
 
   Box<String> _getBox() => Hive.box<String>(_hiveBoxName);
 
-  List<FolksonomyOperation> get(final String barcode) =>
-      _getFolksonomyOperationsFromJson(_getBox().get(barcode) ?? '[]');
-
-  FolksonomyOperation? getFirst(final String barcode) =>
-      get(barcode).firstOrNull;
+  List<FolksonomyOperation>? get(final String barcode) {
+    final String? value = _getBox().get(barcode);
+    if (value == null) {
+      return null;
+    }
+    return _getFolksonomyOperationsFromJson(value);
+  }
 
   List<String> getAllBarcodes() =>
       _getBox().keys.map((dynamic barcode) => barcode.toString()).toList();
