@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_page.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -37,20 +35,10 @@ class ProductFooterAddPropertyButton extends StatelessWidget {
       return;
     }
 
-    final FolksonomyProvider provider = FolksonomyProvider(
-      product.barcode!,
-      context.read<LocalDatabase>(),
-    );
-
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext context) =>
-            FolksonomyPage(product: product, provider: provider),
+        builder: (BuildContext context) => FolksonomyPage(product: product),
       ),
     );
-
-    if (context.mounted) {
-      await provider.fetchProductTags();
-    }
   }
 }

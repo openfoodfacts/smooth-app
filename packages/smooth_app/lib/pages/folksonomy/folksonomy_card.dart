@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +20,7 @@ class FolksonomyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
-      create: (_) =>
+      create: (BuildContext context) =>
           FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: Provider<Product>.value(
         value: product,
