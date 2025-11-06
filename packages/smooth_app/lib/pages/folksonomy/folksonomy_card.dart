@@ -72,10 +72,7 @@ Future<void> _openFolksonomyPage(BuildContext context) async {
   final Product product = context.read<Product>();
   await Navigator.of(context).push(
     MaterialPageRoute<void>(
-      builder: (BuildContext lContext) => FolksonomyPage(
-        product: product,
-        provider: context.read<FolksonomyProvider>(),
-      ),
+      builder: (BuildContext lContext) => FolksonomyPage(product: product),
     ),
   );
   if (context.mounted) {
@@ -152,10 +149,6 @@ class _FolksonomyCardHeadIcon extends StatelessWidget {
           FolksonomyStateLoaded(tags: final List<ProductTag> tags) => getIcon(
             tags,
           ),
-          FolksonomyStateAddedItem(tags: final List<ProductTag> tags) =>
-            getIcon(tags),
-          FolksonomyStateRemovedItem(tags: final List<ProductTag> tags) =>
-            getIcon(tags),
           _ => EMPTY_WIDGET,
         };
       },
