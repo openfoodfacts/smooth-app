@@ -20,6 +20,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -95,6 +96,7 @@ class LocalDatabase extends ChangeNotifier {
       DaoInt(localDatabase),
       DaoStringListMap(localDatabase),
       DaoTransientOperation(localDatabase),
+      DaoTransientFolksonomy(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();
