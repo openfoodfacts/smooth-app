@@ -2758,7 +2758,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Випробування",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4174,9 +4174,9 @@
   "guide_open_products_facts_folksonomy_paragraph2": "Ви можете додати будь-які ключі та значення, наприклад: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
   "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_open_preferences_button_title": "Open food налаштування",
   "guide_coming_soon_button_title": "Незабаром!",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_learn_more_subtitle": "Торкніться, щоб дізнатися більше",
   "preview_badge": "Попередній перегляд",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4507,7 +4507,7 @@
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Скарга",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4535,11 +4535,11 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Відкрити зовнішнє посилання",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Зовнішні посилання можуть бути небезпечними. Ви справді хочете це відвідати?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -4721,7 +4721,7 @@
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Випробування",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
@@ -4733,7 +4733,7 @@
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Роки",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
@@ -4845,7 +4845,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Ціни додано",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5078,19 +5078,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Відкрийте для себе Open Beauty Facts.",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Відкрийте для себе Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Відкрийте для себе Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Відкрийте для себе Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5557,12 +5557,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Деталі місцезнаходження",
   "location_map_details_name": "Ім’я",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Вулиця",
+  "location_map_details_city": "Місто",
+  "location_map_details_postcode": "Поштовий індекс",
   "location_map_details_country": "Країна",
-  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_coordinates": "Координати",
   "location_map_details_osm_id": "OSM ID"
 }
