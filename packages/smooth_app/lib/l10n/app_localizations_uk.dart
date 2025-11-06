@@ -1954,11 +1954,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Багатий на клітковину, джерело заліза…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Справедлива торгівля, Макс Гейфелар…';
 
   @override
   String get edit_product_form_item_stores_title => 'Магазини';
@@ -1971,19 +1971,18 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'Хороші практики: Магазини';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Додайте магазин, де ви знайшли цей товар';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
-      'Walmart';
+      'Сільпо';
 
   @override
-  String get edit_product_form_item_stores_explanation_good_examples_2 =>
-      'Carrefour';
+  String get edit_product_form_item_stores_explanation_good_examples_2 => 'АТБ';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_3 =>
@@ -2001,7 +2000,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'Належні практики: Походження';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
@@ -2009,11 +2008,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Яловичина з Аргентини';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Соя не походить з Європейського Союзу';
 
   @override
   String get edit_product_form_item_countries_title => 'Країна';
@@ -2027,11 +2026,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'Належні практики: Країни';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Країни, де продукт широко доступний** (не включаючи магазини, що спеціалізуються на іноземних товарах).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'Код відстеження';
@@ -2045,11 +2044,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'Належні практики: Коди відстеження';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'У цьому розділі ви можете ввести коди, пов\'язані з **маркуванням пакування**, **ідентифікаційними маркуваннями** або **маркуваннями здоров\'я**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
@@ -2188,7 +2187,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Спочатку виберіть, чи **значення вказані**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2200,7 +2199,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Відсутнє поле?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
@@ -2912,7 +2911,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_proof_find => 'Виберіть доказ';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Змінити доказ';
 
   @override
   String get prices_proof_receipt => 'Квитанція';
@@ -2939,11 +2938,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Визначте, в якій області ви проживаєте';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+  String get prices_privacy_warning_message_bullet_2 => 'Знайте, що купуєте';
 
   @override
   String get prices_privacy_warning_sub_message =>
@@ -2953,31 +2951,31 @@ class AppLocalizationsUk extends AppLocalizations {
   String get i_refuse => 'Відмовляюсь';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Я приймаю';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Змінити валюту?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'Ваша поточна валюта – **$currency**. Бажаєте змінити її на **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Так, використовувати $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Ні, залишити $currency';
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Знайте більше про Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Виконано';
@@ -3090,7 +3088,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_validation_assistant => 'Помічник Перевірки Ціни';
 
   @override
-  String get prices_challenges_page => 'Challenges';
+  String get prices_challenges_page => 'Випробування';
 
   @override
   String get prices_multiple_proof_addition_system => 'Додайте кілька доказів';
@@ -3225,7 +3223,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'Належні практики: Назва продукту';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
@@ -3287,44 +3285,45 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'Належні практики: Бренди';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Введіть **всі бренди продукту**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title =>
+      'Основний бренд';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      '**Основний бренд**, який зазвичай чітко зображений на передній стороні пакування, слід **вводити першим**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'Інші бренди';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Коли продається **великою компанією**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Актимель** продається компанією **Данон**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Коли продається з брендом, **перекладеним кількома мовами**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Nature Valley** іноді написано як **Val Nature**';
 
   @override
-  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
+  String get add_basic_details_product_brand_help_good_examples_1 => 'Нутелла';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_2 =>
-      'Oreo, Mondelez';
+      'Орео, Монделез';
 
   @override
   String get quantity => 'Кількість і вага';
@@ -3335,11 +3334,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Належні практики: Кількість';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Скопіюйте значення, зазначене на товарі, і **не забудьте про одиниці вимірювання**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
@@ -3351,7 +3350,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 г**\n(для продукту з 3 коробками, кожна по 150 г)';
 
   @override
   String get barcode => 'Код товару';
@@ -4407,7 +4406,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Щоб винагородити кращі продукти в межах категорії, ми застосовуємо **бонуси та штрафи на основі кількох критеріїв**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4454,7 +4453,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Як громадяни можуть допомогти?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
@@ -4509,7 +4508,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about **the level of food processing**.';
+      'Групи NOVA інформують вас про **рівень обробки харчових продуктів**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4590,7 +4589,7 @@ class AppLocalizationsUk extends AppLocalizations {
       '**Загальна мета ультраобробки полягає у створенні брендових**, **зручних** (довготривалих, готових до споживання), **привабливих** (надзвичайно смачних) та **високоприбуткових** (з дешевими інгредієнтами) харчових продуктів, призначених для витіснення всіх інших груп харчових продуктів. Ультраоброблені харчові продукти зазвичай мають привабливу упаковку та інтенсивно рекламуються.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Небезпека для здоров\'я';
 
   @override
   String get guide_nova_explanations_arg5_text =>
@@ -4598,7 +4597,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Країни рекомендують обмежити їх';
 
   @override
   String get guide_nova_explanations_arg6_text =>
@@ -4608,83 +4607,83 @@ class AppLocalizationsUk extends AppLocalizations {
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'Вітаємо в Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Що таке Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts - це некомерційна, спільна, безкоштовна та відкрита база даних про харчові продукти з усього світу.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
       'Ми вважаємо, що кожен повинен мати доступ до інформації про те, що він їсть. Збираючи дані про інгредієнти, алергени, харчову цінність та інше, **ми даємо споживачам можливість робити обґрунтований вибір** і сприяємо **підвищенню прозорості** в харчовій промисловості.';
 
   @override
-  String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+  String get guide_open_food_facts_features_title => 'Функції Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Отримуйте сповіщення про небажані інгредієнти';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Поради щодо створення чудових фотографій';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Що не робити';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Уникати тіней та відблиску.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Без розмитого або нечіткого тексту.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрізайте частини тексту.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Уникайте завантажених фонів.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Що робити';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Використовуйте гарне, рівномірне освітлення.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Переконайтеся, що текст чіткий та читабельний.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Захопіть весь список інгредієнтів.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Тримайте продукт на плоскій поверхні.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Допоможіть нам створити «Вікіпедію їжі»';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Оцінка за поживну якість';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Оцінка, щоб уникнути ультраоброблених продуктів';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Оцінка для планети';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4692,11 +4691,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Вітаємо в Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Що таке Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4708,60 +4707,61 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Функції Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Отримуйте сповіщення про небажані інгредієнти';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Чи має ваш улюбленець алергію на якісь інгредієнти? Ви можете створити список косметичних інгредієнтів, яких слід уникати, прямо в додатку!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Поради щодо створення чудових фотографій';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Що не робити';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Уникати тіней та відблиску.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Без розмитого або нечіткого тексту.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрізайте частини тексту.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Уникайте завантажених фонів.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Що робити';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Використовуйте гарне, рівномірне освітлення.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Переконайтеся, що текст чіткий та читабельний.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Захопіть весь список інгредієнтів.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Тримайте продукт на плоскій поверхні.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Примітка щодо підрахунку очок';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
@@ -4772,15 +4772,15 @@ class AppLocalizationsUk extends AppLocalizations {
       'https://world.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title => 'Вітаємо в Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Що таке Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts - це спільна база даних **косметичної продукції**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
@@ -4788,11 +4788,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Функції Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Отримуйте сповіщення про небажані інгредієнти';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
@@ -4800,56 +4800,57 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Поради щодо створення чудових фотографій';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Що не робити';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Уникати тіней та відблиску.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Без розмитого або нечіткого тексту.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрізайте частини тексту.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Уникайте завантажених фонів.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Що робити';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Використовуйте гарне, рівномірне освітлення.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Переконайтеся, що текст чіткий та читабельний.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Захопіть весь список інгредієнтів.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Зробіть стільки фотографій, скільки потрібно, якщо пляшка вигнута.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Можливо, вам доведеться відклеїти етикетку, щоб побачити список інгредієнтів.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Тримайте продукт на плоскій поверхні.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'Примітка щодо підрахунку очок';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
@@ -4860,11 +4861,11 @@ class AppLocalizationsUk extends AppLocalizations {
       'https://world.openfoodfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Вітаємо в Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Що таке Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4875,7 +4876,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Зараз мало компаній, які мають великі бази даних про ціни на продукцію на рівні штрих-коду. Цих цін нема у вільному доступі, а продаються вони за високу ціну приватним гравцям, дослідникам та іншим організаціям, які можуть їх собі дозволити.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Як Open Prices працюють?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4883,14 +4884,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Збирайте фотографії цінників у торгових залах';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Збирайте фотографії чеків';
 
   @override
-  String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+  String get guide_open_prices_why_title => 'Чому Open Food Facts це робить?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
@@ -4898,22 +4898,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Відстежуйте динаміку цін з часом';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Дивіться на **еволюцію цін**: шринкфляція, дефляція, ми можемо відстежувати їх разом!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Порівняйте ціни поруч із вами';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Коли ми дізнаємося більше про ціни, ви зможете знайти **найдешевші магазини навколо вас**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Ви розглядали можливість зібрати ціни з веб-сайтів роздрібних торговців?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
@@ -4937,11 +4938,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Вітаємо в Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Що таке Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4953,7 +4954,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Функції Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -4961,7 +4962,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Вуглецевий слід деяких продуктів';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
@@ -4969,7 +4970,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Індекс ремонтопридатності для багатьох виробів';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
@@ -4977,7 +4978,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Знайдіть способи пожертвувати/перепродати свій продукт';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
@@ -4985,15 +4986,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Яка інформація корисна?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Для такого широкого спектру товарів **дані, які ми збираємо, є гнучкими**. Для цього **ми створили Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title => 'Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
@@ -5001,7 +5001,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Ви можете додати будь-які ключі та значення, наприклад: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
@@ -5012,13 +5012,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'https://en.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title => 'Open food налаштування';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Незабаром!';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Торкніться, щоб дізнатися більше';
 
   @override
   String get preview_badge => 'Попередній перегляд';
@@ -5312,7 +5312,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_footer_action_open_website => 'Відкрити сайт';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Скарга';
 
   @override
   String get product_footer_action_contributor_guide => 'Допомога';
@@ -5333,11 +5333,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title =>
+      'Відкрити зовнішнє посилання';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Зовнішні посилання можуть бути небезпечними. Ви справді хочете це відвідати?';
 
   @override
   String get prices_products_empty_title => 'Ціна недоступна';
@@ -5479,7 +5480,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_stats_shop_import => 'Імпорт магазину';
 
   @override
-  String get prices_stats_challenges => 'Challenges';
+  String get prices_stats_challenges => 'Випробування';
 
   @override
   String get prices_stats_linked_to_price_tag =>
@@ -5489,7 +5490,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get prices_stats_currencies => 'Валюти';
 
   @override
-  String get prices_stats_years => 'Years';
+  String get prices_stats_years => 'Роки';
 
   @override
   String get prices_stats_by_source_title => 'Ціни та докази за джерелом';
@@ -5581,7 +5582,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_app_bar_products_modified => 'Змінені товари';
 
   @override
-  String get preferences_app_bar_prices_added => 'Prices added';
+  String get preferences_app_bar_prices_added => 'Ціни додано';
 
   @override
   String get preferences_app_bar_see_all_stats => 'Переглянути всю статистику';
@@ -5779,18 +5780,20 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відкрийте для себе факти про відкриту їжу';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Відкрийте для себе Open Beauty Facts.';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Відкрийте для себе Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title =>
+      'Відкрийте для себе Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Відкрийте для себе Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Часті запитання';
@@ -6159,25 +6162,25 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Деталі місцезнаходження';
 
   @override
   String get location_map_details_name => 'Ім’я';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Вулиця';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Місто';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Поштовий індекс';
 
   @override
   String get location_map_details_country => 'Країна';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Координати';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
