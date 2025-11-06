@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +20,7 @@ class FolksonomyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<FolksonomyProvider>(
-      create: (_) =>
+      create: (BuildContext context) =>
           FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: Provider<Product>.value(
         value: product,
@@ -84,14 +86,6 @@ class _FolksonomyCard extends StatelessWidget {
                           tags: final List<ProductTag> tags,
                         ) =>
                           getIcon(tags),
-                        FolksonomyStateAddedItem(
-                          tags: final List<ProductTag> tags,
-                        ) =>
-                          getIcon(tags),
-                        FolksonomyStateRemovedItem(
-                          tags: final List<ProductTag> tags,
-                        ) =>
-                          getIcon(tags),
                         _ => EMPTY_WIDGET,
                       };
                     },
@@ -117,10 +111,7 @@ class _FolksonomyCard extends StatelessWidget {
   ) async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext lContext) => FolksonomyPage(
-          product: product,
-          provider: context.read<FolksonomyProvider>(),
-        ),
+        builder: (BuildContext lContext) => FolksonomyPage(product: product),
       ),
     );
     if (context.mounted) {

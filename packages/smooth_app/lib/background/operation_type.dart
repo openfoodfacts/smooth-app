@@ -40,7 +40,8 @@ enum OperationType {
   languageRefresh('L', 'LANGUAGE_REFRESH'),
   addPrice('A', 'ADD_PRICE'),
   addOtherPrice('E', 'ADD_OTHER_PRICE'),
-  details('D', 'PRODUCT_EDIT');
+  details('D', 'PRODUCT_EDIT'),
+  folksonomy('X', 'UPDATE_PRODUCT_TAG');
 
   const OperationType(this.header, this.processName);
 
@@ -88,6 +89,9 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
+    folksonomy => throw Exception(
+      'Not implemented yet',
+    ), // FIXME: Implement correct background task process for folksonomy.
   };
 
   bool matches(final TransientOperation action) =>
@@ -109,6 +113,7 @@ enum OperationType {
     OperationType.fullRefresh => 'Refreshing the full local database',
     OperationType.languageRefresh =>
       'Refreshing the local database to a new language',
+    OperationType.folksonomy => 'Updating folksonomy product tags',
   };
 
   static int getSequentialId(final TransientOperation operation) {
