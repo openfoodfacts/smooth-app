@@ -348,7 +348,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Підтримати проєкт",
+  "contribute": "Долучитись",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -1246,7 +1246,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Блог",
   "faq": "ЧаПИ",
-  "discover": "Дізнатись більше",
+  "discover": "Огляд",
   "how_to_contribute": "Як зробити внесок",
   "hint_knowledge_panel_message": "Ви можете торкнутися будь-якої частини картки, щоб дізнатися більше про те, що ви бачите. Спробуй зараз!",
   "@hint_knowledge_panel_message": {
@@ -4789,7 +4789,7 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Підтримати проєкт",
+  "preferences_contribute_title": "Долучитись",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
