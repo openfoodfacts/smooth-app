@@ -4413,11 +4413,11 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Hvordan kan vi hver især hjælpe?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Alle mennesker kan hjælpe med at indsamle og strukturere information, der til stede på produkter eller som kan trækkes ud af dem. Det kunne være information om **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4570,11 +4570,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'Velkommen til OpenFoodFacts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Hvad er OpenFoodFacts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -5049,7 +5049,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get product_image_ingredients_accessibility_label =>
-      'Bilde av ingredienser';
+      'Billede af ingredienser';
 
   @override
   String get product_image_nutrition_accessibility_label => 'Ernæringsbillede';

@@ -3970,8 +3970,8 @@
   "guide_greenscore_transparency_title": "Et øget behov for gennemsigtighed for bedre at kunne måle og reducere miljøpåvirkninger",
   "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
   "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_arg1_title": "Hvordan kan vi hver især hjælpe?",
+  "guide_greenscore_transparency_arg1_text": "Alle mennesker kan hjælpe med at indsamle og strukturere information, der til stede på produkter eller som kan trækkes ud af dem. Det kunne være information om **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Hvordan producenter kan hjælpe",
   "guide_greenscore_transparency_arg2_text": "Producenter kan sende os deres oplysninger direkte via vores gratis platform for producenter.",
   "guide_greenscore_better_product_title": "Hvilket produkt er bedst for planeten?",
@@ -4024,11 +4024,11 @@
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Velkommen til OpenFoodFacts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Hvad er OpenFoodFacts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4271,7 +4271,7 @@
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Bilde av ingredienser",
+  "product_image_ingredients_accessibility_label": "Billede af ingredienser",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
