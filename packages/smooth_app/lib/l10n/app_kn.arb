@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ಫೋಕ್ಸೊನಮಿಯ ಗುಣಲಕ್ಷಣಗಳು ಯಾವುವು?",
+  "folksonomy_explanation_card_body": "ಗುಣಲಕ್ಷಣಗಳು **ಕೀ-ಮೌಲ್ಯ** ಆಧಾರಿತವಾಗಿವೆ.\n\nಈ ಗುಣಲಕ್ಷಣಗಳನ್ನು ಬಳಕೆದಾರರು ಯಾವುದೇ ರೀತಿಯ ಬಳಕೆಗಾಗಿ ರಚಿಸುತ್ತಾರೆ ಮತ್ತು ಸಲ್ಲಿಸುತ್ತಾರೆ.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
