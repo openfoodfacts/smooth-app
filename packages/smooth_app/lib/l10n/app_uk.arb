@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Які атрибути фолксономії?",
+  "folksonomy_explanation_card_body": "Атрибути базуються на парі **ключ-значення**.\n\nЦі властивості створюються та зберігаються користувачами для будь-якого використання.",
   "folksonomy_action_external_link_title": "Відкрити зовнішнє посилання",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
