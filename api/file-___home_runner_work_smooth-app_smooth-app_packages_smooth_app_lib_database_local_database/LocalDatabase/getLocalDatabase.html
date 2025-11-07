@@ -98,6 +98,7 @@
     DaoInt(localDatabase),
     DaoStringListMap(localDatabase),
     DaoTransientOperation(localDatabase),
+    DaoTransientFolksonomy(localDatabase),
   ];
   for (final AbstractDao dao in daos) {
     dao.registerAdapter();
