@@ -1,5 +1,5 @@
 {
-  "app_name": "Avoimet ruokatiedot",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1052,15 +1052,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Lisää luokka laskeaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_category": "Lisää kategoria laskeaksesi Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Lisää ravintosisältö saadaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_nutrition_facts": "Lisää ravitsemustietoja Nutri-Scoren laskemiseksi.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Lisää ravitsemustiedot ja luokka laskeaksesi Nutri-pisteytyksen.",
+  "product_improvement_add_nutrition_facts_and_category": "Lisää ravintosisältö ja kategoria Nutri-Scoren laskemiseksi.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
