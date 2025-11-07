@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "लोकस्वरशास्त्रस्य विशेषताः के सन्ति ?",
+  "folksonomy_explanation_card_body": "विशेषताः **कुंजी-मूल्यं** आधारिताः सन्ति ।\n\nएते गुणाः उपयोक्तृभिः किमपि प्रकारस्य उपयोगाय निर्मिताः सञ्चिकाः च भवन्ति ।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
