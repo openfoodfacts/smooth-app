@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Folksonomy 속성은 무엇인가요?",
+  "folksonomy_explanation_card_body": "속성은 **키-값** 기반입니다.\n\n이러한 속성은 사용자가 어떤 용도로든 만들고 보관합니다.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
