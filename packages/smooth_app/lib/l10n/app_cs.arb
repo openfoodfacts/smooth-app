@@ -401,7 +401,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Přispějte k cenám požadavkem na export dat z vašich věrnostních karet dle GDPR",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -3916,8 +3916,8 @@
   "guide_nutriscore_v2_new_logo_text": "Od této chvíle může logo zobrazovat zmínku „**Nový výpočet**“, aby bylo jasné, že se skutečně jedná o nový výpočet.",
   "guide_nutriscore_v2_new_logo_image_caption": "Logo nového Nutri-Score",
   "guide_nutriscore_v2_where_title": "Kde najít nový výpočet Nutri-Score?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score se používá v 7 zemích: Francii, Německu, Belgii, Španělsku, Lucembursku, Nizozemsku a Švýcarsku.",
+  "guide_nutriscore_v2_where_paragraph2": "Výrobci mají nejpozději **2 roky** od podpisu vyhlášky na to, aby starý výpočet **nahradili** novým.",
   "guide_nutriscore_v2_where_paragraph3": "Bez čekání **už najdete v aplikaci OpenFoodFacts** nový výpočet, včetně případů, kdy výrobci neaktualizovali skóre.",
   "guide_nutriscore_v2_unchanged_title": "Co se nemění",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
@@ -3958,9 +3958,9 @@
   "guide_greenscore_lca_arg3_text7": "Mořská a sladká voda (částice, acidifikace, eutrofizace)",
   "guide_greenscore_lca_arg3_text8": "Vyčerpání zdrojů.",
   "guide_greenscore_bonuses_penalties_title": "Bonusy a sankce",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "Abychom odměnili lepší produkty v dané kategorii, uplatňujeme **bonusy a sankce na základě několika kritérií**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Způsob výroby",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bonus** se uděluje výrobkům, které mají **oficiální etiketu, označení nebo certifikace, která zaručuje přínos pro životní prostředí** (organický obchod, spravedlivý obchod, HVE, označení Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Původ přísad",
   "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Ohrožené druhy",
@@ -3970,8 +3970,8 @@
   "guide_greenscore_transparency_title": "Zvýšená potřeba transparentnosti pro lepší měření a snižování dopadů na životní prostředí",
   "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
   "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_arg1_title": "Jak mohou občané pomoci?",
+  "guide_greenscore_transparency_arg1_text": "Všichni občané nám mohou pomoci shromáždit a strukturovat informace, které jsou na produktech uvedeny nebo z nich lze odvodit, například informace o **obalech**: „Mission Emballages“: rozsáhlý společný inventář obalů pro všechny potravinářské výrobky (ve francouzštině).",
   "guide_greenscore_transparency_arg2_title": "Jak mohou výrobci pomoci",
   "guide_greenscore_transparency_arg2_text": "Výrobci nám mohou zasílat své informace přímo prostřednictvím naší bezplatné platformy pro výrobce.",
   "guide_greenscore_better_product_title": "Který produkt je lepší pro planetu?",
