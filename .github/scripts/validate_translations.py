@@ -69,6 +69,17 @@ BRAND_TERMS = {
     'Open Pet Food Facts': [
         'search_product_filter_visibility_subtitle',
     ],
+    'Open Prices': [
+        'guide_open_prices_how_title',
+        'guide_open_prices_scrapping_paragraph1',
+        'guide_open_prices_scrapping_paragraph2',
+        'guide_open_prices_title',
+        'guide_open_prices_what_is_open_prices_paragraph1',
+        'guide_open_prices_what_is_open_prices_title',
+        'preferences_faq_discover_op_title',
+        'preferences_prices_newest_subtitle',
+        'prices_menu_know_more',
+    ],
 }
 
 # URL keys to validate
