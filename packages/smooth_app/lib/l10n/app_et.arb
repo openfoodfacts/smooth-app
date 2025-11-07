@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Mis on folksonoomia atribuudid?",
+  "folksonomy_explanation_card_body": "Atribuudid on **võtme-väärtuse** põhised.\n\nNeed omadused loovad ja salvestavad kasutajad mis tahes otstarbeks.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
