@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "Depuis 2018, avec NutriNet-Santé, les premiers liens entre **la consommation d'aliments ultra-transformés et l'augmentation des risques de cancer, de maladies cardiovasculaires et de diabète ont été soulignés**. Aujourd'hui, plus de 90 études dans le monde confirment ces conclusions.\nLes associations les plus fortes portent sur l'**obésité, la mortalité cardiovasculaire et les symptômes dépressifs**. Pour les enfants, les effets sont principalement observés sur les déséquilibres de poids et de lipide.",
   "guide_nova_explanations_arg6_title": "Les pays recommandent de les limiter",
   "guide_nova_explanations_arg6_text": "Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.",
-  "guide_nova_share_link": "https://world-fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments",
+  "guide_nova_share_link": "https://world-fr.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
