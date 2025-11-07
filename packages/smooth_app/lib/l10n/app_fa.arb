@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ویژگی‌های فولکسونومی چیست؟",
+  "folksonomy_explanation_card_body": "ویژگی‌ها بر اساس **کلید-مقدار** هستند.\n\nاین ویژگی‌ها توسط کاربران برای هر نوع استفاده‌ای ایجاد و ثبت می‌شوند.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
