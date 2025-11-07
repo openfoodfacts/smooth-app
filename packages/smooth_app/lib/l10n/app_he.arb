@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "מהם מאפייני פולקסונומיה?",
+  "folksonomy_explanation_card_body": "מאפיינים מבוססים על **ערך-מפתח**.\n\nמאפיינים אלה נוצרים ומשויכים על ידי משתמשים עבור כל סוג של שימוש.",
   "folksonomy_action_external_link_title": "פתיחת קישור חיצוני",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
