@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "फोक्सोनोमीका विशेषताहरू के के हुन्?",
+  "folksonomy_explanation_card_body": "विशेषताहरू **कुञ्जी-मान** मा आधारित हुन्छन्।\n\nयी गुणहरू प्रयोगकर्ताहरूद्वारा कुनै पनि प्रकारको प्रयोगको लागि सिर्जना र फाइल गरिन्छन्।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
