@@ -394,7 +394,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "翻訳はプロジェクトの重要なタスクの1つです",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "スキルをオープンフードファクトに貢献しましょう。スキルプールに参加しましょう！",
+  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -689,7 +689,7 @@
   "nutritional_facts_input_button_label": "栄養成分表を入力する",
   "nutritional_facts_added": "栄養成分表が追加されました",
   "categories_added": "カテゴリーが追加されました。",
-  "new_product_title_nutriscore": "ニュートリスコアを計算する",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "食品カテゴリと栄養価を満たして入手する",
   "new_product_title_environmental_score": "Compute the Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
@@ -3818,9 +3818,9 @@
   },
   "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
   "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "ニュートリスコアは適用されません（新しい計算）",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "グリーンスコアA",
   "environmental_score_b_new": "グリーンスコアB",
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
   "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
   "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-ja.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5294,7 +5294,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "オープン価格コミュニティによって追加された最新の価格",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

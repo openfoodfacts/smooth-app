@@ -3829,7 +3829,7 @@
   "environmental_score_e_new": "گرين اسڪور اي",
   "environmental_score_unknown_new": "اڻڄاتل گرين اسڪور",
   "environmental_score_not_applicable_new": "گرين اسڪور لاڳو ناهي",
-  "nova_group_generic_new": "الٽرا پروسيس ٿيل کاڌو - نووا گروپس",
+  "nova_group_generic_new": "Ultra-processed foods - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
   "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
   "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-sd.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5294,7 +5294,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "اوپن پرائسز ڪميونٽي پاران شامل ڪيل تازيون قيمتون",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "کاڌي جي حقيقتن کي کولڻ ۾ مدد ڪرڻ جا آسان طريقا",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

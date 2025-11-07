@@ -1056,11 +1056,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "新增營養成分和類別以計算營養評分。",
+  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "新增營養成分和類別以計算營養評分。",
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -3830,10 +3830,10 @@
   "environmental_score_unknown_new": "未知绿色评分",
   "environmental_score_not_applicable_new": "绿色评分不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",
-  "nova_group_1": "Nova 分组 — 第 1 级",
-  "nova_group_2": "Nova 分组 — 第 2 级",
-  "nova_group_3": "Nova 分组 — 第 3 级",
-  "nova_group_4": "Nova 分组 — 第 4 级",
+  "nova_group_1": "NOVA Group 1",
+  "nova_group_2": "NOVA Group 2",
+  "nova_group_3": "NOVA Group 3",
+  "nova_group_4": "NOVA Group 4",
   "nova_group_unknown": "未知 NOVA 分组信息",
   "nutrition_facts": "营养水平",
   "faq_title_partners": "非政府组织的合作伙伴和赞助人",
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
   "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
   "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-zh.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5294,7 +5294,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "公开价格社区添加的最新价格",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "帮助开放食品事实的简单方法",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
