@@ -1,5 +1,5 @@
 {
-  "app_name": "オープンフードファクト",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -3807,7 +3807,7 @@
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "ニュートリスコア {letter} (新しい計算)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (新しい計算)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3816,7 +3816,7 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "ニュートリスコア（新しい計算）",
+  "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
   "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
