@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "Depuis 2018, avec NutriNet-Santé, les premiers liens entre **la consommation d'aliments ultra-transformés et l'augmentation des risques de cancer, de maladies cardiovasculaires et de diabète ont été soulignés**. Aujourd'hui, plus de 90 études dans le monde confirment ces conclusions.\nLes associations les plus fortes portent sur l'**obésité, la mortalité cardiovasculaire et les symptômes dépressifs**. Pour les enfants, les effets sont principalement observés sur les déséquilibres de poids et de lipide.",
   "guide_nova_explanations_arg6_title": "Les pays recommandent de les limiter",
   "guide_nova_explanations_arg6_text": "Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.",
-  "guide_nova_share_link": "https://fr.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Une note sur la qualité nutritionnelle",
   "guide_open_food_facts_scores_arg2_title": "Une note pour éviter les aliments ultra-transformés",
   "guide_open_food_facts_scores_arg3_title": "Un score pour la planète",
-  "guide_open_food_facts_share_link": "https://fr.openfoodfacts.org/openfoodfacts",
+  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Bienvenue sur Open Pet Food Facts !",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
   "guide_open_pet_food_facts_scores_title": "Note sur la notation",
   "guide_open_pet_food_facts_scores_paragraph1": "L'élaboration d'un système de notation pour les aliments pour animaux de compagnie **n'est pas une priorité actuellement**. La méthodologie serait complexe, car les besoins nutritionnels varient considérablement selon l'espèce, l'âge et l'état de santé. Nous n'avons pas encore trouvé d'équipe scientifique indépendante capable de développer un tel système.",
-  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/decouvrir",
+  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Bienvenue sur Open Beauty Facts !",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Gardez le produit sur une surface plane.",
   "guide_open_beauty_facts_scores_title": "Note sur la notation",
   "guide_open_beauty_facts_scores_paragraph1": "Contrairement aux produits alimentaires, le monde des cosmétiques ne dispose pas d'un système de notation universellement reconnu et approuvé par les pouvoirs publics, tel que le Nutri-Score. Les effets des ingrédients peuvent être très variables d'une personne à l'autre et dépendent du type de peau, des allergies et des préoccupations individuelles.",
-  "guide_open_beauty_facts_share_link": "https://world-fr.openfoodfacts.org/decouvrir",
+  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bienvenue chez Open Prices !",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
