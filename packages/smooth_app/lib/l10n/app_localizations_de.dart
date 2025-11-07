@@ -4141,16 +4141,16 @@ class AppLocalizationsDe extends AppLocalizations {
       'Ultraverarbeitete Lebensmittel - NOVA-Gruppen';
 
   @override
-  String get nova_group_1 => 'Nova-Gruppe 1';
+  String get nova_group_1 => 'NOVA-Gruppe 1';
 
   @override
-  String get nova_group_2 => 'Nova-Gruppe 2';
+  String get nova_group_2 => 'NOVA-Gruppe 2';
 
   @override
-  String get nova_group_3 => 'Nova-Gruppe 3';
+  String get nova_group_3 => 'NOVA-Gruppe 3';
 
   @override
-  String get nova_group_4 => 'Nova-Gruppe 4';
+  String get nova_group_4 => 'NOVA-Gruppe 4';
 
   @override
   String get nova_group_unknown => 'Unbekannt NOVA-Gruppe';
@@ -4637,7 +4637,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://de.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-de.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4801,7 +4801,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-de.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4889,7 +4889,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-de.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -5041,7 +5041,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-de.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';

@@ -4962,7 +4962,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://ts.openproductsfacts.org/ku tshubula';
+      'https://world-ts.openproductsfacts.org/ku tshubula';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';

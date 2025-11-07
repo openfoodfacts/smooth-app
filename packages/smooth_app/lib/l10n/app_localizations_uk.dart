@@ -4604,7 +4604,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров\'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-uk.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Вітаємо в Open Food Facts!';
@@ -4769,7 +4769,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-uk.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Вітаємо в Open Beauty Facts!';
@@ -4858,7 +4858,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-uk.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Вітаємо в Open Prices!';
@@ -5009,7 +5009,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-uk.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food налаштування';

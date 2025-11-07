@@ -4714,7 +4714,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-fi.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4954,7 +4954,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://fi.openproductsfacts.org/discover';
+      'https://world-fi.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';

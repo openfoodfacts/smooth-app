@@ -3882,16 +3882,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nova_group_generic_new => '超加工食品 - NOVA 集团';
 
   @override
-  String get nova_group_1 => 'Nova 分组 — 第 1 级';
+  String get nova_group_1 => 'NOVA 分组 — 第 1 级';
 
   @override
-  String get nova_group_2 => 'Nova 分组 — 第 2 级';
+  String get nova_group_2 => 'NOVA 分组 — 第 2 级';
 
   @override
-  String get nova_group_3 => 'Nova 分组 — 第 3 级';
+  String get nova_group_3 => 'NOVA 分组 — 第 3 级';
 
   @override
-  String get nova_group_4 => 'Nova 分组 — 第 4 级';
+  String get nova_group_4 => 'NOVA 分组 — 第 4 级';
 
   @override
   String get nova_group_unknown => '未知 NOVA 分组信息';
@@ -4355,7 +4355,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-zh.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4519,7 +4519,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-zh.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4607,7 +4607,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-zh.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4759,7 +4759,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-zh.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';

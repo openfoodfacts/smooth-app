@@ -5015,7 +5015,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://ca.openproductsfacts.org/descobrir';
+      'https://world-ca.openproductsfacts.org/descobrir';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
