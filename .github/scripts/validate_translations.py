@@ -231,7 +231,9 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
     issues = []
     
     # Pattern to match world-XX URLs
-    locale_url_pattern = re.compile(r'https://world-([a-z]{2})\.([a-z]+facts\.org)/(.+)')
+    locale_url_pattern = re.compile(r'https://world-([a-z]{2,3})\.([a-z]+facts\.org)(/[^\s<>"{}|\\^`\[\]]*)?')
+    # Pattern to match non-world locale URLs (e.g., https://en.openfoodfacts.org/)
+    simple_locale_pattern = re.compile(r'https://([a-z]{2,3})\.([a-z]+facts\.org)(/[^\s<>"{}|\\^`\[\]]*)?')
     
     for arb_file in arb_files:
         if arb_file.name == 'app_en.arb':
@@ -257,30 +259,40 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
             if en_match:
                 en_lang_code = en_match.group(1)
                 domain = en_match.group(2)
-                path = en_match.group(3)
+                path = en_match.group(3) or ''
                 
-                # Check if translation has the URL
+                # The English version has a world-XX URL
+                # Check what the translation has
                 trans_match = locale_url_pattern.search(value)
+                trans_simple_match = simple_locale_pattern.search(value)
+                
                 if trans_match:
+                    # Translation also uses world-XX format
                     trans_lang_code = trans_match.group(1)
+                    trans_domain = trans_match.group(2)
                     
-                    # The language code in the URL should match the file's locale
-                    # or be 'en' if the locale doesn't have a specific page
-                    if trans_lang_code == 'en' and locale != 'en':
-                        # This is acceptable - they're using the English version
-                        # We could validate it should be world-XX, but we need to check
-                        # if the localized version exists first
-                        expected_url = f"https://world-{locale}.{domain}/{path}"
-                        
-                        # Only flag this if we're supposed to use the locale-specific version
-                        # Check if the domain is openfoodfacts (not other *facts domains)
-                        if 'openfoodfacts' in domain:
-                            crowdin_link = generate_crowdin_link(locale, key)
-                            issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
-                    elif trans_lang_code != 'en' and trans_lang_code != locale:
-                        # They're using the wrong language code
+                    # The language code should match the file's locale for openfoodfacts.org domains
+                    # For other domains, we're more lenient
+                    if 'openfoodfacts.org' in domain and trans_lang_code != locale:
+                        # They're using world-XX but with the wrong language code
                         crowdin_link = generate_crowdin_link(locale, key)
                         issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
+                    elif trans_domain != domain:
+                        # They changed the domain (e.g., openfoodfacts.org to openbeautyfacts.org)
+                        crowdin_link = generate_crowdin_link(locale, key)
+                        issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
+                elif trans_simple_match:
+                    # Translation uses simple format (e.g., https://en.openfoodfacts.org/)
+                    # This is not ideal - should use world-XX format for openfoodfacts.org
+                    trans_lang_code = trans_simple_match.group(1)
+                    trans_domain = trans_simple_match.group(2)
+                    
+                    if 'openfoodfacts.org' in domain:
+                        # Flag this - should use world-XX format
+                        crowdin_link = generate_crowdin_link(locale, key)
+                        issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
+                # else: Translation doesn't have a recognizable URL pattern, might be completely different
+                # We don't flag this as it might be intentional
     
     return issues
 
