@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Beth yw priodoleddau Folksonomy?",
+  "folksonomy_explanation_card_body": "Mae priodoleddau'n seiliedig ar **allwedd-werth**.\n\nMae'r priodweddau hyn yn cael eu creu a'u ffeilio gan ddefnyddwyr ar gyfer unrhyw fath o ddefnyddiau.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
