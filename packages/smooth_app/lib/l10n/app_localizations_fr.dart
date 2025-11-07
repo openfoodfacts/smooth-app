@@ -4655,7 +4655,8 @@ class AppLocalizationsFr extends AppLocalizations {
       'Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.';
 
   @override
-  String get guide_nova_share_link => 'https://fr.openfoodfacts.org/nova';
+  String get guide_nova_share_link =>
+      'https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments';
 
   @override
   String get guide_open_food_facts_title => 'Bienvenue sur Open Food Facts !';
@@ -4741,7 +4742,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://fr.openfoodfacts.org/openfoodfacts';
+      'https://world-en.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4823,7 +4824,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-fr.openpetfoodfacts.org/decouvrir';
+      'https://world-en.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title =>
@@ -4913,7 +4914,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-fr.openfoodfacts.org/decouvrir';
+      'https://world-en.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Bienvenue chez Open Prices !';

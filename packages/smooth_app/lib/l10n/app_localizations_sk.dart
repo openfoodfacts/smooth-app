@@ -9,7 +9,7 @@ class AppLocalizationsSk extends AppLocalizations {
   AppLocalizationsSk([String locale = 'sk']) : super(locale);
 
   @override
-  String get app_name => 'Otvorené fakty o jedle';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -4589,7 +4589,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4672,7 +4672,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-en.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4753,7 +4753,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-en.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4841,7 +4841,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-en.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';

@@ -9,7 +9,7 @@ class AppLocalizationsUk extends AppLocalizations {
   AppLocalizationsUk([String locale = 'uk']) : super(locale);
 
   @override
-  String get app_name => 'Відкриті факти про їжу';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -431,7 +431,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get about_this_app => 'Про додаток';
 
   @override
-  String get contribute => 'Підтримати проєкт';
+  String get contribute => 'Долучитись';
 
   @override
   String get contribute_sw_development => 'Розробка програмного забезпечення';
@@ -1584,7 +1584,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get faq => 'ЧаПИ';
 
   @override
-  String get discover => 'Дізнатись більше';
+  String get discover => 'Огляд';
 
   @override
   String get how_to_contribute => 'Як зробити внесок';
@@ -4604,7 +4604,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров\'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-en.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Вітаємо в Open Food Facts!';
@@ -4687,7 +4687,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-en.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4769,7 +4769,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-en.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Вітаємо в Open Beauty Facts!';
@@ -4858,7 +4858,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-en.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Вітаємо в Open Prices!';
@@ -5535,7 +5535,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_card_project => 'Проєкт «Факти про відкриту їжу»';
 
   @override
-  String get preferences_contribute_title => 'Підтримати проєкт';
+  String get preferences_contribute_title => 'Долучитись';
 
   @override
   String get preferences_my_contributions_title => 'Мої внески';
