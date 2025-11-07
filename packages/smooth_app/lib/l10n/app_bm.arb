@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Folksonomy jogo ye mun ye?",
+  "folksonomy_explanation_card_body": "Siginidenw bɛ **key-value** sinsin.\n\nNin nafolo ninnu bɛ dabɔ ka bila baarakɛlaw fɛ baara suguya bɛɛ kama .",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
