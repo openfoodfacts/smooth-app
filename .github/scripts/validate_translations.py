@@ -257,6 +257,9 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
     
     For example, in app_fr.arb:
     - https://world-en.openfoodfacts.org/nova should be https://world-fr.openfoodfacts.org/nova
+    - https://world-en.openbeautyfacts.org/discover should be https://world-fr.openbeautyfacts.org/discover
+    - https://world-en.openproductsfacts.org/discover should be https://world-fr.openproductsfacts.org/discover
+    - https://world-en.openpetfoodfacts.org/discover should be https://world-fr.openpetfoodfacts.org/discover
     
     Returns: List of tuples (filename, locale, key, en_url, translated_url, crowdin_link)
     """
@@ -303,9 +306,11 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
                     trans_lang_code = trans_match.group(1)
                     trans_domain = trans_match.group(2)
                     
-                    # The language code should match the file's locale for openfoodfacts.org domains
-                    # For other domains, we're more lenient
-                    if 'openfoodfacts.org' in domain and trans_lang_code != locale:
+                    # The language code should match the file's locale for all *facts.org domains
+                    # Check if this is one of the domains we care about
+                    supported_domains = ['openfoodfacts.org', 'openbeautyfacts.org', 
+                                       'openproductsfacts.org', 'openpetfoodfacts.org']
+                    if any(d in domain for d in supported_domains) and trans_lang_code != locale:
                         # They're using world-XX but with the wrong language code
                         crowdin_link = generate_crowdin_link(locale, key)
                         issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
@@ -315,11 +320,14 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
                         issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
                 elif trans_simple_match:
                     # Translation uses simple format (e.g., https://en.openfoodfacts.org/)
-                    # This is not ideal - should use world-XX format for openfoodfacts.org
+                    # This is not ideal - should use world-XX format for all *facts.org domains
                     trans_lang_code = trans_simple_match.group(1)
                     trans_domain = trans_simple_match.group(2)
                     
-                    if 'openfoodfacts.org' in domain:
+                    # Check if this is one of the domains we care about
+                    supported_domains = ['openfoodfacts.org', 'openbeautyfacts.org', 
+                                       'openproductsfacts.org', 'openpetfoodfacts.org']
+                    if any(d in domain for d in supported_domains):
                         # Flag this - should use world-XX format
                         crowdin_link = generate_crowdin_link(locale, key)
                         issues.append((arb_file.name, locale, key, en_value, value, crowdin_link))
@@ -395,7 +403,11 @@ def validate_open_prices_urls(arb_files: List[Path], en_translations: Dict) -> L
 def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) -> List[Tuple[str, str, str, str, str, str, str]]:
     """Validate that translated URL paths don't result in 404 errors.
     
-    Only checks URLs that have translated path components.
+    Only checks URLs that have translated path components on specific domains:
+    - openbeautyfacts.org
+    - openproductsfacts.org
+    - openpetfoodfacts.org
+    
     Returns: List of tuples (filename, locale, key, en_url, translated_url, status, crowdin_link)
     where status is '404' if the URL returns 404
     """
@@ -404,6 +416,9 @@ def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) 
     # Compile URL pattern once using constant
     url_pattern = re.compile(URL_PATTERN_STR)
     url_with_path_pattern = re.compile(r'https?://[^/]+/(.+?)(?:\s|$|[.,;!?])')
+    
+    # Domains to check for 404 errors
+    domains_to_check = ['openbeautyfacts.org', 'openproductsfacts.org', 'openpetfoodfacts.org']
     
     for arb_file in arb_files:
         if arb_file.name == 'app_en.arb':
@@ -434,6 +449,10 @@ def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) 
                 # Parse the URL
                 parsed = urlparse(trans_url_clean)
                 if not parsed.path or parsed.path == '/':
+                    continue
+                
+                # Only check URLs from specific domains
+                if not any(domain in parsed.netloc for domain in domains_to_check):
                     continue
                 
                 # Check if this URL has a translated path component
@@ -572,7 +591,11 @@ def format_validation_comment(
         has_issues = True
         sections.append("### ⚠️ Locale-Specific URLs Should Use Correct Language Code")
         sections.append("")
-        sections.append("URLs like `https://world-en.openfoodfacts.org/...` should be translated to use the file's language code (e.g., `https://world-fr.openfoodfacts.org/...` for French).")
+        sections.append("URLs for Open Food Facts family domains should be translated to use the file's language code:")
+        sections.append("- `https://world-en.openfoodfacts.org/...` → `https://world-fr.openfoodfacts.org/...` (for French)")
+        sections.append("- `https://world-en.openbeautyfacts.org/...` → `https://world-fr.openbeautyfacts.org/...` (for French)")
+        sections.append("- `https://world-en.openproductsfacts.org/...` → `https://world-fr.openproductsfacts.org/...` (for French)")
+        sections.append("- `https://world-en.openpetfoodfacts.org/...` → `https://world-fr.openpetfoodfacts.org/...` (for French)")
         sections.append("")
         sections.append(f"Found {len(locale_url_issues)} issue(s):")
         sections.append("")
@@ -603,7 +626,7 @@ def format_validation_comment(
         has_issues = True
         sections.append("### ⚠️ Translated URL Paths Return 404 Errors")
         sections.append("")
-        sections.append("The following URLs with translated paths are not accessible (return 404):")
+        sections.append("The following URLs with translated paths on Open Beauty Facts, Open Products Facts, and Open Pet Food Facts are not accessible (return 404):")
         sections.append("")
         sections.append(f"Found {len(translated_path_404_issues)} issue(s):")
         sections.append("")
