@@ -273,3 +273,5 @@ packages/smooth_app/ios/Runner/val.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/vec.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/vls.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/zea.lproj/InfoPlist.strings
+*.pyc
+__pycache__/
