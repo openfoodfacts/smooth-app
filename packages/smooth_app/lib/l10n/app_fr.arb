@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
   "guide_open_pet_food_facts_scores_title": "Note sur la notation",
   "guide_open_pet_food_facts_scores_paragraph1": "L'élaboration d'un système de notation pour les aliments pour animaux de compagnie **n'est pas une priorité actuellement**. La méthodologie serait complexe, car les besoins nutritionnels varient considérablement selon l'espèce, l'âge et l'état de santé. Nous n'avons pas encore trouvé d'équipe scientifique indépendante capable de développer un tel système.",
-  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Bienvenue sur Open Beauty Facts !",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Gardez le produit sur une surface plane.",
   "guide_open_beauty_facts_scores_title": "Note sur la notation",
   "guide_open_beauty_facts_scores_paragraph1": "Contrairement aux produits alimentaires, le monde des cosmétiques ne dispose pas d'un système de notation universellement reconnu et approuvé par les pouvoirs publics, tel que le Nutri-Score. Les effets des ingrédients peuvent être très variables d'une personne à l'autre et dépendent du type de peau, des allergies et des préoccupations individuelles.",
-  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-fr.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bienvenue chez Open Prices !",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
   "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
   "guide_open_products_facts_folksonomy_paragraph3": "Vous recevrez des suggestions automatiques de propriétés possibles, et vous êtes invités à en ajouter et à documenter de nouvelles sur vos types de produits préférés.",
-  "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-fr.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Ouvrir les préférences alimentaires",
   "guide_coming_soon_button_title": "Bientôt disponible",
   "guide_learn_more_subtitle": "Appuyez pour en savoir plus",
