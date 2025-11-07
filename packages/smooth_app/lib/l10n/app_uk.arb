@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "З 2018 року, завдяки NutriNet-Santé, було виявлено перші зв'язки між **споживанням надмірно оброблених продуктів харчування та підвищеним ризиком розвитку раку, серцево-судинних захворювань і діабету**. На сьогоднішній день понад 90 досліджень у всьому світі підтверджують ці висновки.\nНайсильніші зв'язки стосуються **ожиріння, серцево-судинної смертності та депресивних симптомів**. У дітей ефекти в першу чергу спостерігаються на вазі та ліпідному дисбалансі.",
   "guide_nova_explanations_arg6_title": "Країни рекомендують обмежити їх",
   "guide_nova_explanations_arg6_text": "Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-en.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Оцінка за поживну якість",
   "guide_open_food_facts_scores_arg2_title": "Оцінка, щоб уникнути ультраоброблених продуктів",
   "guide_open_food_facts_scores_arg3_title": "Оцінка для планети",
-  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
+  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Вітаємо в Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Тримайте продукт на плоскій поверхні.",
   "guide_open_pet_food_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_pet_food_facts_scores_paragraph1": "Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.",
-  "guide_open_pet_food_facts_share_link": "https://world.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Вітаємо в Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Тримайте продукт на плоскій поверхні.",
   "guide_open_beauty_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_beauty_facts_scores_paragraph1": "На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.",
-  "guide_open_beauty_facts_share_link": "https://world.openfoodfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Вітаємо в Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
