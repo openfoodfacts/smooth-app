@@ -2985,7 +2985,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Price.openfoodfacts.org (PROD) болон env тестийн хооронд шилжих';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4641,7 +4641,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-mn.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5924,7 +5924,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Нээлттэй үнийн нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5974,7 +5974,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Нээлттэй хүнсний баримтуудад туслах энгийн аргууд';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

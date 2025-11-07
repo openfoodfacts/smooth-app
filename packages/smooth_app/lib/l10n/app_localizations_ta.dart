@@ -211,7 +211,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'உங்கள் நாட்டில் திறந்த உணவு உண்மைகளை மேம்படுத்த உதவுங்கள்.';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'Sign out';
@@ -845,7 +845,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -3521,7 +3521,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: திறந்த உணவு உண்மைகள், திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்';
+      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4028,7 +4028,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'நியூட்ரி-ஸ்கோர் $letter (புதிய கணக்கீடு)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
@@ -4039,14 +4039,14 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'தெரியாத நியூட்ரி ஸ்கோர் (புதிய கணக்கீடு)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'பச்சை-ஸ்கோர்';
@@ -4074,8 +4074,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'பச்சை மதிப்பெண் பொருந்தாது.';
 
   @override
-  String get nova_group_generic_new =>
-      'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4654,7 +4653,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ta.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5947,7 +5946,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5997,7 +5996,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'உணவு உண்மைகளைத் திறக்க உதவும் எளிய வழிகள்';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

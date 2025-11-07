@@ -4639,7 +4639,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ga.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5926,7 +5926,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Na praghsanna is déanaí curtha leis ag pobal Oscailte Praghsanna';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5975,7 +5975,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Bealaí simplí chun cabhrú le Fíricí Bia Oscailte';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

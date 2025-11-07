@@ -848,7 +848,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get categories_added => 'Kategoriler eklendi';
 
   @override
-  String get new_product_title_nutriscore => 'Nutri Puanını hesaplayın';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -5945,7 +5945,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Açık Fiyatlar topluluğu tarafından eklenen en son fiyatlar';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5994,7 +5994,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Açık Gıda Gerçeklerine yardımcı olmanın basit yolları';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -2986,7 +2986,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4892,7 +4892,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://precios.openfoodfacts.org/manta';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5935,7 +5935,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Kichasqa Chanikuna ayllumanta yapasqa qhipa chaninkuna';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5984,7 +5984,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Kichasqa Mikhuy Chiqap yanapakuykunata yanapanapaq sasan ñankuna';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -4634,7 +4634,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-cv.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5917,7 +5917,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Уҫӑ хаксен сообществи хушнӑ юлашки хаксем';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5965,7 +5965,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Апат-ҫимӗҫ ҫинчен калакан фактсене уҫма пулӑшмалли ансат меслетсем';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

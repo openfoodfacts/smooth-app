@@ -1351,15 +1351,15 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Дадаць катэгорыю для разліку Nutri-ацэнкі.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Дадаць звесткі аб пажыўнасці для разліку Nutri-ацэнкі.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Дадаць звесткі аб пажыўнасці і катэгорыю для разліку Nutri-ацэнкі.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -4663,7 +4663,7 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-be.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>

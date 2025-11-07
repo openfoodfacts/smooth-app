@@ -4639,7 +4639,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ms.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5968,7 +5968,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Cara mudah untuk membantu Fakta Makanan Terbuka';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

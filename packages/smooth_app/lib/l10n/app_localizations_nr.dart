@@ -9,7 +9,7 @@ class AppLocalizationsNr extends AppLocalizations {
   AppLocalizationsNr([String locale = 'nr']) : super(locale);
 
   @override
-  String get app_name => 'Open Food Facts';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';

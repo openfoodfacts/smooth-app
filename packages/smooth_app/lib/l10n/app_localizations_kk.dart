@@ -2984,7 +2984,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Price.openfoodfacts.org (PROD) және сынақ ортасы арасында ауысыңыз';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4639,7 +4639,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-kk.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>

@@ -471,7 +471,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'スキルをオープンフードファクトに貢献しましょう。スキルプールに参加しましょう！';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -824,7 +824,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get categories_added => 'カテゴリーが追加されました。';
 
   @override
-  String get new_product_title_nutriscore => 'ニュートリスコアを計算する';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore => '食品カテゴリと栄養価を満たして入手する';
@@ -3933,13 +3933,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
-  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
+  String get nutriscore_unknown_new_formula =>
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
-  String get nutriscore_not_applicable_new_formula => 'ニュートリスコアは適用されません（新しい計算）';
+  String get nutriscore_not_applicable_new_formula =>
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4525,7 +4527,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ja.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5759,7 +5761,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_prices_newest_title => '最新価格';
 
   @override
-  String get preferences_prices_newest_subtitle => 'オープン価格コミュニティによって追加された最新の価格';
+  String get preferences_prices_newest_subtitle =>
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title => '最も多くの価格を提示した貢献者';

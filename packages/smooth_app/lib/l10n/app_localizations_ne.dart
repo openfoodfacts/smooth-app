@@ -4633,7 +4633,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ne.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5917,7 +5917,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'खुला मूल्य समुदायद्वारा थपिएका नवीनतम मूल्यहरू';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5966,7 +5966,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'खानाको तथ्यहरू खोल्न मद्दत गर्ने सरल तरिकाहरू';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

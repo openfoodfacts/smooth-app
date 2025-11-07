@@ -3589,7 +3589,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Product Facts';
+      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Products Facts';
 
   @override
   String get no_internet_connection => 'Χωρίς σύνδεση στο διαδίκτυο';
@@ -4732,7 +4732,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-el.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>

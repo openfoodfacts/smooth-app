@@ -4637,7 +4637,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ka.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5926,7 +5926,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ღია ფასების საზოგადოების მიერ დამატებული უახლესი ფასები';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>

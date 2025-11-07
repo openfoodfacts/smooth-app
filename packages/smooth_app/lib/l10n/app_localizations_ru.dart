@@ -3056,7 +3056,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -4740,7 +4740,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-ru.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>

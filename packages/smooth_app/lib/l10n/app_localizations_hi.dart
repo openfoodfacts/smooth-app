@@ -4057,8 +4057,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'ग्रीन-स्कोर लागू नहीं है';
 
   @override
-  String get nova_group_generic_new =>
-      'अति-प्रसंस्कृत खाद्य पदार्थ - नोवा समूह';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4635,7 +4634,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-hi.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5914,7 +5913,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ओपन प्राइसेस समुदाय द्वारा जोड़े गए नवीनतम मूल्य';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5962,7 +5961,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'मदद करने के सरल तरीके: खाद्य तथ्य खोलें';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

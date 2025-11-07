@@ -4059,7 +4059,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'গ্রিন-স্কোর প্রযোজ্য নয়';
 
   @override
-  String get nova_group_generic_new => 'অতি-প্রক্রিয়াজাত খাবার - নোভা গ্রুপ';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4635,7 +4635,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-bn.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5918,7 +5918,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ওপেন প্রাইসস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5966,7 +5966,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'খাবারের তথ্য খুলতে সাহায্য করার সহজ উপায়';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

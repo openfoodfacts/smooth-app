@@ -2980,7 +2980,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'በዋጋዎች.openfoodfacts.org (PROD) እና test env መካከል ይቀያይሩ';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4623,7 +4623,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-am.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5884,7 +5884,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'በክፍት ዋጋዎች ማህበረሰብ የታከሉ የቅርብ ጊዜ ዋጋዎች';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5928,7 +5928,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'የምግብ እውነታዎችን ለመክፈት የሚረዱ ቀላል መንገዶች';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
