@@ -7888,7 +7888,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/nova'**
+  /// **'https://world-en.openfoodfacts.org/nova'**
   String get guide_nova_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8020,7 +8020,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openfoodfacts'**
+  /// **'https://world-en.openfoodfacts.org/discover'**
   String get guide_open_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8146,7 +8146,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_pet_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openpetfoodfacts.org/discover'**
+  /// **'https://world-en.openpetfoodfacts.org/discover'**
   String get guide_open_pet_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8284,7 +8284,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_beauty_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openfoodfacts.org/discover'**
+  /// **'https://world-en.openbeautyfacts.org/discover'**
   String get guide_open_beauty_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
