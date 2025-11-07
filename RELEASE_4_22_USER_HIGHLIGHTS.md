@@ -1,6 +1,6 @@
-# 🎉 Open Food Facts 4.18.1 - What's New!
+# 🎉 Open Food Facts 4.22.0 - What's New!
 
-Welcome to the **4.18.1 release** of the Open Food Facts mobile app! This massive update brings you a completely refreshed interface, powerful new features for product editing and price tracking, and dozens of quality-of-life improvements. Here's what you can look forward to:
+Welcome to the **4.22.0 release** of the Open Food Facts mobile app! This massive update brings you a completely refreshed interface, powerful new features for product editing and price tracking, and dozens of quality-of-life improvements. Here's what you can look forward to:
 
 ---
 
@@ -50,7 +50,7 @@ Beautiful food category icons now appear on product pages, including NOVA group 
 
 ---
 
-## 💰 Enhanced Price Tracking
+## 💰 Enhanced Price Experience
 
 ### Redesigned Price Lists
 **[PR #6716](https://github.com/openfoodfacts/smooth-app/pull/6716)**
@@ -212,7 +212,7 @@ Now uses Nominatim location search for better address finding.
 ### Proof & Price Management
 - **[PR #6394](https://github.com/openfoodfacts/smooth-app/pull/6394)** - Shortcut to the price contribution assistant
 - **[PR #6395](https://github.com/openfoodfacts/smooth-app/pull/6395)** - From proof page, show previously added prices
-- **[PR #6781](https://github.com/openfoodfacts/smooth-app/pull/6781)** - Separate tasks (proof upload and prices adding)
+- **[PR #6781](https://github.com/openfoodfacts/smooth-app/pull/6781)** - Separate background tasks (proof upload and prices adding)
 - **[PR #6793](https://github.com/openfoodfacts/smooth-app/pull/6793)** - Reuse price tokens
 - **[PR #6985](https://github.com/openfoodfacts/smooth-app/pull/6985)** - Price location is now null by default
 - **[PR #7021](https://github.com/openfoodfacts/smooth-app/pull/7021)** - Top products goes to price product page
@@ -255,6 +255,6 @@ Update your Open Food Facts app today to enjoy all these new features!
 
 ---
 
-**Version**: 4.18.1  
-**Release Date**: October 31, 2025  
+**Version**: 4.22.0 
+**Release Date**: November 7, 2025  
 **Full Changelog**: [View on GitHub](https://github.com/openfoodfacts/smooth-app/pull/6597)
