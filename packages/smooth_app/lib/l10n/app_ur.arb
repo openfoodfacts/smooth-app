@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "What are Folksonomy attributes?",
+  "folksonomy_explanation_card_body": "Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
