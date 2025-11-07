@@ -7888,7 +7888,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openfoodfacts.org/nova'**
+  /// **'https://world-en.openfoodfacts.org/nova'**
   String get guide_nova_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8518,7 +8518,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_products_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openproductsfacts.org/discover'**
+  /// **'https://world-en.openproductsfacts.org/discover'**
   String get guide_open_products_facts_share_link;
 
   /// No description provided for @guide_open_preferences_button_title.

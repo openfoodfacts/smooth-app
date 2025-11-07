@@ -1267,11 +1267,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_improvement_add_category => '新增一個類別以計算 Nutri-Score。';
 
   @override
-  String get product_improvement_add_nutrition_facts => '新增營養成分和類別以計算營養評分。';
+  String get product_improvement_add_nutrition_facts =>
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      '新增營養成分和類別以計算營養評分。';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -4437,7 +4438,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-zh.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5649,7 +5650,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_prices_newest_title => '最新价格';
 
   @override
-  String get preferences_prices_newest_subtitle => '公开价格社区添加的最新价格';
+  String get preferences_prices_newest_subtitle =>
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title => '贡献最多奖项的贡献者';
@@ -5690,7 +5692,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_page_contribute_project_title => '为项目做出贡献';
 
   @override
-  String get preferences_page_contribute_project_subtitle => '帮助开放食品事实的简单方法';
+  String get preferences_page_contribute_project_subtitle =>
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle => '评分方法、帮助以及有关项目的更多信息';

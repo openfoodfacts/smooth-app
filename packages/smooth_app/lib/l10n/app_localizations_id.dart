@@ -4670,7 +4670,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/temukan';
+      'https://world-id.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4915,7 +4915,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/tentang';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>

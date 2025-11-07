@@ -5970,7 +5970,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simplaj manieroj helpi Malfermi Manĝaĵajn Faktojn';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -4721,7 +4721,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-pt.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -9204,7 +9204,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get prices_menu_know_more => 'Saiba mais sobre preços abertos';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Concluído';

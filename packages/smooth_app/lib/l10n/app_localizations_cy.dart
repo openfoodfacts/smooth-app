@@ -5921,7 +5921,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Prisiau diweddaraf wedi\'u hychwanegu gan y gymuned Prisiau Agored';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5969,7 +5969,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ffyrdd syml o helpu Ffeithiau Bwyd Agored';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

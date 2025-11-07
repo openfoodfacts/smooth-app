@@ -4703,7 +4703,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-it.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>

@@ -5979,7 +5979,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Formas sinxelas de axudar a abrir información sobre alimentos';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -4597,7 +4597,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-nl.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welkom bij Open Food Facts!';
@@ -4682,7 +4682,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-nl.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4931,7 +4931,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prijzen.openfoodfacts.org/over';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>

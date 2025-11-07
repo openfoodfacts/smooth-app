@@ -848,7 +848,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get categories_added => 'Đã thêm danh mục';
 
   @override
-  String get new_product_title_nutriscore => 'Tính điểm dinh dưỡng';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1343,15 +1343,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Thêm danh mục để tính Điểm dinh dưỡng.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Thêm thông tin dinh dưỡng để tính Điểm dinh dưỡng.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Thêm thông tin dinh dưỡng và danh mục để tính Điểm dinh dưỡng.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -4017,7 +4017,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get product_list_create_tooltip => 'Tạo danh sách mới';
 
   @override
-  String get nutriscore_generic => 'Điểm dinh dưỡng';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
   String get nutriscore_a => 'Nutri-Score A';
@@ -4660,7 +4660,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-vi.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5991,7 +5991,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Những cách đơn giản để giúp Mở Thực phẩm';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

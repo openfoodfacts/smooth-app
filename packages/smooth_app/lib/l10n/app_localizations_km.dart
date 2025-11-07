@@ -2982,7 +2982,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'ប្តូររវាង price.openfoodfacts.org (PROD) និង test env';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4633,7 +4633,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-km.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5960,7 +5960,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'វិធីសាមញ្ញដើម្បីជួយបើកការពិតអំពីអាហារ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

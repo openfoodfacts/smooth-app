@@ -4877,7 +4877,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/ৰ বিষয়ে';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5909,7 +5909,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'মুক্ত মূল্য সম্প্ৰদায়ে যোগ কৰা শেহতীয়া মূল্যসমূহ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>

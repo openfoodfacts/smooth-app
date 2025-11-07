@@ -4078,7 +4078,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-score desconegut (nou càlcul)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
@@ -6034,7 +6034,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Maneres senzilles d\'ajudar a obrir la informació sobre aliments';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

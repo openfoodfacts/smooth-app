@@ -4639,7 +4639,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-st.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5974,7 +5974,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Mekhoa e bonolo ea ho thusa Bula Lintlha tsa Lijo';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

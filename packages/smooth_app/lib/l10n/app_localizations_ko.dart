@@ -1312,11 +1312,12 @@ class AppLocalizationsKo extends AppLocalizations {
       'Nutri-Score를 계산할 카테고리를 추가하세요.';
 
   @override
-  String get product_improvement_add_nutrition_facts => '영양 성분을 추가하여 영양 점수 계산';
+  String get product_improvement_add_nutrition_facts =>
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      '영양 성분을 추가하여 영양 점수 계산';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -5807,7 +5808,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Open Price 커뮤니티에서 추가한 최신 가격';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title => '가장 많은 가격을 제시한 기여자';

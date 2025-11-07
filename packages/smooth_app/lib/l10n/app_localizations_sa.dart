@@ -4635,7 +4635,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover इति वृत्तान्तः';
+      'https://world-sa.openfoodfacts.org/discover इति वृत्तान्तः';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4880,7 +4880,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/विषये';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>

@@ -5985,7 +5985,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Enkla sätt att hjälpa till Öppna matfakta';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

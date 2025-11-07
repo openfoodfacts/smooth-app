@@ -3984,7 +3984,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_list_create_tooltip => 'Create a new list';
 
   @override
-  String get nutriscore_generic => 'درجة الجودة الغذائية';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
   String get nutriscore_a => 'Nutri-Score A';
@@ -4048,7 +4048,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'لا ينطبق Green-Score';
 
   @override
-  String get nova_group_generic_new => 'الأطعمة فائقة المعالجة - مجموعة نوفا';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5898,7 +5898,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'أحدث الأسعار المضافة من قبل مجتمع الأسعار المفتوحة';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5943,7 +5943,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'طرق بسيطة للمساعدة في فتح حقائق الطعام';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
