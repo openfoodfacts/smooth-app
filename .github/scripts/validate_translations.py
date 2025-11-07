@@ -81,9 +81,17 @@ URL_KEYS = [
     'bsky_link',
 ]
 
+# URL regex patterns (extracted as constants for maintainability)
+# Character class for valid URL characters
+URL_CHAR_CLASS = r'[^\s<>"{}|\\^`\[\]]'
+URL_PATTERN_STR = rf'https?://{URL_CHAR_CLASS}+'
+
 # Crowdin project details for generating links
 CROWDIN_PROJECT_ID = '2977'
 CROWDIN_BASE_URL = 'https://crowdin.com/editor/openfoodfacts'
+
+# Cache for URL existence checks to avoid redundant HTTP requests
+_url_check_cache: Dict[str, bool] = {}
 
 # Mapping of ARB language codes to Crowdin language codes
 # Format: {arb_code: crowdin_code}
@@ -205,18 +213,31 @@ def validate_brand_terms(arb_files: List[Path], en_translations: Dict) -> Dict[s
 def check_url_exists(url: str, timeout: int = 5) -> bool:
     """Check if a URL returns a successful response (not 404).
     
-    Returns True if URL is accessible, False if it returns 404 or error.
+    Uses a cache to avoid redundant HTTP requests for the same URL.
+    
+    Returns True if URL is accessible, False if it returns 404.
+    For other errors (connection errors, timeouts), returns True to avoid false positives.
     """
+    # Check cache first
+    if url in _url_check_cache:
+        return _url_check_cache[url]
+    
     try:
         req = urllib.request.Request(url, method='HEAD')
         req.add_header('User-Agent', 'Mozilla/5.0 (compatible; TranslationValidator/1.0)')
         with urllib.request.urlopen(req, timeout=timeout) as response:
-            return response.status < 400
+            result = response.status < 400
+            _url_check_cache[url] = result
+            return result
     except urllib.error.HTTPError as e:
-        return e.code != 404
+        # Return False only for 404 errors
+        result = e.code != 404
+        _url_check_cache[url] = result
+        return result
     except Exception:
-        # For connection errors, timeouts, etc., we don't report them
-        # Only report actual 404s
+        # For connection errors, timeouts, etc., return True (assume URL is valid)
+        # We only want to report actual 404s, not connection problems
+        _url_check_cache[url] = True
         return True
 
 
@@ -231,9 +252,9 @@ def validate_locale_specific_urls(arb_files: List[Path], en_translations: Dict) 
     issues = []
     
     # Pattern to match world-XX URLs
-    locale_url_pattern = re.compile(r'https://world-([a-z]{2,3})\.([a-z]+facts\.org)(/[^\s<>"{}|\\^`\[\]]*)?')
+    locale_url_pattern = re.compile(rf'https://world-([a-z]{{2,3}})\.([a-z]+facts\.org)(/{URL_CHAR_CLASS}*)?')
     # Pattern to match non-world locale URLs (e.g., https://en.openfoodfacts.org/)
-    simple_locale_pattern = re.compile(r'https://([a-z]{2,3})\.([a-z]+facts\.org)(/[^\s<>"{}|\\^`\[\]]*)?')
+    simple_locale_pattern = re.compile(rf'https://([a-z]{{2,3}})\.([a-z]+facts\.org)(/{URL_CHAR_CLASS}*)?')
     
     for arb_file in arb_files:
         if arb_file.name == 'app_en.arb':
@@ -338,8 +359,8 @@ def validate_open_prices_urls(arb_files: List[Path], en_translations: Dict) -> L
                 elif en_value != value:
                     # The URL contains prices.openfoodfacts.org but was modified
                     # Extract just the URL parts to compare
-                    en_urls = re.findall(r'https?://[^\s<>"{}|\\^`\[\]]+', en_value)
-                    trans_urls = re.findall(r'https?://[^\s<>"{}|\\^`\[\]]+', value)
+                    en_urls = re.findall(URL_PATTERN_STR, en_value)
+                    trans_urls = re.findall(URL_PATTERN_STR, value)
                     
                     # Check if any prices.openfoodfacts.org URL was changed
                     for en_url in en_urls:
@@ -369,7 +390,8 @@ def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) 
     """
     issues = []
     
-    # Pattern to match URLs with paths
+    # Compile URL pattern once using constant
+    url_pattern = re.compile(URL_PATTERN_STR)
     url_with_path_pattern = re.compile(r'https?://[^/]+/(.+?)(?:\s|$|[.,;!?])')
     
     for arb_file in arb_files:
@@ -391,8 +413,8 @@ def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) 
                 continue
             
             # Find URLs with paths in both versions
-            en_urls = re.findall(r'https?://[^\s<>"{}|\\^`\[\]]+', en_value)
-            trans_urls = re.findall(r'https?://[^\s<>"{}|\\^`\[\]]+', value)
+            en_urls = re.findall(URL_PATTERN_STR, en_value)
+            trans_urls = re.findall(URL_PATTERN_STR, value)
             
             # Check each translated URL
             for trans_url in trans_urls:
@@ -410,10 +432,13 @@ def validate_translated_url_paths(arb_files: List[Path], en_translations: Dict) 
                     en_url_clean = re.sub(r'[.,;!?]+$', '', en_url)
                     en_parsed = urlparse(en_url_clean)
                     
+                    # Skip if English URL doesn't have a path
+                    if not en_parsed.path or en_parsed.path == '/':
+                        continue
+                    
                     # Same domain but different path = translated path
                     if (parsed.netloc == en_parsed.netloc and 
-                        parsed.path != en_parsed.path and
-                        en_parsed.path and en_parsed.path != '/'):
+                        parsed.path != en_parsed.path):
                         has_translated_path = True
                         break
                 
@@ -433,8 +458,8 @@ def validate_urls(arb_files: List[Path]) -> Tuple[List[Tuple[str, str, str, str,
     Returns: Tuple of (url_key_issues, url_text_issues)
     Each issue is a tuple of (filename, locale, key, value, crowdin_link)
     """
-    url_pattern = re.compile(r'^https?://[^\s<>"{}|\\^`\[\]]+$', re.IGNORECASE)
-    url_in_text_pattern = re.compile(r'https?://[^\s<>"{}|\\^`\[\]]+', re.IGNORECASE)
+    url_pattern = re.compile(rf'^{URL_PATTERN_STR}$', re.IGNORECASE)
+    url_in_text_pattern = re.compile(URL_PATTERN_STR, re.IGNORECASE)
     domain_pattern = re.compile(r'^https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
     
     url_key_issues = []
