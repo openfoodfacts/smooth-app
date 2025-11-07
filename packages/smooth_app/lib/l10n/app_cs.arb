@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Jaké jsou atributy folksonomie?",
+  "folksonomy_explanation_card_body": "Atributy jsou založeny na **klíč-hodnotě**.\n\nTyto vlastnosti jsou vytvářeny a archivovány uživateli pro jakékoli použití.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
