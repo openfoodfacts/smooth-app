@@ -4145,7 +4145,7 @@
   "guide_open_prices_scrapping_paragraph2": "Le scraping des prix est une option envisagée dans une version future d'Open Prices, mais il serait effectué par Open Prices directement afin que nous puissions avoir une preuve du prix basée sur la page HTML.",
   "guide_open_prices_retailers_title": "Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?",
   "guide_open_prices_retailers_paragraph1": "Vous pouvez contribuer en fournissant des prix via notre API.\nSi vous souhaitez contribuer à grande échelle, veuillez nous contacter à l'adresse prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
   "guide_open_products_facts_title": "Bienvenue sur Open Products Facts !",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
   "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
   "guide_open_products_facts_folksonomy_paragraph3": "Vous recevrez des suggestions automatiques de propriétés possibles, et vous êtes invités à en ajouter et à documenter de nouvelles sur vos types de produits préférés.",
-  "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
+  "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Ouvrir les préférences alimentaires",
   "guide_coming_soon_button_title": "Bientôt disponible",
   "guide_learn_more_subtitle": "Appuyez pour en savoir plus",
