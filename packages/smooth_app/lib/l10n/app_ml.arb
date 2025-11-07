@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ഫോക്സോണമിയുടെ ഗുണവിശേഷങ്ങൾ എന്തൊക്കെയാണ്?",
+  "folksonomy_explanation_card_body": "ആട്രിബ്യൂട്ടുകൾ **കീ-മൂല്യം** അടിസ്ഥാനമാക്കിയുള്ളതാണ്.\n\nഈ പ്രോപ്പർട്ടികൾ ഉപയോക്താക്കൾ ഏത് തരത്തിലുള്ള ഉപയോഗങ്ങൾക്കുമായി സൃഷ്ടിച്ച് ഫയൽ ചെയ്യുന്നു.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
