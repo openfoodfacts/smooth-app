@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Quins són els atributs de la folksonomia?",
+  "folksonomy_explanation_card_body": "Els atributs es basen en **valor-clau**.\n\nAquestes propietats són creades i arxivades pels usuaris per a qualsevol tipus d'ús.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
