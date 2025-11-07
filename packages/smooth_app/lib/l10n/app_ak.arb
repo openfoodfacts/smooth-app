@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://world-en.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ak.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
   "guide_open_pet_food_facts_scores_title": "A note on scoring",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
-  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-ak.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
   "guide_open_beauty_facts_scores_title": "A note on scoring",
   "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
-  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-ak.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-ak.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
   "guide_learn_more_subtitle": "Tap to learn more",
