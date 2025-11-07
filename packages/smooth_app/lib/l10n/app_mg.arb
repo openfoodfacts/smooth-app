@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Inona avy ireo toetran'ny Folksonomy?",
+  "folksonomy_explanation_card_body": "Ny toetra dia mifototra amin'ny **key-value**.\n\nIreo fananana ireo dia noforonin'ny mpampiasa ho an'ny karazana fampiasana rehetra.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
