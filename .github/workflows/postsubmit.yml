@@ -1,4 +1,6 @@
 name: SmoothApp Post-Submit Tests
+permissions:
+  contents: read
 
 on: 
   push:
