@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Taybetmendiyên Folksonomiyê çi ne?",
+  "folksonomy_explanation_card_body": "Taybetmendî li ser bingeha **kilît-nirx** ne.\n\nEv taybetmendî ji hêla bikarhêneran ve ji bo her celeb karanînê têne afirandin û tomar kirin.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
