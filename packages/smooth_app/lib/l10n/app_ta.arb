@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ஃபோக்சோனமியின் பண்புக்கூறுகள் என்ன?",
+  "folksonomy_explanation_card_body": "பண்புக்கூறுகள் **முக்கிய-மதிப்பு** அடிப்படையிலானவை.\n\nஇந்தப் பண்புகள் பயனர்களால் எந்த வகையான பயன்பாடுகளுக்கும் உருவாக்கப்பட்டு தாக்கல் செய்யப்படுகின்றன.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
