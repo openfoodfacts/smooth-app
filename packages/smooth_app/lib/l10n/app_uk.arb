@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Тримайте продукт на плоскій поверхні.",
   "guide_open_pet_food_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_pet_food_facts_scores_paragraph1": "Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.",
-  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-uk.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Вітаємо в Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Тримайте продукт на плоскій поверхні.",
   "guide_open_beauty_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_beauty_facts_scores_paragraph1": "На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.",
-  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-uk.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Вітаємо в Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.",
   "guide_open_products_facts_folksonomy_paragraph2": "Ви можете додати будь-які ключі та значення, наприклад: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
-  "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-uk.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food налаштування",
   "guide_coming_soon_button_title": "Незабаром!",
   "guide_learn_more_subtitle": "Торкніться, щоб дізнатися більше",
