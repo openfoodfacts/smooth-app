@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Folksonomy ရည်ညွှန်းချက်များကား အဘယ်နည်း။",
+  "folksonomy_explanation_card_body": "ရည်ညွှန်းချက်များသည် **ကီး-တန်ဖိုး** ကို အခြေခံထားသည်။\n\nဤဂုဏ်သတ္တိများသည် မည်သည့်အသုံးပြုမှုမျိုးအတွက်မဆို အသုံးပြုသူများ ဖန်တီးပြီး တင်ပြထားပါသည်။",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
