@@ -72,12 +72,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return SmoothScaffold(
-    appBar: AppBar(
-      title: Text(title ?? &#39;&#39;, maxLines: 2),
-      backgroundColor: AppBarTheme.of(
-        context,
-      ).backgroundColor?.withValues(alpha: 0.8),
-    ),
+    appBar: SmoothAppBar(title: Text(title ?? &#39;&#39;, maxLines: 2)),
     extendBodyBehindAppBar: true,
     body: FlutterMap(
       options: mapOptions,

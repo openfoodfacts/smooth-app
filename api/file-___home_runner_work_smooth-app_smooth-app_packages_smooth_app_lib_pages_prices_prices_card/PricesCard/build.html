@@ -72,11 +72,21 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  return buildProductSmoothCard(
-    title: Text(appLocalizations.prices_generic_title),
-    body: Container(
-      width: double.infinity,
-      padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+
+  return Padding(
+    padding: const EdgeInsetsDirectional.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: VERY_LARGE_SPACE,
+    ),
+    child: SmoothCardWithRoundedHeader(
+      title: appLocalizations.prices_generic_title,
+      leading: const icons.PiggyBank(),
+      trailing: IconButton(
+        onPressed: () =&gt;
+            AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
+        icon: const icons.Help(),
+      ),
+      contentPadding: const EdgeInsetsDirectional.all(LARGE_SPACE),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -101,11 +111,6 @@ Widget build(BuildContext context) {
           ),
         ],
       ),
-    ),
-    margin: const EdgeInsetsDirectional.only(
-      start: SMALL_SPACE,
-      end: SMALL_SPACE,
-      top: VERY_LARGE_SPACE,
     ),
   );
 }</code></pre>
