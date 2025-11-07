@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Litšobotsi tsa Folksonomy ke life?",
+  "folksonomy_explanation_card_body": "Litšobotsi li **matla-boleng** li thehiloe.\n\nThepa ena e entsoe le ho faeloa ke basebelisi bakeng sa ts'ebeliso ea mofuta ofe kapa ofe.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
