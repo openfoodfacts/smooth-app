@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Dɛn ne Folksonomy su ahorow?",
+  "folksonomy_explanation_card_body": "Su ahorow no gyina **key-value** so.\n\nSaa agyapadeɛ yi, wɔn a wɔde di dwuma no na wɔayɛ na wɔde ahyɛ fael mu ama dwumadie biara.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
