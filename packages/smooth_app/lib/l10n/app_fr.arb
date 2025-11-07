@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Une note sur la qualité nutritionnelle",
   "guide_open_food_facts_scores_arg2_title": "Une note pour éviter les aliments ultra-transformés",
   "guide_open_food_facts_scores_arg3_title": "Un score pour la planète",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-fr.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Bienvenue sur Open Pet Food Facts !",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4145,7 +4145,7 @@
   "guide_open_prices_scrapping_paragraph2": "Le scraping des prix est une option envisagée dans une version future d'Open Prices, mais il serait effectué par Open Prices directement afin que nous puissions avoir une preuve du prix basée sur la page HTML.",
   "guide_open_prices_retailers_title": "Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?",
   "guide_open_prices_retailers_paragraph1": "Vous pouvez contribuer en fournissant des prix via notre API.\nSi vous souhaitez contribuer à grande échelle, veuillez nous contacter à l'adresse prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Bienvenue sur Open Products Facts !",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Оцінка за поживну якість",
   "guide_open_food_facts_scores_arg2_title": "Оцінка, щоб уникнути ультраоброблених продуктів",
   "guide_open_food_facts_scores_arg3_title": "Оцінка для планети",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-uk.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Вітаємо в Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Прості способи допомогти. Відкрийте факти про їжу.",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

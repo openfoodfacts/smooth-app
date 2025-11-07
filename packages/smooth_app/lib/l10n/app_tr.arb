@@ -689,7 +689,7 @@
   "nutritional_facts_input_button_label": "Besin değerleri gir",
   "nutritional_facts_added": "Besin değerleri eklendi",
   "categories_added": "Kategoriler eklendi",
-  "new_product_title_nutriscore": "Nutri Puanını hesaplayın",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Gıda kategorisini ve besin değerlerini doldurarak alın",
   "new_product_title_environmental_score": "Green-Score'u hesapla",
   "new_product_subtitle_environmental_score": "En azından bir kategoriyi doldurarak bunu elde edin",
@@ -5294,7 +5294,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Açık Fiyatlar topluluğu tarafından eklenen en son fiyatlar",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Açık Gıda Gerçeklerine yardımcı olmanın basit yolları",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

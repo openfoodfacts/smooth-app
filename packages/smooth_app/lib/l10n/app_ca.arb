@@ -3818,7 +3818,7 @@
   },
   "nutriscore_new_formula_title": "Nutri-Score (nou càlcul)",
   "nutriscore_unknown": "Nutri-Score desconegut",
-  "nutriscore_unknown_new_formula": "Nutri-score desconegut (nou càlcul)",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Maneres senzilles d'ajudar a obrir la informació sobre aliments",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
