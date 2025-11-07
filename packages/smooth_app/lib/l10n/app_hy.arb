@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Որո՞նք են ֆոլկսոնոմիայի առանձնահատկությունները։",
+  "folksonomy_explanation_card_body": "Ատրիբուտները հիմնված են **բանալի-արժեք** սկզբունքի վրա։\n\nԱյս հատկությունները ստեղծվում և լրացվում են օգտատերերի կողմից՝ ցանկացած տեսակի օգտագործման համար։",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
