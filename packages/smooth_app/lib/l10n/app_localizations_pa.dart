@@ -5278,6 +5278,14 @@ class AppLocalizationsPa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
+
+  @override
   String get folksonomy_action_external_link_title => 'Open external link';
 
   @override

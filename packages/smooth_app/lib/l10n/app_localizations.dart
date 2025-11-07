@@ -9085,6 +9085,18 @@ abstract class AppLocalizations {
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
 
+  /// No description provided for @folksonomy_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are Folksonomy attributes?'**
+  String get folksonomy_explanation_card_title;
+
+  /// No description provided for @folksonomy_explanation_card_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.'**
+  String get folksonomy_explanation_card_body;
+
   /// Label of the 'open external link' action on a folksonomy entry
   ///
   /// In en, this message translates to:

@@ -9,7 +9,6 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_autocompleter.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
@@ -158,17 +157,19 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
           ),
           SimpleInputTextField(
             focusNode: keyFocusNode,
+            autofocus: true,
             autocompleteKey: keyAutocompleteKey,
             constraints: const BoxConstraints(maxWidth: double.infinity),
+            borderRadius: HEADER_BORDER_RADIUS,
             tagType: null,
             hintText: appLocalizations.tag_key_input_hint,
             controller: keyController,
             productType: null,
-            withClearButton: true,
+            withClearButton: false,
+            margin: EdgeInsetsDirectional.zero,
             autocompleteManager: AutocompleteManager(
               const FolksonomyKeysAutocompleter(limit: 10),
             ),
-            suffixIcon: const icons.Search.offRounded(),
           ),
           const SizedBox(height: LARGE_SPACE),
           _FolksonomyEditTagContentTitle(
@@ -182,18 +183,19 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
                 focusNode: valueFocusNode,
                 autocompleteKey: valueAutocompleteKey,
                 constraints: const BoxConstraints(maxWidth: double.infinity),
+                borderRadius: HEADER_BORDER_RADIUS,
                 tagType: null,
                 hintText: appLocalizations.tag_value_input_hint,
                 controller: valueController,
                 productType: null,
-                withClearButton: true,
+                withClearButton: false,
+                margin: EdgeInsetsDirectional.zero,
                 autocompleteManager: AutocompleteManager(
                   FolksonomyValuesAutocompleter(
                     keyProvider: () => keyController.text,
                     limit: _autocompleteSuggestionsLimit,
                   ),
                 ),
-                suffixIcon: const icons.Search.offRounded(),
               );
             },
           ),
