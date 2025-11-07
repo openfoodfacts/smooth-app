@@ -1,0 +1,46 @@
+name: Translation Validation
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    paths:
+      - 'packages/smooth_app/lib/l10n/app_*.arb'
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-translations:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Run translation validation
+        id: validation
+        run: |
+          python .github/scripts/validate_translations.py > validation_report.md
+          echo "REPORT_FILE=validation_report.md" >> $GITHUB_OUTPUT
+      
+      - name: Find existing comment
+        uses: peter-evans/find-comment@v3
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '🔍 Translation Validation Report'
+      
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: validation_report.md
+          edit-mode: replace
