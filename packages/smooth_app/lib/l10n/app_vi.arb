@@ -689,7 +689,7 @@
   "nutritional_facts_input_button_label": "Thêm vào thông tin dinh dưỡng",
   "nutritional_facts_added": "Thông tin dinh dưỡng đã được thêm",
   "categories_added": "Đã thêm danh mục",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Tính toán Nutri-Score",
   "new_product_subtitle_nutriscore": "Tính điểm bằng cách điền danh mục thực phẩm và các giá trị dinh dưỡng",
   "new_product_title_environmental_score": "Compute the Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
@@ -1052,11 +1052,11 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "Thêm danh mục để tính Điểm dinh dưỡng.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Thêm thông tin dinh dưỡng để tính điểm Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
   "guide_learn_more_subtitle": "Tap to learn more",
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Những cách đơn giản để giúp Mở Thực phẩm",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
