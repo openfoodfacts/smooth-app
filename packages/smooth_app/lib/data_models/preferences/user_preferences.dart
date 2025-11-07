@@ -98,7 +98,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
       'ready_for_price_tag_validation';
   static const String _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD =
-      '_show_folksnonomy_explanation_card';
+      '_show_folksonomy_explanation_card';
 
   /// Camera preferences
 
