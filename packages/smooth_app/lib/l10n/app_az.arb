@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Folksonomiyanın atributları hansılardır?",
+  "folksonomy_explanation_card_body": "Atributlar **açar-dəyər** əsasındadır.\n\nBu xüsusiyyətlər istifadəçilər tərəfindən istənilən növ istifadə üçün yaradılır və təqdim olunur.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
