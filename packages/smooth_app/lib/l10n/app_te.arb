@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ఫోక్సోనమీ లక్షణాలు ఏమిటి?",
+  "folksonomy_explanation_card_body": "లక్షణాలు **కీ-విలువ** ఆధారితమైనవి.\n\nఈ లక్షణాలు ఏ రకమైన ఉపయోగాలకైనా వినియోగదారులచే సృష్టించబడతాయి మరియు దాఖలు చేయబడతాయి.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
