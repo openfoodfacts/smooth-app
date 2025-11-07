@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Hvað eru eiginleikar fólksonomíu?",
+  "folksonomy_explanation_card_body": "Eiginleikar eru byggðir á **lykilgildum**.\n\nÞessir eiginleikar eru búnir til og skráðir af notendum fyrir alls kyns notkun.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
