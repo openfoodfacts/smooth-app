@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Kokie yra folksonomijos atributai?",
+  "folksonomy_explanation_card_body": "Atributai yra **rakto-reikšmės** pagrindu.\n\nŠias savybes kuria ir pateikia vartotojai bet kokiam naudojimui.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
