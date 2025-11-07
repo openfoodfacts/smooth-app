@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Hvad er Folksonomys attributter?",
+  "folksonomy_explanation_card_body": "Attributter er **nøgle-værdi**-baserede.\n\nDisse egenskaber oprettes og arkiveres af brugere til enhver form for anvendelse.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
