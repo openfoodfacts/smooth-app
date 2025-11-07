@@ -4535,6 +4535,8 @@
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "फोकसोनोमीचे गुणधर्म काय आहेत?",
+  "folksonomy_explanation_card_body": "गुणधर्म **की-व्हॅल्यू** वर आधारित असतात.\n\nहे गुणधर्म वापरकर्त्यांद्वारे कोणत्याही प्रकारच्या वापरासाठी तयार आणि दाखल केले जातात.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
