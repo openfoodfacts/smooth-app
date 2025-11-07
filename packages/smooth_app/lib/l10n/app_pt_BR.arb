@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "Desde 2018, com o estudo NutriNet-Santé, foram destacados os primeiros vínculos entre **o consumo de alimentos ultraprocessados e o aumento dos riscos de câncer, doenças cardiovasculares e diabetes**. Hoje, mais de 90 estudos em todo o mundo confirmam essas descobertas.  \nAs associações mais fortes estão relacionadas à **obesidade, mortalidade cardiovascular e sintomas depressivos**. Em crianças, os efeitos são observados principalmente no peso e em desequilíbrios lipídicos.\n",
   "guide_nova_explanations_arg6_title": "Países recomendam limitá-los",
   "guide_nova_explanations_arg6_text": "Alguns países utilizam os grupos NOVA em suas diretrizes ou metas alimentares, por exemplo:\nAs diretrizes alimentares do **🇧🇷 Brasil** **recomendam limitar o consumo** de alimentos processados e evitar os ultraprocessados\n**As metas da política nutricional de saúde pública da **🇫🇷 França** para 2018-2022 visam **reduzir o consumo de alimentos ultraprocessados do grupo 4 em 20%**.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://pt.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Uma pontuação sobre a qualidade nutricional",
   "guide_open_food_facts_scores_arg2_title": "Uma pontuação para evitar alimentos ultraprocessados",
   "guide_open_food_facts_scores_arg3_title": " Uma pontuação para o planeta",
-  "guide_open_food_facts_share_link": "https://br.openfoodfacts.org/openfoodfacts",
+  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Bem-vindo ao Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Mantenha o produto sobre uma superfície plana.",
   "guide_open_pet_food_facts_scores_title": "Uma observação sobre a pontuação",
   "guide_open_pet_food_facts_scores_paragraph1": "Desenvolver um sistema de pontuação para alimentos de animais **não é uma prioridade no momento**. A metodologia seria complexa, pois as necessidades nutricionais variam bastante conforme a espécie, idade e condição de saúde. Ainda não encontramos nenhuma equipe científica independente capaz de desenvolver tal pontuação.",
-  "guide_open_pet_food_facts_share_link": "https://world-br.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Bem-vindo ao Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Mantenha o produto sobre uma superfície plana.",
   "guide_open_beauty_facts_scores_title": "Uma observação sobre a pontuação",
   "guide_open_beauty_facts_scores_paragraph1": "Diferente dos produtos alimentícios, o mundo dos cosméticos **não possui um sistema de pontuação reconhecido e respaldado por governos, como a Pontuação de Nutrição. Os efeitos dos ingredientes podem ser altamente pessoais e depender do tom de pele, alergias e preocupações individuais.",
-  "guide_open_beauty_facts_share_link": "https://world-br.openfoodfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bem-vindo ao Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
