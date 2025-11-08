@@ -323,8 +323,9 @@ class KnowledgePanelsBuilder {
       case TitleElementType.PERCENTAGE:
       case TitleElementType.UNKNOWN:
         return Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            start: SMALL_SPACE,
+            end: BALANCED_SPACE,
           ).add(padding ?? EdgeInsets.zero),
           child: KnowledgePanelTitleCard(
             knowledgePanelTitleElement: knowledgePanel.titleElement!,

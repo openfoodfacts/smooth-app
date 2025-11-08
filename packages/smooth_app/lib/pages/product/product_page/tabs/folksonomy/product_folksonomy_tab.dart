@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_explanation_card.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_list_attributes_card.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/folksonomy/product_folksonomy_explainer.dart';
 
-class FolksonomyCard extends StatelessWidget {
-  const FolksonomyCard(this.product);
+class ProductFolksonomyTab extends StatelessWidget {
+  const ProductFolksonomyTab(this.product);
 
   final Product product;
 
@@ -19,26 +18,14 @@ class FolksonomyCard extends StatelessWidget {
           FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: Provider<Product>.value(
         value: product,
-        child: const _FolksonomyCard(),
+        child: ListView(
+          padding: EdgeInsetsDirectional.zero,
+          children: const <Widget>[
+            FolksonomyExplanationBanner(),
+            FolksonomyListAttributesCard(),
+          ],
+        ),
       ),
-    );
-  }
-}
-
-class _FolksonomyCard extends StatelessWidget {
-  const _FolksonomyCard();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: VERY_LARGE_SPACE,
-      ),
-      children: const <Widget>[
-        FolksonomyExplanationCard(),
-        FolksonomyListAttributesCard(),
-      ],
     );
   }
 }

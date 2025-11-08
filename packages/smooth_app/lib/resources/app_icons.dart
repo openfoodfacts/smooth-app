@@ -580,6 +580,13 @@ class Chevron extends AppIcon {
   Widget build(BuildContext context) {
     return RotatedBox(quarterTurns: turns, child: super.build(context));
   }
+
+  static Chevron horizontalDirectional(BuildContext context) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => const Chevron.right(),
+      TextDirection.rtl => const Chevron.left(),
+    };
+  }
 }
 
 class CircledArrow extends AppIcon {

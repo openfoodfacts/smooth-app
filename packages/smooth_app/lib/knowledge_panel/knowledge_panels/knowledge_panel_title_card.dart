@@ -9,6 +9,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
@@ -27,7 +29,15 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    Color? colorFromEvaluation;
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    Color? colorFromEvaluation,
+        backgroundIconColor,
+        iconColor,
+        textColorFromEvaluation;
+
     IconData? iconData;
     if (userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
@@ -40,12 +50,22 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         ) ??
         false)) {
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-        if (context.darkTheme()) {
-          colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
-        } else {
-          colorFromEvaluation = _getColorFromEvaluation(evaluation);
-        }
+        colorFromEvaluation = _getColorFromEvaluation(context, evaluation);
+        backgroundIconColor = colorFromEvaluation;
+
+        iconColor = colorFromEvaluation != null
+            ? theme.primaryLight
+            : theme.primaryDark;
+        textColorFromEvaluation =
+            colorFromEvaluation ??
+            (context.lightTheme()
+                ? theme.primaryUltraBlack
+                : theme.primaryLight);
       }
+
+      backgroundIconColor ??= lightTheme
+          ? theme.primaryLight
+          : theme.primaryMedium;
     }
 
     List<Widget> iconWidget;
@@ -53,15 +73,21 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       iconWidget = <Widget>[
         Expanded(
           flex: IconWidgetSizer.getIconFlex(),
-          child: Center(
-            child: AbstractCache.best(
-              iconUrl: _rewriteIconUrl(
-                context,
-                knowledgePanelTitleElement.iconUrl,
+          child: CircleAvatar(
+            backgroundColor: backgroundIconColor,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: AbstractCache.best(
+                  iconUrl: _rewriteIconUrl(
+                    context,
+                    knowledgePanelTitleElement.iconUrl,
+                  ),
+                  width: 24.0,
+                  height: 24.0,
+                  color: iconColor,
+                ),
               ),
-              width: 36.0,
-              height: 36.0,
-              color: colorFromEvaluation,
             ),
           ),
         ),
@@ -103,13 +129,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                         child: Text(
                           knowledgePanelTitleElement.title,
                           style: TextStyle(
-                            color: colorFromEvaluation,
+                            color: textColorFromEvaluation,
                             fontSize: hasSubtitle ? 15.5 : 15.0,
                             fontWeight: hasSubtitle
                                 ? isClickable
                                       ? FontWeight.w600
                                       : FontWeight.bold
-                                : FontWeight.normal,
+                                : FontWeight.w500,
                           ),
                         ),
                       ),
@@ -133,41 +159,28 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                 },
               ),
             ),
-            if (isClickable) const icons.Chevron.right(size: 15.0),
+            if (isClickable)
+              icons.AppIconTheme(
+                color: lightTheme ? theme.greyDark : theme.greyLight,
+                size: 15.0,
+                child: icons.Chevron.horizontalDirectional(context),
+              ),
           ],
         ),
       ),
     );
   }
 
-  Color _getColorFromEvaluation(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return RED_COLOR;
-      case Evaluation.AVERAGE:
-        return LIGHT_ORANGE_COLOR;
-      case Evaluation.GOOD:
-        return LIGHT_GREEN_COLOR;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return PRIMARY_GREY_COLOR;
-    }
-  }
+  Color? _getColorFromEvaluation(BuildContext context, Evaluation? evaluation) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
-  Color _getColorFromEvaluationDarkMode(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return RED_COLOR;
-      case Evaluation.AVERAGE:
-        return LIGHT_ORANGE_COLOR;
-      case Evaluation.GOOD:
-        return LIGHT_GREEN_COLOR;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return Colors.white;
-    }
+    return switch (evaluation) {
+      Evaluation.BAD => theme.error,
+      Evaluation.GOOD => theme.success,
+      Evaluation.AVERAGE => theme.warning,
+      _ => null,
+    };
   }
 
   IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {

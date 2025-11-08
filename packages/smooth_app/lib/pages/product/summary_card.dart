@@ -123,9 +123,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     refreshUpToDate();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
-        body: Padding(
+        body: _buildSummaryCardContent(
+          context,
           padding: widget.margin ?? SMOOTH_CARD_PADDING,
-          child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
         borderRadius: widget.borderRadius,
@@ -215,7 +215,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     );
   }
 
-  Widget _buildSummaryCardContent(BuildContext context) {
+  Widget _buildSummaryCardContent(
+    BuildContext context, {
+    EdgeInsetsGeometry padding = EdgeInsetsDirectional.zero,
+  }) {
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
@@ -237,6 +240,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         _attributesToExcludeIfStatusIsUnknown,
         widget._productPreferences,
       ),
+      padding,
     );
     if (attributeChips.isNotEmpty) {
       displayedGroups.add(
@@ -268,6 +272,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           _attributesToExcludeIfStatusIsUnknown,
           widget._productPreferences,
         ),
+        padding,
       );
       attributeChips.addAll(
         _buildAttributeChips(
@@ -277,6 +282,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             _attributesToExcludeIfStatusIsUnknown,
             widget._productPreferences,
           ),
+          padding,
         ),
       );
       if (attributeChips.isNotEmpty) {
@@ -292,10 +298,14 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         );
       }
     }
+
     final Widget attributesContainer = displayedGroups.isNotEmpty
         ? Container(
             alignment: AlignmentDirectional.topStart,
-            margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
+            margin: const EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              bottom: LARGE_SPACE,
+            ),
             child: Column(children: displayedGroups),
           )
         : const SizedBox(height: SMALL_SPACE);
@@ -328,28 +338,37 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
 
     final Widget child = Column(
       children: <Widget>[
-        ProductTitleCard(
-          upToDateProduct,
-          widget.isTextSelectable ?? widget.isFullVersion,
-          heroTag: widget.heroTag,
-          dense: !widget.isFullVersion,
-          isPictureVisible: widget.isPictureVisible,
-          onRemove: (BuildContext context) async {
-            HideableContainerState.of(context).hide(() async {
-              final ContinuousScanModel model = context
-                  .read<ContinuousScanModel>();
-              await model.removeBarcode(barcode);
+        Padding(
+          padding: padding,
+          child: ProductTitleCard(
+            upToDateProduct,
+            widget.isTextSelectable ?? widget.isFullVersion,
+            heroTag: widget.heroTag,
+            dense: !widget.isFullVersion,
+            isPictureVisible: widget.isPictureVisible,
+            onRemove: (BuildContext context) async {
+              HideableContainerState.of(context).hide(() async {
+                final ContinuousScanModel model = context
+                    .read<ContinuousScanModel>();
+                await model.removeBarcode(barcode);
 
-              // Vibrate twice
-              SmoothHapticFeedback.confirm();
-            });
-          },
+                // Vibrate twice
+                SmoothHapticFeedback.confirm();
+              });
+            },
+          ),
         ),
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
-          ProductIncompleteCard(product: upToDateProduct),
+          Padding(
+            padding: padding,
+            child: ProductIncompleteCard(product: upToDateProduct),
+          ),
         ..._getAttributes(scoreAttributes),
         attributesContainer,
-        ...summaryCardButtons,
+        Padding(
+          padding: padding,
+          child: Column(children: summaryCardButtons),
+        ),
       ],
     );
 
@@ -367,10 +386,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       if (widget.isFullVersion) {
         attributes.add(
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
             child: InkWell(
               borderRadius: ANGULAR_BORDER_RADIUS,
-              onTap: () async => _openFullKnowledgePanel(attribute: attribute),
+              onTap: () async => _isAttributeClickable(attribute)
+                  ? _openFullKnowledgePanel(attribute: attribute)
+                  : null,
               child: ScoreCard.attribute(
                 attribute: attribute,
                 isClickable: true,
@@ -388,11 +409,15 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     return attributes;
   }
 
-  List<Widget> _buildAttributeChips(final List<Attribute> attributes) {
+  List<Widget> _buildAttributeChips(
+    final List<Attribute> attributes,
+    EdgeInsetsGeometry padding,
+  ) {
     final List<Widget> result = <Widget>[];
     for (final Attribute attribute in attributes) {
       final Widget? attributeChip = _buildAttributeChipForValidAttributes(
         attribute,
+        padding,
       );
       if (attributeChip != null) {
         result.add(attributeChip);
@@ -401,7 +426,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     return result;
   }
 
-  Widget? _buildAttributeChipForValidAttributes(final Attribute attribute) {
+  Widget? _buildAttributeChipForValidAttributes(
+    final Attribute attribute,
+    EdgeInsetsGeometry padding,
+  ) {
     if (attribute.status == Attribute.STATUS_UNKNOWN &&
         _attributesToExcludeIfStatusIsUnknown.contains(attribute.id)) {
       return null;
@@ -413,21 +441,35 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     }
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        final SmoothColorsThemeExtension theme = context
+            .extension<SmoothColorsThemeExtension>();
+        final VoidCallback? onTap = _isAttributeClickable(attribute)
+            ? () => _openFullKnowledgePanel(attribute: attribute)
+            : null;
+
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            enableFeedback: _isAttributeOpeningAllowed(attribute),
-            onTap: () async => _openFullKnowledgePanel(attribute: attribute),
+            onTap: onTap,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+              padding: padding.add(
+                const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 spacing: SMALL_SPACE,
                 children: <Widget>[
                   attributeIcon,
-                  Expanded(child: Text(attributeDisplayTitle)),
+                  Expanded(child: Text(attributeDisplayTitle, style: TextStyle(fontWeight: FontWeight.w500),)),
+                  if (onTap != null)
+                    icons.AppIconTheme(
+                      size: 15.0,
+                      color: context.lightTheme()
+                          ? theme.greyDark
+                          : theme.greyLight,
+                      child: icons.Chevron.horizontalDirectional(context),
+                    ),
                 ],
               ),
             ),
@@ -442,29 +484,35 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       upToDateProduct.knowledgePanels != null &&
       attribute.panelId != null;
 
+  /// Ensures [_isAttributeClickable] is called before this method
   Future<void> _openFullKnowledgePanel({
     required final Attribute attribute,
   }) async {
+    await Navigator.push<void>(
+      context,
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => KnowledgePanelPage(
+          panelId: attribute.panelId!,
+          product: upToDateProduct,
+        ),
+      ),
+    );
+  }
+
+  bool _isAttributeClickable(Attribute attribute) {
     if (!_isAttributeOpeningAllowed(attribute)) {
-      return;
+      return false;
     }
 
     final String? panelId = attribute.panelId;
     if (panelId == null) {
-      return;
+      return false;
     }
     final KnowledgePanel? knowledgePanel =
         KnowledgePanelsBuilder.getKnowledgePanel(upToDateProduct, panelId);
     if (knowledgePanel == null) {
-      return;
+      return false;
     }
-
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) =>
-            KnowledgePanelPage(panelId: panelId, product: upToDateProduct),
-      ),
-    );
+    return true;
   }
 }

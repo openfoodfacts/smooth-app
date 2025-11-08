@@ -15,11 +15,25 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/prices/product_prices_explainer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-/// Card that displays buttons related to prices.
+class ProductPricesTab extends StatelessWidget {
+  const ProductPricesTab(this.product);
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: EdgeInsetsDirectional.zero,
+      children: const <Widget>[ProductPricesExplanationBanner()],
+    );
+  }
+}
+
 class PricesCard extends StatelessWidget {
   const PricesCard(this.product);
 

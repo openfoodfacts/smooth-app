@@ -54,7 +54,6 @@ class KnowledgePanelCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
       child: InkWell(
-        borderRadius: ANGULAR_BORDER_RADIUS,
         onTap: !improvedIsClickable
             ? null
             : () async => Navigator.push<Widget>(

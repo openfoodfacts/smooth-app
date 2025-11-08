@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -127,13 +126,7 @@ Widget buildProductSmoothCard({
     child = body;
   }
 
-  return SmoothCard(
-    margin: margin,
-    padding: padding,
-    borderRadius: borderRadius,
-    elevation: 4.0,
-    child: child,
-  );
+  return child;
 }
 
 class _ProductSmoothCardTitle extends StatelessWidget {
