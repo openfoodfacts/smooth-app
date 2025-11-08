@@ -65,13 +65,16 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
   &#47;&#47; we don&#39;t want this on the onboarding
-  UserPreferencesItemTile(
-    leading: UserPreferencesListTile.getTintedIcon(
-      Icons.rotate_left,
-      context,
+  UserPreferencesItemSimple(
+    labels: &lt;String&gt;[appLocalizations.reset_food_prefs],
+    builder: (final BuildContext context) =&gt; ListTile(
+      title: Text(appLocalizations.reset_food_prefs),
+      onTap: () async =&gt; _confirmReset(),
+      leading: Icon(
+        Icons.rotate_left,
+        color: Theme.of(context).iconTheme.color,
+      ),
     ),
-    title: appLocalizations.reset_food_prefs,
-    onTap: () async =&gt; _confirmReset(),
   ),
   ..._getOnboardingBody(collapsed: false),
 ];</code></pre>
@@ -120,6 +123,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_food/UserPreferencesFood/getOnboardingContent.html">getOnboardingContent</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_food/UserPreferencesFood/getTitleString.html">getTitleString</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_food/UserPreferencesFood/searchTiles.html">searchTiles</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_food/UserPreferencesFood-class.html#operators">Operators</a></li>
