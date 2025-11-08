@@ -342,7 +342,7 @@ class _AppBarTitle extends StatelessWidget {
   }
 }
 
-class SmoothEmptyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class SmoothEmptyAppBar extends StatelessWidget {
   const SmoothEmptyAppBar({super.key});
 
   @override
@@ -350,15 +350,13 @@ class SmoothEmptyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
-    return SizedBox.expand(
-      child: ColoredBox(
-        color: context.lightTheme()
-            ? extension.primaryBlack
-            : extension.primaryUltraBlack,
-      ),
+    print(MediaQuery.viewInsetsOf(context).top);
+
+    return ColoredBox(
+      color: context.lightTheme()
+          ? extension.primaryBlack
+          : extension.primaryUltraBlack,
+      child: const SizedBox.expand(),
     );
   }
-
-  @override
-  Size get preferredSize => Size.zero;
 }

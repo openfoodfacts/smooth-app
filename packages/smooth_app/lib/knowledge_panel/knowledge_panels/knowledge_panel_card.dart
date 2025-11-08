@@ -43,6 +43,8 @@ class KnowledgePanelCard extends StatelessWidget {
         product: product,
         isInitiallyExpanded: false,
         isClickable: isClickable,
+        roundedIcons: true,
+        overrideStyle: false,
       );
     }
 
@@ -74,9 +76,9 @@ class KnowledgePanelCard extends StatelessWidget {
             KnowledgePanelsBuilder.getPanelSummaryWidget(
               panel,
               isClickable: improvedIsClickable,
-              margin: EdgeInsets.zero,
+              margin: EdgeInsetsDirectional.zero,
             ) ??
-            const SizedBox(),
+            EMPTY_WIDGET,
       ),
     );
   }

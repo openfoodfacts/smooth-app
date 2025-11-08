@@ -7,6 +7,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -20,11 +21,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     required this.knowledgePanelTitleElement,
     required this.isClickable,
     this.evaluation,
+    this.textStyleOverride,
   });
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
   final bool isClickable;
+  final TextStyle? textStyleOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +36,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    Color? colorFromEvaluation,
-        backgroundIconColor,
-        iconColor,
-        textColorFromEvaluation;
+    Color? colorFromEvaluation, backgroundIconColor, iconColor, textColor;
 
     IconData? iconData;
     if (userPreferences.getFlag(
@@ -50,45 +50,39 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         ) ??
         false)) {
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-        colorFromEvaluation = _getColorFromEvaluation(context, evaluation);
+        colorFromEvaluation = KnowledgePanelsBuilder.getColorFromEvaluation(
+          context,
+          evaluation,
+        );
         backgroundIconColor = colorFromEvaluation;
 
         iconColor = colorFromEvaluation != null
             ? theme.primaryLight
             : theme.primaryDark;
-        textColorFromEvaluation =
+
+        textColor =
             colorFromEvaluation ??
             (context.lightTheme()
                 ? theme.primaryUltraBlack
                 : theme.primaryLight);
       }
-
-      backgroundIconColor ??= lightTheme
-          ? theme.primaryLight
-          : theme.primaryMedium;
     }
 
-    List<Widget> iconWidget;
+    backgroundIconColor ??= lightTheme
+        ? theme.primaryLight
+        : theme.primaryMedium;
+
+    textColor ??= lightTheme ? theme.primaryUltraBlack : theme.primaryLight;
+
+    List<Widget>? iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
       iconWidget = <Widget>[
         Expanded(
           flex: IconWidgetSizer.getIconFlex(),
-          child: CircleAvatar(
+          child: _KnowledgePanelTitleIcon(
+            url: knowledgePanelTitleElement.iconUrl!,
             backgroundColor: backgroundIconColor,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: AbstractCache.best(
-                  iconUrl: _rewriteIconUrl(
-                    context,
-                    knowledgePanelTitleElement.iconUrl,
-                  ),
-                  width: 24.0,
-                  height: 24.0,
-                  color: iconColor,
-                ),
-              ),
-            ),
+            tintColor: iconColor,
           ),
         ),
         const Padding(padding: EdgeInsetsDirectional.only(start: SMALL_SPACE)),
@@ -98,9 +92,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
             child: Icon(iconData),
           ),
       ];
-    } else {
-      iconWidget = <Widget>[];
     }
+
     return Padding(
       padding: const EdgeInsetsDirectional.only(
         top: VERY_SMALL_SPACE,
@@ -113,7 +106,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         excludeSemantics: true,
         child: Row(
           children: <Widget>[
-            ...iconWidget,
+            if (iconWidget != null)
+              ...iconWidget
+            else
+              const SizedBox(width: VERY_SMALL_SPACE),
             Expanded(
               flex: IconWidgetSizer.getRemainingWidgetFlex(),
               child: LayoutBuilder(
@@ -128,15 +124,17 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                         width: constraints.maxWidth,
                         child: Text(
                           knowledgePanelTitleElement.title,
-                          style: TextStyle(
-                            color: textColorFromEvaluation,
-                            fontSize: hasSubtitle ? 15.5 : 15.0,
-                            fontWeight: hasSubtitle
-                                ? isClickable
-                                      ? FontWeight.w600
-                                      : FontWeight.bold
-                                : FontWeight.w500,
-                          ),
+                          style:
+                              textStyleOverride ??
+                              TextStyle(
+                                color: textColor,
+                                fontSize: hasSubtitle ? 15.5 : 15.0,
+                                fontWeight: hasSubtitle
+                                    ? isClickable
+                                          ? FontWeight.w600
+                                          : FontWeight.bold
+                                    : FontWeight.w500,
+                              ),
                         ),
                       ),
                       if (hasSubtitle)
@@ -148,9 +146,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             width: constraints.maxWidth,
                             child: Text(
                               knowledgePanelTitleElement.subtitle!,
-                              style: WellSpacedTextHelper
-                                  .TEXT_STYLE_WITH_WELL_SPACED
-                                  .copyWith(fontWeight: FontWeight.w500),
+                              style:
+                                  textStyleOverride ??
+                                  WellSpacedTextHelper
+                                      .TEXT_STYLE_WITH_WELL_SPACED
+                                      .copyWith(
+                                        color: textColor,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                             ).selectable(isSelectable: !isClickable),
                           ),
                         ),
@@ -169,18 +172,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Color? _getColorFromEvaluation(BuildContext context, Evaluation? evaluation) {
-    final SmoothColorsThemeExtension theme = context
-        .extension<SmoothColorsThemeExtension>();
-
-    return switch (evaluation) {
-      Evaluation.BAD => theme.error,
-      Evaluation.GOOD => theme.success,
-      Evaluation.AVERAGE => theme.warning,
-      _ => null,
-    };
   }
 
   IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {
@@ -219,18 +210,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     return buffer.toString();
   }
 
-  String? _rewriteIconUrl(BuildContext context, String? iconUrl) {
-    final bool lightTheme = context.lightTheme();
-
-    if (iconUrl ==
-            'https://static.openfoodfacts.org/images/logos/off-logo-icon-light.svg' &&
-        !lightTheme) {
-      return 'https://static.openfoodfacts.org/images/logos/off-logo-icon-dark.svg';
-    }
-
-    return iconUrl;
-  }
-
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
@@ -247,4 +226,68 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
     properties.add(EnumProperty<Evaluation>('evaluation', evaluation));
   }
+}
+
+class _KnowledgePanelTitleIcon extends StatelessWidget {
+  const _KnowledgePanelTitleIcon({
+    required this.url,
+    this.backgroundColor,
+    this.tintColor,
+  });
+
+  final Color? backgroundColor;
+  final Color? tintColor;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    final bool rounded =
+        context.read<KnowledgePanelTitleConfig?>()?.roundedIcon ?? true;
+
+    if (rounded) {
+      return CircleAvatar(
+        backgroundColor: backgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(child: _buildIcon(context, 24.0)),
+        ),
+      );
+    } else {
+      return Center(child: _buildIcon(context, 36.0));
+    }
+  }
+
+  Widget _buildIcon(BuildContext context, double size) {
+    if (url == 'https://static.openfoodfacts.org/images/misc/moderate.svg') {
+      return CircleAvatar(
+        backgroundColor: context
+            .extension<SmoothColorsThemeExtension>()
+            .warning,
+      );
+    } else if (url == 'https://static.openfoodfacts.org/images/misc/high.svg') {
+      return CircleAvatar(
+        backgroundColor: context.extension<SmoothColorsThemeExtension>().error,
+      );
+    } else if (url == 'https://static.openfoodfacts.org/images/misc/low.svg') {
+      return CircleAvatar(
+        backgroundColor: context
+            .extension<SmoothColorsThemeExtension>()
+            .success,
+      );
+    }
+
+    return AbstractCache.best(
+      iconUrl: url,
+      width: size,
+      height: size,
+      color: tintColor,
+    );
+  }
+}
+
+@immutable
+class KnowledgePanelTitleConfig {
+  const KnowledgePanelTitleConfig({required this.roundedIcon});
+
+  final bool roundedIcon;
 }

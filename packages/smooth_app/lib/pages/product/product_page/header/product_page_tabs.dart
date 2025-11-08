@@ -13,7 +13,6 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/folksonomy/product_folksonomy_tab.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/prices/product_prices_tab.dart';
-import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -176,19 +175,6 @@ class ProductPageTabsGenerator {
       ),
     );
     */
-    if (product.website?.trim().isNotEmpty == true) {
-      tabs.add(
-        ProductPageTab(
-          id: ProductPageHarcodedTabs.WEBSITE.key,
-          labelBuilder: (BuildContext context) =>
-              AppLocalizations.of(context).product_page_tab_website,
-          builder: (_, Product product) => ListView(
-            padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[WebsiteCard(product.website!)],
-          ),
-        ),
-      );
-    }
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.PRICES.key,

@@ -9,6 +9,9 @@ import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/product_page/widgets/product_page_table.dart';
 import 'package:smooth_app/pages/product/product_page/widgets/product_page_title.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 class FolksonomyListAttributesCard extends StatelessWidget {
@@ -52,6 +55,8 @@ class _FolksonomyCardBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 100.0),
@@ -70,9 +75,22 @@ class _FolksonomyCardBody extends StatelessWidget {
                 child: Column(
                   spacing: BALANCED_SPACE,
                   children: <Widget>[
-                    const SvgPicture(
-                      AssetBytesLoader('assets/icons/property_empty.svg.vec'),
-                      width: 35.0,
+                    DecoratedBox(
+                      decoration: ShapeDecoration(
+                        shape: const CircleBorder(),
+                        color: context.lightTheme()
+                            ? theme.primaryLight
+                            : theme.primaryMedium,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsetsDirectional.all(LARGE_SPACE),
+                        child: SvgPicture(
+                          AssetBytesLoader(
+                            'assets/icons/property_empty.svg.vec',
+                          ),
+                          width: 35.0,
+                        ),
+                      ),
                     ),
                     Text(
                       appLocalizations.no_product_tags_found_message,

@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -15,12 +16,16 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.product,
     required this.isInitiallyExpanded,
     required this.isClickable,
+    this.roundedIcons = true,
+    this.overrideStyle = true,
   });
 
   final Product product;
   final String panelId;
   final bool isInitiallyExpanded;
   final bool isClickable;
+  final bool roundedIcons;
+  final bool overrideStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +54,16 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
         );
         if (elementWidget != null) {
           elementWidgets.add(
-            Padding(
-              padding: EdgeInsetsDirectional.only(
-                top: VERY_SMALL_SPACE,
-                start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-                end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+            Provider<KnowledgePanelTitleConfig>.value(
+              value: KnowledgePanelTitleConfig(roundedIcon: roundedIcons),
+              child: Padding(
+                padding: EdgeInsetsDirectional.only(
+                  top: VERY_SMALL_SPACE,
+                  start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+                  end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+                ),
+                child: elementWidget,
               ),
-              child: elementWidget,
             ),
           );
         }
@@ -74,6 +82,14 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   List<Widget>? _getSummary(KnowledgePanel panel) {
     final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
       panel,
+      ignoreEvaluation: true,
+      textStyleOverride: overrideStyle && _hasValidEvaluation(panel.evaluation)
+          ? const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15.0,
+              color: Colors.white,
+            )
+          : null,
       isClickable: false,
     );
 
@@ -90,7 +106,10 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           ];
         } else {
           return <Widget>[
-            _KnowledgePanelSummaryCardTitle(child: summary),
+            _KnowledgePanelSummaryCardTitle(
+              evaluation: panel.evaluation,
+              child: summary,
+            ),
             const SizedBox(height: SMALL_SPACE),
           ];
         }
@@ -101,6 +120,12 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
 
     return null;
   }
+
+  bool _hasValidEvaluation(Evaluation? evaluation) => <Evaluation>[
+    Evaluation.GOOD,
+    Evaluation.AVERAGE,
+    Evaluation.BAD,
+  ].contains(evaluation);
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -115,20 +140,25 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
 
 /// Force a background around a summary Widget
 class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
-  const _KnowledgePanelSummaryCardTitle({required this.child});
+  const _KnowledgePanelSummaryCardTitle({required this.child, this.evaluation});
 
   final Widget child;
+  final Evaluation? evaluation;
 
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
+    final Color? backgroundColor =
+        KnowledgePanelsBuilder.getColorFromEvaluation(context, evaluation);
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: context.lightTheme()
-            ? extension.primaryMedium
-            : extension.primaryUltraBlack,
+        color:
+            backgroundColor ??
+            (context.lightTheme()
+                ? extension.primaryMedium
+                : extension.primaryUltraBlack),
         borderRadius: const BorderRadius.vertical(top: ANGULAR_RADIUS),
       ),
       child: Padding(
@@ -138,7 +168,10 @@ class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
         ),
         child: DefaultTextStyle.merge(
           child: child,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
       ),
     );

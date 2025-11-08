@@ -576,16 +576,16 @@ class Chevron extends AppIcon {
 
   final int turns;
 
-  @override
-  Widget build(BuildContext context) {
-    return RotatedBox(quarterTurns: turns, child: super.build(context));
-  }
-
   static Chevron horizontalDirectional(BuildContext context) {
     return switch (Directionality.of(context)) {
       TextDirection.ltr => const Chevron.right(),
       TextDirection.rtl => const Chevron.left(),
     };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RotatedBox(quarterTurns: turns, child: super.build(context));
   }
 }
 
@@ -1143,6 +1143,13 @@ class DoubleChevron extends AppIcon {
        super._(_IconsFont.double_chevron);
 
   final int turns;
+
+  static DoubleChevron horizontalDirectional(BuildContext context) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => const DoubleChevron.right(),
+      TextDirection.rtl => const DoubleChevron.left(),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {

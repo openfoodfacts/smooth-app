@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -15,6 +16,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/portion_calculator.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -61,8 +63,13 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String title = _getTitle();
 
-    context.watch<LocalDatabase>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
+
+    final bool hasPendingOperations = UpToDateChanges(
+      localDatabase,
+    ).hasNotTerminatedOperations(upToDateProduct.barcode!);
+
     return Provider<Product>.value(
       value: upToDateProduct,
       child: SmoothScaffold(
@@ -98,6 +105,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                     bottom: LARGE_SPACE,
                   ),
                   borderRadius: ANGULAR_BORDER_RADIUS,
+                  elevation: 4.0,
                   child: DefaultTextStyle.merge(
                     style: const TextStyle(fontSize: 15.0, height: 1.5),
                     child: KnowledgePanelExpandedCard(
@@ -105,6 +113,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                       product: upToDateProduct,
                       isInitiallyExpanded: true,
                       isClickable: true,
+                      roundedIcons: false,
                     ),
                   ),
                 ),
@@ -119,6 +128,9 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
             ),
           ),
         ),
+        bottomNavigationBar: hasPendingOperations
+            ? const ProductPageLoadingIndicator()
+            : null,
       ),
     );
   }
