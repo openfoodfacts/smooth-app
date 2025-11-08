@@ -1,5 +1,5 @@
 {
-  "app_name": "Відкриті факти про їжу",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -348,7 +348,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Підтримати проєкт",
+  "contribute": "Долучитись",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -1246,7 +1246,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Блог",
   "faq": "ЧаПИ",
-  "discover": "Дізнатись більше",
+  "discover": "Огляд",
   "how_to_contribute": "Як зробити внесок",
   "hint_knowledge_panel_message": "Ви можете торкнутися будь-якої частини картки, щоб дізнатися більше про те, що ви бачите. Спробуй зараз!",
   "@hint_knowledge_panel_message": {
@@ -4020,7 +4020,7 @@
   "guide_nova_explanations_arg5_text": "З 2018 року, завдяки NutriNet-Santé, було виявлено перші зв'язки між **споживанням надмірно оброблених продуктів харчування та підвищеним ризиком розвитку раку, серцево-судинних захворювань і діабету**. На сьогоднішній день понад 90 досліджень у всьому світі підтверджують ці висновки.\nНайсильніші зв'язки стосуються **ожиріння, серцево-судинної смертності та депресивних симптомів**. У дітей ефекти в першу чергу спостерігаються на вазі та ліпідному дисбалансі.",
   "guide_nova_explanations_arg6_title": "Країни рекомендують обмежити їх",
   "guide_nova_explanations_arg6_text": "Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-uk.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4054,7 +4054,7 @@
   "guide_open_food_facts_scores_arg1_title": "Оцінка за поживну якість",
   "guide_open_food_facts_scores_arg2_title": "Оцінка, щоб уникнути ультраоброблених продуктів",
   "guide_open_food_facts_scores_arg3_title": "Оцінка для планети",
-  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
+  "guide_open_food_facts_share_link": "https://world-uk.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Вітаємо в Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4084,7 +4084,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Тримайте продукт на плоскій поверхні.",
   "guide_open_pet_food_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_pet_food_facts_scores_paragraph1": "Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.",
-  "guide_open_pet_food_facts_share_link": "https://world.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-uk.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Вітаємо в Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4116,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Тримайте продукт на плоскій поверхні.",
   "guide_open_beauty_facts_scores_title": "Примітка щодо підрахунку очок",
   "guide_open_beauty_facts_scores_paragraph1": "На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.",
-  "guide_open_beauty_facts_share_link": "https://world.openfoodfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-uk.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Вітаємо в Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4173,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.",
   "guide_open_products_facts_folksonomy_paragraph2": "Ви можете додати будь-які ключі та значення, наприклад: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
-  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-uk.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food налаштування",
   "guide_coming_soon_button_title": "Незабаром!",
   "guide_learn_more_subtitle": "Торкніться, щоб дізнатися більше",
@@ -4789,7 +4789,7 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Підтримати проєкт",
+  "preferences_contribute_title": "Долучитись",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
@@ -5346,7 +5346,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Прості способи допомогти. Відкрийте факти про їжу.",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

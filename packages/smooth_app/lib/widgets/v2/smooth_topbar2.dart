@@ -215,10 +215,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
       return widget.backgroundColor!;
     }
 
-    if (widget.theme == SmoothTopBar2Theme.dark) {
-      return lightTheme ? colors.primaryBlack : colors.primaryUltraBlack;
-    }
-    return lightTheme ? colors.primaryMedium : colors.primaryDark;
+    return lightTheme ? colors.primaryBlack : colors.primaryUltraBlack;
   }
 
   Color? _foregroundColor(SmoothColorsThemeExtension colors, bool lightTheme) {
@@ -228,7 +225,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     if (widget.theme == SmoothTopBar2Theme.dark) {
       return lightTheme ? Colors.white : null;
     }
-    return null;
+    return Colors.white;
   }
 
   Positioned _getImageAsset({

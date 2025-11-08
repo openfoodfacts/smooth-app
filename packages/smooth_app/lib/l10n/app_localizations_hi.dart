@@ -9,7 +9,7 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get app_name => 'खुले खाद्य तथ्य';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -4057,8 +4057,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'ग्रीन-स्कोर लागू नहीं है';
 
   @override
-  String get nova_group_generic_new =>
-      'अति-प्रसंस्कृत खाद्य पदार्थ - नोवा समूह';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4552,7 +4551,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4635,7 +4634,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-hi.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4804,7 +4803,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-hi.openfoodfacts.org/discover';
+      'https://world-hi.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4956,7 +4955,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-hi.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5276,6 +5275,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5914,7 +5921,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ओपन प्राइसेस समुदाय द्वारा जोड़े गए नवीनतम मूल्य';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5962,7 +5969,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'मदद करने के सरल तरीके: खाद्य तथ्य खोलें';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -9,7 +9,7 @@ class AppLocalizationsRo extends AppLocalizations {
   AppLocalizationsRo([String locale = 'ro']) : super(locale);
 
   @override
-  String get app_name => 'Informații despre alimente deschise';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -1360,11 +1360,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -4051,22 +4051,22 @@ class AppLocalizationsRo extends AppLocalizations {
   String get product_list_create_tooltip => 'Creați o listă nouă';
 
   @override
-  String get nutriscore_generic => 'Nutri-Scor';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Scor nutrițional A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Scor nutrițional B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'Scor nutrițional C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Scor nutrițional D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Scor nutrițional E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -4077,14 +4077,14 @@ class AppLocalizationsRo extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Scor nutrițional necunoscut';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
       'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
@@ -4612,7 +4612,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4695,7 +4695,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-ro.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4776,7 +4776,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-ro.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4864,7 +4864,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-ro.openfoodfacts.org/discover';
+      'https://world-ro.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -5016,7 +5016,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-ro.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5336,6 +5336,14 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6033,7 +6041,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Modalități simple de a ajuta la Open Food Informations';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

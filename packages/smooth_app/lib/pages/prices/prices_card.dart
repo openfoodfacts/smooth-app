@@ -7,8 +7,9 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
@@ -27,11 +28,21 @@ class PricesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return buildProductSmoothCard(
-      title: Text(appLocalizations.prices_generic_title),
-      body: Container(
-        width: double.infinity,
-        padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: VERY_LARGE_SPACE,
+      ),
+      child: SmoothCardWithRoundedHeader(
+        title: appLocalizations.prices_generic_title,
+        leading: const icons.PiggyBank(),
+        trailing: IconButton(
+          onPressed: () =>
+              AppNavigator.of(context).push(AppRoutes.GUIDE_OPEN_PRICES),
+          icon: const icons.Help(),
+        ),
+        contentPadding: const EdgeInsetsDirectional.all(LARGE_SPACE),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -56,11 +67,6 @@ class PricesCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      margin: const EdgeInsetsDirectional.only(
-        start: SMALL_SPACE,
-        end: SMALL_SPACE,
-        top: VERY_LARGE_SPACE,
       ),
     );
   }

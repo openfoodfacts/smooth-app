@@ -7888,7 +7888,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/nova'**
+  /// **'https://world-en.openfoodfacts.org/nova'**
   String get guide_nova_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8020,7 +8020,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openfoodfacts'**
+  /// **'https://world-en.openfoodfacts.org/discover'**
   String get guide_open_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8146,7 +8146,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_pet_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openpetfoodfacts.org/discover'**
+  /// **'https://world-en.openpetfoodfacts.org/discover'**
   String get guide_open_pet_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8284,7 +8284,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_beauty_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openfoodfacts.org/discover'**
+  /// **'https://world-en.openbeautyfacts.org/discover'**
   String get guide_open_beauty_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8518,7 +8518,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_products_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openproductsfacts.org/discover'**
+  /// **'https://world-en.openproductsfacts.org/discover'**
   String get guide_open_products_facts_share_link;
 
   /// No description provided for @guide_open_preferences_button_title.
@@ -9084,6 +9084,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
+
+  /// No description provided for @folksonomy_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are Folksonomy attributes?'**
+  String get folksonomy_explanation_card_title;
+
+  /// No description provided for @folksonomy_explanation_card_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.'**
+  String get folksonomy_explanation_card_body;
 
   /// Label of the 'open external link' action on a folksonomy entry
   ///

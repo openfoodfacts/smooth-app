@@ -7,9 +7,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
@@ -45,13 +45,16 @@ class UserPreferencesFood {
 
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
     // we don't want this on the onboarding
-    UserPreferencesItemTile(
-      leading: UserPreferencesListTile.getTintedIcon(
-        Icons.rotate_left,
-        context,
+    UserPreferencesItemSimple(
+      labels: <String>[appLocalizations.reset_food_prefs],
+      builder: (final BuildContext context) => ListTile(
+        title: Text(appLocalizations.reset_food_prefs),
+        onTap: () async => _confirmReset(),
+        leading: Icon(
+          Icons.rotate_left,
+          color: Theme.of(context).iconTheme.color,
+        ),
       ),
-      title: appLocalizations.reset_food_prefs,
-      onTap: () async => _confirmReset(),
     ),
     ..._getOnboardingBody(collapsed: false),
   ];
@@ -138,6 +141,42 @@ class UserPreferencesFood {
           appLocalizations: appLocalizations,
           themeData: themeData,
         ).getItems(collapsed: collapsed),
+      );
+    }
+    return result;
+  }
+
+  List<PreferenceTile> searchTiles(BuildContext context, String query) {
+    final List<PreferenceTile> result = <PreferenceTile>[];
+    final UserPreferencesFoodSearchHelper helper =
+        UserPreferencesFoodSearchHelper(query);
+
+    final List<AttributeGroup> groups = _reorderGroups(
+      productPreferences.attributeGroups!,
+    );
+
+    if (helper.matches(<String?>[
+      appLocalizations.myPreferences_food_title,
+      appLocalizations.myPreferences_food_subtitle,
+      appLocalizations.myPreferences_food_comment,
+    ])) {
+      result.add(
+        helper.getPreferenceTile(
+          title: appLocalizations.myPreferences_food_title,
+          context: context,
+        ),
+      );
+    }
+    for (final AttributeGroup group in groups) {
+      result.addAll(
+        UserPreferencesAttributeGroup(
+          productPreferences: productPreferences,
+          group: group,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        ).searchTiles(context, helper),
       );
     }
     return result;

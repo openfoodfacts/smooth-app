@@ -9,7 +9,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get app_name => 'Açık Gıda Bilgileri';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -848,7 +848,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get categories_added => 'Kategoriler eklendi';
 
   @override
-  String get new_product_title_nutriscore => 'Nutri Puanını hesaplayın';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -4573,7 +4573,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-tr.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4656,7 +4656,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-tr.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4825,7 +4825,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-tr.openfoodfacts.org/discover';
+      'https://world-tr.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4977,7 +4977,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://tr.openproductsfacts.org/discover';
+      'https://world-tr.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5301,6 +5301,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Halkbilimi';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5945,7 +5953,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Açık Fiyatlar topluluğu tarafından eklenen en son fiyatlar';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5994,7 +6002,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Açık Gıda Gerçeklerine yardımcı olmanın basit yolları';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

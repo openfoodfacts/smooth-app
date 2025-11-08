@@ -131,6 +131,7 @@ Widget buildProductSmoothCard({
     margin: margin,
     padding: padding,
     borderRadius: borderRadius,
+    elevation: 4.0,
     child: child,
   );
 }

@@ -9,7 +9,7 @@ class AppLocalizationsTt extends AppLocalizations {
   AppLocalizationsTt([String locale = 'tt']) : super(locale);
 
   @override
-  String get app_name => 'Ачык азык фактлары';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -2982,7 +2982,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Prices.openfoodfacts.org (PROD) һәм сынау env арасында күчү';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4549,7 +4549,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-tt.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4632,7 +4632,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-tt.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4713,7 +4713,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-tt.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4801,7 +4801,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-tt.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4953,7 +4953,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-tt.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5273,6 +5273,14 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5912,7 +5920,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Ачык бәяләр җәмгыяте өстәгән соңгы бәяләр';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5960,7 +5968,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ачык азык фактларына булышуның гади ысуллары';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

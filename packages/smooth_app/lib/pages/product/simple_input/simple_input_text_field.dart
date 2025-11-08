@@ -14,6 +14,7 @@ class SimpleInputTextField extends StatefulWidget {
     required this.hintText,
     required this.controller,
     required this.productType,
+    this.autofocus = false,
     this.autocompleteManager,
     this.withClearButton = false,
     this.minLengthForSuggestions = 1,
@@ -28,6 +29,7 @@ class SimpleInputTextField extends StatefulWidget {
   });
 
   final FocusNode focusNode;
+  final bool autofocus;
   final Key autocompleteKey;
   final AutocompleteManager? autocompleteManager;
   final BoxConstraints constraints;
@@ -90,6 +92,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
           Expanded(
             child: SmoothAutocompleteTextField(
               focusNode: widget.focusNode,
+              autofocus: widget.autofocus,
               controller: widget.controller,
               autocompleteKey: widget.autocompleteKey,
               textCapitalization: widget.textCapitalization,

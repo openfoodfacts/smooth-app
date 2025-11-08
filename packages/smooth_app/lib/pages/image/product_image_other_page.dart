@@ -356,9 +356,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
         type: MaterialType.transparency,
         child: InkWell(
           borderRadius: CIRCULAR_BORDER_RADIUS,
-          onTap: () {
-            _showDetails(context, appLocalizations, url);
-          },
+          onTap: () => _showDetails(context, appLocalizations, url),
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               start: SMALL_SPACE,

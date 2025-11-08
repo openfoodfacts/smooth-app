@@ -9,7 +9,7 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get app_name => 'オープンフードファクト';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -471,7 +471,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'スキルをオープンフードファクトに貢献しましょう。スキルプールに参加しましょう！';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -824,7 +824,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get categories_added => 'カテゴリーが追加されました。';
 
   @override
-  String get new_product_title_nutriscore => 'ニュートリスコアを計算する';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore => '食品カテゴリと栄養価を満たして入手する';
@@ -3923,23 +3923,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'ニュートリスコア $letter (新しい計算)';
+    return 'Nutri-Score $letter (新しい計算)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'ニュートリスコア（新しい計算）';
+  String get nutriscore_new_formula_title => 'Nutri-Score (新しい計算)';
 
   @override
   String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
-  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
+  String get nutriscore_unknown_new_formula =>
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
-  String get nutriscore_not_applicable_new_formula => 'ニュートリスコアは適用されません（新しい計算）';
+  String get nutriscore_not_applicable_new_formula =>
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4442,7 +4444,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4525,7 +4527,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-ja.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4694,7 +4696,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://jp.openfoodfacts.org/discover';
+      'https://world-ja.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4846,7 +4848,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-ja.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5165,6 +5167,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_body =>
+      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5759,7 +5769,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_prices_newest_title => '最新価格';
 
   @override
-  String get preferences_prices_newest_subtitle => 'オープン価格コミュニティによって追加された最新の価格';
+  String get preferences_prices_newest_subtitle =>
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title => '最も多くの価格を提示した貢献者';

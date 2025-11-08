@@ -4,8 +4,11 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -158,6 +161,47 @@ class UserPreferencesAttributeGroup {
           ),
         ),
       );
+    }
+    return result;
+  }
+
+  List<PreferenceTile> searchTiles(
+    BuildContext context,
+    UserPreferencesFoodSearchHelper helper,
+  ) {
+    final List<PreferenceTile> result = <PreferenceTile>[];
+
+    if (group.name != null &&
+        (helper.matches(<String?>[group.name, group.warning]))) {
+      result.add(
+        helper.getPreferenceTile(title: group.name!, context: context),
+      );
+    }
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
+    for (final Attribute attribute in group.attributes!) {
+      if (excludedAttributeIds.contains(attribute.id)) {
+        continue;
+      }
+      if (attribute.name != null &&
+          helper.matches(<String?>[
+            attribute.settingNote,
+            attribute.settingName,
+            attribute.id,
+            attribute.name,
+          ])) {
+        result.add(
+          helper.getPreferenceTile(
+            title: attribute.name!,
+            context: context,
+            icon: getAttributeDisplayIcon(
+              attribute,
+              context: context,
+              isFoodPreferences: true,
+            ),
+          ),
+        );
+      }
     }
     return result;
   }
