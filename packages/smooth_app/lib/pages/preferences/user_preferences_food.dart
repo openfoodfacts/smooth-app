@@ -43,6 +43,13 @@ class UserPreferencesFood {
 
   Color? getHeaderColor() => const Color(0xFFEBF1FF);
 
+  List<Widget>? getActions() => <Widget>[
+    IconButton(
+      icon: const Icon(Icons.rotate_left),
+      onPressed: () async => _confirmReset(),
+    ),
+  ];
+
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
     // we don't want this on the onboarding
     UserPreferencesItemSimple(
@@ -83,13 +90,13 @@ class UserPreferencesFood {
           onPressed: () async {
             await context.read<ProductPreferences>().resetImportances();
             if (context.mounted) {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             }
           },
         ),
         negativeAction: SmoothActionButton(
           text: appLocalizations.no,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
     );

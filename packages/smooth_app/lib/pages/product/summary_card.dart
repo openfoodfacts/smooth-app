@@ -388,7 +388,6 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           Padding(
             padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
             child: InkWell(
-              borderRadius: ANGULAR_BORDER_RADIUS,
               onTap: () async => _isAttributeClickable(attribute)
                   ? _openFullKnowledgePanel(attribute: attribute)
                   : null,
@@ -461,7 +460,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 spacing: SMALL_SPACE,
                 children: <Widget>[
                   attributeIcon,
-                  Expanded(child: Text(attributeDisplayTitle, style: TextStyle(fontWeight: FontWeight.w500),)),
+                  Expanded(
+                    child: Text(
+                      attributeDisplayTitle,
+                      style: const TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                  ),
                   if (onTap != null)
                     icons.AppIconTheme(
                       size: 15.0,

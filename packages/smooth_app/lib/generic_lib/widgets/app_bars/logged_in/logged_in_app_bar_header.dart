@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -43,14 +44,14 @@ class LoggedInAppBarHeader extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text(
+                AutoSizeText(
                   appLocalizations.preferences_app_bar_message,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w400,
                   ),
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ],

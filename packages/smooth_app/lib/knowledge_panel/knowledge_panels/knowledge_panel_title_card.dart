@@ -95,9 +95,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: VERY_SMALL_SPACE,
-        bottom: VERY_SMALL_SPACE,
+      padding: EdgeInsetsDirectional.symmetric(
+        vertical: iconWidget == null ? MEDIUM_SPACE : BALANCED_SPACE,
       ),
       child: Semantics(
         value: _generateSemanticsValue(context),
@@ -129,11 +128,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                               TextStyle(
                                 color: textColor,
                                 fontSize: hasSubtitle ? 15.5 : 15.0,
-                                fontWeight: hasSubtitle
-                                    ? isClickable
-                                          ? FontWeight.w600
-                                          : FontWeight.bold
-                                    : FontWeight.w500,
+                                fontWeight: isClickable
+                                    ? FontWeight.w600
+                                    : hasSubtitle
+                                    ? FontWeight.bold
+                                    : FontWeight.w600,
                               ),
                         ),
                       ),
@@ -147,13 +146,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             child: Text(
                               knowledgePanelTitleElement.subtitle!,
                               style:
-                                  textStyleOverride ??
-                                  WellSpacedTextHelper
-                                      .TEXT_STYLE_WITH_WELL_SPACED
-                                      .copyWith(
-                                        color: textColor,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                  (textStyleOverride ??
+                                          WellSpacedTextHelper
+                                              .TEXT_STYLE_WITH_WELL_SPACED
+                                              .copyWith(color: textColor))
+                                      .copyWith(fontWeight: FontWeight.w500),
                             ).selectable(isSelectable: !isClickable),
                           ),
                         ),
@@ -248,7 +245,7 @@ class _KnowledgePanelTitleIcon extends StatelessWidget {
       return CircleAvatar(
         backgroundColor: backgroundColor,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
           child: Center(child: _buildIcon(context, 24.0)),
         ),
       );

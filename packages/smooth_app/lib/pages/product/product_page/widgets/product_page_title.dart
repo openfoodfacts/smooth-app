@@ -32,13 +32,13 @@ class ProductPageTitle extends StatelessWidget {
             width: double.infinity,
             child: Row(
               children: <Widget>[
-                const SizedBox(width: 15.0),
+                const SizedBox(width: 21.5),
                 SmoothModalSheetHeaderPrefixIndicator(
                   color: lightTheme
                       ? themeExtension.primaryUltraBlack
                       : themeExtension.primaryLight,
                 ),
-                const SizedBox(width: 20.5),
+                const SizedBox(width: 18.5),
                 Expanded(
                   child: Text(
                     label,

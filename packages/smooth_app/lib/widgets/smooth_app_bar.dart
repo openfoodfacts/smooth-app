@@ -350,8 +350,6 @@ class SmoothEmptyAppBar extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
-    print(MediaQuery.viewInsetsOf(context).top);
-
     return ColoredBox(
       color: context.lightTheme()
           ? extension.primaryBlack

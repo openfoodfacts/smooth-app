@@ -115,7 +115,7 @@ class _ExplanationCardTitle extends StatelessWidget {
           color: lightTheme ? theme.secondaryVibrant : theme.secondaryNormal,
           child: Row(
             children: <Widget>[
-              const SizedBox(width: VERY_SMALL_SPACE),
+              const SizedBox(width: 6.0),
               Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -194,45 +194,50 @@ class _ExplanationBannerLearnMoreButton extends StatelessWidget {
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    return Align(
-      alignment: AlignmentDirectional.centerEnd,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: lightTheme ? Colors.white : theme.primaryDark,
-          borderRadius: ANGULAR_BORDER_RADIUS,
-          border: Border.all(
-            color: lightTheme ? theme.secondaryVibrant : theme.secondaryNormal,
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+      child: Align(
+        alignment: AlignmentDirectional.centerEnd,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: lightTheme ? Colors.white : theme.primaryDark,
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            border: Border.all(
+              color: lightTheme
+                  ? theme.secondaryVibrant
+                  : theme.secondaryNormal,
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: LARGE_SPACE,
-            end: LARGE_SPACE,
-            top: VERY_SMALL_SPACE,
-            bottom: VERY_SMALL_SPACE + 2.0,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            spacing: SMALL_SPACE,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsetsDirectional.only(top: 1.5),
-                child: Text(
-                  AppLocalizations.of(
-                    context,
-                  ).explanation_card_learn_more_button,
-                  textAlign: TextAlign.end,
-                  style: const TextStyle(
-                    fontSize: 14.5,
-                    fontWeight: FontWeight.w600,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              end: LARGE_SPACE,
+              top: VERY_SMALL_SPACE,
+              bottom: VERY_SMALL_SPACE + 2.0,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              spacing: SMALL_SPACE,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(top: 1.5),
+                  child: Text(
+                    AppLocalizations.of(
+                      context,
+                    ).explanation_card_learn_more_button,
+                    textAlign: TextAlign.end,
+                    style: const TextStyle(
+                      fontSize: 14.5,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
-              ),
-              icons.AppIconTheme(
-                size: 9.0,
-                child: icons.DoubleChevron.horizontalDirectional(context),
-              ),
-            ],
+                icons.AppIconTheme(
+                  size: 9.0,
+                  child: icons.DoubleChevron.horizontalDirectional(context),
+                ),
+              ],
+            ),
           ),
         ),
       ),

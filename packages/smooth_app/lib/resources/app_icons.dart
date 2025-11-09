@@ -576,10 +576,29 @@ class Chevron extends AppIcon {
 
   final int turns;
 
-  static Chevron horizontalDirectional(BuildContext context) {
+  static Chevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
     return switch (Directionality.of(context)) {
-      TextDirection.ltr => const Chevron.right(),
-      TextDirection.rtl => const Chevron.left(),
+      TextDirection.ltr => Chevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => Chevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
     };
   }
 
@@ -1144,10 +1163,29 @@ class DoubleChevron extends AppIcon {
 
   final int turns;
 
-  static DoubleChevron horizontalDirectional(BuildContext context) {
+  static DoubleChevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
     return switch (Directionality.of(context)) {
-      TextDirection.ltr => const DoubleChevron.right(),
-      TextDirection.rtl => const DoubleChevron.left(),
+      TextDirection.ltr => DoubleChevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => DoubleChevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
     };
   }
 
