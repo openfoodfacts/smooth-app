@@ -66,7 +66,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                   )
                 : null,
             leading: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 5.0),
+              padding: const EdgeInsetsDirectional.only(start: 5.0, end: 2.0),
               child: Icon(
                 Icons.radio_button_checked,
                 color: theme.primaryBlack,
@@ -102,7 +102,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                   ? Colors.white
                   : theme.primaryMedium,
               leading: Padding(
-                padding: const EdgeInsetsDirectional.only(start: 5.0),
+                padding: const EdgeInsetsDirectional.only(start: 5.0, end: 2.0),
                 child: Icon(
                   currentImportanceId == importanceId
                       ? Icons.radio_button_checked

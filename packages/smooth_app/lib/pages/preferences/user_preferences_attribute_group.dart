@@ -85,11 +85,14 @@ class UserPreferencesAttributeGroup {
                     ),
                   ),
                 ),
-                title: Text(
-                  group.name ?? appLocalizations.unknown,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                title: Padding(
+                  padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
+                  child: Text(
+                    group.name ?? appLocalizations.unknown,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 trailing: Padding(
