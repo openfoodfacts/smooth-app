@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ਵਿਸ਼ੇਸ਼ਤਾ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ਕੀਮਤਾਂ ਕਿਉਂ?",
+  "prices_explanation_card_line1": "**ਓਪਨ ਪ੍ਰਾਈਸ** ਦੁਨੀਆ ਭਰ ਦੇ ਉਤਪਾਦਾਂ ਦੀਆਂ ਕੀਮਤਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਅਤੇ ਸਾਂਝੀਆਂ ਕਰਨ ਦਾ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਹੈ 🌍। ਓਪਨ ਪ੍ਰਾਈਸ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਦੁਆਰਾ ਵਿਕਸਤ ਅਤੇ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ।",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ਫੋਕਸੋਨੋਮੀ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਕੀ ਹਨ?",
-  "folksonomy_explanation_card_body": "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ **ਕੁੰਜੀ-ਮੁੱਲ** 'ਤੇ ਆਧਾਰਿਤ ਹਨ।\n\nਇਹ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਉਪਭੋਗਤਾਵਾਂ ਦੁਆਰਾ ਕਿਸੇ ਵੀ ਕਿਸਮ ਦੇ ਉਪਯੋਗ ਲਈ ਬਣਾਈਆਂ ਅਤੇ ਦਾਇਰ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+  "folksonomy_explanation_card_line1": "ਗੁਣ **ਕੁੰਜੀ-ਮੁੱਲ** ਆਧਾਰਿਤ ਹਨ।",
+  "folksonomy_explanation_card_line2": "ਇਹ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਕਿਸੇ ਵੀ ਕਿਸਮ ਦੇ ਉਪਯੋਗਾਂ ਲਈ ਯੋਗਦਾਨ ਪਾਉਣ ਵਾਲਿਆਂ ਦੁਆਰਾ ਬਣਾਈਆਂ ਅਤੇ ਦਾਇਰ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
