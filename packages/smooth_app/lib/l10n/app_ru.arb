@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Забыли пароль?",
   "view_profile": "Профиль",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Изменить свойство",
   "remove_tag": "Удалить свойство",
   "tag_key": "Свойство",
+  "tag_keys": "Характеристики",
   "tag_key_uneditable": "Свойство (нередактируемое)",
   "tag_key_input_hint": "Введите свойство",
   "tag_value": "Значение",
+  "tag_values": "Ценности",
   "tag_value_input_hint": "Введите значение",
   "tag_key_item": "Свойство:",
   "tag_value_item": "Цена:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Почему цены?",
+  "prices_explanation_card_line1": "**Open Prices** — это проект по сбору и обмену ценами на продукты по всему миру 🌍. Open Prices разработан и поддерживается Open Food Facts.",
+  "explanation_card_learn_more_button": "Узнать больше",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Что такое атрибуты фолксономии?",
-  "folksonomy_explanation_card_body": "Атрибуты основаны на **ключ-значение**.\n\nЭти свойства создаются и сохраняются пользователями для любого вида использования.",
+  "folksonomy_explanation_card_line1": "Атрибуты основаны на **ключ-значение**.",
+  "folksonomy_explanation_card_line2": "Эти свойства создаются и сохраняются участниками для любого вида использования.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
