@@ -155,8 +155,8 @@ class _PreferenceTileTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String? query = context
-        .watch<PreferencesRootSearchController>()
-        .query;
+        .watch<PreferencesRootSearchController?>()
+        ?.query;
 
     final TextStyle textStyle = TextStyle(
       color: context.lightTheme()
@@ -182,8 +182,8 @@ class _PreferenceTileSubtitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String? query = context
-        .watch<PreferencesRootSearchController>()
-        .query;
+        .watch<PreferencesRootSearchController?>()
+        ?.query;
 
     if (query == null || query.isEmpty) {
       return Text(subtitle);
