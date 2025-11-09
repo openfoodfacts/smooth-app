@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Zapomněli jste heslo?",
   "view_profile": "Zobrazit profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Upravit vlastnost",
   "remove_tag": "Odstranit vlastnost",
   "tag_key": "Vlastnosti",
+  "tag_keys": "Nemovitosti",
   "tag_key_uneditable": "Vlastnost (neupravitelná)",
   "tag_key_input_hint": "Zadejte vlastnost",
   "tag_value": "Hodnota",
+  "tag_values": "Hodnoty",
   "tag_value_input_hint": "Zadejte hodnotu",
   "tag_key_item": "Vlastnost:",
   "tag_value_item": "Hodnota:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Proč ceny?",
+  "prices_explanation_card_line1": "**Open Prices** je projekt, jehož cílem je shromažďovat a sdílet ceny produktů z celého světa 🌍. Open Prices je vyvíjen a spravován společností Open Food Facts.",
+  "explanation_card_learn_more_button": "Zjistit více",
   "product_page_tab_folksonomy": "Folksonomie",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Jaké jsou atributy folksonomie?",
-  "folksonomy_explanation_card_body": "Atributy jsou založeny na **klíč-hodnotě**.\n\nTyto vlastnosti jsou vytvářeny a archivovány uživateli pro jakékoli použití.",
+  "folksonomy_explanation_card_line1": "Atributy jsou založeny na **klíč-hodnota**.",
+  "folksonomy_explanation_card_line2": "Tyto vlastnosti jsou vytvářeny a archivovány přispěvateli pro jakékoli použití.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
