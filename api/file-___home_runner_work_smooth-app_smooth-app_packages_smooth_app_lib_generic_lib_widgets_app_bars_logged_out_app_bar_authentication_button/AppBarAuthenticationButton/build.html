@@ -81,54 +81,59 @@ Widget build(BuildContext context) {
     child: InkWell(
       onTap: onPressed,
       borderRadius: ROUNDED_BORDER_RADIUS,
-      child: Padding(
-        padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-        child: Row(
-          children: &lt;Widget&gt;[
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: &lt;Widget&gt;[
-                  Row(
-                    children: &lt;Widget&gt;[
-                      Flexible(
-                        child: Text(
-                          title,
-                          style: TextStyle(
-                            color: lightTheme
-                                ? themeExtension.primaryBlack
-                                : Colors.white,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          minHeight: LoggedOutAppBarContent.MIN_HEIGHT,
+        ),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+          child: Row(
+            children: &lt;Widget&gt;[
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: &lt;Widget&gt;[
+                    Row(
+                      children: &lt;Widget&gt;[
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              color: lightTheme
+                                  ? themeExtension.primaryBlack
+                                  : Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: &lt;Widget&gt;[
-                      icons.CircledArrow.right(
-                        type: icons.CircledArrowType.normal,
-                        circleColor: lightTheme
-                            ? themeExtension.primaryBlack
-                            : Colors.white,
-                        color: lightTheme
-                            ? Colors.white
-                            : themeExtension.primaryBlack,
-                        size: 20.0,
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          horizontal: 6.0,
-                          vertical: 7.5,
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: &lt;Widget&gt;[
+                        icons.CircledArrow.right(
+                          type: icons.CircledArrowType.normal,
+                          circleColor: lightTheme
+                              ? themeExtension.primaryBlack
+                              : Colors.white,
+                          color: lightTheme
+                              ? Colors.white
+                              : themeExtension.primaryBlack,
+                          size: 20.0,
+                          padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: 6.0,
+                            vertical: 7.5,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ),

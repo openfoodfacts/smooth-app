@@ -96,13 +96,16 @@ Widget build(BuildContext context) {
       );
       if (elementWidget != null) {
         elementWidgets.add(
-          Padding(
-            padding: EdgeInsetsDirectional.only(
-              top: VERY_SMALL_SPACE,
-              start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-              end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+          Provider&lt;KnowledgePanelTitleConfig&gt;.value(
+            value: KnowledgePanelTitleConfig(roundedIcon: roundedIcons),
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(
+                top: VERY_SMALL_SPACE,
+                start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+                end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+              ),
+              child: elementWidget,
             ),
-            child: elementWidget,
           ),
         );
       }
@@ -150,8 +153,10 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/isClickable.html">isClickable</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/isInitiallyExpanded.html">isInitiallyExpanded</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/overrideStyle.html">overrideStyle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/panelId.html">panelId</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/product.html">product</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard/roundedIcons.html">roundedIcons</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_expanded_card/KnowledgePanelExpandedCard-class.html#instance-methods">Methods</a></li>

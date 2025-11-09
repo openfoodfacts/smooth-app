@@ -71,11 +71,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData themeData = Theme.of(context);
-  final SmoothColorsThemeExtension themeExtension = context
-      .extension&lt;SmoothColorsThemeExtension&gt;();
-  final bool lightTheme = context.lightTheme();
-
   final Widget child = Provider&lt;KnowledgePanelPanelGroupElement&gt;(
     lazy: true,
     create: (_) =&gt; groupElement,
@@ -85,60 +80,15 @@ Widget build(BuildContext context) {
         if (groupElement.title != null &amp;&amp; groupElement.title!.isNotEmpty)
           Padding(
             padding: EdgeInsetsDirectional.only(
-              top: position == 0 ? VERY_SMALL_SPACE : VERY_LARGE_SPACE,
+              top: position &gt; 0 ? MEDIUM_SPACE : 0.0,
             ),
-            child: Semantics(
-              explicitChildNodes: true,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: lightTheme
-                      ? themeExtension.primaryLight
-                      : themeExtension.primarySemiDark,
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: MEDIUM_SPACE,
-                    vertical: SMALL_SPACE,
-                  ),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Row(
-                      children: &lt;Widget&gt;[
-                        SmoothModalSheetHeaderPrefixIndicator(
-                          color: lightTheme
-                              ? themeExtension.primaryUltraBlack
-                              : themeExtension.primaryLight,
-                        ),
-                        const SizedBox(width: SMALL_SPACE),
-                        Text(
-                          groupElement.title!,
-                          textAlign: TextAlign.start,
-                          style: themeData.textTheme.titleSmall!.copyWith(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w700,
-                            color: lightTheme
-                                ? themeExtension.primaryUltraBlack
-                                : themeExtension.primaryLight,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            child: ProductPageTitle(label: groupElement.title!),
           ),
         for (final String panelId in groupElement.panelIds)
-          Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: VERY_SMALL_SPACE,
-            ),
-            child: KnowledgePanelCard(
-              panelId: panelId,
-              product: product,
-              isClickable: isClickable,
-            ),
+          KnowledgePanelCard(
+            panelId: panelId,
+            product: product,
+            isClickable: isClickable,
           ),
       ],
     ),

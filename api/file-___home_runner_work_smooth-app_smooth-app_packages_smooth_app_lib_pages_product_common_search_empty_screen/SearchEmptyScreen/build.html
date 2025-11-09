@@ -71,22 +71,22 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return SmoothBrightnessOverride(
-    brightness: includeAppBar ? null : Brightness.dark,
-    child: SmoothScaffold(
-      appBar: includeAppBar
-          ? AppBar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              leading: const SmoothBackButton(),
-              title: SearchAppBarTitle(
-                title: name,
-                editableAppBarTitle: false,
-              ),
-              actions: actions,
-            )
-          : null,
-      body: Center(child: emptiness),
-    ),
+  return SmoothScaffold(
+    appBar: includeAppBar
+        ? AppBar(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            leading: const SmoothBackButton(),
+            title: SearchAppBarTitle(title: name, editableAppBarTitle: false),
+            actions: actions,
+          )
+        : PreferredSize(
+            preferredSize: Size(
+              double.infinity,
+              MediaQuery.viewInsetsOf(context).top,
+            ),
+            child: const SmoothEmptyAppBar(),
+          ),
+    body: Center(child: emptiness),
   );
 }</code></pre>
 </section>

@@ -74,46 +74,57 @@
       labels: &lt;String&gt;[],
       builder: (_) =&gt; Padding(
         padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: LARGE_SPACE,
+          horizontal: SMALL_SPACE,
         ),
-        child: SmoothCard(
-          padding: EdgeInsetsDirectional.zero,
-          margin: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
           child: InkWell(
-            onTap: () async =&gt;
-                userPreferences.setActiveAttributeGroup(group.id!),
+            borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+            onTap: () =&gt; collapsed == true
+                ? userPreferences.setActiveAttributeGroup(group.id!)
+                : null,
             child: ListTile(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadiusDirectional.vertical(
                   top: ROUNDED_RADIUS,
                 ),
               ),
+
               tileColor: extension.primaryBlack,
-              leading: const SizedBox.square(
-                dimension: 18.0,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadiusDirectional.all(ROUNDED_RADIUS),
+              leading: const Padding(
+                padding: EdgeInsetsDirectional.only(start: 8.5),
+                child: SizedBox.square(
+                  dimension: 14.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadiusDirectional.all(
+                        ROUNDED_RADIUS,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              title: Text(
-                group.name ?? appLocalizations.unknown,
-                style: themeData.textTheme.titleLarge!.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+              title: Padding(
+                padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
+                child: Text(
+                  group.name ?? appLocalizations.unknown,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              trailing: collapsed!
-                  ? const Icon(
-                      Icons.keyboard_arrow_right,
-                      color: Colors.white,
-                    )
-                  : const Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.white,
-                    ),
+              trailing: Padding(
+                padding: const EdgeInsetsDirectional.only(end: 7.0),
+                child: icons.AppIconTheme(
+                  size: 10.0,
+                  color: Colors.white,
+                  child: collapsed!
+                      ? const icons.Chevron.up()
+                      : const icons.Chevron.down(),
+                ),
+              ),
             ),
           ),
         ),
@@ -132,13 +143,14 @@
           return Container(
             color: colorScheme.error,
             width: double.infinity,
-            padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+            padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
             margin: const EdgeInsetsDirectional.symmetric(
-              horizontal: LARGE_SPACE,
+              horizontal: SMALL_SPACE,
             ),
             child: Text(
               group.warning!,
               style: TextStyle(color: colorScheme.onError),
+              textAlign: TextAlign.center,
             ),
           );
         },
@@ -161,10 +173,10 @@
         ],
         builder: (_) =&gt; Padding(
           padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: LARGE_SPACE,
+            horizontal: SMALL_SPACE,
           ),
           child: SmoothCard(
-            elevation: 8,
+            elevation: 8.0,
             padding: EdgeInsetsDirectional.zero,
             borderRadius: const BorderRadiusDirectional.vertical(
               bottom: ROUNDED_RADIUS,
@@ -184,6 +196,7 @@
       ),
     );
   }
+
   return result;
 }</code></pre>
 </section>

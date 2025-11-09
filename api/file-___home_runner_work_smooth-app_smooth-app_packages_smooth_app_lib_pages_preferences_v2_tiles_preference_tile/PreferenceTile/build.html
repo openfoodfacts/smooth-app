@@ -123,16 +123,7 @@ Widget build(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 1.0,
                   children: &lt;Widget&gt;[
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: lightTheme
-                            ? extension.primaryBlack
-                            : Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
+                    _PreferenceTileTitle(title: title),
                     if (subtitle != null || subtitleText != null)
                       DefaultTextStyle.merge(
                         style: TextStyle(
@@ -143,13 +134,16 @@ Widget build(BuildContext context) {
                               : Colors.white.withValues(alpha: 0.8),
                           fontWeight: FontWeight.w500,
                           fontSize: 13.5,
-                          &#47;&#47;height: 1.35,
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.only(
                             bottom: 1.0,
                           ),
-                          child: subtitle ?? Text(subtitleText!),
+                          child:
+                              subtitle ??
+                              _PreferenceTileSubtitle(
+                                subtitle: subtitleText!,
+                              ),
                         ),
                       ),
                   ],

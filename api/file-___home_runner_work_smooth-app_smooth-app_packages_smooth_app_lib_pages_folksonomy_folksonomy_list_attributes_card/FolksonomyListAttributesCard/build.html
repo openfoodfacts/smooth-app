@@ -73,18 +73,17 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  return SmoothCardWithRoundedHeader(
-    title: appLocalizations.product_tags_title,
-    leading: const icons.Lists(),
-    trailing: const _FolksonomyCardButton(),
-    contentPadding: EdgeInsetsDirectional.zero,
-    child: SizedBox(
-      width: double.infinity,
-      child: _FolksonomyCardBody(
+  return Column(
+    children: &lt;Widget&gt;[
+      ProductPageTitle(
+        label: appLocalizations.product_tags_title,
+        trailing: (_) =&gt; const _FolksonomyCardButton(),
+      ),
+      _FolksonomyCardBody(
         onEmptyPageTag: () =&gt;
             _openFolksonomyPage(context, context.read&lt;Product&gt;()),
       ),
-    ),
+    ],
   );
 }</code></pre>
 </section>

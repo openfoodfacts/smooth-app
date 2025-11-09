@@ -77,6 +77,13 @@
       helper.getPreferenceTile(title: group.name!, context: context),
     );
   }
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
+
+  final Color backgroundColor = context.lightTheme()
+      ? theme.primarySemiDark
+      : theme.primaryUltraBlack;
+
   final List&lt;String&gt; excludedAttributeIds = userPreferences
       .getExcludedAttributeIds();
   for (final Attribute attribute in group.attributes!) {
@@ -98,6 +105,9 @@
             attribute,
             context: context,
             isFoodPreferences: true,
+            foregroundColor: Colors.white,
+            backgroundColor: backgroundColor,
+            size: 20.0,
           ),
         ),
       );

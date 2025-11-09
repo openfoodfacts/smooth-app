@@ -98,7 +98,7 @@
         labelBuilder: (_) =&gt; knowledgePanelTitle.title,
         prefix: _extractPrefix(product, knowledgePanelTitle),
         builder: (_, _) =&gt; ListView.builder(
-          padding: EdgeInsetsDirectional.zero,
+          padding: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
           itemCount: children.length,
           itemBuilder: (BuildContext context, int index) =&gt; children[index],
         ),

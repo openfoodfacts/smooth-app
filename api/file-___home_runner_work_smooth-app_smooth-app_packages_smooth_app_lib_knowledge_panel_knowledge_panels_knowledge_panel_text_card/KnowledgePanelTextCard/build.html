@@ -93,8 +93,7 @@ Widget build(BuildContext context) {
       child: MergeSemantics(
         child: SmoothHtmlWidget(
           textElement.html,
-          textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED
-              .copyWith(fontSize: 15.5),
+          textStyle: const TextStyle(height: 1.9, fontSize: 15.5),
         ),
       ),
     );
@@ -119,7 +118,16 @@ Widget build(BuildContext context) {
           appLocalizations.knowledge_panel_text_source(
             textElement.sourceText!,
           ),
-          trailingIcon: const icons.Chevron.right(),
+          trailingIcon: DecoratedBox(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black12,
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+              child: icons.Chevron.horizontalDirectional(context, size: 15.0),
+            ),
+          ),
           onPressed: () async =&gt; LaunchUrlHelper.launchURLInWebViewOrBrowser(
             context,
             textElement.sourceUrl!,
