@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "পাছৱৰ্ড পাহৰিলেনে?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ধৰ্ম",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "দাম কিয়?",
+  "prices_explanation_card_line1": "**Open Prices** ৰ জৰিয়তে সমগ্ৰ বিশ্বৰ সামগ্ৰীৰ মূল্য সংগ্ৰহ আৰু ভাগ-বতৰা কৰাৰ এক প্ৰকল্প 🌍 । Open Prices সমূহ Open Food Facts ৰ দ্বাৰা বিকশিত আৰু ৰক্ষণাবেক্ষণ কৰা হয়।",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "লোকসম্বন্ধৰ বৈশিষ্ট্য কি কি?",
-  "folksonomy_explanation_card_body": "বৈশিষ্ট্যসমূহ **কী-মান** ভিত্তিক।\n\nএই বৈশিষ্ট্যসমূহ ব্যৱহাৰকাৰীসকলে যিকোনো ধৰণৰ ব্যৱহাৰৰ বাবে সৃষ্টি আৰু ফাইল কৰে।",
+  "folksonomy_explanation_card_line1": "বৈশিষ্ট্যসমূহ **কী-মান** ভিত্তিক।",
+  "folksonomy_explanation_card_line2": "এই বৈশিষ্ট্যসমূহ যিকোনো ধৰণৰ ব্যৱহাৰৰ বাবে অৱদানকাৰীয়ে সৃষ্টি আৰু ফাইল কৰে।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
