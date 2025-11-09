@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Құпия сөзді ұмыттыңыз ба?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Қасиеттер",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Неліктен бағалар?",
+  "prices_explanation_card_line1": "**Open Prices** - бұл бүкіл әлем бойынша өнімдердің бағасын жинау және бөлісу жобасы 🌍. Ашық бағаларды Open Food Facts әзірлейді және қолдайды.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Фольксономияның атрибуттары қандай?",
-  "folksonomy_explanation_card_body": "Атрибуттар **кілт-мәнге** негізделген.\n\nБұл сипаттарды пайдаланушылар кез келген пайдалану түрі үшін жасайды және жібереді.",
+  "folksonomy_explanation_card_line1": "Атрибуттар **кілт-мәнге** негізделген.",
+  "folksonomy_explanation_card_line2": "Бұл сипаттарды қолданушылардың кез келген түрі үшін салымшылар жасайды және жібереді.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
