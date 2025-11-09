@@ -13,9 +13,7 @@ class ProductPricesExplanationBanner extends StatelessWidget {
 
     return ProductPageExplanationBanner(
       title: appLocalizations.prices_explanation_card_title,
-      text: <String>[
-        appLocalizations.prices_explanation_card_line1,
-      ],
+      text: <String>[appLocalizations.prices_explanation_card_line1],
       shouldShowBanner: (UserPreferences prefs) =>
           prefs.shouldShowPricesExplanationCard,
       hideBanner: (UserPreferences prefs) => prefs.hidePricesExplanationCard(),
