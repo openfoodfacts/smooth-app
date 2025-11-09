@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Pamiršote slaptažodį?",
   "view_profile": "Peržiūrėti vartotojo profilį",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Redaguoti savybę",
   "remove_tag": "Šalinti savybę",
   "tag_key": "Savybė",
+  "tag_keys": "Ypatybės",
   "tag_key_uneditable": "Savybė (neredaguotina)",
   "tag_key_input_hint": "Įvesti savybę",
   "tag_value": "Vertė",
+  "tag_values": "Values",
   "tag_value_input_hint": "Įvesti vertę",
   "tag_key_item": "Savybė:",
   "tag_value_item": "Vertė:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Kodėl kainos?",
+  "prices_explanation_card_line1": "**„Open Prices“** – tai projektas, skirtas rinkti ir dalytis produktų kainomis visame pasaulyje 🌍. „Open Prices“ kuria ir prižiūri „Open Food Facts“.",
+  "explanation_card_learn_more_button": "Sužinokite daugiau",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Kokie yra folksonomijos atributai?",
-  "folksonomy_explanation_card_body": "Atributai yra **rakto-reikšmės** pagrindu.\n\nŠias savybes kuria ir pateikia vartotojai bet kokiam naudojimui.",
+  "folksonomy_explanation_card_line1": "Atributai yra pagrįsti **rakto-reikšmės** principais.",
+  "folksonomy_explanation_card_line2": "Šias savybes kuria ir pateikia bendraautoriai bet kokiam naudojimui.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
