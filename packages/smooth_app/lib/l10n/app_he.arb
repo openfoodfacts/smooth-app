@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "שכחת סיסמה?",
   "view_profile": "הצגת פרופיל",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "עריכת מאפיין",
   "remove_tag": "הסרת מאפיין",
   "tag_key": "מאפיין",
+  "tag_keys": "נכסים",
   "tag_key_uneditable": "מאפיין (נעול)",
   "tag_key_input_hint": "נא למלא מאפיין",
   "tag_value": "ערך",
+  "tag_values": "ערכים",
   "tag_value_input_hint": "נא למלא ערך",
   "tag_key_item": "מאפיין:",
   "tag_value_item": "ערך:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "למה מחירים?",
+  "prices_explanation_card_line1": "**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.",
+  "explanation_card_learn_more_button": "מידע נוסף",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "מהם מאפייני פולקסונומיה?",
-  "folksonomy_explanation_card_body": "מאפיינים מבוססים על **ערך-מפתח**.\n\nמאפיינים אלה נוצרים ומשויכים על ידי משתמשים עבור כל סוג של שימוש.",
+  "folksonomy_explanation_card_line1": "מאפיינים מבוססים על **ערך מפתח**.",
+  "folksonomy_explanation_card_line2": "מאפיינים אלה נוצרים ומוגשים על ידי תורמים לכל סוג של שימוש.",
   "folksonomy_action_external_link_title": "פתיחת קישור חיצוני",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
