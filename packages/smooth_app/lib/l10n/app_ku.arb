@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Şîfre ji bîr kir?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Taybetmendî",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Çima biha?",
+  "prices_explanation_card_line1": "**Open Prices** projeyek e ji bo berhevkirin û parvekirina buhayên hilberan li çaraliyê cîhanê 🌍. Open Prices ji hêla Open Food Facts ve tê pêşxistin û domandin.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Taybetmendiyên Folksonomiyê çi ne?",
-  "folksonomy_explanation_card_body": "Taybetmendî li ser bingeha **kilît-nirx** ne.\n\nEv taybetmendî ji hêla bikarhêneran ve ji bo her celeb karanînê têne afirandin û tomar kirin.",
+  "folksonomy_explanation_card_line1": "Taybetmendî li ser bingeha **kilît-nirx** ne.",
+  "folksonomy_explanation_card_line2": "Ev taybetmendî ji hêla beşdaran ve ji bo her celeb karanînê têne afirandin û tomar kirin.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
