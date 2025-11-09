@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Aţi uitat parola?",
   "view_profile": "Vizualizați profilul",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Proprietăți",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Valoare",
+  "tag_values": "Valori",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "De ce prețuri?",
+  "prices_explanation_card_line1": "**Open Prices** este un proiect de colectare și partajare a prețurilor produselor din întreaga lume 🌍. Open Prices este dezvoltat și întreținut de Open Food Facts.",
+  "explanation_card_learn_more_button": "Afla mai mult",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Care sunt atributele folcsonomiei?",
-  "folksonomy_explanation_card_body": "Atributele sunt bazate pe **cheie-valoare**.\n\nAceste proprietăți sunt create și arhivate de utilizatori pentru orice fel de utilizări.",
+  "folksonomy_explanation_card_line1": "Atributele sunt bazate pe **cheie-valoare**.",
+  "folksonomy_explanation_card_line2": "Aceste proprietăți sunt create și depuse de contribuitori pentru orice fel de utilizări.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
