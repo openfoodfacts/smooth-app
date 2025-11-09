@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "પાસવર્ડ ભૂલી ગયા છો?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ગુણધર્મો",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ભાવ શા માટે?",
+  "prices_explanation_card_line1": "**ઓપન પ્રાઇસ** એ વિશ્વભરના ઉત્પાદનોના ભાવ એકત્રિત કરવા અને શેર કરવા માટેનો એક પ્રોજેક્ટ છે 🌍. ઓપન પ્રાઇસ ઓપન ફૂડ ફેક્ટ્સ દ્વારા વિકસાવવામાં અને જાળવવામાં આવે છે.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ફોક્સોનોમીના લક્ષણો શું છે?",
-  "folksonomy_explanation_card_body": "વિશેષતાઓ **કી-મૂલ્ય** આધારિત છે.\n\nઆ ગુણધર્મો વપરાશકર્તાઓ દ્વારા કોઈપણ પ્રકારના ઉપયોગ માટે બનાવવામાં અને ફાઇલ કરવામાં આવે છે.",
+  "folksonomy_explanation_card_line1": "વિશેષતાઓ **કી-મૂલ્ય** આધારિત છે.",
+  "folksonomy_explanation_card_line2": "આ ગુણધર્મો કોઈપણ પ્રકારના ઉપયોગ માટે ફાળો આપનારાઓ દ્વારા બનાવવામાં અને ફાઇલ કરવામાં આવે છે.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
