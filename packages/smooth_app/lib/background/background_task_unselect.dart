@@ -50,7 +50,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     required final BuildContext context,
     required final OpenFoodFactsLanguage language,
   }) async {
-    if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode)) {
+    if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
       return;
     }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();

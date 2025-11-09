@@ -85,6 +85,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   }) async {
     if (BackgroundTaskBarcode.isBarcodeToBeIgnored(
       minimalistProduct.barcode!,
+      context,
     )) {
       return;
     }
