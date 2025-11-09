@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "هل نسيت كلمة السر؟",
   "view_profile": "عرض الصفحة الشخصية",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ملكيات",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "القيمة",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "لماذا الاسعار؟",
+  "prices_explanation_card_line1": "**الأسعار المفتوحة** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير \"الأسعار المفتوحة\" وصيانتها بواسطة Open Food Facts.",
+  "explanation_card_learn_more_button": "لمعرفة المزيد",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ما هي سمات Folksonomy؟",
-  "folksonomy_explanation_card_body": "السمات تعتمد على **المفتاح والقيمة**.\n\nيتم إنشاء هذه الخصائص وحفظها بواسطة المستخدمين لأي نوع من الاستخدامات.",
+  "folksonomy_explanation_card_line1": "السمات تعتمد على **المفتاح والقيمة**.",
+  "folksonomy_explanation_card_line2": "يتم إنشاء هذه الخصائص وتسجيلها بواسطة المساهمين لأي نوع من الاستخدامات.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
