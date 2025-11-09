@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Esqueceu sua senha?",
   "view_profile": "Ver perfil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Editar propriedade",
   "remove_tag": "Remover propriedade",
   "tag_key": "Propriedade",
+  "tag_keys": "Propriedades",
   "tag_key_uneditable": "Propriedade (não editável)",
   "tag_key_input_hint": "Introduza uma propriedade",
   "tag_value": "Valor",
+  "tag_values": "Valores",
   "tag_value_input_hint": "Introduza um valor",
   "tag_key_item": "Propriedade:",
   "tag_value_item": "Valor:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Por que os preços?",
+  "prices_explanation_card_line1": "**Open Prices** é um projeto para coletar e compartilhar preços de produtos ao redor do mundo 🌍. O Open Prices é desenvolvido e mantido pelo Open Food Facts.",
+  "explanation_card_learn_more_button": "Saiba mais",
   "product_page_tab_folksonomy": "Folksonomia",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "O que são atributos da Folksonomia?",
-  "folksonomy_explanation_card_body": "Os atributos são baseados em **chave-valor**.\n\nEssas propriedades são criadas e registradas pelos usuários para qualquer tipo de uso.",
+  "folksonomy_explanation_card_line1": "Os atributos são baseados em **chave-valor**.",
+  "folksonomy_explanation_card_line2": "Essas propriedades são criadas e arquivadas por colaboradores para qualquer tipo de uso.",
   "folksonomy_action_external_link_title": "Abrir link externo",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
