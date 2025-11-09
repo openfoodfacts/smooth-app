@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Gleymt lykilorð?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Eiginleikar",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Af hverju verð?",
+  "prices_explanation_card_line1": "**Open Prices** er verkefni til að safna og deila verði á vörum um allan heim 🌍. Open Prices er þróað og viðhaldið af Open Food Facts.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Hvað eru eiginleikar fólksonomíu?",
-  "folksonomy_explanation_card_body": "Eiginleikar eru byggðir á **lykilgildum**.\n\nÞessir eiginleikar eru búnir til og skráðir af notendum fyrir alls kyns notkun.",
+  "folksonomy_explanation_card_line1": "Eiginleikar eru byggðir á **lykilgildum**.",
+  "folksonomy_explanation_card_line2": "Þessir eiginleikar eru búnir til og skráðir af þátttakendum fyrir alls kyns notkun.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
