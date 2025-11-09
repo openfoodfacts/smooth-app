@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "ลืมรหัสผ่าน?",
   "view_profile": "ดูโปรไฟล์",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "คุณสมบัติ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ทำไมต้องราคา?",
+  "prices_explanation_card_line1": "**Open Prices** คือโครงการที่รวบรวมและแบ่งปันราคาสินค้าทั่วโลก 🌍 Open Prices พัฒนาและดูแลโดย Open Food Facts",
+  "explanation_card_learn_more_button": "ดูเพิ่มเติม",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Folksonomy Attribute คืออะไร?",
-  "folksonomy_explanation_card_body": "แอตทริบิวต์มีพื้นฐานมาจาก **คีย์-ค่า**\n\nคุณสมบัติเหล่านี้ถูกสร้างและจัดเก็บโดยผู้ใช้เพื่อการใช้งานทุกประเภท",
+  "folksonomy_explanation_card_line1": "แอตทริบิวต์จะขึ้นอยู่กับ **คีย์-ค่า**",
+  "folksonomy_explanation_card_line2": "คุณสมบัติเหล่านี้ถูกสร้างและยื่นโดยผู้สนับสนุนเพื่อการใช้งานทุกประเภท",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
