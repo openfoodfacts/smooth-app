@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "ភ្លេចពាក្យសម្ងាត់?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ទ្រព្យសម្បត្តិ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ហេតុអ្វីបានជាតម្លៃ?",
+  "prices_explanation_card_line1": "**Open Prices** គឺជាគម្រោងប្រមូល និងចែករំលែកតម្លៃផលិតផលជុំវិញពិភពលោក🌍។ តម្លៃបើកចំហត្រូវបានបង្កើត និងរក្សាដោយ Open Food Facts។",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "តើគុណលក្ខណៈ Folksonomy ជាអ្វី?",
-  "folksonomy_explanation_card_body": "គុណលក្ខណៈគឺ **តម្លៃគន្លឹះ** ផ្អែកលើ។\n\nលក្ខណសម្បត្តិទាំងនេះត្រូវបានបង្កើត និងដាក់ឯកសារដោយអ្នកប្រើប្រាស់សម្រាប់ការប្រើប្រាស់គ្រប់ប្រភេទ។",
+  "folksonomy_explanation_card_line1": "គុណលក្ខណៈគឺ **តម្លៃគន្លឹះ** ផ្អែកលើ។",
+  "folksonomy_explanation_card_line2": "លក្ខណៈសម្បត្តិទាំងនេះត្រូវបានបង្កើត និងដាក់ឯកសារដោយអ្នករួមចំណែកសម្រាប់ការប្រើប្រាស់គ្រប់ប្រភេទ។",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
