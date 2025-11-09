@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -86,6 +87,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final Size size = MediaQuery.sizeOf(context);
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return SmoothScaffold(
       fixKeyboard: true,
@@ -138,7 +140,9 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         SizedBox(
                           width: double.infinity,
                           child: Material(
-                            color: extension.primaryLight,
+                            color: lightTheme
+                                ? extension.primaryLight
+                                : extension.primaryUltraBlack,
                             borderRadius: HEADER_BORDER_RADIUS,
                             child: Padding(
                               padding: const EdgeInsetsDirectional.symmetric(
@@ -290,8 +294,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                           ),
                                           icons.CircledArrow.right(
                                             type: icons.CircledArrowType.normal,
-                                            circleColor: Colors.white,
-                                            color: extension.primaryTone,
+                                            circleColor: lightTheme
+                                                ? Colors.white
+                                                : extension.primaryUltraBlack,
+                                            color: lightTheme
+                                                ? extension.primaryTone
+                                                : Colors.white,
                                           ),
                                         ],
                                       ),
