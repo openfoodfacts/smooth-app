@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "پاسورڊ وساري ويٺا آهيو؟",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ملڪيتون",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "قيمتون ڇو؟",
+  "prices_explanation_card_line1": "**اوپن پرائسز** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. اوپن پرائسز اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "لوڪ سونومي جون خاصيتون ڇا آهن؟",
-  "folksonomy_explanation_card_body": "خاصيتون **اهم قدر** تي ٻڌل آهن.\n\nاهي خاصيتون استعمال ڪندڙن پاران ڪنهن به قسم جي استعمال لاءِ ٺاهي ۽ فائل ڪيون وينديون آهن.",
+  "folksonomy_explanation_card_line1": "خاصيتون **ڪي-ويليو** تي ٻڌل آهن.",
+  "folksonomy_explanation_card_line2": "اهي ملڪيتون ڪنهن به قسم جي استعمال لاءِ حصو وٺندڙن پاران ٺاهي ۽ فائل ڪيون وينديون آهن.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
