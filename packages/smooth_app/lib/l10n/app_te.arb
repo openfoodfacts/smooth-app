@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "పాస్‌వర్డ్ మర్చిపోయారా?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "లక్షణాలు",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ధరలు ఎందుకు?",
+  "prices_explanation_card_line1": "**ఓపెన్ ప్రైసెస్** అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఉత్పత్తుల ధరలను సేకరించి పంచుకునే ప్రాజెక్ట్ 🌍. ఓపెన్ ప్రైసెస్‌ను ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అభివృద్ధి చేసి నిర్వహిస్తుంది.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ఫోక్సోనమీ లక్షణాలు ఏమిటి?",
-  "folksonomy_explanation_card_body": "లక్షణాలు **కీ-విలువ** ఆధారితమైనవి.\n\nఈ లక్షణాలు ఏ రకమైన ఉపయోగాలకైనా వినియోగదారులచే సృష్టించబడతాయి మరియు దాఖలు చేయబడతాయి.",
+  "folksonomy_explanation_card_line1": "లక్షణాలు **కీ-విలువ** ఆధారితంగా ఉంటాయి.",
+  "folksonomy_explanation_card_line2": "ఈ ఆస్తులు ఏ రకమైన ఉపయోగాలకైనా సహకారులచే సృష్టించబడతాయి మరియు దాఖలు చేయబడతాయి.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
