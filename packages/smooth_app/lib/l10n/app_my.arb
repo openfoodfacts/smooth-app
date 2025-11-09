@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "စကားဝှက်မေ့နေပါသလား?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "သတ္တိ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ဘာကြောင့်ဈေးတက်တာလဲ?",
+  "prices_explanation_card_line1": "**Open Prices** သည် ကမ္ဘာတစ်ဝှမ်းရှိ ကုန်ပစ္စည်းများ၏ ဈေးနှုန်းများကို စုဆောင်းမျှဝေရန် ပရောဂျက်တစ်ခု 🌍။ Open Food Facts မှ တီထွင်ပြီး ထိန်းသိမ်းထားသည်။",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Folksonomy ရည်ညွှန်းချက်များကား အဘယ်နည်း။",
-  "folksonomy_explanation_card_body": "ရည်ညွှန်းချက်များသည် **ကီး-တန်ဖိုး** ကို အခြေခံထားသည်။\n\nဤဂုဏ်သတ္တိများသည် မည်သည့်အသုံးပြုမှုမျိုးအတွက်မဆို အသုံးပြုသူများ ဖန်တီးပြီး တင်ပြထားပါသည်။",
+  "folksonomy_explanation_card_line1": "ရည်ညွှန်းချက်များသည် **ကီး-တန်ဖိုး** ကို အခြေခံထားသည်။",
+  "folksonomy_explanation_card_line2": "ဤဂုဏ်သတ္တိများကို မည်သည့်အသုံးပြုမှုမျိုးအတွက်မဆို ပံ့ပိုးကူညီသူများမှ ဖန်တီးပြီး တင်ပြပါသည်။",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
