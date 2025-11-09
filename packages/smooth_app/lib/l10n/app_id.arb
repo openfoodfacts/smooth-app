@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Lupa kata sandi?",
   "view_profile": "Lihat profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Sunting properti",
   "remove_tag": "Hapus properti",
   "tag_key": "Properti",
+  "tag_keys": "Properti",
   "tag_key_uneditable": "Properti (tidak dapat disunting)",
   "tag_key_input_hint": "Masukkan properti",
   "tag_value": "Nilai",
+  "tag_values": "Nilai",
   "tag_value_input_hint": "Masukkan nilai",
   "tag_key_item": "Properti:",
   "tag_value_item": "Nilai:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Mengapa harga?",
+  "prices_explanation_card_line1": "**Open Prices** adalah proyek untuk mengumpulkan dan berbagi harga produk di seluruh dunia 🌍. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
+  "explanation_card_learn_more_button": "Pelajari lebih lanjut",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Apa saja atribut Folksonomi?",
-  "folksonomy_explanation_card_body": "Atribut berbasis **kunci-nilai**.\n\nProperti ini dibuat dan diarsipkan oleh pengguna untuk semua jenis penggunaan.",
+  "folksonomy_explanation_card_line1": "Atribut didasarkan pada **kunci-nilai**.",
+  "folksonomy_explanation_card_line2": "Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
