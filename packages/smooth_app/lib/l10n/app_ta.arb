@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "பண்புகள்",
   "tag_key_uneditable": "குணம் (திருத்த முடியாதது)",
   "tag_key_input_hint": "ஒரு குணத்தை உள்ளிடவும்",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "ஒரு மதிப்பை உள்ளிடவும்",
   "tag_key_item": "குணம்:",
   "tag_value_item": "மதிப்பு:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ஏன் விலைகள்?",
+  "prices_explanation_card_line1": "**திறந்த விலைகள்** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. திறந்த விலைகள் திறந்த உணவு உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.",
+  "explanation_card_learn_more_button": "மேலும்அறிய",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ஃபோக்சோனமியின் பண்புக்கூறுகள் என்ன?",
-  "folksonomy_explanation_card_body": "பண்புக்கூறுகள் **முக்கிய-மதிப்பு** அடிப்படையிலானவை.\n\nஇந்தப் பண்புகள் பயனர்களால் எந்த வகையான பயன்பாடுகளுக்கும் உருவாக்கப்பட்டு தாக்கல் செய்யப்படுகின்றன.",
+  "folksonomy_explanation_card_line1": "பண்புக்கூறுகள் **முக்கிய-மதிப்பு** அடிப்படையிலானவை.",
+  "folksonomy_explanation_card_line2": "இந்தப் பண்புகள் பங்களிப்பாளர்களால் எந்தவொரு பயன்பாட்டிற்கும் உருவாக்கப்பட்டு தாக்கல் செய்யப்படுகின்றன.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
