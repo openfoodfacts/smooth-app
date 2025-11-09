@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Parolanızı mı unuttunuz?",
   "view_profile": "Profili görüntüle",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Özelliği düzenle",
   "remove_tag": "Özelliği Kaldır",
   "tag_key": "Özellik",
+  "tag_keys": "Özellikler",
   "tag_key_uneditable": "Özellik (düzenlenemez)",
   "tag_key_input_hint": "Bir özellik girin",
   "tag_value": "Değer",
+  "tag_values": "Değerler",
   "tag_value_input_hint": "Bir değer girin",
   "tag_key_item": "Özellik:",
   "tag_value_item": "Değer:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Neden fiyatlar?",
+  "prices_explanation_card_line1": "**Açık Fiyatlar**, dünya genelindeki ürünlerin fiyatlarını toplayıp paylaşmayı amaçlayan bir projedir 🌍. Açık Fiyatlar, Open Food Facts tarafından geliştirilip yönetilmektedir.",
+  "explanation_card_learn_more_button": "Daha fazla bilgi edin",
   "product_page_tab_folksonomy": "Halkbilimi",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Folksonominin nitelikleri nelerdir?",
-  "folksonomy_explanation_card_body": "Nitelikler **anahtar-değer** tabanlıdır.\n\nBu özellikler, kullanıcılar tarafından her türlü kullanım için oluşturulur ve dosyalanır.",
+  "folksonomy_explanation_card_line1": "Nitelikler **anahtar-değer** tabanlıdır.",
+  "folksonomy_explanation_card_line2": "Bu özellikler, katkıda bulunanlar tarafından her türlü kullanım için oluşturulup dosyalanır.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
