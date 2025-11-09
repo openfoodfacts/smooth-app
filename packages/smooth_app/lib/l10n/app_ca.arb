@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Has oblidat la contrasenya?",
   "view_profile": "Mostra el perfil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Propietats",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Valor",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Per què els preus?",
+  "prices_explanation_card_line1": "**Open Prices** és un projecte per recopilar i compartir preus de productes d'arreu del món 🌍. Open Prices està desenvolupat i mantingut per Open Food Facts.",
+  "explanation_card_learn_more_button": "Saber-ne més",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Quins són els atributs de la folksonomia?",
-  "folksonomy_explanation_card_body": "Els atributs es basen en **valor-clau**.\n\nAquestes propietats són creades i arxivades pels usuaris per a qualsevol tipus d'ús.",
+  "folksonomy_explanation_card_line1": "Els atributs es basen en **valor-clau**.",
+  "folksonomy_explanation_card_line2": "Aquestes propietats són creades i arxivades pels col·laboradors per a qualsevol tipus d'ús.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
