@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "पासवर्ड भूल गए?",
   "view_profile": "प्रोफाइल देखें",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "गुण",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "मूल्य",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "कीमतें क्यों?",
+  "prices_explanation_card_line1": "**ओपन प्राइसेज़** दुनिया भर के उत्पादों की कीमतें एकत्रित करने और उन्हें साझा करने का एक प्रोजेक्ट है। ओपन प्राइसेज़ का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "फोल्क्सोनॉमी विशेषताएँ क्या हैं?",
-  "folksonomy_explanation_card_body": "विशेषताएँ **कुंजी-मूल्य** आधारित हैं।\n\nये गुण किसी भी प्रकार के उपयोग के लिए उपयोगकर्ताओं द्वारा बनाए और दर्ज किए जाते हैं।",
+  "folksonomy_explanation_card_line1": "विशेषताएँ **कुंजी-मूल्य** आधारित हैं।",
+  "folksonomy_explanation_card_line2": "ये गुण किसी भी प्रकार के उपयोग के लिए योगदानकर्ताओं द्वारा बनाए और दर्ज किए जाते हैं।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
