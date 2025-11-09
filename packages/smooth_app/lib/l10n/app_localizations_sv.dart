@@ -227,6 +227,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get forgot_password => 'Glömt lösenord';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Visa profil';
 
   @override

@@ -230,6 +230,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get forgot_password => 'Nie pamiętam hasła';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Zobacz profil';
 
   @override

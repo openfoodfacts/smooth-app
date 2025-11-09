@@ -227,6 +227,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get forgot_password => 'Pozabljeno geslo';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Ogled profila';
 
   @override

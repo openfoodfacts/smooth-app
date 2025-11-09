@@ -229,6 +229,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get forgot_password => 'Contrasenya oblidada';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Mostra el perfil';
 
   @override

@@ -227,6 +227,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get forgot_password => 'Wachtwoord vergeten?';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Profiel bekijken';
 
   @override

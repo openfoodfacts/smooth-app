@@ -230,6 +230,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get forgot_password => 'Zapomenuté heslo';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Zobrazit profil';
 
   @override

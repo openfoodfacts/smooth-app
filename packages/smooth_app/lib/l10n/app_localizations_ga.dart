@@ -226,6 +226,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'View profile';
 
   @override

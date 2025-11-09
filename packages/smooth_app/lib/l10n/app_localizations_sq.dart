@@ -229,6 +229,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get forgot_password => 'Keni harruar fjalekalimin';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Shiko profilin';
 
   @override

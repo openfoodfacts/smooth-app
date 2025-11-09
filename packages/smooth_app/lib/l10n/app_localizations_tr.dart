@@ -228,6 +228,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get forgot_password => 'Parolanızı mı unuttunuz';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Profili görüntüle';
 
   @override

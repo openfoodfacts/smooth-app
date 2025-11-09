@@ -230,6 +230,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get forgot_password => 'Ξέχασα τον κωδικό';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Προβολή προφίλ';
 
   @override

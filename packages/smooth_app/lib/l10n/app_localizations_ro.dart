@@ -231,6 +231,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get forgot_password => 'Ați uitat parola';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Vizualizați profilul';
 
   @override

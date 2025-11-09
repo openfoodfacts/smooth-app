@@ -229,6 +229,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get forgot_password => 'পাসওয়ার্ড ভুলে গেছেন?';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'আপনার প্রোফাইল দেখুন';
 
   @override

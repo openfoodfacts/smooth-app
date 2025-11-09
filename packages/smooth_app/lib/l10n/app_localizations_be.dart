@@ -229,6 +229,9 @@ class AppLocalizationsBe extends AppLocalizations {
   String get forgot_password => 'Не памятаю пароль';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Паглядзець профіль';
 
   @override

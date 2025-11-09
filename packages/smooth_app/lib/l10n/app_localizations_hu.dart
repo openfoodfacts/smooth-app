@@ -229,6 +229,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get forgot_password => 'Elfelejtett jelszó';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Profil megtekintése';
 
   @override

@@ -224,6 +224,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get forgot_password => 'パスワードを忘れた場合';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'プロフィールを表示';
 
   @override

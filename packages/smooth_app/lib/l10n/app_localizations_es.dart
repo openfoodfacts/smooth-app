@@ -234,6 +234,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forgot_password => 'Contraseña olvidada';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Ver perfil';
 
   @override

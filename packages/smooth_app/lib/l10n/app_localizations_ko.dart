@@ -223,6 +223,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get forgot_password => '비밀번호 찾기';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => '프로필 보기';
 
   @override

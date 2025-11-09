@@ -232,6 +232,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get forgot_password => 'Passwort vergessen';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Profil anzeigen';
 
   @override

@@ -226,6 +226,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get forgot_password => 'Glemt adgangskode';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Se profil';
 
   @override

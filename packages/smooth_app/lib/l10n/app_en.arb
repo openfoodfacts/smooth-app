@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Forgot password?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"

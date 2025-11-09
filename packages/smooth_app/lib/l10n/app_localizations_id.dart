@@ -230,6 +230,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get forgot_password => 'Lupa kata sandi';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Lihat profil';
 
   @override

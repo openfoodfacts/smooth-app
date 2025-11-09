@@ -228,6 +228,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get forgot_password => 'Glemt passordet';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Vis profil';
 
   @override

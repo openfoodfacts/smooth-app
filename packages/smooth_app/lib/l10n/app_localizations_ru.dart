@@ -230,6 +230,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get forgot_password => 'Не помню пароль';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Профиль';
 
   @override

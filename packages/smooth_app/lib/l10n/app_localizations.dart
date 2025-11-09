@@ -761,6 +761,12 @@ abstract class AppLocalizations {
   /// **'Forgot password'**
   String get forgot_password;
 
+  /// No description provided for @forgot_password_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgot_password_question;
+
   /// Button label: For to show your account
   ///
   /// In en, this message translates to:

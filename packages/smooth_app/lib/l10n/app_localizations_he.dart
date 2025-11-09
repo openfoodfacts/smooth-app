@@ -223,6 +223,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get forgot_password => 'שכחתי סיסמה';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'הצגת פרופיל';
 
   @override

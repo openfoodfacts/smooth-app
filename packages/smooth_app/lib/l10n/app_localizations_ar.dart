@@ -226,6 +226,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgot_password => 'نسيت كلمة المرور';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'عرض الصفحة الشخصية';
 
   @override
