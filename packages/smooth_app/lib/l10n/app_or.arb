@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "ପାସୱାର୍ଡ ଭୁଲି ଯାଇଛନ୍ତି କି?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "ଗୁଣଧର୍ମସମୂହ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "ଦାମ କାହିଁକି?",
+  "prices_explanation_card_line1": "**ଓପନ୍ ପ୍ରାଇସେସ୍** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। ଓପନ୍ ପ୍ରାଇସେସ୍ ଓପନ୍ ଫୁଡ୍ ଫ୍ୟାକ୍ଟସ୍ ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।",
+  "explanation_card_learn_more_button": "ଅଧିକ ଜାଣନ୍ତୁ",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ଫୋକସୋନୋମି ଗୁଣଗୁଡ଼ିକ କ’ଣ?",
-  "folksonomy_explanation_card_body": "ଗୁଣଗୁଡ଼ିକ **କୀ-ମୂଲ୍ୟ** ଆଧାରିତ।\n\nଏହି ଗୁଣଗୁଡ଼ିକ ଯେକୌଣସି ପ୍ରକାରର ବ୍ୟବହାର ପାଇଁ ଉପଭୋକ୍ତାମାନଙ୍କ ଦ୍ୱାରା ସୃଷ୍ଟି ଏବଂ ଫାଇଲ୍ କରାଯାଏ।",
+  "folksonomy_explanation_card_line1": "ଗୁଣଗୁଡ଼ିକ **କୀ-ମୂଲ୍ୟ** ଆଧାରିତ।",
+  "folksonomy_explanation_card_line2": "ଏହି ଗୁଣଧର୍ମଗୁଡ଼ିକ ଯେକୌଣସି ପ୍ରକାରର ବ୍ୟବହାର ପାଇଁ ଅବଦାନକାରୀଙ୍କ ଦ୍ୱାରା ସୃଷ୍ଟି ଏବଂ ଦାଖଲ କରାଯାଏ।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
