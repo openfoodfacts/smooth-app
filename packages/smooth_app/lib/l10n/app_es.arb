@@ -544,7 +544,7 @@
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "puede estar desactualizado",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
@@ -641,7 +641,7 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "Volver a tomar una foto",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
@@ -783,7 +783,7 @@
   "nutrition_page_nutritional_info_label": "Values specified on the product:",
   "nutrition_page_nutritional_info_value_positive": "Sí",
   "nutrition_page_nutritional_info_value_negative": "No",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
+  "nutrition_page_nutritional_info_open_photo": "Abrir foto",
   "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
@@ -792,17 +792,17 @@
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "Valores nutricionales:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
   "nutrition_page_per_100g": "por 100 g",
-  "nutrition_page_per_100g_100ml": "per 100g/ml",
+  "nutrition_page_per_100g_100ml": "por 100g/ml",
   "nutrition_page_per_serving": "por porción",
   "nutrition_page_add_nutrient": "Añadir un nutriente",
   "nutrition_page_serving_size": "Tamaño de la porción",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_hint": "Introduce el tamaño de la ración (ej: 100g)",
+  "nutrition_page_serving_size_explanation_title": "Buenas prácticas: Tamaño de la porción",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
@@ -863,7 +863,7 @@
   "@view_more_photo_button": {},
   "no_product_found": "No se ha encontrado ningún producto",
   "@no_product_found": {},
-  "no_location_found": "No location found",
+  "no_location_found": "No se ha encontrado ninguna ubicación",
   "not_found": "no se ha encontrado:",
   "refreshing_product": "Actualizando producto",
   "@refreshing_product": {
@@ -873,7 +873,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "Imagen tomada el {date}",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -882,7 +882,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "Imagen tomada el {date}. Esta imagen puede estar desactualizada",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -891,13 +891,13 @@
       }
     }
   },
-  "product_image_outdated": "This image may be outdated",
-  "product_image_outdated_explanations_title": "This image may be outdated",
+  "product_image_outdated": "Esta imagen puede estar desactualizada",
+  "product_image_outdated_explanations_title": "Esta imagen puede estar desactualizada",
   "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_image_action_replace_photo": "Replace photo ({type})",
+  "product_image_action_replace_photo": "Reemplazar foto ({type})",
   "@product_image_action_replace_photo": {
     "description": "Action on the photo gallery to replace an existing picture",
     "placeholders": {
@@ -907,7 +907,7 @@
       }
     }
   },
-  "product_image_action_add_photo": "Add a photo ({type})",
+  "product_image_action_add_photo": "Añadir una foto ({type})",
   "@product_image_action_add_photo": {
     "description": "Action on the photo gallery to add a photo (eg: ingredients)",
     "placeholders": {
@@ -933,11 +933,11 @@
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Information about the photo",
+  "product_image_details_label": "Información sobre la foto",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
-  "product_image_details_from_producer": "From the producer",
+  "product_image_details_from_producer": "Del productor",
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
@@ -945,7 +945,7 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Contributor (producer)",
+  "product_image_details_contributor_producer": "Colaborador (productor)",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
@@ -970,7 +970,7 @@
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
   },
-  "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+  "scan_tagline_news_item_accessibility": "Últimas noticias: {news_title}",
   "@scan_tagline_news_item_accessibility": {
     "description": "Accessibility label for the title of a news",
     "placeholders": {
@@ -1002,7 +1002,7 @@
       }
     }
   },
-  "product_tags_title": "Product properties",
+  "product_tags_title": "Propiedades del producto",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1015,9 +1015,9 @@
   "add_tag": "Añadir una propiedad",
   "add_tags": "Añadir propiedades",
   "add_edit_tags": "Añadir o modificar propiedades",
-  "edit_tag": "Edit property",
-  "remove_tag": "Remove property",
-  "tag_key": "Property",
+  "edit_tag": "Editar propiedad",
+  "remove_tag": "Eliminar propiedad",
+  "tag_key": "Propiedad",
   "tag_key_uneditable": "Propiedad (no editable)",
   "tag_key_input_hint": "Ingrese una propiedad",
   "tag_value": "Valor",
@@ -1084,11 +1084,11 @@
   "@currency_chooser_label": {
     "description": "Label shown above a selector where the user can select their currency (in the preferences)"
   },
-  "country_change_message": "You have just changed countries.",
+  "country_change_message": "Acabas de cambiar de país.",
   "@country_change_message": {
     "description": "Message stating the change of countries"
   },
-  "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+  "currency_auto_change_message": "¿Quieres cambiar la moneda de {previousCurrency} a {possibleCurrency}?",
   "@currency_auto_change_message": {
     "description": "Message asking to confirm the change of currencies",
     "placeholders": {
@@ -1201,26 +1201,26 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, one {}=0{Ningún producto seleccionado} =1{Un producto seleccionado} other{{count} productos seleccionados}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
       "count": {}
     }
   },
-  "compare_products_mode": "Compare selected products",
+  "compare_products_mode": "Comparar productos seleccionados",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
-  "delete_products_mode": "Delete selected products",
+  "delete_products_mode": "Eliminar productos seleccionados",
   "@delete_products_mode": {
     "description": "Button to switch to 'delete products'"
   },
-  "select_all_products_mode": "Select all products",
+  "select_all_products_mode": "Seleccionar todos los productos",
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Select none",
+  "select_none_products_mode": "Quitar selección",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1234,7 +1234,7 @@
   },
   "retry_button_label": "Reintentar",
   "connect_with_us": "Contáctanos",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Síguenos en TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Síguenos en Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
@@ -1742,7 +1742,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "País",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -1846,11 +1846,11 @@
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Sardinas en aceite de oliva",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Zumo de naranja a partir de concentrado",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1901,7 +1901,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Valores nutricionales",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1917,7 +1917,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Campo vacío?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2088,7 +2088,7 @@
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
-  "user_list_name_input_hint": "Name of the list",
+  "user_list_name_input_hint": "Nombre de la lista",
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
@@ -2249,7 +2249,7 @@
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_empty_value": "Not set",
+  "dev_preferences_news_custom_url_empty_value": "No establecido",
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
@@ -2267,10 +2267,10 @@
     }
   },
   "product_type_label_food": "Alimento",
-  "product_type_label_beauty": "Personal care",
+  "product_type_label_beauty": "Cuidado personal",
   "product_type_label_pet_food": "Alimento para mascotas",
   "product_type_label_product": "Otro",
-  "product_type_selection_title": "Product type",
+  "product_type_selection_title": "Tipo de producto",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
   "@product_type_selection_empty": {
@@ -2335,11 +2335,11 @@
   "prices_generic_title": "Precios",
   "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
   "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-  "prices_add_an_item": "Add an item",
+  "prices_add_an_item": "Añadir artículo",
   "prices_add_a_price": "Añadir un precio",
-  "prices_add_a_receipt": "Add a receipt",
-  "prices_add_price_tags": "Add price tags",
-  "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+  "prices_add_a_receipt": "Añadir un recibo",
+  "prices_add_price_tags": "Añadir etiqueta de precio",
+  "prices_barcode_already": "¡El código de barras ({barcode}) ya está en la lista!",
   "@prices_barcode_already": {
     "description": "Error message about barcode being already there",
     "placeholders": {
@@ -2349,7 +2349,7 @@
     }
   },
   "prices_barcode_search_not_found": "Producto no encontrado",
-  "prices_barcode_search_none_yet": "No product yet",
+  "prices_barcode_search_none_yet": "Aún no hay producto",
   "prices_barcode_search_running": "Buscando {barcode}",
   "@prices_barcode_search_running": {
     "description": "Dialog title about barcode look-up",
@@ -2359,7 +2359,7 @@
       }
     }
   },
-  "prices_barcode_enter": "Enter the Barcode",
+  "prices_barcode_enter": "Introducir el código de barras",
   "prices_category_enter": "Artículo sin código de barras",
   "prices_per_kilogram": "Precio por kilogramo",
   "@prices_per_kilogram": {
@@ -2459,7 +2459,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Open proofs of \"{user}\"",
+  "prices_open_user_proofs": "Abrir comprobantes de \"{user}\"",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2468,7 +2468,7 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "Abrir comprobante de precio",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -2581,16 +2581,16 @@
   "prices_proof_price_tag": "Etiqueta de precio",
   "prices_proof_mandatory": "You need to select a proof!",
   "prices_add_validation_error": "Validation error",
-  "prices_privacy_warning_title": "Privacy warning",
+  "prices_privacy_warning_title": "Aviso de privacidad",
   "prices_unknown_product": "Producto desconocido",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-  "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-  "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
-  "prices_currency_change_proposal_title": "Change the currency?",
-  "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+  "prices_privacy_warning_main_message": "Los precios **serán públicos**, junto con la tienda a la que se refieren.\n\nEsto podría permitir que las personas que conocen tu seudónimo en Open Food Facts puedan:\n",
+  "prices_privacy_warning_message_bullet_1": "Deducir en qué zona vives",
+  "prices_privacy_warning_message_bullet_2": "Saber lo que compras",
+  "prices_privacy_warning_sub_message": "Si no te sientes cómodo con eso, por favor cambia tu seudónimo o crea una nueva cuenta de Open Food Facts e inicia sesión con ella.",
+  "i_refuse": "Rechazar",
+  "i_accept": "Aceptar",
+  "prices_currency_change_proposal_title": "¿Cambiar la moneda?",
+  "prices_currency_change_proposal_message": "Tu moneda actual es **{currency}**. ¿Quieres cambiarla a **{newCurrency}**?",
   "@prices_currency_change_proposal_message": {
     "description": "Message to ask the user if they want to change the currency",
     "placeholders": {
@@ -2602,7 +2602,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+  "prices_currency_change_proposal_action_approve": "Sí, usar {newCurrency}",
   "@prices_currency_change_proposal_action_approve": {
     "description": "Button to approve the currency change",
     "placeholders": {
@@ -2611,7 +2611,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+  "prices_currency_change_proposal_action_cancel": "No, mantén {currency}",
   "@prices_currency_change_proposal_action_cancel": {
     "description": "Button to cancel the currency change",
     "placeholders": {
@@ -2623,7 +2623,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Saber más sobre los precios abiertos",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2632,7 +2632,7 @@
     "description": "User dev preferences - Import history - Result successful"
   },
   "dev_mode_section_server": "Configuración del servidor",
-  "dev_mode_section_news": "News provider configuration",
+  "dev_mode_section_news": "Configuración del proveedor de noticias",
   "dev_mode_section_product_page": "Página del producto",
   "dev_mode_section_ui": "Interfaz de usuario",
   "dev_mode_section_experimental_features": "Funciones experimentales",
@@ -2719,7 +2719,7 @@
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
-  "user_search_proof_title": "My proof",
+  "user_search_proof_title": "Mi comprobante",
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
@@ -5564,7 +5564,7 @@
   "location_map_details_street": "Calle",
   "location_map_details_city": "Ciudad",
   "location_map_details_postcode": "Código postal",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenadas",
   "location_map_details_osm_id": "ID de OSM"
 }
