@@ -9,8 +9,10 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
@@ -52,46 +54,57 @@ class UserPreferencesAttributeGroup {
         labels: <String>[],
         builder: (_) => Padding(
           padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: LARGE_SPACE,
+            horizontal: SMALL_SPACE,
           ),
-          child: SmoothCard(
-            padding: EdgeInsetsDirectional.zero,
-            margin: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
             child: InkWell(
-              onTap: () async =>
-                  userPreferences.setActiveAttributeGroup(group.id!),
+              borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+              onTap: () => collapsed == true
+                  ? userPreferences.setActiveAttributeGroup(group.id!)
+                  : null,
               child: ListTile(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadiusDirectional.vertical(
                     top: ROUNDED_RADIUS,
                   ),
                 ),
+
                 tileColor: extension.primaryBlack,
-                leading: const SizedBox.square(
-                  dimension: 18.0,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadiusDirectional.all(ROUNDED_RADIUS),
+                leading: const Padding(
+                  padding: EdgeInsetsDirectional.only(start: 8.5),
+                  child: SizedBox.square(
+                    dimension: 14.0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadiusDirectional.all(
+                          ROUNDED_RADIUS,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                title: Text(
-                  group.name ?? appLocalizations.unknown,
-                  style: themeData.textTheme.titleLarge!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                title: Padding(
+                  padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
+                  child: Text(
+                    group.name ?? appLocalizations.unknown,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                trailing: collapsed!
-                    ? const Icon(
-                        Icons.keyboard_arrow_right,
-                        color: Colors.white,
-                      )
-                    : const Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.white,
-                      ),
+                trailing: Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 7.0),
+                  child: icons.AppIconTheme(
+                    size: 10.0,
+                    color: Colors.white,
+                    child: collapsed!
+                        ? const icons.Chevron.up()
+                        : const icons.Chevron.down(),
+                  ),
+                ),
               ),
             ),
           ),
@@ -110,13 +123,14 @@ class UserPreferencesAttributeGroup {
             return Container(
               color: colorScheme.error,
               width: double.infinity,
-              padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+              padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
               margin: const EdgeInsetsDirectional.symmetric(
-                horizontal: LARGE_SPACE,
+                horizontal: SMALL_SPACE,
               ),
               child: Text(
                 group.warning!,
                 style: TextStyle(color: colorScheme.onError),
+                textAlign: TextAlign.center,
               ),
             );
           },
@@ -139,10 +153,10 @@ class UserPreferencesAttributeGroup {
           ],
           builder: (_) => Padding(
             padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: LARGE_SPACE,
+              horizontal: SMALL_SPACE,
             ),
             child: SmoothCard(
-              elevation: 8,
+              elevation: 8.0,
               padding: EdgeInsetsDirectional.zero,
               borderRadius: const BorderRadiusDirectional.vertical(
                 bottom: ROUNDED_RADIUS,
@@ -162,6 +176,7 @@ class UserPreferencesAttributeGroup {
         ),
       );
     }
+
     return result;
   }
 
@@ -177,6 +192,13 @@ class UserPreferencesAttributeGroup {
         helper.getPreferenceTile(title: group.name!, context: context),
       );
     }
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    final Color backgroundColor = context.lightTheme()
+        ? theme.primarySemiDark
+        : theme.primaryUltraBlack;
+
     final List<String> excludedAttributeIds = userPreferences
         .getExcludedAttributeIds();
     for (final Attribute attribute in group.attributes!) {
@@ -198,6 +220,9 @@ class UserPreferencesAttributeGroup {
               attribute,
               context: context,
               isFoodPreferences: true,
+              foregroundColor: Colors.white,
+              backgroundColor: backgroundColor,
+              size: 20.0,
             ),
           ),
         );

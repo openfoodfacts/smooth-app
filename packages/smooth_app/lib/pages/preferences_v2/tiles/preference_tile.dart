@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// A tile for preferences in the settings page.
 /// It can be used to display a title, an icon, a subtitle, and a trailing widget.
@@ -102,16 +105,7 @@ class PreferenceTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 1.0,
                     children: <Widget>[
-                      Text(
-                        title,
-                        style: TextStyle(
-                          color: lightTheme
-                              ? extension.primaryBlack
-                              : Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
-                        ),
-                      ),
+                      _PreferenceTileTitle(title: title),
                       if (subtitle != null || subtitleText != null)
                         DefaultTextStyle.merge(
                           style: TextStyle(
@@ -122,13 +116,16 @@ class PreferenceTile extends StatelessWidget {
                                 : Colors.white.withValues(alpha: 0.8),
                             fontWeight: FontWeight.w500,
                             fontSize: 13.5,
-                            //height: 1.35,
                           ),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.only(
                               bottom: 1.0,
                             ),
-                            child: subtitle ?? Text(subtitleText!),
+                            child:
+                                subtitle ??
+                                _PreferenceTileSubtitle(
+                                  subtitle: subtitleText!,
+                                ),
                           ),
                         ),
                     ],
@@ -148,4 +145,50 @@ class PreferenceTile extends StatelessWidget {
       (onTap != null
           ? icons.Chevron.right(size: 14.0, color: iconColor)
           : null);
+}
+
+class _PreferenceTileTitle extends StatelessWidget {
+  const _PreferenceTileTitle({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? query = context
+        .watch<PreferencesRootSearchController>()
+        .query;
+
+    final TextStyle textStyle = TextStyle(
+      color: context.lightTheme()
+          ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+          : Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 16.0,
+    );
+
+    if (query == null || query.isEmpty) {
+      return Text(title, style: textStyle);
+    } else {
+      return TextHighlighter(text: title, textStyle: textStyle, filter: query);
+    }
+  }
+}
+
+class _PreferenceTileSubtitle extends StatelessWidget {
+  const _PreferenceTileSubtitle({required this.subtitle});
+
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? query = context
+        .watch<PreferencesRootSearchController>()
+        .query;
+
+    if (query == null || query.isEmpty) {
+      return Text(subtitle);
+    } else {
+      return TextHighlighter(text: subtitle, filter: query, softWrap: true);
+    }
+  }
 }

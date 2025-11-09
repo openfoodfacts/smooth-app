@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_page.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/product_page/widgets/product_page_table.dart';
+import 'package:smooth_app/pages/product/product_page/widgets/product_page_title.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class FolksonomyListAttributesCard extends StatelessWidget {
   const FolksonomyListAttributesCard({super.key});
@@ -17,18 +21,17 @@ class FolksonomyListAttributesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return SmoothCardWithRoundedHeader(
-      title: appLocalizations.product_tags_title,
-      leading: const icons.Lists(),
-      trailing: const _FolksonomyCardButton(),
-      contentPadding: EdgeInsetsDirectional.zero,
-      child: SizedBox(
-        width: double.infinity,
-        child: _FolksonomyCardBody(
+    return Column(
+      children: <Widget>[
+        ProductPageTitle(
+          label: appLocalizations.product_tags_title,
+          trailing: (_) => const _FolksonomyCardButton(),
+        ),
+        _FolksonomyCardBody(
           onEmptyPageTag: () =>
               _openFolksonomyPage(context, context.read<Product>()),
         ),
-      ),
+      ],
     );
   }
 }
@@ -52,6 +55,8 @@ class _FolksonomyCardBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 100.0),
@@ -62,48 +67,62 @@ class _FolksonomyCardBody extends StatelessWidget {
           } else if (provider.value.tags?.isNotEmpty != true) {
             return InkWell(
               onTap: onEmptyPageTag,
-              child: Center(
-                child: Text(
-                  appLocalizations.no_product_tags_found_message,
-                  textAlign: TextAlign.center,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: LARGE_SPACE,
+                  vertical: VERY_LARGE_SPACE,
+                ),
+                child: Column(
+                  spacing: BALANCED_SPACE,
+                  children: <Widget>[
+                    DecoratedBox(
+                      decoration: ShapeDecoration(
+                        shape: const CircleBorder(),
+                        color: context.lightTheme()
+                            ? theme.primaryLight
+                            : theme.primaryMedium,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsetsDirectional.all(LARGE_SPACE),
+                        child: SvgPicture(
+                          AssetBytesLoader(
+                            'assets/icons/property_empty.svg.vec',
+                          ),
+                          width: 35.0,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      appLocalizations.no_product_tags_found_message,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 14.5,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
           } else {
-            final SmoothColorsThemeExtension extension = context
-                .extension<SmoothColorsThemeExtension>();
+            final Iterable<ProductTag> displayTags = provider.value.tags!;
 
-            final Iterable<ProductTag> displayTags = provider.value.tags!.take(
-              5,
-            );
-
-            return ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: DataTable(
-                headingTextStyle: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14.5,
-                ),
-                headingRowHeight: 48.0,
-                headingRowColor: WidgetStatePropertyAll<Color>(
-                  extension.primaryLight,
-                ),
-                dataTextStyle: DefaultTextStyle.of(context).style,
-                columns: <DataColumn>[
-                  DataColumn(label: Text(appLocalizations.tag_key)),
-                  DataColumn(label: Text(appLocalizations.tag_value)),
-                ],
-                rows: displayTags
-                    .map((ProductTag tag) {
-                      return DataRow(
-                        cells: <DataCell>[
-                          DataCell(Text(tag.key)),
-                          DataCell(Text(tag.value)),
-                        ],
-                      );
-                    })
-                    .toList(growable: false),
-              ),
+            return ProductPageTable(
+              columnPercents: const <double>[0.45, 0.55],
+              columns: <Widget>[
+                Text(appLocalizations.tag_keys),
+                Text(appLocalizations.tag_values),
+              ],
+              rows: displayTags
+                  .map(
+                    (ProductTag item) => ProductPageTableRow(
+                      columns: <String>[
+                        item.key.replaceAll(':', '\n'),
+                        item.value,
+                      ],
+                    ),
+                  )
+                  .toList(growable: false),
             );
           }
         },

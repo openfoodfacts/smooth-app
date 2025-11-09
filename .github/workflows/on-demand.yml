@@ -26,7 +26,7 @@ jobs:
     - name: Get branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
-      run: echo ::set-output name=branch::$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')
+      run: echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -41,11 +41,14 @@ jobs:
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
         token: ${{ secrets.GITHUB_TOKEN }}
-    # we need origin/main to have comparison linting work !
+    # we need origin/develop to have comparison linting work !
     - name: Fetch origin/develop
       run: |
-        git remote set-branches --add origin develop
-        git fetch origin
+        git fetch origin develop
+    # Get the Flutter version from ./flutter-version.txt
+    - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+      id: flutter-version
+
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
@@ -75,6 +78,12 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+    - name: Add rocket reaction on success
+      if: success()
+      uses: peter-evans/create-or-update-comment@v5
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: rocket
 
   delete_3_letter_translation_files:
     name: "On demand deletion of 3-letter translation files"
@@ -92,7 +101,7 @@ jobs:
     - name: Get branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
-      run: echo ::set-output name=branch::$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')
+      run: echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -107,11 +116,10 @@ jobs:
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
         token: ${{ secrets.GITHUB_TOKEN }}
-    # we need origin/main to have comparison linting work !
+    # we need origin/develop to have comparison linting work !
     - name: Fetch origin/develop
       run: |
-        git remote set-branches --add origin develop
-        git fetch origin
+        git fetch origin develop
     - name: Deletion of 3-letter translation files (1/2)
       run: packages/smooth_app/ios/Runner/remove.sh
     - name: Deletion of 3-letter translation files (2/2)
@@ -128,3 +136,72 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+    - name: Add rocket reaction on success
+      if: success()
+      uses: peter-evans/create-or-update-comment@v5
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: rocket
+
+  update_goldens:
+    name: "On demand golden file update"
+    if: |
+      github.event.issue.pull_request &&
+      (github.event.comment.body == '/update-goldens') &&
+      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add reaction to comment
+      uses: peter-evans/create-or-update-comment@v5
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: eyes
+    - name: Checkout
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+        # Use the PR HEAD commit SHA, not a mutable branch ref
+        ref: ${{ github.event.pull_request.head.sha }}
+        # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
+        # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+        # So this is a personal access token
+        token: ${{ secrets.GITHUB_TOKEN }}
+    # Get the Flutter version from ./flutter-version.txt
+    - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+      id: flutter-version
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        #channel: stable
+        cache: true
+        flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+    - run: flutter --version
+
+      # Get dependencies
+    - name: Get dependencies
+      run: ci/pub_get.sh
+
+      # Update golden files
+    - name: Update golden files
+      run: cd packages/smooth_app && flutter test --update-goldens
+    - name: Push changes if needed
+      uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "chore: Update golden files"
+        branch: ${{ github.event.pull_request.head.ref }}
+        commit_user_name: Open Food Facts Bot
+        commit_user_email: contact@openfoodfacts.org
+        commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        push_options: ""
+        status_options: '--untracked-files=no'
+        skip_dirty_check: false
+        create_branch: no
+    - name: Add rocket reaction on success
+      if: success()
+      uses: peter-evans/create-or-update-comment@v5
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: rocket

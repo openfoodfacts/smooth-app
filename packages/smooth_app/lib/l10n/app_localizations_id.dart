@@ -230,6 +230,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get forgot_password => 'Lupa kata sandi';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Lihat profil';
 
   @override
@@ -1305,6 +1308,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get tag_key => 'Properti';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Properti (tidak dapat disunting)';
 
   @override
@@ -1312,6 +1318,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get tag_value => 'Nilai';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Masukkan nilai';
@@ -5313,6 +5322,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get product_page_tab_prices => 'Harga';
 
   @override
+  String get prices_explanation_card_title => 'Why prices?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
@@ -5320,8 +5339,12 @@ class AppLocalizationsId extends AppLocalizations {
       'What are Folksonomy attributes?';
 
   @override
-  String get folksonomy_explanation_card_body =>
-      'Attributes are **key-value** based.\n\nThese properties are created and filed by users for any kind of usages.';
+  String get folksonomy_explanation_card_line1 =>
+      'Attributes are **key-value** based.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

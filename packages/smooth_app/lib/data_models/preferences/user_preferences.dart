@@ -99,6 +99,8 @@ class UserPreferences extends ChangeNotifier {
       'ready_for_price_tag_validation';
   static const String _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD =
       '_show_folksonomy_explanation_card';
+  static const String _TAG_SHOW_PRICES_EXPLANATION_CARD =
+      '_show_prices_explanation_card';
 
   /// Camera preferences
 
@@ -280,6 +282,14 @@ class UserPreferences extends ChangeNotifier {
 
   bool get shouldShowFolksonomyExplanationCard =>
       _sharedPreferences.getBool(_TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD) ?? true;
+
+  Future<void> hidePricesExplanationCard() async {
+    await _sharedPreferences.setBool(_TAG_SHOW_PRICES_EXPLANATION_CARD, false);
+    notifyListeners();
+  }
+
+  bool get shouldShowPricesExplanationCard =>
+      _sharedPreferences.getBool(_TAG_SHOW_PRICES_EXPLANATION_CARD) ?? true;
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??

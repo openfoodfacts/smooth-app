@@ -1,15 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_background.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/search_bottom_bar.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 
-class ProfileAppBar extends StatelessWidget {
+class ProfileAppBar extends StatefulWidget {
   const ProfileAppBar({
     required this.contentHeight,
-    required this.progressOffset,
     required this.title,
     required this.content,
     super.key,
@@ -19,8 +22,12 @@ class ProfileAppBar extends StatelessWidget {
   final Widget content;
   final double contentHeight;
 
-  // TODO(g123k): Improve this
-  final double progressOffset;
+  @override
+  State<ProfileAppBar> createState() => _ProfileAppBarState();
+}
+
+class _ProfileAppBarState extends State<ProfileAppBar> {
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,20 +37,53 @@ class ProfileAppBar extends StatelessWidget {
         PROFILE_PICTURE_SIZE +
         MEDIUM_SPACE +
         SEARCH_BOTTOM_HEIGHT;
+    final double contentSize = LARGE_SPACE + widget.contentHeight;
 
-    final double maxHeight = minHeight + LARGE_SPACE + contentHeight;
-
-    return SliverPersistentHeader(
-      delegate: _ProfileAppBarDelegate(
-        minHeight: minHeight,
-        maxHeight: maxHeight,
-        progressOffset: progressOffset,
-        title: title,
-        content: content,
+    return PopScope(
+      canPop: !context.watch<FocusNode>().hasFocus,
+      onPopInvokedWithResult: (bool res, _) {
+        if (!res) {
+          _onClose();
+        }
+      },
+      child: ChangeNotifierListener<FocusNode>(
+        listener: (BuildContext context, FocusNode focusNode) {
+          /// Auto-scroll to the visible part of the search bar when focused
+          context.read<ScrollController>().animateTo(
+            focusNode.hasFocus ? contentSize : 0.0,
+            duration: SmoothAnimationsDuration.short,
+            curve: Curves.easeInCubic,
+          );
+        },
+        child: ChangeNotifierProvider<TextEditingController>.value(
+          value: _controller,
+          child: SliverPersistentHeader(
+            delegate: _ProfileAppBarDelegate(
+              minHeight: minHeight,
+              maxHeight: minHeight + contentSize,
+              progressOffset: minHeight - contentSize,
+              title: widget.title,
+              content: widget.content,
+              onCloseSearch: _onClose,
+            ),
+            pinned: true,
+            floating: true,
+          ),
+        ),
       ),
-      pinned: true,
-      floating: true,
     );
+  }
+
+  void _onClose() {
+    context.read<FocusNode>().unfocus();
+    _controller.clear();
+    context.read<PreferencesRootSearchController>().clear();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
 
@@ -54,6 +94,7 @@ class _ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
     required this.progressOffset,
     required this.minHeight,
     required this.maxHeight,
+    required this.onCloseSearch,
   }) : assert(minHeight >= 0.0),
        assert(maxHeight >= 0.0);
 
@@ -62,6 +103,7 @@ class _ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double minHeight;
   final double maxHeight;
   final double progressOffset;
+  final VoidCallback onCloseSearch;
 
   @override
   double get minExtent => minHeight;
@@ -126,7 +168,7 @@ class _ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
             const SizedBox(height: MEDIUM_SPACE),
-            SearchBottomBar(),
+            SearchBottomBar(onClose: onCloseSearch),
           ],
         ),
       ),

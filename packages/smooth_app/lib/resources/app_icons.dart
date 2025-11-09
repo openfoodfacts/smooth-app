@@ -576,6 +576,32 @@ class Chevron extends AppIcon {
 
   final int turns;
 
+  static Chevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => Chevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => Chevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return RotatedBox(quarterTurns: turns, child: super.build(context));
@@ -1136,6 +1162,32 @@ class DoubleChevron extends AppIcon {
        super._(_IconsFont.double_chevron);
 
   final int turns;
+
+  static DoubleChevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => DoubleChevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => DoubleChevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -36,13 +36,19 @@ enum AttributeEvaluation {
 Widget getAttributeDisplayIcon(
   final Attribute attribute, {
   bool? isFoodPreferences = false,
+  double? size,
+  Color? backgroundColor,
+  Color? foregroundColor,
   BuildContext? context,
 }) {
   return attribute.getCircledIcon(
-        backgroundColor: isFoodPreferences!
-            ? Theme.of(context!).primaryColor
-            : getAttributeDisplayBackgroundColor(attribute),
-        size: 32.0,
+        backgroundColor:
+            backgroundColor ??
+            (isFoodPreferences!
+                ? Theme.of(context!).primaryColor
+                : getAttributeDisplayBackgroundColor(attribute)),
+        foregroundColor: foregroundColor,
+        size: size ?? 32.0,
       ) ??
       EMPTY_WIDGET;
 }
