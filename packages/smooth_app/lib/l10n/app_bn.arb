@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "পাসওয়ার্ড ভুলে গেছেন?",
   "view_profile": "আপনার প্রোফাইল দেখুন",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "বৈশিষ্ট্য",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "দাম কেন?",
+  "prices_explanation_card_line1": "**ওপেন প্রাইস** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। ওপেন প্রাইসস ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
+  "explanation_card_learn_more_button": "আরও জানুন",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ফোকসনোমি বৈশিষ্ট্যগুলি কী কী?",
-  "folksonomy_explanation_card_body": "বৈশিষ্ট্যগুলি **কী-মান** ভিত্তিক।\n\nএই বৈশিষ্ট্যগুলি ব্যবহারকারীরা যেকোনো ধরণের ব্যবহারের জন্য তৈরি এবং ফাইল করে।",
+  "folksonomy_explanation_card_line1": "বৈশিষ্ট্যগুলি **কী-মান** ভিত্তিক।",
+  "folksonomy_explanation_card_line2": "এই বৈশিষ্ট্যগুলি যেকোনো ধরণের ব্যবহারের জন্য অবদানকারীদের দ্বারা তৈরি এবং ফাইল করা হয়।",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
