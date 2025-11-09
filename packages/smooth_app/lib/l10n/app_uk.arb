@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Забули пароль?",
   "view_profile": "Переглянути сторінку",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Змінити властивість",
   "remove_tag": "Видалити властивість",
   "tag_key": "Властивість",
+  "tag_keys": "Властивості",
   "tag_key_uneditable": "Власність (не можна редагувати)",
   "tag_key_input_hint": "Введіть властивість",
   "tag_value": "Цінність",
+  "tag_values": "Цінності",
   "tag_value_input_hint": "Введіть значення",
   "tag_key_item": "Властивість:",
   "tag_value_item": "Значення:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Чому ціни?",
+  "prices_explanation_card_line1": "**Відкриті ціни** – це проєкт для збору та поширення інформації про ціни на товари з усього світу 🌍. Відкриті ціни розроблено та підтримується Open Food Facts.",
+  "explanation_card_learn_more_button": "Докладніше",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Які атрибути фолксономії?",
-  "folksonomy_explanation_card_body": "Атрибути базуються на парі **ключ-значення**.\n\nЦі властивості створюються та зберігаються користувачами для будь-якого використання.",
+  "folksonomy_explanation_card_line1": "Атрибути базуються на парі **ключ-значення**.",
+  "folksonomy_explanation_card_line2": "Ці властивості створюються та зберігаються учасниками для будь-якого використання.",
   "folksonomy_action_external_link_title": "Відкрити зовнішнє посилання",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
