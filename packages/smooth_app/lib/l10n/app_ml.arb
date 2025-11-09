@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "പാസ്വേഡ് മറന്നോ?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "പ്രോപ്പർട്ടികൾ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "എന്തിനാണ് വിലകൾ?",
+  "prices_explanation_card_line1": "**ഓപ്പൺ പ്രൈസസ്** എന്നത് ലോകമെമ്പാടുമുള്ള ഉൽപ്പന്നങ്ങളുടെ വിലകൾ ശേഖരിച്ച് പങ്കിടുന്നതിനുള്ള ഒരു പ്രോജക്റ്റാണ് 🌍. ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സ് ആണ് ഓപ്പൺ പ്രൈസസ് വികസിപ്പിക്കുകയും പരിപാലിക്കുകയും ചെയ്യുന്നത്.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ഫോക്സോണമിയുടെ ഗുണവിശേഷങ്ങൾ എന്തൊക്കെയാണ്?",
-  "folksonomy_explanation_card_body": "ആട്രിബ്യൂട്ടുകൾ **കീ-മൂല്യം** അടിസ്ഥാനമാക്കിയുള്ളതാണ്.\n\nഈ പ്രോപ്പർട്ടികൾ ഉപയോക്താക്കൾ ഏത് തരത്തിലുള്ള ഉപയോഗങ്ങൾക്കുമായി സൃഷ്ടിച്ച് ഫയൽ ചെയ്യുന്നു.",
+  "folksonomy_explanation_card_line1": "ആട്രിബ്യൂട്ടുകൾ **കീ-മൂല്യം** അടിസ്ഥാനമാക്കിയുള്ളതാണ്.",
+  "folksonomy_explanation_card_line2": "ഏത് തരത്തിലുള്ള ഉപയോഗത്തിനും വേണ്ടി സംഭാവകർ ഈ പ്രോപ്പർട്ടികൾ സൃഷ്ടിക്കുകയും ഫയൽ ചെയ്യുകയും ചെയ്യുന്നു.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
