@@ -5306,7 +5306,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by users for any kind of usages.';
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

@@ -4542,7 +4542,7 @@
   },
   "folksonomy_explanation_card_title": "What are Folksonomy attributes?",
   "folksonomy_explanation_card_line1": "Attributes are **key-value** based.",
-  "folksonomy_explanation_card_line2": "These properties are created and filed by users for any kind of usages.",
+  "folksonomy_explanation_card_line2": "These properties are created and filed by contributors for any kind of usages.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"

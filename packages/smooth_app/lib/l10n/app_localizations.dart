@@ -9130,7 +9130,7 @@ abstract class AppLocalizations {
   /// No description provided for @folksonomy_explanation_card_line2.
   ///
   /// In en, this message translates to:
-  /// **'These properties are created and filed by users for any kind of usages.'**
+  /// **'These properties are created and filed by contributors for any kind of usages.'**
   String get folksonomy_explanation_card_line2;
 
   /// Label of the 'open external link' action on a folksonomy entry
