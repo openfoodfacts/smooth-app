@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "මුරපදය අමතක වුණා ද?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "දේපළ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "මිල ගණන් ඇයි?",
+  "prices_explanation_card_line1": "**Open Prices** යනු ලොව පුරා නිෂ්පාදනවල මිල ගණන් එකතු කර බෙදා ගැනීමේ ව්‍යාපෘතියකි 🌍. Open Prices සංවර්ධනය කර නඩත්තු කරනු ලබන්නේ Open Food Facts විසිනි.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "ජන විද්‍යාවේ ගුණාංග මොනවාද?",
-  "folksonomy_explanation_card_body": "ගුණාංග **යතුරු-අගය** මත පදනම් වේ.\n\nමෙම ගුණාංග ඕනෑම ආකාරයක භාවිතයක් සඳහා පරිශීලකයින් විසින් නිර්මාණය කර ගොනු කරනු ලැබේ.",
+  "folksonomy_explanation_card_line1": "ගුණාංග **යතුරු-අගය** මත පදනම් වේ.",
+  "folksonomy_explanation_card_line2": "මෙම ගුණාංග දායකයින් විසින් ඕනෑම ආකාරයක භාවිතයක් සඳහා නිර්මාණය කර ගොනු කරනු ලැබේ.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
