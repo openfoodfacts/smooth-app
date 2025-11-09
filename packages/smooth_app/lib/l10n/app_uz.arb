@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Parolni unutdingizmi?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Xususiyatlari",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Nima uchun narxlar?",
+  "prices_explanation_card_line1": "**Ochiq narxlar** - bu butun dunyo bo'ylab mahsulotlar narxlarini yig'ish va bo'lishish loyihasi 🌍. Ochiq narxlar Open Food Facts tomonidan ishlab chiqilgan va qo'llab-quvvatlanadi.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Folksonomiya atributlari nima?",
-  "folksonomy_explanation_card_body": "Atributlar **kalit-qiymatga** asoslangan.\n\nUshbu xususiyatlar foydalanuvchilar tomonidan har qanday foydalanish uchun yaratilgan va taqdim etilgan.",
+  "folksonomy_explanation_card_line1": "Atributlar **kalit-qiymatga** asoslangan.",
+  "folksonomy_explanation_card_line2": "Ushbu xususiyatlar har qanday foydalanish uchun hissa qo'shuvchilar tomonidan yaratilgan va topshirilgan.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
