@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "פארגעסן פּאַראָל?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "אייגנשאַפטן",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "פארוואס פרייזן?",
+  "prices_explanation_card_line1": "**אפֿענע פּרייזן** איז אַ פּראָיעקט צו זאַמלען און טיילן פּרייזן פֿון פּראָדוקטן אַרום דער וועלט 🌍. אפֿענע פּרייזן ווערט דעוועלאָפּט און אויפֿגעהאַלטן דורך אפֿענע פֿוד פֿאַקטן.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "וואָס זענען פאָלקאָנאָמיע אַטריביוטן?",
-  "folksonomy_explanation_card_body": "אַטריביוטן זענען באַזירט אויף **שליסל-ווערט**.\n\nדי אייגנשאַפטן ווערן באשאפן און איינגעגעבן דורך באַניצער פֿאַר יעדן סאָרט נוצן.",
+  "folksonomy_explanation_card_line1": "אַטריביוטן זענען באזירט אויף **שליסל-ווערט**.",
+  "folksonomy_explanation_card_line2": "די אייגנשאפטן ווערן באשאפן און איינגעגעבן דורך מיטארבעטער פאר יעדן סארט באנוץ.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
