@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/database/local_database.dart';
