@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Серсүзне оныттыгызмы?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Сыйфатлар",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Bäyä",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Нигә бәяләр?",
+  "prices_explanation_card_line1": "** Ачык бәяләр ** - бөтен дөнья буенча продуктларның бәяләрен җыю һәм бүлешү проекты 🌍. Ачык бәяләр ачык азык фактлары белән эшләнә һәм саклана.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Фольксономия атрибутлары нәрсә ул?",
-  "folksonomy_explanation_card_body": "Сыйфатлар ** ачкыч-кыйммәт ** нигезендә.\n\nБу үзенчәлекләр кулланучылар тарафыннан теләсә нинди куллану өчен ясала һәм бирелә.",
+  "folksonomy_explanation_card_line1": "Сыйфатлар ** ачкыч-кыйммәт ** нигезендә.",
+  "folksonomy_explanation_card_line2": "Бу үзлекләр теләсә нинди куллану өчен катнашучылар тарафыннан ясала һәм бирелә.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
