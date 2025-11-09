@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Quên mật khẩu?",
   "view_profile": "Xem hồ sơ",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "Của cải",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Giá trị",
+  "tag_values": "Giá trị",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Tại sao lại có giá?",
+  "prices_explanation_card_line1": "**Giá Mở** là một dự án thu thập và chia sẻ giá sản phẩm trên toàn thế giới 🌍. Giá Mở được phát triển và duy trì bởi Open Food Facts.",
+  "explanation_card_learn_more_button": "Tìm hiểu thêm",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Thuộc tính Folksonomy là gì?",
-  "folksonomy_explanation_card_body": "Thuộc tính dựa trên **khóa-giá trị**.\n\nCác thuộc tính này được người dùng tạo và lưu trữ cho mọi mục đích sử dụng.",
+  "folksonomy_explanation_card_line1": "Thuộc tính dựa trên **khóa-giá trị**.",
+  "folksonomy_explanation_card_line2": "Những thuộc tính này được tạo ra và lưu trữ bởi những người đóng góp cho mọi mục đích sử dụng.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
