@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "パスワードをお忘れですか？",
   "view_profile": "プロフィールを表示",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "プロパティ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "値：",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "なぜ価格なのですか?",
+  "prices_explanation_card_line1": "**Open Prices** は、世界中の商品の価格を収集し共有するプロジェクトです🌍。Open Prices は、Open Food Facts によって開発および管理されています。",
+  "explanation_card_learn_more_button": "詳細",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Folksonomy の属性とは何ですか?",
-  "folksonomy_explanation_card_body": "属性は**キーと値**に基づいています。\n\nこれらのプロパティは、あらゆる用途のためにユーザーによって作成され、ファイル化されます。",
+  "folksonomy_explanation_card_line1": "属性は**キーと値**に基づいています。",
+  "folksonomy_explanation_card_line2": "これらのプロパティは、あらゆる用途のために貢献者によって作成され、ファイルされます。",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
