@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Passwort vergessen?",
   "view_profile": "Profil anzeigen",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -1018,9 +1019,11 @@
   "edit_tag": "Eigenschaft bearbeiten",
   "remove_tag": "Eigenschaft entfernen",
   "tag_key": "Eigenschaft",
+  "tag_keys": "Eigenschaften",
   "tag_key_uneditable": "Eigenschaft (nicht bearbeitbar)",
   "tag_key_input_hint": "Eigenschaft eingeben",
   "tag_value": "Wert",
+  "tag_values": "Werte",
   "tag_value_input_hint": "Wert eingeben",
   "tag_key_item": "Eigenschaft:",
   "tag_value_item": "Wert:",
@@ -4531,12 +4534,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Warum Preise?",
+  "prices_explanation_card_line1": "**Open Prices** ist ein Projekt zur Erfassung und Verbreitung von Produktpreisen weltweit 🌍. Open Prices wird von Open Food Facts entwickelt und betreut.",
+  "explanation_card_learn_more_button": "Erfahren Sie mehr",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Was sind Folksonomie-Attribute?",
-  "folksonomy_explanation_card_body": "Attribute basieren auf **Schlüssel-Wert-Paaren**.\n\nDiese Eigenschaften werden von Benutzern für jegliche Art von Verwendung erstellt und abgelegt.",
+  "folksonomy_explanation_card_line1": "Attribute basieren auf **Schlüssel-Wert-Paaren**.",
+  "folksonomy_explanation_card_line2": "Diese Eigenschaften werden von Mitwirkenden für jegliche Art von Nutzung erstellt und abgelegt.",
   "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
