@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Product Image Button unselecting the current image.
 class ProductImageUnselectButton extends ProductImageButton {
@@ -22,7 +23,7 @@ class ProductImageUnselectButton extends ProductImageButton {
   final ProductType? productType;
 
   @override
-  IconData getIconData() => Icons.do_disturb_on;
+  Widget getIcon() => const icons.Unselect();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>

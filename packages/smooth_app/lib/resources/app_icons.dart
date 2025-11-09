@@ -293,6 +293,16 @@ class Book extends AppIcon {
   }) : super._(_IconsFont.book);
 }
 
+class Brush extends AppIcon {
+  const Brush({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.brush);
+}
+
 class Build extends AppIcon {
   const Build({
     super.color,
@@ -1044,6 +1054,16 @@ class CreativeCommons extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.creative_commons_share_alike);
+}
+
+class Crop extends AppIcon {
+  const Crop({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.crop);
 }
 
 class CrossWalk extends AppIcon {
@@ -2309,6 +2329,16 @@ class Recycling extends AppIcon {
   }) : super._(_IconsFont.recycling);
 }
 
+class Redo extends AppIcon {
+  const Redo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.redo);
+}
+
 class Reload extends AppIcon {
   const Reload({
     super.color,
@@ -2355,6 +2385,24 @@ class Robot extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.robot);
+}
+
+class Rotate extends AppIcon {
+  const Rotate.clockwise({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.rotate_cw);
+
+  const Rotate.antiClockwise({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.rotate_ccw);
 }
 
 class Salt extends AppIcon {
@@ -2497,6 +2545,16 @@ class Select extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.photo_select);
+}
+
+class Send extends AppIcon {
+  const Send({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.send);
 }
 
 class Settings extends AppIcon {
@@ -2890,6 +2948,26 @@ class Trophy extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.trophy);
+}
+
+class Undo extends AppIcon {
+  const Undo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.undo);
+}
+
+class Unselect extends AppIcon {
+  const Unselect({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.unselect);
 }
 
 class Upload extends AppIcon {
