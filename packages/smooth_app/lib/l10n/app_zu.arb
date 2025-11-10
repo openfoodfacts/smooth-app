@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Kungani amanani?",
-  "prices_explanation_card_line1": "**Izintengo Ezivuliwe** iphrojekthi yokuqoqa nokwabelana ngezintengo zemikhiqizo emhlabeni wonke 🌍. Amanani Avuliwe athuthukiswa futhi agcinwe yi-Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** iphrojekthi yokuqoqa nokwabelana ngezintengo zemikhiqizo emhlabeni wonke 🌍. Amanani Avuliwe athuthukiswa futhi agcinwe yi-Open Food Facts.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Izindlela ezilula zokusiza Ukuvula Amaqiniso Okudla",
+  "preferences_page_contribute_project_subtitle": "Izindlela ezilula zokusiza Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

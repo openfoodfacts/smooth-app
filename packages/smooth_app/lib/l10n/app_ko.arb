@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "왜 가격인가?",
-  "prices_explanation_card_line1": "**오픈 프라이스**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 오픈 프라이스는 오픈 푸드 팩츠에서 개발 및 관리합니다.",
+  "prices_explanation_card_line1": "**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 오픈 푸드 팩츠에서 개발 및 관리합니다.",
   "explanation_card_learn_more_button": "더보기",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

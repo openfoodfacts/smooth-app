@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "რატომ ფასები?",
-  "prices_explanation_card_line1": "**ღია ფასები** არის პროექტი, რომელიც აგროვებს და აზიარებს მსოფლიოს მასშტაბით პროდუქტების ფასებს 🌍. ღია ფასები შემუშავებული და მხარდაჭერილია Open Food Facts-ის მიერ.",
+  "prices_explanation_card_line1": "**Open Prices** არის პროექტი, რომელიც აგროვებს და აზიარებს მსოფლიოს მასშტაბით პროდუქტების ფასებს 🌍. Open Prices შემუშავებული და მხარდაჭერილია Open Food Facts-ის მიერ.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ღია საკვების ფაქტების ვებსაიტზე",
+  "preferences_on_off_website_subtitle": "Open Food Factsს ვებსაიტზე",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "არასამთავრობო ორგანიზაცია „ღია საკვების ფაქტები“",
+  "preferences_faq_off_ngo_title": "არასამთავრობო ორგანიზაცია „Open Food Facts“",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ღია ფასების საზოგადოების მიერ დამატებული უახლესი ფასები",
+  "preferences_prices_newest_subtitle": "Open Pricesს საზოგადოების მიერ დამატებული უახლესი ფასები",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ღია საკვების ფაქტების ლაბორატორიები",
+  "preferences_page_open_food_facts_labs_title": "Open Food Factsს ლაბორატორიები",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5543,7 +5543,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "თქვენს ენაზე გადმოიტანეთ ღია საკვების ფაქტები",
+  "preferences_contribute_translate_header": "თქვენს ენაზე გადმოიტანეთ Open Food Facts",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

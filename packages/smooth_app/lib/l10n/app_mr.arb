@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "किंमती का?",
-  "prices_explanation_card_line1": "**ओपन प्राइसेस** हा जगभरातील उत्पादनांच्या किमती गोळा करण्याचा आणि शेअर करण्याचा प्रकल्प आहे 🌍. ओपन प्राइसेस ओपन फूड फॅक्ट्स द्वारे विकसित आणि देखभाल केली जाते.",
+  "prices_explanation_card_line1": "**Open Prices** हा जगभरातील उत्पादनांच्या किमती गोळा करण्याचा आणि शेअर करण्याचा प्रकल्प आहे 🌍. Open Prices Open Food Facts द्वारे विकसित आणि देखभाल केली जाते.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ओपन फूड फॅक्ट्स हा एक अन्न उत्पादनांचा डेटाबेस आहे जो **प्रत्येकाने, प्रत्येकासाठी बनवला आहे**.\nतुम्ही त्याचा वापर चांगल्या अन्न निवडी करण्यासाठी करू शकता आणि तो **ओपन डेटा** असल्याने, कोणीही **कोणत्याही कारणासाठी त्याचा पुन्हा वापर करू शकतो**.",
+  "preferences_legal_header": "Open Food Facts हा एक अन्न उत्पादनांचा डेटाबेस आहे जो **प्रत्येकाने, प्रत्येकासाठी बनवला आहे**.\nतुम्ही त्याचा वापर चांगल्या अन्न निवडी करण्यासाठी करू शकता आणि तो **ओपन डेटा** असल्याने, कोणीही **कोणत्याही कारणासाठी त्याचा पुन्हा वापर करू शकतो**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ओपन फूड फॅक्ट्स वेबसाइटवर",
+  "preferences_on_off_website_subtitle": "Open Food Facts वेबसाइटवर",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "द ओपन फूड फॅक्ट्स एनजीओ",
+  "preferences_faq_off_ngo_title": "द Open Food Facts एनजीओ",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "द ओपन फूड फॅक्ट्स ब्लॉग",
+  "preferences_connect_blog_title": "द Open Food Facts ब्लॉग",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5255,7 +5255,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "ओपन फूड फॅक्ट्स मध्ये मी जोडलेली नवीन उत्पादने",
+  "preferences_contributions_new_products_subtitle": "Open Food Facts मध्ये मी जोडलेली नवीन उत्पादने",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ओपन प्राइसेस समुदायाने जोडलेल्या नवीनतम किमती",
+  "preferences_prices_newest_subtitle": "Open Prices समुदायाने जोडलेल्या नवीनतम किमती",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

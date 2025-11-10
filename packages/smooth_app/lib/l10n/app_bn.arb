@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "দাম কেন?",
-  "prices_explanation_card_line1": "**ওপেন প্রাইস** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। ওপেন প্রাইসস ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
+  "prices_explanation_card_line1": "**Open Prices** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। Open Pricesস Open Food Facts দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
   "explanation_card_learn_more_button": "আরও জানুন",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ওপেন ফুড ফ্যাক্টস হল একটি খাদ্য পণ্যের ডাটাবেস যা **সবার জন্য, সবার দ্বারা তৈরি**।\nআপনি এটি ব্যবহার করে আরও ভালো খাবারের পছন্দ করতে পারেন, এবং যেহেতু এটি **ওপেন ডেটা**, তাই যে কেউ **যেকোনো উদ্দেশ্যে এটি পুনরায় ব্যবহার করতে** পারে।",
+  "preferences_legal_header": "Open Food Facts হল একটি খাদ্য পণ্যের ডাটাবেস যা **সবার জন্য, সবার দ্বারা তৈরি**।\nআপনি এটি ব্যবহার করে আরও ভালো খাবারের পছন্দ করতে পারেন, এবং যেহেতু এটি **ওপেন ডেটা**, তাই যে কেউ **যেকোনো উদ্দেশ্যে এটি পুনরায় ব্যবহার করতে** পারে।",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ওপেন ফুড ফ্যাক্টস ওয়েবসাইটে",
+  "preferences_on_off_website_subtitle": "Open Food Facts ওয়েবসাইটে",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "দ্য ওপেন ফুড ফ্যাক্টস এনজিও",
+  "preferences_faq_off_ngo_title": "দ্য Open Food Facts এনজিও",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "ওপেন ফুড ফ্যাক্টস ব্লগ",
+  "preferences_connect_blog_title": "Open Food Facts ব্লগ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5255,7 +5255,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "ওপেন ফুড ফ্যাক্টস-এ আমার যোগ করা নতুন পণ্য",
+  "preferences_contributions_new_products_subtitle": "Open Food Facts-এ আমার যোগ করা নতুন পণ্য",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ওপেন প্রাইসস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম",
+  "preferences_prices_newest_subtitle": "Open Pricesস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "খাবারের তথ্য খুলতে সাহায্য করার সহজ উপায়",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts সাহায্য করার সহজ উপায়",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "খাদ্য তথ্য ল্যাব খুলুন",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ল্যাব খুলুন",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

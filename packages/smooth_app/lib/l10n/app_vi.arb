@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Tại sao lại có giá?",
-  "prices_explanation_card_line1": "**Giá Mở** là một dự án thu thập và chia sẻ giá sản phẩm trên toàn thế giới 🌍. Giá Mở được phát triển và duy trì bởi Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** là một dự án thu thập và chia sẻ giá sản phẩm trên toàn thế giới 🌍. Open Prices được phát triển và duy trì bởi Open Food Facts.",
   "explanation_card_learn_more_button": "Tìm hiểu thêm",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Những cách đơn giản để giúp Mở Thực phẩm",
+  "preferences_page_contribute_project_subtitle": "Những cách đơn giản để giúp Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

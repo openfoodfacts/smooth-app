@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "মুক্ত খাদ্য তথ্য ৱেবছাইটত",
+  "preferences_on_off_website_subtitle": "মুক্ত Open Food Facts ৱেবছাইটত",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "মুকলি খাদ্য তথ্য এন জি অ’",
+  "preferences_faq_off_ngo_title": "মুকলি Open Food Facts এন জি অ’",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "মুক্ত খাদ্য তথ্য ব্লগ",
+  "preferences_connect_blog_title": "মুক্ত Open Food Facts ব্লগ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "মুক্ত মূল্য সম্প্ৰদায়ে যোগ কৰা শেহতীয়া মূল্যসমূহ",
+  "preferences_prices_newest_subtitle": "Open Prices সম্প্ৰদায়ে যোগ কৰা শেহতীয়া মূল্যসমূহ",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "খোলা খাদ্য তথ্য লেব",
+  "preferences_page_open_food_facts_labs_title": "খোলা Open Food Facts লেব",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Яагаад үнэ?",
-  "prices_explanation_card_line1": "**Нээлттэй үнэ** нь дэлхийн 🌍 бүтээгдэхүүнүүдийн үнийг цуглуулах, хуваалцах төсөл юм. Нээлттэй үнийг Open Food Facts боловсруулж, хадгалдаг.",
+  "prices_explanation_card_line1": "**Open Prices** нь дэлхийн 🌍 бүтээгдэхүүнүүдийн үнийг цуглуулах, хуваалцах төсөл юм. Нээлттэй үнийг Open Food Facts боловсруулж, хадгалдаг.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

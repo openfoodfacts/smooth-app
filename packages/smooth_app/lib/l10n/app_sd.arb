@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "قيمتون ڇو؟",
-  "prices_explanation_card_line1": "**اوپن پرائسز** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. اوپن پرائسز اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.",
+  "prices_explanation_card_line1": "**Open Prices** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. Open Prices اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "اوپن پرائسز ڪميونٽي پاران شامل ڪيل تازيون قيمتون",
+  "preferences_prices_newest_subtitle": "Open Prices ڪميونٽي پاران شامل ڪيل تازيون قيمتون",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

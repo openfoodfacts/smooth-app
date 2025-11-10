@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ብማሕበረሰብ ክፉት ዋጋታት ዝተወሰኹ ናይ መወዳእታ ዋጋታት",
+  "preferences_prices_newest_subtitle": "ብማሕበረሰብ Open Prices ዝተወሰኹ ናይ መወዳእታ ዋጋታት",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

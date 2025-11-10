@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ధరలు ఎందుకు?",
-  "prices_explanation_card_line1": "**ఓపెన్ ప్రైసెస్** అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఉత్పత్తుల ధరలను సేకరించి పంచుకునే ప్రాజెక్ట్ 🌍. ఓపెన్ ప్రైసెస్‌ను ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అభివృద్ధి చేసి నిర్వహిస్తుంది.",
+  "prices_explanation_card_line1": "**Open Prices** అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఉత్పత్తుల ధరలను సేకరించి పంచుకునే ప్రాజెక్ట్ 🌍. Open Prices‌ను ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అభివృద్ధి చేసి నిర్వహిస్తుంది.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ఓపెన్ ప్రైసెస్ కమ్యూనిటీ జోడించిన తాజా ధరలు",
+  "preferences_prices_newest_subtitle": "Open Prices కమ్యూనిటీ జోడించిన తాజా ధరలు",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "సహాయపడే సులభమైన మార్గాలు ఆహార వాస్తవాలను తెరవండి",
+  "preferences_page_contribute_project_subtitle": "సహాయపడే సులభమైన మార్గాలు Open Food Factsవండి",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

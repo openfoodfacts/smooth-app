@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "דרכים פשוטות לעזור לפתוח עובדות מזון",
+  "preferences_page_contribute_project_subtitle": "דרכים פשוטות לעזור Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
