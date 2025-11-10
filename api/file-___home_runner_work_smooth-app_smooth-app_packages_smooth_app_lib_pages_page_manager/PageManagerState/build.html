@@ -79,12 +79,6 @@ Widget build(BuildContext context) {
     _currentPage = BottomNavigationTab.Scan;
   }
 
-  final List&lt;Widget&gt; tabs = &lt;Widget&gt;[
-    _buildOffstageNavigator(BottomNavigationTab.Profile),
-    _buildOffstageNavigator(BottomNavigationTab.Scan),
-    _buildOffstageNavigator(BottomNavigationTab.List),
-  ];
-
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final bool isProd =
       userPreferences.getFlag(
@@ -136,19 +130,28 @@ Widget build(BuildContext context) {
   );
   return WillPopScope2(
     onWillPop: () async {
-      final bool isFirstRouteInCurrentTab =
-          !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
+      final bool isFirstRouteInCurrentTab = !_navigatorKeys[_currentPage]!
+          .currentState!
+          .canPop();
+
       if (isFirstRouteInCurrentTab) {
         if (_currentPage != BottomNavigationTab.Scan) {
           _selectTab(BottomNavigationTab.Scan, 1);
           return (false, null);
+        } else {
+          &#47;&#47;&#47; Exit the app
+          return (true, null);
         }
       }
+
       &#47;&#47; let system handle back button if we&#39;re on the first route
-      return (isFirstRouteInCurrentTab, null);
+      return (false, null);
     },
     child: Scaffold(
-      body: Stack(children: tabs),
+      body: Provider&lt;BottomNavigationTab&gt;.value(
+        value: _currentPage,
+        child: IndexedStack(index: _currentPage.index, children: tabs),
+      ),
       bottomNavigationBar: isProd
           ? bar
           : Banner(
@@ -202,6 +205,8 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState-class.html#static-properties">Static properties</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState/tabs.html">tabs</a></li>
 
 
 </ol>
