@@ -1372,6 +1372,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "ക്ഷമിക്കണം, ഇത് ഞങ്ങളുടെ ഉദാഹരണ ഉൽപ്പന്നമാണ്, നിങ്ങൾക്ക് ഇത് എഡിറ്റ് ചെയ്യാൻ കഴിയില്ല :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Your ranking",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
