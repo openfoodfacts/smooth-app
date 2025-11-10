@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "দাম কেন?",
-  "prices_explanation_card_line1": "**ওপেন প্রাইস** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। ওপেন প্রাইসস ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
+  "prices_explanation_card_line1": "**Open Prices** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। Open Pricesস ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
   "explanation_card_learn_more_button": "আরও জানুন",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ওপেন প্রাইসস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম",
+  "preferences_prices_newest_subtitle": "Open Pricesস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "খাবারের তথ্য খুলতে সাহায্য করার সহজ উপায়",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts সাহায্য করার সহজ উপায়",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

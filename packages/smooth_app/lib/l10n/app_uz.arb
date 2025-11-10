@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Nima uchun narxlar?",
-  "prices_explanation_card_line1": "**Ochiq narxlar** - bu butun dunyo bo'ylab mahsulotlar narxlarini yig'ish va bo'lishish loyihasi 🌍. Ochiq narxlar Open Food Facts tomonidan ishlab chiqilgan va qo'llab-quvvatlanadi.",
+  "prices_explanation_card_line1": "**Open Prices** - bu butun dunyo bo'ylab mahsulotlar narxlarini yig'ish va bo'lishish loyihasi 🌍. Open Prices Open Food Facts tomonidan ishlab chiqilgan va qo'llab-quvvatlanadi.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Ochiq narxlar hamjamiyati tomonidan qo'shilgan so'nggi narxlar",
+  "preferences_prices_newest_subtitle": "Open Prices hamjamiyati tomonidan qo'shilgan so'nggi narxlar",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Ochiq oziq-ovqat faktlariga yordam berishning oddiy usullari",
+  "preferences_page_contribute_project_subtitle": "Open Food Factsga yordam berishning oddiy usullari",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

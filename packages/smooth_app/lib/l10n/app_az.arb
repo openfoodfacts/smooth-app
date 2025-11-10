@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Açıq Qiymətlər icması tərəfindən əlavə edilən son qiymətlər",
+  "preferences_prices_newest_subtitle": "Open Prices icması tərəfindən əlavə edilən son qiymətlər",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Açıq Qida Faktlarına kömək etməyin sadə yolları",
+  "preferences_page_contribute_project_subtitle": "Open Food Factsna kömək etməyin sadə yolları",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

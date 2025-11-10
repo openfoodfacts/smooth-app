@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Pam prisiau?",
-  "prices_explanation_card_line1": "Mae **Prisiau Agored** yn brosiect i gasglu a rhannu prisiau cynhyrchion ledled y byd 🌍. Mae Prisiau Agored yn cael ei ddatblygu a'i gynnal gan Ffeithiau Bwyd Agored.",
+  "prices_explanation_card_line1": "Mae **Open Prices** yn brosiect i gasglu a rhannu prisiau cynhyrchion ledled y byd 🌍. Mae Open Prices yn cael ei ddatblygu a'i gynnal gan Ffeithiau Bwyd Agored.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Prisiau diweddaraf wedi'u hychwanegu gan y gymuned Prisiau Agored",
+  "preferences_prices_newest_subtitle": "Prisiau diweddaraf wedi'u hychwanegu gan y gymuned Open Prices",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Ffyrdd syml o helpu Ffeithiau Bwyd Agored",
+  "preferences_page_contribute_project_subtitle": "Ffyrdd syml o helpu Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

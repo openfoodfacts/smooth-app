@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "نېمە ئۈچۈن باھا؟",
-  "prices_explanation_card_line1": "** ئوچۇق باھا ** دۇنيانىڭ ھەرقايسى جايلىرىدىكى مەھسۇلاتلارنىڭ باھاسىنى يىغىش ۋە ئورتاقلىشىش تۈرى 🌍. ئوچۇق باھا ئوچۇق يېمەكلىك پاكىتلىرى تەرىپىدىن تەرەققىي قىلدۇرۇلىدۇ.",
+  "prices_explanation_card_line1": "** Open Prices ** دۇنيانىڭ ھەرقايسى جايلىرىدىكى مەھسۇلاتلارنىڭ باھاسىنى يىغىش ۋە ئورتاقلىشىش تۈرى 🌍. Open Prices ئوچۇق يېمەكلىك پاكىتلىرى تەرىپىدىن تەرەققىي قىلدۇرۇلىدۇ.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ئوچۇق باھا جەمئىيىتى قوشقان ئەڭ يېڭى باھا",
+  "preferences_prices_newest_subtitle": "Open Prices جەمئىيىتى قوشقان ئەڭ يېڭى باھا",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

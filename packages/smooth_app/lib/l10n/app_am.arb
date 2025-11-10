@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ለምን ዋጋዎች?",
-  "prices_explanation_card_line1": "** ክፍት ዋጋዎች ** በዓለም ዙሪያ ያሉ ምርቶችን የመሰብሰብ እና የመጋራት ፕሮጀክት ነው 🌍። ክፍት ዋጋዎች የሚዘጋጀው በክፍት የምግብ እውነታዎች ነው።",
+  "prices_explanation_card_line1": "** Open Prices ** በዓለም ዙሪያ ያሉ ምርቶችን የመሰብሰብ እና የመጋራት ፕሮጀክት ነው 🌍። Open Prices የሚዘጋጀው በክፍት የምግብ እውነታዎች ነው።",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "በክፍት ዋጋዎች ማህበረሰብ የታከሉ የቅርብ ጊዜ ዋጋዎች",
+  "preferences_prices_newest_subtitle": "በOpen Prices ማህበረሰብ የታከሉ የቅርብ ጊዜ ዋጋዎች",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "የምግብ እውነታዎችን ለመክፈት የሚረዱ ቀላል መንገዶች",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts የሚረዱ ቀላል መንገዶች",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
