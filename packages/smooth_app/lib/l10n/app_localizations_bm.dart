@@ -226,7 +226,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'I ɲinɛna tɔgɔlasɛbɛn kɔ wa?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Bolo fɛnw';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Basi, o ye an ka misali fɛn ye, i tɛ se k\'a ladilan :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5294,11 +5294,11 @@ class AppLocalizationsBm extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Mun na sɔngɔw bɛ sɔrɔ?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ye poroze ye ka fɛnw sɔngɔ lajɛ ani k’u tila ɲɔgɔn na diɲɛ fan bɛɛ 🌍. Open Prices bɛ labɛn ani ka mara Open Food Facts fɛ.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5307,16 +5307,15 @@ class AppLocalizationsBm extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Folksonomy jogo ye mun ye?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Siginidenw bɛ **key-value** sinsin.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'O nafolo ninnu bɛ Dabɔ ani ka Dòn bolomafaraw fɛ baara suguya bɛɛ kama.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

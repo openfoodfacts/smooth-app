@@ -228,7 +228,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get forgot_password => 'Parolanızı mı unuttunuz';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Parolanızı mı unuttunuz?';
 
   @override
   String get view_profile => 'Profili görüntüle';
@@ -851,7 +851,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get categories_added => 'Kategoriler eklendi';
 
   @override
-  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
+  String get new_product_title_nutriscore => 'Nutri-Score\'u hesaplayın';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1304,7 +1304,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tag_key => 'Özellik';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Özellikler';
 
   @override
   String get tag_key_uneditable => 'Özellik (düzenlenemez)';
@@ -1316,7 +1316,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tag_value => 'Değer';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Değerler';
 
   @override
   String get tag_value_input_hint => 'Bir değer girin';
@@ -1671,7 +1671,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Üzgünüz, bu bizim örnek ürünümüz, düzenleyemezsiniz :)';
 
   @override
   String get product_list_your_ranking => 'Sıralamanız';
@@ -5313,29 +5313,29 @@ class AppLocalizationsTr extends AppLocalizations {
   String get product_page_tab_prices => 'Fiyatlar';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Neden fiyatlar?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices**, dünya genelindeki ürünlerin fiyatlarını toplayıp paylaşmayı amaçlayan bir projedir 🌍. Open Prices, Open Food Facts tarafından geliştirilip yönetilmektedir.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Daha fazla bilgi edin';
 
   @override
   String get product_page_tab_folksonomy => 'Halkbilimi';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Folksonominin nitelikleri nelerdir?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Nitelikler **anahtar-değer** tabanlıdır.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Bu özellikler, katkıda bulunanlar tarafından her türlü kullanım için oluşturulup dosyalanır.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5980,7 +5980,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices topluluğu tarafından eklenen en son fiyatlar';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6029,7 +6029,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Factsne yardımcı olmanın basit yolları';
 
   @override
   String get preferences_page_faq_subtitle =>

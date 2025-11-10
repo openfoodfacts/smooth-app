@@ -231,7 +231,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get forgot_password => 'Esqueci-me da palavra-passe';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Esqueceu-se da sua senha?';
 
   @override
   String get view_profile => 'Ver perfil';
@@ -1320,7 +1320,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get tag_key => 'Propriedade';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Propriedades';
 
   @override
   String get tag_key_uneditable => 'Propriedade (não editável)';
@@ -1332,7 +1332,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get tag_value => 'Valor';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Valores';
 
   @override
   String get tag_value_input_hint => 'Introduza um valor';
@@ -1687,7 +1687,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Desculpe, este é um produto de exemplo, não pode editá-lo :)';
 
   @override
   String get product_list_your_ranking => 'A sua classificação';
@@ -5378,29 +5378,29 @@ class AppLocalizationsPt extends AppLocalizations {
   String get product_page_tab_prices => 'Preços';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Porquê os preços?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** é um projeto para recolher e partilhar preços de produtos em todo o mundo 🌍. O Open Prices é desenvolvido e mantido pela Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Mais informações';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'O que são atributos da Folksonomia?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Os atributos são baseados em **chave-valor**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Estas propriedades são criadas e arquivadas pelos colaboradores para qualquer tipo de utilização.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6483,6 +6483,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get forgot_password => 'Esqueci-me da palavra-passe';
+
+  @override
+  String get forgot_password_question => 'Esqueceu sua senha?';
 
   @override
   String get view_profile => 'Ver perfil';
@@ -7570,6 +7573,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get tag_key => 'Propriedade';
 
   @override
+  String get tag_keys => 'Propriedades';
+
+  @override
   String get tag_key_uneditable => 'Propriedade (não editável)';
 
   @override
@@ -7577,6 +7583,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get tag_value => 'Valor';
+
+  @override
+  String get tag_values => 'Valores';
 
   @override
   String get tag_value_input_hint => 'Introduza um valor';
@@ -7928,6 +7937,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get onboarding_welcome_loading_dialog_title =>
       'A carregar o seu primeiro exemplo de produto';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'Desculpe, este é um produto de exemplo, você não pode editá-lo :)';
 
   @override
   String get product_list_your_ranking => 'A sua classificação';
@@ -9249,7 +9262,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Saiba mais sobre preços abertos';
 
   @override
   String get dev_preferences_import_history_result_success => 'Concluído';
@@ -10888,7 +10901,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Alguns países utilizam os grupos NOVA em suas diretrizes ou metas alimentares, por exemplo:\nAs diretrizes alimentares do **🇧🇷 Brasil** **recomendam limitar o consumo** de alimentos processados e evitar os ultraprocessados\n**As metas da política nutricional de saúde pública da **🇫🇷 França** para 2018-2022 visam **reduzir o consumo de alimentos ultraprocessados do grupo 4 em 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://pt.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-pt.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Bem-vindo ao Open Food Facts!';
@@ -11162,53 +11175,54 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Atualmente há poucas empresas que possuem grandes bancos de dados de preços de produtos no nível de código de barras. Esses preços não estão disponíveis gratuitamente, mas são vendidos a um preço alto para atores privados, pesquisadores e outras organizações que podem pagar por eles.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Como funciona o Open Prices?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Estamos coletando dados de um conjunto de dados de preços de código aberto**. Os preços podem ser adicionados pelos usuários através deste aplicativo da Web ou pelo aplicativo móvel Open Food Facts. Varejistas ou aplicativos de terceiros também podem contribuir utilizando nossa API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Colete fotos das etiquetas de preço nos corredores';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Colete fotos de receitas';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Por que o Open Food Facts está fazendo isso?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Informações sobre preços são de suma importância para compreender os sistemas alimentares. É um fator-chave na compreensão do custo dos alimentos e para promover dietas mais saudáveis. Abrir dados de preços é uma maneira de tornar mais fácil para pesquisadores, jornalistas e cidadãos **terem uma melhor compreensão de como os preços dos alimentos variam geograficamente e ao longo do tempo**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Acompanhe a evolução dos preços ao longo do tempo';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Veja a **evolução dos preços**: reduflação, cheapflação, podemos acompanhá-las juntos!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Compare os preços perto de você';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'À medida que obtivermos mais preços, você poderá identificar **as lojas mais baratas perto de você**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Você considerou coletar preços dos sites dos varejistas?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Por razões legais e técnicas, **não consideramos a coleta de preços de sites de varejistas como uma forma válida de contribuir com o Open Prices**. Queremos ter certeza de que os preços que coletamos são precisos e atualizados, e receber preços coletados de contribuidores não nos permite fazer isso.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'A coleta de preços é uma opção considerada em uma versão futura do Open Prices, mas ela seria feita pelo próprio Open Prices para podermos ter uma prova do preço com base na página HTML.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -11216,7 +11230,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Você pode contribuir com os preços utilizando nossa API.\nSe você quiser contribuir com preços em escala, entre em contato conosco em prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -11224,88 +11238,89 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Bem-vindo ao Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'O que é o Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'O Open Products Facts é um enorme banco de dados aberto para **qualquer produto com código de barras, exceto alimentos, cosméticos e ração para animais de estimação**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'De **eletrônicos** a **brinquedos**, e de **roupas** a **produtos de limpeza**, se tiver um código de barras, pode ser adicionado. Este projeto visa criar uma \"Internet das Coisas\" para objetos do cotidiano, tornando as informações sobre eles universalmente acessíveis.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Recursos do Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'O Open Products Facts tem como objetivo proporcionar aos consumidores a possibilidade de **prolongar a vida útil dos objetos**, oferecendo soluções circulares para a manutenção, **reparo**, **reciclagem** dos seus objetos ou para que eles sejam entregues a um novo proprietário.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Pegadas de carbono para alguns produtos';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**O Impacto de CO2**, da ADEME (Autoridade Francesa do Meio Ambiente), fornece o **impacto de carbono** de diversas categorias. Certifique-se de categorizar os produtos corretamente.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Índice de reparabilidade para muitos produtos';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Sempre que um índice de reparabilidade francês estiver disponível, nós o exibiremos. Além disso, **você pode começar a coletar as variáveis usando o Mecanismo de Folksonomia**, para que possamos recalculá-lo no futuro, mesmo em países onde ele não estiver disponível.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Encontre maneiras de doar/revender seu produto';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Nós fornecemos links para **serviços de terceiros que respeitam a economia circular**, que ajudam você a obter o tipo de produto que procura, como um produto de segunda mão, para ser mais gentil com os recursos do planeta.\nObserve que não somos pagos para fazer isso e que o sistema funciona apenas como um exemplo para dois sites na França. Você pode ajudar a expandir este sistema documentando mais sites na wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Quais informações são úteis?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Para uma ampla variedade de itens, **os dados que coletamos são flexíveis**. Para isso, **criamos o Mecanismo de Folksonomia**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'O Mecanismo de Folksonomia';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'O Mecanismo de Folksonomia é uma ferramenta que ajuda a complementar produtos com propriedades relevantes. Isso contribui para melhorar a busca e a visibilidade, além de gerar e exibir informações interessantes no futuro.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Você pode adicionar quaisquer chaves e valores, como: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Você receberá sugestões automáticas de possíveis propriedades e poderá adicionar e documentar novas propriedades relacionadas aos seus tipos de produtos favoritos.';
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-en.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Abrir preferências alimentares';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Em breve';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Toque para saber mais';
 
   @override
   String get preview_badge => 'Pré-visualizar';
@@ -11620,14 +11635,36 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get product_page_tab_prices => 'Preços';
 
   @override
+  String get prices_explanation_card_title => 'Por que os preços?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** é um projeto para coletar e compartilhar preços de produtos ao redor do mundo 🌍. O Open Prices é desenvolvido e mantido pelo Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Saiba mais';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_explanation_card_title =>
+      'O que são atributos da Folksonomia?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Os atributos são baseados em **chave-valor**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Essas propriedades são criadas e arquivadas por colaboradores para qualquer tipo de uso.';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Abrir link externo';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Links externos podem não ser seguros. Você realmente quer acessá-lo?';
 
   @override
   String get prices_products_empty_title => 'Nenhum preço disponível';
@@ -12064,18 +12101,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Descubra fatos sobre alimentos abertos';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Descubra o Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Descubra Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title => 'Descubra o Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Descubra o Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Perguntas Frequentes';
@@ -12443,26 +12481,26 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Detalhes da localização';
 
   @override
   String get location_map_details_name => 'Nome';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Rua';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Cidade';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Código postal';
 
   @override
   String get location_map_details_country => 'País';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Coordenadas';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

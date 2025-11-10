@@ -224,7 +224,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get forgot_password => 'パスワードを忘れた場合';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'パスワードをお忘れですか？';
 
   @override
   String get view_profile => 'プロフィールを表示';
@@ -474,7 +474,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'スキルをOpen Food Factsに貢献しましょう。スキルプールに参加しましょう！';
 
   @override
   String get contribute_share_header =>
@@ -827,7 +827,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get categories_added => 'カテゴリーが追加されました。';
 
   @override
-  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
+  String get new_product_title_nutriscore => 'ニュートリスコアを計算する';
 
   @override
   String get new_product_subtitle_nutriscore => '食品カテゴリと栄養価を満たして入手する';
@@ -1261,7 +1261,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'プロパティ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1621,8 +1621,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboarding_welcome_loading_dialog_title => '最初の見本となる製品を読み込んでいます';
 
   @override
-  String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+  String get onboarding_welcome_warning => '申し訳ありませんが、これはサンプル製品なので編集できません :)';
 
   @override
   String get product_list_your_ranking => 'あなたのランキング';
@@ -3946,15 +3945,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
-  String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
-  String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+  String get nutriscore_not_applicable_new_formula => 'ニュートリスコアは適用されません（新しい計算）';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -5179,29 +5176,27 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'なぜ価格なのですか?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** は、世界中の商品の価格を収集し共有するプロジェクトです🌍。Open Prices は、Open Food Facts によって開発および管理されています。';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => '詳細';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Folksonomy の属性とは何ですか?';
 
   @override
-  String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+  String get folksonomy_explanation_card_line1 => '属性は**キーと値**に基づいています。';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'これらのプロパティは、あらゆる用途のために貢献者によって作成され、ファイルされます。';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5797,7 +5792,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Pricesコミュニティによって追加された最新の価格';
 
   @override
   String get preferences_prices_top_contributors_title => '最も多くの価格を提示した貢献者';

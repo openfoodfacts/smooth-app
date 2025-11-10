@@ -226,7 +226,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Серсүзне оныттыгызмы?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Сыйфатлар';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Гафу итегез, бу безнең үрнәк продукт, сез аны үзгәртә алмыйсыз :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -2995,7 +2995,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'prices.openfoodfacts.org (PROD) һәм сынау env арасында күчү';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5285,11 +5285,11 @@ class AppLocalizationsTt extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Нигә бәяләр?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '** Open Prices ** - бөтен дөнья буенча продуктларның бәяләрен җыю һәм бүлешү проекты 🌍. Open Prices ачык азык фактлары белән эшләнә һәм саклана.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5299,15 +5299,15 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Фольксономия атрибутлары нәрсә ул?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Сыйфатлар ** ачкыч-кыйммәт ** нигезендә.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Бу үзлекләр теләсә нинди куллану өчен катнашучылар тарафыннан ясала һәм бирелә.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5947,7 +5947,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices җәмгыяте өстәгән соңгы бәяләр';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5995,7 +5995,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Ачык азык фактларына булышуның гади ысуллары';
 
   @override
   String get preferences_page_faq_subtitle =>

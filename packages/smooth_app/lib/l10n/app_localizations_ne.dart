@@ -226,7 +226,7 @@ class AppLocalizationsNe extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'पासवर्ड भुल्नु भयो?';
 
   @override
   String get view_profile => 'View profile';
@@ -1289,7 +1289,7 @@ class AppLocalizationsNe extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'गुणहरू';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1656,7 +1656,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'माफ गर्नुहोस्, यो हाम्रो उदाहरण उत्पादन हो, तपाईं यसलाई सम्पादन गर्न सक्नुहुन्न :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5286,11 +5286,11 @@ class AppLocalizationsNe extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'किन मूल्यहरू?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**ओपन प्राइस** विश्वभरका उत्पादनहरूको मूल्य सङ्कलन र साझेदारी गर्ने परियोजना हो 🌍। ओपन प्राइस ओपन फूड फ्याक्ट्सद्वारा विकसित र मर्मत गरिएको हो।';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5300,15 +5300,15 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'फोक्सोनोमीका विशेषताहरू के के हुन्?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'विशेषताहरू **कुञ्जी-मान** मा आधारित हुन्छन्।';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'यी गुणहरू कुनै पनि प्रकारको प्रयोगको लागि योगदानकर्ताहरूद्वारा सिर्जना र फाइल गरिन्छन्।';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5789,7 +5789,7 @@ class AppLocalizationsNe extends AppLocalizations {
       'हाम्रो भर्चुअल कार्यक्रमहरू मध्ये एकमा भाग लिएर संलग्न हुनुहोस्';
 
   @override
-  String get preferences_connect_blog_title => 'खुला खाद्य तथ्य ब्लग';
+  String get preferences_connect_blog_title => 'Open Food Facts ब्लग';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5952,7 +5952,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'खुला मूल्य समुदायद्वारा थपिएका नवीनतम मूल्यहरू';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6001,7 +6001,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'खानाको तथ्यहरू खोल्न मद्दत गर्ने सरल तरिकाहरू';
 
   @override
   String get preferences_page_faq_subtitle =>

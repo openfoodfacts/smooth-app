@@ -230,7 +230,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get forgot_password => 'Lupa kata sandi';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Lupa kata sandi?';
 
   @override
   String get view_profile => 'Lihat profil';
@@ -1308,7 +1308,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get tag_key => 'Properti';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Properti';
 
   @override
   String get tag_key_uneditable => 'Properti (tidak dapat disunting)';
@@ -1320,7 +1320,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get tag_value => 'Nilai';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Nilai';
 
   @override
   String get tag_value_input_hint => 'Masukkan nilai';
@@ -1677,7 +1677,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Maaf, ini contoh produk kami, Anda tidak dapat mengeditnya :)';
 
   @override
   String get product_list_your_ranking => 'Peringkat Anda';
@@ -5326,29 +5326,29 @@ class AppLocalizationsId extends AppLocalizations {
   String get product_page_tab_prices => 'Harga';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Mengapa harga?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** adalah proyek untuk mengumpulkan dan berbagi harga produk di seluruh dunia 🌍. Open Prices dikembangkan dan dikelola oleh Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Pelajari lebih lanjut';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Apa saja atribut Folksonomi?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atribut didasarkan pada **kunci-nilai**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5788,8 +5788,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Temukan proyeknya';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Temukan Fakta Makanan Terbuka';
+  String get preferences_faq_discover_off_title => 'Temukan Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5832,7 +5831,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Berpartisipasilah dengan menghadiri salah satu acara virtual kami';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Fakta Makanan Terbuka';
+  String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6152,7 +6151,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorium Fakta Makanan Terbuka';
+      'Laboratorium Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Akun';

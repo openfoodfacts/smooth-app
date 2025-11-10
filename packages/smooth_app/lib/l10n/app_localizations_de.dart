@@ -232,7 +232,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get forgot_password => 'Passwort vergessen';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Passwort vergessen?';
 
   @override
   String get view_profile => 'Profil anzeigen';
@@ -498,7 +498,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!';
 
   @override
   String get contribute_share_header =>
@@ -1322,7 +1322,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get tag_key => 'Eigenschaft';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Eigenschaften';
 
   @override
   String get tag_key_uneditable => 'Eigenschaft (nicht bearbeitbar)';
@@ -1334,7 +1334,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get tag_value => 'Wert';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Werte';
 
   @override
   String get tag_value_input_hint => 'Wert eingeben';
@@ -1689,7 +1689,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Tut mir leid, das ist nur ein Beispielprodukt, Sie können es nicht bearbeiten.';
 
   @override
   String get product_list_your_ranking => 'Ihr Ranking';
@@ -5380,29 +5380,29 @@ class AppLocalizationsDe extends AppLocalizations {
   String get product_page_tab_prices => 'Preise';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Warum Preise?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ist ein Projekt zur Erfassung und Verbreitung von Produktpreisen weltweit 🌍. Open Prices wird von Open Food Facts entwickelt und betreut.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Erfahren Sie mehr';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Was sind Folksonomie-Attribute?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attribute basieren auf **Schlüssel-Wert-Paaren**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Diese Eigenschaften werden von Mitwirkenden für jegliche Art von Nutzung erstellt und abgelegt.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

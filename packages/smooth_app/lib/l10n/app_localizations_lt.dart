@@ -230,7 +230,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get forgot_password => 'Pamiršote slaptažodį';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Pamiršote slaptažodį?';
 
   @override
   String get view_profile => 'Peržiūrėti vartotojo profilį';
@@ -1318,7 +1318,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get tag_key => 'Savybė';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Ypatybės';
 
   @override
   String get tag_key_uneditable => 'Savybė (neredaguotina)';
@@ -1685,7 +1685,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Atsiprašome, tai mūsų pavyzdinis produktas, jo redaguoti negalima :)';
 
   @override
   String get product_list_your_ranking => 'Jūsų reitingas';
@@ -5353,29 +5353,29 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_page_tab_prices => 'Kainos';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Kodėl kainos?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**„Open Prices“** – tai projektas, skirtas rinkti ir dalytis produktų kainomis visame pasaulyje 🌍. „Open Prices“ kuria ir prižiūri „Open Food Facts“.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Sužinokite daugiau';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Kokie yra folksonomijos atributai?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atributai yra pagrįsti **rakto-reikšmės** principais.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Šias savybes kuria ir pateikia bendraautoriai bet kokiam naudojimui.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

@@ -7912,7 +7912,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world-en.openfoodfacts.org/nova'**
+  /// **'https://world.openfoodfacts.org/nova'**
   String get guide_nova_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)

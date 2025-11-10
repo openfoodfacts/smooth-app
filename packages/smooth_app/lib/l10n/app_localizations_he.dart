@@ -223,7 +223,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get forgot_password => 'שכחתי סיסמה';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'שכחת סיסמה?';
 
   @override
   String get view_profile => 'הצגת פרופיל';
@@ -1268,7 +1268,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get tag_key => 'מאפיין';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'נכסים';
 
   @override
   String get tag_key_uneditable => 'מאפיין (נעול)';
@@ -1280,7 +1280,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get tag_value => 'ערך';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'ערכים';
 
   @override
   String get tag_value_input_hint => 'נא למלא ערך';
@@ -1646,7 +1646,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'סליחה, זה מוצר לדוגמה שלנו, אינך יכול לערוך אותו :)';
 
   @override
   String get product_list_your_ranking => 'הדירוג שלך';
@@ -5259,29 +5259,28 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_page_tab_prices => 'מחירים';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'למה מחירים?';
 
   @override
   String get prices_explanation_card_line1 =>
       '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'מידע נוסף';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'מהם מאפייני פולקסונומיה?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'מאפיינים מבוססים על **ערך מפתח**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'מאפיינים אלה נוצרים ומוגשים על ידי תורמים לכל סוג של שימוש.';
 
   @override
   String get folksonomy_action_external_link_title => 'פתיחת קישור חיצוני';
@@ -5949,7 +5948,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'דרכים פשוטות לעזור Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

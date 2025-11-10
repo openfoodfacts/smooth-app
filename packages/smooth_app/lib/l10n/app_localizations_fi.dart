@@ -231,7 +231,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get forgot_password => 'Unohtunut salasana';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Unohditko salasanasi?';
 
   @override
   String get view_profile => 'Näytä profiili';
@@ -1292,7 +1292,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tag_key => 'Ominaisuus';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Ominaisuudet';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1304,7 +1304,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tag_value => 'Arvo';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Arvot';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1658,7 +1658,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Anteeksi, tämä on esimerkkituotteemme, etkä voi muokata sitä :)';
 
   @override
   String get product_list_your_ranking => 'Sijoituksesi';
@@ -5286,29 +5286,29 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_page_tab_prices => 'Hinnat';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Miksi hinnat?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** on projekti, jonka tarkoituksena on kerätä ja jakaa tuotteiden hintoja ympäri maailmaa 🌍. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Opi lisää';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Mitä ovat folksonomiaominaisuudet?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attribuutit ovat **avain-arvo**-pohjaisia.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Nämä ominaisuudet luovat ja arkistoivat avustajat kaikenlaiseen käyttöön.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

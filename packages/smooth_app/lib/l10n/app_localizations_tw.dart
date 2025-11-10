@@ -226,7 +226,7 @@ class AppLocalizationsTw extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Wo werɛ afi password?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTw extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Agyapadeɛ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1658,7 +1658,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Yɛpa wo kyɛw, ɛyɛ yɛn nhwɛso ade, wuntumi nsiesie :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5297,11 +5297,11 @@ class AppLocalizationsTw extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Dɛn nti na nneɛma bo yɛ den?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** yɛ adwuma a wɔde boaboa nneɛma ano na wɔkyɛ nneɛma boɔ wɔ wiase nyinaa 🌍. Open Food Facts na ɛyɛ Open Prices na ɛhwɛ so.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5311,15 +5311,15 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Dɛn ne Folksonomy su ahorow?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Su ahorow no gyina **key-value** so.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Saa agyapadeɛ yi, wɔn a wɔde mmoa ma no na wɔbɔ na wɔde kɔto hɔ ma dwumadie biara.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

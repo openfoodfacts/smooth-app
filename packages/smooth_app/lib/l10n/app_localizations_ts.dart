@@ -226,7 +226,7 @@ class AppLocalizationsTs extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'U rivele password?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Miako';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1658,7 +1658,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Sorry, i xikombiso xa hina product, a wu nge swi koti ku xi edit :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4570,8 +4570,7 @@ class AppLocalizationsTs extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link =>
-      'https://misava.vuhlayiselo bya swakudya.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -5294,11 +5293,11 @@ class AppLocalizationsTs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Ha yini ku ri ni minxavo?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** i project yo hlengeleta no avelana minxavo ya switirhisiwa emisaveni hinkwayo 🌍. Open Prices yi tumbuluxiwa no hlayisiwa hi Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5308,15 +5307,15 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Hi swihi swihlawulekisi swa Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Swihlawulekisi swi sekeriwe eka **key-value**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Tinhundzu leti ti tumbuluxiwa no fayeriwa hi vahoxi va xandla eka muxaka wihi na wihi wa matirhiselo.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5970,7 +5969,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Minxavo ya sweswinyana leyi engeteriweke hi vaaki va Minxavo leyi Pfulekeke';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6021,7 +6020,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Tindlela to olova to pfuna ku Pfula Tinhla ta Swakudya';
 
   @override
   String get preferences_page_faq_subtitle =>

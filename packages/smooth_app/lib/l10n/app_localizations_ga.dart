@@ -226,7 +226,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question =>
+      'An ndearna tú dearmad ar do phasfhocal?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1291,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Airíonna';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1658,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Tá brón orm, is é ár dtáirge samplach é, ní féidir leat é a chur in eagar :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5292,11 +5293,11 @@ class AppLocalizationsGa extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Cén fáth praghsanna?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      'Is tionscadal é **Open Prices** chun praghsanna táirgí ar fud an domhain a bhailiú agus a roinnt 🌍. Forbraíonn agus cothabhálann Open Food Facts Open Prices.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5305,16 +5306,15 @@ class AppLocalizationsGa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Cad iad tréithe Folkonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Tá tréithe bunaithe ar **eochairluach**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Cruthaítear agus comhdaítear na hairíonna seo ag rannpháirtithe le haghaidh aon chineál úsáidí.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5961,7 +5961,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Na praghsanna is déanaí curtha leis ag pobal Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6010,7 +6010,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Bealaí simplí chun cabhrú le Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

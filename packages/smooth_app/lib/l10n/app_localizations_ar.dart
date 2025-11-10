@@ -226,7 +226,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgot_password => 'نسيت كلمة المرور';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'هل نسيت كلمة السر؟';
 
   @override
   String get view_profile => 'عرض الصفحة الشخصية';
@@ -1287,7 +1287,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ملكيات';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1652,7 +1652,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'عذراً، هذا هو منتجنا المثال، لا يمكنك تعديله :)';
 
   @override
   String get product_list_your_ranking => 'ترتيبك هو';
@@ -4061,7 +4061,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'لا ينطبق Green-Score';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'الأطعمة فائقة المعالجة - مجموعة نوفا';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5273,29 +5273,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'لماذا الاسعار؟';
 
   @override
   String get prices_explanation_card_line1 =>
       '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'لمعرفة المزيد';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'ما هي سمات Folksonomy؟';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'السمات تعتمد على **المفتاح والقيمة**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'يتم إنشاء هذه الخصائص وتسجيلها بواسطة المساهمين لأي نوع من الاستخدامات.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5933,7 +5932,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'أحدث الأسعار المضافة من قبل مجتمع Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5978,7 +5977,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'طرق بسيطة للمساعدة في Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

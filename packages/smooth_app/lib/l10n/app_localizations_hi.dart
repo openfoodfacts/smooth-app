@@ -226,7 +226,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'पासवर्ड भूल गए?';
 
   @override
   String get view_profile => 'प्रोफाइल देखें';
@@ -1289,7 +1289,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'गुण';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1656,7 +1656,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'क्षमा करें, यह हमारा उदाहरण उत्पाद है, आप इसे संपादित नहीं कर सकते :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4070,7 +4070,8 @@ class AppLocalizationsHi extends AppLocalizations {
       'ग्रीन-स्कोर लागू नहीं है';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'अति-प्रसंस्कृत खाद्य पदार्थ - नोवा समूह';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5287,11 +5288,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'कीमतें क्यों?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** दुनिया भर के उत्पादों की कीमतें एकत्रित करने और उन्हें साझा करने का एक प्रोजेक्ट है। Open Prices का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5301,15 +5302,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'फोल्क्सोनॉमी विशेषताएँ क्या हैं?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'विशेषताएँ **कुंजी-मूल्य** आधारित हैं।';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'ये गुण किसी भी प्रकार के उपयोग के लिए योगदानकर्ताओं द्वारा बनाए और दर्ज किए जाते हैं।';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5597,7 +5598,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ओपन फूड फैक्ट्स एक खाद्य उत्पाद डेटाबेस है जो **सभी के लिए, सभी के द्वारा बनाया गया है**।\nआप इसका उपयोग बेहतर भोजन विकल्प बनाने के लिए कर सकते हैं, और चूंकि यह **खुला डेटा** है, कोई भी इसे किसी भी उद्देश्य के लिए **पुनः उपयोग कर सकता है**।';
+      'Open Food Facts एक खाद्य उत्पाद डेटाबेस है जो **सभी के लिए, सभी के द्वारा बनाया गया है**।\nआप इसका उपयोग बेहतर भोजन विकल्प बनाने के लिए कर सकते हैं, और चूंकि यह **खुला डेटा** है, कोई भी इसे किसी भी उद्देश्य के लिए **पुनः उपयोग कर सकता है**।';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5948,7 +5949,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices समुदाय द्वारा जोड़े गए नवीनतम मूल्य';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5996,7 +5997,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'मदद करने के सरल तरीके: Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

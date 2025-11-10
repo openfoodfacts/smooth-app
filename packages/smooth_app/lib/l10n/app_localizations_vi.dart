@@ -228,7 +228,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get forgot_password => 'Quên mật khẩu';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Quên mật khẩu?';
 
   @override
   String get view_profile => 'Xem hồ sơ';
@@ -851,7 +851,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get categories_added => 'Đã thêm danh mục';
 
   @override
-  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
+  String get new_product_title_nutriscore => 'Tính toán Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1301,7 +1301,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Của cải';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1313,7 +1313,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get tag_value => 'Giá trị';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Giá trị';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1352,11 +1352,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Add a category to calculate the Nutri-Score.';
+      'Thêm danh mục để tính Điểm dinh dưỡng.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+      'Thêm thông tin dinh dưỡng để tính điểm Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
@@ -1669,7 +1669,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Xin lỗi, đây là sản phẩm mẫu của chúng tôi, bạn không thể chỉnh sửa nó :)';
 
   @override
   String get product_list_your_ranking => 'Xếp hạng của bạn';
@@ -5314,29 +5314,29 @@ class AppLocalizationsVi extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Tại sao lại có giá?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** là một dự án thu thập và chia sẻ giá sản phẩm trên toàn thế giới 🌍. Open Prices được phát triển và duy trì bởi Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Tìm hiểu thêm';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Thuộc tính Folksonomy là gì?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Thuộc tính dựa trên **khóa-giá trị**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Những thuộc tính này được tạo ra và lưu trữ bởi những người đóng góp cho mọi mục đích sử dụng.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6026,7 +6026,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Những cách đơn giản để giúp Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

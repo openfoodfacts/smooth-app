@@ -226,7 +226,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Lupa kata laluan?';
 
   @override
   String get view_profile => 'Lihat profil';
@@ -1292,7 +1292,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Hartanah';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1660,7 +1660,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Maaf, ini contoh produk kami, anda tidak boleh mengeditnya :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5291,29 +5291,29 @@ class AppLocalizationsMs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Kenapa harga?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ialah projek mengumpul dan berkongsi harga produk di seluruh dunia 🌍. Open Prices dibangunkan dan diselenggara oleh Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Ketahui lebih lanjut';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Apakah sifat-sifat Folksonomi?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atribut adalah berdasarkan **nilai kunci**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Sifat ini dicipta dan difailkan oleh penyumbang untuk sebarang jenis penggunaan.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5749,8 +5749,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Temuilah projek';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Temui Fakta Makanan Terbuka';
+  String get preferences_faq_discover_off_title => 'Temui Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5770,7 +5769,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get preferences_faq_faq_title => 'Soalan Lazim - Soalan Lazim';
 
   @override
-  String get preferences_faq_off_ngo_title => 'NGO Fakta Makanan Terbuka';
+  String get preferences_faq_off_ngo_title => 'NGO Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5792,7 +5791,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Terlibat dengan menghadiri salah satu acara maya kami';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Fakta Makanan Terbuka';
+  String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6003,7 +6002,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Cara mudah untuk membantu Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6111,14 +6110,14 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Makmal Fakta Makanan Terbuka';
+      'Makmal Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bawa Fakta Makanan Terbuka kepada bahasa anda';
+      'Bawa Open Food Facts kepada bahasa anda';
 
   @override
   String get preferences_contribute_enroll_alpha =>

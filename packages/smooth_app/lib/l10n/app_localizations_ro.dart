@@ -231,7 +231,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get forgot_password => 'Ați uitat parola';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Aţi uitat parola?';
 
   @override
   String get view_profile => 'Vizualizați profilul';
@@ -1314,7 +1314,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Proprietăți';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1326,7 +1326,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get tag_value => 'Valoare';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Valori';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1369,11 +1369,11 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+      'Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      'Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -1688,7 +1688,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Îmi pare rău, este produsul nostru exemplu, nu îl poți edita :)';
 
   @override
   String get product_list_your_ranking => 'Clasamentul tău';
@@ -4090,14 +4090,14 @@ class AppLocalizationsRo extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Scor nutrițional necunoscut';
 
   @override
   String get nutriscore_unknown_new_formula =>
       'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
@@ -5348,29 +5348,29 @@ class AppLocalizationsRo extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'De ce prețuri?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** este un proiect de colectare și partajare a prețurilor produselor din întreaga lume 🌍. Open Prices este dezvoltat și întreținut de Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Afla mai mult';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Care sunt atributele folcsonomiei?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atributele sunt bazate pe **cheie-valoare**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Aceste proprietăți sunt create și depuse de contribuitori pentru orice fel de utilizări.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6068,7 +6068,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Modalități simple de a ajuta la Open Food Informations';
 
   @override
   String get preferences_page_faq_subtitle =>

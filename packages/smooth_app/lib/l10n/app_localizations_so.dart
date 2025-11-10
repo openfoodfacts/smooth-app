@@ -226,7 +226,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Ilmaamay erayga sirta ah?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Guryaha';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Waan ka xunnahay, waa alaabtayada tusaalaha, ma tafatiri kartid :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5295,11 +5295,11 @@ class AppLocalizationsSo extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Waa maxay sababta qiimaha?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '** Sicirka Furan** waa mashruuc lagu uruurinayo laguna wadaagayo qiimaha badeecadaha aduunka 🌍 Open Prices waxa horumariya oo ilaaliya Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5309,15 +5309,15 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Waa maxay sifooyinka Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Sifooyinku waxay ku salaysan yihiin **qiimaha muhiimka ah**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Guryahaan waxaa abuurey oo xereeyay ka qaybqaatayaasha nooc kasta oo la isticmaalo.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5608,7 +5608,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Xaqiiqooyinka Cuntada Furan waa keydka alaabta cuntada ** qof walba uu sameeyay, qof walba ***.\nWaxaad u isticmaali kartaa si aad u samayso doorashooyin cunto oo wanaagsan, iyo sida ay tahay **xogta furan**, qof kastaa ** dib ayuu u isticmaali karaa ujeedo kasta**.';
+      'Open Food Facts waa keydka alaabta cuntada ** qof walba uu sameeyay, qof walba ***.\nWaxaad u isticmaali kartaa si aad u samayso doorashooyin cunto oo wanaagsan, iyo sida ay tahay **xogta furan**, qof kastaa ** dib ayuu u isticmaali karaa ujeedo kasta**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5754,8 +5754,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Soo hel Xaqiiqooyinka Cuntada Furan';
+  String get preferences_faq_discover_off_title => 'Soo hel Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5776,8 +5775,7 @@ class AppLocalizationsSo extends AppLocalizations {
       'FAQ - Su\'aalaha Inta badan La Isweydiiyo';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'NGO-ga Xaqiiqooyinka Cuntada Furan';
+  String get preferences_faq_off_ngo_title => 'NGO-ga Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5799,8 +5797,7 @@ class AppLocalizationsSo extends AppLocalizations {
       'Ka qayb gal adigoo ka qayb galaya mid ka mid ah dhacdooyinkayada casriga ah';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Buloogga Xaqiiqooyinka Cuntada Furan';
+  String get preferences_connect_blog_title => 'Buloogga Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5916,7 +5913,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Alaabooyin cusub oo aan ku daray Xaqiiqooyinka Cuntada Furan';
+      'Alaabooyin cusub oo aan ku daray Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5965,7 +5962,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Qiimihii ugu dambeeyay ee ay ku dartay bulshada Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6013,7 +6010,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
 
   @override
   String get preferences_page_faq_subtitle =>

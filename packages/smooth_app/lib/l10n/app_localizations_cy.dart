@@ -226,7 +226,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Wedi anghofio cyfrinair?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Priodweddau';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Mae\'n ddrwg gennym, dyma ein cynnyrch enghreifftiol, ni allwch ei olygu :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5292,11 +5292,11 @@ class AppLocalizationsCy extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Pam prisiau?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      'Mae **Open Prices** yn brosiect i gasglu a rhannu prisiau cynhyrchion ledled y byd 🌍. Mae Open Prices yn cael ei ddatblygu a\'i gynnal gan Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5306,15 +5306,15 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Beth yw priodoleddau Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Mae priodoleddau\'n seiliedig ar **werth allwedd**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Mae\'r priodweddau hyn yn cael eu creu a\'u ffeilio gan gyfranwyr ar gyfer unrhyw fath o ddefnyddiau.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5652,8 +5652,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'Ar wefan Ffeithiau Bwyd Agored';
+  String get preferences_on_off_website_subtitle => 'Ar wefan Open Food Facts';
 
   @override
   String get preferences_manage_account_title => 'Rheoli fy nghyfrif';
@@ -5750,7 +5749,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title =>
-      'Darganfyddwch Ffeithiau Bwyd Agored';
+      'Darganfyddwch Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5771,7 +5770,7 @@ class AppLocalizationsCy extends AppLocalizations {
       'Cwestiynau Cyffredin - Cwestiynau Cyffredin';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Y NGO Ffeithiau Bwyd Agored';
+  String get preferences_faq_off_ngo_title => 'Y NGO Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5793,7 +5792,7 @@ class AppLocalizationsCy extends AppLocalizations {
       'Cymerwch ran drwy fynychu un o\'n digwyddiadau rhithwir';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Ffeithiau Bwyd Agored';
+  String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5956,7 +5955,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Prisiau diweddaraf wedi\'u hychwanegu gan y gymuned Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6004,7 +6003,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Ffyrdd syml o helpu Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6111,14 +6110,14 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Labordai Ffeithiau Bwyd Agored';
+      'Labordai Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Dewch â Ffeithiau Bwyd Agored i\'ch iaith';
+      'Dewch â Open Food Facts i\'ch iaith';
 
   @override
   String get preferences_contribute_enroll_alpha =>

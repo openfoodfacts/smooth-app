@@ -226,7 +226,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'ፓስዎርድ ረሲዕካ?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ኣቕሑት';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'ይቕሬታ ኣብነት ፍርያትና እዩ፡ ኣርትዖት ክትገብሩ ኣይትኽእሉን ኢኹም :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4066,7 +4066,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'ግሪን-ስኮር ተግባራዊ ኣይኮነን።';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት ኖቫ';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4552,8 +4552,7 @@ class AppLocalizationsTi extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link =>
-      'https://world.openfoodfacts.org/nova ዝብል ጽሑፍ ኣሎ።';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -5276,11 +5275,11 @@ class AppLocalizationsTi extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ስለምንታይ ዋጋታት?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ኣብ መላእ ዓለም ዝርከቡ ፍርያት ዋጋታት ንምእካብን ንምክፋልን ዝዓለመ ፕሮጀክት 🌍 እዩ። Open Prices ብ Open Food Facts ዝምዕብልን ዝሕሎን እዩ።';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5289,16 +5288,15 @@ class AppLocalizationsTi extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'ባህርያት ፎልክሶኖሚ እንታይ እዮም?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'ባህርያት **ቁልፊ-ዋጋ** ዝተመርኮሱ እዮም።';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'እዞም ንብረታት እዚኦም ንዝኾነ ዓይነት ኣጠቓቕማ ብኣበርከትቲ ዝፍጠሩን ዝቐርቡን እዮም።';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5916,7 +5914,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ብማሕበረሰብ Open Prices ዝተወሰኹ ናይ መወዳእታ ዋጋታት';
 
   @override
   String get preferences_prices_top_contributors_title => 'ዝበዝሐ ዋጋ ዘለዎም ኣበርከትቲ';
@@ -5959,7 +5957,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'ቀለልቲ መገድታት ንኽፉት ሓቅታት መግቢ ንምሕጋዝ';
 
   @override
   String get preferences_page_faq_subtitle =>

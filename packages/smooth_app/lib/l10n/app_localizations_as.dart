@@ -226,7 +226,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'পাছৱৰ্ড পাহৰিলেনে?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ধৰ্ম';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'ক্ষমা কৰিব, ই আমাৰ উদাহৰণ প্ৰডাক্ট, আপুনি ইয়াক সম্পাদনা কৰিব নোৱাৰে :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5285,11 +5285,11 @@ class AppLocalizationsAs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'দাম কিয়?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ৰ জৰিয়তে সমগ্ৰ বিশ্বৰ সামগ্ৰীৰ মূল্য সংগ্ৰহ আৰু ভাগ-বতৰা কৰাৰ এক প্ৰকল্প 🌍 । Open Prices সমূহ Open Food Facts ৰ দ্বাৰা বিকশিত আৰু ৰক্ষণাবেক্ষণ কৰা হয়।';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5299,15 +5299,15 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'লোকসম্বন্ধৰ বৈশিষ্ট্য কি কি?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'বৈশিষ্ট্যসমূহ **কী-মান** ভিত্তিক।';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'এই বৈশিষ্ট্যসমূহ যিকোনো ধৰণৰ ব্যৱহাৰৰ বাবে অৱদানকাৰীয়ে সৃষ্টি আৰু ফাইল কৰে।';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5647,7 +5647,8 @@ class AppLocalizationsAs extends AppLocalizations {
   String get tips_discover_nutriscore => 'নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক';
 
   @override
-  String get preferences_on_off_website_subtitle => 'মুক্ত খাদ্য তথ্য ৱেবছাইটত';
+  String get preferences_on_off_website_subtitle =>
+      'মুক্ত Open Food Facts ৱেবছাইটত';
 
   @override
   String get preferences_manage_account_title => 'মোৰ একাউণ্ট পৰিচালনা কৰক';
@@ -5762,7 +5763,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - সঘনাই সোধা প্ৰশ্ন';
 
   @override
-  String get preferences_faq_off_ngo_title => 'মুকলি খাদ্য তথ্য এন জি অ’';
+  String get preferences_faq_off_ngo_title => 'মুকলি Open Food Facts এন জি অ’';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5784,7 +5785,7 @@ class AppLocalizationsAs extends AppLocalizations {
       'আমাৰ এটা ভাৰ্চুৱেল অনুষ্ঠানত অংশগ্ৰহণ কৰি জড়িত হওক';
 
   @override
-  String get preferences_connect_blog_title => 'মুক্ত খাদ্য তথ্য ব্লগ';
+  String get preferences_connect_blog_title => 'মুক্ত Open Food Facts ব্লগ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5944,7 +5945,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices সম্প্ৰদায়ে যোগ কৰা শেহতীয়া মূল্যসমূহ';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6098,7 +6099,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'খোলা খাদ্য তথ্য লেব';
+      'খোলা Open Food Facts লেব';
 
   @override
   String get preferences_root_account_title => 'Account';

@@ -225,7 +225,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get forgot_password => 'ชืมรหัสผ่าน';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'ลืมรหัสผ่าน?';
 
   @override
   String get view_profile => 'ดูโปรไฟล์';
@@ -1286,7 +1286,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'คุณสมบัติ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1653,7 +1653,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'ขออภัยค่ะ นี่เป็นสินค้าตัวอย่างของเรา คุณไม่สามารถแก้ไขได้ค่ะ :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4558,7 +4558,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world.openfoodfacts.org/โนวา';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -5282,29 +5282,29 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ทำไมต้องราคา?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** คือโครงการที่รวบรวมและแบ่งปันราคาสินค้าทั่วโลก 🌍 Open Prices พัฒนาและดูแลโดย Open Food Facts';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'ดูเพิ่มเติม';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Folksonomy Attribute คืออะไร?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'แอตทริบิวต์จะขึ้นอยู่กับ **คีย์-ค่า**';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'คุณสมบัติเหล่านี้ถูกสร้างและยื่นโดยผู้สนับสนุนเพื่อการใช้งานทุกประเภท';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5937,7 +5937,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ราคาล่าสุดที่เพิ่มโดยชุมชนOpen Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>

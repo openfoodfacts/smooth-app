@@ -211,7 +211,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'உங்கள் நாட்டில் Open Food Facts உண்மைகளை மேம்படுத்த உதவுங்கள்.';
 
   @override
   String get sign_out => 'Sign out';
@@ -226,7 +226,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'கடவுச்சொல்லை மறந்துவிட்டீர்களா?';
 
   @override
   String get view_profile => 'View profile';
@@ -848,7 +848,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
+  String get new_product_title_nutriscore => 'நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1292,7 +1292,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'பண்புகள்';
 
   @override
   String get tag_key_uneditable => 'குணம் (திருத்த முடியாதது)';
@@ -1660,7 +1660,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'மன்னிக்கவும், இது எங்கள் உதாரண தயாரிப்பு, நீங்கள் அதைத் திருத்த முடியாது :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -3534,7 +3534,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
+      'தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4052,14 +4052,14 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'தெரியாத நியூட்ரி ஸ்கோர் (புதிய கணக்கீடு)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)';
 
   @override
   String get environmental_score_generic_new => 'பச்சை-ஸ்கோர்';
@@ -4087,7 +4087,8 @@ class AppLocalizationsTa extends AppLocalizations {
       'பச்சை மதிப்பெண் பொருந்தாது.';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4911,7 +4912,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about பற்றி';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5306,29 +5307,29 @@ class AppLocalizationsTa extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ஏன் விலைகள்?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**திறந்த விலைகள்** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. திறந்த விலைகள் Open Food Facts உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'மேலும்அறிய';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'ஃபோக்சோனமியின் பண்புக்கூறுகள் என்ன?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'பண்புக்கூறுகள் **முக்கிய-மதிப்பு** அடிப்படையிலானவை.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'இந்தப் பண்புகள் பங்களிப்பாளர்களால் எந்தவொரு பயன்பாட்டிற்கும் உருவாக்கப்பட்டு தாக்கல் செய்யப்படுகின்றன.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5771,7 +5772,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title =>
-      'திறந்த உணவு உண்மைகளைக் கண்டறியவும்';
+      'Open Food Facts உண்மைகளைக் கண்டறியவும்';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5793,7 +5794,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_faq_off_ngo_title =>
-      'திறந்த உணவு உண்மைகள் அரசு சாரா நிறுவனம்';
+      'Open Food Facts அரசு சாரா நிறுவனம்';
 
   @override
   String get preferences_about_information_title => 'தகவல்';
@@ -5815,8 +5816,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'எங்கள் மெய்நிகர் நிகழ்வுகளில் ஒன்றில் கலந்துகொள்வதன் மூலம் ஈடுபடுங்கள்.';
 
   @override
-  String get preferences_connect_blog_title =>
-      'திறந்த உணவு உண்மைகள் வலைப்பதிவு';
+  String get preferences_connect_blog_title => 'Open Food Facts வலைப்பதிவு';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5932,7 +5932,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'திறந்த உணவு உண்மைகளில் நான் சேர்த்த புதிய தயாரிப்புகள்';
+      'Open Food Facts உண்மைகளில் நான் சேர்த்த புதிய தயாரிப்புகள்';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5981,7 +5981,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6031,7 +6031,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Factsக்க உதவும் எளிய வழிகள்';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6139,14 +6139,14 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'திறந்த உணவு உண்மைகள் ஆய்வகங்கள்';
+      'Open Food Facts ஆய்வகங்கள்';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'திறந்த உணவு உண்மைகளை உங்கள் மொழியில் கொண்டு வாருங்கள்.';
+      'Open Food Facts உண்மைகளை உங்கள் மொழியில் கொண்டு வாருங்கள்.';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -226,7 +226,7 @@ class AppLocalizationsHt extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Bliye modpas?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsHt extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Pwopriyete';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Eskize m, se pwodwi egzanp nou an, ou pa ka modifye li :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5287,11 +5287,11 @@ class AppLocalizationsHt extends AppLocalizations {
   String get product_page_tab_prices => 'Pri';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Poukisa pri yo?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** se yon pwojè pou kolekte epi pataje pri pwodwi atravè lemond 🌍. Open Food Facts devlope epi kenbe Open Prices an bon eta.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5300,16 +5300,15 @@ class AppLocalizationsHt extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Ki sa ki atribi Folksonomi?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atribi yo baze sou **kle-valè**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Kontribitè yo kreye epi ranpli pwopriyete sa yo pou nenpòt kalite itilizasyon.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

@@ -226,7 +226,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'پاسورڊ وساري ويٺا آهيو؟';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ملڪيتون';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'معاف ڪجو، اهو اسان جي مثال جي پيداوار آهي، توهان ان کي ايڊٽ نٿا ڪري سگهو :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4068,7 +4068,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'گرين اسڪور لاڳو ناهي';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'الٽرا پروسيس ٿيل کاڌو - نووا گروپس';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5283,11 +5283,11 @@ class AppLocalizationsSd extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'قيمتون ڇو؟';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. Open Prices اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5297,15 +5297,15 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'لوڪ سونومي جون خاصيتون ڇا آهن؟';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'خاصيتون **ڪي-ويليو** تي ٻڌل آهن.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'اهي ملڪيتون ڪنهن به قسم جي استعمال لاءِ حصو وٺندڙن پاران ٺاهي ۽ فائل ڪيون وينديون آهن.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5942,7 +5942,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices ڪميونٽي پاران شامل ڪيل تازيون قيمتون';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5989,7 +5989,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'کاڌي جي حقيقتن کي کولڻ ۾ مدد ڪرڻ جا آسان طريقا';
 
   @override
   String get preferences_page_faq_subtitle =>

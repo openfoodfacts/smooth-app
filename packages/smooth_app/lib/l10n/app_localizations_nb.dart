@@ -228,7 +228,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get forgot_password => 'Glemt passordet';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Glemt passord?';
 
   @override
   String get view_profile => 'Vis profil';
@@ -1297,7 +1297,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Egenskaper';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1665,7 +1665,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Beklager, det er vårt eksempelprodukt, du kan ikke redigere det :)';
 
   @override
   String get product_list_your_ranking => 'Din rangering';
@@ -5305,29 +5305,29 @@ class AppLocalizationsNb extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Hvorfor priser?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** er et prosjekt for å samle og dele priser på produkter rundt om i verden 🌍. Open Prices utvikles og vedlikeholdes av Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Lær mer';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Hva er Folksonomi attributter?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attributter er **nøkkelverdi** basert.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Eiendommene lages og deles av bidragsytere for alle typer bruk.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

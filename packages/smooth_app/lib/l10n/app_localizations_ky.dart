@@ -226,7 +226,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Сырсөздү унуттуңузбу?';
 
   @override
   String get view_profile => 'View profile';
@@ -1657,7 +1657,7 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Кечиресиз, бул биздин үлгү продукт, сиз аны түзөтө албайсыз :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5292,11 +5292,11 @@ class AppLocalizationsKy extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Эмне үчүн баалар?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** бул дүйнө жүзү боюнча 🌍 продукциянын баасын чогултуу жана бөлүшүү долбоору. Open Prices Open Food Facts тарабынан иштелип чыккан жана колдоого алынган.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5306,15 +5306,15 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Фолксономиянын атрибуттары кандай?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Атрибуттар **ачкыч-мааниге** негизделген.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Бул касиеттер ар кандай колдонуу үчүн салымчылар тарабынан түзүлгөн жана берилген.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

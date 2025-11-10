@@ -229,7 +229,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get forgot_password => 'পাসওয়ার্ড ভুলে গেছেন?';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'পাসওয়ার্ড ভুলে গেছেন?';
 
   @override
   String get view_profile => 'আপনার প্রোফাইল দেখুন';
@@ -1293,7 +1293,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'বৈশিষ্ট্য';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1660,7 +1660,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'দুঃখিত, এটি আমাদের নমুনা পণ্য, আপনি এটি সম্পাদনা করতে পারবেন না :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4072,7 +4072,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'গ্রিন-স্কোর প্রযোজ্য নয়';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'অতি-প্রক্রিয়াজাত খাবার - নোভা গ্রুপ';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5288,29 +5288,29 @@ class AppLocalizationsBn extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'দাম কেন?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** হল বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার একটি প্রকল্প 🌍। Open Pricesস Open Food Facts দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'আরও জানুন';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'ফোকসনোমি বৈশিষ্ট্যগুলি কী কী?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'বৈশিষ্ট্যগুলি **কী-মান** ভিত্তিক।';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'এই বৈশিষ্ট্যগুলি যেকোনো ধরণের ব্যবহারের জন্য অবদানকারীদের দ্বারা তৈরি এবং ফাইল করা হয়।';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5601,7 +5601,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ওপেন ফুড ফ্যাক্টস হল একটি খাদ্য পণ্যের ডাটাবেস যা **সবার জন্য, সবার দ্বারা তৈরি**।\nআপনি এটি ব্যবহার করে আরও ভালো খাবারের পছন্দ করতে পারেন, এবং যেহেতু এটি **ওপেন ডেটা**, তাই যে কেউ **যেকোনো উদ্দেশ্যে এটি পুনরায় ব্যবহার করতে** পারে।';
+      'Open Food Facts হল একটি খাদ্য পণ্যের ডাটাবেস যা **সবার জন্য, সবার দ্বারা তৈরি**।\nআপনি এটি ব্যবহার করে আরও ভালো খাবারের পছন্দ করতে পারেন, এবং যেহেতু এটি **ওপেন ডেটা**, তাই যে কেউ **যেকোনো উদ্দেশ্যে এটি পুনরায় ব্যবহার করতে** পারে।';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5652,7 +5652,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ওপেন ফুড ফ্যাক্টস ওয়েবসাইটে';
+      'Open Food Facts ওয়েবসাইটে';
 
   @override
   String get preferences_manage_account_title =>
@@ -5771,7 +5771,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী - প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী';
 
   @override
-  String get preferences_faq_off_ngo_title => 'দ্য ওপেন ফুড ফ্যাক্টস এনজিও';
+  String get preferences_faq_off_ngo_title => 'দ্য Open Food Facts এনজিও';
 
   @override
   String get preferences_about_information_title => 'তথ্য';
@@ -5793,7 +5793,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'আমাদের ভার্চুয়াল ইভেন্টগুলির একটিতে অংশগ্রহণ করে অংশগ্রহণ করুন';
 
   @override
-  String get preferences_connect_blog_title => 'ওপেন ফুড ফ্যাক্টস ব্লগ';
+  String get preferences_connect_blog_title => 'Open Food Facts ব্লগ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5906,7 +5906,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ওপেন ফুড ফ্যাক্টস-এ আমার যোগ করা নতুন পণ্য';
+      'Open Food Facts-এ আমার যোগ করা নতুন পণ্য';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5953,7 +5953,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Pricesস কমিউনিটি কর্তৃক যোগ করা সর্বশেষ দাম';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6001,7 +6001,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Facts সাহায্য করার সহজ উপায়';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6110,7 +6110,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'খাদ্য তথ্য ল্যাব খুলুন';
+      'Open Food Facts ল্যাব খুলুন';
 
   @override
   String get preferences_root_account_title => 'Account';

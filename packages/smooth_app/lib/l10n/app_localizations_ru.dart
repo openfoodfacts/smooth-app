@@ -230,7 +230,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get forgot_password => 'Не помню пароль';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Забыли пароль?';
 
   @override
   String get view_profile => 'Профиль';
@@ -1320,7 +1320,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tag_key => 'Свойство';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Характеристики';
 
   @override
   String get tag_key_uneditable => 'Свойство (нередактируемое)';
@@ -1332,7 +1332,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tag_value => 'Значение';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Ценности';
 
   @override
   String get tag_value_input_hint => 'Введите значение';
@@ -1691,7 +1691,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Извините, это наш пример товара, вы не можете его редактировать :)';
 
   @override
   String get product_list_your_ranking => 'Ваш рейтинг';
@@ -5399,29 +5399,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get product_page_tab_prices => 'Цены';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Почему цены?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** — это проект по сбору и обмену ценами на продукты по всему миру 🌍. Open Prices разработан и поддерживается Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Узнать больше';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Что такое атрибуты фолксономии?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Атрибуты основаны на **ключ-значение**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Эти свойства создаются и сохраняются участниками для любого вида использования.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

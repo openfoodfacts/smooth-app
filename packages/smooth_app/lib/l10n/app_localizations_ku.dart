@@ -226,7 +226,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Şîfre ji bîr kir?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Taybetmendî';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Bibore, ev mînaka berhema me ye, hûn nekarin wê biguherînin :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5291,11 +5291,11 @@ class AppLocalizationsKu extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Çima biha?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** projeyek e ji bo berhevkirin û parvekirina buhayên hilberan li çaraliyê cîhanê 🌍. Open Prices ji hêla Open Food Facts ve tê pêşxistin û domandin.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5305,15 +5305,15 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Taybetmendiyên Folksonomiyê çi ne?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Taybetmendî li ser bingeha **kilît-nirx** ne.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ev taybetmendî ji hêla beşdaran ve ji bo her celeb karanînê têne afirandin û tomar kirin.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5749,8 +5749,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Rastiyên Xwarinê yên Vekirî Vedîtin';
+  String get preferences_faq_discover_off_title => 'Open Food Facts Vedîtin';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5794,8 +5793,7 @@ class AppLocalizationsKu extends AppLocalizations {
       'Bi beşdarbûna yek ji bûyerên me yên virtual beşdar bibin';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Bloga Rastiyên Xwarinê yên Vekirî';
+  String get preferences_connect_blog_title => 'Bloga Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5960,7 +5958,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6008,7 +6006,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Rêbazên hêsan ji bo alîkariya Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6123,7 +6121,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Rastiyên Xwarinê yên Vekirî bînin zimanê xwe';
+      'Open Food Facts bînin zimanê xwe';
 
   @override
   String get preferences_contribute_enroll_alpha =>

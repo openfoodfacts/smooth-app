@@ -226,7 +226,7 @@ class AppLocalizationsSt extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'U lebetse phasewete?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsSt extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Thepa';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Tšoarelo, ke mohlala oa sehlahisoa sa rona, u ke ke ua se fetola :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5292,11 +5292,11 @@ class AppLocalizationsSt extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Ke hobane\'ng ha litheko?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ke morero oa ho bokella le ho arolelana litheko tsa lihlahisoa lefatšeng ka bophara 🌍. Litheko tsa Open li hlahisoa le ho hlokomeloa ke Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5306,15 +5306,15 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Litšobotsi tsa Folksonomy ke life?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Litšobotsi li **matla-boleng** li thehiloe.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Mehaho ena e entsoe le ho faeloa ke bafani bakeng sa ts\'ebeliso ea mofuta ofe kapa ofe.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6009,7 +6009,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Mekhoa e bonolo ea ho thusa Bula Lintlha tsa Lijo';
 
   @override
   String get preferences_page_faq_subtitle =>

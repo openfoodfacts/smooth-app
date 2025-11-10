@@ -226,7 +226,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Manta kalmar sirri?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Kayayyaki';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Yi haƙuri, samfurin mu ne, ba za ku iya gyara shi ba :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5290,11 +5290,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Me yasa farashin?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** shiri ne na tarawa da raba farashin kayayyaki a duniya 🌍. Buɗaɗɗen Farashi an haɓaka kuma ana kiyaye shi ta Buɗewar Bayanan Abinci.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5303,16 +5303,15 @@ class AppLocalizationsHa extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Menene halayen Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Sifofi suna da tushe ** maɓalli-daraja**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'An ƙirƙira waɗannan kaddarorin da masu ba da gudummawa don kowane irin amfani.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5747,7 +5746,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Gano Buɗe Bayanan Abinci';
+  String get preferences_faq_discover_off_title => 'Gano Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5903,7 +5902,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Sabbin samfura na ƙara zuwa Buɗe Bayanan Abinci';
+      'Sabbin samfura na ƙara zuwa Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5950,7 +5949,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Sabbin farashin da jama\'ar Buɗaɗɗen Farashin suka ƙara';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5998,7 +5997,7 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Hanyoyi masu sauƙi don taimakawa Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

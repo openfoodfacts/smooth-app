@@ -227,7 +227,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get forgot_password => 'Wachtwoord vergeten?';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Wachtwoord vergeten?';
 
   @override
   String get view_profile => 'Profiel bekijken';
@@ -1283,7 +1283,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.';
 
   @override
   String get add_tag => 'Voeg een eigenschap toe';
@@ -1304,7 +1304,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get tag_key => 'Eigenschap';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Eigenschappen';
 
   @override
   String get tag_key_uneditable => 'Eigenschap (niet te bewerken)';
@@ -1316,7 +1316,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get tag_value => 'Waarde';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Waarden';
 
   @override
   String get tag_value_input_hint => 'Voer een waarde in';
@@ -1672,7 +1672,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Sorry, dit is ons voorbeeldproduct, u kunt het niet bewerken :)';
 
   @override
   String get product_list_your_ranking => 'Jouw ranking';
@@ -4610,7 +4610,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-nl.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welkom bij Open Food Facts!';
@@ -5344,29 +5344,29 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_page_tab_prices => 'Prijzen';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Waarom prijzen?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** is een project om productprijzen wereldwijd te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Meer informatie';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Wat zijn Folksonomy-attributen?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attributen zijn **sleutel-waarde** gebaseerd.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
