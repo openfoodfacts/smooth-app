@@ -1670,6 +1670,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'İlk örnek ürününüz yükleniyor';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => 'Sıralamanız';
 
   @override

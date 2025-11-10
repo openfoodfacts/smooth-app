@@ -1688,6 +1688,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Cargando tu primer producto de ejemplo';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => 'Tu clasificación';
 
   @override

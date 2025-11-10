@@ -3173,6 +3173,12 @@ abstract class AppLocalizations {
   /// **'Loading your first example product'**
   String get onboarding_welcome_loading_dialog_title;
 
+  /// Warning message displayed in the rare cases when the users try to edit the onboarding example product
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, it\'s our example product, you cannot edit it :)'**
+  String get onboarding_welcome_warning;
+
   /// Your ranking screen title
   ///
   /// In en, this message translates to:

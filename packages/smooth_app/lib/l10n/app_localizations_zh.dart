@@ -1581,6 +1581,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboarding_welcome_loading_dialog_title => '正在加载您的第一个产品';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => '你的排名';
 
   @override

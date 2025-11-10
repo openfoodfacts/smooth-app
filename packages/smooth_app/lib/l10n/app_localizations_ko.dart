@@ -1629,6 +1629,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get onboarding_welcome_loading_dialog_title => '첫 예시 상품 불러오는 중';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => '내 순위';
 
   @override

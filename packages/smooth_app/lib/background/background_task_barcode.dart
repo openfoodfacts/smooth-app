@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
@@ -44,8 +45,9 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   ) {
     final bool result = _forbiddenProducts.contains(barcode);
     if (result && context != null) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       SmoothFloatingMessage(
-        message: "Sorry, it's our example product, you cannot edit it :)",
+        message: appLocalizations.onboarding_welcome_warning,
         type: SmoothFloatingMessageType.warning,
       ).show(
         context,

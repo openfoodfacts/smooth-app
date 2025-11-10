@@ -1662,6 +1662,10 @@ class AppLocalizationsDa extends AppLocalizations {
       'Indlæser første eksempelprodukt';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => 'Din rangering';
 
   @override

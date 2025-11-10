@@ -1698,6 +1698,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Φόρτωση του πρώτου παραδείγματος προϊόντος σας';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => 'Η κατάταξή σας';
 
   @override

@@ -1657,6 +1657,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Ladataan ensimmäistä esimerkkituotettasi';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
+
+  @override
   String get product_list_your_ranking => 'Sijoituksesi';
 
   @override
