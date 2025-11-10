@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -99,16 +100,25 @@ class _HelperState extends State<_Helper> {
       Padding(
         padding: const EdgeInsetsDirectional.only(
           bottom: LARGE_SPACE,
-          start: LARGE_SPACE,
-          end: LARGE_SPACE,
+          start: BALANCED_SPACE,
+          end: BALANCED_SPACE,
         ),
-        child: SummaryCard(
-          widget.product,
-          productPreferences,
-          isFullVersion: true,
-          isRemovable: false,
-          isSettingVisible: false,
-          isPictureVisible: false,
+        child: Material(
+          color: Colors.white,
+          borderRadius: ANGULAR_BORDER_RADIUS,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: BALANCED_SPACE,
+            ),
+            child: SummaryCard(
+              widget.product,
+              productPreferences,
+              isFullVersion: true,
+              isRemovable: false,
+              isSettingVisible: false,
+              isPictureVisible: false,
+            ),
+          ),
         ),
       ),
     ];
@@ -119,7 +129,18 @@ class _HelperState extends State<_Helper> {
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,
         themeData: Theme.of(context),
-      ).getOnboardingContent(),
+      ).getOnboardingContent().mapIndexed((int position, Widget widget) {
+        Widget child = widget;
+
+        if (position == 0) {
+          child = Padding(
+            padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
+            child: child,
+          );
+        }
+
+        return Material(child: child);
+      }),
     );
     return ColoredBox(
       color: widget.backgroundColor,

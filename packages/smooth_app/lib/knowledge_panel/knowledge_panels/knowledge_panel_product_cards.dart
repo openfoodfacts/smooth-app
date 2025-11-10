@@ -5,9 +5,15 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 
 class KnowledgePanelProductCards extends StatelessWidget {
-  const KnowledgePanelProductCards(this.knowledgePanelWidgets);
+  const KnowledgePanelProductCards(
+    this.knowledgePanelWidgets, {
+    this.template = false,
+  });
 
   final List<Widget> knowledgePanelWidgets;
+
+  /// Whether this is a template panel
+  final bool template;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +28,15 @@ class KnowledgePanelProductCards extends StatelessWidget {
           if (hasTitle) {
             content = buildProductSmoothCard(
               title: Text((widget.children.first as KnowledgePanelTitle).title),
-              body: Padding(
-                padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: SMALL_SPACE,
-                  vertical: SMALL_SPACE,
+              body: Material(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: SMALL_SPACE,
+                    vertical: SMALL_SPACE,
+                  ),
+                  child: Column(children: widget.children.sublist(1)),
                 ),
-                child: Column(children: widget.children.sublist(1)),
               ),
               padding: EdgeInsets.zero,
               margin: EdgeInsets.zero,

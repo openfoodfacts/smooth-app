@@ -126,7 +126,7 @@ class _KnowledgePanelPageTemplateState
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: children,
                               ),
-                            ]),
+                            ], template: true),
                         ],
                       ),
                     ),

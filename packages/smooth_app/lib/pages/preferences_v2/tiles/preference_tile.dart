@@ -169,7 +169,12 @@ class _PreferenceTileTitle extends StatelessWidget {
     if (query == null || query.isEmpty) {
       return Text(title, style: textStyle);
     } else {
-      return TextHighlighter(text: title, textStyle: textStyle, filter: query);
+      return TextHighlighter(
+        text: title,
+        textStyle: textStyle,
+        filter: query,
+        softWrap: true,
+      );
     }
   }
 }

@@ -6033,7 +6033,17 @@ class AppLocalizationsAk extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count of $total items';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count items';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count items';
   }
 

@@ -76,13 +76,9 @@ class OnboardingBottomHills extends StatelessWidget {
                     ),
                   ),
                   elevation: WidgetStateProperty.all<double>(4.0),
-                  iconColor: WidgetStateProperty.all<Color>(
-                    colors.secondaryVibrant,
-                  ),
                   foregroundColor: WidgetStateProperty.all<Color>(
                     colors.secondaryVibrant,
                   ),
-                  iconSize: WidgetStateProperty.all<double>(21.0),
                   shape: WidgetStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
@@ -103,7 +99,13 @@ class OnboardingBottomHills extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: LARGE_SPACE),
-                    const icons.Arrow.right(),
+                    icons.CircledArrow.right(
+                      type: icons.CircledArrowType.normal,
+                      color: Colors.white,
+                      circleColor: colors.secondaryVibrant,
+                      padding: const EdgeInsetsDirectional.all(6.0),
+                      size: 22.0,
+                    ),
                   ],
                 ),
               ),

@@ -10399,11 +10399,23 @@ abstract class AppLocalizations {
   /// **'{count} of {total} items'**
   String item_count_with_total(int count, int total);
 
+  /// Item count showing current number of items and total items
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} items'**
+  String item_count_with_total_string(String count, String total);
+
   /// Item count showing only current number of items when total is unknown
   ///
   /// In en, this message translates to:
   /// **'{count} items'**
   String item_count(int count);
+
+  /// Item count showing only current number of items when total is unknown
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String item_count_string(String count);
 
   /// Message shown when there are no price statistics available to display
   ///

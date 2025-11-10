@@ -114,7 +114,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   final bool hasSubtitle =
-                      knowledgePanelTitleElement.subtitle != null;
+                      knowledgePanelTitleElement.subtitle?.isNotEmpty == true;
 
                   return Wrap(
                     direction: Axis.vertical,
