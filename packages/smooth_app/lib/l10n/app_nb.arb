@@ -2663,7 +2663,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Bytt mellom priser.openfoodfacts.org (PROD) og test env",
+  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Hvorfor priser?",
-  "prices_explanation_card_line1": "**Åpne priser** er et prosjekt for å samle og dele priser på produkter rundt om i verden 🌍. Åpne priser utvikles og vedlikeholdes av Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** er et prosjekt for å samle og dele priser på produkter rundt om i verden 🌍. Open Prices utvikles og vedlikeholdes av Open Food Facts.",
   "explanation_card_learn_more_button": "Lær mer",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
