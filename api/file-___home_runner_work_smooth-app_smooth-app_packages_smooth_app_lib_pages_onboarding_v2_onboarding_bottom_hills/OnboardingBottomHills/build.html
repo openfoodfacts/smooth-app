@@ -127,13 +127,9 @@ Widget build(BuildContext context) {
                   ),
                 ),
                 elevation: WidgetStateProperty.all&lt;double&gt;(4.0),
-                iconColor: WidgetStateProperty.all&lt;Color&gt;(
-                  colors.secondaryVibrant,
-                ),
                 foregroundColor: WidgetStateProperty.all&lt;Color&gt;(
                   colors.secondaryVibrant,
                 ),
-                iconSize: WidgetStateProperty.all&lt;double&gt;(21.0),
                 shape: WidgetStateProperty.all&lt;OutlinedBorder&gt;(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -154,7 +150,13 @@ Widget build(BuildContext context) {
                     ),
                   ),
                   const SizedBox(width: LARGE_SPACE),
-                  const icons.Arrow.right(),
+                  icons.CircledArrow.right(
+                    type: icons.CircledArrowType.normal,
+                    color: Colors.white,
+                    circleColor: colors.secondaryVibrant,
+                    padding: const EdgeInsetsDirectional.all(6.0),
+                    size: 22.0,
+                  ),
                 ],
               ),
             ),

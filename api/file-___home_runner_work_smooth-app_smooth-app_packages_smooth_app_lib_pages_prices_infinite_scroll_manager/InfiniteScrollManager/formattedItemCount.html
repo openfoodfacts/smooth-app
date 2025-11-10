@@ -76,8 +76,11 @@
 ) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   return totalItems != null
-      ? appLocalizations.item_count_with_total(loadedItems, totalItems)
-      : appLocalizations.item_count(loadedItems);
+      ? appLocalizations.item_count_with_total_string(
+          _numberFormat.format(loadedItems),
+          _numberFormat.format(totalItems),
+        )
+      : appLocalizations.item_count_string(_numberFormat.format(loadedItems));
 }</code></pre>
 </section>
 
