@@ -94,6 +94,9 @@
   required final List&lt;double&gt; eraserCoordinates,
   required final BuildContext context,
 }) async {
+  if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
+    return;
+  }
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   final String uniqueId = await _operationType.getNewKey(
     localDatabase,
