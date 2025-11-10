@@ -88,7 +88,7 @@ Widget build(BuildContext context) {
             child: _circledIcon(switch (backButtonType ??
                 BackButtonType.back) {
               BackButtonType.back =&gt; const icons.Arrow.left(),
-              BackButtonType.close =&gt; const icons.Close.bold(),
+              BackButtonType.close =&gt; const icons.Close.bold(size: 14.0),
               BackButtonType.minimize =&gt; const icons.Chevron.down(),
             }),
           ),
