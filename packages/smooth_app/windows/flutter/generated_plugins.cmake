@@ -8,7 +8,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   flutter_secure_storage_windows
   permission_handler_windows
-  rive_common
+  rive_native
   sentry_flutter
   share_plus
   url_launcher_windows

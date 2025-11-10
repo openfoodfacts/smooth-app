@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
+import 'package:rive/rive.dart' show Fit;
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
+import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -44,11 +45,10 @@ class ScanProductCardLoading extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 height: double.infinity,
-                child: RiveAnimation.asset(
-                  'assets/animations/off.riv',
+                child: RiveAnimation(
                   artboard: 'Loading',
                   alignment: Alignment.topCenter,
-                  fit: BoxFit.fitHeight,
+                  fit: Fit.fitHeight,
                 ),
               ),
             ),

@@ -1,76 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-// ignore: implementation_imports
-import 'package:rive/src/rive_core/component.dart';
-import 'package:scanner_shared/scanner_shared.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/services/smooth_services.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-/// Widget to inject in the hierarchy to have a single instance of the RiveFile
-/// (assets/animations/off.riv)
-class AnimationsLoader extends StatefulWidget {
-  const AnimationsLoader({required this.child, super.key});
-
-  final Widget child;
-
-  @override
-  State<AnimationsLoader> createState() => _AnimationsLoaderState();
-
-  static RiveFile? of(BuildContext context) {
-    return context.read<RiveFile>();
-  }
-}
-
-class _AnimationsLoaderState extends State<AnimationsLoader> {
-  RiveFile? _file;
-
-  @override
-  void initState() {
-    super.initState();
-    preload();
-  }
-
-  Future<void> preload() async {
-    rootBundle.load('assets/animations/off.riv').then(
-      (ByteData data) async {
-        // Load the RiveFile from the binary data.
-        setState(() {
-          _file = RiveFile.import(data);
-        });
-      },
-      onError: (dynamic error) => Logs.e('Unable to load Rive file', ex: error),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Provider<RiveFile?>.value(value: _file, child: widget.child);
-  }
-}
 
 class BarcodeAnimation extends StatelessWidget {
   const BarcodeAnimation({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RiveFile?>(
-      builder: (BuildContext context, RiveFile? riveFile, _) {
-        if (riveFile == null) {
-          return EMPTY_WIDGET;
-        }
-        return RiveAnimation.direct(
-          riveFile,
-          artboard: 'Barcode',
-          stateMachines: const <String>['StateMachine'],
-        );
-      },
-    );
+    return const RiveAnimation(artboard: 'Barcode', autoBinding: false);
   }
 }
 
@@ -93,22 +32,7 @@ class CloudUploadAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget widget = SizedBox.square(
       dimension: size,
-      child: RiveAnimation.direct(
-        AnimationsLoader.of(context)!,
-        artboard: 'Cloud upload',
-        animations: const <String>['Animation'],
-        onInit: (Artboard artboard) {
-          if (color != null) {
-            artboard.forEachComponent((Component child) {
-              if (child is Stroke) {
-                child.paint.color = color!;
-              } else if (child is SolidColor) {
-                child.color = color!;
-              }
-            });
-          }
-        },
-      ),
+      child: const RiveAnimation(artboard: 'Cloud upload'),
     );
 
     if (_circleColor != null) {
@@ -145,7 +69,8 @@ class DoubleChevronAnimation extends StatefulWidget {
 }
 
 class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
-  StateMachineController? _controller;
+  /// Disposed by [RiveAnimation]
+  ViewModelInstance? _vmi;
 
   @override
   void didUpdateWidget(covariant DoubleChevronAnimation oldWidget) {
@@ -159,13 +84,10 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
 
     return SizedBox.square(
       dimension: size,
-      child: RiveAnimation.direct(
-        AnimationsLoader.of(context)!,
+      child: RiveAnimation(
         artboard: 'Double chevron',
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(artboard, 'Loop');
-
-          artboard.addController(_controller!);
+        onDataBindAvailable: (ViewModelInstance vmi) {
+          _vmi = vmi;
           _changeAnimation(widget.animated);
         },
       ),
@@ -173,16 +95,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
   }
 
   void _changeAnimation(bool animated) {
-    final SMIBool toggle = _controller!.findInput<bool>('loop')! as SMIBool;
-    if (toggle.value != animated) {
-      toggle.value = animated;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
+    _vmi?.boolean('Loop')?.value = animated;
   }
 }
 
@@ -196,7 +109,7 @@ class OrangeErrorAnimation extends StatefulWidget {
 }
 
 class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
-  final SimpleAnimation _controller = SimpleAnimation('Animation');
+  ViewModelInstance? _vmi;
 
   @override
   Widget build(BuildContext context) {
@@ -204,150 +117,46 @@ class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
       child: SizedBox(
         width: 83.0 * widget.sizeMultiplier,
         height: 77.0 * widget.sizeMultiplier,
-        child: Consumer<RiveFile?>(
-          builder: (BuildContext context, RiveFile? riveFile, _) {
-            if (riveFile == null) {
-              return EMPTY_WIDGET;
-            }
-            return GestureDetector(
-              onTap: () {
-                _controller.reset();
-                _controller.isActive = true;
-                SmoothHapticFeedback.click();
-              },
-              child: ClipRect(
-                child: RiveAnimation.direct(
-                  riveFile,
-                  artboard: 'Orange error',
-                  controllers: <RiveAnimationController<dynamic>>[_controller],
-                ),
-              ),
-            );
+        child: GestureDetector(
+          onTap: () {
+            _vmi?.trigger('Trigger')!.trigger();
+            SmoothHapticFeedback.click();
           },
+          child: RiveAnimation(
+            artboard: 'Orange error',
+            onDataBindAvailable: (ViewModelInstance vmi) => _vmi = vmi,
+          ),
         ),
       ),
     );
   }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 }
 
-class SearchEyeAnimation extends StatefulWidget {
+class SearchEyeAnimation extends StatelessWidget {
   const SearchEyeAnimation({this.size, super.key});
 
   final double? size;
 
   @override
-  State<SearchEyeAnimation> createState() => _SearchEyeAnimationState();
-}
-
-class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
-  StateMachineController? _controller;
-
-  @override
   Widget build(BuildContext context) {
-    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
-    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
+    final double size = this.size ?? IconTheme.of(context).size ?? 24.0;
+    final bool lightTheme = context.lightTheme();
 
     return ExcludeSemantics(
       child: SizedBox(
         width: size,
         height: (80 / 87) * size,
-        child: RiveAnimation.direct(
-          AnimationsLoader.of(context)!,
+        child: RiveAnimation(
           artboard: 'Search eye',
-          onInit: (Artboard artboard) {
-            _controller = StateMachineController.fromArtboard(
-              artboard,
-              'LoopMachine',
-            );
-
-            artboard.addController(_controller!);
-            _controller!.findInput<bool>('light')?.value = !lightTheme;
+          colorChanger: <String, Color>{
+            'MainColor': lightTheme ? Colors.black : Colors.white,
+            'Eye1': lightTheme ? Colors.black : Colors.white,
+            'Eye2': lightTheme ? Colors.white : const Color(0xFFACACAC),
           },
         ),
       ),
     );
   }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
-  }
-}
-
-class SearchAnimation extends StatefulWidget {
-  const SearchAnimation({
-    super.key,
-    this.type = SearchAnimationType.search,
-    this.size,
-  });
-
-  final double? size;
-  final SearchAnimationType type;
-
-  @override
-  State<SearchAnimation> createState() => _SearchAnimationState();
-}
-
-class _SearchAnimationState extends State<SearchAnimation> {
-  StateMachineController? _controller;
-
-  @override
-  void didUpdateWidget(SearchAnimation oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _changeAnimation(widget.type);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
-
-    return SizedBox.square(
-      dimension: size,
-      child: RiveAnimation.direct(
-        AnimationsLoader.of(context)!,
-        artboard: 'Search icon',
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'StateMachine',
-          );
-
-          artboard.addController(_controller!);
-          if (widget.type != SearchAnimationType.search) {
-            _changeAnimation(widget.type);
-          }
-        },
-      ),
-    );
-  }
-
-  void _changeAnimation(SearchAnimationType type) {
-    final SMINumber step = _controller!.findInput<double>('step')! as SMINumber;
-    step.change(type.step.toDouble());
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
-  }
-}
-
-enum SearchAnimationType {
-  search(0),
-  cancel(1),
-  edit(2);
-
-  const SearchAnimationType(this.step);
-
-  final int step;
 }
 
 class SunAnimation extends StatelessWidget {
@@ -357,19 +166,10 @@ class SunAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RiveFile?>(
-      builder: (BuildContext context, RiveFile? riveFile, _) {
-        if (riveFile == null) {
-          return EMPTY_WIDGET;
-        }
-        return RiveAnimation.direct(
-          riveFile,
-          artboard: 'Success',
-          stateMachines: <String>[
-            if (type == SunAnimationType.loop) 'Loop' else 'Animation',
-          ],
-        );
-      },
+    return RiveAnimation(
+      artboard: 'Success',
+      stateMachine: type == SunAnimationType.loop ? 'Loop' : 'Animation',
+      autoBinding: false,
     );
   }
 }
@@ -389,7 +189,7 @@ class TorchAnimation extends StatefulWidget {
 }
 
 class _TorchAnimationState extends State<TorchAnimation> {
-  StateMachineController? _controller;
+  ViewModelInstance? _vmi;
 
   @override
   void didUpdateWidget(covariant TorchAnimation oldWidget) {
@@ -398,10 +198,7 @@ class _TorchAnimationState extends State<TorchAnimation> {
   }
 
   void _changeTorchValue(bool isOn) {
-    final SMIBool toggle = _controller!.findInput<bool>('enable')! as SMIBool;
-    if (toggle.value != isOn) {
-      toggle.value = isOn;
-    }
+    _vmi?.boolean('Enable')?.value = isOn;
   }
 
   @override
@@ -410,24 +207,15 @@ class _TorchAnimationState extends State<TorchAnimation> {
 
     return SizedBox.square(
       dimension: size,
-      child: RiveAnimation.asset(
-        'assets/animations/off.riv',
+      child: RiveAnimation(
         artboard: 'Torch',
-        fit: BoxFit.cover,
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(artboard, 'Switch');
-
-          artboard.addController(_controller!);
+        fit: Fit.cover,
+        onDataBindAvailable: (ViewModelInstance vmi) {
+          _vmi = vmi;
           _changeTorchValue(widget.isOn);
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
   }
 }
 
@@ -442,7 +230,7 @@ class ScaleAnimation extends StatefulWidget {
 }
 
 class _ScaleAnimationState extends State<ScaleAnimation> {
-  StateMachineController? _controller;
+  ViewModelInstance? _vmi;
 
   @override
   void didUpdateWidget(covariant ScaleAnimation oldWidget) {
@@ -458,27 +246,11 @@ class _ScaleAnimationState extends State<ScaleAnimation> {
 
     return SizedBox.square(
       dimension: size,
-      child: RiveAnimation.direct(
-        AnimationsLoader.of(context)!,
+      child: RiveAnimation(
         artboard: 'Scale',
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'State Machine',
-          );
-
-          artboard.addController(_controller!);
-
-          _controller!.artboard!.forEachComponent((Component child) {
-            if (child is RuntimeNestedArtboard) {
-              child.sourceArtboard!.forEachComponent((Component nestedChild) {
-                if (nestedChild is SolidColor) {
-                  nestedChild.colorValue = color.intValue;
-                }
-              });
-            }
-          });
-
+        onDataBindAvailable: (ViewModelInstance vmi) {
+          _vmi = vmi;
+          _vmi!.color('Color')!.value = color;
           _changeAnimation(widget.animated);
         },
       ),
@@ -486,16 +258,7 @@ class _ScaleAnimationState extends State<ScaleAnimation> {
   }
 
   void _changeAnimation(bool animated) {
-    final SMIBool toggle = _controller!.findInput<bool>('anim')! as SMIBool;
-    if (toggle.value != animated) {
-      toggle.value = animated;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
+    _vmi?.boolean('Anim')?.value = animated;
   }
 }
 
@@ -518,7 +281,7 @@ class SparkleAnimation extends StatefulWidget {
 }
 
 class _SparkleAnimationState extends State<SparkleAnimation> {
-  StateMachineController? _controller;
+  ViewModelInstance? _vmi;
 
   @override
   void didUpdateWidget(covariant SparkleAnimation oldWidget) {
@@ -536,146 +299,25 @@ class _SparkleAnimationState extends State<SparkleAnimation> {
 
     return SizedBox.square(
       dimension: size,
-      child: ColorFiltered(
-        colorFilter: ColorFilter.mode(widget.color, BlendMode.srcIn),
-        child: RiveAnimation.direct(
-          AnimationsLoader.of(context)!,
-          artboard: 'sparkles',
-          onInit: (Artboard artboard) {
-            _controller = StateMachineController.fromArtboard(
-              artboard,
-              switch (widget.type) {
-                SparkleAnimationType.glow => 'Glow',
-                SparkleAnimationType.grow => 'Grow',
-                SparkleAnimationType.scale => 'Scale',
-              },
-            );
-
-            artboard.addController(_controller!);
-            _changeAnimation(widget.animated);
-          },
-        ),
+      child: RiveAnimation(
+        artboard: 'Sparkles',
+        colorChanger: <String, Color>{'Color': widget.color},
+        stateMachine: switch (widget.type) {
+          SparkleAnimationType.glow => 'Glow',
+          SparkleAnimationType.grow => 'Grow',
+          SparkleAnimationType.scale => 'Scale',
+        },
+        onDataBindAvailable: (ViewModelInstance vmi) {
+          _vmi = vmi;
+          _changeAnimation(widget.animated);
+        },
       ),
     );
   }
 
   void _changeAnimation(bool animated) {
-    final SMIBool toggle = _controller!.findInput<bool>('animate')! as SMIBool;
-    if (toggle.value != animated) {
-      toggle.value = animated;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
+    _vmi?.boolean('animate')?.value = animated;
   }
 }
 
 enum SparkleAnimationType { glow, grow, scale }
-
-class NutriScoreAnimation extends StatefulWidget {
-  factory NutriScoreAnimation({
-    required NutriScoreValue value,
-    Size? size,
-    Key? key,
-  }) {
-    return switch (value) {
-      NutriScoreValue.a => NutriScoreAnimation.A(size: size, key: key),
-      NutriScoreValue.b => NutriScoreAnimation.B(size: size, key: key),
-      NutriScoreValue.c => NutriScoreAnimation.C(size: size, key: key),
-      NutriScoreValue.d => NutriScoreAnimation.D(size: size, key: key),
-      NutriScoreValue.e => NutriScoreAnimation.E(size: size, key: key),
-      _ => NutriScoreAnimation.unknown(size: size, key: key),
-    };
-  }
-
-  const NutriScoreAnimation.unknown({this.size, super.key}) : level = -1;
-
-  const NutriScoreAnimation.A({this.size, super.key}) : level = 0;
-
-  const NutriScoreAnimation.B({this.size, super.key}) : level = 1;
-
-  const NutriScoreAnimation.C({this.size, super.key}) : level = 2;
-
-  const NutriScoreAnimation.D({this.size, super.key}) : level = 3;
-
-  const NutriScoreAnimation.E({this.size, super.key}) : level = 4;
-
-  final int level;
-  final Size? size;
-
-  @override
-  State<NutriScoreAnimation> createState() => _NutriScoreAnimationState();
-}
-
-class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
-  StateMachineController? _controller;
-
-  @override
-  void didUpdateWidget(covariant NutriScoreAnimation oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _changeNutriScoreState(widget.level);
-  }
-
-  /// -1 is the initial value (= no NutriScore)
-  /// 0 : NutriScore A
-  /// 1 : NutriScore B
-  /// 2 : NutriScore C
-  /// 3 : NutriScore D
-  /// 4 : NutriScore E
-  /// You can test it here [https://rive.app/s/aSxao_1Mwkixud5Z2GbA5A/]
-  void _changeNutriScoreState(int nutriScoreValue) {
-    assert(nutriScoreValue >= -1 && nutriScoreValue <= 4);
-    final SMINumber currentValue = _controller!.getNumberInput('value')!;
-    if (currentValue.value != nutriScoreValue) {
-      currentValue.value = nutriScoreValue.toDouble();
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-
-    return Semantics(
-      // TODO(g123k): Update with V2 once the animation is ready
-      label: switch (widget.level) {
-        0 => localizations.nutriscore_a,
-        1 => localizations.nutriscore_b,
-        2 => localizations.nutriscore_c,
-        3 => localizations.nutriscore_d,
-        4 => localizations.nutriscore_e,
-        _ => localizations.nutriscore_unknown,
-      },
-      image: true,
-      child: SizedBox.fromSize(
-        size:
-            widget.size ?? Size.fromHeight(IconTheme.of(context).size ?? 24.0),
-        child: AspectRatio(
-          aspectRatio: 176 / 94,
-          child: RiveAnimation.asset(
-            'assets/animations/nutriscore.riv',
-            artboard: 'Nutriscore',
-            fit: BoxFit.contain,
-            onInit: (Artboard artboard) {
-              _controller = StateMachineController.fromArtboard(
-                artboard,
-                'Nutriscore',
-              );
-
-              artboard.addController(_controller!);
-              _changeNutriScoreState(widget.level);
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
-  }
-}
