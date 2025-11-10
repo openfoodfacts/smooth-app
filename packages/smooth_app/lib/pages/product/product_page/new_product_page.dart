@@ -130,6 +130,7 @@ class ProductPageState extends State<ProductPage>
             SliverPersistentHeader(
               delegate: ProductHeaderDelegate(
                 statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+                backButtonType: widget.backButton,
               ),
               pinned: true,
               floating: false,
