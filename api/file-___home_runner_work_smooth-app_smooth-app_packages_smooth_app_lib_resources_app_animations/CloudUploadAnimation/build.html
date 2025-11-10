@@ -73,22 +73,7 @@
 Widget build(BuildContext context) {
   Widget widget = SizedBox.square(
     dimension: size,
-    child: RiveAnimation.direct(
-      AnimationsLoader.of(context)!,
-      artboard: &#39;Cloud upload&#39;,
-      animations: const &lt;String&gt;[&#39;Animation&#39;],
-      onInit: (Artboard artboard) {
-        if (color != null) {
-          artboard.forEachComponent((Component child) {
-            if (child is Stroke) {
-              child.paint.color = color!;
-            } else if (child is SolidColor) {
-              child.color = color!;
-            }
-          });
-        }
-      },
-    ),
+    child: const RiveAnimation(artboard: &#39;Cloud upload&#39;),
   );
 
   if (_circleColor != null) {

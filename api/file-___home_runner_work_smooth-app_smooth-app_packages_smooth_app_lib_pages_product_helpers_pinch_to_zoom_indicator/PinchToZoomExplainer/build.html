@@ -99,13 +99,10 @@ Widget build(BuildContext context) {
                       ),
                       const SizedBox(height: LARGE_SPACE),
                       ExcludeSemantics(
-                        child: SizedBox(
-                          width: width,
-                          height: (width * 172.0) &#47; 247.0,
-                          child: const RiveAnimation.asset(
-                            &#39;assets&#47;animations&#47;explanations.riv&#39;,
-                            artboard: &#39;pinch-to-zoom&#39;,
-                          ),
+                        child: RiveAnimationPlayer(
+                          &#39;assets&#47;animations&#47;explanations.riv&#39;,
+                          artboard: &#39;pinch-to-zoom&#39;,
+                          size: Size(width, (width * 172.0) &#47; 247.0),
                         ),
                       ),
                     ],

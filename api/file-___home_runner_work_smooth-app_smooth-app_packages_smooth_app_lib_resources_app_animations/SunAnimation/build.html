@@ -71,19 +71,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Consumer&lt;RiveFile?&gt;(
-    builder: (BuildContext context, RiveFile? riveFile, _) {
-      if (riveFile == null) {
-        return EMPTY_WIDGET;
-      }
-      return RiveAnimation.direct(
-        riveFile,
-        artboard: &#39;Success&#39;,
-        stateMachines: &lt;String&gt;[
-          if (type == SunAnimationType.loop) &#39;Loop&#39; else &#39;Animation&#39;,
-        ],
-      );
-    },
+  return RiveAnimation(
+    artboard: &#39;Success&#39;,
+    stateMachine: type == SunAnimationType.loop ? &#39;Loop&#39; : &#39;Animation&#39;,
+    autoBinding: false,
   );
 }</code></pre>
 </section>

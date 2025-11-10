@@ -100,11 +100,10 @@ Widget build(BuildContext context) {
             child: SizedBox(
               width: double.infinity,
               height: double.infinity,
-              child: RiveAnimation.asset(
-                &#39;assets&#47;animations&#47;off.riv&#39;,
+              child: RiveAnimation(
                 artboard: &#39;Loading&#39;,
                 alignment: Alignment.topCenter,
-                fit: BoxFit.fitHeight,
+                fit: Fit.fitHeight,
               ),
             ),
           ),

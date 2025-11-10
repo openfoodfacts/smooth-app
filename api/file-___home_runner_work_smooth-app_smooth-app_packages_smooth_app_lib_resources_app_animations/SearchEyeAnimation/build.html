@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the step property from the SearchAnimationType extension, for the Dart programming language.">
-  <title>step property - SearchAnimationType extension - app_animations library - Dart API</title>
+  <meta name="description" content="API docs for the build method from the SearchEyeAnimation class, for the Dart programming language.">
+  <title>build method - SearchEyeAnimation class - app_animations library - Dart API</title>
 
 
   
@@ -30,10 +30,10 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations-library.html">app_animations</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html">SearchAnimationType</a></li>
-    <li class="self-crumb">step property</li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html">SearchEyeAnimation</a></li>
+    <li class="self-crumb">build method</li>
   </ol>
-  <div class="self-name">step</div>
+  <div class="self-name">build</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,24 +44,51 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">step</span> property 
+<h1><span class="kind-method">build</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>
-          <span class="name ">step</span>
-          <div class="features">final</div>
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
 
-        </section>
-        
+<span class="returntype">dynamic</span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
 
-        
+      
+
+    </section>
+    
+
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">final int step;
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final double size = this.size ?? IconTheme.of(context).size ?? 24.0;
+  final bool lightTheme = context.lightTheme();
 
-</code></pre>
+  return ExcludeSemantics(
+    child: SizedBox(
+      width: size,
+      height: (80 &#47; 87) * size,
+      child: RiveAnimation(
+        artboard: &#39;Search eye&#39;,
+        colorChanger: &lt;String, Color&gt;{
+          &#39;MainColor&#39;: lightTheme ? Colors.black : Colors.white,
+          &#39;Eye1&#39;: lightTheme ? Colors.black : Colors.white,
+          &#39;Eye2&#39;: lightTheme ? Colors.white : const Color(0xFFACACAC),
+        },
+      ),
+    ),
+  );
+}</code></pre>
 </section>
 
 
@@ -77,42 +104,36 @@
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations-library.html">app_animations</a></li>
-  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html">SearchAnimationType</a></li>
-  <li class="self-crumb">step property</li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html">SearchEyeAnimation</a></li>
+  <li class="self-crumb">build method</li>
 </ol>
 
 
-    <h5>SearchAnimationType enum</h5>
+    <h5>SearchEyeAnimation class</h5>
     <ol>
 
-        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#constructors">Constructors</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType/SearchAnimationType.html">SearchAnimationType</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation/SearchEyeAnimation.html">SearchEyeAnimation</a></li>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#values">Values</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#search">search</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#cancel">cancel</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#edit">edit</a></li>
 
     <li class="section-title">
-      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#instance-properties">Properties</a>
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Enum/index.html">index</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType/step.html">step</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation/size.html">size</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#instance-methods">Methods</a></li>
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchEyeAnimation-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
 
-        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType.html#constants">Constants</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_resources_app_animations/SearchAnimationType/values-constant.html">values</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

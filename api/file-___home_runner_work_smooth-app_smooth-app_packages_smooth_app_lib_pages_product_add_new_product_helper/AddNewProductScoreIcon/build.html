@@ -71,15 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final String url = iconUrl ?? defaultIconUrl;
-  final String fileName = Uri.parse(url).pathSegments.last;
   final double height = MediaQuery.sizeOf(context).height * .2;
-
-  if (fileName.startsWith(&#39;nutriscore&#39;)) {
-    return _AddNewProductNutriScoreIcon(fileName: fileName, height: height);
-  } else {
-    return SvgIconChip(iconUrl ?? defaultIconUrl, height: height);
-  }
+  return SvgIconChip(iconUrl ?? defaultIconUrl, height: height);
 }</code></pre>
 </section>
 

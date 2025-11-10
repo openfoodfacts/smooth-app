@@ -71,18 +71,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Consumer&lt;RiveFile?&gt;(
-    builder: (BuildContext context, RiveFile? riveFile, _) {
-      if (riveFile == null) {
-        return EMPTY_WIDGET;
-      }
-      return RiveAnimation.direct(
-        riveFile,
-        artboard: &#39;Barcode&#39;,
-        stateMachines: const &lt;String&gt;[&#39;StateMachine&#39;],
-      );
-    },
-  );
+  return const RiveAnimation(artboard: &#39;Barcode&#39;, autoBinding: false);
 }</code></pre>
 </section>
 
