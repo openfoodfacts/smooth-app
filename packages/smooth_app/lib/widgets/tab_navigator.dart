@@ -18,13 +18,25 @@ class TabNavigator extends StatelessWidget {
       BottomNavigationTab.Scan => const ScanPage(),
     };
 
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (RouteSettings routeSettings) {
-        return MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => child,
-        );
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, dynamic res) async {
+        if (didPop) {
+          return;
+        }
+
+        if (navigatorKey.currentState!.canPop()) {
+          navigatorKey.currentState!.pop(res);
+        }
       },
+      child: Navigator(
+        key: navigatorKey,
+        onGenerateRoute: (RouteSettings routeSettings) {
+          return MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) => child,
+          );
+        },
+      ),
     );
   }
 }
