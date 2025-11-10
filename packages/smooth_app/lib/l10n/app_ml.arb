@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് എന്നത് എല്ലാവർക്കുമായി നിർമ്മിച്ച ഒരു ഭക്ഷ്യ ഉൽപ്പന്ന ഡാറ്റാബേസാണ് **.\nമികച്ച ഭക്ഷണ തിരഞ്ഞെടുപ്പുകൾ നടത്താൻ നിങ്ങൾക്ക് ഇത് ഉപയോഗിക്കാം, കൂടാതെ ഇത് **ഓപ്പൺ ഡാറ്റ** ആയതിനാൽ, ആർക്കും ഏത് ആവശ്യത്തിനും ഇത് വീണ്ടും ഉപയോഗിക്കാം**.",
+  "preferences_legal_header": "Open Food Facts എന്നത് എല്ലാവർക്കുമായി നിർമ്മിച്ച ഒരു ഭക്ഷ്യ ഉൽപ്പന്ന ഡാറ്റാബേസാണ് **.\nമികച്ച ഭക്ഷണ തിരഞ്ഞെടുപ്പുകൾ നടത്താൻ നിങ്ങൾക്ക് ഇത് ഉപയോഗിക്കാം, കൂടാതെ ഇത് **ഓപ്പൺ ഡാറ്റ** ആയതിനാൽ, ആർക്കും ഏത് ആവശ്യത്തിനും ഇത് വീണ്ടും ഉപയോഗിക്കാം**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "ദി ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് എൻ‌ജി‌ഒ",
+  "preferences_faq_off_ngo_title": "ദി Open Food Facts എൻ‌ജി‌ഒ",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ബ്ലോഗ്",
+  "preferences_connect_blog_title": "Open Food Facts ബ്ലോഗ്",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് ലാബുകൾ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ലാബുകൾ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
