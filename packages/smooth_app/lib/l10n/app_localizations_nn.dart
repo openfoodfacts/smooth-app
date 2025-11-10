@@ -226,7 +226,7 @@ class AppLocalizationsNn extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Glemt passord?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsNn extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Eiendommer';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Beklager, dette er vårt eksempelprodukt, du kan ikke redigere det :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5288,7 +5288,7 @@ class AppLocalizationsNn extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Hvorfor priser?';
 
   @override
   String get prices_explanation_card_line1 =>
@@ -5302,15 +5302,15 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Hva er folksonomi-attributter?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attributter er **nøkkelverdibaserte**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Disse egenskapene er opprettet og arkivert av bidragsytere for alle typer bruk.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5998,7 +5998,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Enkle måter å hjelpe på Åpne matfakta';
 
   @override
   String get preferences_page_faq_subtitle =>

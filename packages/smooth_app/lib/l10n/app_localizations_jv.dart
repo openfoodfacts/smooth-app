@@ -226,7 +226,7 @@ class AppLocalizationsJv extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Kelalen sandi?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsJv extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Properti';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Nyuwun sewu, iki minangka conto produk, sampeyan ora bisa nyunting :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5288,11 +5288,11 @@ class AppLocalizationsJv extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Apa prices?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** minangka proyek kanggo ngumpulake lan nuduhake rega produk ing saindenging jagad 🌍. Open Prices dikembangake lan dikelola dening Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5302,15 +5302,15 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Apa sing diarani Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atribut adhedhasar **key-value**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Properti kasebut digawe lan diajukake dening kontributor kanggo panggunaan apa wae.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

@@ -229,7 +229,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get forgot_password => 'Keni harruar fjalekalimin';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Keni harruar fjalëkalimin?';
 
   @override
   String get view_profile => 'Shiko profilin';
@@ -1302,7 +1302,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Prona';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1361,7 +1361,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      'Shtoni faktet ushqyese dhe nje kategori per te llogaritur piket-ushqyese.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -1669,7 +1669,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Na vjen keq, është produkti ynë shembullor, nuk mund ta modifikoni :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5307,11 +5307,11 @@ class AppLocalizationsSq extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Pse çmimet?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** është një projekt për të mbledhur dhe ndarë çmimet e produkteve në të gjithë botën 🌍. Open Prices zhvillohen dhe mirëmbahen nga Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5321,15 +5321,15 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Cilat janë atributet e Folksonomisë?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atributet bazohen në **çelës-vlerë**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Këto veti krijohen dhe arkivohen nga kontribuesit për çdo lloj përdorimi.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5976,7 +5976,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6025,7 +6025,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Mënyra të thjeshta për të ndihmuar në Hapjen e Fakte Ushqimore';
 
   @override
   String get preferences_page_faq_subtitle =>

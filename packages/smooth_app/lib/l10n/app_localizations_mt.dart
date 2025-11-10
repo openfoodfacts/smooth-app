@@ -226,7 +226,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Insejt il-password?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Proprjetajiet';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Skużani, dan huwa l-eżempju tal-prodott tagħna, ma tistax teditjah :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5289,11 +5289,11 @@ class AppLocalizationsMt extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Għaliex il-prezzijiet?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** huwa proġett biex jiġbor u jaqsam il-prezzijiet tal-prodotti madwar id-dinja 🌍. Open Prices huwa żviluppat u miżmum minn Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5303,15 +5303,15 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'X\'inhuma l-attributi tal-Folksonomija?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'L-attributi huma bbażati fuq **ċavetta-valur**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Dawn il-proprjetajiet huma maħluqa u ffajljati minn kontributuri għal kwalunkwe tip ta\' użu.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

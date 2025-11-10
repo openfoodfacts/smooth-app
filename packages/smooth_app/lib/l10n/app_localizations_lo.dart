@@ -226,7 +226,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'ລືມລະຫັດຜ່ານ?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ຄຸນສົມບັດ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'ຂໍອະໄພ, ມັນແມ່ນຜະລິດຕະພັນຕົວຢ່າງຂອງພວກເຮົາ, ທ່ານບໍ່ສາມາດແກ້ໄຂມັນໄດ້ :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5285,11 +5285,11 @@ class AppLocalizationsLo extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ເປັນຫຍັງລາຄາ?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ເປັນໂຄງການເກັບກຳລາຄາສິນຄ້າທົ່ວໂລກ🌍. Open Pricesແມ່ນພັດທະນາແລະຮັກສາໂດຍ Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5299,15 +5299,15 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'ຄຸນລັກສະນະ Folksonomy ແມ່ນຫຍັງ?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'ຄຸນລັກສະນະແມ່ນ **key-value** ອີງຕາມ.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'ຄຸນສົມບັດເຫຼົ່ານີ້ຖືກສ້າງ ແລະຍື່ນໂດຍຜູ້ປະກອບສ່ວນສໍາລັບການນໍາໃຊ້ປະເພດໃດນຶ່ງ.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

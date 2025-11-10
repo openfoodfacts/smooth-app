@@ -226,7 +226,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Пароль маннӑ-и?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Паллисем';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Каҫарӑр, ку пирӗн тӗслӗх продукт, эсир ӑна тӳрлетме пултараймастӑр :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5287,11 +5287,11 @@ class AppLocalizationsCv extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Мӗншӗн хаксем?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Уҫӑ хаксем** — тӗнчери продукци хакӗсене пухса пайламалли проект 🌍. Open Prices компанине Open Food Facts компани хатӗрлет тата тытса тӑрать.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5301,15 +5301,15 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Фольксономи атрибутӗсем мӗнле?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Атрибутсем **key-value** ҫинче никӗсленеҫҫӗ.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ҫак характеристикӑсене кирек мӗнле усӑ курма та хутшӑнакансем тунӑ тата упранӑ.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5952,7 +5952,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices сообществи хушнӑ юлашки хаксем';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6000,7 +6000,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Factsсене уҫма пулӑшмалли ансат меслетсем';
 
   @override
   String get preferences_page_faq_subtitle =>

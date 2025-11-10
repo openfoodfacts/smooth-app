@@ -226,7 +226,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'የይለፍ ቃል ረሱ?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ንብረቶች';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'ይቅርታ፣ የእኛ ምሳሌ ምርት ነው፣ እርስዎ ሊያስተካክሉት አይችሉም :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -2993,7 +2993,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'prices.openfoodfacts.org (PROD) እና test env መካከል ይቀያይሩ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5276,11 +5276,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ለምን ዋጋዎች?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '** Open Prices ** በዓለም ዙሪያ ያሉ ምርቶችን የመሰብሰብ እና የመጋራት ፕሮጀክት ነው 🌍። Open Prices የሚዘጋጀው በክፍት Open Food Facts ነው።';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5289,16 +5289,15 @@ class AppLocalizationsAm extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Folksonomy ባህሪያት ምንድን ናቸው?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'ባህሪያት **ቁልፍ-እሴት** የተመሰረቱ ናቸው።';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'እነዚህ ንብረቶች ለየትኛውም አይነት አገልግሎት አስተዋፅዖ አበርካቾች የተፈጠሩ እና የተመዘገቡ ናቸው።';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5581,7 +5580,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ክፍት የምግብ እውነታዎች የምግብ ምርቶች ዳታቤዝ ነው **በሁሉም ሰው የተሰራ ለሁሉም**።\nየተሻሉ የምግብ ምርጫዎችን ለማድረግ ሊጠቀሙበት ይችላሉ፣ እና **ክፍት ዳታ** እንደመሆኑ ማንኛውም ሰው ** ለማንኛውም ዓላማ እንደገና ሊጠቀምበት ይችላል**።';
+      'ክፍት Open Food Facts የምግብ ምርቶች ዳታቤዝ ነው **በሁሉም ሰው የተሰራ ለሁሉም**።\nየተሻሉ የምግብ ምርጫዎችን ለማድረግ ሊጠቀሙበት ይችላሉ፣ እና **ክፍት ዳታ** እንደመሆኑ ማንኛውም ሰው ** ለማንኛውም ዓላማ እንደገና ሊጠቀምበት ይችላል**።';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5631,7 +5630,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'በክፍት የምግብ እውነታዎች ድህረ ገጽ ላይ';
+      'በክፍት Open Food Facts ድህረ ገጽ ላይ';
 
   @override
   String get preferences_manage_account_title => 'መለያዬን አስተዳድር';
@@ -5723,7 +5722,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'ክፍት የምግብ እውነታዎችን ያግኙ';
+  String get preferences_faq_discover_off_title => 'ክፍት Open Food Factsን ያግኙ';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5744,7 +5743,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_faq_off_ngo_title =>
-      'ክፍት የምግብ እውነታዎች መንግሥታዊ ያልሆነ ድርጅት';
+      'ክፍት Open Food Facts መንግሥታዊ ያልሆነ ድርጅት';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5766,7 +5765,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'ከምናባዊ ዝግጅቶቻችን በአንዱ በመገኘት ይሳተፉ';
 
   @override
-  String get preferences_connect_blog_title => 'ክፍት የምግብ እውነታዎች ብሎግ';
+  String get preferences_connect_blog_title => 'ክፍት Open Food Facts ብሎግ';
 
   @override
   String get preferences_connect_blog_subtitle => 'እንደሚከሰቱ የቅርብ ጊዜ ዜናዎችን ያግኙ';
@@ -5873,7 +5872,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ወደ ክፈት የምግብ እውነታዎች ያከልኳቸው አዳዲስ ምርቶች';
+      'ወደ ክፈት Open Food Facts ያከልኳቸው አዳዲስ ምርቶች';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5919,7 +5918,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'በOpen Prices ማህበረሰብ የታከሉ የቅርብ ጊዜ ዋጋዎች';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5963,7 +5962,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Facts የሚረዱ ቀላል መንገዶች';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6058,14 +6057,14 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'የምግብ እውነታዎች ቤተሙከራዎችን ይክፈቱ';
+      'Open Food Facts ቤተሙከራዎችን ይክፈቱ';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ክፍት የምግብ እውነታዎችን ወደ ቋንቋዎ አምጡ';
+      'ክፍት Open Food Factsን ወደ ቋንቋዎ አምጡ';
 
   @override
   String get preferences_contribute_enroll_alpha =>

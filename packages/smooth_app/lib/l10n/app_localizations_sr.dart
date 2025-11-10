@@ -15,7 +15,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sep => '';
 
   @override
-  String get yes => 'Da';
+  String get yes => 'Yes';
 
   @override
   String get add => 'Додај';
@@ -55,7 +55,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get go_back_to_top => 'Go back to top';
 
   @override
-  String get save => 'Sačuvaj';
+  String get save => 'Save';
 
   @override
   String get save_confirmation => 'Are you sure you want to save?';
@@ -70,10 +70,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get ignore => 'Ignore';
 
   @override
-  String get close => 'Zatvori';
+  String get close => 'Затвори';
 
   @override
-  String get no => 'Ne';
+  String get no => 'No';
 
   @override
   String get stop => 'Stop';
@@ -185,7 +185,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
-  String get login => 'Korisničko ime';
+  String get login => 'Login';
 
   @override
   String get login_result_type_server_unreachable => 'Network is unreachable';
@@ -220,13 +220,13 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'Lozinka';
+  String get password => 'Password';
 
   @override
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Заборавили сте лозинку?';
 
   @override
   String get view_profile => 'View profile';
@@ -265,7 +265,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Congratulations! Your account has just been created.';
 
   @override
-  String get sign_up_page_display_name_hint => 'Naziv';
+  String get sign_up_page_display_name_hint => 'Name';
 
   @override
   String get sign_up_page_display_name_error_empty =>
@@ -300,7 +300,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get sign_up_page_password_hint => 'Lozinka';
+  String get sign_up_page_password_hint => 'Password';
 
   @override
   String get sign_up_page_password_error_empty => 'Please enter a password';
@@ -364,7 +364,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
-  String get settingsTitle => 'Podešavanja';
+  String get settingsTitle => 'Settings';
 
   @override
   String get darkmode => 'Theme';
@@ -599,10 +599,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get profile_navbar_label => 'Community';
 
   @override
-  String get scan_navbar_label => 'Scan';
+  String get scan_navbar_label => 'Скенирање';
 
   @override
-  String get history_navbar_label => 'Istorija';
+  String get history_navbar_label => 'History';
 
   @override
   String get list_navbar_label => 'Lists';
@@ -626,7 +626,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get scan_history => 'Scan history';
 
   @override
-  String get search => 'Pretraživanje';
+  String get search => 'Search';
 
   @override
   String get search_store => 'Search for a store';
@@ -664,7 +664,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get outdated_image_short_label => 'may be outdated';
 
   @override
-  String get ingredients => 'Sastojci';
+  String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
@@ -698,7 +698,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Nutritivne vrednosti';
+  String get nutrition => 'Nutrition';
 
   @override
   String get nutrition_facts_photo => 'Nutrition facts photo';
@@ -819,7 +819,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get take_photo_title => 'Take a picture';
 
   @override
-  String get take_more_photo_title => 'Take more photos';
+  String get take_more_photo_title => 'Take more pictures';
 
   @override
   String get front_photo_uploaded => 'Front photo uploaded';
@@ -923,7 +923,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
-  String get take_more_photo_button_label => 'Take more photos';
+  String get take_more_photo_button_label => 'Take more pictures';
 
   @override
   String get other_photo_uploaded => 'Miscellaneous photo uploaded';
@@ -978,7 +978,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get score_add_missing_precise_product_category =>
-      'Select a more precise category';
+      'Изаберите прецизнију категорију';
 
   @override
   String get score_add_missing_product_countries =>
@@ -1014,10 +1014,10 @@ class AppLocalizationsSr extends AppLocalizations {
       'Values specified on the product:';
 
   @override
-  String get nutrition_page_nutritional_info_value_positive => 'Da';
+  String get nutrition_page_nutritional_info_value_positive => 'Yes';
 
   @override
-  String get nutrition_page_nutritional_info_value_negative => 'Ne';
+  String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
   String get nutrition_page_nutritional_info_open_photo => 'Open photo';
@@ -1046,7 +1046,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Porcija';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
@@ -1167,7 +1167,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get product_image_action_take_new_picture => 'Capture New';
+  String get product_image_action_take_new_picture => 'Take a new picture';
 
   @override
   String get product_image_action_take_picture => 'Take a picture';
@@ -1244,7 +1244,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
-  String get app_review_negative_modal_negative_button => 'Ne';
+  String get app_review_negative_modal_negative_button => 'No';
 
   @override
   String get could_not_refresh => 'Could not refresh product';
@@ -1262,17 +1262,17 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get no_product_tags_found_message =>
-      'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
+      'No product properties found. Properties can be used to describe products in more details, in a flexible way.';
 
   @override
-  String get product_tags_empty => 'No properties';
+  String get product_tags_empty => 'Нема некретнина';
 
   @override
   String get product_tags_explanation =>
-      'By adding properties (key/value) to a product, you help enrich it.';
+      'Додавањем својстава (кључ/вредност) производу, помажете у његовом обогаћивању.';
 
   @override
-  String get add_tag => 'Add property';
+  String get add_tag => 'Add a property';
 
   @override
   String get add_tags => 'Add properties';
@@ -1290,7 +1290,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Некретнине';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1330,7 +1330,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get cached_results_from => 'Show results from:';
 
   @override
-  String get product_search_same_category => 'Find alternatives';
+  String get product_search_same_category => 'Пронађите алтернативе';
 
   @override
   String get product_search_same_category_short => 'Compare';
@@ -1419,7 +1419,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'Obriši';
+  String get clear => 'Clear';
 
   @override
   String get clear_long => 'Empty the list';
@@ -1531,7 +1531,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Please select at least two products';
 
   @override
-  String get retry_button_label => 'Retry';
+  String get retry_button_label => 'Покушај поново';
 
   @override
   String get connect_with_us => 'Connect with us';
@@ -1587,7 +1587,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permissions_page_body1 =>
-      'To scan barcodes with your phone\'s camera, please Authorise the access.';
+      'To scan barcodes with your phone\'s camera, please Authorize the access.';
 
   @override
   String get permissions_page_body2 =>
@@ -1625,7 +1625,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get authorize_button_label => 'Authorise';
+  String get authorize_button_label => 'Authorize';
 
   @override
   String get refuse_button_label => 'Refuse';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Жао нам је, то је наш пример производа, не можете га уређивати :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -1706,7 +1706,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get account_delete => 'Delete account';
 
   @override
-  String get account_delete_title => 'Delete my account';
+  String get account_delete_title => 'Обриши мој налог';
 
   @override
   String get user_profile => 'Account';
@@ -1740,7 +1740,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get settings_app_app => 'Application';
 
   @override
-  String get settings_app_data => 'Privacy & monitoring';
+  String get settings_app_data => 'Features & Crash monitoring';
 
   @override
   String get settings_app_camera => 'Camera';
@@ -1769,18 +1769,18 @@ class AppLocalizationsSr extends AppLocalizations {
       'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
-  String get crash_reporting_toggle_title => 'Crash reporting';
+  String get crash_reporting_toggle_title => 'Report us bugs and crashes';
 
   @override
   String get crash_reporting_toggle_subtitle =>
       'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
-  String get send_anonymous_data_toggle_title => 'Send anonymous data';
+  String get send_anonymous_data_toggle_title => 'Report us feature usage';
 
   @override
   String get send_anonymous_data_toggle_subtitle =>
-      'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
+      'When enabled, strictly anonymous information regarding feature usage will be sent to the Open Food Facts servers, so that we can understand how features are used in order to improve them. Otherwise, a 0 id will be sent.';
 
   @override
   String get product_edit_photo_title => 'Edit Photo';
@@ -1825,7 +1825,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'Izmenite proizvod';
+  String get edit_product_label => 'Edit product';
 
   @override
   String get edit_product_pending_operations_banner_title =>
@@ -1840,7 +1840,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
-  String get edit_product_label_short => 'Izmeni';
+  String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
@@ -1884,7 +1884,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
-  String get edit_product_form_item_deny_suggestion => 'Deny suggestion';
+  String get edit_product_form_item_deny_suggestion => 'Одбиј предлог';
 
   @override
   String get edit_product_form_item_details_title => 'Basic details';
@@ -1948,7 +1948,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Fair trade, Max Havelaar…';
 
   @override
-  String get edit_product_form_item_stores_title => 'Prodavnice';
+  String get edit_product_form_item_stores_title => 'Stores';
 
   @override
   String get edit_product_form_item_stores_hint => 'Input a store';
@@ -2063,7 +2063,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'EMB 72264';
 
   @override
-  String get edit_product_form_item_traces_title => 'Tragovi';
+  String get edit_product_form_item_traces_title => 'Traces';
 
   @override
   String get edit_product_form_item_traces_hint => 'trace';
@@ -2122,7 +2122,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Discard changes';
 
   @override
-  String get edit_product_form_item_ingredients_title => 'Sastojci';
+  String get edit_product_form_item_ingredients_title => 'Ingredients';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
@@ -2158,8 +2158,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'Hranljiva vrednost';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
@@ -2179,7 +2178,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Hranljiva vrednost';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
@@ -2194,13 +2193,13 @@ class AppLocalizationsSr extends AppLocalizations {
       'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
-  String get edit_product_form_save => 'Izmeni';
+  String get edit_product_form_save => 'Edit';
 
   @override
   String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
-  String get edit_product_ingredients_list_title => 'Lista sastojaka';
+  String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
   String get edit_product_packaging_photo_title => 'Packaging photo';
@@ -2307,7 +2306,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get user_list_empty_label =>
-      'No list available yet, please start by creating one';
+      'No list available yet!\nPlease start by creating one.';
 
   @override
   String get user_list_button_add_product => 'Add to list';
@@ -2367,7 +2366,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
-  String get category_picker_no_category_found_button => 'Nazad';
+  String get category_picker_no_category_found_button => 'Назад';
 
   @override
   String get user_preferences_item_accessibility_hint =>
@@ -2378,7 +2377,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get dev_preferences_screen_subtitle =>
-      'Access experimental features and development tools';
+      'Приступите експерименталним функцијама и алатима за развој';
 
   @override
   String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
@@ -2527,7 +2526,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Отворено на веб-сајту Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -2543,7 +2542,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
-      'Allow the community to validate prices extracted by AI.';
+      'Дозволите заједници да потврди цене које је извадила вештачка интелигенција.';
 
   @override
   String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
@@ -2552,24 +2551,24 @@ class AppLocalizationsSr extends AppLocalizations {
   String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
-  String get prices_bulk_proof_upload_step_selecting => 'Selecting files';
+  String get prices_bulk_proof_upload_step_selecting => 'Избор датотека';
 
   @override
-  String get prices_bulk_proof_upload_step_starting => 'Starting the upload';
+  String get prices_bulk_proof_upload_step_starting => 'Покретање отпремања';
 
   @override
   String prices_bulk_proof_upload_step_copying(int index, int count) {
-    return 'Locally copying file #$index/$count';
+    return 'Локално копирање датотеке #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_preparing(int index, int count) {
-    return 'Preparing upload #$index/$count';
+    return 'Припрема отпремања #$index/$count';
   }
 
   @override
   String prices_bulk_proof_upload_step_error(int index, int count) {
-    return 'Failed at image #$index/$count';
+    return 'Неуспешно на слици #$index/$count';
   }
 
   @override
@@ -2629,28 +2628,28 @@ class AppLocalizationsSr extends AppLocalizations {
   String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
-  String get prices_category_enter => 'Item without barcode';
+  String get prices_category_enter => 'Ставка без бар-кода';
 
   @override
-  String get prices_per_kilogram => 'Price per kilogram';
+  String get prices_per_kilogram => 'Цена по килограму';
 
   @override
   String get prices_per_unit => 'Price per unit';
 
   @override
-  String get prices_per_kilogram_short => ' / kg';
+  String get prices_per_kilogram_short => ' / кг';
 
   @override
-  String get prices_per_unit_short => ' / unit';
+  String get prices_per_unit_short => ' / јединица';
 
   @override
   String get prices_category_mandatory => 'Mandatory';
 
   @override
-  String get prices_category_optional => 'Optional';
+  String get prices_category_optional => 'Опционо';
 
   @override
-  String get prices_category_error_mandatory => 'The category is mandatory';
+  String get prices_category_error_mandatory => 'Категорија је обавезна';
 
   @override
   String get prices_barcode_reader_action => 'Barcode reader';
@@ -2659,45 +2658,45 @@ class AppLocalizationsSr extends AppLocalizations {
   String get prices_view_prices => 'View the prices';
 
   @override
-  String get prices_list_title => 'Price list';
+  String get prices_list_title => 'Ценовник';
 
   @override
-  String get prices_list_count => 'Number of\nprices';
+  String get prices_list_count => 'Број цена од\n';
 
   @override
-  String get prices_list_add_new_price => 'Add a\nnew price';
+  String get prices_list_add_new_price => 'Додај\nнову цену';
 
   @override
-  String get prices_list_empty_title => 'No price yet!';
+  String get prices_list_empty_title => 'Још нема цене!';
 
   @override
   String get prices_list_empty_subtitle =>
-      'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!';
+      'Будите први који ће додати један:\nСкенирањем **рачуна** или **ценника**!';
 
   @override
-  String get prices_entry_shop_not_found => 'Unknown store';
+  String get prices_entry_shop_not_found => 'Непозната продавница';
 
   @override
   String prices_entry_menu_title(String user) {
-    return 'Price entry from \"$user\"';
+    return 'Унос цене од „$user“';
   }
 
   @override
   String get prices_entry_menu_open_product_prices =>
-      'View all prices for this product';
+      'Погледајте све цене за овај производ';
 
   @override
-  String get prices_entry_menu_open_proof => 'View proof';
+  String get prices_entry_menu_open_proof => 'Погледајте доказ';
 
   @override
-  String get prices_entry_menu_my_prices => 'View my other prices';
+  String get prices_entry_menu_my_prices => 'Погледајте моје остале цене';
 
   @override
-  String get prices_entry_menu_author_prices =>
-      'View other prices by the author';
+  String get prices_entry_menu_author_prices => 'Погледајте остале цене аутора';
 
   @override
-  String get prices_entry_menu_shop_prices => 'View other prices from the shop';
+  String get prices_entry_menu_shop_prices =>
+      'Погледајте остале цене из продавнице';
 
   @override
   String prices_product_accessibility_summary(int count, String product) {
@@ -2763,10 +2762,11 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => 'No contributor yet!';
+  String get prices_users_empty_title => 'Још нема сарадника!';
 
   @override
-  String get prices_users_empty_explanation => 'Be the first to add a price!';
+  String get prices_users_empty_explanation =>
+      'Будите први који ће додати цену!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
@@ -2774,11 +2774,11 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => 'No shop yet!';
+  String get prices_locations_empty_title => 'Још нема продавнице!';
 
   @override
   String get prices_locations_empty_explanation =>
-      'Be the first to add a price!';
+      'Будите први који ће додати цену!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2834,7 +2834,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get prices_amount_existing_subtitle => 'Price previously added';
+  String get prices_amount_existing_subtitle => 'Цена је претходно додата';
 
   @override
   String get prices_amount_subtitle => 'Amount';
@@ -2883,11 +2883,11 @@ class AppLocalizationsSr extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
-  String get prices_proof_empty_title => 'No proof yet!';
+  String get prices_proof_empty_title => 'Још нема доказа!';
 
   @override
   String get prices_proof_empty_explanation =>
-      'Start by adding a photo of a **receipt** or a **price tag**!';
+      'Почните тако што ћете додати фотографију **рачуна** или **ценника**!';
 
   @override
   String get prices_proof_find => 'Select a proof';
@@ -2989,14 +2989,14 @@ class AppLocalizationsSr extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
-  String get dev_mode_reset_app_language_title => 'Reset app language';
+  String get dev_mode_reset_app_language_title => 'Ресетуј језик апликације';
 
   @override
-  String get dev_mode_add_demo_cards_language_title => 'Add cards';
+  String get dev_mode_add_demo_cards_language_title => 'Додај картице';
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Пребацивање између prices.openfoodfacts.org (PROD) и тестног окружења';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3048,7 +3048,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String user_any_search_prices_title(String user) {
-    return 'Contributor prices: $user';
+    return 'Цене сарадника: $user';
   }
 
   @override
@@ -3120,7 +3120,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
-  String get edit_photo_button_label => 'Izmeni';
+  String get edit_photo_button_label => 'Edit';
 
   @override
   String get edit_photo_unselect_button_label => 'Unselect photo';
@@ -3130,8 +3130,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Select an existing image';
 
   @override
-  String get edit_photo_select_existing_all_label =>
-      'Existing images for this product';
+  String get edit_photo_select_existing_all_label => 'Existing images';
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
@@ -3184,13 +3183,13 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
-      'Change the default language?';
+      'Променити подразумевани језик?';
 
   @override
   String add_basic_details_product_name_change_main_language_text(
     String language,
   ) {
-    return 'Do you want the product\'s default language to be set to ‘$language’?';
+    return 'Да ли желите да подразумевани језик производа буде подешен на „$language“?';
   }
 
   @override
@@ -3327,7 +3326,7 @@ class AppLocalizationsSr extends AppLocalizations {
       '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
-  String get barcode => 'Barkod';
+  String get barcode => 'Barcode';
 
   @override
   String barcode_barcode(String barcode) {
@@ -3450,7 +3449,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
-  String get share => 'Podeli';
+  String get share => 'Share';
 
   @override
   String share_product_text(String url) {
@@ -3478,7 +3477,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get capture => 'Capture New';
+  String get capture => 'Take a new picture';
 
   @override
   String get capture_new_picture => 'Take a picture';
@@ -4049,29 +4048,29 @@ class AppLocalizationsSr extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Зелена оцена А';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Зелена оцена Б';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Зелена оцена C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Зелена оцена D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Зелена оцена Е';
 
   @override
-  String get environmental_score_unknown_new => 'Unknown Green-Score';
+  String get environmental_score_unknown_new => 'Непознат зелени резултат';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score is not applicable';
+      'Зелени резултат се не примењује';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'Ултра-прерађена храна - НОВА групе';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4167,7 +4166,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'Podeli';
+  String get guide_share_label => 'Share';
 
   @override
   String get guide_nutriscore_v2_title =>
@@ -4279,40 +4278,40 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
-      'What is the Green Score?';
+      'Шта је Зелени резултат?';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'The Green-Score is a logo that aims to inform you about the **environmental impact of food**.';
+      'Зелени резултат је лого који има за циљ да вас информише о **утицају хране на животну средину**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
-      'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.';
+      'Шифра боје варира од тамнозелене (**А+**) за производе са **најмањим утицајем** до тамноцрвене (**Ф**) за производе са **највећим утицајем**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'The Green-Score logos';
+  String get guide_greenscore_logos_caption => 'Логотипи Green-Score-а';
 
   @override
   String get guide_greenscore_lca_title =>
-      'The core: Life cycle assessment (LCA)';
+      'Језгро: Процена животног циклуса (LCA)';
 
   @override
   String get guide_greenscore_lca_arg1_title =>
-      'A scientific evaluation of food categories';
+      'Научна евалуација категорија хране';
 
   @override
   String get guide_greenscore_lca_arg1_text1 =>
-      'For each product category, a **benchmark** score is established using data from the Agribalyse environmental database (designed by ADEME and INRAE).';
+      'За сваку категорију производа, **референтна** оцена се утврђује коришћењем података из еколошке базе података Agribalyse (коју су дизајнирали ADEME и INRAE).';
 
   @override
   String get guide_greenscore_lca_arg1_text2 =>
-      '**Life cycle analysis** is a standardized assessment method for carrying out a multi-stage and multi-criteria environmental assessment.';
+      '**Анализа животног циклуса** је стандардизована метода процене за спровођење вишестепене и вишекритеријумске процене утицаја на животну средину.';
 
   @override
-  String get guide_greenscore_lca_arg1_text3 => '**It measures:**';
+  String get guide_greenscore_lca_arg1_text3 => '**Мери:**';
 
   @override
-  String get guide_greenscore_lca_arg2_title => '6 production steps';
+  String get guide_greenscore_lca_arg2_title => '6 корака производње';
 
   @override
   String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
@@ -4321,7 +4320,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Ambalaža';
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4334,36 +4333,36 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_lca_arg3_title =>
-      '14 environmental impact indicators';
+      '14 индикатора утицаја на животну средину';
 
   @override
   String get guide_greenscore_lca_arg3_text1 =>
-      'Climate change/carbon footprint';
+      'Климатске промене/угљенични отисак';
 
   @override
-  String get guide_greenscore_lca_arg3_text2 => 'Ozone layer depletion';
+  String get guide_greenscore_lca_arg3_text2 => 'Оштећење озонског омотача';
 
   @override
-  String get guide_greenscore_lca_arg3_text3 => 'Ionizing radiation';
+  String get guide_greenscore_lca_arg3_text3 => 'Јонизујуће зрачење';
 
   @override
-  String get guide_greenscore_lca_arg3_text4 => 'Land';
+  String get guide_greenscore_lca_arg3_text4 => 'Земљиште';
 
   @override
-  String get guide_greenscore_lca_arg3_text5 => 'Water & energy use';
+  String get guide_greenscore_lca_arg3_text5 => 'Потрошња воде и енергије';
 
   @override
-  String get guide_greenscore_lca_arg3_text6 => 'Pollution of air';
+  String get guide_greenscore_lca_arg3_text6 => 'Загађење ваздуха';
 
   @override
   String get guide_greenscore_lca_arg3_text7 =>
-      'Marine & fresh water (particles, acidification, eutrophication)';
+      'Морска и слатка вода (честице, закисељавање, еутрофикација)';
 
   @override
-  String get guide_greenscore_lca_arg3_text8 => 'Depletion of resources.';
+  String get guide_greenscore_lca_arg3_text8 => 'Исцрпљивање ресурса.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_title => 'Bonuses & penalties';
+  String get guide_greenscore_bonuses_penalties_title => 'Бонуси и казне';
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
@@ -4379,7 +4378,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Poreklo sastojaka';
+      'Origin of ingredients';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
@@ -4394,7 +4393,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ambalaža';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4422,88 +4421,86 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
-      'How manufacturers can help';
+      'Како произвођачи могу помоћи';
 
   @override
   String get guide_greenscore_transparency_arg2_text =>
-      'Manufacturers can send us their information directly through our free platform for producers.';
+      'Произвођачи нам могу послати своје информације директно преко наше бесплатне платформе за произвођаче.';
 
   @override
   String get guide_greenscore_better_product_title =>
-      'Which product is better for the planet?';
+      'Који је производ бољи за планету?';
 
   @override
-  String get guide_greenscore_better_product_arg1_title =>
-      'It can be hard to tell';
+  String get guide_greenscore_better_product_arg1_title => 'Тешко је рећи';
 
   @override
   String get guide_greenscore_better_product_arg1_text =>
-      'Choosing sustainable food is one of the most powerful things we can do for the climate, as **our global food system is responsible for over a quarter of all greenhouse gas emissions**.\n(Source: Poore & Nemecek, Science, 2018).';
+      'Избор одрживе хране једна је од најмоћнијих ствари које можемо учинити за климу, јер **наш глобални прехрамбени систем је одговоран за више од четвртине свих емисија гасова стаклене баште**.\n(Извор: Poore & Nemecek, Science, 2018).';
 
   @override
-  String get guide_greenscore_better_product_arg2_title =>
-      'You have the power!';
+  String get guide_greenscore_better_product_arg2_title => 'Ти имаш моћ!';
 
   @override
   String get guide_greenscore_better_product_arg2_text =>
-      'The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!';
+      'Добра вест је да нам ово даје моћан начин да створимо промене.\n**Свако од нас поједе око 1.000 оброка сваке године**. То је 1.000 прилика да **изаберемо бољу будућност за планету**!';
 
   @override
   String get guide_greenscore_better_product_arg3_title =>
-      'Helps to be responsible and decide';
+      'Помаже у преузимању одговорности и доношењу одлука';
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Choosing sustainable food can feel complex. Labels are confusing and information is often missing. The Green-Score was created to make it simple, giving you a **clear**, **science-based**, and **transparent** environmental rating for food products, right where you need it: while you shop.';
+      'Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Зелени резултат је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.';
 
   @override
-  String get guide_greenscore_better_product_arg4_title => 'Transparency';
+  String get guide_greenscore_better_product_arg4_title => 'Транспарентност';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Unlike proprietary labels, the Green-Score calculation is **completely open** and can be **verified by anyone**.';
+      'За разлику од власничких ознака, прорачун Green-Score-а је **потпуно отворен** и може га **проверити било ко**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
 
   @override
-  String get guide_nova_what_is_nova_title => 'What is ultra-processing?';
+  String get guide_nova_what_is_nova_title => 'Шта је ултра-процесирање?';
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about the level of food processing.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).';
+      'NOVA класификација омогућава категоризацију хране у **4 групе** на основу њиховог **степена индустријске обраде** (минимално прерађена или непрерађена храна, кулинарски састојци, прерађена храна, ултра-прерађена храна).';
 
   @override
-  String get guide_nova_logos_caption => 'The NOVA logos';
+  String get guide_nova_logos_caption => 'НОВА логотипи';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 NOVA групе';
 
   @override
   String get guide_nova_groups_intro =>
-      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
+      'Постоје 4 НОВА групе, а проблематична је Група 4 - Ултра-прерађена храна.';
 
   @override
   String get guide_nova_groups_arg1_title =>
-      'Minimally processed or unprocessed foods';
+      'Минимално прерађена или непрерађена храна';
 
   @override
   String get guide_nova_groups_arg1_text =>
       'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Prerađeni kulinarski sastojci';
+  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
       'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Prerađena hrana';
+  String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
@@ -4517,12 +4514,11 @@ class AppLocalizationsSr extends AppLocalizations {
       'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
-  String get guide_nova_explanations_title =>
-      'The problems with ultra-processing';
+  String get guide_nova_explanations_title => 'Проблеми са ултра-процесирањем';
 
   @override
   String get guide_nova_explanations_arg1_title =>
-      'Extreme processing of food ingredients';
+      'Екстремна обрада састојака хране';
 
   @override
   String get guide_nova_explanations_arg1_text =>
@@ -4530,7 +4526,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_title =>
-      'Additives that go beyond pure food safety';
+      'Адитиви који превазилазе пуку безбедност хране';
 
   @override
   String get guide_nova_explanations_arg2_text =>
@@ -4538,7 +4534,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_title =>
-      'Processing you can’t do at home';
+      'Обрада коју не можете обавити код куће';
 
   @override
   String get guide_nova_explanations_arg3_text =>
@@ -4546,7 +4542,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_title =>
-      'The predatory and financial aspects of ultra-processing';
+      'Предаторски и финансијски аспекти ултра-обраде';
 
   @override
   String get guide_nova_explanations_arg4_text =>
@@ -4651,7 +4647,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-sr.openfoodfacts.org/discover';
+      'https://world-en.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5152,7 +5148,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Please check your Internet connection or click this button:';
 
   @override
-  String get carousel_error_button => 'Retry';
+  String get carousel_error_button => 'Покушај поново';
 
   @override
   String get carousel_unknown_product_header => 'Unknown product';
@@ -5267,7 +5263,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get product_footer_action_barcode => 'View barcode';
 
   @override
-  String get product_footer_action_barcode_short => 'Barkod';
+  String get product_footer_action_barcode_short => 'Barcode';
 
   @override
   String get product_footer_action_open_website => 'Open website';
@@ -5282,7 +5278,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
-  String get product_page_tab_for_me => 'For me';
+  String get product_page_tab_for_me => 'За мене';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5291,11 +5287,11 @@ class AppLocalizationsSr extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Зашто цене?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** је пројекат за прикупљање и дељење цена производа широм света 🌍. Open Prices је развио и одржава Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5305,15 +5301,15 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Који су атрибути фолксономије?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Атрибути су засновани на **кључ-вредност**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ова својства креирају и архивирају сарадници за било коју врсту употребе.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5323,10 +5319,11 @@ class AppLocalizationsSr extends AppLocalizations {
       'External links may be unsafe. Do you really want to visit it?';
 
   @override
-  String get prices_products_empty_title => 'No price available';
+  String get prices_products_empty_title => 'Нема доступне цене';
 
   @override
-  String get prices_products_empty_explanation => 'Be the first to contribute!';
+  String get prices_products_empty_explanation =>
+      'Будите први који ће допринети!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -5367,10 +5364,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
-  String get nutrition_facts_extract_in_progress => 'Extraction in progress…';
+  String get nutrition_facts_extract_in_progress => 'Екстракција у току…';
 
   @override
-  String get nutrition_facts_extract_successful => 'Extraction successful';
+  String get nutrition_facts_extract_successful => 'Екстракција је успешна';
 
   @override
   String get nutrition_facts_extract_failed =>
@@ -5507,10 +5504,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_prices_title => 'Prices';
 
   @override
-  String get preferences_prices_subtitle => 'Manage your prices preferences';
+  String get preferences_prices_subtitle =>
+      'Управљајте својим подешавањима цена';
 
   @override
-  String get preferences_card_project => 'The Open Food Facts project';
+  String get preferences_card_project =>
+      'Пројекат „Чињенице о отвореној храни“';
 
   @override
   String get preferences_contribute_title => 'Contribute';
@@ -5519,40 +5518,41 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_my_contributions_title => 'My contributions';
 
   @override
-  String get preferences_my_stats_title => 'My statistics';
+  String get preferences_my_stats_title => 'Моја статистика';
 
   @override
-  String get preferences_contribute_subtitle => 'Translate, improve our tools…';
+  String get preferences_contribute_subtitle =>
+      'Преведите, побољшајте наше алате…';
 
   @override
-  String get preferences_connect_title => 'Connect';
+  String get preferences_connect_title => 'Повежи се';
 
   @override
   String get preferences_connect_subtitle =>
-      'Reach out, or Follow us on social media';
+      'Контактирајте нас или пратите нас на друштвеним мрежама';
 
   @override
   String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
-      'Help us inform millions of consumers around the world';
+      'Помозите нам да информишемо милионе потрошача широм света';
 
   @override
-  String get preferences_card_help => 'Help & Support';
+  String get preferences_card_help => 'Помоћ и подршка';
 
   @override
   String get preferences_faq_title => 'FAQ';
 
   @override
-  String get preferences_faq_subtitle => 'Get answers to your questions';
+  String get preferences_faq_subtitle => 'Добијте одговоре на своја питања';
 
   @override
-  String get logged_out => 'Logged out';
+  String get logged_out => 'Одјављени';
 
   @override
   String get preferences_app_bar_message =>
-      'Thank you for being one of our members!';
+      'Хвала вам што сте један од наших чланова!';
 
   @override
   String get preferences_app_bar_products_modified => 'Products modified';
@@ -5561,24 +5561,24 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
-  String get preferences_app_bar_see_all_stats => 'See all stats';
+  String get preferences_app_bar_see_all_stats => 'Погледајте све статистике';
 
   @override
   String external_search_tile_title(String provider, String keyword) {
-    return 'Search $provider for \"$keyword\"';
+    return 'Претражи $provider за „$keyword“';
   }
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Претражите подешавање (нпр. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
-      'Accessibility: Show emoji';
+      'Приступачност: Прикажи емоџије';
 
   @override
   String get preferences_accessibility_remove_colors =>
-      'Accessibility: Remove colors';
+      'Приступачност: Уклоните боје';
 
   @override
   String get preferences_app_settings_products => 'Products';
@@ -5587,11 +5587,11 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_card_about => 'About';
 
   @override
-  String get preferences_legal_information_title => 'Legal information';
+  String get preferences_legal_information_title => 'Правне информације';
 
   @override
   String get preferences_legal_information_subtitle =>
-      'Terms of use, privacy policy, and more';
+      'Услови коришћења, политика приватности и још много тога';
 
   @override
   String get preferences_terms_of_use => 'Terms of use';
@@ -5601,42 +5601,42 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Open Food Facts су база података о прехрамбеним производима **коју су направили сви, за свакога**.\nМожете је користити да бисте доносили боље одлуке о храни, а пошто су то **отворени подаци**, свако може да их **поново користи у било коју сврху**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
 
   @override
-  String get preferences_licenses => 'Licenses';
+  String get preferences_licenses => 'Лиценце';
 
   @override
-  String get preferences_about_app_title => 'About the app';
+  String get preferences_about_app_title => 'О апликацији';
 
   @override
   String get preferences_about_app_subtitle =>
-      'Technical information, developer information, and more';
+      'Техничке информације, информације за програмере и још много тога';
 
   @override
-  String get preferences_card_information => 'Informacija';
+  String get preferences_card_information => 'Information';
 
   @override
-  String get preferences_version_number_title => 'Version number';
+  String get preferences_version_number_title => 'Број верзије';
 
   @override
-  String get preferences_scanner_title => 'Scanner';
+  String get preferences_scanner_title => 'Скенер';
 
   @override
-  String get preferences_app_store => 'App store';
+  String get preferences_app_store => 'Продавница апликација';
 
   @override
-  String get preferences_app_system_settings => 'System settings';
+  String get preferences_app_system_settings => 'Системска подешавања';
 
   @override
-  String get preferences_source_code => 'Access the source code';
+  String get preferences_source_code => 'Приступите изворном коду';
 
   @override
   String get preferences_source_code_subtitle =>
-      'And start making an impact for millions';
+      'И почните да утичете на милионе';
 
   @override
   String get preferences_add_prices => 'Add prices';
@@ -5645,108 +5645,110 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_complete_products => 'Complete products';
 
   @override
-  String get preferences_tips => 'Tips';
+  String get preferences_tips => 'Савети';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Откријте нови Нутри-Скор';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'На веб-сајту Open Food Facts';
 
   @override
-  String get preferences_manage_account_title => 'Manage my account';
+  String get preferences_manage_account_title => 'Управљај мојим налогом';
 
   @override
-  String get preferences_manage_account_tooltip => 'Manage your account';
+  String get preferences_manage_account_tooltip => 'Управљајте својим налогом';
 
   @override
-  String get preferences_change_password_title => 'Change my password';
+  String get preferences_change_password_title => 'Промени моју лозинку';
 
   @override
-  String get preferences_danger_zone => 'Danger zone';
+  String get preferences_danger_zone => 'Опасна зона';
 
   @override
   String get preferences_account_deletion_subtitle =>
-      'All your contributions will be lost';
+      'Сви ваши доприноси ће бити изгубљени';
 
   @override
   String get preferences_contributions_title => 'Contributions';
 
   @override
-  String get preferences_dev_mode_app_settings_title => 'App settings';
+  String get preferences_dev_mode_app_settings_title => 'Подешавања апликације';
 
   @override
   String get preferences_dev_mode_offline_data_subtitle =>
-      'Very experimental way to scan products offline';
+      'Веома експерименталан начин скенирања производа ван мреже';
 
   @override
   String get preferences_dev_mode_refresh_products_title =>
-      'Refresh all products from the server';
+      'Освежи све производе са сервера';
 
   @override
   String get preferences_dev_mode_refresh_products_subtitle =>
-      'Please avoid doing that unless absolutely necessary';
+      'Молим вас, избегавајте то да радите осим ако није апсолутно неопходно';
 
   @override
-  String get preferences_dev_mode_demo_mode_title => 'Demo mode';
+  String get preferences_dev_mode_demo_mode_title => 'Демо режим';
 
   @override
-  String get preferences_dev_mode_add_cards_title => 'Add cards to scanner';
+  String get preferences_dev_mode_add_cards_title => 'Додајте картице у скенер';
 
   @override
   String get preferences_dev_mode_add_cards_subtitle =>
-      'Adds 3 sample products to the scanner';
+      'Додаје 3 узорка производа скенеру';
 
   @override
-  String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
+  String get preferences_dev_mode_folksonomy_host_title =>
+      'Домаћин фолксономије';
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return 'Host: $host';
+    return 'Домаћин: $host';
   }
 
   @override
   String get preferences_dev_mode_accessibility_experiments_title =>
-      'Accessibility experiments';
+      'Експерименти са приступачношћу';
 
   @override
   String get preferences_dev_mode_multi_products_selection_title =>
-      'Multi-products selection for prices';
+      'Избор више производа по ценама';
 
   @override
   String get preferences_dev_mode_user_ordered_kp_title =>
-      'User ordered knowledge panels';
+      'Панели знања по наруџбини корисника';
 
   @override
   String get preferences_dev_mode_location_search_title =>
-      'Temporary access to location search';
+      'Привремени приступ претраживању локације';
 
   @override
   String get preferences_dev_mode_comparison_title =>
-      'Side by side comparison for 2 or 3 products';
+      'Упоређивање 2 или 3 производа једно поред другог';
 
   @override
   String get preferences_dev_mode_product_list_import_title =>
-      'Product list import';
+      'Увоз листе производа';
 
   @override
   String get preferences_faq_scores_methodologies_title =>
-      'Scores & methodologies';
+      'Резултати и методологије';
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Откријте како се израчунава Нутри-Скор';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
-      'Discover the main changes to the methodology';
+      'Откријте главне промене у методологији';
 
   @override
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Откријте чињенице о отвореној храни';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5763,21 +5765,21 @@ class AppLocalizationsSr extends AppLocalizations {
       'Discover Open Products Facts';
 
   @override
-  String get preferences_faq_faq_title => 'FAQ - Frequently Asked Questions';
+  String get preferences_faq_faq_title => 'ЧПП - Често постављана питања';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
 
   @override
-  String get preferences_about_information_title => 'Informacija';
+  String get preferences_about_information_title => 'Information';
 
   @override
   String get preferences_connect_community_updates_title =>
-      'Get community updates';
+      'Добијајте ажурирања заједнице';
 
   @override
   String get preferences_connect_newsletter_subtitle =>
-      'Stay in the loop with app and community news';
+      'Будите у току са вестима из апликације и заједнице';
 
   @override
   String get preferences_connect_community_calendar_title =>
@@ -5785,132 +5787,135 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
-      'Get involved by attending one of our virtual events';
+      'Укључите се тако што ћете присуствовати једном од наших виртуелних догађаја';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Блог „Чињенице о отвореној храни“';
 
   @override
   String get preferences_connect_blog_subtitle =>
-      'Get the latest news, as they happen';
+      'Добијајте најновије вести, чим се дешавају';
 
   @override
   String get preferences_connect_community_help_title =>
-      'Get help from the community';
+      'Потражите помоћ од заједнице';
 
   @override
-  String get preferences_connect_improve_app_title => 'Help us improve the app';
+  String get preferences_connect_improve_app_title =>
+      'Помозите нам да побољшамо апликацију';
 
   @override
   String get preferences_connect_debug_info_title =>
-      'Send us debug information';
+      'Пошаљите нам информације за отклањање грешака';
 
   @override
   String get preferences_connect_debug_info_subtitle =>
-      'Send us an email with detailed debugging information';
+      'Пошаљите нам имејл са детаљним информацијама о отклањању грешака';
 
   @override
   String get preferences_connect_feedback_title =>
-      'Send us feedback about the app';
+      'Пошаљите нам повратне информације о апликацији';
 
   @override
   String get preferences_connect_feedback_subtitle =>
-      'Help shape the future of the app';
+      'Помозите у обликовању будућности апликације';
 
   @override
-  String get preferences_connect_survey_title => 'Take the app survey';
+  String get preferences_connect_survey_title => 'Попуните анкету о апликацији';
 
   @override
   String get preferences_connect_survey_subtitle =>
-      'Help us understand what we should build next';
+      'Помозите нам да разумемо шта треба да градимо следеће';
 
   @override
-  String get preferences_connect_professionals_title => 'Professionals';
+  String get preferences_connect_professionals_title => 'Професионалци';
 
   @override
   String get preferences_connect_pro_subtitle =>
-      'Totally free, ensures accurate data for 500 apps & millions of consumers. Self-service, compatible with your PIM or spreadsheets (XLSX)';
+      'Потпуно бесплатно, обезбеђује тачне податке за 500 апликација и милионе потрошача. Самопослуживање, компатибилно са вашим PIM-ом или табелама (XLSX)';
 
   @override
   String get preferences_connect_pro_email_subtitle =>
-      'Get in touch to get started';
+      'Контактирајте нас да бисте започели';
 
   @override
   String get preferences_connect_press_title => 'Press';
 
   @override
   String get preferences_connect_press_page_subtitle =>
-      'Get all the material you need for your report';
+      'Прикупите сав материјал који вам је потребан за ваш извештај';
 
   @override
   String get preferences_connect_press_email_subtitle =>
-      'Get in touch for press inquiries or to let us know about your report';
+      'Контактирајте нас за упите за штампу или да нас обавестите о вашем извештају';
 
   @override
   String get preferences_contribute_active_volunteer_title =>
-      'Become an active volunteer';
+      'Постаните активни волонтер';
 
   @override
   String get preferences_contribute_skill_pool_subtitle =>
-      'Development, Communication, Design… any kind of volunteering or expertise is welcomed!';
+      'Развој, комуникација, дизајн… свака врста волонтирања или стручности је добродошла!';
 
   @override
   String get preferences_contribute_how_to_subtitle =>
-      'Discover some of the many ways you can contribute';
+      'Откријте неке од многих начина на које можете допринети';
 
   @override
   String get preferences_contribute_mobile_dev_title =>
-      'Mobile app development';
+      'Развој мобилних апликација';
 
   @override
   String get preferences_contribute_sw_dev_subtitle =>
-      'Learn how to contribute to software development';
+      'Научите како да допринесете развоју софтвера';
 
   @override
   String get preferences_contribute_alpha_subtitle =>
-      'Daily unstable builds, brand new features';
+      'Дневне нестабилне верзије, потпуно нове функције';
 
   @override
   String get preferences_contribute_local_community_title =>
-      'Grow your local community';
+      'Развијте своју локалну заједницу';
 
   @override
   String get preferences_contribute_translate_subtitle =>
-      'Help with software, contents, ingredient analysis translations';
+      'Помоћ са преводима софтвера, садржаја и анализе састојака';
 
   @override
   String get preferences_contribute_share_subtitle =>
-      'We have prepared a little template to help you :-)';
+      'Припремили смо мали шаблон да вам помогнемо :-)';
 
   @override
   String get preferences_contribute_country_subtitle =>
-      'Simple steps to grow food transparency in your country';
+      'Једноставни кораци за повећање транспарентности хране у вашој земљи';
 
   @override
   String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
-      'Join the data quality team';
+      'Придружите се тиму за квалитет података';
 
   @override
   String get preferences_contribute_data_quality_team_subtitle =>
-      'Join our effort to ensure the database is complete and accurate';
+      'Придружите се нашем напору да осигурамо да је база података потпуна и тачна';
 
   @override
-  String get preferences_contributions_products_added_title => 'Added products';
+  String get preferences_contributions_products_added_title =>
+      'Додати производи';
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Нови производи које сам додао/ла на Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
-      'Products I need to complete';
+      'Производи које треба да завршим';
 
   @override
   String get preferences_contributions_all_incomplete_title =>
-      'All incomplete products';
+      'Сви непотпуни производи';
 
   @override
   String get preferences_my_contributions_prices_title => 'Prices';
@@ -5920,137 +5925,138 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
-      'My prices, my proofs…';
+      'Моје цене, моји докази…';
 
   @override
   String get preferences_contributions_all_incomplete_subtitle =>
-      'Products you can help complete';
+      'Производи које можете помоћи да завршите';
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Помозите у израчунавању Nutri-Score-а и Green-Score-а у вашој земљи';
 
   @override
-  String get preferences_prices_user_prices_subtitle => 'Prices I contributed';
+  String get preferences_prices_user_prices_subtitle =>
+      'Цене које сам допринео/ла';
 
   @override
-  String get preferences_prices_proofs_subtitle => 'Price tags and receipts';
+  String get preferences_prices_proofs_subtitle => 'Ценовнике и рачуне';
 
   @override
   String get preferences_prices_add_receipt_subtitle =>
-      'Take photos of your receipts and scan associated barcodes';
+      'Фотографишите своје рачуне и скенирајте повезане баркодове';
 
   @override
   String get preferences_prices_add_price_tags_subtitle =>
-      'Take photos of prices in a shop';
+      'Фотографишите цене у продавници';
 
   @override
-  String get preferences_prices_newest_title => 'Newest prices';
+  String get preferences_prices_newest_title => 'Најновије цене';
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Најновије цене које је додала заједница Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
-      'Contributors with the most prices';
+      'Сарадници са највише цена';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Price metrics';
+  String get preferences_prices_metrics_title => 'Метрике отварања цене';
 
   @override
-  String get preferences_prices_metrics_subtitle =>
-      'Follow the evolution of the project';
+  String get preferences_prices_metrics_subtitle => 'Пратите развој пројекта';
 
   @override
-  String get preferences_prices_ways_contribute_title => 'Ways to contribute';
+  String get preferences_prices_ways_contribute_title => 'Начини доприноса';
 
   @override
   String get preferences_prices_validation_assistant_subtitle =>
-      'Confirm prices added by yourself or others, with the help of AI';
+      'Потврдите цене које сте ви или други додали, уз помоћ вештачке интелигенције';
 
   @override
   String get preferences_prices_multiple_proof_subtitle =>
-      'Quickly add many receipts or photos of shelves from your camera roll';
+      'Брзо додајте више рачуна или фотографија полица са вашег фотоапарата';
 
   @override
-  String get preferences_prices_challenges_title => 'Monthly challenges';
+  String get preferences_prices_challenges_title => 'Месечни изазови';
 
   @override
   String get preferences_prices_challenges_subtitle =>
-      'Participate in monthly thematic quests to collect prices';
+      'Учествујте у месечним тематским задацима да бисте сакупљали награде';
 
   @override
   String get preferences_prices_loyalty_data_title =>
-      'Reclaim your loyalty data';
+      'Повратите своје податке о лојалности';
 
   @override
   String get preferences_prices_gdpr_subtitle =>
-      'Learn how to request your data';
+      'Сазнајте како да затражите своје податке';
 
   @override
-  String get preferences_page_customize_app_title => 'Customize the app';
+  String get preferences_page_customize_app_title => 'Прилагодите апликацију';
 
   @override
   String get preferences_page_contribute_project_title =>
-      'Contribute to the project';
+      'Допринесите пројекту';
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Једноставни начини да помогнете Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
-      'Score methodologies, help, and more about the project';
+      'Методологије бодовања, помоћ и још много тога о пројекту';
 
   @override
-  String get product_edit_robotoff_positive_button => 'Accept suggestion';
+  String get product_edit_robotoff_positive_button => 'Прихвати предлог';
 
   @override
-  String get product_edit_robotoff_negative_button => 'Reject suggestion';
+  String get product_edit_robotoff_negative_button => 'Одбиј предлог';
 
   @override
-  String get product_edit_robotoff_show_proof => 'Show proof';
+  String get product_edit_robotoff_show_proof => 'Покажите доказ';
 
   @override
-  String get product_edit_robotoff_expand_proof => 'Expand proof';
+  String get product_edit_robotoff_expand_proof => 'Прошири доказ';
 
   @override
-  String get product_page_tab_raw_data => 'Raw data';
+  String get product_page_tab_raw_data => 'Необрађени подаци';
 
   @override
   String page_indicator_with_total(int current, int total) {
-    return 'Page $current / $total';
+    return 'Страна $current / $total';
   }
 
   @override
   String page_indicator(int current) {
-    return 'Page $current';
+    return 'Страница $current';
   }
 
   @override
   String item_count_with_total(int count, int total) {
-    return '$count of $total items';
+    return '$count од $total ставки';
   }
 
   @override
   String item_count(int count) {
-    return '$count items';
+    return '$count ставке';
   }
 
   @override
-  String get prices_no_result => 'No price statistics found.';
+  String get prices_no_result => 'Није пронађена статистика цена.';
 
   @override
-  String get prices_error_loading_more_items => 'Error loading more items';
+  String get prices_error_loading_more_items =>
+      'Грешка при учитавању додатних ставки';
 
   @override
   String get prices_proof_error =>
-      'Authentication failed, unable to fetch proofs';
+      'Аутентификација није успела, није могуће преузети доказе';
 
   @override
   String proofs_count_with_total(int count, int total) {
-    return '$count of $total proofs';
+    return '$count од $total доказа';
   }
 
   @override
@@ -6060,7 +6066,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String contributors_count_with_total(int count, int total) {
-    return '$count of $total contributors';
+    return '$count од $total сарадника';
   }
 
   @override
@@ -6070,64 +6076,64 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String prices_locations_count_with_total(int count, int total) {
-    return '$count of $total locations';
+    return '$count од $total локација';
   }
 
   @override
   String prices_locations_count(int count) {
-    return '$count locations';
+    return '$count локације';
   }
 
   @override
   String get restart_to_apply_message =>
-      'Please restart the app to apply the changes.';
+      'Молимо вас да поново покренете апликацију да бисте применили промене.';
 
   @override
   String get preferences_app_settings_graphical_interface_title =>
-      'Graphical interface';
+      'Графички интерфејс';
 
   @override
-  String get preferences_app_settings_media_title => 'Media';
+  String get preferences_app_settings_media_title => 'Медији';
 
   @override
   String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Отворене лабораторије за чињенице о храни';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Донесите чињенице о отвореној храни на свој језик';
 
   @override
   String get preferences_contribute_enroll_alpha =>
-      'Enroll in the alpha version of the app';
+      'Пријавите се за алфа верзију апликације';
 
   @override
   String get preferences_dev_mode_section_data =>
-      'Contributions & Product data';
+      'Доприноси и подаци о производу';
 
   @override
   String get preferences_dev_preferences_show_folksonomy_title =>
-      'Do not show Folksonomy';
+      'Не приказуј фолксономију';
 
   @override
   String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
-    return 'Added on $created';
+    return 'Додато $created';
   }
 
   @override
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Naziv';
+  String get location_map_details_name => 'Name';
 
   @override
   String get location_map_details_street => 'Street';

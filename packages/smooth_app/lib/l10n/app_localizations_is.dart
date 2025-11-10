@@ -226,7 +226,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Gleymt lykilorð?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Eiginleikar';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Því miður, þetta er dæmi um vöruna okkar, þú getur ekki breytt henni :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5286,11 +5286,11 @@ class AppLocalizationsIs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Af hverju verð?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** er verkefni til að safna og deila verði á vörum um allan heim 🌍. Open Prices er þróað og viðhaldið af Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5300,15 +5300,15 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Hvað eru eiginleikar fólksonomíu?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Eiginleikar eru byggðir á **lykilgildum**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Þessir eiginleikar eru búnir til og skráðir af þátttakendum fyrir alls kyns notkun.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

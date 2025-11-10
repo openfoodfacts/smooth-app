@@ -226,7 +226,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'پارولنى ئۇنتۇپ قالدىڭىزمۇ؟';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'خاسلىقى';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'كەچۈرۈڭ ، بۇ بىزنىڭ ئۈلگە مەھسۇلاتىمىز ، ئۇنى تەھرىرلىيەلمەيسىز :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5288,11 +5288,11 @@ class AppLocalizationsUg extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'نېمە ئۈچۈن باھا؟';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '** Open Prices ** دۇنيانىڭ ھەرقايسى جايلىرىدىكى مەھسۇلاتلارنىڭ باھاسىنى يىغىش ۋە ئورتاقلىشىش تۈرى 🌍. Open Prices Open Food Facts پاكىتلىرى تەرىپىدىن تەرەققىي قىلدۇرۇلىدۇ.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5302,15 +5302,15 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Folksonomy نىڭ سۈپەتلىرى نېمە؟';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'خاسلىقى ** ئاچقۇچلۇق قىممەت ** نى ئاساس قىلىدۇ.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'بۇ خۇسۇسىيەتلەر تۆھپىكارلار تەرىپىدىن ھەر خىل ئىشلىتىشكە ئىشلىتىلىدۇ.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5651,7 +5651,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ئوچۇق يېمەكلىك پاكىتلىرى تور بېتىدە';
+      'Open Food Facts پاكىتلىرى تور بېتىدە';
 
   @override
   String get preferences_manage_account_title => 'ھېساباتىمنى باشقۇرۇڭ';
@@ -5745,7 +5745,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title =>
-      'ئوچۇق يېمەكلىك پاكىتلىرىنى بايقايسىز';
+      'Open Food Facts پاكىتلىرىنى بايقايسىز';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5766,7 +5766,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_faq_off_ngo_title =>
-      'ئوچۇق يېمەكلىك پاكىتلىرى ئاممىۋى تەشكىلات';
+      'Open Food Facts پاكىتلىرى ئاممىۋى تەشكىلات';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5789,7 +5789,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_connect_blog_title =>
-      'ئوچۇق يېمەكلىك پاكىتلىرى بىلوگى';
+      'Open Food Facts پاكىتلىرى بىلوگى';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5904,7 +5904,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'مەن ئوچۇق يېمەكلىك پاكىتلىرىغا قوشقان يېڭى مەھسۇلاتلار';
+      'مەن Open Food Facts پاكىتلىرىغا قوشقان يېڭى مەھسۇلاتلار';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5951,7 +5951,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices جەمئىيىتى قوشقان ئەڭ يېڭى باھا';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6000,7 +6000,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Facts پاكىتلىرىغا ياردەم بېرىشنىڭ ئاددىي ئۇسۇللىرى';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6097,14 +6097,14 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ئوچۇق يېمەكلىك پاكىتلىرى تەجرىبىخانىسى';
+      'Open Food Facts پاكىتلىرى تەجرىبىخانىسى';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'تىلىڭىزغا ئوچۇق يېمەكلىك پاكىتلىرىنى ئېلىپ كېلىڭ';
+      'تىلىڭىزغا Open Food Facts پاكىتلىرىنى ئېلىپ كېلىڭ';
 
   @override
   String get preferences_contribute_enroll_alpha =>

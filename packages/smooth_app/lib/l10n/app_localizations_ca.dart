@@ -229,7 +229,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get forgot_password => 'Contrasenya oblidada';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Has oblidat la contrasenya?';
 
   @override
   String get view_profile => 'Mostra el perfil';
@@ -1316,7 +1316,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Propietats';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1683,7 +1683,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Ho sento, és el nostre producte d\'exemple, no el pots editar :)';
 
   @override
   String get product_list_your_ranking => 'La teva classificació';
@@ -4091,7 +4091,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'Nutri-score desconegut (nou càlcul)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
@@ -5347,29 +5347,29 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_page_tab_prices => 'Preus';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Per què els preus?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** és un projecte per recopilar i compartir preus de productes d\'arreu del món 🌍. Open Prices està desenvolupat i mantingut per Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Saber-ne més';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Quins són els atributs de la folksonomia?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Els atributs es basen en **valor-clau**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Aquestes propietats són creades i arxivades pels col·laboradors per a qualsevol tipus d\'ús.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6069,7 +6069,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Maneres senzilles d\'ajudar a Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

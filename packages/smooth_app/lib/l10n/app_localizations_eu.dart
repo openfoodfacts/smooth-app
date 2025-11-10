@@ -227,7 +227,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get forgot_password => 'Pasahitza ahaztu dut';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Pasahitza ahaztu duzu?';
 
   @override
   String get view_profile => 'Profila ikusi';
@@ -1293,7 +1293,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Ezaugarriak';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1305,7 +1305,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get tag_value => 'Balioa';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Balioak';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1660,7 +1660,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Barkatu, gure adibide produktua da, ezin duzu editatu :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5307,29 +5307,29 @@ class AppLocalizationsEu extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Zergatik prezioak?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** mundu osoko produktuen prezioak bildu eta partekatzeko proiektu bat da 🌍. Open Prices Open Food Facts-ek garatu eta mantentzen du.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Gehiago jakin';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Zeintzuk dira folksonomiaren ezaugarriak?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atributuak **gako-balio** oinarrituta daude.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Propietate hauek kolaboratzaileek sortu eta artxibatzen dituzte edozein motatako erabilerarako.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6023,7 +6023,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Open Food Facts laguntzeko modu errazak';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -226,7 +226,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'ភ្លេចពាក្យសម្ងាត់?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ទ្រព្យសម្បត្តិ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'សូមអភ័យទោស វាជាផលិតផលគំរូរបស់យើង អ្នកមិនអាចកែសម្រួលវាបានទេ :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5286,11 +5286,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ហេតុអ្វីបានជាតម្លៃ?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** គឺជាគម្រោងប្រមូល និងចែករំលែកតម្លៃផលិតផលជុំវិញពិភពលោក🌍។ Open Pricesត្រូវបានបង្កើត និងរក្សាដោយ Open Food Facts។';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5300,15 +5300,15 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'តើគុណលក្ខណៈ Folksonomy ជាអ្វី?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'គុណលក្ខណៈគឺ **តម្លៃគន្លឹះ** ផ្អែកលើ។';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'លក្ខណៈសម្បត្តិទាំងនេះត្រូវបានបង្កើត និងដាក់ឯកសារដោយអ្នករួមចំណែកសម្រាប់ការប្រើប្រាស់គ្រប់ប្រភេទ។';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5995,7 +5995,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'វិធីសាមញ្ញដើម្បីជួយបើកការពិតអំពីអាហារ';
 
   @override
   String get preferences_page_faq_subtitle =>

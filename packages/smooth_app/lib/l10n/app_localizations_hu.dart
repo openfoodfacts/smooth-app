@@ -229,7 +229,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get forgot_password => 'Elfelejtett jelszó';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Elfelejtett jelszó?';
 
   @override
   String get view_profile => 'Profil megtekintése';
@@ -894,7 +894,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Please take the following photos and the Open Food Facts engine can work out the rest!';
+      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -1305,7 +1305,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get tag_key => 'Tulajdonság';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Tulajdonságok';
 
   @override
   String get tag_key_uneditable => 'Tulajdonság (nem szerkeszthető)';
@@ -1317,7 +1317,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get tag_value => 'Érték';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Értékek';
 
   @override
   String get tag_value_input_hint => 'Adjon meg egy értéket';
@@ -1673,7 +1673,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Sajnálom, ez a példatermékünk, nem szerkeszthető :)';
 
   @override
   String get product_list_your_ranking => 'Az Ön helyezése';
@@ -5334,29 +5334,29 @@ class AppLocalizationsHu extends AppLocalizations {
   String get product_page_tab_prices => 'Árak';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Miért az árak?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      'Az **Open Prices** egy olyan projekt, amelynek célja a világ minden tájáról származó termékek árainak összegyűjtése és megosztása 🌍. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'További információk';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Mik a folksonomia attribútumai?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Az attribútumok **kulcs-érték** alapúak.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ezeket a tulajdonságokat a közreműködők hozzák létre és iktatják bármilyen felhasználásra.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6003,7 +6003,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'A Open Prices közössége által hozzáadott legújabb árak';
 
   @override
   String get preferences_prices_top_contributors_title =>

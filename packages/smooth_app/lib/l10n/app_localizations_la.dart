@@ -226,7 +226,7 @@ class AppLocalizationsLa extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Tesserae oblitus/a es?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsLa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Proprietates';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Ignosce, exemplum producti nostri est, id mutare non potes :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5291,11 +5291,11 @@ class AppLocalizationsLa extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Cur pretia?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** est proiectum ad pretia productorum toto orbe terrarum 🌍 colligenda et communicanda. Open Prices (Open Prices) ab Open Food Facts elaborata et sustentata sunt.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5305,15 +5305,15 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Quae sunt proprietates Folksonomiae?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attributa in **clavibus-valoribus** fundantur.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Hae proprietates a contributoribus ad quemvis usum creantur et deponuntur.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5962,7 +5962,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Pretia recentissima a communitate Pretiorum Apertorum addita';
 
   @override
   String get preferences_prices_top_contributors_title =>

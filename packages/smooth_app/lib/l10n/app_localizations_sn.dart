@@ -226,7 +226,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Wakanganwa password?';
 
   @override
   String get view_profile => 'View profile';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Tine urombo, ndicho chigadzirwa chedu, haugone kuchigadzirisa :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5290,11 +5290,11 @@ class AppLocalizationsSn extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Sei mitengo?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Vhura Mitengo** ipurojekiti yekuunganidza nekugovana mitengo yezvigadzirwa pasi rese 🌍. Mitengo yakavhurika inogadzirwa uye inochengetwa neOpen Food Chokwadi.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5304,15 +5304,15 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Chii chinonzi Folksonomy hunhu?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Hunhu hunonzi **kiyi-kukosha ** kwakavakirwa.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Izvi zvivakwa zvinogadzirwa uye zvinofayerwa nevanopa kune chero mhando yekushandisa.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5997,7 +5997,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Nzira dzakareruka dzekubatsira Vhura Zvokudya Zvokudya';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -226,7 +226,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Hadino ny tenimiafina?';
 
   @override
   String get view_profile => 'View profile';
@@ -1657,7 +1657,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Miala tsiny fa vokatra ohatra anay io, tsy azonao ovaina :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5297,11 +5297,11 @@ class AppLocalizationsMg extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Nahoana ny vidiny?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** dia tetikasa hanangonana sy hizarana ny vidin\'ny vokatra manerana izao tontolo izao 🌍. Ny Open Prices dia novolavolaina sy nokarakarain\'ny Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5311,15 +5311,15 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Inona avy ireo toetran\'ny Folksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Ny toetra dia mifototra amin\'ny **key-value**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ireo fananana ireo dia noforonina sy napetraky ny mpandray anjara ho an\'ny karazana fampiasana rehetra.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

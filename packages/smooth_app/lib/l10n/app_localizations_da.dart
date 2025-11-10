@@ -226,7 +226,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get forgot_password => 'Glemt adgangskode';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Glemt adgangskode?';
 
   @override
   String get view_profile => 'Se profil';
@@ -1297,7 +1297,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get tag_key => 'Egenskab';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Ejendomme';
 
   @override
   String get tag_key_uneditable => 'Egenskab (ikke-redigerbar)';
@@ -1309,7 +1309,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get tag_value => 'Værdi';
 
   @override
-  String get tag_values => 'Values';
+  String get tag_values => 'Værdier';
 
   @override
   String get tag_value_input_hint => 'Indtast en værdi';
@@ -1663,7 +1663,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Beklager, det er vores eksempelprodukt, du kan ikke redigere det :)';
 
   @override
   String get product_list_your_ranking => 'Din rangering';
@@ -4587,7 +4587,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Hvad er OpenFoodFacts?';
+      'Hvad er Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -5306,29 +5306,29 @@ class AppLocalizationsDa extends AppLocalizations {
   String get product_page_tab_prices => 'Priser';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Hvorfor priser?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** er et projekt til at indsamle og dele priser på produkter fra hele verden 🌍. Open Prices er udviklet og vedligeholdt af Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Få mere at vide';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Hvad er Folksonomys attributter?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Attributter er **nøgleværdibaserede**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Disse egenskaber oprettes og arkiveres af bidragydere til enhver form for anvendelse.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

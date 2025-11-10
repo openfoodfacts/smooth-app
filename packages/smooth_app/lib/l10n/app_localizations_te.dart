@@ -226,7 +226,7 @@ class AppLocalizationsTe extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'పాస్‌వర్డ్ మర్చిపోయారా?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTe extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'లక్షణాలు';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'క్షమించండి, ఇది మా ఉదాహరణ ఉత్పత్తి, మీరు దీన్ని సవరించలేరు :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4895,7 +4895,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about గురించి';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5290,11 +5290,11 @@ class AppLocalizationsTe extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ధరలు ఎందుకు?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఉత్పత్తుల ధరలను సేకరించి పంచుకునే ప్రాజెక్ట్ 🌍. Open Prices‌ను ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అభివృద్ధి చేసి నిర్వహిస్తుంది.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5303,16 +5303,15 @@ class AppLocalizationsTe extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'ఫోక్సోనమీ లక్షణాలు ఏమిటి?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'లక్షణాలు **కీ-విలువ** ఆధారితంగా ఉంటాయి.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'ఈ ఆస్తులు ఏ రకమైన ఉపయోగాలకైనా సహకారులచే సృష్టించబడతాయి మరియు దాఖలు చేయబడతాయి.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5953,7 +5952,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Prices కమ్యూనిటీ జోడించిన తాజా ధరలు';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6002,7 +6001,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'సహాయపడే సులభమైన మార్గాలు Open Food Factsవండి';
 
   @override
   String get preferences_page_faq_subtitle =>

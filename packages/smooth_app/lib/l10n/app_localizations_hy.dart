@@ -226,7 +226,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Մոռացե՞լ եք գաղտնաբառը։';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Հատկություններ';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Կներեք, սա մեր օրինակելի ապրանքն է, դուք չեք կարող այն խմբագրել :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5289,11 +5289,11 @@ class AppLocalizationsHy extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Ինչո՞ւ գներ։';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices**-ը նախագիծ է, որը հավաքում և կիսվում է աշխարհի տարբեր ապրանքների գներով 🌍: Open Pricesը մշակվել և սպասարկվում են Open Food Facts-ի կողմից:';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5303,15 +5303,15 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Որո՞նք են ֆոլկսոնոմիայի առանձնահատկությունները։';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Ատրիբուտները հիմնված են **բանալի-արժեք** վրա։';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Այս հատկությունները ստեղծվում և ներկայացվում են մասնակիցների կողմից ցանկացած տեսակի օգտագործման համար։';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5958,7 +5958,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Pricesի համայնքի կողմից ավելացված վերջին գները';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6004,7 +6004,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Պարզ եղանակներ՝ օգնելու Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

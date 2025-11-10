@@ -227,7 +227,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Zaboravili ste lozinku?';
 
   @override
   String get view_profile => 'View profile';
@@ -1291,7 +1291,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Svojstva';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1658,7 +1658,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Žao nam je, ovo je naš primjer proizvoda, ne možete ga uređivati :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5290,29 +5290,29 @@ class AppLocalizationsHr extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Zašto cijene?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Otvorene cijene** je projekt prikupljanja i dijeljenja cijena proizvoda diljem svijeta 🌍. Open Prices razvija i održava Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Saznajte više';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Koje su osobine folksonomije?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Atributi se temelje na **ključu i vrijednosti**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ova svojstva stvaraju i pohranjuju suradnici za bilo koju vrstu upotrebe.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

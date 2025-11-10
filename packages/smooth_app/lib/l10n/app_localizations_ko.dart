@@ -223,7 +223,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get forgot_password => '비밀번호 찾기';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => '비밀번호를 잊으셨나요?';
 
   @override
   String get view_profile => '프로필 보기';
@@ -1268,7 +1268,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => '속성';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1321,12 +1321,11 @@ class AppLocalizationsKo extends AppLocalizations {
       'Nutri-Score를 계산할 카테고리를 추가하세요.';
 
   @override
-  String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+  String get product_improvement_add_nutrition_facts => '영양 성분을 추가하여 영양 점수 계산';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      '영양 성분을 추가하여 영양 점수 계산';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -1630,7 +1629,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      '죄송합니다. 이는 예시 제품이기 때문에 편집할 수 없습니다 :)';
 
   @override
   String get product_list_your_ranking => '내 순위';
@@ -5219,29 +5218,27 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => '왜 가격인가?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 오픈 푸드 팩츠에서 개발 및 관리합니다.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => '더보기';
 
   @override
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'Folksonomy 속성은 무엇인가요?';
 
   @override
-  String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+  String get folksonomy_explanation_card_line1 => '속성은 **키-값** 기반입니다.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      '이러한 속성은 기여자에 의해 어떤 용도로든 생성되고 보관됩니다.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5843,7 +5840,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Open Price 커뮤니티에서 추가한 최신 가격';
 
   @override
   String get preferences_prices_top_contributors_title => '가장 많은 가격을 제시한 기여자';

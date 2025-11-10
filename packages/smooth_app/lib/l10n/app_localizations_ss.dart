@@ -226,7 +226,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Ukhohliwe iphasiwedi?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Tici';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Siyacolisa, ngumkhicito wetfu wesibonelo, ngeke ukwati kuwuhlela :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4981,7 +4981,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://si.vulela imikhicito.org/tfola';
+      'https://world-en.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5300,11 +5300,11 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Kungani emanani?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** yiphrojekthi yekubutsela ndzawonye nekwabelana ngemanani emikhicito emhlabeni wonkhe 🌍. Intsengo Levulekile itfutfukiswa futsi igcinwe yi-Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5314,15 +5314,15 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Yini timfanelo teFolksonomy?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Timphawu tisekelwe **kukhiye-linani**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Letimphahla takhiwe futsi tifakwe ngulabafaka sandla kunobe nguyiphi inhlobo yekusetjentiswa.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6018,7 +6018,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
 
   @override
   String get preferences_page_faq_subtitle =>

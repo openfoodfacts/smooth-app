@@ -226,7 +226,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Калидвожа фаромӯш шуд?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Хосиятҳо';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'Бубахшед, ин маҳсулоти намунавии мост, шумо онро таҳрир карда наметавонед :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -2998,7 +2998,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Гузариш байни prices.openfoodfacts.org (PROD) ва env test';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5289,11 +5289,11 @@ class AppLocalizationsTg extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Чаро нархҳо?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** лоиҳаест барои ҷамъоварӣ ва мубодилаи нархҳои маҳсулот дар саросари ҷаҳон 🌍. Open Prices аз ҷониби Open Food Facts таҳия ва нигоҳ дошта мешаванд.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5303,15 +5303,15 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Хусусиятҳои фолксономия кадомҳоянд?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Аттрибутҳо ба **арзиши калидӣ** асос ёфтаанд.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Ин хосиятҳо аз ҷониби саҳмгузорон барои ҳама гуна истифодаҳо сохта ва пешниҳод карда мешаванд.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

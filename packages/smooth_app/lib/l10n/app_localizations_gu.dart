@@ -226,7 +226,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'પાસવર્ડ ભૂલી ગયા છો?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'ગુણધર્મો';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'માફ કરશો, આ આપણું ઉદાહરણ ઉત્પાદન છે, તમે તેને સંપાદિત કરી શકતા નથી :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5288,11 +5288,11 @@ class AppLocalizationsGu extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'ભાવ શા માટે?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** એ વિશ્વભરના ઉત્પાદનોના ભાવ એકત્રિત કરવા અને શેર કરવા માટેનો એક પ્રોજેક્ટ છે 🌍. Open Prices Open Food Facts દ્વારા વિકસાવવામાં અને જાળવવામાં આવે છે.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5301,16 +5301,15 @@ class AppLocalizationsGu extends AppLocalizations {
   String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
-  String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+  String get folksonomy_explanation_card_title => 'ફોક્સોનોમીના લક્ષણો શું છે?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'વિશેષતાઓ **કી-મૂલ્ય** આધારિત છે.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'આ ગુણધર્મો કોઈપણ પ્રકારના ઉપયોગ માટે ફાળો આપનારાઓ દ્વારા બનાવવામાં અને ફાઇલ કરવામાં આવે છે.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5598,7 +5597,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ઓપન ફૂડ ફેક્ટ્સ એ ફૂડ પ્રોડક્ટ્સનો ડેટાબેઝ છે જે **દરેક વ્યક્તિ દ્વારા, દરેક માટે** બનાવવામાં આવે છે.\nતમે તેનો ઉપયોગ વધુ સારી ખોરાક પસંદગીઓ કરવા માટે કરી શકો છો, અને કારણ કે તે **ખુલ્લો ડેટા** છે, કોઈપણ **કોઈપણ હેતુ માટે તેનો ફરીથી ઉપયોગ** કરી શકે છે.';
+      'Open Food Facts એ ફૂડ પ્રોડક્ટ્સનો ડેટાબેઝ છે જે **દરેક વ્યક્તિ દ્વારા, દરેક માટે** બનાવવામાં આવે છે.\nતમે તેનો ઉપયોગ વધુ સારી ખોરાક પસંદગીઓ કરવા માટે કરી શકો છો, અને કારણ કે તે **ખુલ્લો ડેટા** છે, કોઈપણ **કોઈપણ હેતુ માટે તેનો ફરીથી ઉપયોગ** કરી શકે છે.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5649,7 +5648,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ઓપન ફૂડ ફેક્ટ્સ વેબસાઇટ પર';
+      'Open Food Facts વેબસાઇટ પર';
 
   @override
   String get preferences_manage_account_title => 'મારું એકાઉન્ટ મેનેજ કરો';
@@ -5765,7 +5764,7 @@ class AppLocalizationsGu extends AppLocalizations {
       'વારંવાર પૂછાતા પ્રશ્નો - વારંવાર પૂછાતા પ્રશ્નો';
 
   @override
-  String get preferences_faq_off_ngo_title => 'ધ ઓપન ફૂડ ફેક્ટ્સ એનજીઓ';
+  String get preferences_faq_off_ngo_title => 'ધ Open Food Facts એનજીઓ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5787,7 +5786,7 @@ class AppLocalizationsGu extends AppLocalizations {
       'અમારા વર્ચ્યુઅલ ઇવેન્ટ્સમાં ભાગ લઈને સામેલ થાઓ';
 
   @override
-  String get preferences_connect_blog_title => 'ધ ઓપન ફૂડ ફેક્ટ્સ બ્લોગ';
+  String get preferences_connect_blog_title => 'ધ Open Food Facts બ્લોગ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5902,7 +5901,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ઓપન ફૂડ ફેક્ટ્સમાં મેં ઉમેરેલા નવા ઉત્પાદનો';
+      'Open Food Factsમાં મેં ઉમેરેલા નવા ઉત્પાદનો';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5949,7 +5948,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ઓપન પ્રાઈસ સમુદાય દ્વારા ઉમેરવામાં આવેલી નવીનતમ કિંમતો';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5997,7 +5996,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'ખોરાકની હકીકતો ખોલવામાં મદદ કરવાની સરળ રીતો';
 
   @override
   String get preferences_page_faq_subtitle =>

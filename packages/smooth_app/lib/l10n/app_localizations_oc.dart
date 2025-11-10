@@ -226,7 +226,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
-  String get forgot_password_question => 'Forgot password?';
+  String get forgot_password_question => 'Avètz oblidat lo senhal?';
 
   @override
   String get view_profile => 'View profile';
@@ -1290,7 +1290,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
-  String get tag_keys => 'Properties';
+  String get tag_keys => 'Proprietats';
 
   @override
   String get tag_key_uneditable => 'Property (uneditable)';
@@ -1657,7 +1657,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Sorry, it\'s our example product, you cannot edit it :)';
+      'O planhèm, es nòstre produch d\'exemple, lo podètz pas modificar :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -5298,11 +5298,11 @@ class AppLocalizationsOc extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
-  String get prices_explanation_card_title => 'Why prices?';
+  String get prices_explanation_card_title => 'Perqué los prètzs?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** es un projècte per reculhir e partejar los prètzs dels produches dins lo mond entièr 🌍. Open Prices es desvolopat e mantengut per Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5312,15 +5312,15 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'What are Folksonomy attributes?';
+      'Qué son los atributs de la folksonomia?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributes are **key-value** based.';
+      'Los atributs son basats sus **clau-valor**.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'These properties are created and filed by contributors for any kind of usages.';
+      'Aquestas proprietats son creadas e archivadas pels contributors per tota mena d\'utilizacions.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -6021,7 +6021,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'De biaisses simples d\'ajudar a dobrir los faches alimentaris';
 
   @override
   String get preferences_page_faq_subtitle =>
