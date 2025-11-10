@@ -38,13 +38,6 @@ class PageManagerState extends State<PageManager> {
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
 
-  /// To implement a lazy-loading algorithm to only load visible tabs, we
-  /// store a list of boolean if a tab have been visible at least one time.
-  final List<bool> _loadedTabs = List<bool>.generate(
-    BottomNavigationTab.values.length,
-    (_) => false,
-  );
-
   static final List<Widget> tabs = <Widget>[
     TabNavigator(
       navigatorKey: _navigatorKeys[BottomNavigationTab.Profile]!,
