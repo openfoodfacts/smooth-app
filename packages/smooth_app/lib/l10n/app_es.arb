@@ -1372,6 +1372,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Lo sentimos, es nuestro producto de ejemplo, no puede editarlo :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Tu clasificación",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
