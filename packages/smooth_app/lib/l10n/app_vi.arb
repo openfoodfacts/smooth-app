@@ -1372,6 +1372,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Xin lỗi, đây là sản phẩm mẫu của chúng tôi, bạn không thể chỉnh sửa nó :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Xếp hạng của bạn",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
