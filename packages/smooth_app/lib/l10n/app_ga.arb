@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Cén fáth praghsanna?",
-  "prices_explanation_card_line1": "Is tionscadal é **Praghsanna Oscailte** chun praghsanna táirgí ar fud an domhain a bhailiú agus a roinnt 🌍. Forbraíonn agus cothabhálann Open Food Facts Prices Oscailte.",
+  "prices_explanation_card_line1": "Is tionscadal é **Open Prices** chun praghsanna táirgí ar fud an domhain a bhailiú agus a roinnt 🌍. Forbraíonn agus cothabhálann Open Food Facts Open Prices.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Na praghsanna is déanaí curtha leis ag pobal Oscailte Praghsanna",
+  "preferences_prices_newest_subtitle": "Na praghsanna is déanaí curtha leis ag pobal Open Prices",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Bealaí simplí chun cabhrú le Fíricí Bia Oscailte",
+  "preferences_page_contribute_project_subtitle": "Bealaí simplí chun cabhrú le Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
