@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ਕੀਮਤਾਂ ਕਿਉਂ?",
-  "prices_explanation_card_line1": "**ਓਪਨ ਪ੍ਰਾਈਸ** ਦੁਨੀਆ ਭਰ ਦੇ ਉਤਪਾਦਾਂ ਦੀਆਂ ਕੀਮਤਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਅਤੇ ਸਾਂਝੀਆਂ ਕਰਨ ਦਾ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਹੈ 🌍। ਓਪਨ ਪ੍ਰਾਈਸ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਦੁਆਰਾ ਵਿਕਸਤ ਅਤੇ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ।",
+  "prices_explanation_card_line1": "**ਓਪਨ ਪ੍ਰਾਈਸ** ਦੁਨੀਆ ਭਰ ਦੇ ਉਤਪਾਦਾਂ ਦੀਆਂ ਕੀਮਤਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਅਤੇ ਸਾਂਝੀਆਂ ਕਰਨ ਦਾ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਹੈ 🌍। ਓਪਨ ਪ੍ਰਾਈਸ Open Food Facts ਦੁਆਰਾ ਵਿਕਸਤ ਅਤੇ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ।",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਇੱਕ ਭੋਜਨ ਉਤਪਾਦਾਂ ਦਾ ਡੇਟਾਬੇਸ ਹੈ **ਸਾਰਿਆਂ ਦੁਆਰਾ, ਸਾਰਿਆਂ ਲਈ ਬਣਾਇਆ ਗਿਆ**।\nਤੁਸੀਂ ਇਸਨੂੰ ਬਿਹਤਰ ਭੋਜਨ ਵਿਕਲਪ ਬਣਾਉਣ ਲਈ ਵਰਤ ਸਕਦੇ ਹੋ, ਅਤੇ ਕਿਉਂਕਿ ਇਹ **ਖੁੱਲ੍ਹਾ ਡੇਟਾ** ਹੈ, ਕੋਈ ਵੀ ਇਸਨੂੰ **ਕਿਸੇ ਵੀ ਉਦੇਸ਼ ਲਈ ਦੁਬਾਰਾ ਵਰਤ ਸਕਦਾ ਹੈ**।",
+  "preferences_legal_header": "Open Food Facts ਇੱਕ ਭੋਜਨ ਉਤਪਾਦਾਂ ਦਾ ਡੇਟਾਬੇਸ ਹੈ **ਸਾਰਿਆਂ ਦੁਆਰਾ, ਸਾਰਿਆਂ ਲਈ ਬਣਾਇਆ ਗਿਆ**।\nਤੁਸੀਂ ਇਸਨੂੰ ਬਿਹਤਰ ਭੋਜਨ ਵਿਕਲਪ ਬਣਾਉਣ ਲਈ ਵਰਤ ਸਕਦੇ ਹੋ, ਅਤੇ ਕਿਉਂਕਿ ਇਹ **ਖੁੱਲ੍ਹਾ ਡੇਟਾ** ਹੈ, ਕੋਈ ਵੀ ਇਸਨੂੰ **ਕਿਸੇ ਵੀ ਉਦੇਸ਼ ਲਈ ਦੁਬਾਰਾ ਵਰਤ ਸਕਦਾ ਹੈ**।",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਵੈੱਬਸਾਈਟ 'ਤੇ",
+  "preferences_on_off_website_subtitle": "Open Food Facts ਵੈੱਬਸਾਈਟ 'ਤੇ",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਐਨ.ਜੀ.ਓ.",
+  "preferences_faq_off_ngo_title": "Open Food Facts ਐਨ.ਜੀ.ਓ.",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਬਲੌਗ",
+  "preferences_connect_blog_title": "Open Food Facts ਬਲੌਗ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5255,7 +5255,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਵਿੱਚ ਮੇਰੇ ਵੱਲੋਂ ਜੋੜੇ ਗਏ ਨਵੇਂ ਉਤਪਾਦ",
+  "preferences_contributions_new_products_subtitle": "Open Food Facts ਵਿੱਚ ਮੇਰੇ ਵੱਲੋਂ ਜੋੜੇ ਗਏ ਨਵੇਂ ਉਤਪਾਦ",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },

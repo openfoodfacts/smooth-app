@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "چرا قیمت‌ها؟",
-  "prices_explanation_card_line1": "**قیمت‌های باز** پروژه‌ای برای جمع‌آوری و اشتراک‌گذاری قیمت محصولات در سراسر جهان است 🌍. قیمت‌های باز توسط Open Food Facts توسعه داده شده و نگهداری می‌شود.",
+  "prices_explanation_card_line1": "**Open Prices** پروژه‌ای برای جمع‌آوری و اشتراک‌گذاری قیمت محصولات در سراسر جهان است 🌍. Open Prices توسط Open Food Facts توسعه داده شده و نگهداری می‌شود.",
   "explanation_card_learn_more_button": "اطلاعات بیشتر",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "آخرین قیمت‌های اضافه شده توسط انجمن قیمت‌های باز",
+  "preferences_prices_newest_subtitle": "آخرین قیمت‌های اضافه شده توسط انجمن Open Prices",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

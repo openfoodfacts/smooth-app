@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Carson prìsean?",
-  "prices_explanation_card_line1": "’S e pròiseact a th’ ann an **Prìsean Fosgailte** airson prìsean thoraidhean air feadh an t-saoghail a chruinneachadh agus a cho-roinn 🌍. Tha Prìsean Fosgailte air a leasachadh agus air a chumail suas le Open Food Facts.",
+  "prices_explanation_card_line1": "’S e pròiseact a th’ ann an **Open Prices** airson prìsean thoraidhean air feadh an t-saoghail a chruinneachadh agus a cho-roinn 🌍. Tha Open Prices air a leasachadh agus air a chumail suas le Open Food Facts.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

@@ -3261,7 +3261,7 @@
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
   "search_product_filter_visibility_title": "தேடலில் வடிப்பானைக் காட்டு",
-  "search_product_filter_visibility_subtitle": "தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: திறந்த உணவு உண்மைகள், திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்",
+  "search_product_filter_visibility_subtitle": "தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "திறந்த உணவு உண்மைகள் அரசு சாரா நிறுவனம்",
+  "preferences_faq_off_ngo_title": "Open Food Facts அரசு சாரா நிறுவனம்",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "திறந்த உணவு உண்மைகள் வலைப்பதிவு",
+  "preferences_connect_blog_title": "Open Food Facts வலைப்பதிவு",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "திறந்த உணவு உண்மைகள் ஆய்வகங்கள்",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ஆய்வகங்கள்",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

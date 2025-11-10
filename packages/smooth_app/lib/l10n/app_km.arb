@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ហេតុអ្វីបានជាតម្លៃ?",
-  "prices_explanation_card_line1": "**Open Prices** គឺជាគម្រោងប្រមូល និងចែករំលែកតម្លៃផលិតផលជុំវិញពិភពលោក🌍។ តម្លៃបើកចំហត្រូវបានបង្កើត និងរក្សាដោយ Open Food Facts។",
+  "prices_explanation_card_line1": "**Open Prices** គឺជាគម្រោងប្រមូល និងចែករំលែកតម្លៃផលិតផលជុំវិញពិភពលោក🌍។ Open Pricesត្រូវបានបង្កើត និងរក្សាដោយ Open Food Facts។",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

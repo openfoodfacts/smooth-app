@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ราคาล่าสุดที่เพิ่มโดยชุมชนราคาเปิด",
+  "preferences_prices_newest_subtitle": "ราคาล่าสุดที่เพิ่มโดยชุมชนOpen Prices",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

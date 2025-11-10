@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Ինչո՞ւ գներ։",
-  "prices_explanation_card_line1": "**Բաց գներ**-ը նախագիծ է, որը հավաքում և կիսվում է աշխարհի տարբեր ապրանքների գներով 🌍: Բաց գները մշակվել և սպասարկվում են Open Food Facts-ի կողմից:",
+  "prices_explanation_card_line1": "**Open Prices**-ը նախագիծ է, որը հավաքում և կիսվում է աշխարհի տարբեր ապրանքների գներով 🌍: Open Pricesը մշակվել և սպասարկվում են Open Food Facts-ի կողմից:",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Բաց գների համայնքի կողմից ավելացված վերջին գները",
+  "preferences_prices_newest_subtitle": "Open Pricesի համայնքի կողմից ավելացված վերջին գները",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
