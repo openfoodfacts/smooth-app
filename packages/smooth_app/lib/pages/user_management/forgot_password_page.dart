@@ -75,110 +75,88 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.sizeOf(context);
 
-    return SmoothBrightnessOverride(
-      brightness: Brightness.dark,
-      child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          iconTheme: IconThemeData(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        body: Form(
-          key: _formKey,
-          child: Container(
-            alignment: Alignment.topCenter,
-            child: SizedBox(
-              width: size.width * 0.7,
-              child: AutofillGroup(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Spacer(flex: 4),
+    return SmoothScaffold(
+      appBar: SmoothAppBar(title: Text(appLocalizations.reset_password)),
+      body: Form(
+        key: _formKey,
+        child: Container(
+          alignment: Alignment.topCenter,
+          child: SizedBox(
+            width: size.width * 0.7,
+            child: AutofillGroup(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Spacer(flex: 1),
+                  if (!_send)
                     Text(
-                      appLocalizations.reset_password,
+                      appLocalizations.reset_password_explanation_text,
                       textAlign: TextAlign.center,
-                      style: theme.textTheme.displayLarge?.copyWith(
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: theme.textTheme.bodyMedium,
+                    ),
+                  const Spacer(flex: 2),
+                  if (_message != '') ...<Widget>[
+                    SmoothCard(
+                      padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                      color: _send ? Colors.green : Colors.red,
+                      child: Text(_message),
                     ),
                     const Spacer(flex: 1),
-                    if (!_send)
-                      Text(
-                        appLocalizations.reset_password_explanation_text,
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.bodyMedium,
-                      ),
-                    const Spacer(flex: 2),
-                    if (_message != '') ...<Widget>[
-                      SmoothCard(
-                        padding: const EdgeInsets.all(BALANCED_SPACE),
-                        color: _send ? Colors.green : Colors.red,
-                        child: Text(_message),
-                      ),
-                      const Spacer(flex: 1),
-                    ],
-                    if (!_send)
-                      SmoothTextFormField(
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        controller: _userIdController,
-                        hintText: appLocalizations.username_or_email,
-                        enabled: !_runningQuery,
-                        prefixIcon: const Icon(Icons.email),
-                        textInputAction: TextInputAction.done,
-                        autofillHints: const <String>[
-                          AutofillHints.username,
-                          AutofillHints.email,
-                        ],
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return appLocalizations.enter_some_text;
-                          }
-                          return null;
-                        },
-                      ),
-                    const Spacer(flex: 4),
-                    if (_runningQuery)
-                      const CircularProgressIndicator.adaptive()
-                    else
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_send == false) {
-                            _resetPassword();
-                          } else {
-                            Navigator.pop(context);
-                          }
-                        },
-                        style: ButtonStyle(
-                          minimumSize: WidgetStateProperty.all<Size>(
-                            Size(
-                              size.width * 0.5,
-                              theme.buttonTheme.height + 10,
-                            ),
-                          ),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                                ),
-                              ),
-                        ),
-                        child: Text(
-                          _send
-                              ? appLocalizations.close
-                              : appLocalizations.send_reset_password_mail,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontSize: 18.0,
-                            color: theme.colorScheme.onPrimary,
-                          ),
-                        ),
-                      ),
-                    const Spacer(flex: 4),
                   ],
-                ),
+                  if (!_send)
+                    SmoothTextFormField(
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      controller: _userIdController,
+                      hintText: appLocalizations.username_or_email,
+                      enabled: !_runningQuery,
+                      prefixIcon: const Icon(Icons.email),
+                      textInputAction: TextInputAction.done,
+                      autofillHints: const <String>[
+                        AutofillHints.username,
+                        AutofillHints.email,
+                      ],
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return appLocalizations.enter_some_text;
+                        }
+                        return null;
+                      },
+                    ),
+                  const Spacer(flex: 4),
+                  if (_runningQuery)
+                    const CircularProgressIndicator.adaptive()
+                  else
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_send == false) {
+                          _resetPassword();
+                        } else {
+                          Navigator.pop(context);
+                        }
+                      },
+                      style: ButtonStyle(
+                        minimumSize: WidgetStateProperty.all<Size>(
+                          Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                        ),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: CIRCULAR_BORDER_RADIUS,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        _send
+                            ? appLocalizations.close
+                            : appLocalizations.send_reset_password_mail,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontSize: 18.0,
+                          color: theme.colorScheme.onPrimary,
+                        ),
+                      ),
+                    ),
+                  const Spacer(flex: 4),
+                ],
               ),
             ),
           ),

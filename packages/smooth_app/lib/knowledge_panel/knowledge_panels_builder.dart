@@ -17,6 +17,8 @@ import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// "Knowledge Panel" builder
 class KnowledgePanelsBuilder {
@@ -198,14 +200,15 @@ class KnowledgePanelsBuilder {
       return result;
     }
 
-    if (result is KnowledgePanelTextCard) {
+    if (result is KnowledgePanelTextCard ||
+        knowledgePanelElement.elementType == KnowledgePanelElementType.TABLE) {
       return result;
-    } else {
-      return Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
-        child: result,
-      );
     }
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      child: result,
+    );
   }
 
   /// Returns the widget that displays the KP element, or rarely null.
@@ -304,6 +307,8 @@ class KnowledgePanelsBuilder {
   static Widget? getPanelSummaryWidget(
     final KnowledgePanel knowledgePanel, {
     required final bool isClickable,
+    final bool ignoreEvaluation = false,
+    final TextStyle? textStyleOverride,
     final EdgeInsetsGeometry? margin,
     final EdgeInsetsGeometry? padding,
   }) {
@@ -323,16 +328,33 @@ class KnowledgePanelsBuilder {
       case TitleElementType.PERCENTAGE:
       case TitleElementType.UNKNOWN:
         return Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            start: SMALL_SPACE,
+            end: BALANCED_SPACE,
           ).add(padding ?? EdgeInsets.zero),
           child: KnowledgePanelTitleCard(
             knowledgePanelTitleElement: knowledgePanel.titleElement!,
-            evaluation: knowledgePanel.evaluation,
+            evaluation: ignoreEvaluation ? null : knowledgePanel.evaluation,
+            textStyleOverride: textStyleOverride,
             isClickable: isClickable,
           ),
         );
     }
+  }
+
+  static Color? getColorFromEvaluation(
+    BuildContext context,
+    Evaluation? evaluation,
+  ) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return switch (evaluation) {
+      Evaluation.BAD => theme.error,
+      Evaluation.GOOD => theme.success,
+      Evaluation.AVERAGE => theme.warning,
+      _ => null,
+    };
   }
 }
 

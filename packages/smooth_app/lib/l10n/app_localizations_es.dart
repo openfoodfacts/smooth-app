@@ -234,6 +234,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forgot_password => 'Contraseña olvidada';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Ver perfil';
 
   @override
@@ -1318,6 +1321,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Propiedad (no editable)';
 
   @override
@@ -1325,6 +1331,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tag_value => 'Valor';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Ingrese un valor';
@@ -1677,6 +1686,10 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get onboarding_welcome_loading_dialog_title =>
       'Cargando tu primer producto de ejemplo';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
 
   @override
   String get product_list_your_ranking => 'Tu clasificación';
@@ -4797,7 +4810,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-es.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4885,7 +4898,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-es.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -5037,7 +5050,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-es.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5357,7 +5370,29 @@ class AppLocalizationsEs extends AppLocalizations {
   String get product_page_tab_prices => 'Precios';
 
   @override
+  String get prices_explanation_card_title => 'Why prices?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributes are **key-value** based.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

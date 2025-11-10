@@ -83,7 +83,13 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ],
         child: SmoothScaffold(
-          appBar: const SmoothEmptyAppBar(),
+          appBar: PreferredSize(
+            preferredSize: Size(
+              double.infinity,
+              MediaQuery.viewInsetsOf(context).top,
+            ),
+            child: const SmoothEmptyAppBar(),
+          ),
           body: Column(
             children: <Widget>[
               ValueNotifierListener<SearchHelper, SearchQuery?>(

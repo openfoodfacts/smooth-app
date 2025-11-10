@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Crop Helper for product images.
 abstract class ProductCropHelper extends CropHelper {
@@ -34,7 +35,7 @@ abstract class ProductCropHelper extends CropHelper {
       imageField.getImagePageTitle(appLocalizations);
 
   @override
-  IconData getProcessIcon() => Icons.send;
+  Widget getProcessIcon() => const icons.Send();
 
   @override
   String getProcessLabel(final AppLocalizations appLocalizations) =>

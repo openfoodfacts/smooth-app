@@ -30,7 +30,7 @@ abstract class ProductImageButton extends StatelessWidget {
       return EMPTY_WIDGET;
     }
     return EditImageButton(
-      iconData: getIconData(),
+      icon: getIcon(),
       label: getLabel(AppLocalizations.of(context)),
       onPressed: () => action(context),
       borderWidth: borderWidth,
@@ -44,7 +44,7 @@ abstract class ProductImageButton extends StatelessWidget {
   bool isHidden() => false;
 
   @protected
-  IconData getIconData();
+  Widget getIcon();
 
   @protected
   String getLabel(final AppLocalizations appLocalizations);

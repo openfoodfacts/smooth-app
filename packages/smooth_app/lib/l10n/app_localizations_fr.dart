@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Aidez-nous à améliorer Open Food Facts dans votre pays';
+      'Aidez-nous à améliorer Open Food Facts dans votre pays';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -231,6 +231,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get forgot_password => 'Mot de passe oublié';
+
+  @override
+  String get forgot_password_question => 'Forgot password?';
 
   @override
   String get view_profile => 'Afficher le profil';
@@ -1325,6 +1328,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tag_key => 'Propriété';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Propriété (non modifiable)';
 
   @override
@@ -1332,6 +1338,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tag_value => 'Valeur';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Saisir une valeur';
@@ -1685,6 +1694,10 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get onboarding_welcome_loading_dialog_title =>
       'Chargement de votre premier exemple de produit';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
 
   @override
   String get product_list_your_ranking => 'Votre classement';
@@ -4655,8 +4668,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.';
 
   @override
-  String get guide_nova_share_link =>
-      'https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments';
+  String get guide_nova_share_link => 'https://world-fr.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Bienvenue sur Open Food Facts !';
@@ -4824,7 +4836,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-fr.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title =>
@@ -4914,7 +4926,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-fr.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Bienvenue chez Open Prices !';
@@ -5068,7 +5080,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://world-fr.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title =>
@@ -5394,7 +5406,29 @@ class AppLocalizationsFr extends AppLocalizations {
   String get product_page_tab_prices => 'Prix';
 
   @override
+  String get prices_explanation_card_title => 'Why prices?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomie';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributes are **key-value** based.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Ouvrir le lien externe';
@@ -6092,7 +6126,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Des moyens simples pour aider Open Food Facts';
+      'Des moyens simples pour aider Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

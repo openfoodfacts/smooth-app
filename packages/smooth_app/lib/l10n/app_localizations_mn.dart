@@ -226,6 +226,9 @@ class AppLocalizationsMn extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'View profile';
 
   @override
@@ -1287,6 +1290,9 @@ class AppLocalizationsMn extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1300,9 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1645,6 +1654,10 @@ class AppLocalizationsMn extends AppLocalizations {
   @override
   String get onboarding_welcome_loading_dialog_title =>
       'Loading your first example product';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -4558,7 +4571,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-mn.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4722,7 +4735,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-mn.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4810,7 +4823,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-mn.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4962,7 +4975,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-mn.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5281,7 +5294,29 @@ class AppLocalizationsMn extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Why prices?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributes are **key-value** based.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';

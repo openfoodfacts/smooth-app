@@ -761,6 +761,12 @@ abstract class AppLocalizations {
   /// **'Forgot password'**
   String get forgot_password;
 
+  /// No description provided for @forgot_password_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgot_password_question;
+
   /// Button label: For to show your account
   ///
   /// In en, this message translates to:
@@ -2632,6 +2638,12 @@ abstract class AppLocalizations {
   /// **'Property'**
   String get tag_key;
 
+  /// No description provided for @tag_keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Properties'**
+  String get tag_keys;
+
   /// No description provided for @tag_key_uneditable.
   ///
   /// In en, this message translates to:
@@ -2649,6 +2661,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Value'**
   String get tag_value;
+
+  /// No description provided for @tag_values.
+  ///
+  /// In en, this message translates to:
+  /// **'Values'**
+  String get tag_values;
 
   /// No description provided for @tag_value_input_hint.
   ///
@@ -3154,6 +3172,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading your first example product'**
   String get onboarding_welcome_loading_dialog_title;
+
+  /// Warning message displayed in the rare cases when the users try to edit the onboarding example product
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, it\'s our example product, you cannot edit it :)'**
+  String get onboarding_welcome_warning;
 
   /// Your ranking screen title
   ///
@@ -9079,11 +9103,47 @@ abstract class AppLocalizations {
   /// **'Prices'**
   String get product_page_tab_prices;
 
+  /// No description provided for @prices_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Why prices?'**
+  String get prices_explanation_card_title;
+
+  /// No description provided for @prices_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.'**
+  String get prices_explanation_card_line1;
+
+  /// No description provided for @explanation_card_learn_more_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more'**
+  String get explanation_card_learn_more_button;
+
   /// Label of the folksonomy tab on the product page
   ///
   /// In en, this message translates to:
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
+
+  /// No description provided for @folksonomy_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are Folksonomy attributes?'**
+  String get folksonomy_explanation_card_title;
+
+  /// No description provided for @folksonomy_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'Attributes are **key-value** based.'**
+  String get folksonomy_explanation_card_line1;
+
+  /// No description provided for @folksonomy_explanation_card_line2.
+  ///
+  /// In en, this message translates to:
+  /// **'These properties are created and filed by contributors for any kind of usages.'**
+  String get folksonomy_explanation_card_line2;
 
   /// Label of the 'open external link' action on a folksonomy entry
   ///

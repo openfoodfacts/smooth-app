@@ -229,6 +229,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get forgot_password => 'Забули пароль';
 
   @override
+  String get forgot_password_question => 'Forgot password?';
+
+  @override
   String get view_profile => 'Переглянути сторінку';
 
   @override
@@ -1307,6 +1310,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get tag_key => 'Властивість';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Власність (не можна редагувати)';
 
   @override
@@ -1314,6 +1320,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get tag_value => 'Цінність';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Введіть значення';
@@ -1665,6 +1674,10 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get onboarding_welcome_loading_dialog_title =>
       'Завантаження вашого першого прикладу продукту';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'Sorry, it\'s our example product, you cannot edit it :)';
 
   @override
   String get product_list_your_ranking => 'Ваш рейтинг';
@@ -4604,7 +4617,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров\'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-uk.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Вітаємо в Open Food Facts!';
@@ -4769,7 +4782,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-uk.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Вітаємо в Open Beauty Facts!';
@@ -4858,7 +4871,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-uk.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Вітаємо в Open Prices!';
@@ -5009,7 +5022,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-uk.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food налаштування';
@@ -5330,7 +5343,29 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_page_tab_prices => 'Ціни';
 
   @override
+  String get prices_explanation_card_title => 'Why prices?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'What are Folksonomy attributes?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributes are **key-value** based.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'These properties are created and filed by contributors for any kind of usages.';
 
   @override
   String get folksonomy_action_external_link_title =>

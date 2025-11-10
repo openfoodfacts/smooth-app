@@ -97,6 +97,10 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
   static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
       'ready_for_price_tag_validation';
+  static const String _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD =
+      '_show_folksonomy_explanation_card';
+  static const String _TAG_SHOW_PRICES_EXPLANATION_CARD =
+      '_show_prices_explanation_card';
 
   /// Camera preferences
 
@@ -267,6 +271,25 @@ class UserPreferences extends ChangeNotifier {
 
   bool get readyForPriceTagValidation =>
       _sharedPreferences.getBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION) ?? false;
+
+  Future<void> hideFolksonomyExplanationCard() async {
+    await _sharedPreferences.setBool(
+      _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD,
+      false,
+    );
+    notifyListeners();
+  }
+
+  bool get shouldShowFolksonomyExplanationCard =>
+      _sharedPreferences.getBool(_TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD) ?? true;
+
+  Future<void> hidePricesExplanationCard() async {
+    await _sharedPreferences.setBool(_TAG_SHOW_PRICES_EXPLANATION_CARD, false);
+    notifyListeners();
+  }
+
+  bool get shouldShowPricesExplanationCard =>
+      _sharedPreferences.getBool(_TAG_SHOW_PRICES_EXPLANATION_CARD) ?? true;
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
@@ -593,6 +616,7 @@ class UserPreferences extends ChangeNotifier {
 
   List<String> get productPageTabs =>
       _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
+
   Future<void> setProductPageTabs(final List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
     notifyListeners();

@@ -8,12 +8,11 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
-import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
-import 'package:smooth_app/pages/product/website_card.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/folksonomy/product_folksonomy_tab.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/prices/product_prices_tab.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -128,7 +127,7 @@ class ProductPageTabsGenerator {
           labelBuilder: (_) => knowledgePanelTitle.title,
           prefix: _extractPrefix(product, knowledgePanelTitle),
           builder: (_, _) => ListView.builder(
-            padding: EdgeInsetsDirectional.zero,
+            padding: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
             itemCount: children.length,
             itemBuilder: (BuildContext context, int index) => children[index],
           ),
@@ -176,28 +175,12 @@ class ProductPageTabsGenerator {
       ),
     );
     */
-    if (product.website?.trim().isNotEmpty == true) {
-      tabs.add(
-        ProductPageTab(
-          id: ProductPageHarcodedTabs.WEBSITE.key,
-          labelBuilder: (BuildContext context) =>
-              AppLocalizations.of(context).product_page_tab_website,
-          builder: (_, Product product) => ListView(
-            padding: EdgeInsetsDirectional.zero,
-            children: <Widget>[WebsiteCard(product.website!)],
-          ),
-        ),
-      );
-    }
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.PRICES.key,
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_prices,
-        builder: (_, Product product) => ListView(
-          padding: EdgeInsetsDirectional.zero,
-          children: <Widget>[PricesCard(product)],
-        ),
+        builder: (_, Product product) => ProductPricesTab(product),
         suffix: FutureBuilder<int?>(
           future: _getPricesTotal(product, context),
           builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
@@ -215,7 +198,7 @@ class ProductPageTabsGenerator {
         id: ProductPageHarcodedTabs.FOLKSONOMY.key,
         labelBuilder: (BuildContext context) =>
             AppLocalizations.of(context).product_page_tab_folksonomy,
-        builder: (_, Product product) => FolksonomyCard(product),
+        builder: (_, Product product) => ProductFolksonomyTab(product),
         suffix: FutureBuilder<int?>(
           future: _getFolksonomyTotal(product),
           builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {

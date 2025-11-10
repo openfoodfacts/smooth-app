@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -270,7 +271,7 @@ class _ActionModeCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     return IconButton(
-      icon: const Icon(Icons.close),
+      icon: const icons.Close(),
       tooltip: tooltip ?? MaterialLocalizations.of(context).closeButtonTooltip,
       color: PopupMenuTheme.of(context).color,
       onPressed: () {
@@ -342,7 +343,7 @@ class _AppBarTitle extends StatelessWidget {
   }
 }
 
-class SmoothEmptyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class SmoothEmptyAppBar extends StatelessWidget {
   const SmoothEmptyAppBar({super.key});
 
   @override
@@ -350,15 +351,11 @@ class SmoothEmptyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
-    return SizedBox.expand(
-      child: ColoredBox(
-        color: context.lightTheme()
-            ? extension.primaryBlack
-            : extension.primaryUltraBlack,
-      ),
+    return ColoredBox(
+      color: context.lightTheme()
+          ? extension.primaryBlack
+          : extension.primaryUltraBlack,
+      child: const SizedBox.expand(),
     );
   }
-
-  @override
-  Size get preferredSize => Size.zero;
 }

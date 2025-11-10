@@ -35,7 +35,7 @@ class SmoothBackButton extends StatelessWidget {
               child: _circledIcon(switch (backButtonType ??
                   BackButtonType.back) {
                 BackButtonType.back => const icons.Arrow.left(),
-                BackButtonType.close => const icons.Close.bold(),
+                BackButtonType.close => const icons.Close.bold(size: 14.0),
                 BackButtonType.minimize => const icons.Chevron.down(),
               }),
             ),

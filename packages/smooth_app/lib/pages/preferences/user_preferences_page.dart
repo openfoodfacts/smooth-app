@@ -20,7 +20,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class UserPreferencesFoodPage extends StatefulWidget {
   const UserPreferencesFoodPage();
 
-  static UserPreferencesFood _getUserPreferences({
+  static UserPreferencesFood getUserPreferences({
     required final UserPreferences userPreferences,
     required final BuildContext context,
   }) {
@@ -65,7 +65,7 @@ class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
     final Color? headerColor;
 
     final UserPreferencesFood abstractUserPreferences =
-        UserPreferencesFoodPage._getUserPreferences(
+        UserPreferencesFoodPage.getUserPreferences(
           userPreferences: userPreferences,
           context: context,
         );
@@ -83,7 +83,7 @@ class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
       top: MEDIUM_SPACE,
       bottom: MediaQuery.viewPaddingOf(context).bottom,
     );
-    final ListView list;
+    final Widget list;
     list = ListView.builder(
       controller: _controller,
       padding: padding,
@@ -100,6 +100,7 @@ class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
         body: Scrollbar(controller: _controller, child: list),
       );
     }
+
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     final double backgroundHeight = MediaQuery.heightOf(context) * 0.20;
     children.insert(
@@ -118,7 +119,10 @@ class _UserPreferencesFoodPageState extends State<UserPreferencesFoodPage>
       statusBarBackgroundColor: dark ? null : headerColor,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
-      appBar: SmoothAppBar(title: Text(appBarTitle, maxLines: 2)),
+      appBar: SmoothAppBar(
+        title: Text(appBarTitle, maxLines: 2),
+        actions: abstractUserPreferences.getActions(),
+      ),
       body: ListView(controller: _controller, children: children),
     );
   }
