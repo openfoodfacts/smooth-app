@@ -1657,7 +1657,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'Vabandust, see on meie näidis toode, te ei saa seda muuta :)';
+      'Vabandust, see on meie näidistoode, sa ei saa seda muuta :)';
 
   @override
   String get product_list_your_ranking => 'Your ranking';
@@ -6036,7 +6036,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count $total esemest';
   }
 
   @override
@@ -6046,7 +6046,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count eset';
   }
 
   @override

@@ -2999,7 +2999,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Tshintsha phakathi prices.openfoodfacts.org (PROD) kunye novavanyo env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -6049,7 +6049,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count ye $total izinto';
   }
 
   @override
@@ -6059,7 +6059,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count izinto';
   }
 
   @override

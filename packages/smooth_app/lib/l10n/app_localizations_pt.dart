@@ -6134,7 +6134,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count de $total itens';
   }
 
   @override
@@ -6144,7 +6144,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count itens';
   }
 
   @override
@@ -12391,7 +12391,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count de $total itens';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count itens';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count itens';
   }
 

@@ -3003,7 +3003,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -6060,7 +6060,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count ၏ $total ပစ္စည်းများ';
   }
 
   @override
@@ -6070,7 +6070,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count ပစ္စည်းများ';
   }
 
   @override

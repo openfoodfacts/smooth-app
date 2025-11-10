@@ -2998,7 +2998,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'prices.openfoodfacts.org (PROD) və test env arasında keçid';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -6040,7 +6040,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$total elementdən $count';
   }
 
   @override
@@ -6050,7 +6050,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count əşyalar';
   }
 
   @override

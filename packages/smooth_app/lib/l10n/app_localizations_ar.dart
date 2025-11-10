@@ -1997,7 +1997,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'بلد';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -5277,7 +5277,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**الأسعار المفتوحة** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير \"الأسعار المفتوحة\" وصيانتها بواسطة Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'لمعرفة المزيد';
@@ -6015,7 +6015,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count من $total عناصر';
   }
 
   @override
@@ -6025,7 +6025,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count عناصر';
   }
 
   @override
@@ -6128,7 +6128,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'بلد';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

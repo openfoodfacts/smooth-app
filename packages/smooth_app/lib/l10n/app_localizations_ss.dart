@@ -3000,7 +3000,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4905,7 +4905,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://intsengo.emaciniso ekudla lavulekile.org/mayelana';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4981,7 +4981,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://world-en.openproductsfacts.org/discover';
+      'https://si.vulela imikhicito.org/tfola';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -6056,7 +6056,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count ye $total tintfo';
   }
 
   @override
@@ -6066,7 +6066,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count tintfo';
   }
 
   @override

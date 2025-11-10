@@ -184,17 +184,17 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'Šiuo metu mūsų serveriai veikia lėtai ir atsiprašome už tai. Bandykite dar kartą vėliau.';
 
   @override
   String get login => 'Prisijungti';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable => 'Tinklas nepasiekiamas';
 
   @override
   String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+      'Problema serveryje. Bandykite vėliau.';
 
   @override
   String get login_page_username_or_email =>
@@ -328,7 +328,8 @@ class AppLocalizationsLt extends AppLocalizations {
       'Slaptažodžiai nesutampa';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text =>
+      'Sutinku su atvirų maisto faktų svetaine';
 
   @override
   String get sign_up_page_terms_text => 'naudojimo ir įnašo sąlygomis';
@@ -352,7 +353,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'Norėčiau užsiprenumeruoti „Open Food Facts“ naujienlaiškį (galite bet kada atsisakyti prenumeratos)';
 
   @override
   String get sign_up_page_user_name_already_used =>
@@ -368,7 +369,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'Atsiprašome, kilo techninių sunkumų kuriant jūsų paskyrą. Bandykite dar kartą vėliau.';
 
   @override
   String get settingsTitle => 'Nustatymai';
@@ -447,7 +448,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'Galite prisijungti prie „Open Food Facts Slack“ pokalbių kambario – tai yra pageidaujamas būdas užduoti klausimus.';
 
   @override
   String get contribute_develop_dev_mode_title => 'Programuotojo režimas?';
@@ -460,11 +461,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get contribute_donate_title => 'Paaukokite';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'Paaukokite „Open Food Facts“';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'Atkreipkite dėmesį, kad naudojant vidinę alfa versiją, galimas visiškas duomenų praradimas ir programa gali bet kada tapti netinkama naudoti!';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
@@ -475,7 +476,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'Duomenų bazė yra projekto pagrindas. Ja padėti lengva ir labai greita. Galite atsisiųsti mobiliąją programėlę į savo telefoną ir pradėti pridėti arba tobulinti produktus.\n\nKita vertus, „Open Food Facts“ svetainė siūlo daug būdų prisidėti: ';
 
   @override
   String get contribute_translate_header => 'Išversti';
@@ -488,7 +489,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      '„Open Food Facts“ yra pasaulinis projektas, apimantis produktus iš daugiau nei 160 šalių. „Open Food Facts“ yra išverstas į dešimtis kalbų, o jo turinys nuolat kinta.';
 
   @override
   String get contribute_translate_text_2 =>
@@ -500,15 +501,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+      'Pasidalykite „Open Food Facts“ su draugais';
 
   @override
   String get contribute_share_content =>
-      'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app';
+      'Norėjau papasakoti apie programėlę „Open Food Facts“, kurią naudoju pats. Ji leidžia suasmenintai sužinoti jūsų maisto poveikį sveikatai ir aplinkai. Ji veikia nuskaitydama brūkšninius kodus ant pakuotės. Galiausiai, ji nemokama, nereikalauja registracijos ir netgi galite padėti padidinti iššifruojamų produktų skaičių. Štai nuoroda, kaip atsisiųsti ją į savo telefoną: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Prisidėkite prie kainų formavimo, pateikdami užklausą dėl lojalumo kortelių duomenų eksporto pagal BDAR';
 
   @override
   String get tap_to_answer => 'Bakstelėkite čia, kad atsakytumėte į klausimus';
@@ -530,7 +531,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'Prisijunkite prie savo „Open Food Facts“ paskyros, kad gautumėte kreditą už savo indėlį';
 
   @override
   String get question_yes_button_accessibility_value => 'Atsakyti „taip“';
@@ -550,7 +551,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'Sukurkite paskyrą ir prisijunkite prie „Open Food Facts“ bendruomenės, kad padėtumėte kaupti žinias apie maistą visame pasaulyje!';
 
   @override
   String get join_us => 'Prisijunkite prie mūsų';
@@ -577,7 +578,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'Pasirinkite, kokia informacija apie maistą jums svarbiausia, kad galėtumėte suskirstyti maistą pagal savo pageidavimus, pirmiausia matyti jums rūpimą informaciją ir gauti suderinamumo santrauką. Šios maisto nuostatos lieka jūsų įrenginyje ir nėra susietos su jūsų „Open Food Facts“ bendraautorio paskyra, jei tokią turite.';
 
   @override
   String get confirmResetPreferences => 'Iš naujo nustatyti maisto nuostatas?';
@@ -630,7 +631,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get filter => 'Filtras';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'Produktai iš nuskaitymo ekrano';
 
   @override
   String get scan_history => 'Nuskaitymo istorija';
@@ -729,7 +730,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_product_take_photos =>
-      'Take photos of the packaging to add this product to Open Food Facts';
+      'Nufotografuokite pakuotę, kad galėtumėte įtraukti šį produktą į „Open Food Facts“';
 
   @override
   String get add_product_take_photos_descriptive =>
@@ -832,7 +833,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get take_photo_title => 'Fotografuoti';
 
   @override
-  String get take_more_photo_title => 'Take more pictures';
+  String get take_more_photo_title => 'Nufotografuokite daugiau';
 
   @override
   String get front_photo_uploaded => 'Priekinė nuotrauka įkelta';
@@ -897,21 +898,21 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Please take the following photos and the Open Food Facts engine can work out the rest!';
+      'Prašome nufotografuoti toliau pateiktas nuotraukas, o „Open Food Facts“ sistema sutvarkys likusią informaciją!';
 
   @override
   String get new_product_title_misc => 'Ir kai kurie pagrindiniai duomenys…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return 'Ačiū už jūsų indėlį „$username“!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user => 'Ačiū už jūsų indėlį!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'Atraskite užbaigtą produktą';
 
   @override
   String get hey_incomplete_product_message =>
@@ -941,7 +942,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get recycling_photo_uploaded => 'Perdirbimo nuotrauka įkelta';
 
   @override
-  String get take_more_photo_button_label => 'Take more pictures';
+  String get take_more_photo_button_label => 'Nufotografuokite daugiau';
 
   @override
   String get other_photo_uploaded => 'Įkelta įvairi nuotrauka';
@@ -957,27 +958,27 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'Priekinės nuotraukos įkėlimas į „Open Food Facts“';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'Ingredientų paveikslėlio įkėlimas į „Open Food Facts“';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'Mitybos paveikslėlio įkėlimas į „Open Food Facts“';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'Pakuotės paveikslėlio įkėlimas į „Open Food Facts“';
 
   @override
   String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+      'Įkeliamas kitas vaizdas į „Open Food Facts“';
 
   @override
   String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+      'Įkeliamas vaizdas į „Open Food Facts“';
 
   @override
   String get score_add_missing_ingredients =>
@@ -992,7 +993,8 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pridėkite trūkstamus mitybos faktus';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Pridėti trūkstamus produkto pėdsakus';
 
   @override
   String get score_add_missing_product_category =>
@@ -1033,11 +1035,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutrition_page_title => 'Maistingumo faktai';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Mitybos informacija';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Ant gaminio nurodytos vertės:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Taip';
@@ -1046,7 +1048,8 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Ne';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo =>
+      'Atidaryti nuotrauką';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
@@ -1054,10 +1057,10 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Kartais maistingumo faktai **nenurodyti ant pakuotės** arba prie produkto pridedamame dokumente. Tokiu ir tik tokiu atveju galite nustatyti reikšmę **NE**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Maistinė vertė:';
 
   @override
   String get nutrition_page_per_100g => 'už 100 g';
@@ -1076,7 +1079,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Įveskite porcijos dydį (pvz.: 100 g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
@@ -1084,11 +1087,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Ši vertė padeda **proporcingai apskaičiuoti kiekvienos maistinės medžiagos kiekį vienoje porcijoje**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Leidžiami vienetai** yra: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫名,., 公升';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
@@ -1108,15 +1111,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Neteisingi vienetai';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **saldainiai** ir 2 **sausainiai**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Trūkstamas vienetas';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1137,20 +1140,20 @@ class AppLocalizationsLt extends AppLocalizations {
       'Naudoti produkto kiekį kaip pateikiamą porciją';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'Nepavyko įkelti nuotraukos';
 
   @override
   String get more_photos => 'Daugiau įdomių nuotraukų';
 
   @override
   String get view_more_photo_button =>
-      'View all existing photos for this product';
+      'Peržiūrėti visas esamas šio produkto nuotraukas';
 
   @override
   String get no_product_found => 'Prekės nerasta';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'Nerasta jokių vietų';
 
   @override
   String get not_found => 'nerastas:';
@@ -1184,12 +1187,12 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'Pakeisti nuotrauką ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'Pridėti nuotrauką ($type)';
   }
 
   @override
@@ -1201,11 +1204,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+      'Pasirinkite iš savo telefono galerijos';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+      'Pasirinkite iš produkto nuotraukų';
 
   @override
   String get product_image_details_label => 'Informacija apie nuotrauką';
@@ -1232,7 +1235,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      '**Nuskaitykite** brūkšninį kodą arba\n**ieškokite** produkto';
 
   @override
   String get homepage_main_card_search_field_hint => 'Ieškoti produkto';
@@ -1242,7 +1245,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'Naujausios naujienos: $news_title';
   }
 
   @override
@@ -1282,7 +1285,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'Dėl tinklo klaidos negalime gauti informacijos apie šį produktą. Patikrinkite interneto ryšį ir bandykite dar kartą.\n\nVidinė klaida:\n$error';
   }
 
   @override
@@ -1395,21 +1398,21 @@ class AppLocalizationsLt extends AppLocalizations {
   String get country_chooser_label => 'Pasirinkite šalį';
 
   @override
-  String get currency_chooser_label => 'Please choose a currency';
+  String get currency_chooser_label => 'Pasirinkite valiutą';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'Ką tik pakeitėte šalį.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
+    return 'Ar norite pakeisti valiutą iš $previousCurrency į $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'Pasirinkite šalį:';
 
   @override
   String get country_chooser_label_from_settings => 'Jūsų šalis';
@@ -1422,11 +1425,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_removed_comparison => 'Produktas pašalintas iš palyginimo';
 
   @override
-  String get native_app_settings => 'Native App Settings';
+  String get native_app_settings => 'Vietinės programos nustatymai';
 
   @override
   String get native_app_description =>
-      'Open systems settings for Open Food Facts';
+      'Atviros sistemos nustatymai, skirti „Open Food Facts“';
 
   @override
   String get product_removed_history => 'Produktas pašalintas iš istorijos';
@@ -1444,10 +1447,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get no_product_in_section => 'Šiame skyriuje nėra produkto';
 
   @override
-  String get recently_seen_products => 'All viewed products';
+  String get recently_seen_products => 'Visi peržiūrėti produktai';
 
   @override
-  String get clear => 'Clear';
+  String get clear => 'Išvalyti';
 
   @override
   String get clear_long => 'Išvalyti sąrašą';
@@ -1465,8 +1468,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count days ago',
-      one: 'one day ago',
+      other: '$count prieš dienas',
+      one: 'prieš vieną dieną',
     );
     return '$_temp0';
   }
@@ -1476,8 +1479,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count hours ago',
-      one: 'one hour ago',
+      other: '$count prieš valandas',
+      one: 'prieš valandą',
     );
     return '$_temp0';
   }
@@ -1487,9 +1490,9 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count minutes ago',
-      one: 'one minute ago',
-      zero: 'less than a minute ago',
+      other: '$count prieš minutes',
+      one: 'prieš vieną minutę',
+      zero: 'prieš mažiau nei minutę',
     );
     return '$_temp0';
   }
@@ -1499,8 +1502,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count months ago',
-      one: 'one month ago',
+      other: '$count prieš mėnesius',
+      one: 'prieš vieną mėnesį',
     );
     return '$_temp0';
   }
@@ -1510,8 +1513,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count weeks ago',
-      one: 'one week ago',
+      other: '$count prieš savaites',
+      one: 'prieš savaitę',
     );
     return '$_temp0';
   }
@@ -1521,8 +1524,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Compare $count Products',
-      one: 'Compare one Product',
+      other: 'Palyginti $count Produktai',
+      one: 'Palyginti vieną produktą',
     );
     return '$_temp0';
   }
@@ -1670,11 +1673,11 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'Sveiki atvykę!';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'Programėlė, kuri padeda išsirinkti maistą, kuris yra naudingas **jums** ir **planetai**!';
 
   @override
   String get onboarding_continue_button => 'Tęsti';
@@ -1705,11 +1708,11 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
-      one: 'product',
-      zero: 'product',
+      other: 'prekės',
+      one: 'prekė',
+      zero: 'prekė',
     );
-    return 'Refreshing $_temp0 in your history';
+    return 'Atnaujinama $_temp0 jūsų istorijoje';
   }
 
   @override
@@ -1717,11 +1720,11 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Products',
-      one: 'Product',
-      zero: 'Product',
+      other: 'Produktai',
+      one: 'Produktas',
+      zero: 'Produktas',
     );
-    return '$_temp0 refresh complete';
+    return '$_temp0 atnaujinimas baigtas';
   }
 
   @override
@@ -1745,11 +1748,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'Prisijunkite arba užsiregistruokite, kad prisijungtumėte prie „Open Food Facts“ bendruomenės';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'Prisijungimas prie „Open Food Facts“: $email';
   }
 
   @override
@@ -1762,7 +1765,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'Sveiki, prašau ištrinti mano „Open Food Facts“ paskyrą: $userId';
   }
 
   @override
@@ -1789,7 +1792,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+      'Nuskaitykite brūkšninį kodą savo kamera';
 
   @override
   String get app_haptic_feedback_title => 'Vibracija ir haptika';
@@ -1803,7 +1806,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'Kai ši funkcija įjungta, gedimų ataskaitos automatiškai pateikiamos „Open Food Facts“ klaidų sekimo sistemai, kad būtų galima ištaisyti klaidas ir taip patobulinti programėlę.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Siųsti anoniminius duomenis';
@@ -1910,7 +1913,7 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pridėti naują kategoriją';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Pridėti naują pėdsaką';
 
   @override
   String get edit_product_form_item_add_suggestion => 'Pridėti pasiūlymą';
@@ -1959,15 +1962,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Bet kokia produkto savybė, **kuri yra faktinė** ir skiriasi nuo kitų laukų savybių.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      '„Nutri-Score“, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Pagaminta Belgijoje, pagaminta Bretanėje…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1975,11 +1978,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Daug skaidulų, geležies šaltinis…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Sąžininga prekyba, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Parduotuvės';
@@ -1992,19 +1995,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'Geroji praktika: parduotuvės';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Įveskite parduotuvės, kurioje įsigijote prekę, pavadinimą.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
-      'Walmart';
+      '„Walmart“';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_2 =>
-      'Carrefour';
+      '„Carrefour“';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_3 =>
@@ -2022,19 +2025,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'Geroji praktika: kilmė';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Pridėkite **visas kilmės nuorodas, kurias galite rasti ant pakuotės**.\nJums nereikia jaudintis dėl kilmės, nurodytos tiesiogiai ingredientų sąraše.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Jautiena iš Argentinos';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Soja nėra kilusi iš Europos Sąjungos';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
@@ -2048,11 +2051,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'Geroji praktika: šalys';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Šalys, kuriose produktas yra plačiai prieinamas** (neįskaitant parduotuvių, kurios specializuojasi užsienio produktų srityje).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'Atsekamumo kodai';
@@ -2066,19 +2069,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'Geroji praktika: atsekamumo kodai';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'Šiame skyriuje galite įvesti kodus, susijusius su **pakavimo ženklais**, **identifikavimo ženklais** arba **sveikumo ženklais**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Atsekamumo kodų pavyzdžiai';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**EB kodai**, naudojami Europos bendrijoje maisto produktų gamintojams arba pakuotojams identifikuoti:**';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2086,11 +2089,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: Prancūzijos šalies kodas\n**72.264.002**: geografiniai duomenys\n**CE**: Europos bendrija';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**EMB kodai**, naudojami Prancūzijoje:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2104,7 +2107,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Įveskite pėdsaką (pvz.: sojų pupelės)';
 
   @override
   String get edit_product_form_item_categories_title => 'Kategorijos';
@@ -2118,27 +2121,27 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'Geroji praktika: Kategorijos';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Nurodykite **tik pačią konkrečiausią kategoriją**.\nPagrindinės kategorijos bus pridėtos automatiškai.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Trūksta kategorijos?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Jei kategorija **nepasiekiama automatinio užbaigimo funkcija**, vis tiek galite ją pridėti.\nTai padės mums tobulinti „Open Food Facts“ jūsų šalyje.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardinės alyvuogių aliejuje';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Apelsinų sultys iš koncentrato';
 
   @override
   String get edit_product_form_item_exit_title => 'Išeiti neišsaugojus?';
@@ -2160,15 +2163,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Priartinkite ir atitolinkite ekraną suspaudžiant pirštais';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Priartinkite ir atitolinkite nuotrauką';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'Naudodami **Suspaudimo, kad priartintumėte** gestą, galite priartinti arba atitolinti nuotrauką:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Pridėti';
@@ -2201,15 +2204,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'Gera praktika: maistingumo faktai';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Maistinė vertė';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Pirmiausia pasirinkite, ar pateiktos **reikšmės**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2217,15 +2220,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Tada įveskite maistinę vertę **kaip nurodyta ant pakuotės**. Jei vertės nėra, galite spustelėti piktogramą „Akis“.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Trūkstamas laukas?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Jei įrašo trūksta, galite **spustelėti pliuso piktogramą**, kad jį pridėtumėte (pvz.: vitaminas D, magnis…).';
 
   @override
   String get edit_product_form_save => 'Redaguoti';
@@ -2243,7 +2246,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get edit_product_packaging_list_title => 'Pakuotės sąrašas';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => 'Nėra duomenų';
 
   @override
   String get product_field_website_title => 'Interneto svetainė';
@@ -2263,7 +2266,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'Ištraukite ingredientus iš nuotraukos';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2271,10 +2274,10 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'Ingredientų\ništraukimas iš nuotraukos';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'Kraunama nuotrauka…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
@@ -2289,17 +2292,17 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+      'Ištraukite pakuotę\niš nuotraukos';
 
   @override
   String get edit_packaging_extract_btn_text_short => 'Pakuotės ištraukimas';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+      'Pakuotės išėmimas iš nuotraukos';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'Kraunama nuotrauka…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
@@ -2531,13 +2534,13 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'Maistas';
 
   @override
   String get product_type_label_beauty => 'Asmens higiena';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'Naminių gyvūnėlių ėdalas';
 
   @override
   String get product_type_label_product => 'Kita';
@@ -2559,21 +2562,21 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+      'Nuoroda į Kainų programėlę produkto puslapyje';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'Eiti į Kainų programėlę';
 
   @override
   String get prices_website_button => 'Atidaryti svetainėje „Open Prices“';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Pridėti kainų etiketes tiesiai iš galerijos';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Pasirinkus vaizdus, jų redaguoti nebegalėsite!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2584,10 +2587,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Leisti bendruomenei patvirtinti dirbtinio intelekto gautas kainas.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Kelios kainų etiketės';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Masinis įrodymų įkėlimas';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Failų pasirinkimas';
@@ -2618,8 +2621,8 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'Pridėti $count kainas',
+      one: 'Pridėti kainą',
     );
     return '$_temp0';
   }
@@ -2629,14 +2632,14 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'Atsiųskite $count kainas',
+      one: 'Atsiųskite kainą',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'Pridėti elementą';
 
   @override
   String get prices_add_a_price => 'Pridėti kainą';
@@ -2660,7 +2663,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'Ieškoma $barcode';
   }
 
   @override
@@ -2691,10 +2694,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_category_error_mandatory => 'Kategorija yra privaloma';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'Brūkšninių kodų skaitytuvas';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'Peržiūrėti kainas';
 
   @override
   String get prices_list_title => 'Kainoraštis';
@@ -2743,10 +2746,10 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count kainos',
+      one: '1 kaina',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 už $product';
   }
 
   @override
@@ -2754,16 +2757,16 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'Visos $count kainos',
+      one: 'Tik viena kaina',
+      zero: 'Kainos dar nėra',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'Naujausios $pageSize kainos (iš viso: $total)';
   }
 
   @override
@@ -2789,16 +2792,16 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'Visi $count įrodymai',
+      one: 'Tik vienas įrodymas',
+      zero: 'Įrodymų dar nėra',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'Naujausi $pageSize įrodymai (iš viso: $total)';
   }
 
   @override
@@ -2809,7 +2812,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'Didžiausi $pageSize bendraautoriai (iš viso: $total)';
   }
 
   @override
@@ -2878,10 +2881,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Anksčiau pridėta kaina';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'Suma';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'Ar taikoma nuolaida?';
 
   @override
   String get prices_amount_price_normal => 'Kaina';
@@ -2890,16 +2893,16 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_amount_price_discounted => 'Sumažinta kaina';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'Pradinė kaina';
 
   @override
   String get prices_amount_no_product => 'Trūksta vieno produkto!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'Neteisinga vertė';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'Privaloma reikšmė';
 
   @override
   String get prices_currency_subtitle => 'Valiuta';
@@ -2908,13 +2911,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_date_subtitle => 'Data';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'Parduotuvė';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'Rasti parduotuvę';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'Reikia išsirinkti parduotuvę!';
 
   @override
   String get prices_location_search_broader =>
@@ -2931,10 +2934,10 @@ class AppLocalizationsLt extends AppLocalizations {
       'Pradėkite pridėdami **kvito** arba **kainos etiketės** nuotrauką!';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_find => 'Pasirinkite įrodymą';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Pakeisti įrodymą';
 
   @override
   String get prices_proof_receipt => 'Čekis';
@@ -2943,13 +2946,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_proof_price_tag => 'Kainos etiketė';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_mandatory => 'Reikia pasirinkti įrodymą!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'Patvirtinimo klaida';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'Privatumo įspėjimas';
 
   @override
   String get prices_unknown_product => 'Nežinomas produktas';
@@ -2997,25 +3000,26 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Sužinokite daugiau apie atviras kainas';
 
   @override
   String get dev_preferences_import_history_result_success => 'Atlikta';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'Serverio konfigūracija';
 
   @override
   String get dev_mode_section_news => 'Naujienų teikėjo konfigūravimas';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'Produkto puslapis';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'Vartotojo sąsaja';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features =>
+      'Eksperimentinės funkcijos';
 
   @override
   String get dev_mode_hide_environmental_score_title =>
@@ -3023,11 +3027,11 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'Naudokite rašybos tikrintuvą OCR ekranuose';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+      '(Sudedamosios dalys ir pakuotė)';
 
   @override
   String get dev_mode_reset_app_language_title =>
@@ -3083,11 +3087,11 @@ class AppLocalizationsLt extends AppLocalizations {
   String get user_search_proofs_title => 'Mano įrodymai';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'Mano įrodymas';
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Įrodymas iš „$user“';
   }
 
   @override
@@ -3096,14 +3100,14 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'Naujausios kainos pridėtos';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title => 'Didžiausi kainų veiksniai';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+      'Parduotuvės su didžiausiomis kainomis';
 
   @override
   String get prices_contribution_assistant => 'Kainų pridėjimo asistenatas';
@@ -3115,7 +3119,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_challenges_page => 'Iššūkiai';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Pridėti kelis įrodymus';
 
   @override
   String get all_search_prices_top_location_single_title =>
@@ -3123,14 +3127,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+      'Produktai su didžiausiomis kainomis';
 
   @override
   String get all_search_to_be_completed_title => 'Visi baigtini gaminiai';
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'Padėkite suskirstyti produktus į kategorijas savo šalyje';
 
   @override
   String get edit_product_action_retake_picture => 'Perdaryti nuotrauką';
@@ -3143,7 +3147,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+      'Sutinku su atvirų maisto faktų svetaine ';
 
   @override
   String get signup_page_terms_of_use_line2 => 'naudojimo ir įnašo sąlygomis';
@@ -3180,7 +3184,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'Pasirinkite paveikslėlį spustelėdami jį';
 
   @override
   String get edit_photo_select_existing_download_label =>
@@ -3247,7 +3251,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'Geroji praktika: produkto pavadinimas';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
@@ -3309,37 +3313,39 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'Geroji praktika: Prekių ženklai';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Įveskite **visus produkto prekės ženklus**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title =>
+      'Pagrindinis prekės ženklas';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      '**Pagrindinis prekės ženklas**, paprastai aiškiai nurodytas priekinėje pakuotės pusėje, turėtų būti **įvestas pirmiausia**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title =>
+      'Kiti prekių ženklai';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Kai parduoda **didelė įmonė**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**„Actimel“** parduoda **„Danone**“';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Kai parduodama su prekės ženklu **išverstas į kelias kalbas**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Gamtos slėnis** kartais rašoma **Val Gamta**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3357,23 +3363,23 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Geroji praktika: Kiekis';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Nukopijuokite ant gaminio nurodytą vertę ir **nepamirškite matavimo vienetų**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 g** arba **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (6 kiaušiniams)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 g**\n(produktui, kurį sudaro 3 dėžutės po 150 g)';
 
   @override
   String get barcode => 'Barkodas';
@@ -3470,15 +3476,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+      'Nufotografuokite bet kokią kilmės informaciją';
 
   @override
   String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+      'Nufotografuokite bet kokią atsekamumo kodo informaciją';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'Nufotografuokite visas etiketes ir sertifikavimo informaciją';
 
   @override
   String get choose_image_source_title => 'Pasirinkite vaizdo šaltinį';
@@ -3494,17 +3500,18 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
+      'Deja, programa negali pasiekti jūsų galerijos, nes anksčiau atsisakėte leidimo.\n\nEikite į programos nustatymus savo telefone, Nustatymai -> Nuotraukos';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button =>
+      'Atidarykite nustatymus';
 
   @override
   String get share => 'Dalintis';
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'Peržiūrėkite šį produktą „Open Food Facts“ svetainėje: $url';
   }
 
   @override
@@ -3524,7 +3531,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'Peržiūrėkite mano produktų sąrašą „Open Food Facts“ svetainėje: $url';
   }
 
   @override
@@ -3542,15 +3549,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'Kaina bus išsiųsta į serverį kaip įmanoma greičiau.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Starting the refresh of all the products locally stored';
+      'Pradedamas visų vietoje saugomų produktų atnaujinimas';
 
   @override
   String get background_task_title_top_n =>
-      'Starting the download of the most popular products';
+      'Pradedamas populiariausių produktų atsisiuntimas';
 
   @override
   String get expand_nutrition_facts => 'Išplėskite mitybos faktų lentelę';
@@ -3625,7 +3632,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'Prašome rankiniu būdu atsiųsti mums el. laišką adresu mobile@openfoodfacts.org';
 
   @override
   String get all_images => 'Visos nuotraukos';
@@ -3733,10 +3740,10 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count questions',
-      one: 'question',
+      other: '$count klausimai',
+      one: 'klausimas',
     );
-    return 'Next $_temp0';
+    return 'Kitas $_temp0';
   }
 
   @override
@@ -3825,14 +3832,14 @@ class AppLocalizationsLt extends AppLocalizations {
       'Prieš sverdami pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles.';
 
   @override
-  String get background_task_title => 'Pending contributions';
+  String get background_task_title => 'Laukiantys įnašai';
 
   @override
   String get background_task_subtitle =>
-      'Your contributions are automatically saved to our server, but not always in real-time.';
+      'Jūsų įnašai automatiškai išsaugomi mūsų serveryje, bet ne visada realiuoju laiku.';
 
   @override
-  String get background_task_list_empty => 'No Pending Background Tasks';
+  String get background_task_list_empty => 'Nėra laukiančių foninių užduočių';
 
   @override
   String get background_task_error_server_time_out =>
@@ -3843,7 +3850,7 @@ class AppLocalizationsLt extends AppLocalizations {
       'Interneto ryšio klaida. Pabandyk vėliau.';
 
   @override
-  String get background_task_operation_unknown => 'unknown operation type';
+  String get background_task_operation_unknown => 'nežinomas operacijos tipas';
 
   @override
   String get background_task_operation_details => 'detalūs pakeitimai';
@@ -3853,13 +3860,13 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get background_task_operation_refresh =>
-      'refresh delayed after photo upload';
+      'Atnaujinimas atidėtas po nuotraukos įkėlimo';
 
   @override
-  String get background_task_run_started => 'started';
+  String get background_task_run_started => 'pradėjo';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'dar nepradėta';
 
   @override
   String get background_task_run_to_be_deleted => 'bus ištrinti';
@@ -3983,9 +3990,9 @@ class AppLocalizationsLt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
+      other: '$count produktus',
     );
-    return 'Download the top $_temp0 in your country for instant scanning';
+    return 'Atsisiųskite geriausius $_temp0 savo šalyje, kad galėtumėte juos akimirksniu nuskaityti.';
   }
 
   @override
@@ -4002,7 +4009,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'Atnaujinkite vietinę produktų duomenų bazę naujausiais „Open Food Facts“ duomenimis';
 
   @override
   String get clear_local_database =>
@@ -4039,7 +4046,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get country_selector_title => 'Pasirinkite savo šalį:';
 
   @override
-  String get currency_selector_title => 'Select your currency:';
+  String get currency_selector_title => 'Pasirinkite valiutą:';
 
   @override
   String get language_selector_title => 'Pasirinkite savo kalbą:';
@@ -4078,29 +4085,30 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Nutri-Score E';
+  String get nutriscore_e => '„Nutri-Score E“';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (New calculation)';
+    return 'Nutri-Score $letter (Naujas skaičiavimas)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
+  String get nutriscore_new_formula_title =>
+      '„Nutri-Score“ (naujas skaičiavimas)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Nežinomas maistingumo balas';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'Nežinomas „Nutri-Score“ (naujas skaičiavimas)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => '„Nutri-Score“ netaikomas';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      '„Nutri-Score“ netaikomas (naujas skaičiavimas)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4132,19 +4140,19 @@ class AppLocalizationsLt extends AppLocalizations {
       'Ultraperdirbti maisto produktai – NOVA grupės';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'NOVA 1 grupė';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'NOVA 2 grupė';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'NOVA 3 grupė';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'NOVA 4 grupė';
 
   @override
-  String get nova_group_unknown => 'Unknown NOVA Group';
+  String get nova_group_unknown => 'Nežinoma NOVA grupė';
 
   @override
   String get nutrition_facts => 'Maistinių medžiagų lygiai';
@@ -4170,7 +4178,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'Naujas „Nutri-Score“ skaičiavimas: kas naujo?';
 
   @override
   String get contact_title_pro_page =>
@@ -4189,7 +4197,8 @@ class AppLocalizationsLt extends AppLocalizations {
   String get contact_title_newsletter => 'Prenumeruokite mūsų naujienlaiškį';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar =>
+      'Prenumeruokite mūsų bendruomenės kalendorių';
 
   @override
   String get hunger_games_loading_line1 => 'Duokite mums kelias sekundes…';
@@ -4205,7 +4214,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get hunger_games_error_retry_button => 'Pabandykime dar kartą!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'Pertvarkyti atributus';
 
   @override
   String get link_cant_be_opened =>
@@ -4213,12 +4222,12 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'Išsami informacija apie $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return 'Išsami informacija apie $pageName su $productName';
   }
 
   @override
@@ -4307,15 +4316,15 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'Kur rasti naują „Nutri-Score“ skaičiavimo sistemą?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      '„Nutri-Score“ taikoma 7 šalyse: Prancūzijoje, Vokietijoje, Belgijoje, Ispanijoje, Liuksemburge, Nyderlanduose ir Šveicarijoje.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Gamintojai turi ne vėliau kaip **2 metus** nuo dekreto pasirašymo **pakeisti** senąjį skaičiavimą nauju.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4425,7 +4434,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Norėdami apdovanoti geresnius produktus tam tikroje kategorijoje, taikome **premijas ir nuobaudas pagal kelis kriterijus**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4433,7 +4442,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Premija** skiriama produktams, turintiems **oficialų ženklą, etiketę ar sertifikatą, garantuojantį naudą aplinkai** (ekologiškas, sąžiningos prekybos, HVE, „Label Rouge“, „Bleu Blanc Cœur“, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4441,7 +4450,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'Premija skiriama atsižvelgiant į ingredientų kilmę. Ši premija skaičiuojama atsižvelgiant į **poveikį transportui** ir kiekvieno gamintojo šalies **aplinkos politiką**.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4449,14 +4458,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Bauda** skiriama produktams, kurių sudėtyje yra ingredientų, darančių didelį **neigiamą poveikį biologinei įvairovei ir ekosistemoms**, pavyzdžiui, palmių aliejaus, kurio gamyba lemia didžiulį miškų naikinimą.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Pakuotė';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**Bauda** apskaičiuojama atsižvelgiant į **pakuotės žiediškumą** (perdirbtų žaliavų naudojimą ir perdirbimo galimybes) ir perteklinį pakuotę.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4464,19 +4473,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Norint tiksliai apskaičiuoti „Green-Score“, būtina turėti **informaciją, kuri nebūtinai nurodyta ant pakuotės** (pvz., kiekvieno ingrediento kilmę ir tikslų procentą) arba kuri retai prieinama naudotina forma (pvz., visų pakuotės komponentų sąrašą su tiksliais panaudotų plastikų tipais).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Vidutinės vertės naudojamos, kai ši informacija dar nėra prieinama**, tačiau dabar raginame visus padėti mums rinkti šią informaciją, kuri bus labai naudinga tiek „Green-Score“, tiek ir daugeliui kitų tikslų.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Kaip piliečiai gali padėti?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Visi piliečiai gali padėti mums rinkti ir susisteminti informaciją, esančią ant produktų arba kurią galima iš jų išvesti, pavyzdžiui, informaciją apie **pakuotes**: „Mission Emballages“: didelio masto bendradarbiaujant atliekamas visų maisto produktų pakuočių inventorius (prancūzų k.).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4550,14 +4559,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Neperdirbtas (arba natūralus) maistas yra **valgomos augalų** (sėklos, vaisiai, lapai, stiebai, šaknys) **arba gyvūnų** (raumenys, subproduktai, kiaušiniai, pienas), taip pat grybų, dumblių ir vandens dalys, atskirtos nuo gamtos.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Perdirbti kulinariniai ingredientai, tokie kaip **aliejai, sviestas, cukrus ir druska**, yra medžiagos, gautos iš 1 grupės maisto produktų arba iš gamtos taikant tokius procesus kaip spaudimas, rafinavimas, malimas, malimas ir džiovinimas.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
@@ -4582,7 +4591,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Daugelis jų yra **gaunami toliau perdirbant maisto sudedamąsias dalis**, pavyzdžiui, hidrinti arba interesterifikuoti aliejai, hidrolizuoti baltymai, sojų baltymų izoliatas, maltodekstrinas, invertuotas cukrus ir didelės fruktozės kukurūzų sirupas.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4590,7 +4599,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Ultraperdirbtuose maisto produktuose esantys priedai apima ir tuos, kurie taip pat naudojami perdirbtuose maisto produktuose, pavyzdžiui, konservantus, antioksidantus ir stabilizatorius. Priedų, randamų tik ultraperdirbtuose produktuose, klasės apima tuos, kurie naudojami **maisto produktų juslinėms savybėms imituoti arba sustiprinti arba galutinio produkto nemaloniems aspektams paslėpti**. Šie priedai apima dažiklius ir kitus dažiklius, spalvų stabilizatorius; kvapiąsias medžiagas, skonio stipriklius, necukrinius saldiklius; ir pagalbines perdirbimo medžiagas, tokias kaip gazavimo, standinimo, užpildai ir tūrį mažinančios medžiagos, putojimo mažinimo, lipnumą reguliuojančios ir glazūravimo medžiagos, emulsikliai, kompleksonai ir drėgmę išlaikančios medžiagos.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4598,7 +4607,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Naudojama daugybė procesų sekų**, siekiant sujungti įprastai daug ingredientų ir sukurti galutinį produktą (todėl jis vadinamas „ultra apdorotu“). Šie procesai apima kelis **neturinčius atitikmenų namuose**, pavyzdžiui, hidrinimą ir hidrolizę, ekstruziją ir liejimą, bei paruošiamąjį apdorojimą kepimui.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4606,104 +4615,105 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Bendras ultraperdirbimo tikslas – kurti firminius, **patogius** (patvarius, paruoštus vartoti), **patrauklius** (itin skanius) ir **labai pelningus** (su pigiais ingredientais) maisto produktus, skirtus išstumti visas kitas maisto grupes. Ultraperdirbti maisto produktai paprastai yra patraukliai supakuoti ir intensyviai parduodami.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Pavojus sveikatai';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Nuo 2018 m., pasitelkus „NutriNet-Santé“, buvo pirmą kartą išryškinti ryšiai tarp **ultraperdirbtų maisto produktų vartojimo ir padidėjusios vėžio, širdies ir kraujagyslių ligų bei diabeto rizikos**. Šiandien šiuos rezultatus patvirtina daugiau nei 90 tyrimų visame pasaulyje.\nStipriausi ryšiai yra susiję su **nutukimu, mirtingumu nuo širdies ir kraujagyslių ligų bei depresijos simptomais**. Vaikams poveikis pirmiausia stebimas svorio ir lipidų disbalanso srityse.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Šalys rekomenduoja juos apriboti';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Kai kurios šalys naudoja NOVA grupes savo mitybos gairėms ar tikslams nustatyti, pavyzdžiui:\n\n- **🇧🇷 Brazilijos** mitybos gairėse **rekomenduojama apriboti perdirbto maisto vartojimą** ir vengti itin perdirbto maisto.\n\n- **🇫🇷 Prancūzijos** visuomenės sveikatos mitybos politikos tikslai 2018–2022 m. siekia **20 % sumažinti 4 grupės itin perdirbtų maisto produktų vartojimą**.';
 
   @override
   String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Sveiki atvykę į „Open Food Facts“!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Kas yra atviri faktai apie maistą?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      '„Open Food Facts“ yra **bendradarbiavimo pagrindu sukurta**, **nemokama** ir **atvira** maisto produktų iš viso pasaulio duomenų bazė.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Tikime, kad kiekvienas turėtų turėti prieigą prie informacijos apie tai, ką valgo. Rinkdami duomenis apie sudedamąsias dalis, alergenus, maistinę vertę ir kita, **suteikiame vartotojams galimybę priimti informacija pagrįstus sprendimus** ir skatiname maisto pramonę **siekti didesnio skaidrumo**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Atvirų maisto faktų ypatybės';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Gaukite įspėjimus apie nepageidaujamus ingredientus';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Patarimai, kaip daryti puikias nuotraukas';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Ko nedaryti';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Venkite šešėlių ir akinančių šviesų.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nėra neryškaus ar nefokusuoto teksto.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Neiškirpkite teksto dalių.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Venkite užimtų fonų.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Daryti';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Naudokite gerą, tolygų apšvietimą.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Įsitikinkite, kad tekstas yra ryškus ir įskaitomas.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Užfiksuokite visą ingredientų sąrašą.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Laikykite gaminį ant lygaus paviršiaus.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Padėkite mums sukurti „Maisto Vikipediją“';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Maistingumo kokybės įvertinimas';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Rezultatas, padedantis išvengti itin perdirbtų maisto produktų';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Rezultatas planetai';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4711,236 +4721,239 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Sveiki atvykę į „Open Pet Food Facts“!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Kas yra atviri naminių gyvūnėlių ėdalo faktai?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      '„Open Pet Food Facts“ pratęsia savo misiją, įtraukdama ir mūsų keturkojus draugus! Tai **naminių gyvūnėlių ėdalo produktų katėms, šunims ir kitiems draugams** duomenų bazė.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Renkame informaciją apie **sudedamąsias dalis**, **maistinę analizę** ir šėrimo gaires, kad padėtume augintinių savininkams išsirinkti geriausią ėdalą savo gyvūnų poreikiams.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Atviro naminių gyvūnėlių ėdalo faktų ypatybės';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Gaukite įspėjimus apie nepageidaujamus ingredientus';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Ar jūsų augintinis yra alergiškas kokiems nors ingredientams? Programėlėje galite susikurti vengtinų kosmetikos ingredientų sąrašą!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Patarimai, kaip daryti puikias nuotraukas';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Ko nedaryti';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Venkite šešėlių ir akinančių šviesų.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nėra neryškaus ar nefokusuoto teksto.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Neiškirpkite teksto dalių.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Venkite užimtų fonų.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Daryti';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Naudokite gerą, tolygų apšvietimą.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Įsitikinkite, kad tekstas yra ryškus ir įskaitomas.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Užfiksuokite visą ingredientų sąrašą.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Laikykite gaminį ant lygaus paviršiaus.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Pastaba apie taškų skaičiavimą';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Gyvūnų ėdalo vertinimo sistemos kūrimas **šiuo metu nėra prioritetas**. Metodologija būtų sudėtinga, nes mitybos poreikiai labai skiriasi priklausomai nuo rūšies, amžiaus ir sveikatos būklės. Kol kas neradome jokios nepriklausomos mokslinės komandos, galinčios sukurti tokį balą.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-lt.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Sveiki atvykę į „Open Beauty Facts“!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Kas yra atviri grožio faktai?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      '„Open Beauty Facts“ yra bendradarbiaujant sukurta **kosmetikos gaminių** duomenų bazė.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Mūsų tikslas – iššifruoti ingredientų sąrašus, kad padėtume jums **suprasti, kas yra jūsų asmeninės higienos priemonėse**. Nuo drėkinamųjų kremų iki makiažo – renkame duomenis apie ingredientus, alergenus ir pakuotes, siekdami skatinti skaidrumą kosmetikos pramonėje.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Atvirų grožio faktų ypatybės';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Gaukite įspėjimus apie nepageidaujamus ingredientus';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Ar esate alergiškas kokiems nors ingredientams? Norite išvengti komedogeninių medžiagų? Norite vengti prieštaringai vertinamų komponentų? Programėlėje galite susikurti vengtinų kosmetikos ingredientų sąrašą!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Patarimai, kaip daryti puikias nuotraukas';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Ko nedaryti';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Venkite šešėlių ir akinančių šviesų.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nėra neryškaus ar nefokusuoto teksto.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Neiškirpkite teksto dalių.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+  String get guide_open_beauty_facts_tips_arg1_text4 => 'Venkite užimtų fonų.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Daryti';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Naudokite gerą, tolygų apšvietimą.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Įsitikinkite, kad tekstas yra ryškus ir įskaitomas.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Užfiksuokite visą ingredientų sąrašą.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Jei butelis išlenktas, padarykite tiek nuotraukų, kiek reikia.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Norint pamatyti sudedamųjų dalių sąrašą, gali tekti nulupti etiketę.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Laikykite gaminį ant lygaus paviršiaus.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'Pastaba apie taškų skaičiavimą';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'Kitaip nei maisto produktų atveju, kosmetikos pasaulyje **nėra visuotinai pripažintos, vyriausybės remiamos vertinimo sistemos, tokios kaip „Nutri-Score“**. Ingredientų poveikis gali būti labai asmeniškas ir priklausyti nuo odos tipo, alergijų ir individualių poreikių.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-lt.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title =>
+      'Sveiki atvykę į atvirų kainų atidarymo programą!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Kas yra atviros kainos?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      '„Open Prices“ yra projektas, skirtas **rinkti ir dalytis produktų kainomis visame pasaulyje**. Tai viešai prieinamas duomenų rinkinys, kurį galima naudoti tyrimams, analizei ir kt. „Open Prices“ kuria ir prižiūri „Open Food Facts“.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Kaip veikia atviros kainos?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Mes renkame atvirojo kodo kainų duomenų rinkinį**. Kainas gali pridėti vartotojai per šią žiniatinklio programėlę arba per oficialią mobiliąją programėlę „Open Food Facts“. Mažmenininkai arba trečiųjų šalių programėlės taip pat gali prisidėti naudodami mūsų API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Surinkite kainų etikečių nuotraukas praėjimuose';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Surinkite kvitų nuotraukas';
 
   @override
-  String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+  String get guide_open_prices_why_title => 'Kodėl „Open Food Facts“ tai daro?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Informacija apie kainas yra nepaprastai svarbi norint suprasti maisto sistemas. Tai pagrindinis veiksnys norint suprasti maisto kainą ir skatinti sveikesnę mitybą. Pradiniai kainų duomenys yra būdas padėti tyrėjams, žurnalistams ir piliečiams **geriau suprasti, kaip maisto kainos kinta geografiniu požiūriu ir laikui bėgant**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Stebėkite kainų pokyčius laikui bėgant';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Stebėkite **kainų evoliuciją**: susitraukimo infliacija, pigios infliacijos tendencija – galime jas sekti kartu!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Palyginkite kainas šalia jūsų';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Kai gausime daugiau kainų, galėsite rasti **pigiausias parduotuves aplink jus**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Ar svarstėte galimybę nuskaityti kainas iš mažmenininkų svetainių?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Dėl teisinių ir techninių priežasčių **nelaikome kainų nuskaitymo iš mažmenininkų svetainių tinkamu būdu prisidėti prie atvirų kainų**. Norime įsitikinti, kad mūsų renkamos kainos yra tikslios ir atnaujintos, o nuskaitytų kainų gavimas iš bendraautorių neleidžia mums to daryti.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Kainų nuskaitymas yra svarstoma galimybė būsimoje „Open Prices“ versijoje, tačiau tai atliktų pati „Open Prices“, kad galėtume turėti kainos įrodymą pagal HTML puslapį.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4948,7 +4961,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Kainas galite skelbti naudodami mūsų API.\nJei norite prisidėti prie kainų nustatymo dideliu mastu, susisiekite su mumis adresu prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4956,95 +4969,97 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Sveiki atvykę į atvirų produktų faktus!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Kas yra atviri produktų faktai?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      '„Open Products Facts“ yra didžiulė, atvira duomenų bazė, skirta **bet kokiam produktui su brūkšniniu kodu, kuris nėra maistas, kosmetika ar naminių gyvūnėlių ėdalas**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Nuo **elektronikos** iki **žaislų**, nuo **drabužių** iki **valymo priemonių** – jei yra brūkšninis kodas, jį galima pridėti. Šio projekto tikslas – sukurti „daiktų internetą“ kasdieniams daiktams, kad informacija apie juos būtų visuotinai prieinama.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Atvirų produktų faktų ypatybės';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      '„Open Products Facts“ siekia suteikti vartotojams galimybę **prailginti daiktų gyvavimo laiką**, siūlant žiedinės ekonomikos sprendimus, skirtus jų daiktams prižiūrėti, **remontuoti**, **perdirbti** arba suteikti jiems naują savininką.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Kai kurių produktų anglies pėdsakai';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      'Prancūzijos aplinkos agentūros ADEME **CO2 poveikio** duomenys pateikia daugelio kategorijų **anglies dioksido poveikio** duomenis, todėl būtinai tiksliai suskirstykite produktus į kategorijas.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Daugelio gaminių taisomumo indeksas';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Kai tik bus prieinamas prancūziškas taisomumo indeksas, jį rodysime. Be to, **galite pradėti rinkti kintamuosius naudodami „Folksonomy“ variklį**, kad ateityje galėtume jį perskaičiuoti patys, net ir tose šalyse, kuriose jis nėra prieinamas.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Raskite būdų, kaip paaukoti / perparduoti savo produktą';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Pateikiame nuorodas į **trečiųjų šalių žiedinės ekonomikos paslaugas**, kurios padeda jums įsigyti norimą produktą iš antrų rankų, kad būtų tausojantys planetos išteklius.\nAtkreipkite dėmesį, kad mums už tai nemokama ir kad sistema veikia tik kaip dviejų Prancūzijos svetainių pavyzdys. Galite padėti plėsti šią sistemą dokumentuodami daugiau svetainių wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Kokia informacija yra naudinga?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Tokiam plačiam elementų asortimentui **mūsų renkami duomenys yra lankstūs**. Tam **sukūrėme „Folksonomy“ variklį**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'Folksonomijos variklis';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      '„Folksonomy“ variklis yra įrankis, padedantis jums papildyti produktus atitinkamomis savybėmis. Tai padeda pagerinti paiešką ir aptinkamumą, taip pat ateityje apskaičiuoti ir rodyti įdomius dalykus.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Galite pridėti bet kokius raktus ir reikšmes, pvz.: **suderinamumas_su_5G_mobile_network: taip**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Gausite automatinius galimų savybių pasiūlymus ir galite pridėti bei dokumentuoti naujas savo mėgstamiausių produktų savybes.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-lt.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Atidaryti maisto nuostatas';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Netrukus pasirodys';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle =>
+      'Palieskite, kad sužinotumėte daugiau';
 
   @override
-  String get preview_badge => 'Preview';
+  String get preview_badge => 'Peržiūra';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'Spustelėkite čia, jei norite atsiųsti mums atsiliepimą apie šią naują funkciją!';
 
   @override
   String get menu_button_list_actions => 'Rinktis veiksmą';
@@ -5053,7 +5068,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get error_loading_photo => 'Įkeliant nuotrauką, įvyko klaida';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'Naudoti kaip…';
 
   @override
   String get photo_viewer_use_picture_as_tooltip =>
@@ -5061,7 +5076,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'Naudokite šį paveikslėlį kaip… ($language)';
   }
 
   @override
@@ -5241,34 +5256,35 @@ class AppLocalizationsLt extends AppLocalizations {
       'Mes jo ieškome savo duomenų bazėje, kurioje yra daugiau negu **3 milijonai produktų!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food =>
+      'Daržovės, vaisiai, šaldyti maisto produktai…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'Makiažas, muilai, dantų pastos…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Maistas šunims, katėms…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Išmanieji telefonai, baldai…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Produkto nuotrauka';
 
   @override
   String get photo_field_ingredients => 'Sudėties nuotrauka';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Mitybos nuotrauka';
 
   @override
   String get photo_field_packaging => 'Informacijos apie pakuotę nuotrauka';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Ši nuotrauka jau yra';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Šios nuotraukos trūksta';
 
   @override
   String get date => 'Data';
@@ -5299,19 +5315,19 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Kodėl šis „Nutri-Score“ rodiklis skiriasi nuo pateikto ant pakuotės?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'Yra du galimi paaiškinimai:\nSudedamųjų dalių sąrašas ir (arba) maistinė vertė nėra atnaujinta.\n\nPateikiame „Naujas Nutri-Score“ (arba V2) skaičiavimas. Patikrinkite, ar ant pakuotės yra antraštė „Naujas skaičiavimas“.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Patikrinkite ingredientus';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Patikrinkite mitybos faktus';
 
   @override
   String url_not_supported(String url) {
@@ -5338,7 +5354,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_footer_action_report => 'Pranešti';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'Pagalba';
 
   @override
   String get product_footer_action_data_quality_tags => 'Duomenų kokybė';
@@ -5363,7 +5379,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get explanation_card_learn_more_button => 'Sužinokite daugiau';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomija';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5378,11 +5394,12 @@ class AppLocalizationsLt extends AppLocalizations {
       'Šias savybes kuria ir pateikia bendraautoriai bet kokiam naudojimui.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title =>
+      'Atidaryti išorinę nuorodą';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Išorinės nuorodos gali būti nesaugios. Ar tikrai norite jas aplankyti?';
 
   @override
   String get prices_products_empty_title => 'Kaina nežinoma';
@@ -5443,10 +5460,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_discount => 'Nuolaida';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Statistika';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Kainų statistika';
 
   @override
   String get prices_stats_prices_section => 'Kainos';
@@ -5491,7 +5508,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_stats_with_price => 'Su kaina';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'Maistas';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -5500,7 +5517,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_stats_products => 'Produktai';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'Naminių gyvūnėlių ėdalas';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -5552,14 +5569,13 @@ class AppLocalizationsLt extends AppLocalizations {
   String get prices_stats_other => 'Kita';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Paskutinį kartą atnaujinta';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'Įkeliant statistiką įvyko klaida.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Į klausimą atsakyta!';
 
   @override
   String get product_edit_robotoff_proof => 'Įrodymai';
@@ -5819,18 +5835,19 @@ class AppLocalizationsLt extends AppLocalizations {
       'Atraskite atvirus faktus apie maistą';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Atraskite atvirus grožio faktus';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Atraskite atvirus faktus apie naminių gyvūnėlių ėdalą';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title => 'Atraskite atviras kainas';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Atraskite atvirus produktų faktus';
 
   @override
   String get preferences_faq_faq_title => 'DUK – Dažnai užduodami klausimai';
@@ -5852,7 +5869,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Prenumeruokite mūsų bendruomenės kalendorių';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -6109,7 +6126,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count iš $total prekių';
   }
 
   @override
@@ -6119,7 +6136,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count prekės';
   }
 
   @override
@@ -6208,25 +6225,25 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Vietos informacija';
 
   @override
   String get location_map_details_name => 'Vardas';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Gatvė';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Miestas';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Pašto kodas';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordinatės';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';

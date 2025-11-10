@@ -2994,7 +2994,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'prices.openfoodfacts.org (PROD) بىلەن سىناق env نى ئالماشتۇرۇڭ';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';

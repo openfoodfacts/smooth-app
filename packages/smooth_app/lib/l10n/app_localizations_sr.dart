@@ -15,7 +15,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sep => '';
 
   @override
-  String get yes => 'Yes';
+  String get yes => 'Da';
 
   @override
   String get add => 'Додај';
@@ -55,7 +55,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get go_back_to_top => 'Go back to top';
 
   @override
-  String get save => 'Save';
+  String get save => 'Sačuvaj';
 
   @override
   String get save_confirmation => 'Are you sure you want to save?';
@@ -70,10 +70,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get ignore => 'Ignore';
 
   @override
-  String get close => 'Затвори';
+  String get close => 'Zatvori';
 
   @override
-  String get no => 'No';
+  String get no => 'Ne';
 
   @override
   String get stop => 'Stop';
@@ -185,7 +185,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
-  String get login => 'Login';
+  String get login => 'Korisničko ime';
 
   @override
   String get login_result_type_server_unreachable => 'Network is unreachable';
@@ -220,7 +220,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'Password';
+  String get password => 'Lozinka';
 
   @override
   String get forgot_password => 'Forgot password';
@@ -265,7 +265,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Congratulations! Your account has just been created.';
 
   @override
-  String get sign_up_page_display_name_hint => 'Name';
+  String get sign_up_page_display_name_hint => 'Naziv';
 
   @override
   String get sign_up_page_display_name_error_empty =>
@@ -300,7 +300,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get sign_up_page_password_hint => 'Password';
+  String get sign_up_page_password_hint => 'Lozinka';
 
   @override
   String get sign_up_page_password_error_empty => 'Please enter a password';
@@ -364,7 +364,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
-  String get settingsTitle => 'Settings';
+  String get settingsTitle => 'Podešavanja';
 
   @override
   String get darkmode => 'Theme';
@@ -602,7 +602,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get scan_navbar_label => 'Скенирање';
 
   @override
-  String get history_navbar_label => 'History';
+  String get history_navbar_label => 'Istorija';
 
   @override
   String get list_navbar_label => 'Lists';
@@ -626,7 +626,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get scan_history => 'Scan history';
 
   @override
-  String get search => 'Search';
+  String get search => 'Pretraživanje';
 
   @override
   String get search_store => 'Search for a store';
@@ -664,7 +664,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get outdated_image_short_label => 'may be outdated';
 
   @override
-  String get ingredients => 'Ingredients';
+  String get ingredients => 'Sastojci';
 
   @override
   String get ingredients_editing_instructions =>
@@ -698,7 +698,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Nutrition';
+  String get nutrition => 'Nutritivne vrednosti';
 
   @override
   String get nutrition_facts_photo => 'Nutrition facts photo';
@@ -819,7 +819,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get take_photo_title => 'Take a picture';
 
   @override
-  String get take_more_photo_title => 'Take more pictures';
+  String get take_more_photo_title => 'Take more photos';
 
   @override
   String get front_photo_uploaded => 'Front photo uploaded';
@@ -923,7 +923,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
-  String get take_more_photo_button_label => 'Take more pictures';
+  String get take_more_photo_button_label => 'Take more photos';
 
   @override
   String get other_photo_uploaded => 'Miscellaneous photo uploaded';
@@ -1014,10 +1014,10 @@ class AppLocalizationsSr extends AppLocalizations {
       'Values specified on the product:';
 
   @override
-  String get nutrition_page_nutritional_info_value_positive => 'Yes';
+  String get nutrition_page_nutritional_info_value_positive => 'Da';
 
   @override
-  String get nutrition_page_nutritional_info_value_negative => 'No';
+  String get nutrition_page_nutritional_info_value_negative => 'Ne';
 
   @override
   String get nutrition_page_nutritional_info_open_photo => 'Open photo';
@@ -1046,7 +1046,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Serving size';
+  String get nutrition_page_serving_size => 'Porcija';
 
   @override
   String get nutrition_page_serving_size_hint =>
@@ -1167,7 +1167,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get product_image_action_take_new_picture => 'Take a new picture';
+  String get product_image_action_take_new_picture => 'Capture New';
 
   @override
   String get product_image_action_take_picture => 'Take a picture';
@@ -1244,7 +1244,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
-  String get app_review_negative_modal_negative_button => 'No';
+  String get app_review_negative_modal_negative_button => 'Ne';
 
   @override
   String get could_not_refresh => 'Could not refresh product';
@@ -1262,7 +1262,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get no_product_tags_found_message =>
-      'No product properties found. Properties can be used to describe products in more details, in a flexible way.';
+      'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
   String get product_tags_empty => 'Нема некретнина';
@@ -1272,7 +1272,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Додавањем својстава (кључ/вредност) производу, помажете у његовом обогаћивању.';
 
   @override
-  String get add_tag => 'Add a property';
+  String get add_tag => 'Add property';
 
   @override
   String get add_tags => 'Add properties';
@@ -1419,7 +1419,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'Clear';
+  String get clear => 'Obriši';
 
   @override
   String get clear_long => 'Empty the list';
@@ -1587,7 +1587,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permissions_page_body1 =>
-      'To scan barcodes with your phone\'s camera, please Authorize the access.';
+      'To scan barcodes with your phone\'s camera, please Authorise the access.';
 
   @override
   String get permissions_page_body2 =>
@@ -1625,7 +1625,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get authorize_button_label => 'Authorize';
+  String get authorize_button_label => 'Authorise';
 
   @override
   String get refuse_button_label => 'Refuse';
@@ -1740,7 +1740,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get settings_app_app => 'Application';
 
   @override
-  String get settings_app_data => 'Features & Crash monitoring';
+  String get settings_app_data => 'Privacy & monitoring';
 
   @override
   String get settings_app_camera => 'Camera';
@@ -1769,18 +1769,18 @@ class AppLocalizationsSr extends AppLocalizations {
       'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
-  String get crash_reporting_toggle_title => 'Report us bugs and crashes';
+  String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
       'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
-  String get send_anonymous_data_toggle_title => 'Report us feature usage';
+  String get send_anonymous_data_toggle_title => 'Send anonymous data';
 
   @override
   String get send_anonymous_data_toggle_subtitle =>
-      'When enabled, strictly anonymous information regarding feature usage will be sent to the Open Food Facts servers, so that we can understand how features are used in order to improve them. Otherwise, a 0 id will be sent.';
+      'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
   String get product_edit_photo_title => 'Edit Photo';
@@ -1825,7 +1825,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'Edit product';
+  String get edit_product_label => 'Izmenite proizvod';
 
   @override
   String get edit_product_pending_operations_banner_title =>
@@ -1840,7 +1840,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
-  String get edit_product_label_short => 'Edit';
+  String get edit_product_label_short => 'Izmeni';
 
   @override
   String edit_product_form_item_help(String value) {
@@ -1948,7 +1948,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Fair trade, Max Havelaar…';
 
   @override
-  String get edit_product_form_item_stores_title => 'Stores';
+  String get edit_product_form_item_stores_title => 'Prodavnice';
 
   @override
   String get edit_product_form_item_stores_hint => 'Input a store';
@@ -2063,7 +2063,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'EMB 72264';
 
   @override
-  String get edit_product_form_item_traces_title => 'Traces';
+  String get edit_product_form_item_traces_title => 'Tragovi';
 
   @override
   String get edit_product_form_item_traces_hint => 'trace';
@@ -2122,7 +2122,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Discard changes';
 
   @override
-  String get edit_product_form_item_ingredients_title => 'Ingredients';
+  String get edit_product_form_item_ingredients_title => 'Sastojci';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
@@ -2158,7 +2158,8 @@ class AppLocalizationsSr extends AppLocalizations {
       'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
+  String get edit_product_form_item_nutrition_facts_title =>
+      'Hranljiva vrednost';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
@@ -2178,7 +2179,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Nutrition facts';
+      'Hranljiva vrednost';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
@@ -2193,13 +2194,13 @@ class AppLocalizationsSr extends AppLocalizations {
       'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
-  String get edit_product_form_save => 'Edit';
+  String get edit_product_form_save => 'Izmeni';
 
   @override
   String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
-  String get edit_product_ingredients_list_title => 'List of ingredients';
+  String get edit_product_ingredients_list_title => 'Lista sastojaka';
 
   @override
   String get edit_product_packaging_photo_title => 'Packaging photo';
@@ -2306,7 +2307,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get user_list_empty_label =>
-      'No list available yet!\nPlease start by creating one.';
+      'No list available yet, please start by creating one';
 
   @override
   String get user_list_button_add_product => 'Add to list';
@@ -3120,7 +3121,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
-  String get edit_photo_button_label => 'Edit';
+  String get edit_photo_button_label => 'Izmeni';
 
   @override
   String get edit_photo_unselect_button_label => 'Unselect photo';
@@ -3130,7 +3131,8 @@ class AppLocalizationsSr extends AppLocalizations {
       'Select an existing image';
 
   @override
-  String get edit_photo_select_existing_all_label => 'Existing images';
+  String get edit_photo_select_existing_all_label =>
+      'Existing images for this product';
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
@@ -3326,7 +3328,7 @@ class AppLocalizationsSr extends AppLocalizations {
       '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
-  String get barcode => 'Barcode';
+  String get barcode => 'Barkod';
 
   @override
   String barcode_barcode(String barcode) {
@@ -3449,7 +3451,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
-  String get share => 'Share';
+  String get share => 'Podeli';
 
   @override
   String share_product_text(String url) {
@@ -3477,7 +3479,7 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get capture => 'Take a new picture';
+  String get capture => 'Capture New';
 
   @override
   String get capture_new_picture => 'Take a picture';
@@ -4166,7 +4168,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'Share';
+  String get guide_share_label => 'Podeli';
 
   @override
   String get guide_nutriscore_v2_title =>
@@ -4320,7 +4322,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
+  String get guide_greenscore_lca_arg2_packaging => 'Ambalaža';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4378,7 +4380,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
-      'Origin of ingredients';
+      'Poreklo sastojaka';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
@@ -4393,7 +4395,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Ambalaža';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4468,7 +4470,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'The NOVA groups inform you about **the level of food processing**.';
+      'The NOVA groups inform you about the level of food processing.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4493,14 +4495,14 @@ class AppLocalizationsSr extends AppLocalizations {
       'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
+  String get guide_nova_groups_arg2_title => 'Prerađeni kulinarski sastojci';
 
   @override
   String get guide_nova_groups_arg2_text =>
       'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Processed foods';
+  String get guide_nova_groups_arg3_title => 'Prerađena hrana';
 
   @override
   String get guide_nova_groups_arg3_text =>
@@ -4647,7 +4649,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-sr.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -5263,7 +5265,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get product_footer_action_barcode => 'View barcode';
 
   @override
-  String get product_footer_action_barcode_short => 'Barcode';
+  String get product_footer_action_barcode_short => 'Barkod';
 
   @override
   String get product_footer_action_open_website => 'Open website';
@@ -5617,7 +5619,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Техничке информације, информације за програмере и још много тога';
 
   @override
-  String get preferences_card_information => 'Information';
+  String get preferences_card_information => 'Informacija';
 
   @override
   String get preferences_version_number_title => 'Број верзије';
@@ -5771,7 +5773,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
 
   @override
-  String get preferences_about_information_title => 'Information';
+  String get preferences_about_information_title => 'Informacija';
 
   @override
   String get preferences_connect_community_updates_title =>
@@ -6040,7 +6042,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count од $total ставки';
   }
 
   @override
@@ -6050,7 +6052,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count ставке';
   }
 
   @override
@@ -6143,7 +6145,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'Naziv';
 
   @override
   String get location_map_details_street => 'Street';

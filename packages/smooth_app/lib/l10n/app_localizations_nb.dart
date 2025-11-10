@@ -3008,7 +3008,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Bytt mellom prices.openfoodfacts.org (PROD) og test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -6054,7 +6054,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count av $total objekter';
   }
 
   @override
@@ -6064,7 +6064,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count objekter';
   }
 
   @override

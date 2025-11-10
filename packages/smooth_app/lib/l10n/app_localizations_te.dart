@@ -4895,7 +4895,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://prices.openfoodfacts.org/about గురించి';
 
   @override
   String get guide_open_products_facts_title =>
@@ -6039,7 +6039,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$total లో $count అంశాలు';
   }
 
   @override
@@ -6049,7 +6049,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count అంశాలు';
   }
 
   @override

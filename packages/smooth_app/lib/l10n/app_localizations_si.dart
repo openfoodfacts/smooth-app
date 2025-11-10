@@ -6038,7 +6038,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$total අයිතම වලින් $count';
   }
 
   @override
@@ -6048,7 +6048,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return '$count අයිතම';
   }
 
   @override

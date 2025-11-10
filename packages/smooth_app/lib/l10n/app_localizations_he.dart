@@ -5263,7 +5263,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'מידע נוסף';
@@ -5986,7 +5986,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String item_count_with_total_string(String count, String total) {
-    return '$count of $total items';
+    return '$count מתוך $total פריטים';
   }
 
   @override
@@ -5996,7 +5996,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String item_count_string(String count) {
-    return '$count items';
+    return 'פריטים $count';
   }
 
   @override
