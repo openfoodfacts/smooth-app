@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Cur pretia?",
-  "prices_explanation_card_line1": "**Open Prices** est proiectum ad pretia productorum toto orbe terrarum 🌍 colligenda et communicanda. Open Prices (Pretia Aperta) ab Open Food Facts elaborata et sustentata sunt.",
+  "prices_explanation_card_line1": "**Open Prices** est proiectum ad pretia productorum toto orbe terrarum 🌍 colligenda et communicanda. Open Prices (Open Prices) ab Open Food Facts elaborata et sustentata sunt.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

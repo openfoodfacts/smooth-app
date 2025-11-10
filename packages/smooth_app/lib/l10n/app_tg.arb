@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Чаро нархҳо?",
-  "prices_explanation_card_line1": "**Нархҳои кушод** лоиҳаест барои ҷамъоварӣ ва мубодилаи нархҳои маҳсулот дар саросари ҷаҳон 🌍. Нархҳои кушод аз ҷониби Open Food Facts таҳия ва нигоҳ дошта мешаванд.",
+  "prices_explanation_card_line1": "**Open Prices** лоиҳаест барои ҷамъоварӣ ва мубодилаи нархҳои маҳсулот дар саросари ҷаҳон 🌍. Open Prices аз ҷониби Open Food Facts таҳия ва нигоҳ дошта мешаванд.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {

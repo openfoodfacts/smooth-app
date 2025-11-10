@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ಬೆಲೆಗಳು ಏಕೆ?",
-  "prices_explanation_card_line1": "**ಓಪನ್ ಪ್ರೈಸಸ್** ಎಂಬುದು ಪ್ರಪಂಚದಾದ್ಯಂತದ ಉತ್ಪನ್ನಗಳ ಬೆಲೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಿ ಹಂಚಿಕೊಳ್ಳುವ ಯೋಜನೆಯಾಗಿದೆ 🌍. ಓಪನ್ ಪ್ರೈಸಸ್ ಅನ್ನು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದೆ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತದೆ.",
+  "prices_explanation_card_line1": "**ಓಪನ್ ಪ್ರೈಸಸ್** ಎಂಬುದು ಪ್ರಪಂಚದಾದ್ಯಂತದ ಉತ್ಪನ್ನಗಳ ಬೆಲೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಿ ಹಂಚಿಕೊಳ್ಳುವ ಯೋಜನೆಯಾಗಿದೆ 🌍. ಓಪನ್ ಪ್ರೈಸಸ್ ಅನ್ನು Open Food Facts ಅಭಿವೃದ್ಧಿಪಡಿಸಿದೆ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತದೆ.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಎಂಬುದು ಆಹಾರ ಉತ್ಪನ್ನಗಳ ಡೇಟಾಬೇಸ್ ಆಗಿದೆ **ಎಲ್ಲರಿಂದ, ಎಲ್ಲರಿಗೂ** ತಯಾರಿಸಲ್ಪಟ್ಟಿದೆ.\nಉತ್ತಮ ಆಹಾರ ಆಯ್ಕೆಗಳನ್ನು ಮಾಡಲು ನೀವು ಇದನ್ನು ಬಳಸಬಹುದು, ಮತ್ತು ಇದು **ಓಪನ್ ಡೇಟಾ** ಆಗಿರುವುದರಿಂದ, ಯಾರಾದರೂ ಇದನ್ನು ಯಾವುದೇ ಉದ್ದೇಶಕ್ಕಾಗಿ ಮರುಬಳಕೆ ಮಾಡಬಹುದು**.",
+  "preferences_legal_header": "Open Food Facts ಎಂಬುದು ಆಹಾರ ಉತ್ಪನ್ನಗಳ ಡೇಟಾಬೇಸ್ ಆಗಿದೆ **ಎಲ್ಲರಿಂದ, ಎಲ್ಲರಿಗೂ** ತಯಾರಿಸಲ್ಪಟ್ಟಿದೆ.\nಉತ್ತಮ ಆಹಾರ ಆಯ್ಕೆಗಳನ್ನು ಮಾಡಲು ನೀವು ಇದನ್ನು ಬಳಸಬಹುದು, ಮತ್ತು ಇದು **ಓಪನ್ ಡೇಟಾ** ಆಗಿರುವುದರಿಂದ, ಯಾರಾದರೂ ಇದನ್ನು ಯಾವುದೇ ಉದ್ದೇಶಕ್ಕಾಗಿ ಮರುಬಳಕೆ ಮಾಡಬಹುದು**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4978,7 +4978,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ",
+  "preferences_on_off_website_subtitle": "Open Food Facts ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "ದಿ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ NGO",
+  "preferences_faq_off_ngo_title": "ದಿ Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "ದಿ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಬ್ಲಾಗ್",
+  "preferences_connect_blog_title": "ದಿ Open Food Facts ಬ್ಲಾಗ್",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5535,7 +5535,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಲ್ಯಾಬ್ಸ್",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ಲ್ಯಾಬ್ಸ್",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

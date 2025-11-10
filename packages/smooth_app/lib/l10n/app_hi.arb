@@ -4539,7 +4539,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "कीमतें क्यों?",
-  "prices_explanation_card_line1": "**ओपन प्राइसेज़** दुनिया भर के उत्पादों की कीमतें एकत्रित करने और उन्हें साझा करने का एक प्रोजेक्ट है। ओपन प्राइसेज़ का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।",
+  "prices_explanation_card_line1": "**Open Prices** दुनिया भर के उत्पादों की कीमतें एकत्रित करने और उन्हें साझा करने का एक प्रोजेक्ट है। Open Prices का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4914,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ओपन फूड फैक्ट्स एक खाद्य उत्पाद डेटाबेस है जो **सभी के लिए, सभी के द्वारा बनाया गया है**।\nआप इसका उपयोग बेहतर भोजन विकल्प बनाने के लिए कर सकते हैं, और चूंकि यह **खुला डेटा** है, कोई भी इसे किसी भी उद्देश्य के लिए **पुनः उपयोग कर सकता है**।",
+  "preferences_legal_header": "Open Food Facts एक खाद्य उत्पाद डेटाबेस है जो **सभी के लिए, सभी के द्वारा बनाया गया है**।\nआप इसका उपयोग बेहतर भोजन विकल्प बनाने के लिए कर सकते हैं, और चूंकि यह **खुला डेटा** है, कोई भी इसे किसी भी उद्देश्य के लिए **पुनः उपयोग कर सकता है**।",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ओपन प्राइसेस समुदाय द्वारा जोड़े गए नवीनतम मूल्य",
+  "preferences_prices_newest_subtitle": "Open Prices समुदाय द्वारा जोड़े गए नवीनतम मूल्य",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

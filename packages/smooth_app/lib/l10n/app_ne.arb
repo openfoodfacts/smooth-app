@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "खुला खाद्य तथ्य ब्लग",
+  "preferences_connect_blog_title": "Open Food Facts ब्लग",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
