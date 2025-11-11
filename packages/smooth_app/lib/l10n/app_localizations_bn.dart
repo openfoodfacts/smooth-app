@@ -632,19 +632,20 @@ class AppLocalizationsBn extends AppLocalizations {
   String get search => 'অনুসন্ধান';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'একটি পণ্য,\nএকটি ব্র্যান্ড বা বারকোড খুঁজুন';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'অনুসন্ধান ফিল্টার';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'অনুসন্ধানের ইতিহাস';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'ইঙ্গিত: শহর বা দেশ যোগ করুন';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

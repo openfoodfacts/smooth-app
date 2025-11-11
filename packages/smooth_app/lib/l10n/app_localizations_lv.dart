@@ -638,19 +638,19 @@ class AppLocalizationsLv extends AppLocalizations {
   String get search => 'Meklēt';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Meklēt produktu,\nzīmolu vai svītrkodu';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Meklēšanas filtrs';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Meklēšanas vēsture';
 
   @override
   String get search_store => 'Meklēt veikalu';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Padoms: pievienojiet pilsētu vai valsti';
 
   @override
   String get tap_for_more => 'Pieskarieties, lai skatītu vairāk informācijas…';

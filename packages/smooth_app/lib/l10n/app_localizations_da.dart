@@ -629,19 +629,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get search => 'Søg';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Søg efter et produkt,\net mærke eller en stregkode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Søgefilter';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Søgehistorik';
 
   @override
   String get search_store => 'Søg efter en butik';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Tip: tilføj byen eller landet';
 
   @override
   String get tap_for_more => 'Tryk for flere oplysninger…';

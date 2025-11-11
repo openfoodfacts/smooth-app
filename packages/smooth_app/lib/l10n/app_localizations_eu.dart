@@ -631,19 +631,20 @@ class AppLocalizationsEu extends AppLocalizations {
   String get search => 'Bilatu';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Bilatu produktu bat,\nmarka bat edo barra-kode bat';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Bilaketa-iragazkia';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Bilaketa-historia';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Aholkua: gehitu hiria edo herrialdea';
 
   @override
   String get tap_for_more => 'Sakatu informazio gehiago ikusteko…';

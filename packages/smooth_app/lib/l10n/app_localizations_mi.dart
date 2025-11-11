@@ -629,19 +629,21 @@ class AppLocalizationsMi extends AppLocalizations {
   String get search => 'Search';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Rapua he hua,\nhe waitohu, he tohu pae ranei';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Rapu tātari';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Hītori rapu';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help =>
+      'Tohutohu: tāpirihia te tāone, te whenua rānei';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

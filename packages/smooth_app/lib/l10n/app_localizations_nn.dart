@@ -629,19 +629,20 @@ class AppLocalizationsNn extends AppLocalizations {
   String get search => 'Søk';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Søk etter et produkt,\net merke eller en strekkode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Søkefilter';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Søkelogg';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Hint: legg til byen eller landet';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

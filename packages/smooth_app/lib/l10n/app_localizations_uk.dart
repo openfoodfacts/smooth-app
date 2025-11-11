@@ -635,19 +635,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get search => 'Пошук';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Пошук товару,\nбренду або штрих-коду';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Фільтр пошуку';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Історія пошуку';
 
   @override
   String get search_store => 'Пошук магазину';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Підказка: додайте місто або країну';
 
   @override
   String get tap_for_more => 'Натисніть, щоб побачити більше…';

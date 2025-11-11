@@ -632,19 +632,20 @@ class AppLocalizationsVi extends AppLocalizations {
   String get search => 'Tìm kiếm';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Tìm kiếm sản phẩm,\nthương hiệu hoặc mã vạch';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Bộ lọc tìm kiếm';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Lịch sử tìm kiếm';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Gợi ý: thêm thành phố hoặc quốc gia';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

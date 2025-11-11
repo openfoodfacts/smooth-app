@@ -638,19 +638,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get search => 'Vyhľadať';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Vyhľadajte produkt,\nznačku alebo čiarový kód';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Vyhľadávací filter';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'História vyhľadávania';
 
   @override
   String get search_store => 'Vyhľadajte obchod';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Tip: pridajte mesto alebo krajinu';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte ďalšie informácie…';

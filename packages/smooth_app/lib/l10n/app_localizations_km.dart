@@ -629,19 +629,19 @@ class AppLocalizationsKm extends AppLocalizations {
   String get search => 'ស្វែងរក';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'ស្វែងរកផលិតផល\nម៉ាក ឬបាកូដ';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'ស្វែងរកតម្រង';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'ប្រវត្តិស្វែងរក';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'ព័ត៌មានជំនួយ៖ បន្ថែមទីក្រុង ឬប្រទេស';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

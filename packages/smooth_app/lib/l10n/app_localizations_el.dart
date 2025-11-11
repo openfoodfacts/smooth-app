@@ -640,19 +640,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get search => 'Αναζήτηση';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Αναζήτηση προϊόντος,\nμάρκας ή γραμμωτού κώδικα';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Φίλτρο αναζήτησης';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Ιστορικό αναζήτησης';
 
   @override
   String get search_store => 'Αναζήτηση για κατάστημα';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Υπόδειξη: προσθέστε την πόλη ή τη χώρα';
 
   @override
   String get tap_for_more => 'Πατήστε για να δείτε περισσότερες πληροφορίες…';

@@ -626,19 +626,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search => 'بحث';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'ابحث عن منتج أو\nعلامة تجارية أو رمز شريطي';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'مرشح البحث';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'سجل البحث';
 
   @override
   String get search_store => 'ابحث عن متجر';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'تلميح: أضف المدينة أو البلد';
 
   @override
   String get tap_for_more => 'انقر لرؤية المزيد من المعلومات…';

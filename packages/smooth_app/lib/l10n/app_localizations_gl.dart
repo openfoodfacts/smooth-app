@@ -629,19 +629,20 @@ class AppLocalizationsGl extends AppLocalizations {
   String get search => 'Buscar';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Buscar un produto,\nunha marca ou un código de barras';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtro de busca';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Historial de buscas';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Consello: engade a cidade ou o país';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

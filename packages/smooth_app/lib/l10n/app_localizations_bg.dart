@@ -637,19 +637,19 @@ class AppLocalizationsBg extends AppLocalizations {
   String get search => 'Търсене';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Търсене на продукт,\nмарка или баркод';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Филтър за търсене';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'История на търсенията';
 
   @override
   String get search_store => 'Търсене на магазин';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Подсказка: добавете града или държавата';
 
   @override
   String get tap_for_more => 'Докосни, за повече информация…';

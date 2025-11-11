@@ -634,19 +634,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get search => 'ढूंढें';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'कोई उत्पाद,\nकोई ब्रांड या बारकोड खोजें';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'खोज फ़िल्टर';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'खोज इतिहास';
 
   @override
   String get search_store => 'स्टोर खोजें';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'संकेत: शहर या देश जोड़ें';
 
   @override
   String get tap_for_more => 'अधिक जानकारी देखने के लिए टैप करें…';
@@ -4027,27 +4027,27 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'न्यूट्री-स्कोर ए';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'न्यूट्री-स्कोर बी';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'न्यूट्री-स्कोर सी';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'न्यूट्री-स्कोर डी';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'न्यूट्री-स्कोर ई';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'न्यूट्री-स्कोर $letter (नई गणना)';
+    return 'Nutri-Score $letter (नई गणना)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'न्यूट्री-स्कोर (नई गणना)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (नई गणना)';
 
   @override
   String get nutriscore_unknown => 'अज्ञात न्यूट्री-स्कोर';
@@ -4067,19 +4067,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'ग्रीन-स्कोर ए';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'ग्रीन-स्कोर बी';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'ग्रीन-स्कोर सी';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'ग्रीन-स्कोर डी';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'ग्रीन-स्कोर ई';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
   String get environmental_score_unknown_new => 'अज्ञात ग्रीन-स्कोर';

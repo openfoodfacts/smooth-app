@@ -617,19 +617,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search => 'חיפוש';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'חיפוש מוצר,\nמותג או ברקוד';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'מסנן חיפוש';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'היסטוריית חיפוש';
 
   @override
   String get search_store => 'חיפוש חנות';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'רמז: כדאי להוסיף את העיר או המדינה';
 
   @override
   String get tap_for_more => 'מידע נוסף יופיע בנגיעה…';

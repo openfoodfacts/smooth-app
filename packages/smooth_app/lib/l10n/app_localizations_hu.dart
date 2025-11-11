@@ -639,19 +639,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get search => 'Keresés';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Keressen egy terméket,\negy márkát vagy vonalkódot';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Keresési szűrő';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Keresési előzmények';
 
   @override
   String get search_store => 'Üzlet keresése';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Tipp: add meg a várost vagy az országot';
 
   @override
   String get tap_for_more => 'Koppintson a további információkért…';

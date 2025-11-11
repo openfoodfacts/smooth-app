@@ -629,19 +629,19 @@ class AppLocalizationsFa extends AppLocalizations {
   String get search => 'جستجو';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'جستجوی یک محصول،\nیک برند یا یک بارکد';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'فیلتر جستجو';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'سابقه جستجو';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'راهنمایی: شهر یا کشور را اضافه کنید';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

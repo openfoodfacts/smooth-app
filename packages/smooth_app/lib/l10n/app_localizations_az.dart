@@ -629,19 +629,19 @@ class AppLocalizationsAz extends AppLocalizations {
   String get search => 'Axtar';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Məhsul,\nbrend və ya barkod axtarın';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Axtarış filtri';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Axtarış tarixçəsi';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'İpucu: şəhər və ya ölkə əlavə edin';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

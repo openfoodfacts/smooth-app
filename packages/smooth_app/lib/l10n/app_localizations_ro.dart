@@ -637,19 +637,20 @@ class AppLocalizationsRo extends AppLocalizations {
   String get search => 'Caută';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Căutați un produs,\no marcă sau un cod de bare';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtru de căutare';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Istoricul căutărilor';
 
   @override
   String get search_store => 'Caută un magazin';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Sugestie: adăugați orașul sau țara';
 
   @override
   String get tap_for_more => 'Atingeți pentru a vedea mai multe informații…';

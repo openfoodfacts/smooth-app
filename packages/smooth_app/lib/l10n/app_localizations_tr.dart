@@ -635,16 +635,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get search_product_help => 'Search a product,\na brand or a barcode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Arama filtresi';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Arama geçmişi';
 
   @override
   String get search_store => 'Bir mağaza arayın';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'İpucu: Şehri veya ülkeyi ekleyin';
 
   @override
   String get tap_for_more => 'Daha fazla bilgi görmek için dokunun…';

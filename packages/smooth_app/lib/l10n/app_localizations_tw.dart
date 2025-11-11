@@ -629,19 +629,19 @@ class AppLocalizationsTw extends AppLocalizations {
   String get search => 'Search';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Hwehwɛ ade bi,\nbrand anaa barcode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Hwehwɛ filter';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Hwehwɛ abakɔsɛm';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Afotu: fa kurow anaa ɔman no ka ho';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

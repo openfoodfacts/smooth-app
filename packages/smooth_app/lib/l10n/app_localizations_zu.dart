@@ -628,19 +628,20 @@ class AppLocalizationsZu extends AppLocalizations {
   String get search => 'Sesha';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Sesha umkhiqizo,\numkhiqizo noma ibhakhodi';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Sesha isihlungi';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Umlando wosesho';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Ukusikisela: engeza idolobha noma izwe';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

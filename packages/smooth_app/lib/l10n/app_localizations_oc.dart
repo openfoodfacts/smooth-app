@@ -629,19 +629,20 @@ class AppLocalizationsOc extends AppLocalizations {
   String get search => 'Recercar';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Cercar un produch,\nuna marca o un còde de barras';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtre de recèrca';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'L\'istoric de recèrca';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Conselh: apondre la vila o lo país';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

@@ -640,19 +640,20 @@ class AppLocalizationsLt extends AppLocalizations {
   String get search => 'Paieška';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Ieškokite produkto,\nprekės ženklo arba brūkšninio kodo';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Paieškos filtras';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Paieškos istorija';
 
   @override
   String get search_store => 'Ieškoti parduotuvės';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Patarimas: pridėkite miestą arba šalį';
 
   @override
   String get tap_for_more =>

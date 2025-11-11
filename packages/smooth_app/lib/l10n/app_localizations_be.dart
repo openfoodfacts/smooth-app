@@ -638,19 +638,19 @@ class AppLocalizationsBe extends AppLocalizations {
   String get search => 'Пошук';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Пошук прадукту,\nбрэнда або штрых-кода';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Фільтр пошуку';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Гісторыя пошуку';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Падказка: дадайце горад або краіну';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

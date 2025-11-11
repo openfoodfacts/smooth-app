@@ -629,19 +629,20 @@ class AppLocalizationsKk extends AppLocalizations {
   String get search => 'Іздеу';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Өнімді,\nбрендті немесе штрих-кодты іздеңіз';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Іздеу сүзгісі';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Іздеу тарихы';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Кеңес: қаланы немесе елді қосыңыз';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

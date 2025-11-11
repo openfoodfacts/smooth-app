@@ -645,19 +645,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get search => 'Rechercher';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Rechercher un produit,\nune marque ou un code-barres';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtre de recherche';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Historique de recherche';
 
   @override
   String get search_store => 'Rechercher un magasin';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Conseil : ajoutez la ville ou le pays';
 
   @override
   String get tap_for_more => 'Appuyez pour plus d\'informations…';

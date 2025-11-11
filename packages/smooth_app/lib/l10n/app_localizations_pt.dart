@@ -643,16 +643,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get search_product_help => 'Search a product,\na brand or a barcode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtro de pesquisa';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Histórico de pesquisa';
 
   @override
   String get search_store => 'Procurar uma loja';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';
@@ -6897,7 +6897,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get search => 'Procurar';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Filtro de pesquisa';
+
+  @override
+  String get search_history => 'Histórico de pesquisa';
+
+  @override
   String get search_store => 'Procurar uma loja';
+
+  @override
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';

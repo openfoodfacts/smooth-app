@@ -637,19 +637,20 @@ class AppLocalizationsSq extends AppLocalizations {
   String get search => 'Search';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Kërko një produkt,\nnjë markë ose një barkod';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtri i kërkimit';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Historiku i kërkimit';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Këshillë: shtoni qytetin ose vendin';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

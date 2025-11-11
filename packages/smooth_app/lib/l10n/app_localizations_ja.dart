@@ -607,19 +607,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get search => '検索';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => '製品、ブランド、またはバーコードを検索します。\n';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => '検索フィルター';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => '検索履歴';
 
   @override
   String get search_store => '店舗を検索';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'ヒント: 都市または国を追加してください';
 
   @override
   String get tap_for_more => '詳細情報を表示するにはタップしてください…';

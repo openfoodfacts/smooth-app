@@ -635,19 +635,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get search => 'Vyhledat';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Vyhledejte produkt,\nznačku nebo čárový kód';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Vyhledávací filtr';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Historie vyhledávání';
 
   @override
   String get search_store => 'Vyhledat obchod';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Nápověda: přidejte město nebo zemi';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte více informací…';

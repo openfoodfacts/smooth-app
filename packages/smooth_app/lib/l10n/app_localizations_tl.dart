@@ -629,19 +629,20 @@ class AppLocalizationsTl extends AppLocalizations {
   String get search => 'Maghanap';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Maghanap ng isang produkto,\nisang tatak o isang barcode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filter ng paghahanap';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Kasaysayan ng paghahanap';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Pahiwatig: idagdag ang lungsod o bansa';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

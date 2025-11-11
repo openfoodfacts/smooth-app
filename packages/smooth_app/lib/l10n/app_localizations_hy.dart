@@ -629,19 +629,19 @@ class AppLocalizationsHy extends AppLocalizations {
   String get search => 'Որոնել';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Որոնել ապրանք,\nապրանքանիշ կամ շտրիխ կոդ';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Որոնման ֆիլտր';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Որոնման պատմություն';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Հուշում՝ ավելացրեք քաղաքը կամ երկիրը';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

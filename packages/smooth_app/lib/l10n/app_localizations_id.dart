@@ -634,19 +634,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get search => 'Cari';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Cari produk,\nmerek atau kode batang';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filter pencarian';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Riwayat pencarian';
 
   @override
   String get search_store => 'Cari toko';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Petunjuk: tambahkan kota atau negara';
 
   @override
   String get tap_for_more => 'Ketuk untuk lihat info selengkapnya…';

@@ -6465,7 +6465,19 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get search => '搜索';
 
   @override
+  String get search_product_help => '搜索产品\n一个品牌或条形码';
+
+  @override
+  String get search_filter => '搜索筛选器';
+
+  @override
+  String get search_history => '搜索历史';
+
+  @override
   String get search_store => '搜索商店';
+
+  @override
+  String get search_store_help => '提示：添加城市或国家';
 
   @override
   String get tap_for_more => '点击获取更多信息';

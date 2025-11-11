@@ -629,19 +629,21 @@ class AppLocalizationsMy extends AppLocalizations {
   String get search => 'ရွာေဖြမည္';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'ထုတ်ကုန်တစ်ခု၊\nအမှတ်တံဆိပ်တစ်ခု သို့မဟုတ် ဘားကုဒ်တစ်ခုကို ရှာဖွေပါ။';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'စစ်ထုတ်မှုကို ရှာဖွေပါ။';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'ရှာဖွေမှုမှတ်တမ်း';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help =>
+      'အရိပ်အမြွက်- မြို့ သို့မဟုတ် နိုင်ငံကို ထည့်ပါ။';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

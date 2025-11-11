@@ -638,19 +638,20 @@ class AppLocalizationsCa extends AppLocalizations {
   String get search => 'Cerca';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Cerca un producte,\nuna marca o un codi de barres';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filtre de cerca';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Historial de cerca';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Consell: afegiu la ciutat o el país';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

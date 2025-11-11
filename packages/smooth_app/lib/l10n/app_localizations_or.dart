@@ -632,19 +632,20 @@ class AppLocalizationsOr extends AppLocalizations {
   String get search => 'Search';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'ଏକ ଉତ୍ପାଦ,\nଏକ ବ୍ରାଣ୍ଡ କିମ୍ବା ଏକ ବାରକୋଡ୍ ଖୋଜନ୍ତୁ';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'ଖୋଜ ଫିଲ୍ଟର୍';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'ସନ୍ଧାନ ଇତିହାସ';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'ସୂଚନା: ସହର କିମ୍ବା ଦେଶ ଯୋଡନ୍ତୁ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

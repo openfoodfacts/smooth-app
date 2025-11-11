@@ -631,19 +631,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get search => 'Zoeken';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Zoek een product,\neen merk of een streepjescode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Zoekfilter';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Zoekgeschiedenis';
 
   @override
   String get search_store => 'Zoeken naar een winkel';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Tip: voeg de stad of het land toe';
 
   @override
   String get tap_for_more => 'Tik om meer info te zien…';

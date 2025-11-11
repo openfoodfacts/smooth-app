@@ -629,19 +629,19 @@ class AppLocalizationsHa extends AppLocalizations {
   String get search => 'Bincika';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Nemo samfur,\nalama ko lambar sirri';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Bincika tace';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Tarihin bincike';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Alamar: ƙara birni ko ƙasar';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

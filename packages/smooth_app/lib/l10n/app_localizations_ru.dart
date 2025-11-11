@@ -639,19 +639,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get search => 'Поиск';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Поиск продукта,\nбренда или штрихкода';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Фильтр поиска';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'История поиска';
 
   @override
   String get search_store => 'Поиск магазина';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Подсказка: добавьте город или страну.';
 
   @override
   String get tap_for_more => 'Нажмите для просмотра…';

@@ -630,19 +630,19 @@ class AppLocalizationsHr extends AppLocalizations {
   String get search => 'Pretraži';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help => 'Pretražite proizvod,\nmarku ili barkod';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'Filter za pretraživanje';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'Povijest pretraživanja';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'Savjet: dodajte grad ili državu';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

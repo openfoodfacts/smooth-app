@@ -629,19 +629,20 @@ class AppLocalizationsKn extends AppLocalizations {
   String get search => 'ಹುಡುಕಿ';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'ಉತ್ಪನ್ನವನ್ನು ಹುಡುಕಿ,\nಬ್ರ್ಯಾಂಡ್ ಅಥವಾ ಬಾರ್‌ಕೋಡ್';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => 'ಹುಡುಕಾಟ ಫಿಲ್ಟರ್';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => 'ಹುಡುಕಾಟ ಇತಿಹಾಸ';
 
   @override
   String get search_store => 'Search for a store';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => 'ಸುಳಿವು: ನಗರ ಅಥವಾ ದೇಶವನ್ನು ಸೇರಿಸಿ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';

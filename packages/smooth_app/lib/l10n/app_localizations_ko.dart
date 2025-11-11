@@ -609,16 +609,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get search_product_help => 'Search a product,\na brand or a barcode';
 
   @override
-  String get search_filter => 'Search filter';
+  String get search_filter => '검색 필터';
 
   @override
-  String get search_history => 'Search history';
+  String get search_history => '검색 기록';
 
   @override
   String get search_store => '매장 검색';
 
   @override
-  String get search_store_help => 'Hint: add the city or the country';
+  String get search_store_help => '힌트: 도시나 국가를 추가하세요';
 
   @override
   String get tap_for_more => '자세한 내용을 보려면 탭하세요…';
