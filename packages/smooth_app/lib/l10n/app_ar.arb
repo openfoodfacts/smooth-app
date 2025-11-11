@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "ابحث عن منتج أو\nعلامة تجارية أو رمز شريطي",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "مرشح البحث",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "سجل البحث",
   "search_store": "ابحث عن متجر",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "تلميح: أضف المدينة أو البلد",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "انقر لرؤية المزيد من المعلومات…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "حافظ على توسيع لوحة المكونات",
-  "search_product_filter_visibility_title": "إظهار مرشح في البحث",
-  "search_product_filter_visibility_subtitle": "حدد موقع البحث: حقائق الطعام المفتوحة، حقائق الجمال المفتوحة، حقائق طعام الحيوانات الأليفة المفتوحة أو حقائق المنتجات المفتوحة",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "لا يوجد اتصال بالإنترنت",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
