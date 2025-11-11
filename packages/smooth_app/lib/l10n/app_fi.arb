@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Hae tuotetta,\ntuotemerkkiä tai viivakoodia",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Hakusuodatin",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Hakuhistoria",
   "search_store": "Hae myymälää",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Vihje: lisää kaupunki tai maa",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Napauta nähdäksesi lisätietoja…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Pidä ainesosat laajennettuna",
-  "search_product_filter_visibility_title": "Näytä suodatin haussa",
-  "search_product_filter_visibility_subtitle": "Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Ei Internet-yhteyttä",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
