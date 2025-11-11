@@ -36,7 +36,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "Iepriekšējais",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -1817,7 +1817,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "pēdas",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2260,7 +2260,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Status",
+  "dev_preferences_news_provider_status_title": "Statuss",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2276,7 +2276,7 @@
   "product_type_label_food": "Ēdiens",
   "product_type_label_beauty": "Personīgā aprūpe",
   "product_type_label_pet_food": "Mājdzīvnieku barība",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Citi",
   "product_type_selection_title": "Produkta veids",
   "product_type_selection_subtitle": "Izvēlieties šī produkta veidu",
   "product_type_selection_empty": "Vispirms jāizvēlas produkta veids!",
@@ -2355,7 +2355,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "Produkts nav atrasts",
   "prices_barcode_search_none_yet": "Vēl nav neviena produkta",
   "prices_barcode_search_running": "Meklēju {barcode}",
   "@prices_barcode_search_running": {
@@ -2384,7 +2384,7 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_mandatory": "Obligāti",
   "prices_category_optional": "Pēc izvēles",
   "prices_category_error_mandatory": "Kategorija ir obligāta",
   "prices_barcode_reader_action": "Svītrkodu lasītājs",
@@ -3828,7 +3828,7 @@
   "nutriscore_unknown_new_formula": "Nezināms Nutri-Score (Jauns aprēķins)",
   "nutriscore_not_applicable": "Nutri-Score nav piemērojams",
   "nutriscore_not_applicable_new_formula": "Nutri-Score nav piemērojams (jauns aprēķins)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "Zaļais rādītājs",
   "environmental_score_a_new": "Zaļais vērtējums A",
   "environmental_score_b_new": "Zaļais vērtējums B",
   "environmental_score_c_new": "Zaļais vērtējums C",
@@ -3853,7 +3853,7 @@
   "contact_title_pro_email": "Producenta kontaktinformācija",
   "contact_title_press_page": "Preses lapa",
   "contact_title_press_email": "Preses kontaktinformācija",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "Abonējiet mūsu jaunumus",
   "contact_title_calendar": "Abonējiet mūsu kopienas kalendāru",
   "hunger_games_loading_line1": "Lūdzu, veltiet mums dažas sekundes…",
   "hunger_games_loading_line2": "Mēs lejupielādējam jautājumus!",
@@ -3897,7 +3897,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Kas ir Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3929,7 +3929,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "Zaļais rādītājs",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3949,12 +3949,12 @@
   "guide_greenscore_lca_arg1_text2": "**Dzīves cikla analīze** ir standartizēta novērtēšanas metode daudzpakāpju un daudzkritēriju vides novērtējuma veikšanai.",
   "guide_greenscore_lca_arg1_text3": "**Tā izmēri:**",
   "guide_greenscore_lca_arg2_title": "6 ražošanas soļi",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "Lauksaimniecība",
+  "guide_greenscore_lca_arg2_processing": "Apstrāde",
   "guide_greenscore_lca_arg2_packaging": "Iepakojums",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "Transports",
+  "guide_greenscore_lca_arg2_distribution": "Izplatīšana",
+  "guide_greenscore_lca_arg2_consumption": "Patēriņš",
   "guide_greenscore_lca_arg3_title": "14 ietekmes uz vidi rādītāji",
   "guide_greenscore_lca_arg3_text1": "Klimata pārmaiņas/oglekļa pēdas nospiedums",
   "guide_greenscore_lca_arg3_text2": "Ozona slāņa noārdīšanās",
@@ -4274,11 +4274,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "Priekšējais attēls",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "Sastāvdaļu attēls",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4448,11 +4448,11 @@
   "photo_already_exists": "Šī fotogrāfija jau pastāv",
   "photo_missing": "Šī fotoattēla trūkst",
   "date": "Datums",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "Pagriezt pa kreisi",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "Pagriezt pa labi",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4662,7 +4662,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Kopā",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4682,7 +4682,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "Patēriņš",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4694,7 +4694,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Skaistums",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4766,7 +4766,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Citi",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4854,7 +4854,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "Modificēti produkti",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
