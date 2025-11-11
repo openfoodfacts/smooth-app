@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Otsi toodet,\nbrändi või vöötkoodi",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Otsingufilter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Otsinguajalugu",
   "search_store": "Otsi poodi",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Vihje: lisa linn või riik",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Lisateabe nägemiseks puudutage…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Hoia koostisosade paneel laiendatuna",
-  "search_product_filter_visibility_title": "Kuva otsingus filter",
-  "search_product_filter_visibility_subtitle": "Vali otsingusait: Open Food Facts, Open Beauty Facts, Open Pet Food Facts või Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Internetiühendust pole",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
