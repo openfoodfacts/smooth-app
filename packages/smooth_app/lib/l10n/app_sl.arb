@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Išči izdelek,\nblagovno znamko ali črtno kodo",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Iskalni filter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Zgodovina iskanja",
   "search_store": "Iskanje trgovine",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Namig: dodajte mesto ali državo",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Dotaknite se za več informacij…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Ohranite ploščo s sestavinami razširjeno",
-  "search_product_filter_visibility_title": "Prikaži filter v iskanju",
-  "search_product_filter_visibility_subtitle": "Izberite iskalno mesto: Odprta dejstva o hrani, Odprta dejstva o lepoti, Odprta dejstva o hrani za hišne ljubljenčke ali Odprta dejstva o izdelkih",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Ni internetne povezave",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
