@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "ਕੋਈ ਉਤਪਾਦ,\nਕੋਈ ਬ੍ਰਾਂਡ ਜਾਂ ਬਾਰਕੋਡ ਖੋਜੋ",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "ਖੋਜ ਫਿਲਟਰ",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "ਖੋਜ ਇਤਿਹਾਸ",
   "search_store": "Search for a store",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "ਸੰਕੇਤ: ਸ਼ਹਿਰ ਜਾਂ ਦੇਸ਼ ਸ਼ਾਮਲ ਕਰੋ",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
