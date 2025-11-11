@@ -610,7 +610,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "一张标有未知营养评分和绿色评分的插图",
+  "new_product_dialog_illustration_description": "一张标有未知Nutri-Score和绿色评分的插图",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -716,7 +716,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "立即点击回答 3 个问题来计算营养分数、绿色分数和超加工分组 (NOVA)！",
+  "hey_incomplete_product_message": "立即点击回答 3 个问题来计算Nutri-Score、绿色分数和超加工分组 (NOVA)！",
   "hey_incomplete_product_message_beauty": "立即点击回答 2 个问题来帮助分析这款化妆品！",
   "hey_incomplete_product_message_pet_food": "立即点击回答 3 个问题来帮助分析这种宠物食品！",
   "hey_incomplete_product_message_product": "立即点击以帮助完成该产品信息的收集！",
@@ -1067,7 +1067,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "无法计算此产品的营养评分，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。",
+  "product_improvement_categories_but_no_nutriscore": "无法计算此产品的Nutri-Score，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1155,7 +1155,7 @@
   },
   "really_clear": "确定要删除此列表吗？",
   "@Plural": {},
-  "pct_match": "{Percent}% 匹配度",
+  "pct_match": "{percent}% 匹配度",
   "@pct_match": {
     "description": "This product has a x percent match with your preferences",
     "placeholders": {
@@ -2630,7 +2630,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "了解更多关于公开价格的信息",
+  "prices_menu_know_more": "了解更多关于Open Prices的信息",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3261,7 +3261,7 @@
   },
   "expand_ingredients_body": "保持成分面板扩展",
   "search_product_filter_visibility_title": "在搜索结果中显示筛选条件",
-  "search_product_filter_visibility_subtitle": "选择搜索网站：开放食品真相、开放美容真相、开放宠物食品真相或开放产品真相",
+  "search_product_filter_visibility_subtitle": "选择搜索网站：Open Food Facts、Open Beauty Facts、Open Pet Food Facts或开放产品真相",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -3808,12 +3808,12 @@
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
-  "nutriscore_generic": "营养分数",
-  "nutriscore_a": "营养评分 A",
-  "nutriscore_b": "营养评分B",
-  "nutriscore_c": "营养评分C",
-  "nutriscore_d": "营养评分 D",
-  "nutriscore_e": "营养评分 E",
+  "nutriscore_generic": "Nutri-Score",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-ScoreB",
+  "nutriscore_c": "Nutri-ScoreC",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "营养分数（Nutri-Score） {letter} （新计算方式）",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3823,24 +3823,24 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "营养评分（新计算方法）",
-  "nutriscore_unknown": "未知营养评分",
-  "nutriscore_unknown_new_formula": "未知营养评分（新计算方法）",
-  "nutriscore_not_applicable": "营养评分不适用",
-  "nutriscore_not_applicable_new_formula": "营养评分不适用（新计算方法）",
-  "environmental_score_generic_new": "生态得分",
-  "environmental_score_a_new": "绿色评分A",
-  "environmental_score_b_new": "绿色评分 B",
-  "environmental_score_c_new": "绿色评分 C",
-  "environmental_score_d_new": "绿色评分 D",
-  "environmental_score_e_new": "绿色评分 E",
-  "environmental_score_unknown_new": "未知绿色评分",
-  "environmental_score_not_applicable_new": "绿色评分不适用",
+  "nutriscore_new_formula_title": "Nutri-Score（新计算方法）",
+  "nutriscore_unknown": "未知Nutri-Score",
+  "nutriscore_unknown_new_formula": "未知Nutri-Score（新计算方法）",
+  "nutriscore_not_applicable": "Nutri-Score不适用",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score不适用（新计算方法）",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-ScoreA",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "未知Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",
-  "nova_group_1": "Nova 分组 — 第 1 级",
-  "nova_group_2": "Nova 分组 — 第 2 级",
-  "nova_group_3": "Nova 分组 — 第 3 级",
-  "nova_group_4": "Nova 分组 — 第 4 级",
+  "nova_group_1": "NOVA 分组 — 第 1 级",
+  "nova_group_2": "NOVA 分组 — 第 2 级",
+  "nova_group_3": "NOVA 分组 — 第 3 级",
+  "nova_group_4": "NOVA 分组 — 第 4 级",
   "nova_group_unknown": "未知 NOVA 分组信息",
   "nutrition_facts": "营养水平",
   "faq_title_partners": "非政府组织的合作伙伴和赞助人",
@@ -3848,7 +3848,7 @@
   "faq_title_install_beauty": "安装 Open Beauty Facts 来创建化妆品数据库",
   "faq_title_install_pet": "安装 Open Pet Food Facts 来创建宠物食品数据库",
   "faq_title_install_product": "安装 Open Products Facts 以创建产品数据库，从而延长产品的使用寿命。",
-  "faq_nutriscore_nutriscore": "营养评分的新计算方法：有哪些新内容？",
+  "faq_nutriscore_nutriscore": "Nutri-Score的新计算方法：有哪些新内容？",
   "contact_title_pro_page": "专业版？将您的产品导入 Open Food Facts",
   "contact_title_pro_email": "制片人联系方式",
   "contact_title_press_page": "页面",
@@ -3922,14 +3922,14 @@
   "guide_nutriscore_v2_new_logo_title": "如何区分旧的 Nutri-Score 和新的计算？",
   "guide_nutriscore_v2_new_logo_text": "从现在开始，标志上可以显示“**新算法**”标记以表明这确实是新的算法。",
   "guide_nutriscore_v2_new_logo_image_caption": "新版 Nutri-Score 的标志",
-  "guide_nutriscore_v2_where_title": "哪里可以找到新的营养评分计算方法？",
+  "guide_nutriscore_v2_where_title": "哪里可以找到新的Nutri-Score计算方法？",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 已在 7 个国家/地区应用：法国、德国、比利时、西班牙、卢森堡、荷兰和瑞士。",
   "guide_nutriscore_v2_where_paragraph2": "制造商最迟有**2年**的时间，从法令签署之日起**将**旧的计算方法替换为新的计算方法。",
   "guide_nutriscore_v2_where_paragraph3": "无需等待，您**将在 OpenFoodFacts 应用程序中找到**新的计算结果，包括制造商是否尚未更新分数的产品。",
   "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
-  "guide_greenscore_title": "生态得分",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3975,8 +3975,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "包装",
   "guide_greenscore_bonuses_penalties_arg4_text": "计算**罚款**时，会考虑**包装的**循环性**（使用回收原材料和可回收性）和过度包装。",
   "guide_greenscore_transparency_title": "更高的透明度的需求，以更好地衡量和减少环境影响",
-  "guide_greenscore_transparency_intro1": "要准确计算绿色评分，需要一些**包装上不一定标明的信息**（例如每种成分的来源和确切百分比），或者一些很少以可用形式提供的信息（例如包装所有组件的清单以及所用塑料的确切类型）。",
-  "guide_greenscore_transparency_intro2": "**当这些信息尚不可用时，将使用平均值**，但我们现在呼吁大家帮助我们收集这些信息，这些信息对于绿色评分以及许多其他用途都将非常有用。",
+  "guide_greenscore_transparency_intro1": "要准确计算Green-Score，需要一些**包装上不一定标明的信息**（例如每种成分的来源和确切百分比），或者一些很少以可用形式提供的信息（例如包装所有组件的清单以及所用塑料的确切类型）。",
+  "guide_greenscore_transparency_intro2": "**当这些信息尚不可用时，将使用平均值**，但我们现在呼吁大家帮助我们收集这些信息，这些信息对于Green-Score以及许多其他用途都将非常有用。",
   "guide_greenscore_transparency_arg1_title": "市民可以如何提供帮助？",
   "guide_greenscore_transparency_arg1_text": "所有公民都可以帮助我们收集和整理产品上存在的信息或可以从产品中推断出的信息，例如包装信息：“包装任务”：一项针对所有食品包装的大规模合作清点计划（法语）。",
   "guide_greenscore_transparency_arg2_title": "制造商如何提供帮助",
@@ -4035,7 +4035,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "什么是开放食品信息？",
+  "guide_open_food_facts_what_is_open_food_facts_title": "什么是Open Food Facts？",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts 是一个**协作式**、**免费**、**开放**的全球食品数据库。",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4044,7 +4044,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "开放食品事实的特点",
+  "guide_open_food_facts_features_title": "Open Food Facts的特点",
   "guide_open_food_facts_features_arg1_title": "获取您不需要的成分的提醒",
   "guide_open_food_facts_tips_title": "拍摄精彩照片的技巧",
   "guide_open_food_facts_tips_arg1_title": "禁忌",
@@ -4066,7 +4066,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "什么是“公开宠物食品真相”？",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "什么是“Open Pet Food Facts”？",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts 将我们的使命扩展到了毛茸茸的朋友们！这是一个**猫、狗和其他伴侣动物的宠物食品产品数据库**。",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4075,7 +4075,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "开放式宠物食品事实的特点",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Facts的特点",
   "guide_open_pet_food_facts_features_arg1_title": "获取您不需要的成分的提醒",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "您的宠物对某些成分过敏吗？您可以在应用程序中设置要避免的化妆品成分列表！",
   "guide_open_pet_food_facts_tips_title": "拍摄精彩照片的技巧",
@@ -4096,7 +4096,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "什么是“开放美容真相”？",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "什么是“Open Beauty Facts”？",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts 是一个关于**化妆品**的协作数据库。",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4105,7 +4105,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "开放美容事实的特点",
+  "guide_open_beauty_facts_features_title": "Open Beauty Facts的特点",
   "guide_open_beauty_facts_features_arg1_title": "获取您不需要的成分的提醒",
   "guide_open_beauty_facts_features_arg1_paragraph1": "您对某些成分过敏吗？想避免使用致粉刺成分吗？想避开有争议的成分吗？您可以在应用程序中设置一份要避免的化妆品成分列表！",
   "guide_open_beauty_facts_tips_title": "拍摄精彩照片的技巧",
@@ -4124,11 +4124,11 @@
   "guide_open_beauty_facts_scores_title": "关于评分的说明",
   "guide_open_beauty_facts_scores_paragraph1": "与食品不同，化妆品领域**没有像Nutri-Score那样被普遍认可、政府支持的评分系统**。成分的效果因人而异，取决于肤质、过敏史和个人需求。",
   "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "欢迎来到公开价格！",
+  "guide_open_prices_title": "欢迎来到Open Prices！",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "什么是公开价格？",
+  "guide_open_prices_what_is_open_prices_title": "什么是Open Prices？",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices 是一个旨在收集和分享全球产品价格的项目。它是一个公开可用的数据集，可用于研究、分析等用途。Open Prices 由 Open Food Facts 开发和维护。",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4137,7 +4137,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "公开价格是如何运作的？",
+  "guide_open_prices_how_title": "Open Prices是如何运作的？",
   "guide_open_prices_how_paragraph1": "我们正在众包一个开源的价格数据集。用户可以通过此网页应用或官方的 Open Food Facts 移动应用添加价格信息。零售商或第三方应用也可以通过我们的 API 贡献数据。",
   "guide_open_prices_how_arg1_title": "收集过道中的价格标签照片",
   "guide_open_prices_how_arg2_title": "收集收据照片。",
@@ -4974,11 +4974,11 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "探索新的营养评分",
+  "tips_discover_nutriscore": "探索新的Nutri-Score",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "在开放食品事实网站上",
+  "preferences_on_off_website_subtitle": "在Open Food Facts网站上",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5075,7 +5075,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "了解营养评分的计算方法",
+  "preferences_faq_nutriscore_subtitle": "了解Nutri-Score的计算方法",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5087,19 +5087,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "发现开放食品事实",
+  "preferences_faq_discover_off_title": "发现Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "探索开放美容真相",
+  "preferences_faq_discover_obf_title": "探索Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "探索开放式宠物食品真相",
+  "preferences_faq_discover_opff_title": "探索Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "探索公开价格",
+  "preferences_faq_discover_op_title": "探索Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5111,7 +5111,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "开放食品事实非政府组织",
+  "preferences_faq_off_ngo_title": "Open Food Facts非政府组织",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5135,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "开放食品事实博客",
+  "preferences_connect_blog_title": "Open Food Facts博客",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5283,7 +5283,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "帮助计算您所在国家/地区的营养分数和绿色分数",
+  "preferences_contributions_categorize_subtitle": "帮助计算您所在国家/地区的Nutri-Score和Green-Score",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5307,7 +5307,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "公开价格社区添加的最新价格",
+  "preferences_prices_newest_subtitle": "Open Prices社区添加的最新价格",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "帮助开放食品事实的简单方法",
+  "preferences_page_contribute_project_subtitle": "帮助Open Food Facts的简单方法",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5559,7 +5559,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "开放食品事实实验室",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts实验室",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

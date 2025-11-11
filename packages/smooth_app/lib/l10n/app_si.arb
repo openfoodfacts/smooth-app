@@ -3829,13 +3829,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "හරිත-ලකුණු A",
-  "environmental_score_b_new": "හරිත-ලකුණු B",
-  "environmental_score_c_new": "හරිත-ලකුණු C",
-  "environmental_score_d_new": "හරිත-ලකුණු D",
-  "environmental_score_e_new": "හරිත-ලකුණු E",
-  "environmental_score_unknown_new": "නොදන්නා හරිත-ලකුණු",
-  "environmental_score_not_applicable_new": "හරිත-ලකුණු අදාළ නොවේ.",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "නොදන්නා Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score අදාළ නොවේ.",
   "nova_group_generic_new": "අතිශයින් සැකසූ ආහාර - NOVA කණ්ඩායම්",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3934,7 +3934,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "හරිත ලකුණු යනු කුමක්ද?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "හරිත ලකුණු යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3942,7 +3942,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "හරිත ලකුණු ලාංඡන",
+  "guide_greenscore_logos_caption": "Green-Score ලාංඡන",
   "guide_greenscore_lca_title": "මූලික කරුණ: ජීවන චක්‍ර තක්සේරුව (LCA)",
   "guide_greenscore_lca_arg1_title": "ආහාර කාණ්ඩ පිළිබඳ විද්‍යාත්මක ඇගයීමක්",
   "guide_greenscore_lca_arg1_text1": "සෑම නිෂ්පාදන කාණ්ඩයක් සඳහාම, Agribalyse පාරිසරික දත්ත සමුදායේ දත්ත (ADEME සහ INRAE විසින් නිර්මාණය කරන ලද) භාවිතා කරමින් **මිණුම් ලකුණ** ලකුණු ස්ථාපිත කෙරේ.",
@@ -3987,9 +3987,9 @@
   "guide_greenscore_better_product_arg2_title": "ඔබට බලය තිබෙනවා!",
   "guide_greenscore_better_product_arg2_text": "ශුභාරංචිය නම් මෙය අපට වෙනසක් ඇති කිරීමට ප්‍රබල ක්‍රමයක් ලබා දෙන බවයි.\n**අපි සෑම කෙනෙකුම සෑම වසරකම ආහාර වේල් 1,000 ක් පමණ අනුභව කරමු**. ඒ **ග්‍රහලෝකයට වඩා හොඳ අනාගතයක් තෝරා ගැනීමට** අවස්ථා 1,000 ක්!",
   "guide_greenscore_better_product_arg3_title": "වගකීමෙන් කටයුතු කිරීමට සහ තීරණ ගැනීමට උපකාරී වේ",
-  "guide_greenscore_better_product_arg3_text": "තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. හරිත-ලකුණු නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.",
+  "guide_greenscore_better_product_arg3_text": "තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. Green-Score නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.",
   "guide_greenscore_better_product_arg4_title": "විනිවිදභාවය",
-  "guide_greenscore_better_product_arg4_text": "හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.",
+  "guide_greenscore_better_product_arg4_text": "හිමිකාර ලේබල මෙන් නොව, Green-Score ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5359,7 +5359,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "ආහාර කරුණු විවෘත කිරීමට උදව් කිරීමට සරල ක්‍රම",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts කිරීමට උදව් කිරීමට සරල ක්‍රම",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
