@@ -3811,9 +3811,9 @@
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Нутри-оценка А",
   "nutriscore_b": "Нутри-скор Б",
-  "nutriscore_c": "Нутри-Скор C",
-  "nutriscore_d": "Нутри-скор D",
-  "nutriscore_e": "Нутри-Скор Е",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Ново изчисление)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3906,7 +3906,7 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Логото на Nutri-Score A",
   "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
   "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
   "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
