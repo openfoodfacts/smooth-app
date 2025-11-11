@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Cari produk,\nmerek atau kode batang",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filter pencarian",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Riwayat pencarian",
   "search_store": "Cari toko",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Petunjuk: tambahkan kota atau negara",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Ketuk untuk lihat info selengkapnya…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Pertahankan panel bahan yang diperluas",
-  "search_product_filter_visibility_title": "Tampilkan filter dalam pencarian",
-  "search_product_filter_visibility_subtitle": "Pilih situs pencarian: Open Food Facts, Open Beauty Facts, Open Pet Food Facts, atau Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Tidak ada sambungan Internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
