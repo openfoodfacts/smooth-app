@@ -290,10 +290,5 @@ class SearchFieldUIHelper {
         color: lightTheme ? theme.primaryNormal : theme.primarySemiDark,
       ),
     );
-
-    return const BoxDecoration(
-      borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-      color: Colors.white,
-    );
   }
 }
