@@ -86,7 +86,11 @@ Widget build(BuildContext context) {
     border: TableBorder.all(color: theme.primaryMedium),
     children: &lt;TableRow&gt;[
       TableRow(
-        decoration: BoxDecoration(color: theme.primaryLight),
+        decoration: BoxDecoration(
+          color: context.lightTheme()
+              ? theme.primaryLight
+              : theme.primaryUltraBlack,
+        ),
         children: columns
             .map((Widget widget) =&gt; _ProductPageTableHeader(child: widget))
             .toList(growable: false),

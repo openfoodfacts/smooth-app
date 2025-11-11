@@ -75,16 +75,31 @@ Widget build(BuildContext context) {
     title,
     overflow: TextOverflow.ellipsis,
     maxLines: multiLines ? 2 : 1,
+    style: const TextStyle(fontStyle: FontStyle.italic),
   );
 
   if (editableAppBarTitle) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: () =&gt; Navigator.of(context).pop(true),
       child: Tooltip(
         message: appLocalizations.tap_to_edit_search,
-        child: SizedBox(width: double.infinity, child: child),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            vertical: SMALL_SPACE,
+          ),
+          child: Opacity(
+            opacity: 0.9,
+            child: Row(
+              children: &lt;Widget&gt;[
+                Expanded(child: child),
+                const icons.Edit(size: 15.0),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

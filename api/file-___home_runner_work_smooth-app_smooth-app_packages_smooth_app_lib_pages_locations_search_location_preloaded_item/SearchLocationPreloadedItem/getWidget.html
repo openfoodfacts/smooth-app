@@ -78,16 +78,25 @@ Widget getWidget(
   final String? title = osmLocation.getTitle();
   final String? subtitle = osmLocation.getSubtitle();
   final Widget child = SmoothCard(
+    elevation: 4.0,
     child: ListTile(
       leading: Consumer&lt;LocalDatabase&gt;(
         builder: (BuildContext context, LocalDatabase localDatabase, _) {
+          final SmoothColorsThemeExtension theme = context
+              .extension&lt;SmoothColorsThemeExtension&gt;();
+
           final bool isFavorite = FavoriteLocationHelper().isFavorite(
             localDatabase,
             osmLocation,
           );
 
           return IconButton(
-            icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+            icon: isFavorite
+                ? const icons.Heart.filled()
+                : const icons.Heart.outline(),
+            style: IconButton.styleFrom(
+              foregroundColor: isFavorite ? theme.error : null,
+            ),
             onPressed: () async =&gt; FavoriteLocationHelper().setFavorite(
               localDatabase,
               osmLocation,
@@ -114,7 +123,7 @@ Widget getWidget(
                 LocationMapPage(osmLocation, popFirst: popFirst),
           ),
         ),
-        icon: const Icon(Icons.map),
+        icon: const icons.World.location(),
       ),
     ),
   );

@@ -71,10 +71,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final String semanticLabel = _semanticLabel(context);
+
   return Tooltip(
-    message: MaterialLocalizations.of(context).backButtonTooltip,
+    message: semanticLabel,
     child: Semantics(
-      value: MaterialLocalizations.of(context).backButtonTooltip,
+      value: semanticLabel,
       excludeSemantics: true,
       button: true,
       child: SizedBox(
