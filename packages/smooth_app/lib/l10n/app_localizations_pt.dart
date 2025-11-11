@@ -3070,6 +3070,9 @@ class AppLocalizationsPt extends AppLocalizations {
       'Reproduzir e editar esta pesquisa';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Descarregou todos os $totalSize produtos.';
   }

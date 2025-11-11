@@ -239,7 +239,6 @@ class _AppReviewItem extends StatelessWidget {
       borderRadius: borderRadius,
       child: FractionallySizedBox(
         widthFactor: 0.8,
-        heightFactor: 1.0,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

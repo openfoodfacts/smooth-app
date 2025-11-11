@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
@@ -19,6 +20,7 @@ class SearchPage extends StatefulWidget {
     this.preloadedList,
     this.autofocus = true,
     this.heroTag,
+    this.backButtonType,
   });
 
   SearchPage.fromExtra(SearchPageExtra extra)
@@ -27,12 +29,14 @@ class SearchPage extends StatefulWidget {
         preloadedList: extra.preloadedList,
         autofocus: extra.autofocus ?? true,
         heroTag: extra.heroTag,
+        backButtonType: extra.backButtonType,
       );
 
   final SearchHelper searchHelper;
   final List<SearchPreloadedItem>? preloadedList;
   final bool autofocus;
   final String? heroTag;
+  final BackButtonType? backButtonType;
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -44,6 +48,7 @@ class SearchPageExtra {
     this.preloadedList,
     this.autofocus,
     this.heroTag,
+    this.backButtonType,
   });
 
   final SearchHelper searchHelper;
@@ -52,6 +57,8 @@ class SearchPageExtra {
   /// If not passed, will default to [false]
   final bool? autofocus;
   final String? heroTag;
+
+  final BackButtonType? backButtonType;
 }
 
 class _SearchPageState extends State<SearchPage> {
@@ -93,6 +100,7 @@ class _SearchPageState extends State<SearchPage> {
                 height: 42.0,
               ),
             ),
+            backButtonType: widget.backButtonType,
           ),
           body: Column(
             children: <Widget>[

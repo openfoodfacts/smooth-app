@@ -2904,6 +2904,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'この検索を再利用して編集する';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '$totalSize 製品をすべてダウンロードしました。';
   }

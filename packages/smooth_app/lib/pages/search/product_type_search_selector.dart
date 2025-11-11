@@ -30,23 +30,20 @@ class ProductTypeSearchSelector extends StatelessWidget {
     return Material(
       borderRadius: MAX_BORDER_RADIUS,
       color: theme.primaryMedium,
-      child: icons.AppIconTheme(
-        color: theme.primaryBlack,
-        child: InkWell(
-          borderRadius: MAX_BORDER_RADIUS,
-          onTap: () => unawaited(_showOxFPicker(context, latestProductType)),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: MEDIUM_SPACE,
-            ),
-            child: Row(
-              spacing: 6.0,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                latestProductType.getIcon(),
-                const icons.Chevron.down(size: 10.0),
-              ],
-            ),
+      child: InkWell(
+        borderRadius: MAX_BORDER_RADIUS,
+        onTap: () => unawaited(_showOxFPicker(context, latestProductType)),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: MEDIUM_SPACE,
+          ),
+          child: Row(
+            spacing: 6.0,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              latestProductType.getIcon(),
+              const icons.Chevron.down(size: 10.0),
+            ],
           ),
         ),
       ),

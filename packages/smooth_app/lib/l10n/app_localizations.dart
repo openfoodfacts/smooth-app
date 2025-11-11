@@ -5348,6 +5348,12 @@ abstract class AppLocalizations {
   /// **'Reuse and edit this search'**
   String get search_history_item_edit_tooltip;
 
+  /// A tooltip to explain the Remove button near a search term
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get search_history_item_remove_tooltip;
+
   /// Product search list - No more results available
   ///
   /// In en, this message translates to:

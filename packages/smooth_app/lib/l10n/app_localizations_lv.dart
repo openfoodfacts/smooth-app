@@ -3059,6 +3059,9 @@ class AppLocalizationsLv extends AppLocalizations {
       'Atkārtoti izmantot un rediģēt šo meklēšanu';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Jūs esat lejupielādējis visus $totalSize produktus.';
   }

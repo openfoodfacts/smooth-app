@@ -3031,6 +3031,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Bạn vừa tải xuống tất cả $totalSize sản phẩm.';
   }

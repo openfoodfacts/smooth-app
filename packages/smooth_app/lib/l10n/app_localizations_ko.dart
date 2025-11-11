@@ -2902,6 +2902,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get search_history_item_edit_tooltip => '이 검색을 재사용하고 편집하세요';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '$totalSize 개 제품을 모두 다운로드했습니다.';
   }

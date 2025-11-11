@@ -3062,6 +3062,9 @@ class AppLocalizationsLt extends AppLocalizations {
       'Naudoti pakartotinai ir redaguoti šią paiešką';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Atsisiuntėte visus $totalSize produktų.';
   }

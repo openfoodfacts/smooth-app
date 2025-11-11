@@ -259,12 +259,7 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
-  static const IconData hearth = IconData(
-    0xe832,
-    fontFamily: _kFontFam,
-    fontPackage: _kFontPkg,
-  );
-  static const IconData hearth_monitor = IconData(
+  static const IconData heart_monitor = IconData(
     0xe833,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
@@ -681,6 +676,11 @@ class _IconsFont {
   );
   static const IconData nutrition_facts = IconData(
     0xe886,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData heart_filled = IconData(
+    0xe887,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
@@ -1171,6 +1171,11 @@ class _IconsFont {
   );
   static const IconData logo_off = IconData(
     0xe92e,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData heart_outline = IconData(
+    0xe92f,
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );

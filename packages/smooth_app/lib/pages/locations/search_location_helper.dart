@@ -5,6 +5,9 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_query_page.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Search helper dedicated to location search.
 class SearchLocationHelper extends SearchHelper {
@@ -20,6 +23,26 @@ class SearchLocationHelper extends SearchHelper {
   @override
   String getHelpText(AppLocalizations appLocalizations) =>
       appLocalizations.search_store_help;
+
+  @override
+  Widget? getLeadingWidget(BuildContext context) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return AspectRatio(
+      aspectRatio: 1.0,
+      child: Ink(
+        decoration: ShapeDecoration(
+          shape: const CircleBorder(),
+          color: theme.primaryMedium,
+        ),
+        child: const Padding(
+          padding: EdgeInsetsDirectional.only(top: 1.0),
+          child: Location(),
+        ),
+      ),
+    );
+  }
 
   @override
   void search(

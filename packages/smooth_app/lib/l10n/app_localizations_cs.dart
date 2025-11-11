@@ -3035,6 +3035,9 @@ class AppLocalizationsCs extends AppLocalizations {
       'Znovu použijte a upravte toto vyhledávání';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stáhli jste všech $totalSize produktů.';
   }
