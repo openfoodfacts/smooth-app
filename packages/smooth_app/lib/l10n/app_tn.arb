@@ -3829,13 +3829,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Maduo a Botala A",
-  "environmental_score_b_new": "Maduo a Botala B",
-  "environmental_score_c_new": "Maduo a Botala C",
-  "environmental_score_d_new": "Maduo a Botala D",
-  "environmental_score_e_new": "Maduo a Botala E",
-  "environmental_score_unknown_new": "Maduo a a Tala a a sa Itsiweng",
-  "environmental_score_not_applicable_new": "Maduo a Botala ga a dire",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score a a sa Itsiweng",
+  "environmental_score_not_applicable_new": "Green-Score ga a dire",
   "nova_group_generic_new": "Dijo tse di fetotsweng thata - ditlhopha tsa NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3942,7 +3942,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Matshwao a Maduo a Botala",
+  "guide_greenscore_logos_caption": "Matshwao a Green-Score",
   "guide_greenscore_lca_title": "Moko: Tshekatsheko ya modikologo wa botshelo (LCA)",
   "guide_greenscore_lca_arg1_title": "Tshekatsheko ya saense ya ditlhopha tsa dijo",
   "guide_greenscore_lca_arg1_text1": "Mo setlhopheng sengwe le sengwe sa setlhagiswa, go tlhomiwa maduo a **benchmark** go dirisiwa tshedimosetso go tswa mo polokelotshedimosetsong ya tikologo ya Agribalyse (e e tlhamilweng ke ADEME le INRAE).",
@@ -5283,7 +5283,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "Thusa go balelela Maduo a Dikotla le Maduo a Botala mo nageng ya gaeno",
+  "preferences_contributions_categorize_subtitle": "Thusa go balelela Maduo a Dikotla le Green-Score mo nageng ya gaeno",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
