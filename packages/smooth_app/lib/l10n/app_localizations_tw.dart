@@ -4051,16 +4051,16 @@ class AppLocalizationsTw extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Nkonimdi A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Green-Nkonimdi B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
   String get environmental_score_c_new => 'Green-Score C. Nsɛm a Wɔka Kyerɛ C';
 
   @override
-  String get environmental_score_d_new => 'Green-Nkonimdi D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
   String get environmental_score_e_new => 'Green-Score E. Nsɛm a Wɔka Kyerɛ';
@@ -4902,7 +4902,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://prices.openfoodfacts.org/ɛfa';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5754,8 +5754,7 @@ class AppLocalizationsTw extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Hu Aduan Ho Nokwasɛm Ahorow a Wɔabue Mu';
+  String get preferences_faq_discover_off_title => 'Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5775,8 +5774,7 @@ class AppLocalizationsTw extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Nsɛmmisa a Wɔtaa Bisa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'NGO a Ɛhwɛ Aduan Ho Nokwasɛm a Wɔabue Mu';
+  String get preferences_faq_off_ngo_title => 'Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5798,8 +5796,7 @@ class AppLocalizationsTw extends AppLocalizations {
       'Fa wo ho hyɛ mu denam yɛn virtual events no biako a wobɛkɔ so';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Aduan ho nokwasɛm a wɔabue ano blog';
+  String get preferences_connect_blog_title => 'Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6118,7 +6115,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Bue Aduan Ho Nokwasɛm Labs';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

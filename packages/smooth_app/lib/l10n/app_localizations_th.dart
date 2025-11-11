@@ -4042,26 +4042,26 @@ class AppLocalizationsTh extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'กรีนสกอร์ เอ';
+  String get environmental_score_a_new => 'Green-Score เอ';
 
   @override
-  String get environmental_score_b_new => 'กรีนสกอร์ บี';
+  String get environmental_score_b_new => 'Green-Score บี';
 
   @override
-  String get environmental_score_c_new => 'กรีนสกอร์ ซี';
+  String get environmental_score_c_new => 'Green-Score ซี';
 
   @override
-  String get environmental_score_d_new => 'กรีนสกอร์ ดี';
+  String get environmental_score_d_new => 'Green-Score ดี';
 
   @override
-  String get environmental_score_e_new => 'กรีนสกอร์ อี';
+  String get environmental_score_e_new => 'Green-Score อี';
 
   @override
-  String get environmental_score_unknown_new => 'กรีนสกอร์ที่ไม่รู้จัก';
+  String get environmental_score_unknown_new => 'Green-Scoreที่ไม่รู้จัก';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'คะแนนสีเขียวไม่สามารถใช้งานได้';
+      'Green-Scoreไม่สามารถใช้งานได้';
 
   @override
   String get nova_group_generic_new => 'อาหารแปรรูปขั้นสูง - กลุ่ม NOVA';
@@ -4558,7 +4558,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/โนวา';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -5734,8 +5734,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'ค้นพบโครงการ';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ค้นพบข้อเท็จจริงเกี่ยวกับ Open Food';
+  String get preferences_faq_discover_off_title => 'ค้นพบOpen Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6090,8 +6089,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'เปิดข้อมูลอาหารในห้องปฏิบัติการ';
+  String get preferences_page_open_food_facts_labs_title => 'Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';

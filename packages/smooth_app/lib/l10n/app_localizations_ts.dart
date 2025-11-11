@@ -4052,19 +4052,19 @@ class AppLocalizationsTs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Rihlaza-Xikoro A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Rihlaza-Xikoro B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
   String get environmental_score_c_new => 'Xikoro xa Rihlaza C';
 
   @override
-  String get environmental_score_d_new => 'Rihlaza-Xikoro D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Rihlaza-Xikoro E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
   String get environmental_score_unknown_new => 'Green-Score leyi nga tiviwiki';
@@ -4898,7 +4898,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://minxavo.vulavula bya swakudya.org/malunghana na';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5757,8 +5757,7 @@ class AppLocalizationsTs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Kuma Tinhla Ta Swakudya Leti Pfulekeke';
+  String get preferences_faq_discover_off_title => 'Kuma Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5779,8 +5778,7 @@ class AppLocalizationsTs extends AppLocalizations {
       'FAQ - Swivutiso leswi talaka ku vutisiwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'NGO ya Tinhla ta Swakudya leti Pfulekeke';
+  String get preferences_faq_off_ngo_title => 'NGO ya Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5802,8 +5800,7 @@ class AppLocalizationsTs extends AppLocalizations {
       'Nghenela hi ku va kona eka xin’wana xa swiendlakalo swa hina swa xiviri';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Blog ya Tinhla ta Swakudya leti Pfulekeke';
+  String get preferences_connect_blog_title => 'Blog ya Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6135,7 +6132,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tisa Tinhla ta Swakudya leti Pfulekeke eka ririmi ra wena';
+      'Tisa Open Food Facts eka ririmi ra wena';
 
   @override
   String get preferences_contribute_enroll_alpha =>

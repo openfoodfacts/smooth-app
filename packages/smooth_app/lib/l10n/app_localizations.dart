@@ -344,6 +344,7 @@ abstract class AppLocalizations {
     Locale('yi'),
     Locale('yo'),
     Locale('zh'),
+    Locale('zh', 'CN'),
     Locale('zu'),
   ];
 
@@ -10743,6 +10744,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case 'BR':
             return AppLocalizationsPtBr();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return AppLocalizationsZhCn();
         }
         break;
       }

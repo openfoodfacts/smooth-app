@@ -4050,29 +4050,29 @@ class AppLocalizationsSr extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Зелена оцена А';
+  String get environmental_score_a_new => 'Green-Score А';
 
   @override
-  String get environmental_score_b_new => 'Зелена оцена Б';
+  String get environmental_score_b_new => 'Green-Score Б';
 
   @override
-  String get environmental_score_c_new => 'Зелена оцена C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Зелена оцена D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Зелена оцена Е';
+  String get environmental_score_e_new => 'Green-Score Е';
 
   @override
-  String get environmental_score_unknown_new => 'Непознат зелени резултат';
+  String get environmental_score_unknown_new => 'Green-Score';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Зелени резултат се не примењује';
+      'Green-Score се не примењује';
 
   @override
-  String get nova_group_generic_new => 'Ултра-прерађена храна - НОВА групе';
+  String get nova_group_generic_new => 'Ултра-прерађена храна - NOVA групе';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4284,7 +4284,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'Зелени резултат је лого који има за циљ да вас информише о **утицају хране на животну средину**.';
+      'Green-Score је лого који има за циљ да вас информише о **утицају хране на животну средину**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
@@ -4453,7 +4453,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Зелени резултат је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.';
+      'Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Green-Score је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'Транспарентност';
@@ -4477,14 +4477,14 @@ class AppLocalizationsSr extends AppLocalizations {
       'NOVA класификација омогућава категоризацију хране у **4 групе** на основу њиховог **степена индустријске обраде** (минимално прерађена или непрерађена храна, кулинарски састојци, прерађена храна, ултра-прерађена храна).';
 
   @override
-  String get guide_nova_logos_caption => 'НОВА логотипи';
+  String get guide_nova_logos_caption => 'NOVA логотипи';
 
   @override
   String get guide_nova_groups_title => '4 NOVA групе';
 
   @override
   String get guide_nova_groups_intro =>
-      'Постоје 4 НОВА групе, а проблематична је Група 4 - Ултра-прерађена храна.';
+      'Постоје 4 NOVA групе, а проблематична је Група 4 - Ултра-прерађена храна.';
 
   @override
   String get guide_nova_groups_arg1_title =>
@@ -5650,7 +5650,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_tips => 'Савети';
 
   @override
-  String get tips_discover_nutriscore => 'Откријте нови Нутри-Скор';
+  String get tips_discover_nutriscore => 'Откријте нови Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5739,7 +5739,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Откријте како се израчунава Нутри-Скор';
+      'Откријте како се израчунава Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5749,8 +5749,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Откријте чињенице о отвореној храни';
+  String get preferences_faq_discover_off_title => 'Откријте Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6119,7 +6118,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Донесите чињенице о отвореној храни на свој језик';
+      'Донесите Open Food Facts на свој језик';
 
   @override
   String get preferences_contribute_enroll_alpha =>
