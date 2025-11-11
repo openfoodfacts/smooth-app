@@ -3261,7 +3261,7 @@
   },
   "expand_ingredients_body": "재료 패널을 확장한 채로 유지",
   "search_product_filter_visibility_title": "검색에 필터 표시",
-  "search_product_filter_visibility_subtitle": "검색 사이트 선택: 공개 식품 정보, 공개 미용 정보, 공개 반려동물 식품 정보 또는 공개 제품 정보",
+  "search_product_filter_visibility_subtitle": "검색 사이트 선택: Open Food Facts, Open Beauty Facts, Open Pet Food Facts 또는 Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
