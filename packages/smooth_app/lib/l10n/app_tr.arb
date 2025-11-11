@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Arama filtresi",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Arama geçmişi",
   "search_store": "Bir mağaza arayın",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "İpucu: Şehri veya ülkeyi ekleyin",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Daha fazla bilgi görmek için dokunun…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Malzemeler panelini genişletilmiş tutun",
-  "search_product_filter_visibility_title": "Aramada bir filtre göster",
-  "search_product_filter_visibility_subtitle": "Arama sitesini seçin: Open Food Facts, Open Beauty Facts, Açık Open Pet Food Facts veya Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "İnternet bağlantısı yok",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
