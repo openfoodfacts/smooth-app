@@ -4128,7 +4128,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "¿Qué son los precios abiertos?",
+  "guide_open_prices_what_is_open_prices_title": "¿Qué es Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices es un proyecto para recopilar y compartir precios de productos de todo el mundo. Se trata de un conjunto de datos de acceso público que puede utilizarse para investigación, análisis y mucho más. Open Prices es desarrollado y mantenido por Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -5099,7 +5099,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Descubra los precios abiertos",
+  "preferences_faq_discover_op_title": "Descubra Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
