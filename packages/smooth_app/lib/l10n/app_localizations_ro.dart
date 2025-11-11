@@ -3011,8 +3011,7 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Aflați mai multe despre Prețurile Deschise';
+  String get prices_menu_know_more => 'Aflați mai multe despre Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Terminat';
@@ -3593,7 +3592,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Selectați site-ul de căutare: Deschideți Informații despre alimente, Deschideți Informații despre frumusețe, Deschideți Informații despre hrana pentru animale de companie sau Deschideți Informații despre produse';
+      'Selectați site-ul de căutare: Open Food Facts, Open Beauty Facts, Open Pet Food Facts sau Open Products Facts';
 
   @override
   String get no_internet_connection => 'Fără conexiune la internet';
@@ -5859,8 +5858,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'Descoperiți informații despre hrana deschisă pentru animale de companie';
 
   @override
-  String get preferences_faq_discover_op_title =>
-      'Descoperiți prețurile deschise';
+  String get preferences_faq_discover_op_title => 'Descoperiți Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>

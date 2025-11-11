@@ -3575,7 +3575,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      'Atlasiet meklēšanas vietni: Atvērt pārtikas faktus, Atvērt skaistumkopšanas faktus, Atvērt mājdzīvnieku barības faktus vai Atvērt produktu faktus';
+      'Atlasiet meklēšanas vietni: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vai Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nav interneta savienojuma';

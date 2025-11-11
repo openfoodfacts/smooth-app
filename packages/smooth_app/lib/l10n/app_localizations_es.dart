@@ -4923,7 +4923,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      '¿Qué son los precios abiertos?';
+      '¿Qué es Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -5869,8 +5869,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Descubre datos sobre alimentos para mascotas abiertos';
 
   @override
-  String get preferences_faq_discover_op_title =>
-      'Descubra los precios abiertos';
+  String get preferences_faq_discover_op_title => 'Descubra Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>

@@ -4074,7 +4074,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get environmental_score_c_new => 'பச்சை-ஸ்கோர் C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Green-Score  D';
 
   @override
   String get environmental_score_e_new => 'Green-Score E';

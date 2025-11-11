@@ -9689,7 +9689,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-ScoreA';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
   String get environmental_score_b_new => 'Green-Score B';

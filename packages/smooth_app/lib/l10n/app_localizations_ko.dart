@@ -3381,7 +3381,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get search_product_filter_visibility_subtitle =>
-      '검색 사이트 선택: 공개 식품 정보, 공개 미용 정보, 공개 반려동물 식품 정보 또는 공개 제품 정보';
+      '검색 사이트 선택: Open Food Facts, Open Beauty Facts, Open Pet Food Facts 또는 Open Products Facts';
 
   @override
   String get no_internet_connection => '인터넷 연결 없음';
