@@ -2684,6 +2684,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3837,11 +3841,11 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "හරිත-ලකුණු A",
+  "environmental_score_b_new": "හරිත-ලකුණු B",
+  "environmental_score_c_new": "හරිත-ලකුණු C",
+  "environmental_score_d_new": "හරිත-ලකුණු D",
+  "environmental_score_e_new": "හරිත-ලකුණු E",
   "environmental_score_unknown_new": "නොදන්නා Green-Score",
   "environmental_score_not_applicable_new": "Green-Score අදාළ නොවේ.",
   "nova_group_generic_new": "අතිශයින් සැකසූ ආහාර - NOVA කණ්ඩායම්",
