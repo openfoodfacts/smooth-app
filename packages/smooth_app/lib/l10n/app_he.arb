@@ -513,7 +513,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "חפש מוצר,\nמותג או ברקוד",
+  "search_product_help": "חיפוש מוצר,\nמותג או ברקוד",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -526,7 +526,7 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "search_store_help": "רמז: הוסיפו את העיר או המדינה",
+  "search_store_help": "רמז: כדאי להוסיף את העיר או המדינה",
   "@search_store_help": {
     "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
