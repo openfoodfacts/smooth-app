@@ -4085,13 +4085,13 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nutriscore_b => 'Нутри-скор Б';
 
   @override
-  String get nutriscore_c => 'Нутри-Скор C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Нутри-скор D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Нутри-Скор Е';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -4258,7 +4258,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_nutriscore_a_caption =>
-      'The Nutri-Score A logo';
+      'Логото на Nutri-Score A';
 
   @override
   String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';

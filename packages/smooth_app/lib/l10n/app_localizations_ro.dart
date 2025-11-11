@@ -4115,11 +4115,11 @@ class AppLocalizationsRo extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (Calcul nou)';
 
   @override
-  String get nutriscore_unknown => 'Scor nutrițional necunoscut';
+  String get nutriscore_unknown => 'Nutri-Score necunoscut';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Scor Nutri necunoscut (calcul nou)';
+      'Nutri-Score necunoscut (calcul nou)';
 
   @override
   String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';

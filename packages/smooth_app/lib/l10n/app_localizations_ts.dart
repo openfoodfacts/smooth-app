@@ -4062,7 +4062,7 @@ class AppLocalizationsTs extends AppLocalizations {
   String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Xikoro xa Rihlaza C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
   String get environmental_score_d_new => 'Green-Score D';

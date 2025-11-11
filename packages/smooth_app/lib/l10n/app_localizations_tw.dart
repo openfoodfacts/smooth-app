@@ -4061,13 +4061,13 @@ class AppLocalizationsTw extends AppLocalizations {
   String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C. Nsɛm a Wɔka Kyerɛ C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
   String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E. Nsɛm a Wɔka Kyerɛ';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
   String get environmental_score_unknown_new => 'Green-Score a wonnim';

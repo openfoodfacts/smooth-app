@@ -9651,10 +9651,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Nutri-ScoreB';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'Nutri-ScoreC';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
   String get nutriscore_d => 'Nutri-Score D';

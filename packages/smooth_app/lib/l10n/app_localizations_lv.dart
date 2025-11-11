@@ -49,7 +49,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get exit_label => 'Izeja';
 
   @override
-  String get previous_label => 'Previous';
+  String get previous_label => 'Iepriekšējais';
 
   @override
   String get go_back_to_top => 'Atgriezties augšpusē';
@@ -2116,7 +2116,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get edit_product_form_item_traces_title => 'Traces';
 
   @override
-  String get edit_product_form_item_traces_hint => 'trace';
+  String get edit_product_form_item_traces_hint => 'pēdas';
 
   @override
   String get edit_product_form_item_traces_type =>
@@ -2538,7 +2538,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get dev_preferences_news_custom_url_empty_value => 'Nav iestatīts';
 
   @override
-  String get dev_preferences_news_provider_status_title => 'Status';
+  String get dev_preferences_news_provider_status_title => 'Statuss';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
@@ -2555,7 +2555,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get product_type_label_pet_food => 'Mājdzīvnieku barība';
 
   @override
-  String get product_type_label_product => 'Other';
+  String get product_type_label_product => 'Citi';
 
   @override
   String get product_type_selection_title => 'Produkta veids';
@@ -2669,7 +2669,7 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => 'Product not found';
+  String get prices_barcode_search_not_found => 'Produkts nav atrasts';
 
   @override
   String get prices_barcode_search_none_yet => 'Vēl nav neviena produkta';
@@ -2698,7 +2698,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_per_unit_short => ' / vienība';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obligāti';
 
   @override
   String get prices_category_optional => 'Pēc izvēles';
@@ -4108,7 +4108,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Nutri-Score nav piemērojams (jauns aprēķins)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'Zaļais rādītājs';
 
   @override
   String get environmental_score_a_new => 'Zaļais vērtējums A';
@@ -4191,7 +4191,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get contact_title_press_email => 'Preses kontaktinformācija';
 
   @override
-  String get contact_title_newsletter => 'Subscribe to our newsletter';
+  String get contact_title_newsletter => 'Abonējiet mūsu jaunumus';
 
   @override
   String get contact_title_calendar => 'Abonējiet mūsu kopienas kalendāru';
@@ -4239,7 +4239,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'What is the Nutri-Score?';
+      'Kas ir Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4339,7 +4339,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => 'Zaļais rādītājs';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4379,22 +4379,22 @@ class AppLocalizationsLv extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6 ražošanas soļi';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Lauksaimniecība';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Apstrāde';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => 'Iepakojums';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Transports';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Izplatīšana';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Patēriņš';
 
   @override
   String get guide_greenscore_lca_arg3_title => '14 ietekmes uz vidi rādītāji';
@@ -5112,11 +5112,11 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get product_image_front_accessibility_label => 'Front picture';
+  String get product_image_front_accessibility_label => 'Priekšējais attēls';
 
   @override
   String get product_image_ingredients_accessibility_label =>
-      'Ingredients picture';
+      'Sastāvdaļu attēls';
 
   @override
   String get product_image_nutrition_accessibility_label => 'Uztura attēls';
@@ -5280,10 +5280,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get date => 'Datums';
 
   @override
-  String get photo_rotate_left => 'Rotate left';
+  String get photo_rotate_left => 'Pagriezt pa kreisi';
 
   @override
-  String get photo_rotate_right => 'Rotate right';
+  String get photo_rotate_right => 'Pagriezt pa labi';
 
   @override
   String get photo_undo_action => 'Atsaukt iepriekšējo darbību';
@@ -5475,7 +5475,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_misc_section => 'Dažādi';
 
   @override
-  String get prices_stats_total => 'Total';
+  String get prices_stats_total => 'Kopā';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5490,7 +5490,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'Consumption';
+  String get prices_stats_consumption => 'Patēriņš';
 
   @override
   String get prices_stats_with_price => 'With a price';
@@ -5499,7 +5499,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_food => 'Ēdiens';
 
   @override
-  String get prices_stats_beauty => 'Beauty';
+  String get prices_stats_beauty => 'Skaistums';
 
   @override
   String get prices_stats_products => 'Produkti';
@@ -5553,7 +5553,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'Other';
+  String get prices_stats_other => 'Citi';
 
   @override
   String get prices_stats_last_updated => 'Pēdējoreiz atjaunināts';
@@ -5625,7 +5625,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Paldies, ka esat viens no mūsu biedriem!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => 'Modificēti produkti';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
