@@ -2684,6 +2684,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "제거",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "{totalSize} 개 제품을 모두 다운로드했습니다.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
