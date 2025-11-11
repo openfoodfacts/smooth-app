@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Wyszukaj produkt,\nmarkę lub kod kreskowy",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtr wyszukiwania",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Historia wyszukiwania",
   "search_store": "Wyszukaj sklep",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Wskazówka: dodaj miasto lub kraj",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Kliknij, aby wyświetlić więcej informacji…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Zachowaj rozwinięty panel składników",
-  "search_product_filter_visibility_title": "Pokaż filtr w wyszukiwaniu",
-  "search_product_filter_visibility_subtitle": "Wybierz witrynę wyszukiwania: Otwórz fakty dotyczące żywności, Otwórz fakty dotyczące urody, Otwórz fakty dotyczące karmy dla zwierząt lub Otwórz fakty dotyczące produktów",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Brak połączenia z internetem",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
