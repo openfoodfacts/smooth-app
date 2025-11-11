@@ -2630,7 +2630,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Aflați mai multe despre Prețurile Deschise",
+  "prices_menu_know_more": "Aflați mai multe despre Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3261,7 +3261,7 @@
   },
   "expand_ingredients_body": "Păstrați panoul de ingrediente extins",
   "search_product_filter_visibility_title": "Afișează un filtru în căutare",
-  "search_product_filter_visibility_subtitle": "Selectați site-ul de căutare: Deschideți Informații despre alimente, Deschideți Informații despre frumusețe, Deschideți Informații despre hrana pentru animale de companie sau Deschideți Informații despre produse",
+  "search_product_filter_visibility_subtitle": "Selectați site-ul de căutare: Open Food Facts, Open Beauty Facts, Open Pet Food Facts sau Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
@@ -5099,7 +5099,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Descoperiți prețurile deschise",
+  "preferences_faq_discover_op_title": "Descoperiți Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
