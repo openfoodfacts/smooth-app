@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "검색 필터",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "검색 기록",
   "search_store": "매장 검색",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "힌트: 도시나 국가를 추가하세요",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "자세한 내용을 보려면 탭하세요…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "재료 패널을 확장한 채로 유지",
-  "search_product_filter_visibility_title": "검색에 필터 표시",
-  "search_product_filter_visibility_subtitle": "검색 사이트 선택: Open Food Facts, Open Beauty Facts, Open Pet Food Facts 또는 Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "인터넷 연결 없음",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
