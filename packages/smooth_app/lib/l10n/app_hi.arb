@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "कोई उत्पाद,\nकोई ब्रांड या बारकोड खोजें",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "खोज फ़िल्टर",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "खोज इतिहास",
   "search_store": "स्टोर खोजें",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "संकेत: शहर या देश जोड़ें",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "अधिक जानकारी देखने के लिए टैप करें…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "सामग्री पैनल को विस्तृत रखें",
-  "search_product_filter_visibility_title": "खोज में फ़िल्टर दिखाएँ",
-  "search_product_filter_visibility_subtitle": "खोज साइट चुनें: ओपन फ़ूड फैक्ट्स, ओपन ब्यूटी फैक्ट्स, ओपन पेट फ़ूड फैक्ट्स या ओपन प्रोडक्ट्स फैक्ट्स",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "कोई इंटरनेट कनेक्शन नहीं",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
