@@ -77,12 +77,10 @@ Widget build(BuildContext context) {
 
   final Widget widget = AspectRatio(
     aspectRatio: 1.0,
-    child: DecoratedBox(
-      decoration: BoxDecoration(
-        color: context.lightTheme()
-            ? theme.primaryBlack
-            : theme.secondaryVibrant,
-        shape: BoxShape.circle,
+    child: Ink(
+      decoration: ShapeDecoration(
+        color: theme.primaryBlack,
+        shape: const CircleBorder(),
       ),
       child: Padding(
         padding: padding ?? const EdgeInsetsDirectional.all(BALANCED_SPACE),

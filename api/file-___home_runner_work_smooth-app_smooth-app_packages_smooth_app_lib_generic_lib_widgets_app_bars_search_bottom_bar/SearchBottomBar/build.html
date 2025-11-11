@@ -71,6 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
   final FocusNode focusNode = context.watch&lt;FocusNode&gt;();
 
   return Padding(
@@ -112,8 +114,10 @@ Widget build(BuildContext context) {
             child: SearchField(
               focusNode: focusNode,
               searchHelper: context.read&lt;PreferencesRootSearchController&gt;(),
-              showNavigationButton: false,
               searchOnChange: true,
+              borderColor: context.lightTheme()
+                  ? theme.primaryBlack
+                  : theme.primaryLight,
             ),
           ),
         ],

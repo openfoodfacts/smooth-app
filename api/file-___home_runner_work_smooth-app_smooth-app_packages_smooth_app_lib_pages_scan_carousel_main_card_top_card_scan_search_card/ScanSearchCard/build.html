@@ -76,11 +76,8 @@ Widget build(BuildContext context) {
 
   final Widget widget = SmoothCard(
     color: lightTheme ? Colors.grey.withValues(alpha: 0.1) : Colors.black,
-    padding: EdgeInsets.zero,
-    margin: const EdgeInsets.symmetric(
-      horizontal: 0.0,
-      vertical: VERY_SMALL_SPACE,
-    ),
+    padding: EdgeInsetsDirectional.zero,
+    margin: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
     ignoreDefaultSemantics: true,
     child: Padding(
       padding: const EdgeInsets.symmetric(
@@ -92,10 +89,12 @@ Widget build(BuildContext context) {
         children: &lt;Widget&gt;[
           LayoutBuilder(
             builder: (_, BoxConstraints constraints) {
-              return SvgPicture.asset(
-                lightTheme
-                    ? &#39;assets&#47;app&#47;logo_text_black.svg&#39;
-                    : &#39;assets&#47;app&#47;logo_text_white.svg&#39;,
+              return SvgPicture(
+                AssetBytesLoader(
+                  lightTheme
+                      ? &#39;assets&#47;app&#47;logo_text_black.svg.vec&#39;
+                      : &#39;assets&#47;app&#47;logo_text_white.svg.vec&#39;,
+                ),
                 width: math.min(311.0, constraints.maxWidth * 0.85),
                 semanticsLabel:
                     localizations.homepage_main_card_logo_description,

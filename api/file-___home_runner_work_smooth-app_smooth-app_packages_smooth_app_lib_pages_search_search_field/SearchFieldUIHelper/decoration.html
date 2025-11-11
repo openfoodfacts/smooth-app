@@ -68,13 +68,13 @@
   final SmoothColorsThemeExtension theme = Theme.of(
     context,
   ).extension&lt;SmoothColorsThemeExtension&gt;()!;
-  final bool lightTheme = !context.watch&lt;ThemeProvider&gt;().isDarkMode(context);
+  final bool lightTheme = context.lightTheme();
 
   return BoxDecoration(
     borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-    color: lightTheme ? Colors.white : lightColorScheme.secondary,
+    color: Colors.white,
     border: Border.all(
-      color: lightTheme ? theme.primaryBlack : theme.primarySemiDark,
+      color: lightTheme ? theme.primaryNormal : theme.primarySemiDark,
     ),
   );
 }</code></pre>
