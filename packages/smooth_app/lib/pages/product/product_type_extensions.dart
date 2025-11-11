@@ -1,5 +1,7 @@
+import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 extension ProductTypeExtension on ProductType {
   String getTitle(AppLocalizations appLocalizations) {
@@ -22,10 +24,19 @@ extension ProductTypeExtension on ProductType {
 
   String getIllustration() {
     return switch (this) {
-      ProductType.food => 'assets/misc/logo_off_half.svg',
-      ProductType.beauty => 'assets/misc/logo_obf_half.svg',
-      ProductType.petFood => 'assets/misc/logo_opff_half.svg',
-      ProductType.product => 'assets/misc/logo_opf_half.svg',
+      ProductType.food => 'assets/misc/logo_off_half.svg.vec',
+      ProductType.beauty => 'assets/misc/logo_obf_half.svg.vec',
+      ProductType.petFood => 'assets/misc/logo_opff_half.svg.vec',
+      ProductType.product => 'assets/misc/logo_opf_half.svg.vec',
+    };
+  }
+
+  Widget getIcon() {
+    return switch (this) {
+      ProductType.food => const icons.Logo.openFoodFacts(),
+      ProductType.beauty => const icons.Logo.openBeautyFacts(),
+      ProductType.petFood => const icons.Logo.openPetFoodFacts(),
+      ProductType.product => const icons.Logo.openProductsFacts(),
     };
   }
 

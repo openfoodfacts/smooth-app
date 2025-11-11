@@ -607,7 +607,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get search => '検索';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => '店舗を検索';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => '詳細情報を表示するにはタップしてください…';
@@ -3376,13 +3388,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => '原材料パネルを広げたままにする';
-
-  @override
-  String get search_product_filter_visibility_title => '検索にフィルターを表示する';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      '検索サイトを選択: Open Food Facts、Open Beauty Facts、Open Pet Food Facts、または Open Products Facts';
 
   @override
   String get no_internet_connection => 'インターネットに接続されていません';

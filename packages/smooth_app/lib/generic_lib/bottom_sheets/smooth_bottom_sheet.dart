@@ -32,7 +32,7 @@ Future<T?> showSmoothModalSheet<T>({
 
   return showModalBottomSheet<T>(
     constraints: constraints,
-    isScrollControlled: true,
+    isScrollControlled: isScrollControlled ?? true,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -98,12 +98,13 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  Iterable<String>? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
   Widget? footer,
-  List<Widget>? prefixIcons,
+  Iterable<Widget>? prefixIcons,
   Color? prefixIconTint,
-  List<Widget>? suffixIcons,
+  Iterable<Widget>? suffixIcons,
   Color? suffixIconTint,
   EdgeInsetsGeometry? padding,
   EdgeInsetsGeometry? contentPadding,
@@ -134,13 +135,20 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
         leading: prefixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: prefixIconTint),
-                child: prefixIcons[i],
+                child: prefixIcons.elementAt(i),
               )
             : null,
         title: Text(
           labels.elementAt(i),
-          style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
+          style:
+              textStyle ??
+              TextStyle(
+                fontWeight: subtitles != null
+                    ? FontWeight.bold
+                    : FontWeight.w500,
+              ),
         ),
+        subtitle: subtitles != null ? Text(subtitles.elementAt(i)) : null,
         contentPadding:
             contentPadding ??
             EdgeInsetsDirectional.only(
@@ -150,7 +158,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
         trailing: (suffixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: suffixIconTint),
-                child: suffixIcons[i],
+                child: suffixIcons.elementAt(i),
               )
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
@@ -262,6 +270,7 @@ Future<T?> showSmoothAlertModalSheet<T>({
       ),
     ),
     labels: actionLabels,
+
     values: actionValues,
     prefixIcons: actionIcons,
     dividerPadding: const EdgeInsetsDirectional.symmetric(

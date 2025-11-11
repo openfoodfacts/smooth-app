@@ -7,12 +7,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/pages/search/product_type_search_selector.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class ScanSearchCard extends StatelessWidget {
   const ScanSearchCard({required this.expandedMode});
@@ -27,11 +29,8 @@ class ScanSearchCard extends StatelessWidget {
 
     final Widget widget = SmoothCard(
       color: lightTheme ? Colors.grey.withValues(alpha: 0.1) : Colors.black,
-      padding: EdgeInsets.zero,
-      margin: const EdgeInsets.symmetric(
-        horizontal: 0.0,
-        vertical: VERY_SMALL_SPACE,
-      ),
+      padding: EdgeInsetsDirectional.zero,
+      margin: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
       ignoreDefaultSemantics: true,
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -43,10 +42,12 @@ class ScanSearchCard extends StatelessWidget {
           children: <Widget>[
             LayoutBuilder(
               builder: (_, BoxConstraints constraints) {
-                return SvgPicture.asset(
-                  lightTheme
-                      ? 'assets/app/logo_text_black.svg'
-                      : 'assets/app/logo_text_white.svg',
+                return SvgPicture(
+                  AssetBytesLoader(
+                    lightTheme
+                        ? 'assets/app/logo_text_black.svg.vec'
+                        : 'assets/app/logo_text_white.svg.vec',
+                  ),
                   width: math.min(311.0, constraints.maxWidth * 0.85),
                   semanticsLabel:
                       localizations.homepage_main_card_logo_description,
@@ -130,23 +131,32 @@ class _ScanSearchBar extends StatelessWidget {
               borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
               child: Ink(
                 decoration: SearchFieldUIHelper.decoration(context),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
-                        child: Text(
-                          localizations.homepage_main_card_search_field_hint,
-                          maxLines: 1,
-                          textScaler: TextScaler.noScaling,
-                          overflow: TextOverflow.ellipsis,
-                          style: SearchFieldUIHelper.hintTextStyle,
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.all(1.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const IgnorePointer(
+                        child: SizedBox(
+                          height: double.infinity,
+                          child: ProductTypeSearchSelector(),
                         ),
                       ),
-                    ),
-                    const SearchBarIcon(),
-                  ],
+                      Expanded(
+                        child: Padding(
+                          padding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
+                          child: Text(
+                            localizations.homepage_main_card_search_field_hint,
+                            maxLines: 1,
+                            textScaler: TextScaler.noScaling,
+                            overflow: TextOverflow.ellipsis,
+                            style: SearchFieldUIHelper.hintTextStyle,
+                          ),
+                        ),
+                      ),
+                      const SearchBarIcon(),
+                    ],
+                  ),
                 ),
               ),
             ),

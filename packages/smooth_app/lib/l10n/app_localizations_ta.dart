@@ -629,7 +629,19 @@ class AppLocalizationsTa extends AppLocalizations {
   String get search => 'தேடுக';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'ஒரு கடையைத் தேடுங்கள்';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -3527,14 +3539,6 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'தேடலில் வடிப்பானைக் காட்டு';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, Open Beauty Facts, திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்';
 
   @override
   String get no_internet_connection => 'No internet connection';

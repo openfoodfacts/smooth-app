@@ -7,6 +7,7 @@ import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class ProductTypeRadioListTile extends StatefulWidget {
   const ProductTypeRadioListTile({
@@ -95,8 +96,8 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(ANGULAR_RADIUS.x - 2.0),
                   ),
-                  child: SvgPicture.asset(
-                    widget.productType.getIllustration(),
+                  child: SvgPicture(
+                    AssetBytesLoader(widget.productType.getIllustration()),
                     width: 50.0,
                   ),
                 ),

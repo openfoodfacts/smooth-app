@@ -640,7 +640,19 @@ class AppLocalizationsLt extends AppLocalizations {
   String get search => 'Paieška';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Ieškoti parduotuvės';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more =>
@@ -3572,14 +3584,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Laikyti sudedamųjų dalių skydelį išplėstą';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Rodyti filtrą paieškoje';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Pasirinkti paieškos svetainę: „Open Food Facts“, „Open Beauty Facts“, „Open Pet Food Facts“ arba „Open Products Facts“';
 
   @override
   String get no_internet_connection => 'Nėra interneto ryšio';

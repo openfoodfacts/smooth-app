@@ -629,7 +629,19 @@ class AppLocalizationsDa extends AppLocalizations {
   String get search => 'Søg';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Søg efter en butik';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Tryk for flere oplysninger…';
@@ -3531,14 +3543,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Hold ingredienspanelet udvidet';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Vis et filter i søgningen';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vælg søgewebsted: Open Food Facts, Open Beauty Facts, Open Pet Food Facts eller Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ingen internetforbindelse';

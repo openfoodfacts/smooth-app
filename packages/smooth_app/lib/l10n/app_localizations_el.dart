@@ -640,7 +640,19 @@ class AppLocalizationsEl extends AppLocalizations {
   String get search => 'Αναζήτηση';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Αναζήτηση για κατάστημα';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Πατήστε για να δείτε περισσότερες πληροφορίες…';
@@ -3595,14 +3607,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Διατήρηση πίνακα συστατικών εκτεταμένο';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Εμφάνιση φίλτρου στην αναζήτηση';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Products Facts';
 
   @override
   String get no_internet_connection => 'Χωρίς σύνδεση στο διαδίκτυο';

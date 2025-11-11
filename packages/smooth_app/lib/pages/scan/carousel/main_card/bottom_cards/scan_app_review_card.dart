@@ -16,6 +16,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class ScanAppReview extends StatelessWidget {
   const ScanAppReview({super.key});
@@ -31,7 +32,7 @@ class ScanAppReview extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: _AppReviewItem(
-              asset: 'assets/misc/tagline_0.svg',
+              asset: 'assets/misc/tagline_0.svg.vec',
               text: appLocalizations.app_review_low,
               backgroundColor: const Color(0xFFD44C29),
               borderRadius: BorderRadiusHelper.fromDirectional(
@@ -46,7 +47,7 @@ class ScanAppReview extends StatelessWidget {
           ),
           Expanded(
             child: _AppReviewItem(
-              asset: 'assets/misc/tagline_1.svg',
+              asset: 'assets/misc/tagline_1.svg.vec',
               text: appLocalizations.app_review_medium,
               backgroundColor: const Color(0xFFFF8C14),
               borderRadius: BorderRadius.zero,
@@ -56,7 +57,7 @@ class ScanAppReview extends StatelessWidget {
           ),
           Expanded(
             child: _AppReviewItem(
-              asset: 'assets/misc/tagline_2.svg',
+              asset: 'assets/misc/tagline_2.svg.vec',
               text: appLocalizations.app_review_high,
               backgroundColor: const Color(0xFF6CB564),
               borderRadius: BorderRadiusHelper.fromDirectional(
@@ -251,7 +252,7 @@ class _AppReviewItem extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                    child: SvgPicture.asset(asset),
+                    child: SvgPicture(AssetBytesLoader(asset)),
                   ),
                 ),
               ),

@@ -639,7 +639,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get search => 'Поиск';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Поиск магазина';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Нажмите для просмотра…';
@@ -3600,14 +3612,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Оставить панель ингредиентов развернутой';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показать фильтр в поиске';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Выберите сайт поиска: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
 
   @override
   String get no_internet_connection => 'Нет подключения к интернету';

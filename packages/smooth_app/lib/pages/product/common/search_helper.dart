@@ -26,7 +26,11 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   /// Hint text for the search field.
   String getHintText(final AppLocalizations appLocalizations);
 
-  Widget? getAdditionalFilter() => null;
+  /// A small message that will be displayed below the search bar
+  String getHelpText(final AppLocalizations appLocalizations);
+
+  /// An optional leading widget for the search bar.
+  Widget? getLeadingWidget() => null;
 
   /// Returns all the previous queries, in reverse order.
   List<String> getAllQueries(final LocalDatabase localDatabase) =>

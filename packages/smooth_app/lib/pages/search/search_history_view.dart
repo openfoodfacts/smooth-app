@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
+import 'package:smooth_app/pages/search/search_hint.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -50,6 +51,24 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
 
   @override
   Widget build(BuildContext context) {
+    final int count = _queries.length + widget.preloadedList.length;
+    if (count == 0) {
+      return Padding(
+        padding: EdgeInsetsDirectional.only(
+          top: 2.0,
+          start: widget.searchHelper.getLeadingWidget() != null
+              ? VERY_LARGE_SPACE
+              : SMALL_SPACE,
+        ),
+        child: Align(
+          alignment: AlignmentDirectional.topStart,
+          child: SearchHint(
+            text: widget.searchHelper.getHelpText(AppLocalizations.of(context)),
+          ),
+        ),
+      );
+    }
+
     final ThemeData theme = Theme.of(context);
 
     return ListTileTheme(
@@ -97,7 +116,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   },
                 );
               },
-              itemCount: _queries.length + widget.preloadedList.length,
+              itemCount: count,
             ),
           ),
           Padding(

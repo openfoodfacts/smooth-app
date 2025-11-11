@@ -14,6 +14,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class LegalInformationRoot extends PreferencesRoot {
   const LegalInformationRoot({required super.title});
@@ -124,13 +125,13 @@ class _LegalInformationHeader extends StatelessWidget {
                     : extension.primaryDark,
                 borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
               ),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.symmetric(
+              child: const Padding(
+                padding: EdgeInsetsDirectional.symmetric(
                   horizontal: SMALL_SPACE,
                   vertical: MEDIUM_SPACE,
                 ),
-                child: SvgPicture.asset(
-                  'assets/app/logo_text_white.svg',
+                child: SvgPicture(
+                  AssetBytesLoader('assets/app/logo_text_white.svg.vec'),
                   fit: BoxFit.contain,
                 ),
               ),

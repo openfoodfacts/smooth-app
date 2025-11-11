@@ -606,7 +606,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get search => '검색';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => '매장 검색';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => '자세한 내용을 보려면 탭하세요…';
@@ -3375,13 +3387,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => '재료 패널을 확장한 채로 유지';
-
-  @override
-  String get search_product_filter_visibility_title => '검색에 필터 표시';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      '검색 사이트 선택: Open Food Facts, Open Beauty Facts, Open Pet Food Facts 또는 Open Products Facts';
 
   @override
   String get no_internet_connection => '인터넷 연결 없음';

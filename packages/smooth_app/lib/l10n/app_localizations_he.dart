@@ -617,7 +617,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search => 'חיפוש';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'חיפוש חנות';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'מידע נוסף יופיע בנגיעה…';
@@ -3503,13 +3515,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'לשמור על לוח הרכיבים מורחב';
-
-  @override
-  String get search_product_filter_visibility_title => 'הצגת מסנן בחיפוש';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'בחירת אתר חיפוש: Open Food Facts,‏ Open Beauty Facts,‏ Open Pet Food Facts או Open Products Facts';
 
   @override
   String get no_internet_connection => 'אין חיבור לאינטרנט';

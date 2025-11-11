@@ -632,7 +632,19 @@ class AppLocalizationsFi extends AppLocalizations {
   String get search => 'Etsi';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Hae myymälää';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Napauta nähdäksesi lisätietoja…';
@@ -3511,13 +3523,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Pidä ainesosat laajennettuna';
-
-  @override
-  String get search_product_filter_visibility_title => 'Näytä suodatin haussa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ei Internet-yhteyttä';

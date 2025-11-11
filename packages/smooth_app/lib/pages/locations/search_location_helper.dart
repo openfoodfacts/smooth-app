@@ -18,6 +18,10 @@ class SearchLocationHelper extends SearchHelper {
       appLocalizations.search_store;
 
   @override
+  String getHelpText(AppLocalizations appLocalizations) =>
+      appLocalizations.search_store_help;
+
+  @override
   void search(
     BuildContext context,
     String query, {

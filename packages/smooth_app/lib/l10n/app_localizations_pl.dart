@@ -640,7 +640,19 @@ class AppLocalizationsPl extends AppLocalizations {
   String get search => 'Wyszukiwanie';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Wyszukaj sklep';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Kliknij, aby wyświetlić więcej informacji…';
@@ -3566,14 +3578,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Zachowaj rozwinięty panel składników';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Pokaż filtr w wyszukiwaniu';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Wybierz witrynę wyszukiwania: Otwórz fakty dotyczące żywności, Otwórz fakty dotyczące urody, Otwórz fakty dotyczące karmy dla zwierząt lub Otwórz fakty dotyczące produktów';
 
   @override
   String get no_internet_connection => 'Brak połączenia z internetem';

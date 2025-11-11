@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class SmoothProductCardItemFound extends StatelessWidget {
   const SmoothProductCardItemFound({
@@ -279,6 +280,9 @@ class _SmoothProductItemTypeIndicator extends StatelessWidget {
       return EMPTY_WIDGET;
     }
 
-    return SvgPicture.asset(productType.getIllustration(), width: 50.0);
+    return SvgPicture(
+      AssetBytesLoader(productType.getIllustration()),
+      width: 50.0,
+    );
   }
 }

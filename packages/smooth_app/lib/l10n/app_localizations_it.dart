@@ -634,7 +634,19 @@ class AppLocalizationsIt extends AppLocalizations {
   String get search => 'Cerca';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Cerca un negozio';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Tocca per visualizzare ulteriori informazioni…';
@@ -3576,14 +3588,6 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Mantieni espanso il pannello degli ingredienti';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostra un filtro nella ricerca';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selezionare il sito di ricerca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts o Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nessuna connessione internet';

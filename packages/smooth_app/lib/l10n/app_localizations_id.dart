@@ -634,7 +634,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get search => 'Cari';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Cari toko';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Ketuk untuk lihat info selengkapnya…';
@@ -3544,14 +3556,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Pertahankan panel bahan yang diperluas';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Tampilkan filter dalam pencarian';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Pilih situs pencarian: Open Food Facts, Open Beauty Facts, Open Pet Food Facts, atau Open Products Facts';
 
   @override
   String get no_internet_connection => 'Tidak ada sambungan Internet';

@@ -1739,6 +1739,40 @@ class Location extends AppIcon {
   }) : super._(_IconsFont.location);
 }
 
+class Logo extends AppIcon {
+  const Logo.openBeautyFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_obf);
+
+  const Logo.openFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_off);
+
+  const Logo.openPetFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opff);
+
+  const Logo.openProductsFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opf);
+}
+
 class Logout extends AppIcon {
   const Logout({
     super.color,

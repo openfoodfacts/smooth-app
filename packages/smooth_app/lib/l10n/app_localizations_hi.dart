@@ -634,7 +634,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get search => 'ढूंढें';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'स्टोर खोजें';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'अधिक जानकारी देखने के लिए टैप करें…';
@@ -3527,13 +3539,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'सामग्री पैनल को विस्तृत रखें';
-
-  @override
-  String get search_product_filter_visibility_title => 'खोज में फ़िल्टर दिखाएँ';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'खोज साइट चुनें: ओपन फ़ूड फैक्ट्स, ओपन ब्यूटी फैक्ट्स, ओपन पेट फ़ूड फैक्ट्स या ओपन प्रोडक्ट्स फैक्ट्स';
 
   @override
   String get no_internet_connection => 'कोई इंटरनेट कनेक्शन नहीं';

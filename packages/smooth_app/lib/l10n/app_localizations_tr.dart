@@ -632,7 +632,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get search => 'Ara';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Bir mağaza arayın';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Daha fazla bilgi görmek için dokunun…';
@@ -3537,14 +3549,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Malzemeler panelini genişletilmiş tutun';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Aramada bir filtre göster';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Arama sitesini seçin: Open Food Facts, Open Beauty Facts, Açık Open Pet Food Facts veya Open Products Facts';
 
   @override
   String get no_internet_connection => 'İnternet bağlantısı yok';

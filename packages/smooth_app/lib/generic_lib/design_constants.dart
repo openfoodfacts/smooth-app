@@ -39,6 +39,8 @@ const Radius CIRCULAR_RADIUS = Radius.circular(40.0);
 //ignore: non_constant_identifier_names
 const BorderRadius CIRCULAR_BORDER_RADIUS = BorderRadius.all(CIRCULAR_RADIUS);
 
+const BorderRadius MAX_BORDER_RADIUS = BorderRadius.all(Radius.circular(100.0));
+
 /// Widget Colors
 const MaterialColor WARNING_COLOR = Colors.deepOrange;
 const Color PRIMARY_BLUE_COLOR = Color(0xFF2D9CDB);

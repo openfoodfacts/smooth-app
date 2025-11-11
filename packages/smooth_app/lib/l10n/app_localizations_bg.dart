@@ -637,7 +637,19 @@ class AppLocalizationsBg extends AppLocalizations {
   String get search => 'Търсене';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Търсене на магазин';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Докосни, за повече информация…';
@@ -3575,14 +3587,6 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Дръж панела на съставките разгънат';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показване на филтър в търсенето';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Избер на сайт за търсене: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
 
   @override
   String get no_internet_connection => 'Няма интернет връзка';

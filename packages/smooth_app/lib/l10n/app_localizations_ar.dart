@@ -626,7 +626,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search => 'بحث';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'ابحث عن متجر';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'انقر لرؤية المزيد من المعلومات…';
@@ -3496,13 +3508,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'حافظ على توسيع لوحة المكونات';
-
-  @override
-  String get search_product_filter_visibility_title => 'إظهار مرشح في البحث';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'حدد موقع البحث: حقائق الطعام المفتوحة، حقائق الجمال المفتوحة، حقائق طعام الحيوانات الأليفة المفتوحة أو حقائق المنتجات المفتوحة';
 
   @override
   String get no_internet_connection => 'لا يوجد اتصال بالإنترنت';

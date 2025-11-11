@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
+import 'package:smooth_app/pages/search/search_app_bar.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_history_view.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -83,33 +82,20 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ],
         child: SmoothScaffold(
-          appBar: PreferredSize(
-            preferredSize: Size(
-              double.infinity,
-              MediaQuery.viewInsetsOf(context).top,
+          appBar: SearchAppBar(
+            searchBar: ValueNotifierListener<SearchHelper, SearchQuery?>(
+              listener: _onSearchChanged,
+              child: SearchField(
+                autofocus: widget.autofocus,
+                focusNode: _searchFocusNode,
+                searchHelper: widget.searchHelper,
+                heroTag: widget.heroTag,
+                height: 42.0,
+              ),
             ),
-            child: const SmoothEmptyAppBar(),
           ),
           body: Column(
             children: <Widget>[
-              ValueNotifierListener<SearchHelper, SearchQuery?>(
-                listener: _onSearchChanged,
-                child: SafeArea(
-                  bottom: false,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: SMALL_SPACE,
-                      horizontal: BALANCED_SPACE,
-                    ),
-                    child: SearchField(
-                      autofocus: widget.autofocus,
-                      focusNode: _searchFocusNode,
-                      searchHelper: widget.searchHelper,
-                      heroTag: widget.heroTag,
-                    ),
-                  ),
-                ),
-              ),
               Expanded(
                 child: Consumer<SearchHelper>(
                   builder: (BuildContext context, SearchHelper searchHelper, _) {
