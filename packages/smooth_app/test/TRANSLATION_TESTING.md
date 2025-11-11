@@ -17,14 +17,21 @@ This error means that one or more `.arb` files have incorrect placeholder defini
 
 #### Method 1: Use the diagnostic script (Recommended)
 
-Run the diagnostic script to automatically identify inconsistent method signatures:
+Run one of the diagnostic scripts to automatically identify inconsistent method signatures:
 
+**Option A: Bash script (faster, no dependencies)**
+```bash
+cd packages/smooth_app
+./test/check_localization_signatures.sh
+```
+
+**Option B: Dart script (requires Dart SDK)**
 ```bash
 cd packages/smooth_app
 dart test/check_localization_signatures.dart
 ```
 
-The script will:
+Both scripts will:
 - Check all generated localization files
 - Identify methods with inconsistent signatures
 - Tell you which specific ARB files need to be fixed
@@ -33,13 +40,15 @@ Example output:
 ```
 ❌ ERROR: Method "pct_match" has inconsistent signatures:
    String pct_match(Object percent)
-   Used by: en, fr, de
-   ARB files to check: app_en.arb, app_fr.arb, app_de.arb
+   Used by: en, de, it, ...
+   ARB files to check: app_en.arb, app_de.arb, app_it.arb, ...
 
    String pct_match(Object percent, Object extra)
-   Used by: es
-   ARB files to check: app_es.arb
+   Used by: fr
+   ARB files to check: app_fr.arb
 ```
+
+In this example, the `app_fr.arb` file has an extra placeholder that needs to be removed.
 
 #### Method 2: Manual investigation
 

@@ -20,8 +20,9 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 ///
 /// 1. Check the method name in the error (e.g., 'pct_match')
 /// 2. Look at the comments in this test file near the failing line
-/// 3. Run: `dart test/check_localization_signatures.dart` to identify
-///    which specific locale has the inconsistent method signature
+/// 3. Run the diagnostic script to identify inconsistent method signatures:
+///    - Bash (faster): `./test/check_localization_signatures.sh`
+///    - Dart: `dart test/check_localization_signatures.dart`
 /// 4. Fix the placeholder definitions in the corresponding app_XX.arb file
 ///
 /// The test name includes the locale (e.g., 'plural test en'), so runtime
