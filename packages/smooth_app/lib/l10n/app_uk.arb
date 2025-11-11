@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Пошук товару,\nбренду або штрих-коду",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Фільтр пошуку",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Історія пошуку",
   "search_store": "Пошук магазину",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Підказка: додайте місто або країну",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Натисніть, щоб побачити більше…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Тримайте панель інгредієнтів розгорнутою",
-  "search_product_filter_visibility_title": "Показати фільтр у пошуку",
-  "search_product_filter_visibility_subtitle": "Виберіть пошуковий сайт: Open Food Facts, Open Beauty Facts, Open Pet Food Facts або Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Відсутнє підключення до Інтернету",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
