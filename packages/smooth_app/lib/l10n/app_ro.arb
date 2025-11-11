@@ -3824,8 +3824,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Calcul nou)",
-  "nutriscore_unknown": "Scor nutrițional necunoscut",
-  "nutriscore_unknown_new_formula": "Scor Nutri necunoscut (calcul nou)",
+  "nutriscore_unknown": "Nutri-Score necunoscut",
+  "nutriscore_unknown_new_formula": "Nutri-Score necunoscut (calcul nou)",
   "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
   "nutriscore_not_applicable_new_formula": "Scorul Nutri nu este aplicabil (calcul nou)",
   "environmental_score_generic_new": "Scor Ecologic",
