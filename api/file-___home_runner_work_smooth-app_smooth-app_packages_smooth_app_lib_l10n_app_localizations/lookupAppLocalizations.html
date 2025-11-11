@@ -73,6 +73,14 @@
         }
         break;
       }
+    case &#39;zh&#39;:
+      {
+        switch (locale.countryCode) {
+          case &#39;CN&#39;:
+            return AppLocalizationsZhCn();
+        }
+        break;
+      }
   }
 
   &#47;&#47; Lookup logic when only language code is specified.
