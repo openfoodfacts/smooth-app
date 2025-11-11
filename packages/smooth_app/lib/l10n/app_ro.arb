@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Căutați un produs,\no marcă sau un cod de bare",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtru de căutare",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Istoricul căutărilor",
   "search_store": "Caută un magazin",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Sugestie: adăugați orașul sau țara",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Atingeți pentru a vedea mai multe informații…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Păstrați panoul de ingrediente extins",
-  "search_product_filter_visibility_title": "Afișează un filtru în căutare",
-  "search_product_filter_visibility_subtitle": "Selectați site-ul de căutare: Open Food Facts, Open Beauty Facts, Open Pet Food Facts sau Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Fără conexiune la internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
