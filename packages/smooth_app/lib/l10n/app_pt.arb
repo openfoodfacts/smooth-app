@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtro de pesquisa",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Histórico de pesquisa",
   "search_store": "Procurar uma loja",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Dica: adicione a cidade ou o país",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Toque para mais informação…",
   "@Product": {},
@@ -3260,11 +3273,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Manter o painel de ingredientes expandido",
-  "search_product_filter_visibility_title": "Mostrar um filtro na pesquisa",
-  "search_product_filter_visibility_subtitle": "Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Sem ligação à Internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
