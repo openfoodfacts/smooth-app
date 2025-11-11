@@ -3261,7 +3261,7 @@
   },
   "expand_ingredients_body": "Saglabājiet sastāvdaļu paneli izvērstu",
   "search_product_filter_visibility_title": "Rādīt filtru meklēšanā",
-  "search_product_filter_visibility_subtitle": "Atlasiet meklēšanas vietni: Atvērt pārtikas faktus, Atvērt skaistumkopšanas faktus, Atvērt mājdzīvnieku barības faktus vai Atvērt produktu faktus",
+  "search_product_filter_visibility_subtitle": "Atlasiet meklēšanas vietni: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vai Open Products Facts",
   "@search_product_filter_visibility_subtitle": {
     "description": "Label for showing the product type filter in the search bar"
   },
