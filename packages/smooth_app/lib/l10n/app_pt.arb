@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Compare lado a lado",
   "loading_dialog_default_title": "A descarregar os dados",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
