@@ -54,7 +54,7 @@ abstract class ProductListItemPopupItem {
 class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      'Compare side by side';
+      appLocalizations.product_list_compare_side_by_side;
 
   @override
   Widget getIcon() => const icons.Compare.alt();

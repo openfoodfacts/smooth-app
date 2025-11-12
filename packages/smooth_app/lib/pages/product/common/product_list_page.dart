@@ -223,7 +223,7 @@ class _ProductListPageState extends State<ProductListPage>
       body: products.isEmpty
           ? Center(
               child: Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
+                padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -374,7 +374,7 @@ class _ProductListPageState extends State<ProductListPage>
           alignment: AlignmentDirectional.centerEnd,
           color: RED_COLOR,
           padding: const EdgeInsetsDirectional.only(end: 30.0),
-          child: const Icon(Icons.delete, size: 30.0, color: Colors.white),
+          child: const icons.Trash(size: 20.0, color: Colors.white),
         ),
         key: Key(barcode),
         onDismissed: (final DismissDirection direction) async {

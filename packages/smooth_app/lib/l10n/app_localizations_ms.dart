@@ -1712,6 +1712,9 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
+
+  @override
   String get loading_dialog_default_title => 'Downloading data';
 
   @override

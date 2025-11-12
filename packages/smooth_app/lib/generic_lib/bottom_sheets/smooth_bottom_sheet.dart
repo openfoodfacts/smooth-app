@@ -116,6 +116,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   double footerSpace = 0.0,
   SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = false,
+  bool? useRootNavigator,
 }) {
   assert(labels.length == values.length);
   assert(prefixIcons == null || values.length == prefixIcons.length);
@@ -212,6 +213,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
 
   return showSmoothModalSheet<T>(
     context: context,
+    useRootNavigator: useRootNavigator,
     builder: (BuildContext context) => SmoothModalSheet(
       title: title,
       type: type,

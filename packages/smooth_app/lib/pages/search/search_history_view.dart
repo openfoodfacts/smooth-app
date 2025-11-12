@@ -82,15 +82,11 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       ),
       child: Column(
         children: <Widget>[
+          const _SearchHistoryTitle(),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsetsDirectional.zero,
               itemBuilder: (BuildContext context, int i) {
-                if (i == 0) {
-                  return const _SearchHistoryTitle();
-                }
-
-                i--;
                 if (i < widget.preloadedList.length) {
                   final SearchPreloadedItem item = widget.preloadedList[i];
                   return item.getWidget(
@@ -110,6 +106,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                 final String query = _queries[i];
                 return _SearchHistoryTile(
                   query: query,
+                  bottomBorder: i < _queries.length - 1,
                   onTap: () => widget.onTap.call(query),
                   onEditItem: () => _onEditItem(query),
                   onRemoveItem: () async {
@@ -123,7 +120,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   },
                 );
               },
-              itemCount: count + 1,
+              itemCount: count,
             ),
           ),
           Padding(
@@ -173,30 +170,33 @@ class _SearchHistoryTitle extends StatelessWidget {
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
 
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: LARGE_SPACE,
-        bottom: VERY_SMALL_SPACE,
-        start: SMALL_SPACE,
-        end: SMALL_SPACE,
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: ANGULAR_BORDER_RADIUS,
-          color: theme.primaryMedium,
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: LARGE_SPACE,
+          bottom: VERY_SMALL_SPACE,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
         ),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
-            vertical: BALANCED_SPACE,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            color: theme.primaryMedium,
           ),
-          child: Text(
-            AppLocalizations.of(context).search_history,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: theme.primaryBlack,
-              fontSize: 15.0,
-              fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+              vertical: BALANCED_SPACE,
+            ),
+            child: Text(
+              AppLocalizations.of(context).search_history,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: theme.primaryBlack,
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -211,12 +211,14 @@ class _SearchHistoryTile extends StatelessWidget {
     required this.onTap,
     required this.onEditItem,
     required this.onRemoveItem,
+    this.bottomBorder = true,
   });
 
   final String query;
   final VoidCallback onTap;
   final VoidCallback onEditItem;
   final VoidCallback onRemoveItem;
+  final bool bottomBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -224,9 +226,8 @@ class _SearchHistoryTile extends StatelessWidget {
 
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
-    final Color color = context.lightTheme()
-        ? theme.primaryBlack
-        : theme.primaryMedium;
+    final bool lightTheme = context.lightTheme();
+    final Color color = lightTheme ? theme.primaryBlack : theme.primaryMedium;
 
     return InkWell(
       onTap: onTap,
@@ -237,11 +238,13 @@ class _SearchHistoryTile extends StatelessWidget {
         ),
         child: Ink(
           decoration: BoxDecoration(
-            border: DashedBorder(
-              dashLength: 3.0,
-              spaceLength: 3.0,
-              bottom: BorderSide(color: theme.primaryMedium),
-            ),
+            border: bottomBorder
+                ? DashedBorder(
+                    dashLength: 3.0,
+                    spaceLength: 3.0,
+                    bottom: BorderSide(color: theme.primaryMedium),
+                  )
+                : null,
           ),
           child: Padding(
             padding: const EdgeInsetsDirectional.only(top: 2.0, bottom: 2.0),
@@ -261,7 +264,7 @@ class _SearchHistoryTile extends StatelessWidget {
                     child: Text(
                       query,
                       style: TextStyle(
-                        color: color,
+                        color: lightTheme ? color : Colors.white,
                         fontSize: 15.0,
                         fontWeight: FontWeight.w500,
                       ),

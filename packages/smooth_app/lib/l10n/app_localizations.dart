@@ -3240,6 +3240,12 @@ abstract class AppLocalizations {
   /// **'{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete'**
   String product_list_reloading_success_multiple(num count);
 
+  /// No description provided for @product_list_compare_side_by_side.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare side by side'**
+  String get product_list_compare_side_by_side;
+
   /// Default loading dialog title
   ///
   /// In en, this message translates to:
