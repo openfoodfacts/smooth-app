@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "அருகருகே ஒப்பிடுக",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3840,7 +3841,7 @@
   "nutriscore_unknown_new_formula": "தெரியாத Nutri-Score (புதிய கணக்கீடு)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score பொருந்தாது (புதிய கணக்கீடு)",
-  "environmental_score_generic_new": "பச்சை-ஸ்கோர்",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
@@ -3941,7 +3942,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "பச்சை-ஸ்கோர்",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
