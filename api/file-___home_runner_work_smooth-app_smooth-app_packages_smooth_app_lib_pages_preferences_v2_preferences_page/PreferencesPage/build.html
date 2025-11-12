@@ -125,13 +125,20 @@ Widget build(BuildContext context) {
         GithubSearchPreferenceTile(),
         ForumSearchPreferenceTile(),
       ],
-      footer: (_) =&gt; Consumer&lt;PreferencesRootSearchController&gt;(
-        builder: (_, PreferencesRootSearchController controller, _) {
-          if (controller.query?.isNotEmpty == true) {
-            return EMPTY_WIDGET;
-          }
-          return const SocialNetworksFooter();
-        },
+      footer: (_) =&gt; Consumer2&lt;PreferencesRootSearchController, FocusNode&gt;(
+        builder:
+            (
+              BuildContext context,
+              PreferencesRootSearchController controller,
+              FocusNode focusNode,
+              _,
+            ) {
+              if (controller.query?.isNotEmpty == true ||
+                  focusNode.hasFocus) {
+                return EMPTY_WIDGET;
+              }
+              return const SocialNetworksFooter();
+            },
       ),
     ),
   );
