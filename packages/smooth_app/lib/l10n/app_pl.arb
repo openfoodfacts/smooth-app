@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Porównaj obok siebie",
   "loading_dialog_default_title": "Pobieranie danych",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
