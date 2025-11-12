@@ -640,7 +640,20 @@ class AppLocalizationsLt extends AppLocalizations {
   String get search => 'Paieška';
 
   @override
+  String get search_product_help =>
+      'Ieškokite produkto,\nprekės ženklo arba brūkšninio kodo';
+
+  @override
+  String get search_filter => 'Paieškos filtras';
+
+  @override
+  String get search_history => 'Paieškos istorija';
+
+  @override
   String get search_store => 'Ieškoti parduotuvės';
+
+  @override
+  String get search_store_help => 'Patarimas: pridėkite miestą arba šalį';
 
   @override
   String get tap_for_more =>
@@ -1726,6 +1739,9 @@ class AppLocalizationsLt extends AppLocalizations {
     );
     return '$_temp0 atnaujinimas baigtas';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Atsisiunčiami duomenys';
@@ -3049,6 +3065,9 @@ class AppLocalizationsLt extends AppLocalizations {
       'Naudoti pakartotinai ir redaguoti šią paiešką';
 
   @override
+  String get search_history_item_remove_tooltip => 'Pašalinti';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Atsisiuntėte visus $totalSize produktų.';
   }
@@ -3572,14 +3591,6 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Laikyti sudedamųjų dalių skydelį išplėstą';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Rodyti filtrą paieškoje';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Pasirinkti paieškos svetainę: „Open Food Facts“, „Open Beauty Facts“, „Open Pet Food Facts“ arba „Open Products Facts“';
 
   @override
   String get no_internet_connection => 'Nėra interneto ryšio';

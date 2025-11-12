@@ -596,7 +596,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get search => '搜尋';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => '搜索商店';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => '点击获取更多信息';
@@ -1617,6 +1629,9 @@ class AppLocalizationsZh extends AppLocalizations {
     );
     return '$_temp0重新加载完成';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => '正在下載資料';
@@ -2868,6 +2883,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get search_history_item_edit_tooltip => '沿用與編輯此搜尋的項目';
 
   @override
+  String get search_history_item_remove_tooltip => '移除';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '已成功加载 $totalSize 产品.';
   }
@@ -3355,14 +3373,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => '保持成分面板扩展';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => '无互联网连接';
@@ -6461,7 +6471,19 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get search => '搜索';
 
   @override
+  String get search_product_help => '搜索产品\n一个品牌或条形码';
+
+  @override
+  String get search_filter => '搜索筛选器';
+
+  @override
+  String get search_history => '搜索历史';
+
+  @override
   String get search_store => '搜索商店';
+
+  @override
+  String get search_store_help => '提示：添加城市或国家';
 
   @override
   String get tap_for_more => '点击获取更多信息';
@@ -8705,6 +8727,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get search_history_item_edit_tooltip => '重复使用和编辑此搜索';
 
   @override
+  String get search_history_item_remove_tooltip => '移除';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '已成功加载 $totalSize 产品.';
   }
@@ -9185,13 +9210,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get expand_ingredients_body => '保持成分面板扩展';
 
   @override
-  String get search_product_filter_visibility_title => '在搜索结果中显示筛选条件';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      '选择搜索网站：Open Food Facts、Open Beauty Facts、Open Pet Food Facts或开放产品真相';
-
-  @override
   String get no_internet_connection => '无互联网连接';
 
   @override
@@ -9648,10 +9666,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get product_list_create_tooltip => '创建新列表';
 
   @override
-  String get nutriscore_generic => 'Nutri-Score';
+  String get nutriscore_generic => '营养分数';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => '营养评分 A';
 
   @override
   String get nutriscore_b => 'Nutri-ScoreB';
@@ -9660,10 +9678,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutriscore_c => 'Nutri-ScoreC';
 
   @override
-  String get nutriscore_d => 'Nutri-Score D';
+  String get nutriscore_d => '营养评分 D';
 
   @override
-  String get nutriscore_e => 'Nutri-Score E';
+  String get nutriscore_e => '营养评分 E';
 
   @override
   String nutriscore_new_formula(String letter) {

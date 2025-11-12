@@ -220,7 +220,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Personalization.alt(size: 20.0),
       title: appLocalizations.myPreferences_settings_title,
       subtitleText: appLocalizations.myPreferences_settings_subtitle,
-      root: AppSettingsRoot(title: appLocalizations.settings_app_app),
+      root: AppSettingsRoot(
+        title: appLocalizations.myPreferences_settings_title,
+      ),
     );
   }
 

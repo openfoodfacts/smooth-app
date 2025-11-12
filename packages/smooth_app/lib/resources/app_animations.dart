@@ -99,6 +99,29 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
   }
 }
 
+class HintArrowAnimation extends StatelessWidget {
+  const HintArrowAnimation({this.size, this.color, super.key});
+
+  final double? size;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    final double size = this.size ?? 70.0;
+
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: (122 / 72) * size,
+        height: size,
+        child: RiveAnimation(
+          artboard: 'Hint arrow',
+          colorChanger: color != null ? <String, Color>{'Color': color!} : null,
+        ),
+      ),
+    );
+  }
+}
+
 class OrangeErrorAnimation extends StatefulWidget {
   const OrangeErrorAnimation({this.sizeMultiplier = 1.0, super.key});
 

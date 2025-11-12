@@ -1482,11 +1482,35 @@ abstract class AppLocalizations {
   /// **'Search'**
   String get search;
 
+  /// Help text of a search text input field. Please respect the line break.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a product,\na brand or a barcode'**
+  String get search_product_help;
+
+  /// Title of the OxF selector.
+  ///
+  /// In en, this message translates to:
+  /// **'Search filter'**
+  String get search_filter;
+
+  /// No description provided for @search_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Search history'**
+  String get search_history;
+
   /// Hint text of a search store text input field
   ///
   /// In en, this message translates to:
   /// **'Search for a store'**
   String get search_store;
+
+  /// Help text of a search store text input field. Please inject a line break if suitable.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint: add the city or the country'**
+  String get search_store_help;
 
   /// No description provided for @tap_for_more.
   ///
@@ -3215,6 +3239,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete'**
   String product_list_reloading_success_multiple(num count);
+
+  /// No description provided for @product_list_compare_side_by_side.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare side by side'**
+  String get product_list_compare_side_by_side;
 
   /// Default loading dialog title
   ///
@@ -5324,6 +5354,12 @@ abstract class AppLocalizations {
   /// **'Reuse and edit this search'**
   String get search_history_item_edit_tooltip;
 
+  /// A tooltip to explain the Remove button near a search term
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get search_history_item_remove_tooltip;
+
   /// Product search list - No more results available
   ///
   /// In en, this message translates to:
@@ -6139,18 +6175,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep the ingredients panel expanded'**
   String get expand_ingredients_body;
-
-  /// No description provided for @search_product_filter_visibility_title.
-  ///
-  /// In en, this message translates to:
-  /// **'Show a filter in the search'**
-  String get search_product_filter_visibility_title;
-
-  /// Label for showing the product type filter in the search bar
-  ///
-  /// In en, this message translates to:
-  /// **'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts'**
-  String get search_product_filter_visibility_subtitle;
 
   /// Message when there is no internet connection
   ///

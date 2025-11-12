@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "कोई उत्पाद,\nकोई ब्रांड या बारकोड खोजें",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "खोज फ़िल्टर",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "खोज इतिहास",
   "search_store": "स्टोर खोजें",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "संकेत: शहर या देश जोड़ें",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "अधिक जानकारी देखने के लिए टैप करें…",
   "@Product": {},
@@ -2671,6 +2684,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "निकालना",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "आपने सभी {totalSize} उत्पाद डाउनलोड कर लिए हैं।",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3277,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "सामग्री पैनल को विस्तृत रखें",
-  "search_product_filter_visibility_title": "खोज में फ़िल्टर दिखाएँ",
-  "search_product_filter_visibility_subtitle": "खोज साइट चुनें: ओपन फ़ूड फैक्ट्स, ओपन ब्यूटी फैक्ट्स, ओपन पेट फ़ूड फैक्ट्स या ओपन प्रोडक्ट्स फैक्ट्स",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "कोई इंटरनेट कनेक्शन नहीं",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3809,12 +3821,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "न्यूट्री-स्कोर ए",
-  "nutriscore_b": "न्यूट्री-स्कोर बी",
-  "nutriscore_c": "न्यूट्री-स्कोर सी",
-  "nutriscore_d": "न्यूट्री-स्कोर डी",
-  "nutriscore_e": "न्यूट्री-स्कोर ई",
-  "nutriscore_new_formula": "न्यूट्री-स्कोर {letter} (नई गणना)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (नई गणना)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3823,17 +3835,17 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "न्यूट्री-स्कोर (नई गणना)",
+  "nutriscore_new_formula_title": "Nutri-Score (नई गणना)",
   "nutriscore_unknown": "अज्ञात न्यूट्री-स्कोर",
   "nutriscore_unknown_new_formula": "अज्ञात न्यूट्री-स्कोर (नई गणना)",
   "nutriscore_not_applicable": "न्यूट्री-स्कोर लागू नहीं है",
   "nutriscore_not_applicable_new_formula": "न्यूट्री-स्कोर लागू नहीं है (नई गणना)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "ग्रीन-स्कोर ए",
-  "environmental_score_b_new": "ग्रीन-स्कोर बी",
-  "environmental_score_c_new": "ग्रीन-स्कोर सी",
-  "environmental_score_d_new": "ग्रीन-स्कोर डी",
-  "environmental_score_e_new": "ग्रीन-स्कोर ई",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "अज्ञात ग्रीन-स्कोर",
   "environmental_score_not_applicable_new": "ग्रीन-स्कोर लागू नहीं है",
   "nova_group_generic_new": "अति-प्रसंस्कृत खाद्य पदार्थ - नोवा समूह",

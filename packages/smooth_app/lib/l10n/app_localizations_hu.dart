@@ -639,7 +639,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get search => 'Keresés';
 
   @override
+  String get search_product_help =>
+      'Keressen egy terméket,\negy márkát vagy vonalkódot';
+
+  @override
+  String get search_filter => 'Keresési szűrő';
+
+  @override
+  String get search_history => 'Keresési előzmények';
+
+  @override
   String get search_store => 'Üzlet keresése';
+
+  @override
+  String get search_store_help => 'Tipp: add meg a várost vagy az országot';
 
   @override
   String get tap_for_more => 'Koppintson a további információkért…';
@@ -1711,6 +1724,9 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0 frissítése befejeződött';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Adatok letöltése';
@@ -3035,6 +3051,9 @@ class AppLocalizationsHu extends AppLocalizations {
       'Használja újra és szerkessze ezt a keresést';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eltávolítás';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Letöltötte mind a(z) $totalSize terméket.';
   }
@@ -3550,14 +3569,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Nyitva tartja az összetevők paneljét';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Szűrő megjelenítése a keresőben';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Keresőoldal kiválasztása: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vagy Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nincs internetkapcsolat';

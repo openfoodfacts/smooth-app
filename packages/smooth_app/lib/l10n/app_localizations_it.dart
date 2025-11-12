@@ -634,7 +634,20 @@ class AppLocalizationsIt extends AppLocalizations {
   String get search => 'Cerca';
 
   @override
+  String get search_product_help =>
+      'Cerca un prodotto,\nun marchio o un codice a barre';
+
+  @override
+  String get search_filter => 'Filtro di ricerca';
+
+  @override
+  String get search_history => 'Cronologia delle ricerche';
+
+  @override
   String get search_store => 'Cerca un negozio';
+
+  @override
+  String get search_store_help => 'Suggerimento: aggiungi la città o il paese';
 
   @override
   String get tap_for_more => 'Tocca per visualizzare ulteriori informazioni…';
@@ -1719,6 +1732,9 @@ class AppLocalizationsIt extends AppLocalizations {
     );
     return 'Aggiornamento di $_temp0 completato';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Scaricamento dati';
@@ -3053,6 +3069,9 @@ class AppLocalizationsIt extends AppLocalizations {
       'Riutilzza e modifica questa ricerca';
 
   @override
+  String get search_history_item_remove_tooltip => 'Rimuovi';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Hai scaricato tutti i $totalSize prodotti.';
   }
@@ -3576,14 +3595,6 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Mantieni espanso il pannello degli ingredienti';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostra un filtro nella ricerca';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selezionare il sito di ricerca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts o Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nessuna connessione internet';

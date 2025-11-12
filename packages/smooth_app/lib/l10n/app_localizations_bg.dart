@@ -637,7 +637,19 @@ class AppLocalizationsBg extends AppLocalizations {
   String get search => 'Търсене';
 
   @override
+  String get search_product_help => 'Търсене на продукт,\nмарка или баркод';
+
+  @override
+  String get search_filter => 'Филтър за търсене';
+
+  @override
+  String get search_history => 'История на търсенията';
+
+  @override
   String get search_store => 'Търсене на магазин';
+
+  @override
+  String get search_store_help => 'Подсказка: добавете града или държавата';
 
   @override
   String get tap_for_more => 'Докосни, за повече информация…';
@@ -1721,6 +1733,9 @@ class AppLocalizationsBg extends AppLocalizations {
     );
     return '$_temp0 обновяването е завършено';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Изтегляне на данни';
@@ -3050,6 +3065,9 @@ class AppLocalizationsBg extends AppLocalizations {
       'Повторно използване и редактиране на това търсене';
 
   @override
+  String get search_history_item_remove_tooltip => 'Премахни';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Изтегли всички $totalSize продукта.';
   }
@@ -3577,14 +3595,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get expand_ingredients_body => 'Дръж панела на съставките разгънат';
 
   @override
-  String get search_product_filter_visibility_title =>
-      'Показване на филтър в търсенето';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Избер на сайт за търсене: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
-
-  @override
   String get no_internet_connection => 'Няма интернет връзка';
 
   @override
@@ -4081,13 +4091,13 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nutriscore_b => 'Нутри-скор Б';
 
   @override
-  String get nutriscore_c => 'Нутри-Скор C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Нутри-скор D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Нутри-Скор Е';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -4254,7 +4264,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_nutriscore_a_caption =>
-      'The Nutri-Score A logo';
+      'Логото на Nutri-Score A';
 
   @override
   String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';

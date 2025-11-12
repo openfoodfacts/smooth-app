@@ -32,7 +32,7 @@ class ScanMainCard extends StatelessWidget {
 
                 if (dense) {
                   return ListView(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsetsDirectional.zero,
                     children: <Widget>[
                       ConstrainedBox(
                         constraints: BoxConstraints(

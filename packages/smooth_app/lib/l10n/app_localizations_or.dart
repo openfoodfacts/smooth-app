@@ -632,7 +632,20 @@ class AppLocalizationsOr extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'ଏକ ଉତ୍ପାଦ,\nଏକ ବ୍ରାଣ୍ଡ କିମ୍ବା ଏକ ବାରକୋଡ୍ ଖୋଜନ୍ତୁ';
+
+  @override
+  String get search_filter => 'ଖୋଜ ଫିଲ୍ଟର୍';
+
+  @override
+  String get search_history => 'ସନ୍ଧାନ ଇତିହାସ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ସୂଚନା: ସହର କିମ୍ବା ଦେଶ ଯୋଡନ୍ତୁ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1698,6 +1711,9 @@ class AppLocalizationsOr extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3007,6 +3023,9 @@ class AppLocalizationsOr extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3519,14 +3538,6 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';

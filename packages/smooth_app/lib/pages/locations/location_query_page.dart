@@ -16,6 +16,8 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
 import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -97,6 +99,11 @@ class _LocationQueryPageState extends State<LocationQueryPage>
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return SmoothScaffold(
+      backgroundColor: context.lightTheme()
+          ? Theme.of(
+              context,
+            ).extension<SmoothColorsThemeExtension>()!.primaryLight
+          : null,
       appBar: SmoothAppBar(
         elevation: 2.0,
         automaticallyImplyLeading: false,

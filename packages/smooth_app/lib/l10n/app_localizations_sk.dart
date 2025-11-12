@@ -638,7 +638,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get search => 'Vyhľadať';
 
   @override
+  String get search_product_help =>
+      'Vyhľadajte produkt,\nznačku alebo čiarový kód';
+
+  @override
+  String get search_filter => 'Vyhľadávací filter';
+
+  @override
+  String get search_history => 'História vyhľadávania';
+
+  @override
   String get search_store => 'Vyhľadajte obchod';
+
+  @override
+  String get search_store_help => 'Tip: pridajte mesto alebo krajinu';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte ďalšie informácie…';
@@ -1715,6 +1728,9 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0 obnova dokončená';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Sťahovanie údajov';
@@ -3029,6 +3045,9 @@ class AppLocalizationsSk extends AppLocalizations {
       'Opätovne použite a upravte toto vyhľadávanie';
 
   @override
+  String get search_history_item_remove_tooltip => 'Odstrániť';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stiahli ste si všetky $totalSize produkty.';
   }
@@ -3547,14 +3566,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Rozbaľovať tabuľku zložiek';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Zobraziť filter vo vyhľadávaní';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vyberte zdroj vyhľadávania: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts';
 
   @override
   String get no_internet_connection => 'Žiadne pripojenie na internet';

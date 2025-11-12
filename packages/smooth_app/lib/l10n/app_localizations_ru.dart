@@ -639,7 +639,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get search => 'Поиск';
 
   @override
+  String get search_product_help => 'Поиск продукта,\nбренда или штрихкода';
+
+  @override
+  String get search_filter => 'Фильтр поиска';
+
+  @override
+  String get search_history => 'История поиска';
+
+  @override
   String get search_store => 'Поиск магазина';
+
+  @override
+  String get search_store_help => 'Подсказка: добавьте город или страну.';
 
   @override
   String get tap_for_more => 'Нажмите для просмотра…';
@@ -1733,6 +1745,9 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0 обновление завершено';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Загрузка данных';
@@ -3076,6 +3091,9 @@ class AppLocalizationsRu extends AppLocalizations {
       'Повторно используйте и редактируйте этот поиск';
 
   @override
+  String get search_history_item_remove_tooltip => 'Удалить';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Вы загрузили все $totalSize продукты.';
   }
@@ -3600,14 +3618,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Оставить панель ингредиентов развернутой';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показать фильтр в поиске';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Выберите сайт поиска: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
 
   @override
   String get no_internet_connection => 'Нет подключения к интернету';

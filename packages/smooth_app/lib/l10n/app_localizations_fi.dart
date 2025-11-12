@@ -632,7 +632,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get search => 'Etsi';
 
   @override
+  String get search_product_help =>
+      'Hae tuotetta,\ntuotemerkkiä tai viivakoodia';
+
+  @override
+  String get search_filter => 'Hakusuodatin';
+
+  @override
+  String get search_history => 'Hakuhistoria';
+
+  @override
   String get search_store => 'Hae myymälää';
+
+  @override
+  String get search_store_help => 'Vihje: lisää kaupunki tai maa';
 
   @override
   String get tap_for_more => 'Napauta nähdäksesi lisätietoja…';
@@ -1696,6 +1709,9 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0 päivitys onnistui';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Ladataan tietoja';
@@ -3005,6 +3021,9 @@ class AppLocalizationsFi extends AppLocalizations {
       'Käytä ja muokkaa tätä hakua uudelleen';
 
   @override
+  String get search_history_item_remove_tooltip => 'Poista';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Olet ladannut kaikki $totalSize tuotetta.';
   }
@@ -3511,13 +3530,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Pidä ainesosat laajennettuna';
-
-  @override
-  String get search_product_filter_visibility_title => 'Näytä suodatin haussa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ei Internet-yhteyttä';

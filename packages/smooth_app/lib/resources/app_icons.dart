@@ -1519,22 +1519,30 @@ class History extends AppIcon {
   }) : super._(_IconsFont.history);
 }
 
-class Hearth extends AppIcon {
-  const Hearth({
+class Heart extends AppIcon {
+  const Heart.filled({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.hearth);
+  }) : super._(_IconsFont.heart_filled);
 
-  const Hearth.monitoring({
+  const Heart.monitoring({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.hearth_monitor);
+  }) : super._(_IconsFont.heart_monitor);
+
+  const Heart.outline({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.heart_outline);
 }
 
 class Help extends AppIcon {
@@ -1737,6 +1745,40 @@ class Location extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.location);
+}
+
+class Logo extends AppIcon {
+  const Logo.openBeautyFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_obf);
+
+  const Logo.openFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_off);
+
+  const Logo.openPetFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opff);
+
+  const Logo.openProductsFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opf);
 }
 
 class Logout extends AppIcon {

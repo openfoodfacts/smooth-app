@@ -637,7 +637,20 @@ class AppLocalizationsRo extends AppLocalizations {
   String get search => 'Caută';
 
   @override
+  String get search_product_help =>
+      'Căutați un produs,\no marcă sau un cod de bare';
+
+  @override
+  String get search_filter => 'Filtru de căutare';
+
+  @override
+  String get search_history => 'Istoricul căutărilor';
+
+  @override
   String get search_store => 'Caută un magazin';
+
+  @override
+  String get search_store_help => 'Sugestie: adăugați orașul sau țara';
 
   @override
   String get tap_for_more => 'Atingeți pentru a vedea mai multe informații…';
@@ -1732,6 +1745,9 @@ class AppLocalizationsRo extends AppLocalizations {
     );
     return '$_temp0 Reîmprospătare completă';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Descărcare date';
@@ -3058,6 +3074,9 @@ class AppLocalizationsRo extends AppLocalizations {
       'Reutilizați și editați această căutare';
 
   @override
+  String get search_history_item_remove_tooltip => 'Elimină';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Ai descărcat toate cele $totalSize produse.';
   }
@@ -3587,14 +3606,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get expand_ingredients_body => 'Păstrați panoul de ingrediente extins';
 
   @override
-  String get search_product_filter_visibility_title =>
-      'Afișează un filtru în căutare';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selectați site-ul de căutare: Open Food Facts, Open Beauty Facts, Open Pet Food Facts sau Open Products Facts';
-
-  @override
   String get no_internet_connection => 'Fără conexiune la internet';
 
   @override
@@ -4111,11 +4122,11 @@ class AppLocalizationsRo extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (Calcul nou)';
 
   @override
-  String get nutriscore_unknown => 'Scor nutrițional necunoscut';
+  String get nutriscore_unknown => 'Nutri-Score necunoscut';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Scor Nutri necunoscut (calcul nou)';
+      'Nutri-Score necunoscut (calcul nou)';
 
   @override
   String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';

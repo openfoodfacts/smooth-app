@@ -629,7 +629,21 @@ class AppLocalizationsTa extends AppLocalizations {
   String get search => 'தேடுக';
 
   @override
+  String get search_product_help =>
+      'ஒரு தயாரிப்பைத் தேடுங்கள்,\nஒரு பிராண்ட் அல்லது பார்கோடைத் தேடுங்கள்';
+
+  @override
+  String get search_filter => 'தேடல் வடிகட்டி';
+
+  @override
+  String get search_history => 'தேடல் வரலாறு';
+
+  @override
   String get search_store => 'ஒரு கடையைத் தேடுங்கள்';
+
+  @override
+  String get search_store_help =>
+      'குறிப்பு: நகரம் அல்லது நாட்டைச் சேர்க்கவும்.';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1698,6 +1712,9 @@ class AppLocalizationsTa extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3012,6 +3029,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3527,14 +3547,6 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'தேடலில் வடிப்பானைக் காட்டு';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, Open Beauty Facts, திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4071,10 +4083,10 @@ class AppLocalizationsTa extends AppLocalizations {
   String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'பச்சை-ஸ்கோர் C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score  D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
   String get environmental_score_e_new => 'Green-Score E';

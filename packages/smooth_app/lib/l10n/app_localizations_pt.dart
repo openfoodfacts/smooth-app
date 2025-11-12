@@ -640,7 +640,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get search => 'Procurar';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Filtro de pesquisa';
+
+  @override
+  String get search_history => 'Histórico de pesquisa';
+
+  @override
   String get search_store => 'Procurar uma loja';
+
+  @override
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';
@@ -1725,6 +1737,9 @@ class AppLocalizationsPt extends AppLocalizations {
     );
     return 'Atualização de $_temp0 terminada';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'A descarregar os dados';
@@ -3058,6 +3073,9 @@ class AppLocalizationsPt extends AppLocalizations {
       'Reproduzir e editar esta pesquisa';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Descarregou todos os $totalSize produtos.';
   }
@@ -3582,14 +3600,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Manter o painel de ingredientes expandido';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostrar um filtro na pesquisa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Sem ligação à Internet';
@@ -6893,7 +6903,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get search => 'Procurar';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Filtro de pesquisa';
+
+  @override
+  String get search_history => 'Histórico de pesquisa';
+
+  @override
   String get search_store => 'Procurar uma loja';
+
+  @override
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';
@@ -9310,6 +9332,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Reproduzir e editar esta pesquisa';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Descarregou todos os $totalSize produtos.';
   }
@@ -9833,14 +9858,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get expand_ingredients_body =>
       'Manter o painel de ingredientes expandido';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostrar um filtro na pesquisa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Sem ligação à Internet';

@@ -632,7 +632,19 @@ class AppLocalizationsEt extends AppLocalizations {
   String get search => 'Otsi';
 
   @override
+  String get search_product_help => 'Otsi toodet,\nbrändi või vöötkoodi';
+
+  @override
+  String get search_filter => 'Otsingufilter';
+
+  @override
+  String get search_history => 'Otsinguajalugu';
+
+  @override
   String get search_store => 'Otsi poodi';
+
+  @override
+  String get search_store_help => 'Vihje: lisa linn või riik';
 
   @override
   String get tap_for_more => 'Lisateabe nägemiseks puudutage…';
@@ -1701,6 +1713,9 @@ class AppLocalizationsEt extends AppLocalizations {
     );
     return '$_temp0 värskendamine lõpetatud';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Andmete allalaadimine';
@@ -3014,6 +3029,9 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kasuta seda otsingut uuesti ja muuda seda';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eemalda';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Oled kõik $totalSize tooted alla laadinud.';
   }
@@ -3528,13 +3546,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Hoia koostisosade paneel laiendatuna';
-
-  @override
-  String get search_product_filter_visibility_title => 'Kuva otsingus filter';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vali otsingusait: Open Food Facts, Open Beauty Facts, Open Pet Food Facts või Open Products Facts';
 
   @override
   String get no_internet_connection => 'Internetiühendust pole';

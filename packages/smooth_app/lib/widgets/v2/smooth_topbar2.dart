@@ -8,6 +8,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   const SmoothTopBar2({
@@ -268,8 +269,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
       child: Offstage(
         offstage: progress == 1.0,
         child: ExcludeSemantics(
-          child: SvgPicture.asset(
-            widget.productType!.getIllustration(),
+          child: SvgPicture(
+            AssetBytesLoader(widget.productType!.getIllustration()),
             width: imageWidth,
             height: height,
             colorFilter: progress == 0.0

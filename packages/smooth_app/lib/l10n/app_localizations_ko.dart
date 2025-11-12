@@ -606,7 +606,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get search => '검색';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => '검색 필터';
+
+  @override
+  String get search_history => '검색 기록';
+
+  @override
   String get search_store => '매장 검색';
+
+  @override
+  String get search_store_help => '힌트: 도시나 국가를 추가하세요';
 
   @override
   String get tap_for_more => '자세한 내용을 보려면 탭하세요…';
@@ -1637,6 +1649,9 @@ class AppLocalizationsKo extends AppLocalizations {
     );
     return '$_temp0 새로 고침 완료';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => '데이터 다운로드 중';
@@ -2890,6 +2905,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get search_history_item_edit_tooltip => '이 검색을 재사용하고 편집하세요';
 
   @override
+  String get search_history_item_remove_tooltip => '제거';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '$totalSize 개 제품을 모두 다운로드했습니다.';
   }
@@ -3375,13 +3393,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => '재료 패널을 확장한 채로 유지';
-
-  @override
-  String get search_product_filter_visibility_title => '검색에 필터 표시';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      '검색 사이트 선택: Open Food Facts, Open Beauty Facts, Open Pet Food Facts 또는 Open Products Facts';
 
   @override
   String get no_internet_connection => '인터넷 연결 없음';

@@ -47,6 +47,10 @@ class PreferencesRootSearchController extends SearchHelper {
 
   @override
   String get historyKey => 'preferences_root_search_history';
+
+  // Unused
+  @override
+  String getHelpText(AppLocalizations appLocalizations) => '';
 }
 
 /// Base class for all preference roots.

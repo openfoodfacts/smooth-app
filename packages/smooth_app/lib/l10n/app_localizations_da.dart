@@ -629,7 +629,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get search => 'Søg';
 
   @override
+  String get search_product_help =>
+      'Søg efter et produkt,\net mærke eller en stregkode';
+
+  @override
+  String get search_filter => 'Søgefilter';
+
+  @override
+  String get search_history => 'Søgehistorik';
+
+  @override
   String get search_store => 'Søg efter en butik';
+
+  @override
+  String get search_store_help => 'Tip: tilføj byen eller landet';
 
   @override
   String get tap_for_more => 'Tryk for flere oplysninger…';
@@ -1701,6 +1714,9 @@ class AppLocalizationsDa extends AppLocalizations {
     );
     return '$_temp0 udført';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Downloader data';
@@ -3016,6 +3032,9 @@ class AppLocalizationsDa extends AppLocalizations {
       'Genbrug og redigér denne søgning';
 
   @override
+  String get search_history_item_remove_tooltip => 'Fjern';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Alle $totalSize produkter er downloadet.';
   }
@@ -3531,14 +3550,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Hold ingredienspanelet udvidet';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Vis et filter i søgningen';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vælg søgewebsted: Open Food Facts, Open Beauty Facts, Open Pet Food Facts eller Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ingen internetforbindelse';

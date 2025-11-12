@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -270,10 +269,9 @@ class _ActionModeCloseButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
-    return IconButton(
-      icon: const icons.Close(),
-      tooltip: tooltip ?? MaterialLocalizations.of(context).closeButtonTooltip,
-      color: PopupMenuTheme.of(context).color,
+    return SmoothBackButton(
+      backButtonType: BackButtonType.close,
+      iconColor: PopupMenuTheme.of(context).color,
       onPressed: () {
         if (onPressed != null) {
           onPressed!();

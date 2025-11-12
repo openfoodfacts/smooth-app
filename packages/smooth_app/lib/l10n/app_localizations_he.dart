@@ -617,7 +617,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search => 'חיפוש';
 
   @override
+  String get search_product_help => 'חיפוש מוצר,\nמותג או ברקוד';
+
+  @override
+  String get search_filter => 'מסנן חיפוש';
+
+  @override
+  String get search_history => 'היסטוריית חיפוש';
+
+  @override
   String get search_store => 'חיפוש חנות';
+
+  @override
+  String get search_store_help => 'רמז: כדאי להוסיף את העיר או המדינה';
 
   @override
   String get tap_for_more => 'מידע נוסף יופיע בנגיעה…';
@@ -1688,6 +1700,9 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return 'רענון ה$_temp0 הושלם';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'הנתונים מתקבלים';
@@ -2997,6 +3012,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'שימוש בחיפוש ועריכתו';
 
   @override
+  String get search_history_item_remove_tooltip => 'הסרה';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'הורדת את כל $totalSize המוצרים.';
   }
@@ -3503,13 +3521,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'לשמור על לוח הרכיבים מורחב';
-
-  @override
-  String get search_product_filter_visibility_title => 'הצגת מסנן בחיפוש';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'בחירת אתר חיפוש: Open Food Facts,‏ Open Beauty Facts,‏ Open Pet Food Facts או Open Products Facts';
 
   @override
   String get no_internet_connection => 'אין חיבור לאינטרנט';

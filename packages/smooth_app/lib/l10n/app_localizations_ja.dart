@@ -607,7 +607,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get search => '検索';
 
   @override
+  String get search_product_help => '製品、ブランド、またはバーコードを検索します。\n';
+
+  @override
+  String get search_filter => '検索フィルター';
+
+  @override
+  String get search_history => '検索履歴';
+
+  @override
   String get search_store => '店舗を検索';
+
+  @override
+  String get search_store_help => 'ヒント: 都市または国を追加してください';
 
   @override
   String get tap_for_more => '詳細情報を表示するにはタップしてください…';
@@ -1635,6 +1647,9 @@ class AppLocalizationsJa extends AppLocalizations {
     );
     return '$_temp0 更新完了';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'データをダウンロード中';
@@ -2892,6 +2907,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'この検索を再利用して編集する';
 
   @override
+  String get search_history_item_remove_tooltip => '削除する';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '$totalSize 製品をすべてダウンロードしました。';
   }
@@ -3376,13 +3394,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => '原材料パネルを広げたままにする';
-
-  @override
-  String get search_product_filter_visibility_title => '検索にフィルターを表示する';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      '検索サイトを選択: Open Food Facts、Open Beauty Facts、Open Pet Food Facts、または Open Products Facts';
 
   @override
   String get no_internet_connection => 'インターネットに接続されていません';

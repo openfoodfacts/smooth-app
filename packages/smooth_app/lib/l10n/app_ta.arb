@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "ஒரு தயாரிப்பைத் தேடுங்கள்,\nஒரு பிராண்ட் அல்லது பார்கோடைத் தேடுங்கள்",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "தேடல் வடிகட்டி",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "தேடல் வரலாறு",
   "search_store": "ஒரு கடையைத் தேடுங்கள்",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "குறிப்பு: நகரம் அல்லது நாட்டைச் சேர்க்கவும்.",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -2671,6 +2684,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3277,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "தேடலில் வடிப்பானைக் காட்டு",
-  "search_product_filter_visibility_subtitle": "தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, Open Beauty Facts, திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3831,8 +3843,8 @@
   "environmental_score_generic_new": "பச்சை-ஸ்கோர்",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "பச்சை-ஸ்கோர் C",
-  "environmental_score_d_new": "Green-Score  D",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "தெரியாத Green-Score",
   "environmental_score_not_applicable_new": "Green-Score பொருந்தாது.",

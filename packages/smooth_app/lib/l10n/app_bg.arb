@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Търсене на продукт,\nмарка или баркод",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Филтър за търсене",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "История на търсенията",
   "search_store": "Търсене на магазин",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Подсказка: добавете града или държавата",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Докосни, за повече информация…",
   "@Product": {},
@@ -2671,6 +2684,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Премахни",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Изтегли всички {totalSize} продукта.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3277,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Дръж панела на съставките разгънат",
-  "search_product_filter_visibility_title": "Показване на филтър в търсенето",
-  "search_product_filter_visibility_subtitle": "Избер на сайт за търсене: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Няма интернет връзка",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3811,9 +3823,9 @@
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Нутри-оценка А",
   "nutriscore_b": "Нутри-скор Б",
-  "nutriscore_c": "Нутри-Скор C",
-  "nutriscore_d": "Нутри-скор D",
-  "nutriscore_e": "Нутри-Скор Е",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Ново изчисление)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3906,7 +3918,7 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Логото на Nutri-Score A",
   "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
   "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
   "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",

@@ -640,7 +640,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get search => 'Αναζήτηση';
 
   @override
+  String get search_product_help =>
+      'Αναζήτηση προϊόντος,\nμάρκας ή γραμμωτού κώδικα';
+
+  @override
+  String get search_filter => 'Φίλτρο αναζήτησης';
+
+  @override
+  String get search_history => 'Ιστορικό αναζήτησης';
+
+  @override
   String get search_store => 'Αναζήτηση για κατάστημα';
+
+  @override
+  String get search_store_help => 'Υπόδειξη: προσθέστε την πόλη ή τη χώρα';
 
   @override
   String get tap_for_more => 'Πατήστε για να δείτε περισσότερες πληροφορίες…';
@@ -1737,6 +1750,9 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return 'Η ανανέωση $_temp0 ολοκληρώθηκε';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Λήψη δεδομένων';
@@ -3069,6 +3085,9 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης';
 
   @override
+  String get search_history_item_remove_tooltip => 'Αφαίρεση';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Έχετε κατεβάσει και τα $totalSize προϊόντα.';
   }
@@ -3595,14 +3614,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Διατήρηση πίνακα συστατικών εκτεταμένο';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Εμφάνιση φίλτρου στην αναζήτηση';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Products Facts';
 
   @override
   String get no_internet_connection => 'Χωρίς σύνδεση στο διαδίκτυο';

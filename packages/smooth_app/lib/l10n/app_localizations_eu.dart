@@ -631,7 +631,20 @@ class AppLocalizationsEu extends AppLocalizations {
   String get search => 'Bilatu';
 
   @override
+  String get search_product_help =>
+      'Bilatu produktu bat,\nmarka bat edo barra-kode bat';
+
+  @override
+  String get search_filter => 'Bilaketa-iragazkia';
+
+  @override
+  String get search_history => 'Bilaketa-historia';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Aholkua: gehitu hiria edo herrialdea';
 
   @override
   String get tap_for_more => 'Sakatu informazio gehiago ikusteko…';
@@ -1698,6 +1711,9 @@ class AppLocalizationsEu extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Datuak deskargatzen';
@@ -3011,6 +3027,9 @@ class AppLocalizationsEu extends AppLocalizations {
       'Berrerabili eta editatu bilaketa hau';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3523,14 +3542,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';

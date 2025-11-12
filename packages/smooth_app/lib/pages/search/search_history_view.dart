@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -9,10 +10,12 @@ import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
+import 'package:smooth_app/pages/search/search_hint.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_circle.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
@@ -50,6 +53,24 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
 
   @override
   Widget build(BuildContext context) {
+    final int count = _queries.length + widget.preloadedList.length;
+    if (count == 0) {
+      return Padding(
+        padding: EdgeInsetsDirectional.only(
+          top: 2.0,
+          start: widget.searchHelper.getLeadingWidget(context) != null
+              ? VERY_LARGE_SPACE
+              : SMALL_SPACE,
+        ),
+        child: Align(
+          alignment: AlignmentDirectional.topStart,
+          child: SearchHint(
+            text: widget.searchHelper.getHelpText(AppLocalizations.of(context)),
+          ),
+        ),
+      );
+    }
+
     final ThemeData theme = Theme.of(context);
 
     return ListTileTheme(
@@ -61,6 +82,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       ),
       child: Column(
         children: <Widget>[
+          const _SearchHistoryTitle(),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsetsDirectional.zero,
@@ -84,9 +106,10 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                 final String query = _queries[i];
                 return _SearchHistoryTile(
                   query: query,
+                  bottomBorder: i < _queries.length - 1,
                   onTap: () => widget.onTap.call(query),
                   onEditItem: () => _onEditItem(query),
-                  onDismissItem: () async {
+                  onRemoveItem: () async {
                     // we need an immediate action for the display refresh
                     _queries.remove(query);
                     // and we need to impact the database too
@@ -97,7 +120,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   },
                 );
               },
-              itemCount: _queries.length + widget.preloadedList.length,
+              itemCount: count,
             ),
           ),
           Padding(
@@ -139,66 +162,128 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 }
 
+class _SearchHistoryTitle extends StatelessWidget {
+  const _SearchHistoryTitle();
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: LARGE_SPACE,
+          bottom: VERY_SMALL_SPACE,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
+        ),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            color: theme.primaryMedium,
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+              vertical: BALANCED_SPACE,
+            ),
+            child: Text(
+              AppLocalizations.of(context).search_history,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: theme.primaryBlack,
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _SearchHistoryTile extends StatelessWidget {
   const _SearchHistoryTile({
     required this.query,
     required this.onTap,
     required this.onEditItem,
-    required this.onDismissItem,
+    required this.onRemoveItem,
+    this.bottomBorder = true,
   });
 
   final String query;
   final VoidCallback onTap;
   final VoidCallback onEditItem;
-  final VoidCallback onDismissItem;
+  final VoidCallback onRemoveItem;
+  final bool bottomBorder;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
+
+    final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
+    final Color color = lightTheme ? theme.primaryBlack : theme.primaryMedium;
 
-    return Dismissible(
-      key: Key(query),
-      direction: DismissDirection.endToStart,
-      onDismissed: (DismissDirection direction) async => onDismissItem(),
-      background: Container(
-        color: RED_COLOR,
-        alignment: AlignmentDirectional.centerEnd,
-        padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
-        child: const icons.Trash(color: Colors.white),
-      ),
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 8.0),
-          child: ListTile(
-            leading: icons.History(
-              size: 16.0,
-              color: lightTheme
-                  ? extension.primaryUltraBlack
-                  : extension.primaryLight,
-            ),
-            trailing: InkWell(
-              customBorder: const CircleBorder(),
-              onTap: onEditItem,
-              child: Tooltip(
-                message: localizations.search_history_item_edit_tooltip,
-                enableFeedback: true,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.all(1.0),
-                  child: icons.Edit(
-                    size: 16.0,
-                    color: lightTheme
-                        ? extension.primaryNormal
-                        : extension.primaryTone,
-                  ),
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: 23.0,
+          end: LARGE_SPACE,
+        ),
+        child: Ink(
+          decoration: BoxDecoration(
+            border: bottomBorder
+                ? DashedBorder(
+                    dashLength: 3.0,
+                    spaceLength: 3.0,
+                    bottom: BorderSide(color: theme.primaryMedium),
+                  )
+                : null,
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(top: 2.0, bottom: 2.0),
+            child: IconButtonTheme(
+              data: IconButtonThemeData(
+                style: IconButton.styleFrom(
+                  backgroundColor: theme.primaryMedium,
+                  foregroundColor: theme.primaryBlack,
+                  minimumSize: const Size(18.0, 18.0),
                 ),
               ),
+              child: Row(
+                children: <Widget>[
+                  SmoothCircle.indicator(color: color, size: 10.0),
+                  const SizedBox(width: BALANCED_SPACE),
+                  Expanded(
+                    child: Text(
+                      query,
+                      style: TextStyle(
+                        color: lightTheme ? color : Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: localizations.search_history_item_remove_tooltip,
+                    onPressed: onRemoveItem,
+                    icon: const icons.Trash(size: 17.0),
+                  ),
+                  const SizedBox(width: VERY_SMALL_SPACE),
+                  IconButton(
+                    tooltip: localizations.search_history_item_edit_tooltip,
+                    onPressed: onEditItem,
+                    icon: const icons.Edit(size: 15.0),
+                  ),
+                ],
+              ),
             ),
-            minLeadingWidth: 10.0,
-            title: Text(query),
           ),
         ),
       ),

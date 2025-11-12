@@ -635,7 +635,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get search => 'Пошук';
 
   @override
+  String get search_product_help => 'Пошук товару,\nбренду або штрих-коду';
+
+  @override
+  String get search_filter => 'Фільтр пошуку';
+
+  @override
+  String get search_history => 'Історія пошуку';
+
+  @override
   String get search_store => 'Пошук магазину';
+
+  @override
+  String get search_store_help => 'Підказка: додайте місто або країну';
 
   @override
   String get tap_for_more => 'Натисніть, щоб побачити більше…';
@@ -1715,6 +1727,9 @@ class AppLocalizationsUk extends AppLocalizations {
     );
     return '$_temp0 завершило оновлення';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Завантаження даних';
@@ -3035,6 +3050,9 @@ class AppLocalizationsUk extends AppLocalizations {
       'Повторно використовуйте та редагуйте цей пошук';
 
   @override
+  String get search_history_item_remove_tooltip => 'Видалити';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Всі $totalSize продукти завантажено.';
   }
@@ -3559,14 +3577,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Тримайте панель інгредієнтів розгорнутою';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показати фільтр у пошуку';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Виберіть пошуковий сайт: Open Food Facts, Open Beauty Facts, Open Pet Food Facts або Open Products Facts';
 
   @override
   String get no_internet_connection => 'Відсутнє підключення до Інтернету';

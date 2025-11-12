@@ -626,7 +626,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search => 'بحث';
 
   @override
+  String get search_product_help =>
+      'ابحث عن منتج أو\nعلامة تجارية أو رمز شريطي';
+
+  @override
+  String get search_filter => 'مرشح البحث';
+
+  @override
+  String get search_history => 'سجل البحث';
+
+  @override
   String get search_store => 'ابحث عن متجر';
+
+  @override
+  String get search_store_help => 'تلميح: أضف المدينة أو البلد';
 
   @override
   String get tap_for_more => 'انقر لرؤية المزيد من المعلومات…';
@@ -1684,6 +1697,9 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0 تم التحديث';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'تحميل البيانات';
@@ -2983,6 +2999,9 @@ class AppLocalizationsAr extends AppLocalizations {
       'إعادة استخدام هذا البحث وتحريره';
 
   @override
+  String get search_history_item_remove_tooltip => 'إزالة';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'لقد قمت بتنزيل جميع المنتجات $totalSize .';
   }
@@ -3496,13 +3515,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'حافظ على توسيع لوحة المكونات';
-
-  @override
-  String get search_product_filter_visibility_title => 'إظهار مرشح في البحث';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'حدد موقع البحث: حقائق الطعام المفتوحة، حقائق الجمال المفتوحة، حقائق طعام الحيوانات الأليفة المفتوحة أو حقائق المنتجات المفتوحة';
 
   @override
   String get no_internet_connection => 'لا يوجد اتصال بالإنترنت';

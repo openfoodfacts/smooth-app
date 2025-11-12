@@ -20,6 +20,8 @@ class SearchBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final FocusNode focusNode = context.watch<FocusNode>();
 
     return Padding(
@@ -61,8 +63,10 @@ class SearchBottomBar extends StatelessWidget {
               child: SearchField(
                 focusNode: focusNode,
                 searchHelper: context.read<PreferencesRootSearchController>(),
-                showNavigationButton: false,
                 searchOnChange: true,
+                borderColor: context.lightTheme()
+                    ? theme.primaryBlack
+                    : theme.primaryLight,
               ),
             ),
           ],

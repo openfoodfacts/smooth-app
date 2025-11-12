@@ -640,7 +640,19 @@ class AppLocalizationsPl extends AppLocalizations {
   String get search => 'Wyszukiwanie';
 
   @override
+  String get search_product_help => 'Wyszukaj produkt,\nmarkę lub kod kreskowy';
+
+  @override
+  String get search_filter => 'Filtr wyszukiwania';
+
+  @override
+  String get search_history => 'Historia wyszukiwania';
+
+  @override
   String get search_store => 'Wyszukaj sklep';
+
+  @override
+  String get search_store_help => 'Wskazówka: dodaj miasto lub kraj';
 
   @override
   String get tap_for_more => 'Kliknij, aby wyświetlić więcej informacji…';
@@ -1723,6 +1735,9 @@ class AppLocalizationsPl extends AppLocalizations {
     );
     return 'Odświeżanie $_temp0 skończone';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Pobieranie danych';
@@ -3043,6 +3058,9 @@ class AppLocalizationsPl extends AppLocalizations {
       'Użyj ponownie i edytuj to wyszukiwanie';
 
   @override
+  String get search_history_item_remove_tooltip => 'Usuń';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Pobrałeś wszystkie $totalSize produkty.';
   }
@@ -3566,14 +3584,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Zachowaj rozwinięty panel składników';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Pokaż filtr w wyszukiwaniu';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Wybierz witrynę wyszukiwania: Otwórz fakty dotyczące żywności, Otwórz fakty dotyczące urody, Otwórz fakty dotyczące karmy dla zwierząt lub Otwórz fakty dotyczące produktów';
 
   @override
   String get no_internet_connection => 'Brak połączenia z internetem';

@@ -631,7 +631,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get search => 'Zoeken';
 
   @override
+  String get search_product_help =>
+      'Zoek een product,\neen merk of een streepjescode';
+
+  @override
+  String get search_filter => 'Zoekfilter';
+
+  @override
+  String get search_history => 'Zoekgeschiedenis';
+
+  @override
   String get search_store => 'Zoeken naar een winkel';
+
+  @override
+  String get search_store_help => 'Tip: voeg de stad of het land toe';
 
   @override
   String get tap_for_more => 'Tik om meer info te zien…';
@@ -1710,6 +1723,9 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0 vernieuwing voltooid';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Gegevens worden gedownload...';
@@ -3037,6 +3053,9 @@ class AppLocalizationsNl extends AppLocalizations {
       'Hergebruik en bewerk deze zoekopdracht';
 
   @override
+  String get search_history_item_remove_tooltip => 'Verwijderen';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Je hebt alle $totalSize producten gedownload.';
   }
@@ -3557,14 +3576,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Houd het ingrediëntenpaneel uitgevouwen';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Filter weergeven in de zoekopdracht';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecteer de zoeksite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts of Open Products Facts';
 
   @override
   String get no_internet_connection => 'Geen internetverbinding';

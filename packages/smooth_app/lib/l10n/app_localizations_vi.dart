@@ -632,7 +632,20 @@ class AppLocalizationsVi extends AppLocalizations {
   String get search => 'Tìm kiếm';
 
   @override
+  String get search_product_help =>
+      'Tìm kiếm sản phẩm,\nthương hiệu hoặc mã vạch';
+
+  @override
+  String get search_filter => 'Bộ lọc tìm kiếm';
+
+  @override
+  String get search_history => 'Lịch sử tìm kiếm';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Gợi ý: thêm thành phố hoặc quốc gia';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1707,6 +1720,9 @@ class AppLocalizationsVi extends AppLocalizations {
     );
     return '$_temp0 làm mới hoàn thành';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Đang tải xuống dữ liệu';
@@ -3018,6 +3034,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Gỡ bỏ';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Bạn vừa tải xuống tất cả $totalSize sản phẩm.';
   }
@@ -3535,14 +3554,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Giữ bảng thành phần mở rộng';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'Không có kết nối mạng';

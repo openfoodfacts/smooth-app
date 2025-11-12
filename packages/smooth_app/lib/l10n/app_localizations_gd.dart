@@ -630,7 +630,19 @@ class AppLocalizationsGd extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Lorg toradh,\nbranda no còd-barra';
+
+  @override
+  String get search_filter => 'Criathrag rannsachaidh';
+
+  @override
+  String get search_history => 'Eachdraidh rannsachaidh';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Moladh: cuir ris a’ bhaile no an dùthaich';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1696,6 +1708,9 @@ class AppLocalizationsGd extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3007,6 +3022,9 @@ class AppLocalizationsGd extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3519,14 +3537,6 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
