@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Jämför sida vid sida",
   "loading_dialog_default_title": "Laddar ner data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
