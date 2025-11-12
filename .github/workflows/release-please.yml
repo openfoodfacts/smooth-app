@@ -32,7 +32,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: false
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     #permissions:
       #contents: read
       #packages: write
