@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.22.1](https://github.com/openfoodfacts/smooth-app/compare/v4.22.0...v4.22.1) (2025-11-12)
+
+
+### 🐛 Bug Fixes
+
+* Update GitHub Actions runner to use ubuntu-latest ([c37ff59](https://github.com/openfoodfacts/smooth-app/commit/c37ff59168d7262b7dc7c485a286a0661897b845))
+
 ## [4.22.0](https://github.com/openfoodfacts/smooth-app/compare/v4.21.0...v4.22.0) (2025-11-12)
 
 
