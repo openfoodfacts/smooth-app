@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Vertaile rinnakkain",
   "loading_dialog_default_title": "Ladataan tietoja",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
