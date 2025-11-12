@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.22.2](https://github.com/openfoodfacts/smooth-app/compare/v4.22.1...v4.22.2) (2025-11-12)
+
+
+### 🐛 Bug Fixes
+
+* Use ubuntu-latest runner for create-release job requiring Docker ([#7219](https://github.com/openfoodfacts/smooth-app/issues/7219)) ([ad46058](https://github.com/openfoodfacts/smooth-app/commit/ad46058bbaa6c8cb54808fa6622b23ef2b913498))
+
 ## [4.22.1](https://github.com/openfoodfacts/smooth-app/compare/v4.22.0...v4.22.1) (2025-11-12)
 
 
