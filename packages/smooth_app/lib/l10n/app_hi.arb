@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "साथ-साथ तुलना करें",
   "loading_dialog_default_title": "डेटा डाउनलोड करना",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
