@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Salīdzināt blakus",
   "loading_dialog_default_title": "Datu lejupielāde",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
