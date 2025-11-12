@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Võrdle kõrvuti",
   "loading_dialog_default_title": "Andmete allalaadimine",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
