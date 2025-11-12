@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "So sánh cạnh nhau",
   "loading_dialog_default_title": "Đang tải xuống dữ liệu",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
