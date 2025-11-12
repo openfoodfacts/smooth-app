@@ -2883,7 +2883,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get search_history_item_edit_tooltip => '沿用與編輯此搜尋的項目';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => '移除';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -8727,6 +8727,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get search_history_item_edit_tooltip => '重复使用和编辑此搜索';
 
   @override
+  String get search_history_item_remove_tooltip => '移除';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return '已成功加载 $totalSize 产品.';
   }
@@ -9663,22 +9666,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get product_list_create_tooltip => '创建新列表';
 
   @override
-  String get nutriscore_generic => 'Nutri-Score';
+  String get nutriscore_generic => '营养分数';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => '营养评分 A';
 
   @override
-  String get nutriscore_b => 'Nutri-Score B';
+  String get nutriscore_b => 'Nutri-ScoreB';
 
   @override
-  String get nutriscore_c => 'Nutri-Score C';
+  String get nutriscore_c => 'Nutri-ScoreC';
 
   @override
-  String get nutriscore_d => 'Nutri-Score D';
+  String get nutriscore_d => '营养评分 D';
 
   @override
-  String get nutriscore_e => 'Nutri-Score E';
+  String get nutriscore_e => '营养评分 E';
 
   @override
   String nutriscore_new_formula(String letter) {

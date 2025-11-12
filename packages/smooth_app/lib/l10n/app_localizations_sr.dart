@@ -4066,10 +4066,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get environmental_score_b_new => 'Green-Score Б';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Зелена оцена C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Зелена оцена D';
 
   @override
   String get environmental_score_e_new => 'Green-Score Е';

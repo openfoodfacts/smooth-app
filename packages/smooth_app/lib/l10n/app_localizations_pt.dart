@@ -3073,7 +3073,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Reproduzir e editar esta pesquisa';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'Eliminar';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -9330,6 +9330,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get search_history_item_edit_tooltip =>
       'Reproduzir e editar esta pesquisa';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
 
   @override
   String product_search_no_more_results(int totalSize) {

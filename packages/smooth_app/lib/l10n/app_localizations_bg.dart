@@ -3065,7 +3065,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'Повторно използване и редактиране на това търсене';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'Премахни';
 
   @override
   String product_search_no_more_results(int totalSize) {

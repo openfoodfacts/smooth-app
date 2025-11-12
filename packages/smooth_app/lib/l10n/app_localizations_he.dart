@@ -3012,7 +3012,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'שימוש בחיפוש ועריכתו';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'הסרה';
 
   @override
   String product_search_no_more_results(int totalSize) {

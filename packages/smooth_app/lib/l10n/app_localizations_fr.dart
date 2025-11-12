@@ -3092,7 +3092,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Réutiliser et modifier cette recherche';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'Retirer';
 
   @override
   String product_search_no_more_results(int totalSize) {
