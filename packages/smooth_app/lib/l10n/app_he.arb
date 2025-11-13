@@ -1385,7 +1385,7 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
-  "onboarding_welcome_warning": "סליחה, זה מוצר לדוגמה שלנו, אינך יכול לערוך אותו :)",
+  "onboarding_welcome_warning": "סליחה, זה מוצר לדוגמה שלנו, אסור לערוך אותו :)",
   "@onboarding_welcome_warning": {
     "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
   },
