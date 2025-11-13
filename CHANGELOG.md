@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.22.3](https://github.com/openfoodfacts/smooth-app/compare/v4.22.2...v4.22.3) (2025-11-12)
+
+
+### 🐛 Bug Fixes
+
+* Hotfix: Rive animation & search bar ([#7225](https://github.com/openfoodfacts/smooth-app/issues/7225)) ([ee88ade](https://github.com/openfoodfacts/smooth-app/commit/ee88adebe7910d42da50a6cc566d1ee007d87470))
+
+
+### 🛠 Miscellaneous
+
+* **deps:** bump file_picker in /packages/smooth_app ([#7207](https://github.com/openfoodfacts/smooth-app/issues/7207)) ([1d4d217](https://github.com/openfoodfacts/smooth-app/commit/1d4d217f420dbecdf146e0098fe199e130d3c94c))
+* **deps:** bump image_picker in /packages/smooth_app ([#7223](https://github.com/openfoodfacts/smooth-app/issues/7223)) ([6f5174f](https://github.com/openfoodfacts/smooth-app/commit/6f5174fad32393a2403e08eb22a41dce58b94ca7))
+
 ## [4.22.2](https://github.com/openfoodfacts/smooth-app/compare/v4.22.1...v4.22.2) (2025-11-12)
 
 
