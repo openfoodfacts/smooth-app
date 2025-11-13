@@ -98,7 +98,7 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
   /// fails. If we refresh the product from the server, we get the correct
   /// product type, and therefore the correct server to call.
   /// We refresh the product AFTER a failing "upload", so that the NEXT
-  /// occurrence of the same background task take the correct product type into
+  /// occurrence of the same background task takes the correct product type into
   /// account.
   ///
   /// Some background tasks never care about the product type, and can return
