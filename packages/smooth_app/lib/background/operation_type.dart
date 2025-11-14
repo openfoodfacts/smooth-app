@@ -5,6 +5,7 @@ import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
+import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/background/background_task_image.dart';
@@ -89,9 +90,7 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
-    folksonomy => throw Exception(
-      'Not implemented yet',
-    ), // FIXME: Implement correct background task process for folksonomy.
+    folksonomy => BackgroundTaskFolksonomy.fromJson(map),
   };
 
   bool matches(final TransientOperation action) =>
