@@ -29,6 +29,13 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   static const String _jsonTagBarcode = 'barcode';
   static const OperationType _operationType = OperationType.folksonomy;
 
+  @override
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagBarcode] = barcode;
+    return result;
+  }
+
   static Future<void> addTask(
     final String barcode,
     final LocalDatabase localDatabase,
@@ -54,7 +61,10 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     AppLocalizations appLocalizations,
-  ) => null;
+  ) => (
+    appLocalizations.background_task_title_folksonomy,
+    AlignmentDirectional.bottomCenter,
+  );
 
   @override
   bool hasImmediateNextTask = false;
@@ -65,40 +75,39 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
         DaoTransientFolksonomy(localDatabase);
     final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
 
-    final FolksonomyOperation? operation = daoTransientFolksonomy
-        .get(barcode)
-        ?.firstOrNull;
-    if (operation == null) {
-      return;
-    }
+    while (true) {
+      final FolksonomyOperation? operation = _getPendingOperations(
+        barcode,
+        daoTransientFolksonomy,
+      )?.firstOrNull;
 
-    if (operation.type == FolksonomyAction.add) {
-      await _serverAdd(operation.tag);
-    } else if (operation.type == FolksonomyAction.edit) {
-      await _serverEdit(operation.tag);
-    } else if (operation.type == FolksonomyAction.remove) {
-      await _serverDelete(operation.tag);
-    }
+      if (operation == null) {
+        return;
+      }
 
-    await serverRefresh(barcode, daoFolksonomy, localDatabase);
+      if (operation.type == FolksonomyAction.add) {
+        await _serverAdd(operation.tag);
+      } else if (operation.type == FolksonomyAction.edit) {
+        await _serverEdit(operation.tag);
+      } else if (operation.type == FolksonomyAction.remove) {
+        await _serverDelete(operation.tag);
+      }
 
-    final List<FolksonomyOperation>? pendingOperations = daoTransientFolksonomy
-        .get(barcode);
+      await serverRefresh(barcode, daoFolksonomy, localDatabase);
 
-    if (pendingOperations == null ||
-        pendingOperations.isEmpty ||
-        pendingOperations.first != operation) {
-      return;
-    }
+      final List<FolksonomyOperation>? pendingOperations =
+          _getPendingOperations(barcode, daoTransientFolksonomy);
+      if (pendingOperations == null || pendingOperations.isEmpty) {
+        return;
+      }
 
-    pendingOperations.removeAt(0);
+      pendingOperations.removeAt(0);
 
-    if (pendingOperations.isEmpty) {
-      await daoTransientFolksonomy.delete(barcode);
-    } else {
-      hasImmediateNextTask = true;
-      await daoTransientFolksonomy.put(barcode, pendingOperations);
-      await addTask(barcode, localDatabase);
+      if (pendingOperations.isEmpty) {
+        await daoTransientFolksonomy.delete(barcode);
+      } else {
+        await daoTransientFolksonomy.put(barcode, pendingOperations);
+      }
     }
   }
 
@@ -163,6 +172,11 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
 
     localDatabase.notifyListeners();
   }
+
+  List<FolksonomyOperation>? _getPendingOperations(
+    String barcode,
+    DaoTransientFolksonomy daoTransientFolksonomy,
+  ) => daoTransientFolksonomy.get(barcode);
 
   Future<String> _getBearerToken() async {
     if (_bearerToken != null) {
