@@ -4552,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ਕੀਮਤਾਂ ਕਿਉਂ?",
-  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
+  "prices_explanation_card_line1": "**ਓਪਨ ਪ੍ਰਾਈਸ** ਦੁਨੀਆ ਭਰ ਦੇ ਉਤਪਾਦਾਂ ਦੀਆਂ ਕੀਮਤਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਅਤੇ ਸਾਂਝੀਆਂ ਕਰਨ ਦਾ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਹੈ 🌍। ਓਪਨ ਪ੍ਰਾਈਸ Open Food Facts ਦੁਆਰਾ ਵਿਕਸਤ ਅਤੇ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ।",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4891,7 +4891,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Search for a setting (e.g. Nutri-Score)",
+  "preferences_app_bar_search_hint": "ਇੱਕ ਸੈਟਿੰਗ ਦੀ ਖੋਜ ਕਰੋ (ਜਿਵੇਂ ਕਿ ਨਿਊਟਰੀ-ਸਕੋਰ)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4987,7 +4987,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "Discover the new Nutri-Score",
+  "tips_discover_nutriscore": "ਨਵੇਂ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਦੀ ਖੋਜ ਕਰੋ",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5088,7 +5088,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "Discover how the Nutri-Score is computed",
+  "preferences_faq_nutriscore_subtitle": "ਖੋਜੋ ਕਿ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਦੀ ਗਣਨਾ ਕਿਵੇਂ ਕੀਤੀ ਜਾਂਦੀ ਹੈ",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5100,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Open Food ਤੱਥਾਂ ਦੀ ਖੋਜ ਕਰੋ।",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5296,7 +5296,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "Help compute the Nutri-Score & Green-Score in your country",
+  "preferences_contributions_categorize_subtitle": "ਆਪਣੇ ਦੇਸ਼ ਵਿੱਚ ਨਿਊਟ੍ਰੀ-ਸਕੋਰ ਅਤੇ ਗ੍ਰੀਨ-ਸਕੋਰ ਦੀ ਗਣਨਾ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5320,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "ਓਪਨ ਪ੍ਰਾਈਸ ਕਮਿਊਨਿਟੀ ਦੁਆਰਾ ਜੋੜੀਆਂ ਗਈਆਂ ਨਵੀਨਤਮ ਕੀਮਤਾਂ",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5372,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "ਭੋਜਨ ਦੇ ਤੱਥਾਂ ਨੂੰ ਖੋਲ੍ਹਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਦੇ ਸਰਲ ਤਰੀਕੇ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5572,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "ਫੂਡ ਫੈਕਟਸ ਲੈਬਜ਼ ਖੋਲ੍ਹੋ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਖੁੱਲ੍ਹੇ ਭੋਜਨ ਦੇ ਤੱਥ ਲਿਆਓ",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
