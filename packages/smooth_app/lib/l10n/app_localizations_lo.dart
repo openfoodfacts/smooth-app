@@ -1709,7 +1709,7 @@ class AppLocalizationsLo extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'ປຽບທຽບຂ້າງຄຽງ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5753,8 +5753,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ຄົ້ນພົບຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5774,8 +5773,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - ຄໍາຖາມທີ່ຖາມເລື້ອຍໆ';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6111,14 +6109,14 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ເປີດຫ້ອງທົດລອງຄວາມຈິງດ້ານອາຫານ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -1392,7 +1392,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'La Nutri-score d\'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa\'t en contacte amb nosaltres.';
+      'La Nutri-Score d\'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa\'t en contacte amb nosaltres.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1736,7 +1736,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Comparar costat a costat';
 
   @override
   String get loading_dialog_default_title => 'Descàrregant les dades';
@@ -4102,7 +4102,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-score desconegut (nou càlcul)';
+      'Nutri-Score desconegut (nou càlcul)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
@@ -5821,8 +5821,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descobreix el projecte';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descobreix els fets sobre menjar obert';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6188,7 +6187,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratoris oberts d\'informació sobre aliments';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Compte';

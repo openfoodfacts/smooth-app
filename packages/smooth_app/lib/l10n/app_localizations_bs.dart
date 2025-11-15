@@ -1710,7 +1710,8 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Uporedite jedno pored drugog';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5760,8 +5761,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Otkrijte projekat';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Otkrijte činjenice o otvorenoj hrani';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5781,8 +5781,7 @@ class AppLocalizationsBs extends AppLocalizations {
   String get preferences_faq_faq_title => 'ČPP - Često postavljana pitanja';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Nevladina organizacija Otvorene činjenice o hrani';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5804,8 +5803,7 @@ class AppLocalizationsBs extends AppLocalizations {
       'Uključite se posjetom jednom od naših virtualnih događaja';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Blog Otvorene činjenice o hrani';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6124,14 +6122,14 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otvoreni laboratoriji za informacije o hrani';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prenesite činjenice o otvorenoj hrani na svoj jezik';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

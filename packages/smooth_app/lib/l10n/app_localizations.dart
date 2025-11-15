@@ -561,7 +561,7 @@ abstract class AppLocalizations {
   /// Label for product page regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_may_not;
 
   /// Label for product page regarding product compatibility with the user preferences: does not match
@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// Short label for product list view regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_short_may_not;
 
   /// Short label for product list view regarding product compatibility with the user preferences: does not match

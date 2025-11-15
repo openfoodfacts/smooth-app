@@ -1711,7 +1711,7 @@ class AppLocalizationsMg extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Ampitahao mifanila';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5770,8 +5770,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Fantaro ny tetikasa';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Fantaro ny zava-misy momba ny sakafo misokatra';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';

@@ -1709,7 +1709,7 @@ class AppLocalizationsMn extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Зэрэгцээ харьцуул';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5761,8 +5761,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Нээлттэй хүнсний баримтуудыг олж мэдээрэй';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5783,7 +5782,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Түгээмэл асуултууд - Түгээмэл асуултууд';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Нээлттэй хүнсний баримт ТББ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5805,7 +5804,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Манай виртуал арга хэмжээнүүдийн аль нэгэнд оролцож, оролцоорой';
 
   @override
-  String get preferences_connect_blog_title => 'Нээлттэй хүнсний баримт блог';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5969,7 +5968,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Нээлттэй үнийн нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6019,7 +6018,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Нээлттэй хүнсний баримтуудад туслах энгийн аргууд';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6127,14 +6126,14 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Хүнсний баримтын лабораторийг нээнэ үү';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Нээлттэй хүнсний баримтуудыг хэл дээрээ авчир';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

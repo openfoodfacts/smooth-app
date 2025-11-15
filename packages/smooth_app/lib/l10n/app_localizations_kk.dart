@@ -1710,7 +1710,7 @@ class AppLocalizationsKk extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Қатар салыстырыңыз';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5762,8 +5762,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ашық азық-түлік фактілерін ашыңыз';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5784,8 +5783,7 @@ class AppLocalizationsKk extends AppLocalizations {
       'Жиі қойылатын сұрақтар - Жиі қойылатын сұрақтар';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      '«Ашық азық-түлік фактілері» үкіметтік емес ұйымы';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Ақпарат';
@@ -6125,14 +6123,14 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Азық-түлік фактілері зертханасын ашыңыз';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ашық тағам фактілерін тіліңізге жеткізіңіз';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

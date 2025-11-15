@@ -1710,7 +1710,7 @@ class AppLocalizationsTl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Paghambingin ang magkatabi';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';

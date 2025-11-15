@@ -1710,7 +1710,7 @@ class AppLocalizationsQu extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Kuska lado tupachiy';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3015,7 +3015,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5315,7 +5315,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Precios Abiertos** nisqaqa huk proyectom, pachantinpi rurukunapa chaninkunata huñunapaq hinaspa rakinapaq 🌍. Kichasqa Precios nisqakunaqa Kichasqa Mikhuy Chiqapkuna nisqawanmi ruwasqa hinaspa waqaychasqa.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5624,7 +5624,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Kichasqa Mikhuy Chiqap willakuykunaqa mikhuy rurukunap willay tantana wasim **llapa runap rurasqan, llapa runapaq**.\nAswan allin mikhuy akllanapaq llamk\'achiy atikunki, chaymanta **kichasqa willay** kasqanrayku, pipas **imapaqpas wakmanta llamk\'achiyta atin**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5675,7 +5675,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Kichasqa Mikhuy Chiqap web nisqapi';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Cuentayta kamachiy';
@@ -5772,8 +5772,7 @@ class AppLocalizationsQu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Kichasqa Mikhuy Chiqap Kaqkunata tariy';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5793,8 +5792,7 @@ class AppLocalizationsQu extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Sapa kuti tapusqa tapukuykuna';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Kichasqa Mikhuymanta Chiqap ONG nisqa';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5816,8 +5814,7 @@ class AppLocalizationsQu extends AppLocalizations {
       'Huknin virtual ruwayniykuman rispa involucrakuy';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Kichasqa Mikhuy Chiqap blog nisqa';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5981,7 +5978,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Kichasqa Chanikuna ayllumanta yapasqa qhipa chaninkuna';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6030,7 +6027,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Kichasqa Mikhuy Chiqap yanapakuykunata yanapanapaq sasan ñankuna';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6140,14 +6137,14 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Mikhuymanta Chiqap Laboratorios kichasqa';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Kichasqa Mikhuy Chiqap willakuykunata simiykiman apamuy';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

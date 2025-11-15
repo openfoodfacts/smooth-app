@@ -862,7 +862,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1714,7 +1714,7 @@ class AppLocalizationsTa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'அருகருகே ஒப்பிடுக';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -4074,7 +4074,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'Nutri-Score பொருந்தாது (புதிய கணக்கீடு)';
 
   @override
-  String get environmental_score_generic_new => 'பச்சை-ஸ்கோர்';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => 'Green-Score A';
@@ -4304,7 +4304,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'பச்சை-ஸ்கோர்';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -5270,7 +5270,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
@@ -5636,7 +5636,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் என்பது அனைவராலும், அனைவருக்கும்** உருவாக்கப்பட்ட உணவுப் பொருட்களின் தரவுத்தளமாகும்.\nசிறந்த உணவுத் தேர்வுகளைச் செய்ய நீங்கள் இதைப் பயன்படுத்தலாம், மேலும் இது **திறந்த தரவு** என்பதால், யார் வேண்டுமானாலும் எந்த நோக்கத்திற்காகவும் இதை மீண்டும் பயன்படுத்தலாம்**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5683,11 +5683,11 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_tips => 'குறிப்புகள்';
 
   @override
-  String get tips_discover_nutriscore => 'புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'எனது கணக்கை நிர்வகிக்கவும்';

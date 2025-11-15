@@ -1737,7 +1737,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Porównaj obok siebie';
 
   @override
   String get loading_dialog_default_title => 'Pobieranie danych';
@@ -3012,7 +3012,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Dowiedz się więcej o cenach otwartych';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Gotowe';
@@ -4080,7 +4080,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Wskaźnik odżywczy A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
   String get nutriscore_b => 'Wynik Nutri-Score B';
@@ -4658,7 +4658,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Cechy otwartych informacji o żywności';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4742,7 +4742,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Cechy otwartych informacji o karmie dla zwierząt';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4900,7 +4900,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Czym są ceny otwarte?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4911,7 +4911,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Jak działają Ceny Otwarte?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4987,7 +4987,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Cechy produktów otwartych Fakty';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5822,23 +5822,21 @@ class AppLocalizationsPl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkryj projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Odkryj fakty dotyczące żywności';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Odkryj fakty dotyczące otwartego piękna';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Odkryj fakty dotyczące karmy dla zwierząt';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Odkryj otwarte ceny';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Odkryj fakty dotyczące produktów Open';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ – Najczęściej zadawane pytania';
@@ -6079,7 +6077,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Proste sposoby na pomoc w otwarciu Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6187,14 +6185,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otwarte Laboratoria Faktów Żywnościowych';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Przenieś Open Food Fakty do swojego języka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

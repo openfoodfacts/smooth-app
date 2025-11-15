@@ -1710,7 +1710,7 @@ class AppLocalizationsCo extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Paragunate fiancu à fiancu';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5769,8 +5769,7 @@ class AppLocalizationsCo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Scuprite i fatti nantu à l\'alimentazione aperta';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6135,7 +6134,7 @@ class AppLocalizationsCo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorii Aperti di Fatti Alimentari';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

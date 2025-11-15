@@ -1368,7 +1368,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1711,7 +1711,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Vertaile rinnakkain';
 
   @override
   String get loading_dialog_default_title => 'Ladataan tietoja';
@@ -5755,8 +5755,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Tutustu hankkeeseen';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tutustu avoimiin ruokatietoihin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6117,14 +6116,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Avoimet ruokatietolaboratoriot';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Tili';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tuo avoimet ruokatiedot omalle kielellesi';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

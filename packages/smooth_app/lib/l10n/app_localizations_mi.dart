@@ -1711,7 +1711,7 @@ class AppLocalizationsMi extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Whakataurite taha taha';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5768,8 +5768,7 @@ class AppLocalizationsMi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tirohia nga Meka Kai Tuwhera';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6025,7 +6024,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Nga huarahi ngawari hei awhina i nga Meka Kai Tuwhera';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6133,14 +6132,14 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Whakatuwherahia nga Waahanga Meka Kai';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Kawea mai nga Meka Kai Tuwhera ki to reo';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

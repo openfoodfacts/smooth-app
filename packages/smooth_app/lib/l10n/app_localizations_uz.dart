@@ -1710,7 +1710,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Yonma-yon solishtiring';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5764,8 +5764,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Loyihani koʻzdan kechirish';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ochiq oziq-ovqat faktlari bilan tanishing';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5786,8 +5785,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Tez-tez so\'raladigan savollar - tez-tez so\'raladigan savollar';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Ochiq oziq-ovqat faktlari nodavlat tashkiloti';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5809,8 +5807,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Virtual tadbirlarimizdan birida ishtirok eting';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ochiq oziq-ovqat faktlari blogi';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6133,14 +6130,14 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Oziq-ovqat faktlari laboratoriyasini oching';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ochiq oziq-ovqat faktlarini tilingizga olib keling';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

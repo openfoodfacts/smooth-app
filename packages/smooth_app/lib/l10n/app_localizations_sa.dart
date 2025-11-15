@@ -1710,7 +1710,8 @@ class AppLocalizationsSa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'पार्श्वे पार्श्वे तुलनां कुरुत';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -4480,21 +4481,21 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'नोवा-समूहाः भवन्तं खाद्यप्रसंस्करणस्य स्तरस्य विषये सूचयन्ति ।';
+      'NOVA-समूहाः भवन्तं खाद्यप्रसंस्करणस्य स्तरस्य विषये सूचयन्ति ।';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
       'NOVA वर्गीकरणेन खाद्यपदार्थानाम् **औद्योगिकप्रसंस्करणस्य डिग्री** (न्यूनतमरूपेण संसाधितानि अथवा अप्रसंस्कृतानि खाद्यानि, पाकसामग्री, संसाधितानि खाद्यानि, अति-संसाधितानि खाद्यानि) आधारेण **4 समूहेषु** वर्गीकरणस्य अनुमतिः अस्ति';
 
   @override
-  String get guide_nova_logos_caption => 'नोवा-चिह्नानि';
+  String get guide_nova_logos_caption => 'NOVA-चिह्नानि';
 
   @override
-  String get guide_nova_groups_title => '४ नोवा समूहाः';
+  String get guide_nova_groups_title => '४ NOVA समूहाः';
 
   @override
   String get guide_nova_groups_intro =>
-      'अत्र ४ नोवा-समूहाः सन्ति, समस्याप्रदः समूहः ४ - अल्ट्रा-प्रोसेस्ड् खाद्यानि ।';
+      'अत्र ४ NOVA-समूहाः सन्ति, समस्याप्रदः समूहः ४ - अल्ट्रा-प्रोसेस्ड् खाद्यानि ।';
 
   @override
   String get guide_nova_groups_arg1_title =>
@@ -5759,8 +5760,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6122,7 +6122,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

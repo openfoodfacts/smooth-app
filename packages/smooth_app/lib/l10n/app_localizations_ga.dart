@@ -1710,7 +1710,8 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Déan comparáid taobh le taobh';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5662,7 +5663,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_tips => 'Leideanna';
 
   @override
-  String get tips_discover_nutriscore => 'Faigh amach an Scór Cothaithe nua';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5761,8 +5762,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Faigh amach Fíricí Bia Oscailte';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5783,8 +5783,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ceisteanna Coitianta - Ceisteanna Coitianta';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'An Eagraíocht Neamhrialtasach Fíricí Bia Oscailte';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Eolas';
@@ -5806,7 +5805,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bí páirteach trí fhreastal ar cheann dár n-imeachtaí fíorúla';
 
   @override
-  String get preferences_connect_blog_title => 'Blag Fíricí Bia Oscailte';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6128,14 +6127,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Saotharlanna Fíricí Bia Oscailte';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tabhair Fíricí Bia Oscailte chuig do theanga';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

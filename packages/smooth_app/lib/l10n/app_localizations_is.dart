@@ -1709,7 +1709,7 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Berðu saman hlið við hlið';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5576,7 +5576,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Leita að stillingu (t.d. næringarstig)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Aðgengi: Sýna emoji';
@@ -5752,8 +5752,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Uppgötvaðu staðreyndir um matvæli í opnum mæli';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5938,7 +5937,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Hjálpaðu til við að reikna út næringargildið og græna gildið í þínu landi';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'Verð sem ég lagði til';
@@ -6116,7 +6115,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Opna rannsóknarstofur um matvælaupplýsingar';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

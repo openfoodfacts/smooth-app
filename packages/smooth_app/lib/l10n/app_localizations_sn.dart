@@ -1709,7 +1709,7 @@ class AppLocalizationsSn extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Enzanisa padivi nepadivi';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5304,7 +5304,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Vhura Mitengo** ipurojekiti yekuunganidza nekugovana mitengo yezvigadzirwa pasi rese 🌍. Mitengo yakavhurika inogadzirwa uye inochengetwa neOpen Food Chokwadi.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5610,7 +5610,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Vhura Chikafu Chokwadi idura rezvigadzirwa zvekudya ** rakagadzirwa nemunhu wese, kune wese **.\nUnogona kuishandisa kuita sarudzo dzekudya zviri nani, uye sezvazviri ** yakavhurika data **, chero munhu anogona ** kuishandisa zvakare kune chero chinangwa **.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5756,7 +5756,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Ziva Open Food Chokwadi';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5776,7 +5776,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Mibvunzo Inowanzo bvunzwa';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Iyo Open Food Chokwadi NGO';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5911,7 +5911,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Zvigadzirwa zvitsva zvandakawedzera kune Open Food Chokwadi';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6007,7 +6007,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Nzira dzakareruka dzekubatsira Vhura Zvokudya Zvokudya';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6115,14 +6115,14 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vhura Chikafu Chokwadi Labs';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Hunza Zvakavhurika Zvekudya Chokwadi kumutauro wako';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -1734,7 +1734,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Confronta fianco a fianco';
 
   @override
   String get loading_dialog_default_title => 'Scaricamento dati';
@@ -1981,7 +1981,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Punteggio Nutrizionale, NOVA…';
+      'Nutri-Score, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -3020,7 +3020,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Scopri di più sui prezzi aperti';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Fatto';
@@ -4747,7 +4747,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Che cosa sono i fatti sugli alimenti per animali domestici?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4759,7 +4759,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Caratteristiche dei fatti sugli alimenti per animali domestici aperti';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4915,7 +4915,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Cosa sono i prezzi aperti?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4993,7 +4993,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Che cosa sono i dati Open Products?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5005,7 +5005,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Caratteristiche dei prodotti aperti Fatti';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5845,23 +5845,21 @@ class AppLocalizationsIt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Scopri il progetto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Scopri i fatti del cibo aperto';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Scopri i fatti di Open Beauty';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Scopri i fatti sul cibo per animali domestici';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Scopri i prezzi aperti';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Scopri i fatti sui prodotti aperti';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Domande frequenti';

@@ -1709,7 +1709,7 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'შეადარეთ გვერდიგვერდ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5760,8 +5760,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'აღმოაჩინეთ ღია კვების ფაქტები';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5805,7 +5804,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'ჩაერთეთ ჩვენს ერთ-ერთ ვირტუალურ ღონისძიებაში';
 
   @override
-  String get preferences_connect_blog_title => 'ღია კვების ფაქტების ბლოგი';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>

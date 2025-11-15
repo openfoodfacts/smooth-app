@@ -1709,7 +1709,7 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Catsanisa eceleni';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3015,7 +3015,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -5672,7 +5672,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5788,8 +5788,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'I-NGO yeMaciniso Ekudla Lokuvulekile';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5811,8 +5810,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6025,7 +6023,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6133,7 +6131,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula Emalabs Emaciniso Ekudla';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

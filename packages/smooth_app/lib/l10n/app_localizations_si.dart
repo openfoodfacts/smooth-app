@@ -1710,7 +1710,8 @@ class AppLocalizationsSi extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'පැත්තෙන් පැත්තෙන් සංසන්දනය කරන්න';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';

@@ -1710,7 +1710,8 @@ class AppLocalizationsKu extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Berawirdkirina kêlek bi kêlek';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5781,8 +5782,7 @@ class AppLocalizationsKu extends AppLocalizations {
       'Pirsên Pir tên Pirsîn - Pirsên Pir tên Pirsîn';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Agahî';
@@ -5969,7 +5969,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6125,7 +6125,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratuarên Agahiyên Xwarinê yên Vekirî';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
