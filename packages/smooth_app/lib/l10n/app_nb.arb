@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Sammenlign side ved side",
   "loading_dialog_default_title": "Laster ned data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -4890,7 +4891,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Søk etter innstillinger (f.eks. nøtt-resultat)",
+  "preferences_app_bar_search_hint": "Search for a setting (e.g. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },

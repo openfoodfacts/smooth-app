@@ -1080,7 +1080,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "La Nutri-score d'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa't en contacte amb nosaltres.",
+  "product_improvement_categories_but_no_nutriscore": "La Nutri-Score d'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa't en contacte amb nosaltres.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Comparar costat a costat",
   "loading_dialog_default_title": "Descàrregant les dades",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3837,7 +3838,7 @@
   },
   "nutriscore_new_formula_title": "Nutri-Score (nou càlcul)",
   "nutriscore_unknown": "Nutri-Score desconegut",
-  "nutriscore_unknown_new_formula": "Nutri-score desconegut (nou càlcul)",
+  "nutriscore_unknown_new_formula": "Nutri-Score desconegut (nou càlcul)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
@@ -5099,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Descobreix els fets sobre menjar obert",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratoris oberts d'informació sobre aliments",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

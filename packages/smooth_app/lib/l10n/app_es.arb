@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Comparar lado a lado",
   "loading_dialog_default_title": "Descargando datos",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -4169,7 +4170,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "¿Qué son los datos de productos abiertos?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts es una base de datos masiva y abierta para **cualquier producto con código de barras, que no sea alimento, cosmético o comida para mascotas**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Características de los productos abiertos",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts tiene como objetivo proporcionar a los consumidores soluciones circulares para **extender la vida útil de los objetos**, permitiéndoles mantener, **reparar**, **reciclar** sus objetos o darles un nuevo propietario.",
   "guide_open_products_facts_features_arg1_title": "Huella de carbono de algunos productos",
   "guide_open_products_facts_features_arg1_text": "**Impacto CO2**, de la Autoridad de Medio Ambiente francesa ADEME, proporciona el **impacto de carbono** de muchas categorías; asegúrese de clasificar los productos con precisión.",
@@ -5099,15 +5100,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Descubra datos alimentarios abiertos",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Descubre datos sobre belleza abierta",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Descubre datos sobre alimentos para mascotas abiertos",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5115,7 +5116,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Descubra datos sobre productos abiertos",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "El blog de datos alimentarios abiertos",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratorios abiertos de datos alimentarios",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Porównaj obok siebie",
   "loading_dialog_default_title": "Pobieranie danych",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2643,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Dowiedz się więcej o cenach otwartych",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3821,7 +3822,7 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Wskaźnik odżywczy A",
+  "nutriscore_a": "Nutri-Score A",
   "nutriscore_b": "Wynik Nutri-Score B",
   "nutriscore_c": "Wskaźnik Nutri-Score C",
   "nutriscore_d": "Wskaźnik Nutri-Score D",
@@ -4056,7 +4057,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Cechy otwartych informacji o żywności",
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Otrzymuj powiadomienia o niepożądanych składnikach",
   "guide_open_food_facts_tips_title": "Wskazówki dotyczące robienia świetnych zdjęć",
   "guide_open_food_facts_tips_arg1_title": "Czego nie robić",
@@ -4087,7 +4088,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Cechy otwartych informacji o karmie dla zwierząt",
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Otrzymuj powiadomienia o niepożądanych składnikach",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Czy Twój pupil ma alergię na któryś ze składników? Możesz ustawić listę składników kosmetycznych, których należy unikać, bezpośrednio w aplikacji!",
   "guide_open_pet_food_facts_tips_title": "Wskazówki dotyczące robienia świetnych zdjęć",
@@ -4140,7 +4141,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Czym są ceny otwarte?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices to projekt mający na celu **gromadzenie i udostępnianie cen produktów na całym świecie**. To publicznie dostępny zbiór danych, który można wykorzystać do badań, analiz i nie tylko. Open Prices jest rozwijany i utrzymywany przez Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4149,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Jak działają Ceny Otwarte?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Opracowujemy zbiór danych cenowych w modelu open source oparty na crowdsourcingu**. Użytkownicy mogą dodawać ceny za pośrednictwem tej aplikacji internetowej lub oficjalnej aplikacji mobilnej Open Food Facts. Sprzedawcy detaliczni i aplikacje innych firm również mogą się do tego przyczynić, korzystając z naszego interfejsu API.",
   "guide_open_prices_how_arg1_title": "Zbierz zdjęcia metek cenowych w alejkach",
   "guide_open_prices_how_arg2_title": "Zbierz zdjęcia paragonów",
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Cechy produktów otwartych Fakty",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Celem Open Products Facts jest umożliwienie konsumentom **wydłużenia żywotności przedmiotów** poprzez udostępnienie im rozwiązań gospodarki o obiegu zamkniętym, które umożliwiają konserwację, **naprawę**, **recykling** przedmiotów lub znalezienie dla nich nowego właściciela.",
   "guide_open_products_facts_features_arg1_title": "Ślad węglowy dla niektórych produktów",
   "guide_open_products_facts_features_arg1_text": "**Wpływ CO2** według Francuskiego Urzędu Ochrony Środowiska ADEME dostarcza informacji na temat **wpływu dwutlenku węgla** w wielu kategoriach, należy upewnić się, że produkty są kategoryzowane precyzyjnie.",
@@ -5099,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Odkryj fakty dotyczące żywności",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Odkryj fakty dotyczące otwartego piękna",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Odkryj fakty dotyczące karmy dla zwierząt",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Odkryj otwarte ceny",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Odkryj fakty dotyczące produktów Open",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5371,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Proste sposoby na pomoc w otwarciu Food Facts",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Otwarte Laboratoria Faktów Żywnościowych",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5579,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Przenieś Open Food Fakty do swojego języka",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

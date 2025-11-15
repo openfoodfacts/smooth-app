@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Сравнете едно до друго",
   "loading_dialog_default_title": "Изтегляне на данни",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1682,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Нутри-Скор, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2643,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Научете повече за отворените цени",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3821,8 +3822,8 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Нутри-оценка А",
-  "nutriscore_b": "Нутри-скор Б",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3836,7 +3837,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ново изчисление)",
-  "nutriscore_unknown": "Неизвестен хранителен резултат",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "Неизвестен Nutri-Score (ново изчисление)",
   "nutriscore_not_applicable": "Nutri-Score не е приложим",
   "nutriscore_not_applicable_new_formula": "Nutri-Score не е приложим (ново изчисление)",
@@ -3849,10 +3850,10 @@
   "environmental_score_unknown_new": "Неизвестен зелен резултат",
   "environmental_score_not_applicable_new": "Зеленият резултат не е приложим",
   "nova_group_generic_new": "Ултрапреработени храни - NOVA groups",
-  "nova_group_1": "НОВА Груп 1",
-  "nova_group_2": "НОВА Груп 2",
-  "nova_group_3": "НОВА Груп 3",
-  "nova_group_4": "НОВА Груп 4",
+  "nova_group_1": "NOVA Group 1",
+  "nova_group_2": "NOVA Group 2",
+  "nova_group_3": "NOVA Group 3",
+  "nova_group_4": "NOVA Group 4",
   "nova_group_unknown": "Неизвестна група NOVA",
   "nutrition_facts": "Нива на хранителни вещества",
   "faq_title_partners": "Партньори и меценати на НПО",
@@ -4047,7 +4048,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Какво представляват откритите факти за храната?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Какво представляват откритите Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts е **съвместна**, **безплатна** и **отворена** база данни за хранителни продукти от цял свят.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4078,7 +4079,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Какво представляват фактите за храната за домашни любимци в Open Pet Food?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts разширява мисията ни към нашите пухкави приятели! Това е **база данни с храни за домашни любимци за котки, кучета и други домашни любимци**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4108,7 +4109,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Какво представляват откритите факти за красотата?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts е съвместна база данни за **козметични продукти**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4136,11 +4137,11 @@
   "guide_open_beauty_facts_scores_title": "Бележка относно точкуването",
   "guide_open_beauty_facts_scores_paragraph1": "За разлика от хранителните продукти, светът на козметиката **няма универсално призната, подкрепяна от правителството система за оценяване като Nutri-Score**. Ефектите на съставките могат да бъдат силно индивидуални и да зависят от типа кожа, алергиите и индивидуалните проблеми.",
   "guide_open_beauty_facts_share_link": "https://world-bg.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Добре дошли в „Отворени цени“!",
+  "guide_open_prices_title": "Добре дошли в „Open Prices“!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Какво представляват отворените цени?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices е проект за **събиране и споделяне на цени на продукти по целия свят**. Това е публично достъпен набор от данни, който може да се използва за изследвания, анализи и други. Open Prices е разработен и поддържан от Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4149,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Как работят отворените цени?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Ние използваме краудсорсинг за събиране на данни с отворен код за цени**. Цените могат да бъдат добавяни от потребителите чрез това уеб приложение или чрез официалното мобилно приложение Open Food Facts. Търговците на дребно или приложения на трети страни също могат да допринесат, като използват нашия API.",
   "guide_open_prices_how_arg1_title": "Събирайте снимки на етикети с цени по пътеките",
   "guide_open_prices_how_arg2_title": "Събирайте снимки на касови бележки",
@@ -4169,7 +4170,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Какво представляват фактите за отворените продукти?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts е огромна, отворена база данни за **всеки продукт с баркод, който не е храна, козметика или храна за домашни любимци**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Характеристики на отворените продукти Факти",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "„Open Products Facts“ има за цел да предостави на потребителите възможност за **удължаване на живота на предметите**, като им предоставя кръгови решения за поддръжка, **ремонт**, **рециклиране** на предметите или за даване на нов собственик.",
   "guide_open_products_facts_features_arg1_title": "Въглероден отпечатък за някои продукти",
   "guide_open_products_facts_features_arg1_text": "**Въздействие на CO2** от френската агенция по околна среда ADEME предоставя **въглеродното въздействие** на много категории, уверете се, че категоризирате продуктите точно.",
@@ -4990,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "На уебсайта „Отворени факти за храната“",
+  "preferences_on_off_website_subtitle": "На уебсайта „Отворени Open Food Facts“",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5099,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Открийте фактите за отворената храна",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Открийте открити факти за красотата",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Открийте фактите за храната за домашни любимци на Open",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Открийте отворени цени",
+  "preferences_faq_discover_op_title": "Открийте Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Открийте фактите за отворените продукти",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5123,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "НПО „Отворени факти за храната“",
+  "preferences_faq_off_ngo_title": "НПО „Отворени Open Food Facts“",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Блогът „Отворени факти за храната“",
+  "preferences_connect_blog_title": "Блогът „Отворени Open Food Facts“",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5579,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Внесете фактите за отворените храни на вашия език",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

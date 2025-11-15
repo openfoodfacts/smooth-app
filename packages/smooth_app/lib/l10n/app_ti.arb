@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "ጎኒ ንጎኒ ኣነጻጽር",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3848,7 +3849,7 @@
   "environmental_score_e_new": "ቀጠልያ-ነጥቢ E",
   "environmental_score_unknown_new": "ዘይፍለጥ ቀጠልያ-ነጥቢ",
   "environmental_score_not_applicable_new": "ግሪን-ስኮር ተግባራዊ ኣይኮነን።",
-  "nova_group_generic_new": "ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት ኖቫ",
+  "nova_group_generic_new": "Ultra-processed foods - NOVA groups",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -4015,9 +4016,9 @@
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "እቶም ናይ ኖቫ ኣርማታት",
-  "guide_nova_groups_title": "እተን 4 ጉጅለታት ኖቫ",
-  "guide_nova_groups_intro": "4 ጉጅለታት ኖቫ ኣለዋ፡ እቲ ጸገም ዘለዎ ጉጅለ 4 - Ultra-processed foods እዩ።",
+  "guide_nova_logos_caption": "The NOVA logos",
+  "guide_nova_groups_title": "The 4 NOVA groups",
+  "guide_nova_groups_intro": "There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.",
   "guide_nova_groups_arg1_title": "ብውሑድ ደረጃ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት",
   "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
@@ -4890,7 +4891,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "ንሓደ ቅጥዒ ድለዩ (ንኣብነት ኒውትሪ-ስኮር)",
+  "preferences_app_bar_search_hint": "Search for a setting (e.g. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4986,11 +4987,11 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "ሓድሽ ኒውትሪ-ስኮር ርኸብዎ።",
+  "tips_discover_nutriscore": "Discover the new Nutri-Score",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ኣብ መርበብ ሓበሬታ ክፉት ሓቅታት መግቢ",
+  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5087,7 +5088,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "ኒውትሪ-ስኮር ብኸመይ ከም ዝስላዕ ርኸቡ።",
+  "preferences_faq_nutriscore_subtitle": "Discover how the Nutri-Score is computed",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5099,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "ክፉት ሓቅታት መግቢ ርኸቡ።",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5123,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "እቲ ክፉት ሓቅታት መግቢ ዘይመንግስታዊ ትካል",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "ብሎግ ክፉት ሓቅታት መግቢ",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5371,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "ቀለልቲ መገድታት ንኽፉት ሓቅታት መግቢ ንምሕጋዝ",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ክፉት ናይ መግቢ ሓቅታት ቤተ ፈተነታት",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5579,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "ክፉት ሓቅታት መግቢ ናብ ቋንቋኹም ኣምጽኡ",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
