@@ -67,9 +67,6 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   );
 
   @override
-  bool hasImmediateNextTask = false;
-
-  @override
   Future<void> execute(LocalDatabase localDatabase) async {
     final DaoTransientFolksonomy daoTransientFolksonomy =
         DaoTransientFolksonomy(localDatabase);
@@ -85,19 +82,38 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
         return;
       }
 
-      if (operation.type == FolksonomyAction.add) {
-        await _serverAdd(operation.tag);
-      } else if (operation.type == FolksonomyAction.edit) {
-        await _serverEdit(operation.tag);
-      } else if (operation.type == FolksonomyAction.remove) {
-        await _serverDelete(operation.tag);
+      if (!operation.isPerformed) {
+        switch (operation.type) {
+          case FolksonomyAction.add:
+            await _serverAdd(operation.tag);
+            break;
+          case FolksonomyAction.edit:
+            await _serverEdit(operation.tag);
+            break;
+          case FolksonomyAction.remove:
+            await _serverDelete(operation.tag);
+            break;
+          default:
+            throw Exception('Invalid operation type: ${operation.type}');
+        }
+
+        final List<FolksonomyOperation>? pendingOperations =
+            _getPendingOperations(barcode, daoTransientFolksonomy);
+        if (pendingOperations == null || pendingOperations.isEmpty) {
+          return;
+        }
+
+        pendingOperations[0].isPerformed = true;
+        await daoTransientFolksonomy.put(barcode, pendingOperations);
       }
 
       await serverRefresh(barcode, daoFolksonomy, localDatabase);
 
       final List<FolksonomyOperation>? pendingOperations =
           _getPendingOperations(barcode, daoTransientFolksonomy);
-      if (pendingOperations == null || pendingOperations.isEmpty) {
+      if (pendingOperations == null ||
+          pendingOperations.isEmpty ||
+          !pendingOperations.first.isPerformed) {
         return;
       }
 
