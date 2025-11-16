@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "Open Food Facts proiektua",
+  "preferences_card_project": "Elikagaien Datu Irekiak proiektua",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
