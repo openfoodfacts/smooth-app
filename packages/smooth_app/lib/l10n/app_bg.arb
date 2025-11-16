@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Научете повече за Open Prices",
+  "prices_menu_know_more": "Научете повече за отворените цени",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4141,7 +4141,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Какво представляват Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Какво представляват отворените цени?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices е проект за **събиране и споделяне на цени на продукти по целия свят**. Това е публично достъпен набор от данни, който може да се използва за изследвания, анализи и други. Open Prices е разработен и поддържан от Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4150,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Как работят Open Prices?",
+  "guide_open_prices_how_title": "Как работят отворените цени?",
   "guide_open_prices_how_paragraph1": "**Ние използваме краудсорсинг за събиране на данни с отворен код за цени**. Цените могат да бъдат добавяни от потребителите чрез това уеб приложение или чрез официалното мобилно приложение Open Food Facts. Търговците на дребно или приложения на трети страни също могат да допринесат, като използват нашия API.",
   "guide_open_prices_how_arg1_title": "Събирайте снимки на етикети с цени по пътеките",
   "guide_open_prices_how_arg2_title": "Събирайте снимки на касови бележки",
@@ -4166,11 +4166,11 @@
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Можете да предоставите цени, като използвате нашия API.\nАко искате да предоставите цени в голям мащаб, моля, свържете се с нас на prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Добре дошли във Open Products Facts!",
+  "guide_open_products_facts_title": "Добре дошли във фактите за отворените продукти!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Какво представляват Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Какво представляват фактите за отворените продукти?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts е огромна, отворена база данни за **всеки продукт с баркод, който не е храна, козметика или храна за домашни любимци**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "Проектът „Open Food Facts“",
+  "preferences_card_project": "Проектът „Отворени факти за храната“",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -5116,7 +5116,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Открийте Open Products Facts",
+  "preferences_faq_discover_opf_title": "Открийте фактите за отворените продукти",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
