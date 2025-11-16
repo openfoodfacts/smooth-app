@@ -4170,7 +4170,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "¿Qué son los Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "¿Qué son los datos de productos abiertos?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts es una base de datos masiva y abierta para **cualquier producto con código de barras, que no sea alimento, cosmético o comida para mascotas**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -5148,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "El blog de Open Food Facts",
+  "preferences_connect_blog_title": "El blog de datos alimentarios abiertos",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
