@@ -4048,7 +4048,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Mis on Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Mis on avatud toidufaktid?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts on **koostööl põhinev**, **tasuta** ja **avatud** andmebaas toiduainetest üle kogu maailma.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4079,7 +4079,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Mis on Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Mis on avatud lemmikloomatoidu faktid?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts laiendab meie missiooni meie karvastele sõpradele! See on **lemmikloomatoidu andmebaas kassidele, koertele ja teistele kaaslastele**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4109,7 +4109,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mis on Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mis on avatud ilufaktid?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts on **kosmeetikatoodete** koostööl põhinev andmebaas.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4141,7 +4141,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Mis on Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mis on avatud hinnad?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekt, mille eesmärk on **koguda ja jagada toodete hindu üle maailma**. See on avalikult kättesaadav andmestik, mida saab kasutada uuringuteks, analüüsiks ja muuks. Open Pricesi arendab ja haldab Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4150,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Kuidas Open Prices toimivad?",
+  "guide_open_prices_how_title": "Kuidas avatud hinnad toimivad?",
   "guide_open_prices_how_paragraph1": "**Me kogume avatud lähtekoodiga hinnaandmestikku rahvahulga abil**. Kasutajad saavad hindu lisada selle veebirakenduse või ametliku Open Food Factsi mobiilirakenduse kaudu. Jaemüüjad või kolmandate osapoolte rakendused saavad samuti meie API abil panustada.",
   "guide_open_prices_how_arg1_title": "Koguge vahekäikudes olevate hinnasiltide fotosid",
   "guide_open_prices_how_arg2_title": "Koguge kviitungite fotosid",
@@ -4170,7 +4170,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Mis on Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Mis on avatud tootefaktid?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts on tohutu avatud andmebaas **kõigile vöötkoodiga toodetele, mis ei ole toit, kosmeetika ega lemmikloomatoit**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -5112,7 +5112,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Avasta Open Prices",
+  "preferences_faq_discover_op_title": "Avasta avatud hinnad",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
