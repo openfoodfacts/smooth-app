@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "פרויקט עובדות המזון הפתוחות",
+  "preferences_card_project": "פרויקט Open Food Facts",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -5124,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "עמותת \"עובדות על אוכל פתוח\"",
+  "preferences_faq_off_ngo_title": "עמותת \"Open Food Facts\"",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "הבלוג של עובדות המזון הפתוחות",
+  "preferences_connect_blog_title": "הבלוג של Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },

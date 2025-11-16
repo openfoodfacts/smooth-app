@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "Projekt Otvorene činjenice o hrani",
+  "preferences_card_project": "Projekt Open Food Facts",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -5148,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blog Otvorene činjenice o hrani",
+  "preferences_connect_blog_title": "Blog Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
