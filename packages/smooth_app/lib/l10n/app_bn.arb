@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "আপনার দেশে ওপেন ফুড ফ্যাক্টস উন্নত করতে সাহায্য করুন",
+  "help_improve_country": "আপনার দেশে Open Food Facts উন্নত করতে সাহায্য করুন",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -712,7 +712,7 @@
   "new_product_subtitle_nova": "খাদ্য বিভাগ এবং উপাদান পূরণ করে এটি পান",
   "new_product_desc_nova_unknown": "খাদ্য প্রক্রিয়াকরণের স্তর অজানা",
   "new_product_title_pictures": "নতুন পণ্য",
-  "new_product_title_pictures_details": "অনুগ্রহ করে নিচের ছবিগুলো তুলুন, ওপেন ফুড ফ্যাক্টস ইঞ্জিন বাকিটা ঠিক করে ফেলবে!",
+  "new_product_title_pictures_details": "অনুগ্রহ করে নিচের ছবিগুলো তুলুন, Open Food Facts ইঞ্জিন বাকিটা ঠিক করে ফেলবে!",
   "new_product_title_misc": "এবং কিছু মৌলিক তথ্য…",
   "new_product_done_msg": "আপনার অবদানের জন্য ধন্যবাদ “{username}”!",
   "@new_product_done_msg": {
@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "ওপেন প্রাইস সম্পর্কে আরও জানুন",
+  "prices_menu_know_more": "Open Prices সম্পর্কে আরও জানুন",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4044,12 +4044,12 @@
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "ওপেন ফুড ফ্যাক্টসে স্বাগতম!",
+  "guide_open_food_facts_title": "Open Food Factsে স্বাগতম!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "ওপেন ফুড ফ্যাক্টস কী?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "ওপেন ফুড ফ্যাক্টস হল বিশ্বজুড়ে খাদ্য পণ্যের একটি **সহযোগী**, **বিনামূল্যে**, এবং **উন্মুক্ত** ডাটাবেস।",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts কী?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts হল বিশ্বজুড়ে খাদ্য পণ্যের একটি **সহযোগী**, **বিনামূল্যে**, এবং **উন্মুক্ত** ডাটাবেস।",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4057,7 +4057,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "ওপেন ফুড ফ্যাক্টসের বৈশিষ্ট্য",
+  "guide_open_food_facts_features_title": "Open Food Factsের বৈশিষ্ট্য",
   "guide_open_food_facts_features_arg1_title": "আপনার অবাঞ্ছিত উপাদানগুলির জন্য সতর্কতা পান",
   "guide_open_food_facts_tips_title": "দারুন ছবি তোলার টিপস",
   "guide_open_food_facts_tips_arg1_title": "কি করবেন না",
@@ -4075,12 +4075,12 @@
   "guide_open_food_facts_scores_arg2_title": "অতি-প্রক্রিয়াজাত খাবার এড়িয়ে চলার জন্য একটি স্কোর",
   "guide_open_food_facts_scores_arg3_title": "গ্রহের জন্য একটি স্কোর",
   "guide_open_food_facts_share_link": "https://world-bn.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "ওপেন পেট ফুড ফ্যাক্টস-এ স্বাগতম!",
+  "guide_open_pet_food_facts_title": "Open Pet Food Facts-এ স্বাগতম!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ওপেন পোষা প্রাণীর খাদ্যের তথ্য কী?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "ওপেন পেট ফুড ফ্যাক্টস আমাদের লক্ষ্যকে আমাদের পশমী বন্ধুদের কাছে প্রসারিত করে! এটি বিড়াল, কুকুর এবং অন্যান্য সঙ্গীদের জন্য পোষা প্রাণীর খাদ্য পণ্যের **ডাটাবেস**।",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Facts কী?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts আমাদের লক্ষ্যকে আমাদের পশমী বন্ধুদের কাছে প্রসারিত করে! এটি বিড়াল, কুকুর এবং অন্যান্য সঙ্গীদের জন্য পোষা প্রাণীর খাদ্য পণ্যের **ডাটাবেস**।",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4105,12 +4105,12 @@
   "guide_open_pet_food_facts_scores_title": "স্কোরিং সম্পর্কে একটি নোট",
   "guide_open_pet_food_facts_scores_paragraph1": "পোষা প্রাণীর খাবারের জন্য একটি স্কোরিং সিস্টেম তৈরি করা **এখনই অগ্রাধিকার নয়**। পদ্ধতিটি জটিল হবে, কারণ প্রজাতি, বয়স এবং স্বাস্থ্যগত অবস্থার উপর নির্ভর করে পুষ্টির চাহিদা ব্যাপকভাবে পরিবর্তিত হয়। আমরা এখনও পর্যন্ত এমন কোনও স্বাধীন বৈজ্ঞানিক দল খুঁজে পাইনি যা এই ধরণের স্কোর তৈরি করতে সক্ষম।",
   "guide_open_pet_food_facts_share_link": "https://world-bn.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "ওপেন বিউটি ফ্যাক্টসে স্বাগতম!",
+  "guide_open_beauty_facts_title": "Open Beauty Factsে স্বাগতম!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ওপেন বিউটি ফ্যাক্টস কী?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "ওপেন বিউটি ফ্যাক্টস হল **প্রসাধনী পণ্য** এর একটি সহযোগী ডাটাবেস।",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts কী?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts হল **প্রসাধনী পণ্য** এর একটি সহযোগী ডাটাবেস।",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4118,7 +4118,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "ওপেন বিউটি ফ্যাক্টসের বৈশিষ্ট্য",
+  "guide_open_beauty_facts_features_title": "Open Beauty Factsের বৈশিষ্ট্য",
   "guide_open_beauty_facts_features_arg1_title": "আপনার অবাঞ্ছিত উপাদানগুলির জন্য সতর্কতা পান",
   "guide_open_beauty_facts_features_arg1_paragraph1": "আপনার কি কোন উপাদানে অ্যালার্জি আছে? কমেডোজেন পদার্থ এড়াতে চান? বিতর্কিত উপাদান থেকে দূরে থাকতে চান? আপনি অ্যাপেই এড়িয়ে চলার জন্য প্রসাধনী উপাদানের একটি তালিকা সেট করতে পারেন!",
   "guide_open_beauty_facts_tips_title": "দারুন ছবি তোলার টিপস",
@@ -4137,12 +4137,12 @@
   "guide_open_beauty_facts_scores_title": "স্কোরিং সম্পর্কে একটি নোট",
   "guide_open_beauty_facts_scores_paragraph1": "খাদ্য পণ্যের বিপরীতে, প্রসাধনী জগতে **Nutri-Score** এর মতো সর্বজনীনভাবে স্বীকৃত, সরকার-সমর্থিত স্কোরিং সিস্টেম নেই। উপাদানের প্রভাব অত্যন্ত ব্যক্তিগত হতে পারে এবং ত্বকের ধরণ, অ্যালার্জি এবং ব্যক্তিগত উদ্বেগের উপর নির্ভর করে।",
   "guide_open_beauty_facts_share_link": "https://world-bn.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "ওপেন প্রাইসসে স্বাগতম!",
+  "guide_open_prices_title": "Open Pricesসে স্বাগতম!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ওপেন প্রাইস কী?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "ওপেন প্রাইস হল **বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার* একটি প্রকল্প। এটি একটি সর্বজনীনভাবে উপলব্ধ ডেটাসেট যা গবেষণা, বিশ্লেষণ এবং আরও অনেক কিছুর জন্য ব্যবহার করা যেতে পারে। ওপেন প্রাইসগুলি ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices কী?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices হল **বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার* একটি প্রকল্প। এটি একটি সর্বজনীনভাবে উপলব্ধ ডেটাসেট যা গবেষণা, বিশ্লেষণ এবং আরও অনেক কিছুর জন্য ব্যবহার করা যেতে পারে। Open Pricesগুলি Open Food Facts দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4150,8 +4150,8 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ওপেন প্রাইস কিভাবে কাজ করে?",
-  "guide_open_prices_how_paragraph1": "**আমরা দামের একটি ওপেন-সোর্স ডেটাসেট ক্রাউডসোর্স করছি**। ব্যবহারকারীরা এই ওয়েব অ্যাপের মাধ্যমে অথবা অফিসিয়াল ওপেন ফুড ফ্যাক্টস মোবাইল অ্যাপের মাধ্যমে দাম যোগ করতে পারবেন। খুচরা বিক্রেতারা বা তৃতীয় পক্ষের অ্যাপগুলিও আমাদের API ব্যবহার করে অবদান রাখতে পারে।",
+  "guide_open_prices_how_title": "Open Prices কিভাবে কাজ করে?",
+  "guide_open_prices_how_paragraph1": "**আমরা দামের একটি ওপেন-সোর্স ডেটাসেট ক্রাউডসোর্স করছি**। ব্যবহারকারীরা এই ওয়েব অ্যাপের মাধ্যমে অথবা অফিসিয়াল Open Food Facts মোবাইল অ্যাপের মাধ্যমে দাম যোগ করতে পারবেন। খুচরা বিক্রেতারা বা তৃতীয় পক্ষের অ্যাপগুলিও আমাদের API ব্যবহার করে অবদান রাখতে পারে।",
   "guide_open_prices_how_arg1_title": "আইলে মূল্য ট্যাগের ছবি সংগ্রহ করুন",
   "guide_open_prices_how_arg2_title": "রসিদের ছবি সংগ্রহ করুন",
   "guide_open_prices_why_title": "ওপেন ফুড ফ্যাক্টস কেন এটা করছে?",
@@ -4161,17 +4161,17 @@
   "guide_open_prices_why_arg2_title": "আপনার কাছাকাছি দামের তুলনা করুন",
   "guide_open_prices_why_arg2_text": "আমরা যত বেশি দাম পাবো, আপনি **আপনার আশেপাশের সবচেয়ে সস্তা দোকানগুলো** খুঁজে পেতে পারবেন।",
   "guide_open_prices_scrapping_title": "আপনি কি খুচরা বিক্রেতাদের ওয়েবসাইট থেকে দাম কমানোর কথা ভেবেছিলেন?",
-  "guide_open_prices_scrapping_paragraph1": "আইনি এবং প্রযুক্তিগত কারণে, **খুচরা বিক্রেতাদের ওয়েবসাইট থেকে মূল্য স্ক্র্যাপ করাকে আমরা ওপেন প্রাইস**-এ অবদান রাখার বৈধ উপায় হিসেবে বিবেচনা করি না। আমরা নিশ্চিত করতে চাই যে আমরা যে মূল্য সংগ্রহ করি তা সঠিক এবং হালনাগাদ, এবং অবদানকারীদের কাছ থেকে মূল্য স্ক্র্যাপ করা আমাদের তা করার অনুমতি দেয় না।",
-  "guide_open_prices_scrapping_paragraph2": "ওপেন প্রাইসের ভবিষ্যতের সংস্করণে মূল্য স্ক্র্যাপিং একটি বিবেচিত বিকল্প, তবে এটি ওপেন প্রাইস নিজেই করবে যাতে আমরা HTML পৃষ্ঠার উপর ভিত্তি করে মূল্যের প্রমাণ পেতে পারি।",
+  "guide_open_prices_scrapping_paragraph1": "আইনি এবং প্রযুক্তিগত কারণে, **খুচরা বিক্রেতাদের ওয়েবসাইট থেকে মূল্য স্ক্র্যাপ করাকে আমরা Open Prices**-এ অবদান রাখার বৈধ উপায় হিসেবে বিবেচনা করি না। আমরা নিশ্চিত করতে চাই যে আমরা যে মূল্য সংগ্রহ করি তা সঠিক এবং হালনাগাদ, এবং অবদানকারীদের কাছ থেকে মূল্য স্ক্র্যাপ করা আমাদের তা করার অনুমতি দেয় না।",
+  "guide_open_prices_scrapping_paragraph2": "Open Pricesের ভবিষ্যতের সংস্করণে মূল্য স্ক্র্যাপিং একটি বিবেচিত বিকল্প, তবে এটি Open Prices নিজেই করবে যাতে আমরা HTML পৃষ্ঠার উপর ভিত্তি করে মূল্যের প্রমাণ পেতে পারি।",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "আপনি আমাদের API ব্যবহার করে মূল্য অবদান রাখতে পারেন।\nআপনি যদি স্কেলে মূল্য অবদান রাখতে চান, তাহলে অনুগ্রহ করে prices@openfoodfacts.org ঠিকানায় আমাদের সাথে যোগাযোগ করুন।",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "ওপেন প্রোডাক্টস ফ্যাক্টসে স্বাগতম!",
+  "guide_open_products_facts_title": "Open Products Factsে স্বাগতম!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "ওপেন প্রোডাক্টস ফ্যাক্টস কী?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "ওপেন প্রোডাক্টস ফ্যাক্টস হল **বারকোডযুক্ত যেকোনো পণ্যের জন্য একটি বিশাল, উন্মুক্ত ডাটাবেস, যা খাদ্য, প্রসাধনী বা পোষা প্রাণীর খাবার নয়**।",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Open Products Facts কী?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts হল **বারকোডযুক্ত যেকোনো পণ্যের জন্য একটি বিশাল, উন্মুক্ত ডাটাবেস, যা খাদ্য, প্রসাধনী বা পোষা প্রাণীর খাবার নয়**।",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4180,7 +4180,7 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_products_facts_features_title": "ওপেন প্রোডাক্ট ফ্যাক্টসের বৈশিষ্ট্য",
-  "guide_open_products_facts_features_text": "ওপেন প্রোডাক্টস ফ্যাক্টস-এর লক্ষ্য হল ভোক্তাদের তাদের বস্তুর রক্ষণাবেক্ষণ, **মেরামত**, **পুনর্ব্যবহার** অথবা তাদের একজন নতুন মালিক দেওয়ার জন্য বৃত্তাকার সমাধান প্রদানের মাধ্যমে **বস্তুর আয়ু** বৃদ্ধি করা।",
+  "guide_open_products_facts_features_text": "Open Products Facts-এর লক্ষ্য হল ভোক্তাদের তাদের বস্তুর রক্ষণাবেক্ষণ, **মেরামত**, **পুনর্ব্যবহার** অথবা তাদের একজন নতুন মালিক দেওয়ার জন্য বৃত্তাকার সমাধান প্রদানের মাধ্যমে **বস্তুর আয়ু** বৃদ্ধি করা।",
   "guide_open_products_facts_features_arg1_title": "কিছু পণ্যের জন্য কার্বন পদচিহ্ন",
   "guide_open_products_facts_features_arg1_text": "**ফরাসি পরিবেশ কর্তৃপক্ষ কর্তৃক CO2 এর প্রভাব**। ADEME অনেক বিভাগের **কার্বন প্রভাব** প্রদান করে, পণ্যগুলিকে সুনির্দিষ্টভাবে শ্রেণীবদ্ধ করতে ভুলবেন না।",
   "guide_open_products_facts_features_arg2_title": "অনেক পণ্যের জন্য মেরামতযোগ্যতা সূচক",
@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "ওপেন ফুড ফ্যাক্টস প্রকল্প",
+  "preferences_card_project": "Open Food Facts প্রকল্প",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },

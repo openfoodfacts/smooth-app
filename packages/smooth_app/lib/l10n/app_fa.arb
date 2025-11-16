@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "پروژه حقایق غذایی آزاد",
+  "preferences_card_project": "پروژه Open Food Facts",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -5124,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "سازمان مردم نهاد حقایق غذایی آزاد",
+  "preferences_faq_off_ngo_title": "سازمان مردم نهاد Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5572,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "آزمایشگاه‌های حقایق غذایی آزاد",
+  "preferences_page_open_food_facts_labs_title": "آزمایشگاه‌های Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "«Բաց սննդի փաստեր» նախագիծը",
+  "preferences_card_project": "«Open Food Facts» նախագիծը",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -4927,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Բաց սննդի փաստերը սննդամթերքի տվյալների շտեմարան է, **ստեղծված բոլորի կողմից, բոլորի համար**:\nԴուք կարող եք օգտագործել այն՝ սննդի ավելի լավ ընտրություն կատարելու համար, և քանի որ դա **բաց տվյալ** է, յուրաքանչյուրը կարող է **վերաօգտագործել այն ցանկացած նպատակով**:",
+  "preferences_legal_header": "Open Food Factsը սննդամթերքի տվյալների շտեմարան է, **ստեղծված բոլորի կողմից, բոլորի համար**:\nԴուք կարող եք օգտագործել այն՝ սննդի ավելի լավ ընտրություն կատարելու համար, և քանի որ դա **բաց տվյալ** է, յուրաքանչյուրը կարող է **վերաօգտագործել այն ցանկացած նպատակով**:",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5124,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "«Բաց սննդի փաստեր» ՀԿ",
+  "preferences_faq_off_ngo_title": "«Open Food Facts» ՀԿ",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Բաց սննդի փաստերի բլոգ",
+  "preferences_connect_blog_title": "Open Food Factsի բլոգ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5572,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Բաց սննդի փաստերի լաբորատորիաներ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Factsի լաբորատորիաներ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
