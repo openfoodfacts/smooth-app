@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Type of "search products" action.
@@ -51,10 +53,43 @@ class SearchProductsManager {
     required final SearchProductsType type,
   }) async {
     await type.waitIfNeeded();
-    return OpenFoodAPIClient.searchProducts(
-      user,
-      configuration,
-      uriHelper: uriHelper,
-    );
+
+    // It's better to do the HTTP actions outside of "compute", because
+    // there are init phases for HTTP (like user agent and SSL certificates)
+    // that would need to be somehow replicated for a new "compute thread".
+    // Besides, putting HTTP in "compute" wouldn't improve the performances.
+    final Response response = await configuration.getResponse(user, uriHelper);
+    TooManyRequestsException.check(response);
+
+    final SearchResult result = await compute(_decodeProducts, response.body);
+    _removeImages(result, configuration);
+    return result;
+  }
+
+  static Future<SearchResult> _decodeProducts(
+    final String responseBody,
+  ) async => SearchResult.fromJson(
+    HttpHelper().jsonDecode(_replaceQuotes(responseBody)),
+  );
+
+  // TODO(monsieurtanuki): somehow move to/make public in off-dart
+  static String _replaceQuotes(String str) {
+    const String needle = '&quot;';
+    if (!str.contains(needle)) {
+      return str;
+    }
+    return str.replaceAll(needle, r'\"');
+  }
+
+  // TODO(monsieurtanuki): somehow move to/make public in off-dart
+  static void _removeImages(
+    final SearchResult searchResult,
+    final AbstractQueryConfiguration configuration,
+  ) {
+    if (searchResult.products != null) {
+      searchResult.products!.asMap().forEach((int index, Product product) {
+        ProductHelper.removeImages(product, configuration.language);
+      });
+    }
   }
 }

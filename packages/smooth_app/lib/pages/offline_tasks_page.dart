@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -26,6 +27,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    final DaoInt daoInt = DaoInt(localDatabase);
     final Map<String, BackgroundTaskQueue> queues =
         <String, BackgroundTaskQueue>{};
     final List<String> taskIds = <String>[];
@@ -59,6 +61,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   BackgroundTaskManager.taskIdToErrorDaoInstantStringKey(
                     taskId,
                   ),
+                );
+                final int? failureCount = daoInt.get(
+                  BackgroundTaskManager.taskIdToCountDaoIntKey(taskId),
                 );
                 final String barcode = OperationType.getBarcode(taskId);
                 final int? totalSize = OperationType.getTotalSize(taskId);
@@ -104,10 +109,15 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       ).removeTaskAsap(taskId);
                     }
                   },
-                  title: Text(
-                    '$info'
-                    '(${OperationType.getOperationType(taskId)?.getLabel(appLocalizations) ?? appLocalizations.background_task_operation_unknown})'
-                    '${productType == null ? '' : ' ($productType)'}',
+                  title: Badge(
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    label: failureCount == null ? null : Text('$failureCount'),
+                    child: Text(
+                      '$info'
+                      '(${OperationType.getOperationType(taskId)?.getLabel(appLocalizations) ?? appLocalizations.background_task_operation_unknown})'
+                      '${productType == null ? '' : ' ($productType)'}',
+                    ),
                   ),
                   subtitle: Text(_getMessage(status, appLocalizations)),
                   trailing: const Icon(Icons.clear),

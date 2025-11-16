@@ -139,8 +139,8 @@ class _ProductFooterButtonsBar extends StatelessWidget {
       child: OutlinedButtonTheme(
         data: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
             ),
             side: BorderSide(color: themeExtension.greyMedium),
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 19.0),

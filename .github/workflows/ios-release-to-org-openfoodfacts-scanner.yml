@@ -42,10 +42,6 @@ jobs:
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: macos-26
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
-
       - name: Checkout sources
         uses: actions/checkout@v5
 
@@ -88,7 +84,7 @@ jobs:
         run: chmod +x ci/dependencies/app_store/enable_apple_app_store_dependency.sh && ci/dependencies/app_store/enable_apple_app_store_dependency.sh
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
       
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
@@ -108,6 +104,9 @@ jobs:
         env:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
+
+      - name: Enable Rive dependency
+        run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
 
       - name: Build app
         run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm -f Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart

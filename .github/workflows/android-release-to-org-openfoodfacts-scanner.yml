@@ -107,7 +107,7 @@ jobs:
         run: chmod +x ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh && ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
 
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly

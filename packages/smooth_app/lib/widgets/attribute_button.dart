@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -46,19 +47,17 @@ class _AttributeButtonState extends State<AttributeButton> {
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = widget.attribute.settingNote;
     final List<Widget> children = <Widget>[];
-    final SmoothColorsThemeExtension extension = context
+    final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
+
     if (!editMode) {
       children.add(
         InkWell(
-          onTap: () async => widget.productPreferences.setImportance(
-            widget.attribute.id!,
-            currentImportanceId,
-          ),
+          onTap: () => setState(() => editMode = !editMode),
           child: ListTile(
             tileColor: context.lightTheme()
                 ? Colors.white
-                : extension.primaryMedium,
+                : theme.primaryMedium,
             shape: widget.isLast
                 ? const RoundedRectangleBorder(
                     borderRadius: BorderRadiusDirectional.vertical(
@@ -66,10 +65,13 @@ class _AttributeButtonState extends State<AttributeButton> {
                     ),
                   )
                 : null,
-            leading: Icon(
-              Icons.radio_button_checked,
-              color: extension.primaryBlack,
-              size: 32.0,
+            leading: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 5.0, end: 2.0),
+              child: Icon(
+                Icons.radio_button_checked,
+                color: theme.primaryBlack,
+                size: 24.0,
+              ),
             ),
             title: AutoSizeText(
               widget.productPreferences
@@ -80,14 +82,7 @@ class _AttributeButtonState extends State<AttributeButton> {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            trailing: GestureDetector(
-              child: Icon(
-                Icons.edit,
-                size: DEFAULT_ICON_SIZE,
-                color: extension.primaryBlack,
-              ),
-              onTap: () => setState(() => editMode = !editMode),
-            ),
+            trailing: icons.Edit(size: 18.0, color: theme.primaryBlack),
           ),
         ),
       );
@@ -103,19 +98,30 @@ class _AttributeButtonState extends State<AttributeButton> {
               );
             },
             child: ListTile(
-              tileColor: Theme.of(context).colorScheme.surface,
-              leading: Icon(
-                currentImportanceId == importanceId
-                    ? Icons.radio_button_checked
-                    : Icons.radio_button_off,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 32,
+              tileColor: context.lightTheme()
+                  ? Colors.white
+                  : theme.primaryMedium,
+              leading: Padding(
+                padding: const EdgeInsetsDirectional.only(start: 5.0, end: 2.0),
+                child: Icon(
+                  currentImportanceId == importanceId
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_off,
+                  color: theme.primaryBlack,
+                  size: 24.0,
+                ),
               ),
               title: AutoSizeText(
                 widget.productPreferences
                     .getPreferenceImportanceFromImportanceId(importanceId)!
                     .name!,
                 maxLines: 2,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: currentImportanceId == importanceId
+                      ? FontWeight.w600
+                      : null,
+                ),
               ),
             ),
           ),
@@ -140,16 +146,15 @@ class _AttributeButtonState extends State<AttributeButton> {
             isFoodPreferences: true,
           ),
           tileColor: context.lightTheme()
-              ? extension.primaryMedium
-              : extension.primaryDark,
+              ? theme.primaryMedium
+              : theme.primaryDark,
           trailing: info == null
               ? null
-              : Icon(
-                  Icons.help_outline,
-                  size: DEFAULT_ICON_SIZE,
+              : icons.Help(
+                  size: 22.0,
                   color: context.lightTheme()
-                      ? extension.primaryBlack
-                      : extension.primaryLight,
+                      ? theme.primaryBlack
+                      : theme.primaryLight,
                 ),
           title: AutoSizeText(
             widget.attribute.settingName ?? widget.attribute.name!,
@@ -157,8 +162,8 @@ class _AttributeButtonState extends State<AttributeButton> {
             style: style.copyWith(
               fontWeight: FontWeight.bold,
               color: context.lightTheme()
-                  ? extension.primaryUltraBlack
-                  : extension.primaryLight,
+                  ? theme.primaryUltraBlack
+                  : theme.primaryLight,
             ),
           ),
           onTap: info == null

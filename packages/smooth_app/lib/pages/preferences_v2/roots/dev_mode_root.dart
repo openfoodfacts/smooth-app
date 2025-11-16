@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/locations/osm_location.dart';
-import 'package:smooth_app/pages/locations/search_location_helper.dart';
-import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -23,13 +17,11 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/value_edition_preference_tile.dart';
-import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class DevModeRoot extends PreferencesRoot {
-  DevModeRoot({required super.title});
-
-  final TextEditingController _textFieldController = TextEditingController();
+  const DevModeRoot({required super.title});
 
   @override
   List<PreferenceCard> getCards(BuildContext context) {
@@ -40,7 +32,7 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_dev_mode_app_settings_title,
         tiles: <PreferenceTile>[
-          _buildResetLanguageTile(context, userPreferences),
+          _buildResetLanguageTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -54,7 +46,7 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_dev_mode_demo_mode_title,
         tiles: <PreferenceTile>[
-          _buildAddCardsTile(context),
+          _buildAddCardsTile(context, appLocalizations),
           _buildResetOnboardingTile(context, appLocalizations, userPreferences),
         ],
       ),
@@ -86,7 +78,6 @@ class DevModeRoot extends PreferencesRoot {
         title: appLocalizations.dev_mode_section_product_page,
         tiles: <PreferenceTile>[
           _buildEditIngredientsTile(context, appLocalizations, userPreferences),
-          _buildShowFolksonomyTile(context, appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -106,7 +97,7 @@ class DevModeRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Open Prices',
+        title: 'Open Prices',
         tiles: <PreferenceTile>[
           _buildBulkProofUploadTile(appLocalizations, userPreferences),
           _buildMultiProductsSelectionTile(
@@ -114,8 +105,6 @@ class DevModeRoot extends PreferencesRoot {
             appLocalizations,
             userPreferences,
           ),
-          _buildUserOrderedKpTile(context, appLocalizations, userPreferences),
-          _buildLocationSearchTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -145,9 +134,13 @@ class DevModeRoot extends PreferencesRoot {
   );
 
   // Demo Mode section methods
-  PreferenceTile _buildAddCardsTile(BuildContext context) {
+  PreferenceTile _buildAddCardsTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
     return PreferenceTile(
-      title: 'Add cards',
+      title: appLocalizations.dev_mode_add_demo_cards_language_title,
+      icon: const icons.Cards(),
       onTap: () async {
         final ContinuousScanModel model = context.read<ContinuousScanModel>();
 
@@ -170,6 +163,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return PreferenceTile(
       title: appLocalizations.dev_preferences_reset_onboarding_title,
+      icon: const icons.Flag.checked(),
       onTap: () async {
         await userPreferences.resetOnboarding();
       },
@@ -183,6 +177,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return PreferenceTile(
       title: appLocalizations.dev_preferences_environment_switch_title,
+      icon: const icons.Search.database(),
       trailing: DropdownButton<bool>(
         value:
             userPreferences.getFlag(
@@ -210,16 +205,20 @@ class DevModeRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
     UserPreferences userPreferences,
   ) {
-    return PreferenceTile(
-      icon: const Icon(Icons.temple_buddhist),
+    return ValueEditionPreferenceTile(
       title: appLocalizations.dev_preferences_test_environment_title,
-      subtitleText: appLocalizations.dev_preferences_test_environment_subtitle(
+      dialogAction: appLocalizations.dev_preferences_test_environment_subtitle(
         ProductQuery.getTestUriProductHelper(
           userPreferences,
         ).getPostUri(path: '').toString(),
       ),
-      onTap: () async =>
-          _changeTestEnvDomain(context, userPreferences, appLocalizations),
+      onNewValue: (String newServer) async {
+        await userPreferences.setDevModeString(
+          UserPreferencesDevMode.userPreferencesTestEnvDomain,
+          newServer,
+        );
+        ProductQuery.setQueryType(userPreferences);
+      },
     );
   }
 
@@ -228,7 +227,8 @@ class DevModeRoot extends PreferencesRoot {
     UserPreferences userPreferences,
   ) {
     return PreferenceTile(
-      title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
+      title: appLocalizations.dev_mode_openprices_switch_env_title,
+      icon: const icons.Search.database(),
       trailing: DropdownButton<bool>(
         value:
             userPreferences.getFlag(
@@ -256,11 +256,23 @@ class DevModeRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
     UserPreferences userPreferences,
   ) {
-    return PreferenceTile(
+    return ValueEditionPreferenceTile(
       title: appLocalizations.preferences_dev_mode_folksonomy_host_title,
-      subtitleText: ProductQuery.uriFolksonomyHelper.host,
-      onTap: () async =>
-          _changeFolksonomyHost(context, userPreferences, appLocalizations),
+      icon: const icons.Search.database(),
+      dialogAction: appLocalizations
+          .preferences_dev_mode_folksonomy_host_subtitle(
+            userPreferences.getDevModeString(
+                  UserPreferencesDevMode.userPreferencesFolksonomyHost,
+                ) ??
+                '-',
+          ),
+      onNewValue: (String host) async {
+        await userPreferences.setDevModeString(
+          UserPreferencesDevMode.userPreferencesFolksonomyHost,
+          host,
+        );
+        ProductQuery.setQueryType(userPreferences);
+      },
     );
   }
 
@@ -273,6 +285,7 @@ class DevModeRoot extends PreferencesRoot {
       title: appLocalizations.dev_preferences_news_custom_url_title,
       subtitleWithEmptyValue:
           appLocalizations.dev_preferences_news_custom_url_empty_value,
+      icon: const icons.News.paper(),
       dialogAction: appLocalizations.dev_preferences_news_custom_url_subtitle,
       value: userPreferences.getDevModeString(
         UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
@@ -294,7 +307,7 @@ class DevModeRoot extends PreferencesRoot {
       subtitle: Consumer<AppNewsProvider>(
         builder: (_, AppNewsProvider provider, _) {
           return Text(switch (provider.state) {
-            AppNewsStateLoading() => 'Loading…',
+            AppNewsStateLoading() => appLocalizations.loading,
             AppNewsStateLoaded(lastUpdate: final DateTime date) =>
               appLocalizations.dev_preferences_news_provider_status_subtitle(
                 DateFormat.yMd().format(date),
@@ -303,8 +316,9 @@ class DevModeRoot extends PreferencesRoot {
           });
         },
       ),
+      icon: const icons.Status(),
       trailing: IconButton(
-        icon: const Icon(Icons.refresh),
+        icon: const icons.Reload(),
         onPressed: () =>
             context.read<AppNewsProvider>().loadLatestNews(forceUpdate: true),
       ),
@@ -319,6 +333,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.dev_preferences_edit_ingredients_title,
+      icon: const icons.Ingredients(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagEditIngredients,
@@ -339,33 +354,6 @@ class DevModeRoot extends PreferencesRoot {
     );
   }
 
-  TogglePreferenceTile _buildShowFolksonomyTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      title: appLocalizations.preferences_dev_preferences_show_folksonomy_title,
-      state:
-          userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-          ) ??
-          true,
-      onToggle: (bool value) async {
-        await userPreferences.setFlag(
-          UserPreferencesDevMode.userPreferencesFlagHideFolksonomy,
-          value,
-        );
-
-        if (!context.mounted) {
-          return;
-        }
-
-        _showSuccessMessage(context, appLocalizations);
-      },
-    );
-  }
-
   // Accessibility section methods
   TogglePreferenceTile _buildAccessibilityNoColorTile(
     BuildContext context,
@@ -374,6 +362,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_accessibility_remove_colors,
+      icon: const icons.Eye.visuallyImpaired(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
@@ -401,6 +390,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_accessibility_show_emoji,
+      icon: const icons.Milk.happy(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
@@ -428,6 +418,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.prices_bulk_proof_upload_title,
+      icon: const icons.Upload.bulk(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagBulkProofUpload,
@@ -448,6 +439,7 @@ class DevModeRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title:
           appLocalizations.preferences_dev_mode_multi_products_selection_title,
+      icon: const icons.CheckList.twoLines(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode
@@ -469,83 +461,6 @@ class DevModeRoot extends PreferencesRoot {
     );
   }
 
-  TogglePreferenceTile _buildUserOrderedKpTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      title: appLocalizations.preferences_dev_mode_user_ordered_kp_title,
-      state:
-          userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
-          ) ??
-          false,
-      onToggle: (bool value) async {
-        await userPreferences.setFlag(
-          UserPreferencesDevMode.userPreferencesFlagUserOrderedKP,
-          value,
-        );
-
-        if (!context.mounted) {
-          return;
-        }
-
-        _showSuccessMessage(context, appLocalizations);
-      },
-    );
-  }
-
-  PreferenceTile _buildLocationSearchTile(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    return PreferenceTile(
-      title: appLocalizations.preferences_dev_mode_location_search_title,
-      onTap: () async {
-        final LocalDatabase localDatabase = context.read<LocalDatabase>();
-        final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
-        final List<OsmLocation> osmLocations = await daoOsmLocation.getAll();
-        if (!context.mounted) {
-          return;
-        }
-        final List<SearchLocationPreloadedItem> preloadedList =
-            <SearchLocationPreloadedItem>[];
-        for (final OsmLocation osmLocation in osmLocations) {
-          preloadedList.add(
-            SearchLocationPreloadedItem(osmLocation, popFirst: false),
-          );
-        }
-        final OsmLocation? osmLocation = await Navigator.push<OsmLocation>(
-          context,
-          MaterialPageRoute<OsmLocation>(
-            builder: (BuildContext context) => SearchPage(
-              SearchLocationHelper(),
-              preloadedList: preloadedList,
-              autofocus: false,
-            ),
-          ),
-        );
-        if (osmLocation == null) {
-          return;
-        }
-        await daoOsmLocation.put(osmLocation);
-        if (!context.mounted) {
-          return;
-        }
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              osmLocation.getTitle() ??
-                  osmLocation.getSubtitle() ??
-                  osmLocation.getLatLng().toString(),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
   // Experimental Features section methods
   TogglePreferenceTile _buildSpellCheckerOcrTile(
     AppLocalizations appLocalizations,
@@ -554,6 +469,7 @@ class DevModeRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
       subtitleText: appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
+      icon: const icons.SpellChecker(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr,
@@ -573,6 +489,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_mode_comparison_title,
+      icon: const icons.Compare.alt(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
@@ -600,6 +517,7 @@ class DevModeRoot extends PreferencesRoot {
   ) {
     return TogglePreferenceTile(
       title: appLocalizations.preferences_dev_mode_product_list_import_title,
+      icon: const icons.Import(),
       state:
           userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagProductListImport,
@@ -620,77 +538,15 @@ class DevModeRoot extends PreferencesRoot {
     );
   }
 
-  Future<void> _changeTestEnvDomain(
-    BuildContext context,
-    UserPreferences userPreferences,
-    AppLocalizations appLocalizations,
-  ) async {
-    _textFieldController.text =
-        userPreferences.getDevModeString(
-          UserPreferencesDevMode.userPreferencesTestEnvDomain,
-        ) ??
-        uriHelperFoodTest.domain;
-    final bool? result = await showDialog<bool>(
-      context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.dev_preferences_test_environment_dialog_title,
-        body: TextField(controller: _textFieldController),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.pop(context, false),
-        ),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.pop(context, true),
-        ),
-      ),
-    );
-    if (result == true) {
-      await userPreferences.setDevModeString(
-        UserPreferencesDevMode.userPreferencesTestEnvDomain,
-        _textFieldController.text,
-      );
-      ProductQuery.setQueryType(userPreferences);
-    }
-  }
-
-  Future<void> _changeFolksonomyHost(
-    BuildContext context,
-    UserPreferences userPreferences,
-    AppLocalizations appLocalizations,
-  ) async {
-    _textFieldController.text = ProductQuery.uriFolksonomyHelper.host;
-    final String? result = await showDialog<String>(
-      context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
-        title: 'Folksonomy host',
-        body: TextField(controller: _textFieldController),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.pop(context),
-        ),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.pop(context, _textFieldController.text),
-        ),
-      ),
-    );
-    if (result != null) {
-      await userPreferences.setDevModeString(
-        UserPreferencesDevMode.userPreferencesFolksonomyHost,
-        result,
-      );
-      ProductQuery.setQueryType(userPreferences);
-    }
-  }
-
   // App Settings section
   PreferenceTile _buildResetLanguageTile(
     BuildContext context,
+    AppLocalizations appLocalizations,
     UserPreferences userPreferences,
   ) {
     return PreferenceTile(
-      title: 'Reset app language',
+      title: appLocalizations.dev_mode_reset_app_language_title,
+      icon: const icons.Reset(),
       onTap: () async {
         userPreferences.setAppLanguageCode(null);
         ProductQuery.setLanguage(context, userPreferences);
@@ -706,9 +562,7 @@ class DevModeRoot extends PreferencesRoot {
     return PreferenceTile(
       title: appLocalizations.background_task_title,
       subtitleText: appLocalizations.background_task_subtitle,
-      trailing: const BackgroundTaskBadge(
-        child: Icon(Icons.edit_notifications_outlined),
-      ),
+      icon: const BackgroundTaskBadge(child: icons.HourGlass()),
       onTap: () async => Navigator.push<void>(
         context,
         MaterialPageRoute<void>(
@@ -725,6 +579,7 @@ class DevModeRoot extends PreferencesRoot {
     return PreferenceTile(
       title: appLocalizations.offline_data,
       subtitleText: appLocalizations.preferences_dev_mode_offline_data_subtitle,
+      icon: const icons.Offline(),
       onTap: () => Navigator.push<void>(
         context,
         MaterialPageRoute<void>(
@@ -742,7 +597,7 @@ class DevModeRoot extends PreferencesRoot {
       title: appLocalizations.preferences_dev_mode_refresh_products_title,
       subtitleText:
           appLocalizations.preferences_dev_mode_refresh_products_subtitle,
-      trailing: const Icon(Icons.refresh),
+      icon: const icons.Reset.reinit(),
       onTap: () async {
         final LocalDatabase localDatabase = context.read<LocalDatabase>();
         final DaoProduct daoProduct = DaoProduct(localDatabase);

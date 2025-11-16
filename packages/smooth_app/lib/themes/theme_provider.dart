@@ -89,4 +89,61 @@ extension ThemeProviderExtension on BuildContext {
 
   bool darkTheme({bool listen = true}) =>
       Provider.of<ThemeProvider>(this, listen: listen).isDarkMode(this);
+
+  T themeValue<T>({
+    required T light,
+    required T dark,
+    T? amoled,
+    bool listen = true,
+  }) {
+    final ThemeProvider themeProvider = Provider.of<ThemeProvider>(
+      this,
+      listen: listen,
+    );
+
+    if (themeProvider.currentTheme == THEME_LIGHT) {
+      return light;
+    } else if (themeProvider.currentTheme == THEME_AMOLED) {
+      if (amoled != null) {
+        return amoled;
+      } else {
+        return dark;
+      }
+    } else if (themeProvider.currentTheme == THEME_DARK) {
+      return dark;
+    } else {
+      if (lightTheme(listen: false)) {
+        return light;
+      } else {
+        if (amoled != null && themeProvider.isAmoledTheme) {
+          return amoled;
+        }
+        return dark;
+      }
+    }
+  }
+
+  Color colorThemeValue({
+    required Color light,
+    required Color dark,
+    Color? amoled,
+    bool listen = true,
+  }) => themeValue<Color>(
+    light: light,
+    dark: dark,
+    amoled: amoled,
+    listen: listen,
+  );
+
+  Color? nullableColorThemeValue({
+    required Color? light,
+    required Color? dark,
+    Color? amoled,
+    bool listen = true,
+  }) => themeValue<Color?>(
+    light: light,
+    dark: dark,
+    amoled: amoled,
+    listen: listen,
+  );
 }

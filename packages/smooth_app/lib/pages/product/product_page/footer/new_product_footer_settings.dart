@@ -322,7 +322,7 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.openWebsite => const icons.ExternalLink(),
       ProductFooterActionBar.report => const icons.Flag(),
       ProductFooterActionBar.contributionGuide => const icons.Lifebuoy(),
-      ProductFooterActionBar.dataQuality => const icons.CheckList(),
+      ProductFooterActionBar.dataQuality => const icons.CheckList.document(),
       ProductFooterActionBar.addProperty => const icons.AddProperty.alt(),
       ProductFooterActionBar.settings => throw Exception(
         'This item should not be displayed',

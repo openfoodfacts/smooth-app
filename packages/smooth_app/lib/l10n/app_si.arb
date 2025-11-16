@@ -1,5 +1,5 @@
 {
-  "app_name": "විවෘත ආහාර පිළිබඳ කරුණු",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "මුරපදය අමතක වුණා ද?",
   "view_profile": "View profile",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "නිෂ්පාදනයක්,\nවෙළඳ නාමයක් හෝ තීරු කේතයක් සොයන්න",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "සෙවුම් පෙරහන",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "සෙවුම් ඉතිහාසය",
   "search_store": "Search for a store",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "ඉඟිය: නගරය හෝ රට එක් කරන්න",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -1010,15 +1024,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "දේපළ නැත",
+  "product_tags_explanation": "නිෂ්පාදනයකට ගුණාංග (යතුර/අගය) එකතු කිරීමෙන්, ඔබ එය පොහොසත් කිරීමට උපකාරී වේ.",
   "add_tag": "Add property",
   "add_tags": "Add properties",
   "add_edit_tags": "Add or edit properties",
   "edit_tag": "Edit property",
   "remove_tag": "Remove property",
   "tag_key": "Property",
+  "tag_keys": "දේපළ",
   "tag_key_uneditable": "Property (uneditable)",
   "tag_key_input_hint": "Input a property",
   "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -1367,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "කණගාටුයි, එය අපගේ උදාහරණ නිෂ්පාදනයයි, ඔබට එය සංස්කරණය කළ නොහැක :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Your ranking",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1397,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "පැත්තෙන් පැත්තෙන් සංසන්දනය කරන්න",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2389,6 +2412,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "තවමත් මිලක් නැත!",
+  "prices_list_empty_subtitle": "**රිසිට්පතක්** හෝ **මිල ටැගයක්** ස්කෑන් කිරීමෙන්\nඑකක් එකතු කරන පළමු පුද්ගලයා වන්න!",
   "prices_entry_shop_not_found": "නොදන්නා වෙළඳසැල",
   "prices_entry_menu_title": "\"{user}\" සිට මිල ඇතුළත් කිරීම",
   "@prices_entry_menu_title": {
@@ -2489,6 +2514,8 @@
       }
     }
   },
+  "prices_users_empty_title": "තවම දායකයෙක් නැත!",
+  "prices_users_empty_explanation": "මිලක් එකතු කරන පළමුවැන්නා වන්න!",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2528,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "තාම කඩයක් නෑ!",
+  "prices_locations_empty_explanation": "මිලක් එකතු කරන පළමුවැන්නා වන්න!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,7 +2594,10 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "Proof",
+  "prices_proof_empty_title": "තවම සාක්ෂි නැහැ!",
+  "prices_proof_empty_explanation": "**රිසිට්පතක** ඡායාරූපයක් හෝ **මිල ටැගයක්** එක් කිරීමෙන් ආරම්භ කරන්න!",
   "prices_proof_find": "Select a proof",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Receipt",
   "prices_proof_price_tag": "Price tag",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2612,6 +2644,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Done",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2633,9 +2669,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "යෙදුම් භාෂාව නැවත සකසන්න",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "කාඩ්පත් එකතු කරන්න",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "prices.openfoodfacts.org (PROD) සහ test env අතර මාරු වන්න",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Reuse and edit this search",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
@@ -2695,6 +2747,15 @@
   "user_search_proof_title": "My proof",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "දායක මිල ගණන්: {user}",
   "@user_any_search_prices_title": {
@@ -3217,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3786,13 +3842,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "හරිත-ලකුණු A",
-  "environmental_score_b_new": "හරිත-ලකුණු B",
-  "environmental_score_c_new": "හරිත-ලකුණු C",
-  "environmental_score_d_new": "හරිත-ලකුණු D",
-  "environmental_score_e_new": "හරිත-ලකුණු E",
-  "environmental_score_unknown_new": "නොදන්නා හරිත-ලකුණු",
-  "environmental_score_not_applicable_new": "හරිත-ලකුණු අදාළ නොවේ.",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "නොදන්නා Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score අදාළ නොවේ.",
   "nova_group_generic_new": "අතිශයින් සැකසූ ආහාර - NOVA කණ්ඩායම්",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3891,7 +3947,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "හරිත ලකුණු යනු කුමක්ද?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "හරිත ලකුණු යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3899,7 +3955,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "හරිත ලකුණු ලාංඡන",
+  "guide_greenscore_logos_caption": "Green-Score ලාංඡන",
   "guide_greenscore_lca_title": "මූලික කරුණ: ජීවන චක්‍ර තක්සේරුව (LCA)",
   "guide_greenscore_lca_arg1_title": "ආහාර කාණ්ඩ පිළිබඳ විද්‍යාත්මක ඇගයීමක්",
   "guide_greenscore_lca_arg1_text1": "සෑම නිෂ්පාදන කාණ්ඩයක් සඳහාම, Agribalyse පාරිසරික දත්ත සමුදායේ දත්ත (ADEME සහ INRAE විසින් නිර්මාණය කරන ලද) භාවිතා කරමින් **මිණුම් ලකුණ** ලකුණු ස්ථාපිත කෙරේ.",
@@ -3922,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "සමුද්‍ර සහ මිරිදිය (අංශු, ආම්ලිකකරණය, යුට්‍රොෆිකේෂන්)",
   "guide_greenscore_lca_arg3_text8": "සම්පත් ක්ෂය වීම.",
   "guide_greenscore_bonuses_penalties_title": "බෝනස් සහ දඬුවම්",
-  "guide_greenscore_bonuses_penalties_intro": "කාණ්ඩයක් තුළ වඩා හොඳ නිෂ්පාදන සඳහා ප්‍රතිලාභ ලබා දීම සඳහා, අපි නිර්ණායක කිහිපයක් මත පදනම්ව ප්‍රසාද දීමනා සහ දඬුවම් යොදන්නෙමු:",
+  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Origin of ingredients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "අමුද්‍රව්‍යවල මූලාරම්භය මත පදනම්ව ප්‍රසාද දීමනාවක් ප්‍රදානය කෙරේ. මෙම ප්‍රසාද දීමනාව ප්‍රවාහනයට ඇති බලපෑම සහ එක් එක් නිෂ්පාදකයාගේ රටේ පාරිසරික ප්‍රතිපත්තිය ද සැලකිල්ලට ගනී.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "හරිත-ලකුණු නිවැරදිව ගණනය කිරීම සඳහා, ඇසුරුම්කරණයේ අනිවාර්යයෙන්ම නිශ්චිතව දක්වා නොමැති තොරතුරු (එක් එක් අමුද්‍රව්‍යයේ සම්භවය සහ නිශ්චිත ප්‍රතිශතය වැනි) හෝ භාවිතා කළ හැකි ආකාරයෙන් කලාතුරකින් ලබා ගත හැකි තොරතුරු (භාවිතා කරන ලද නිශ්චිත ප්ලාස්ටික් වර්ග සහිත ඇසුරුම්කරණයේ සියලුම සංරචක ලැයිස්තුවක් වැනි) තිබීම අවශ්‍ය වේ.",
-  "guide_greenscore_transparency_intro2": "මෙම තොරතුරු තවමත් නොමැති විට සාමාන්‍ය අගයන් භාවිතා කරනු ලැබේ, නමුත් හරිත-ලකුණු සඳහා පමණක් නොව තවත් බොහෝ භාවිතයන් සඳහාද ඉතා ප්‍රයෝජනවත් වන මෙම තොරතුරු රැස් කිරීමට අපට උදව් කරන ලෙස අපි දැන් සැමගෙන් ඉල්ලා සිටිමු.",
-  "guide_greenscore_transparency_arg1_title": "පුරවැසියන්ට උදව් කළ හැකි ආකාරය",
-  "guide_greenscore_transparency_arg1_text": "නිෂ්පාදනවල ඇති හෝ ඒවායින් නිගමනය කළ හැකි තොරතුරු රැස් කර ව්‍යුහගත කිරීමට සියලුම පුරවැසියන්ට අපට උදව් කළ හැකිය, උදාහරණයක් ලෙස ඇසුරුම්කරණය පිළිබඳ තොරතුරු: මිෂන් එම්බලේජ්ස්: සියලුම ආහාර නිෂ්පාදන සඳහා ඇසුරුම්කරණයේ මහා පරිමාණ සහයෝගී ඉන්වෙන්ටරියක් (ප්‍රංශ භාෂාවෙන්)",
+  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
+  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
+  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "නිෂ්පාදකයින්ට උදව් කළ හැකි ආකාරය",
   "guide_greenscore_transparency_arg2_text": "නිෂ්පාදකයින්ට අපගේ නොමිලේ නිෂ්පාදකයින් සඳහා වූ වේදිකාව හරහා ඔවුන්ගේ තොරතුරු අපට කෙලින්ම එවිය හැකිය.",
   "guide_greenscore_better_product_title": "පෘථිවියට වඩා හොඳ කුමන නිෂ්පාදනයද?",
@@ -3944,9 +4000,9 @@
   "guide_greenscore_better_product_arg2_title": "ඔබට බලය තිබෙනවා!",
   "guide_greenscore_better_product_arg2_text": "ශුභාරංචිය නම් මෙය අපට වෙනසක් ඇති කිරීමට ප්‍රබල ක්‍රමයක් ලබා දෙන බවයි.\n**අපි සෑම කෙනෙකුම සෑම වසරකම ආහාර වේල් 1,000 ක් පමණ අනුභව කරමු**. ඒ **ග්‍රහලෝකයට වඩා හොඳ අනාගතයක් තෝරා ගැනීමට** අවස්ථා 1,000 ක්!",
   "guide_greenscore_better_product_arg3_title": "වගකීමෙන් කටයුතු කිරීමට සහ තීරණ ගැනීමට උපකාරී වේ",
-  "guide_greenscore_better_product_arg3_text": "තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. හරිත-ලකුණු නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.",
+  "guide_greenscore_better_product_arg3_text": "තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. Green-Score නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.",
   "guide_greenscore_better_product_arg4_title": "විනිවිදභාවය",
-  "guide_greenscore_better_product_arg4_text": "හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.",
+  "guide_greenscore_better_product_arg4_text": "හිමිකාර ලේබල මෙන් නොව, Green-Score ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3964,22 +4020,183 @@
   "guide_nova_groups_title": "NOVA කණ්ඩායම් 4",
   "guide_nova_groups_intro": "NOVA කාණ්ඩ 4ක් ඇත, ගැටළු සහගත එක වන්නේ 4 වන කාණ්ඩය - අතිශයින් සැකසූ ආහාර.",
   "guide_nova_groups_arg1_title": "අවම වශයෙන් සැකසූ හෝ සකස් නොකළ ආහාර",
-  "guide_nova_groups_arg1_text": "සකස් නොකළ (හෝ ස්වාභාවික) ආහාර යනු ස්වභාවධර්මයෙන් වෙන් වූ පසු ශාකවල ආහාරයට ගත හැකි කොටස් (බීජ, පලතුරු, කොළ, කඳන්, මුල්) හෝ සතුන්ගේ (මාංශ පේශි, ඕෆල්, බිත්තර, කිරි) මෙන්ම දිලීර, ඇල්ගී සහ ජලය වේ.",
+  "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
-  "guide_nova_groups_arg2_text": "තෙල්, බටර්, සීනි සහ ලුණු වැනි සැකසූ සූපශාස්ත්‍ර අමුද්‍රව්‍ය යනු 1 වන කාණ්ඩයේ ආහාර වලින් හෝ එබීම, පිරිපහදු කිරීම, ඇඹරීම, ඇඹරීම සහ වියළීම ඇතුළත් ක්‍රියාවලීන් හරහා ස්වභාවධර්මයෙන් ලබාගත් ද්‍රව්‍ය වේ.",
+  "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Processed foods",
-  "guide_nova_groups_arg3_text": "බෝතල් කළ එළවළු, ටින් කළ මාළු, සිරප් වල පලතුරු, චීස් සහ නැවුම්ව සාදන ලද පාන් වැනි සැකසූ ආහාර ප්‍රධාන වශයෙන් සාදනු ලබන්නේ ලුණු, තෙල්, සීනි හෝ 2 වන කාණ්ඩයේ සිට 1 වන කාණ්ඩයේ ආහාර දක්වා වෙනත් ද්‍රව්‍ය එකතු කිරීමෙනි. ක්‍රියාවලීන්ට විවිධ සංරක්ෂණය හෝ පිසීමේ ක්‍රම ඇතුළත් වන අතර, පාන් සහ චීස් සම්බන්ධයෙන්, මධ්‍යසාර නොවන පැසවීම ඇතුළත් වේ. බොහෝ සැකසූ ආහාරවල අමුද්‍රව්‍ය දෙකක් හෝ තුනක් ඇති අතර ඒවා 1 වන කාණ්ඩයේ ආහාරවල වෙනස් කළ අනුවාද ලෙස හඳුනාගත හැකිය. ඒවා තනිවම හෝ, වඩාත් බහුලව, වෙනත් ආහාර සමඟ ඒකාබද්ධව අනුභව කළ හැකිය.",
+  "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
-  "guide_nova_groups_arg4_text": "මෘදු පාන වර්ග, පැණිරස හෝ රසවත් ඇසුරුම් කළ කෙටි ආහාර, ප්‍රතිනිර්මාණය කරන ලද මස් නිෂ්පාදන සහ පෙර සූදානම් කළ ශීත කළ කෑම වැනි අතිශයින් සැකසූ ආහාර, හුදෙක් වෙනස් කරන ලද ආහාර නොව, බොහෝ දුරට හෝ සම්පූර්ණයෙන්ම ආහාර සහ ආකලන වලින් ලබාගත් ද්‍රව්‍ය වලින් සාදන ලද සූත්‍ර වන අතර, 1 වන කාණ්ඩයේ ආහාර ස්වල්පයක් හෝ කිසිදු අඛණ්ඩතාවයක් නොමැතිව. මෙම සූත්‍රවල ඇති අමුද්‍රව්‍යවලට සාමාන්‍යයෙන් සීනි, තෙල්, මේද හෝ ලුණු වැනි සැකසූ ආහාරවල ද දක්නට ලැබෙන ඒවා ඇතුළත් වේ. කෙසේ වෙතත්, අතිශයින් සැකසූ නිෂ්පාදනවල සාමාන්‍යයෙන් සූපශාස්ත්‍ර සූදානමේදී භාවිතා නොකරන වෙනත් ශක්ති ප්‍රභවයන් සහ පෝෂ්‍ය පදාර්ථ ද අඩංගු වේ. මේවායින් සමහරක් කැසීන්, ලැක්ටෝස්, තිරිඟු සහ ග්ලූටන් වැනි ආහාර වලින් සෘජුවම නිස්සාරණය කරනු ලැබේ.",
+  "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "අල්ට්‍රා-සැකසුම් කිරීමේ ගැටළු",
   "guide_nova_explanations_arg1_title": "ආහාර ද්‍රව්‍ය අධික ලෙස සැකසීම",
-  "guide_nova_explanations_arg1_text": "බොහෝ ඒවා ලබා ගන්නේ හයිඩ්‍රජනීකෘත හෝ පොලිස්ටරීකරණය කළ තෙල්, ජල විච්ඡේදනය කළ ප්‍රෝටීන, සෝයා ප්‍රෝටීන් හුදකලා, මෝල්ටෝඩෙක්ස්ට්‍රින්, ප්‍රතිලෝම සීනි සහ ඉහළ ෆෲක්ටෝස් ඉරිඟු සිරප් වැනි ආහාර සංඝටක තවදුරටත් සැකසීමෙනි.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "පිරිසිදු ආහාර සුරක්ෂිතතාවයෙන් ඔබ්බට යන ආකලන",
-  "guide_nova_explanations_arg2_text": "අතිශයින් සැකසූ ආහාරවල ඇති ආකලනවලට කල් තබා ගන්නා ද්‍රව්‍ය, ප්‍රතිඔක්සිකාරක සහ ස්ථායීකාරක වැනි සැකසූ ආහාරවල ද භාවිතා වන සමහරක් ඇතුළත් වේ. අතිශයින් සැකසූ නිෂ්පාදනවල පමණක් දක්නට ලැබෙන ආකලන කාණ්ඩවලට ආහාරවල සංවේදක ගුණාංග අනුකරණය කිරීමට හෝ වැඩි දියුණු කිරීමට හෝ අවසාන නිෂ්පාදනයේ අප්‍රසන්න අංග සැඟවීමට භාවිතා කරන ඒවා ඇතුළත් වේ. මෙම ආකලනවලට ඩයි වර්ග සහ අනෙකුත් වර්ණ, වර්ණ ස්ථායීකාරක; රසකාරක, රස වර්ධක, සීනි නොවන රසකාරක; සහ කාබනීකරණය, ස්ථිර කිරීම, තොග කිරීම සහ ප්‍රති-බල්කින් කාරක, පෙන ඉවත් කිරීම, ප්‍රති-කේකින් සහ ග්ලැසියර කාරක, ඉමල්සිෆයර්, සීක්වෙස්ට්‍රන්ට් සහ හියුමෙක්ටන්ට් වැනි සැකසුම් ආධාරක ඇතුළත් වේ.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "නිවසේදී කළ නොහැකි සැකසුම්",
-  "guide_nova_explanations_arg3_text": "සාමාන්‍යයෙන් බොහෝ අමුද්‍රව්‍ය ඒකාබද්ධ කර අවසාන නිෂ්පාදනය නිර්මාණය කිරීම සඳහා ක්‍රියාවලි අනුපිළිවෙලවල් රාශියක් භාවිතා කරනු ලැබේ (එබැවින් 'අතිශයින්ම සැකසූ'). හයිඩ්‍රජනීකරණය සහ ජල විච්ඡේදනය, නිස්සාරණය සහ අච්චු කිරීම සහ බැදීම සඳහා පූර්ව සැකසුම් වැනි ගෘහස්ථ සමානකම් නොමැති ක්‍රියාවලීන් කිහිපයක් මෙම ක්‍රියාවලීන්ට ඇතුළත් වේ.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "අල්ට්‍රා-සැකසුම්කරණයේ කොල්ලකාරී සහ මූල්‍ය අංශ",
-  "guide_nova_explanations_arg4_text": "අල්ට්‍රා-සැකසීමේ සමස්ත අරමුණ වන්නේ අනෙකුත් සියලුම ආහාර කාණ්ඩ විස්ථාපනය කිරීම සඳහා නිර්මාණය කර ඇති සන්නාමගත, පහසු (කල් පවතින, පරිභෝජනයට සූදානම්), ආකර්ශනීය (අධි-රසවත්) සහ ඉහළ ලාභදායී (අඩු වියදම් අමුද්‍රව්‍ය) ආහාර නිෂ්පාදන නිර්මාණය කිරීමයි. අල්ට්‍රා-සැකසූ ආහාර නිෂ්පාදන සාමාන්‍යයෙන් ආකර්ශනීය ලෙස ඇසුරුම් කර දැඩි ලෙස අලෙවි කරනු ලැබේ.",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
+  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_share_link": "https://world-si.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
+  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
+  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_share_link": "https://world-si.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_pet_food_facts_scores_title": "A note on scoring",
+  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_share_link": "https://world-si.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
+  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
+  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
+  "guide_open_beauty_facts_scores_title": "A note on scoring",
+  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_share_link": "https://world-si.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Welcome to Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
+  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
+  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
+  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
+  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
+  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
+  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
+  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
+  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
+  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
+  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
+  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_share_link": "https://world-si.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_coming_soon_button_title": "Coming soon",
+  "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4334,10 +4551,26 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "මිල ගණන් ඇයි?",
+  "prices_explanation_card_line1": "**Open Prices** යනු ලොව පුරා නිෂ්පාදනවල මිල ගණන් එකතු කර බෙදා ගැනීමේ ව්‍යාපෘතියකි 🌍. Open Prices සංවර්ධනය කර නඩත්තු කරනු ලබන්නේ Open Food Facts විසිනි.",
+  "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "ජන විද්‍යාවේ ගුණාංග මොනවාද?",
+  "folksonomy_explanation_card_line1": "ගුණාංග **යතුරු-අගය** මත පදනම් වේ.",
+  "folksonomy_explanation_card_line2": "මෙම ගුණාංග දායකයින් විසින් ඕනෑම ආකාරයක භාවිතයක් සඳහා නිර්මාණය කර ගොනු කරනු ලැබේ.",
+  "folksonomy_action_external_link_title": "Open external link",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "මිලක් නොමැත.",
+  "prices_products_empty_explanation": "දායක වන පළමු පුද්ගලයා වන්න!",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4818,6 +5051,15 @@
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
+  "preferences_dev_mode_folksonomy_host_subtitle": "සත්කාරක: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
   "preferences_dev_mode_accessibility_experiments_title": "ප්‍රවේශ්‍යතා අත්හදා බැලීම්",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"
@@ -4858,15 +5100,31 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "විවෘත ආහාර පිළිබඳ කරුණු සොයා ගන්න",
+  "preferences_faq_discover_off_title": "Open Food Facts පිළිබඳ කරුණු සොයා ගන්න",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
   },
   "preferences_faq_faq_title": "නිතර අසන ප්‍රශ්න - නිතර අසන ප්‍රශ්න",
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "විවෘත ආහාර කරුණු රාජ්‍ය නොවන සංවිධානය",
+  "preferences_faq_off_ngo_title": "Open Food Facts රාජ්‍ය නොවන සංවිධානය",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -4890,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "විවෘත ආහාර කරුණු බ්ලොගය",
+  "preferences_connect_blog_title": "Open Food Facts බ්ලොගය",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5010,7 +5268,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "විවෘත ආහාර කරුණු වලට මා එකතු කළ නව නිෂ්පාදන",
+  "preferences_contributions_new_products_subtitle": "Open Food Facts වලට මා එකතු කළ නව නිෂ්පාදන",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5062,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "විවෘත මිල ගණන් ප්‍රජාව විසින් එකතු කරන ලද නවතම මිල ගණන්",
+  "preferences_prices_newest_subtitle": "Open Prices ගණන් ප්‍රජාව විසින් එකතු කරන ලද නවතම මිල ගණන්",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5114,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "ආහාර කරුණු විවෘත කිරීමට උදව් කිරීමට සරල ක්‍රම",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts කිරීමට උදව් කිරීමට සරල ක්‍රම",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5180,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{total} අයිතම වලින් {count}",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} අයිතම",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} අයිතම",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5290,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "විවෘත ආහාර කරුණු රසායනාගාර",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts රසායනාගාර",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5298,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "විවෘත ආහාර කරුණු ඔබේ භාෂාවට ගෙන එන්න",
+  "preferences_contribute_translate_header": "Open Food Facts ඔබේ භාෂාවට ගෙන එන්න",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5324,5 +5606,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Location details",
+  "location_map_details_name": "Name",
+  "location_map_details_street": "Street",
+  "location_map_details_city": "City",
+  "location_map_details_postcode": "Postcode",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_osm_id": "OSM ID"
 }

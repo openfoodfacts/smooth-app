@@ -243,7 +243,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                     ).closeButtonTooltip,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      child: Close(
+                      child: Close.bold(
                         size: 11.0,
                         color: titleColor ?? Colors.white,
                       ),

@@ -70,9 +70,10 @@ class SmoothColorsThemeExtension
   // Darker Macchiato (from old palette)
   final Color primaryTone;
 
+  final Color primaryAccent;
+
   // Macchiato
   final Color primaryNormal;
-  final Color primaryAccent;
 
   // Cappuccino
   final Color primaryMedium;

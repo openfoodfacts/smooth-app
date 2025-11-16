@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Mot de passe oublié ?",
   "view_profile": "Afficher le profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -395,7 +396,7 @@
   "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Contribuez à Open Food Facts. Rejoignez la réserve de compétences !",
-  "contribute_share_header": "Partagez Open Food Facts avec vos amis",
+  "contribute_share_header": "Partagez Open Food Facts à vos amis",
   "@contribute_share_header": {},
   "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
   "@contribute_share_content": {
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Rechercher un produit,\nune marque ou un code-barres",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtre de recherche",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Historique de recherche",
   "search_store": "Rechercher un magasin",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Conseil : ajoutez la ville ou le pays",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Appuyez pour plus d'informations…",
   "@Product": {},
@@ -1010,15 +1024,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Aucune propriété",
+  "product_tags_explanation": "En ajoutant des propriétés (clé / valeur) à un produit, vous permettez de l’enrichir.",
   "add_tag": "Ajouter une propriété",
   "add_tags": "Ajouter des propriétés",
   "add_edit_tags": "Ajouter ou modifier des propriétés",
   "edit_tag": "Modifier la propriété",
   "remove_tag": "Supprimer la propriété",
   "tag_key": "Propriété",
+  "tag_keys": "Propriétés",
   "tag_key_uneditable": "Propriété (non modifiable)",
   "tag_key_input_hint": "Saisir une propriété",
   "tag_value": "Valeur",
+  "tag_values": "Valeurs",
   "tag_value_input_hint": "Saisir une valeur",
   "tag_key_item": "Propriété :",
   "tag_value_item": "Valeur :",
@@ -1367,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Désolé, il s'agit d'un exemple de produit, vous ne pouvez pas le modifier :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Votre classement",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1397,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Comparer côte à côte",
   "loading_dialog_default_title": "Téléchargement des données",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2159,7 +2182,7 @@
   "@dev_preferences_environment_switch_title": {
     "description": "User dev preferences - Environment (prod/test) switcher - Title"
   },
-  "dev_preferences_test_environment_title": "Tester les paramètres d'environnement",
+  "dev_preferences_test_environment_title": "Adresse de l'environnement de TEST",
   "@dev_preferences_test_environment_title": {
     "description": "User dev preferences - Info about test environment - Title"
   },
@@ -2389,6 +2412,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Pas encore de prix !",
+  "prices_list_empty_subtitle": "Soyez le premier à en ajouter un :\nEn scannant un **reçu** ou une **étiquette de prix** !",
   "prices_entry_shop_not_found": "Magasin inconnu",
   "prices_entry_menu_title": "Entrée de prix de \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2489,6 +2514,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Aucun contributeur pour le moment !",
+  "prices_users_empty_explanation": "Soyez le premier à ajouter un prix !",
   "prices_users_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2528,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Pas encore de boutique !",
+  "prices_locations_empty_explanation": "Soyez le premier à ajouter un prix !",
   "prices_locations_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,7 +2594,10 @@
   "prices_location_mandatory": "Vous devez choisir un magasin !",
   "prices_location_search_broader": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayons une recherche plus large !",
   "prices_proof_subtitle": "Preuve",
+  "prices_proof_empty_title": "Aucune preuve pour l'instant !",
+  "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
   "prices_proof_find": "Choisir une preuve",
+  "prices_proof_change": "Preuve de changement",
   "prices_proof_receipt": "Ticket de caisse",
   "prices_proof_price_tag": "Étiquette de prix",
   "prices_proof_mandatory": "Vous devez choisir une preuve !",
@@ -2612,6 +2644,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "En savoir plus sur Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Fait",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2633,9 +2669,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Réinitialiser la langue de l'application",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Ajouter des cartes",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Basculer entre prices.openfoodfacts.org (PROD) et l'environnement de test",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Réutiliser et modifier cette recherche",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Retirer",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Vous avez téléchargé les {totalSize} produits.",
   "@product_search_no_more_results": {
@@ -2695,6 +2747,15 @@
   "user_search_proof_title": "Ma preuve",
   "@user_search_proof_title": {
     "description": "User proof: page title"
+  },
+  "search_proof_title": "Preuve de \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "user_any_search_prices_title": "Prix contributeur : {user}",
   "@user_any_search_prices_title": {
@@ -3217,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Garder le panneau des ingrédients étendu",
-  "search_product_filter_visibility_title": "Afficher un filtre dans la recherche",
-  "search_product_filter_visibility_subtitle": "Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Pas de connexion internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3922,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "Eau marine et eau douce (particules, acidification, eutrophisation)",
   "guide_greenscore_lca_arg3_text8": "Épuisement des ressources.",
   "guide_greenscore_bonuses_penalties_title": "Bonus et pénalités",
-  "guide_greenscore_bonuses_penalties_intro": "Pour récompenser les meilleurs produits au sein d'une catégorie, nous appliquons ensuite des bonus et des malus en fonction de plusieurs critères :",
+  "guide_greenscore_bonuses_penalties_intro": "Pour récompenser les meilleurs produits d'une catégorie, on applique ensuite des **bonus et des pénalités basés sur plusieurs critères** :",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode de production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Un bonus est attribué aux produits disposant d'un label officiel, d'un label ou d'une certification garantissant des bénéfices environnementaux (bio, commerce équitable, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Un **bonus** est accordé aux produits qui possèdent un **label officiel, un label ou une certification qui garantit des avantages environnementaux** (bio, commerce équitable, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Origine des ingrédients",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Un bonus est attribué en fonction de l'origine des ingrédients. Ce bonus prend en compte l'impact du transport et la politique environnementale du pays de chaque producteur.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Un **bonus** est attribué en fonction de l'origine des ingrédients. Ce bonus tient compte de l'impact **sur les transports** ainsi que de la **politique environnementale** du pays de chaque producteur.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Espèces menacées",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Un malus est donné aux produits contenant des ingrédients ayant des impacts négatifs importants sur la biodiversité et les écosystèmes, comme l'huile de palme dont la production est responsable d'une déforestation massive.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Un **malus** est appliqué aux produits contenant des ingrédients ayant des **impacts négatifs importants sur la biodiversité et les écosystèmes**, comme l'huile de palme, dont la production est responsable d'une déforestation massive.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Emballage",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Une pénalité est calculée pour tenir compte de la circularité des emballages (utilisation de matières premières recyclées et recyclabilité) et du suremballage.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Une **pénalité** est calculée pour tenir compte de la **circularité de l'emballage** (utilisation de matières premières recyclées et recyclabilité) et du suremballage.",
   "guide_greenscore_transparency_title": "Un besoin accru de transparence pour mieux mesurer et réduire les impacts environnementaux",
-  "guide_greenscore_transparency_intro1": "Pour calculer avec précision le Green-Score, il est nécessaire de disposer d'informations qui ne sont pas forcément précisées sur l'emballage (comme l'origine et le pourcentage exact de chaque ingrédient) ou qui sont rarement disponibles sous une forme exploitable (comme une liste de tous les composants de l'emballage avec les types précis de plastiques utilisés).",
-  "guide_greenscore_transparency_intro2": "Des valeurs moyennes sont utilisées lorsque cette information n'est pas encore disponible, mais nous faisons désormais appel à tous pour nous aider à collecter ces informations qui seront très utiles pour le Green-Score mais aussi pour de nombreuses autres utilisations.",
-  "guide_greenscore_transparency_arg1_title": "Comment les citoyens peuvent aider",
-  "guide_greenscore_transparency_arg1_text": "Tous les citoyens peuvent nous aider à recueillir et à structurer les informations présentes sur les produits ou pouvant en être déduites, comme les informations sur les emballages : Mission Emballages : un inventaire collaboratif à grande échelle des emballages de tous les produits alimentaires.",
+  "guide_greenscore_transparency_intro1": "Pour calculer avec précision le Green-Score, il est nécessaire de disposer d'**informations qui ne sont pas nécessairement spécifiées sur l'emballage** (telles que l'origine et le pourcentage exact de chaque ingrédient) ou qui sont rarement disponibles sous une forme utilisable (telles qu'une liste de tous les composants de l'emballage avec les types précis de plastiques utilisés).",
+  "guide_greenscore_transparency_intro2": "**Des valeurs moyennes sont utilisées lorsque ces informations ne sont pas encore disponibles**, mais nous faisons maintenant appel à tous pour nous aider à collecter ces informations qui seront très utiles pour le Green-Score, mais aussi pour de nombreuses autres utilisations.",
+  "guide_greenscore_transparency_arg1_title": "Comment les citoyens peuvent-ils aider ?",
+  "guide_greenscore_transparency_arg1_text": "Tous les citoyens peuvent nous aider à rassembler et à structurer les informations présentes sur les produits ou qui peuvent en être déduites, telles que les informations sur l'**emballage** : « Mission Emballages » : un inventaire collaboratif à grande échelle des emballages pour tous les produits alimentaires.",
   "guide_greenscore_transparency_arg2_title": "Comment les fabricants peuvent aider",
   "guide_greenscore_transparency_arg2_text": "Les fabricants peuvent nous envoyer leurs informations directement via notre plateforme gratuite destinée aux producteurs.",
   "guide_greenscore_better_product_title": "Quel produit est le meilleur pour la planète ?",
@@ -3964,22 +4020,183 @@
   "guide_nova_groups_title": "Les 4 groupes NOVA",
   "guide_nova_groups_intro": "Il existe 4 groupes NOVA, le groupe problématique étant le groupe 4 - Aliments ultra-transformés.",
   "guide_nova_groups_arg1_title": "Aliments peu ou non transformés",
-  "guide_nova_groups_arg1_text": "Les aliments non transformés (ou naturels) sont les parties comestibles des plantes (graines, fruits, feuilles, tiges, racines) ou des animaux (muscles, abats, œufs, lait), ainsi que les champignons, les algues et l'eau, après avoir été séparés de la nature.",
+  "guide_nova_groups_arg1_text": "Les aliments non transformés (ou naturels) sont les **parties comestibles des plantes** (graines, fruits, feuilles, tiges, racines) **ou des animaux** (muscles, abats, œufs, lait), ainsi que les champignons, les algues et l'eau, après avoir été séparés de la nature.",
   "guide_nova_groups_arg2_title": "Ingrédients culinaires transformés",
-  "guide_nova_groups_arg2_text": "Les ingrédients culinaires transformés, tels que les huiles, le beurre, le sucre et le sel, sont des substances dérivées d’aliments du groupe 1 ou de la nature par des processus qui incluent le pressage, le raffinage, le broyage, la mouture et le séchage.",
+  "guide_nova_groups_arg2_text": "Les ingrédients culinaires transformés, tels que les **huiles, le beurre, le sucre et le sel**, sont des substances dérivées des aliments du groupe 1 ou de la nature par des procédés qui comprennent le pressage, le raffinage, le broyage, la mouture et le séchage.",
   "guide_nova_groups_arg3_title": "Aliments transformés",
-  "guide_nova_groups_arg3_text": "Les aliments transformés, tels que les légumes en conserve, le poisson en conserve, les fruits au sirop, les fromages et le pain frais, sont principalement obtenus en ajoutant du sel, de l'huile, du sucre ou d'autres substances du groupe 2 aux aliments du groupe 1. Les procédés incluent diverses méthodes de conservation ou de cuisson et, dans le cas du pain et du fromage, la fermentation sans alcool. La plupart des aliments transformés contiennent deux ou trois ingrédients et sont reconnaissables comme des versions modifiées des aliments du groupe 1. Ils peuvent être consommés seuls ou, plus souvent, en association avec d'autres aliments.",
+  "guide_nova_groups_arg3_text": "Les aliments transformés, tels que les légumes en conserve, le poisson en conserve, les fruits au sirop, les fromages et les pains frais, sont **principalement obtenus par l'ajout de sel, d'huile, de sucre ou d'autres substances issues des groupes 2 aux aliments du groupe 1**. Les procédés de transformation comprennent diverses méthodes de conservation ou de cuisson et, dans le cas du pain et du fromage, une fermentation non alcoolique. La plupart des aliments transformés contiennent deux ou trois ingrédients et sont reconnaissables comme des versions modifiées des aliments du groupe 1. Ils peuvent être consommés seuls ou, le plus souvent, accompagnés d'autres aliments.",
   "guide_nova_groups_arg4_title": "Aliments ultra-transformés",
-  "guide_nova_groups_arg4_text": "Les aliments ultra-transformés, tels que les boissons gazeuses, les snacks sucrés ou salés emballés, les produits carnés reconstitués et les plats surgelés préparés, ne sont pas de simples aliments modifiés, mais des préparations composées principalement, voire entièrement, de substances dérivées d'aliments et d'additifs, avec peu ou pas d'aliments du groupe 1 intacts. Les ingrédients de ces préparations incluent généralement ceux que l'on trouve également dans les aliments transformés, comme les sucres, les huiles, les graisses ou le sel. Cependant, les produits ultra-transformés contiennent également d'autres sources d'énergie et de nutriments qui ne sont généralement pas utilisés en cuisine. Certains d'entre eux sont directement extraits des aliments, comme la caséine, le lactose, le lactosérum et le gluten.",
+  "guide_nova_groups_arg4_text": "Les aliments ultra-transformés, tels que les boissons gazeuses, les collations emballées sucrées ou salées, les produits carnés reconstitués et les plats surgelés préparés, **ne sont pas de simples aliments modifiés, mais des formulations composées principalement ou entièrement de substances dérivées d'aliments et d'additifs**, ne contenant que très peu, voire pas du tout, d'aliments intacts du groupe 1. Les ingrédients de ces formulations comprennent généralement ceux que l'on retrouve également dans les aliments transformés, comme les sucres, les huiles, les matières grasses ou le sel. Cependant, les produits ultra-transformés contiennent aussi d'autres sources d'énergie et de nutriments qui ne sont généralement pas utilisées dans les préparations culinaires. Certaines de ces sources sont directement extraites des aliments, comme la caséine, le lactose, le lactosérum et le gluten.",
   "guide_nova_explanations_title": "Les problèmes liés à l'ultra-traitement",
   "guide_nova_explanations_arg1_title": "Transformation extrême des ingrédients alimentaires",
-  "guide_nova_explanations_arg1_text": "Beaucoup d’entre eux sont dérivés d’un traitement ultérieur de constituants alimentaires, tels que les huiles hydrogénées ou interestérifiées, les protéines hydrolysées, l’isolat de protéines de soja, la maltodextrine, le sucre inverti et le sirop de maïs à haute teneur en fructose.",
+  "guide_nova_explanations_arg1_text": "Beaucoup sont **dérivés de la transformation ultérieure de constituants alimentaires**, tels que les huiles hydrogénées ou interestérifiées, les protéines hydrolysées, l'isolat de protéines de soja, la maltodextrine, le sucre inverti et le sirop de maïs à haute teneur en fructose.",
   "guide_nova_explanations_arg2_title": "Des additifs qui vont au-delà de la simple sécurité alimentaire",
-  "guide_nova_explanations_arg2_text": "Les additifs présents dans les aliments ultra-transformés incluent des additifs également utilisés dans les aliments transformés, tels que les conservateurs, les antioxydants et les stabilisants. Parmi les additifs présents uniquement dans les produits ultra-transformés, on trouve ceux utilisés pour imiter ou améliorer les qualités organoleptiques des aliments ou pour masquer les aspects désagréables du produit final. Ces additifs comprennent les colorants et autres colorants, les stabilisants de couleur ; les arômes, les exhausteurs de goût, les édulcorants sans sucre ; et les auxiliaires technologiques tels que les agents de carbonatation, de raffermissement, de foisonnement et d'anti-foisonnement, les agents anti-mousse, anti-agglomérants et de glaçage, les émulsifiants, les séquestrants et les humectants.",
+  "guide_nova_explanations_arg2_text": "Les additifs présents dans les aliments ultra-transformés comprennent certains additifs également utilisés dans les aliments transformés, tels que les conservateurs, les antioxydants et les stabilisants. Parmi les additifs spécifiques aux produits ultra-transformés figurent ceux utilisés **pour imiter ou rehausser les qualités organoleptiques des aliments ou pour masquer les aspects désagréables du produit final.** Ces additifs incluent les colorants, les stabilisants de couleur, les arômes, les exhausteurs de goût, les édulcorants non sucrés, ainsi que les auxiliaires technologiques tels que les agents de carbonatation, de raffermissement, de charge et anti-charge, les agents antimousse, anti-agglomérants et d'enrobage, les émulsifiants, les séquestrants et les humectants.",
   "guide_nova_explanations_arg3_title": "Traitements que vous ne pouvez pas faire à la maison",
-  "guide_nova_explanations_arg3_text": "Une multitude de procédés sont utilisés pour combiner les ingrédients, généralement nombreux, et créer le produit final (d'où le terme « ultra-transformé »). Parmi ces procédés, plusieurs n'ont pas d'équivalents nationaux, comme l'hydrogénation et l'hydrolyse, l'extrusion et le moulage, ainsi que le prétraitement pour la friture.",
+  "guide_nova_explanations_arg3_text": "**Une multitude de procédés successifs sont utilisés** pour combiner les nombreux ingrédients et créer le produit final (d'où le terme « ultra-transformé »). Parmi ces procédés, plusieurs sont **sans équivalent domestique**, comme l'hydrogénation et l'hydrolyse, l'extrusion et le moulage, ainsi que le prétraitement avant friture.",
   "guide_nova_explanations_arg4_title": "Les aspects prédateurs et financiers de l'ultra-transformation",
-  "guide_nova_explanations_arg4_text": "L'objectif général de l'ultratransformation est de créer des produits alimentaires de marque, pratiques (durables, prêts à consommer), attrayants (hyper appétissants) et très rentables (ingrédients à faible coût), destinés à supplanter tous les autres groupes alimentaires. Les produits alimentaires ultratransformés sont généralement emballés de manière attrayante et font l'objet d'une commercialisation intensive.",
+  "guide_nova_explanations_arg4_text": "**L’objectif global de l’ultra-transformation est de créer des produits alimentaires de marque**, **commodes** (à longue durée de vie et prêts à consommer), **attirants**(très savoureux) et **très rentables** (ingrédients à bas coût), conçus pour supplanter tous les autres groupes alimentaires. Ces produits sont généralement présentés dans des emballages attrayants et font l’objet d’un marketing intensif.",
+  "guide_nova_explanations_arg5_title": "Un risque pour la santé",
+  "guide_nova_explanations_arg5_text": "Depuis 2018, avec NutriNet-Santé, les premiers liens entre **la consommation d'aliments ultra-transformés et l'augmentation des risques de cancer, de maladies cardiovasculaires et de diabète ont été soulignés**. Aujourd'hui, plus de 90 études dans le monde confirment ces conclusions.\nLes associations les plus fortes portent sur l'**obésité, la mortalité cardiovasculaire et les symptômes dépressifs**. Pour les enfants, les effets sont principalement observés sur les déséquilibres de poids et de lipide.",
+  "guide_nova_explanations_arg6_title": "Les pays recommandent de les limiter",
+  "guide_nova_explanations_arg6_text": "Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.",
+  "guide_nova_share_link": "https://world-fr.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Bienvenue sur Open Food Facts !",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Qu'est-ce qu'Open Food Facts ?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts est une base de données **collaborative**, **gratuite** et **ouverte** de produits alimentaires du monde entier.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Nous pensons que tout le monde devrait avoir accès à des informations sur ce qu'il ou elle mange. En recueillant des données sur les ingrédients, les allergènes, les infos nutritionnelles et plus encore, nous permettons aux consommateurs de faire des choix éclairés** et de pousser l'industrie alimentaire **vers une plus grande transparence**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Fonctionnalités d'Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Recevez des alertes sur les ingrédients que vous souhaitez éviter",
+  "guide_open_food_facts_tips_title": "Conseils pour prendre de bonnes photos",
+  "guide_open_food_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
+  "guide_open_food_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
+  "guide_open_food_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
+  "guide_open_food_facts_tips_arg1_text3": "Ne rognez pas de parties du texte.",
+  "guide_open_food_facts_tips_arg1_text4": "Évitez les arrière-plans chargés.",
+  "guide_open_food_facts_tips_arg2_title": "À faire",
+  "guide_open_food_facts_tips_arg2_text1": "Utilisez un éclairage uniforme et de bonne qualité.",
+  "guide_open_food_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_food_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
+  "guide_open_food_facts_scores_title": "Aidez-nous à construire le « Wikipédia de l'alimentation »",
+  "guide_open_food_facts_scores_arg1_title": "Une note sur la qualité nutritionnelle",
+  "guide_open_food_facts_scores_arg2_title": "Une note pour éviter les aliments ultra-transformés",
+  "guide_open_food_facts_scores_arg3_title": "Un score pour la planète",
+  "guide_open_food_facts_share_link": "https://world-fr.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Bienvenue sur Open Pet Food Facts !",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Qu'est-ce que Open Pet Food Facts ?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts étend notre mission à nos amis à quatre pattes ! Il s'agit d'une **base de données de produits alimentaires pour chats, chiens et autres animaux de compagnie**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Nous recueillons des informations sur les **ingrédients**, l'**analyse nutritionnelle** et les recommandations d'alimentation afin d'aider les propriétaires d'animaux à choisir la meilleure alimentation pour les besoins de leurs animaux.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Fonctionnalités d'Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Recevez des alertes sur les ingrédients que vous souhaitez éviter",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Votre animal est-il allergique à certains ingrédients ? Vous pouvez créer une liste d’ingrédients cosmétiques à éviter directement dans l’application !",
+  "guide_open_pet_food_facts_tips_title": "Conseils pour prendre de bonnes photos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Ne rognez pas de parties du texte.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Évitez les arrière-plans chargés.",
+  "guide_open_pet_food_facts_tips_arg2_title": "À faire",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Utilisez un éclairage uniforme et de bonne qualité.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
+  "guide_open_pet_food_facts_scores_title": "Note sur la notation",
+  "guide_open_pet_food_facts_scores_paragraph1": "L'élaboration d'un système de notation pour les aliments pour animaux de compagnie **n'est pas une priorité actuellement**. La méthodologie serait complexe, car les besoins nutritionnels varient considérablement selon l'espèce, l'âge et l'état de santé. Nous n'avons pas encore trouvé d'équipe scientifique indépendante capable de développer un tel système.",
+  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Bienvenue sur Open Beauty Facts !",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Qu'est-ce qu'Open Beauty Facts ?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts est une base de données collaborative de **produits cosmétiques**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Notre objectif est de décrypter les listes d'ingrédients pour vous aider à **comprendre la composition de vos produits de soins personnels**. Des crèmes hydratantes au maquillage, nous collectons des données sur les ingrédients, les allergènes et les emballages afin de promouvoir la transparence dans l'industrie cosmétique.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Fonctionnalités d'Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Recevez des alertes sur les ingrédients que vous souhaitez éviter",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Êtes-vous allergique à certains ingrédients ? Souhaitez-vous éviter les substances comédogènes ? Préférez-vous vous tenir à l’écart des composants controversés ? Vous pouvez créer une liste d’ingrédients cosmétiques à éviter, directement dans l’application !",
+  "guide_open_beauty_facts_tips_title": "Conseils pour prendre de bonnes photos",
+  "guide_open_beauty_facts_tips_arg1_title": "Ce qu'il ne faut pas faire",
+  "guide_open_beauty_facts_tips_arg1_text1": "Évitez les ombres et les reflets.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Aucun texte flou ou hors focus.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Ne rognez pas de parties du texte.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Évitez les arrière-plans chargés.",
+  "guide_open_beauty_facts_tips_arg2_title": "À faire",
+  "guide_open_beauty_facts_tips_arg2_text1": "Utilisez un éclairage uniforme et de bonne qualité.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Veillez à ce que le texte soit net et lisible.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Capturez la liste complète des ingrédients.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Prenez autant de photos que nécessaire si la bouteille est incurvée.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Il vous faudra peut-être décoller l'étiquette pour voir la liste des ingrédients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Gardez le produit sur une surface plane.",
+  "guide_open_beauty_facts_scores_title": "Note sur la notation",
+  "guide_open_beauty_facts_scores_paragraph1": "Contrairement aux produits alimentaires, le monde des cosmétiques ne dispose pas d'un système de notation universellement reconnu et approuvé par les pouvoirs publics, tel que le Nutri-Score. Les effets des ingrédients peuvent être très variables d'une personne à l'autre et dépendent du type de peau, des allergies et des préoccupations individuelles.",
+  "guide_open_beauty_facts_share_link": "https://world-fr.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Bienvenue chez Open Prices !",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "Qu'est-ce qu'Open Prices ?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices est un projet visant à **collecter et partager les prix des produits du monde entier**. Il s'agit d'un jeu de données publiques pouvant servir à la recherche, à l'analyse et à bien d'autres fins. Open Prices est développé et maintenu par Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Actuellement, seules quelques entreprises détiennent une base de données de prix de produits au niveau des code-barres. Ces bases de données ne sont pas librement disponibles, mais vendues à un prix élevé à des acteurs privés, des chercheurs et d'autres organisations qui sont en mesure de les acheter.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "Comment fonctionne Open Prices ?",
+  "guide_open_prices_how_paragraph1": "**Nous constituons une base de données de prix en accès libre grâce à la contribution de la communauté.** Les utilisateurs peuvent ajouter des prix via cette application web ou via l'application mobile officielle Open Food Facts. Les détaillants et les applications tierces peuvent également contribuer en utilisant notre API.",
+  "guide_open_prices_how_arg1_title": "Collectez des photos des étiquettes de prix dans les rayons",
+  "guide_open_prices_how_arg2_title": "Collectez des photos des reçus",
+  "guide_open_prices_why_title": "Pourquoi Open Food Facts fait-il cela ?",
+  "guide_open_prices_why_paragraph1": "L'information sur les prix est essentielle pour comprendre les systèmes alimentaires. Elle est déterminante pour appréhender le coût des aliments et promouvoir des régimes alimentaires plus sains. Les données sur Open Prices permettent aux chercheurs, aux journalistes et aux citoyens de mieux comprendre les variations des prix alimentaires dans le temps et l'espace.",
+  "guide_open_prices_why_arg1_title": "Suivre l'évolution des prix au fil du temps",
+  "guide_open_prices_why_arg1_text": "Observez l’**évolution des prix** : shrinkflation, cheapflation, nous pouvons les suivre ensemble !",
+  "guide_open_prices_why_arg2_title": "Comparez les prix près de chez vous",
+  "guide_open_prices_why_arg2_text": "Au fur et à mesure que nous recevrons davantage de prix, vous pourrez repérer **les magasins les moins chers autour de chez vous**.",
+  "guide_open_prices_scrapping_title": "Avez-vous pensé à scraper les prix sur les sites Web des distributeurs ?",
+  "guide_open_prices_scrapping_paragraph1": "Pour des raisons juridiques et techniques, **nous ne considérons pas la récupération des prix sur les sites web des détaillants comme une méthode valable pour contribuer à Open Prices**. Nous tenons à garantir l'exactitude et la mise à jour des prix que nous collectons, et la réception de prix scrapés par des contributeurs ne nous permet pas d'atteindre cet objectif.",
+  "guide_open_prices_scrapping_paragraph2": "Le scraping des prix est une option envisagée dans une version future d'Open Prices, mais il serait effectué par Open Prices directement afin que nous puissions avoir une preuve du prix basée sur la page HTML.",
+  "guide_open_prices_retailers_title": "Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?",
+  "guide_open_prices_retailers_paragraph1": "Vous pouvez contribuer en fournissant des prix via notre API.\nSi vous souhaitez contribuer à grande échelle, veuillez nous contacter à l'adresse prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Bienvenue sur Open Products Facts !",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Qu'est-ce que Open Products Facts ?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts est une base de données ouverte et massive recensant **tout produit possédant un code-barres, à l'exception des produits alimentaires, cosmétiques et des aliments pour animaux**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Des **appareils électroniques** aux **jouets**, en passant par les **vêtements** et les **produits d'entretien**, tout objet muni d'un code-barres peut être intégré. Ce projet vise à créer un « Internet des objets » pour les objets du quotidien, rendant ainsi les informations les concernant accessibles à tous.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Fonctionnalités d'Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts vise à permettre aux consommateurs de **prolonger la durée de vie des objets** en leur fournissant des solutions circulaires pour entretenir, **réparer**, **recycler** leurs objets ou leur trouver un nouveau propriétaire.",
+  "guide_open_products_facts_features_arg1_title": "Empreintes carbone de certains produits",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** de l'ADEME (Agence française pour l'environnement et la gestion des énergies renouvelables) indique l'**impact carbone** de nombreuses catégories ; veillez à catégoriser vos produits avec précision.",
+  "guide_open_products_facts_features_arg2_title": "Indice de réparabilité pour de nombreux produits",
+  "guide_open_products_facts_features_arg2_text": "Dès qu'un indice de réparabilité français sera disponible, nous l'afficherons. De plus, **vous pouvez commencer à collecter les variables à l'aide du moteur de folksonomie** ; ainsi, nous pourrons le recalculer nous-mêmes ultérieurement, même dans les pays où il n'est pas disponible.",
+  "guide_open_products_facts_features_arg3_title": "Trouvez des moyens de donner/revendre votre produit",
+  "guide_open_products_facts_features_arg3_text": "Nous vous proposons des liens vers des **services tiers éco-responsables** qui vous permettent de trouver le produit que vous recherchez d'occasion, afin de préserver les ressources de la planète.\nVeuillez noter que ce service est entièrement gratuit et que le système n'est présenté qu'à titre d'exemple pour deux sites web en France. Vous pouvez contribuer à son développement en répertoriant d'autres sites sur le wiki.",
+  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Le moteur de folksonomie",
+  "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
+  "guide_open_products_facts_folksonomy_paragraph3": "Vous recevrez des suggestions automatiques de propriétés possibles, et vous êtes invités à en ajouter et à documenter de nouvelles sur vos types de produits préférés.",
+  "guide_open_products_facts_share_link": "https://world-fr.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Ouvrir les préférences alimentaires",
+  "guide_coming_soon_button_title": "Bientôt disponible",
+  "guide_learn_more_subtitle": "Appuyez pour en savoir plus",
   "preview_badge": "Aperçu",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4334,10 +4551,26 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Pourquoi ces prix ?",
+  "prices_explanation_card_line1": "**Open Prices** est un projet visant à collecter et partager les prix des produits du monde entier 🌍. Open Prices est développé et maintenu par Open Food Facts.",
+  "explanation_card_learn_more_button": "En savoir plus",
   "product_page_tab_folksonomy": "Folksonomie",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Quels sont les attributs de la folksonomie ?",
+  "folksonomy_explanation_card_line1": "Les attributs sont de type **clé-valeur**.",
+  "folksonomy_explanation_card_line2": "Ces propriétés sont créées et enregistrées par les contributeurs pour tout type d'utilisation.",
+  "folksonomy_action_external_link_title": "Ouvrir le lien externe",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "Les liens externes peuvent être dangereux. Voulez-vous vraiment y accéder ?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Aucun prix disponible",
+  "prices_products_empty_explanation": "Soyez le premier à contribuer !",
   "prices_products_list_length_many_pages": "Meilleurs {pageSize} produits  (total : {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4814,9 +5047,18 @@
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "Animateur de Folksonomy",
+  "preferences_dev_mode_folksonomy_host_title": "Hôte de Folksonomy Engine",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Hôte : {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
   },
   "preferences_dev_mode_accessibility_experiments_title": "Expériences d'accessibilité",
   "@preferences_dev_mode_accessibility_experiments_title": {
@@ -4861,6 +5103,22 @@
   "preferences_faq_discover_off_title": "Découvrez Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Découvrez Open Beauty Facts",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Découvrez Open Pet Food Facts",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Découvrez Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Découvrez Open Products Facts",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
   },
   "preferences_faq_faq_title": "FAQ - Foire aux questions",
   "@preferences_faq_faq_title": {
@@ -5114,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5180,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} sur {total} articles",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} articles",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} articles",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5298,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Apportez Open Food Facts à votre langue",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5324,5 +5606,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Détails de la localisation",
+  "location_map_details_name": "Nom",
+  "location_map_details_street": "Rue",
+  "location_map_details_city": "Ville",
+  "location_map_details_postcode": "Code postal",
+  "location_map_details_country": "Pays",
+  "location_map_details_coordinates": "Coordonnées",
+  "location_map_details_osm_id": "ID OSM"
 }

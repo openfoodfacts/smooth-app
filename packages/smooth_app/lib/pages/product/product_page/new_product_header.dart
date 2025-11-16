@@ -12,7 +12,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -254,9 +253,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 border: Border.all(color: Colors.white),
               ),
               child: InkWell(
-                onTap: () => AppNavigator.of(
-                  context,
-                ).push(AppRoutes.PREFERENCES(PreferencePageType.FOOD)),
+                onTap: () =>
+                    AppNavigator.of(context).push(AppRoutes.FOOD_PREFERENCES),
                 borderRadius: ROUNDED_BORDER_RADIUS,
                 child: ClipRRect(
                   borderRadius: ROUNDED_BORDER_RADIUS,
@@ -305,7 +303,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(
                 top: 6.0,
                 bottom: SMALL_SPACE,
-                start: 6.0,
+                start: 5.0,
                 end: 6.0,
               ),
               child: Column(
@@ -332,7 +330,8 @@ class _ProductCompatibilityScore extends StatelessWidget {
                       overflow: TextOverflow.fade,
                       textScaler: TextScaler.noScaling,
                       style: const TextStyle(
-                        height: 0.9,
+                        height: 1.0,
+                        fontSize: 11.0,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -349,7 +348,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
   double computeWidth(BuildContext context) {
     return math.min(
       90.0,
-      (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
+      (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (20 / 100),
     );
   }
 }

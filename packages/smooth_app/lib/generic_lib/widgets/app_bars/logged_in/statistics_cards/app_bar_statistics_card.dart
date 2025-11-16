@@ -51,7 +51,7 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
 
     return Material(
       borderRadius: ROUNDED_BORDER_RADIUS,
-      color: themeExtension.secondaryVibrant.withValues(alpha: 0.8),
+      color: themeExtension.secondaryVibrant.withValues(alpha: 0.95),
       child: SizedBox(
         height: AppBarStatisticsCard.HEIGHT,
         child: InkWell(
@@ -69,12 +69,13 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
               ),
               LayoutId(
                 id: _AppBarStatisticsCardLayoutItem.counter,
-                child: Text(
+                child: AutoSizeText(
                   count != null
                       ? NumberFormat.decimalPattern(
                           ProductQuery.getLocaleString(),
                         ).format(count)
                       : '0',
+                  maxLines: 1,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,

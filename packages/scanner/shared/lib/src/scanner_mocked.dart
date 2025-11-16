@@ -21,8 +21,11 @@ class MockedScanner extends Scanner {
     })
     trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
-  }) => Container();
+  }) => const SizedBox.shrink();
 }

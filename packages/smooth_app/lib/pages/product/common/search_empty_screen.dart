@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class SearchEmptyScreen extends StatelessWidget {
@@ -27,7 +28,13 @@ class SearchEmptyScreen extends StatelessWidget {
               title: SearchAppBarTitle(title: name, editableAppBarTitle: false),
               actions: actions,
             )
-          : null,
+          : PreferredSize(
+              preferredSize: Size(
+                double.infinity,
+                MediaQuery.viewInsetsOf(context).top,
+              ),
+              child: const SmoothEmptyAppBar(),
+            ),
       body: Center(child: emptiness),
     );
   }

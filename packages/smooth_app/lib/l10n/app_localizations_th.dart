@@ -9,7 +9,7 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String get app_name => 'ข้อมูลอาหารเปิด';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -223,6 +223,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get forgot_password => 'ชืมรหัสผ่าน';
+
+  @override
+  String get forgot_password_question => 'ลืมรหัสผ่าน?';
 
   @override
   String get view_profile => 'ดูโปรไฟล์';
@@ -621,7 +624,19 @@ class AppLocalizationsTh extends AppLocalizations {
   String get search => 'ค้นหา';
 
   @override
+  String get search_product_help => 'ค้นหาผลิตภัณฑ์\nยี่ห้อหรือบาร์โค้ด';
+
+  @override
+  String get search_filter => 'ตัวกรองการค้นหา';
+
+  @override
+  String get search_history => 'ประวัติการค้นหา';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'คำใบ้: เพิ่มเมืองหรือประเทศ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1258,6 +1273,13 @@ class AppLocalizationsTh extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'ไม่มีทรัพย์สิน';
+
+  @override
+  String get product_tags_explanation =>
+      'การเพิ่มคุณสมบัติ (คีย์/ค่า) ให้กับผลิตภัณฑ์จะช่วยเสริมความสมบูรณ์ให้กับผลิตภัณฑ์';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -1276,6 +1298,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'คุณสมบัติ';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1283,6 +1308,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1636,6 +1664,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'ขออภัยค่ะ นี่เป็นสินค้าตัวอย่างของเรา คุณไม่สามารถแก้ไขได้ค่ะ :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1671,6 +1703,9 @@ class AppLocalizationsTh extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'เปรียบเทียบแบบเคียงข้างกัน';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2643,6 +2678,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get prices_list_add_new_price => 'เพิ่มราคาใหม่\n';
 
   @override
+  String get prices_list_empty_title => 'ยังไม่มีราคา!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'เป็นคนแรกที่จะเพิ่มอันหนึ่ง:\nโดยการสแกน **ใบเสร็จ** หรือ **ป้ายราคา**!';
+
+  @override
   String get prices_entry_shop_not_found => 'ร้านค้าที่ไม่ทราบชื่อ';
 
   @override
@@ -2730,9 +2772,21 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'ยังไม่มีผู้สนับสนุน!';
+
+  @override
+  String get prices_users_empty_explanation => 'เป็นคนแรกที่จะเพิ่มราคา!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'ยังไม่มีร้านค้า!';
+
+  @override
+  String get prices_locations_empty_explanation => 'เป็นคนแรกที่จะเพิ่มราคา!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2837,7 +2891,17 @@ class AppLocalizationsTh extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'ยังไม่มีหลักฐาน!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'เริ่มต้นด้วยการเพิ่มรูปภาพของ **ใบเสร็จ** หรือ **ป้ายราคา**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2901,6 +2965,9 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -2930,7 +2997,20 @@ class AppLocalizationsTh extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'รีเซ็ตภาษาแอป';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'เพิ่มการ์ด';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'สลับระหว่าง prices.openfoodfacts.org (PROD) และทดสอบสภาพแวดล้อม';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -2971,6 +3051,11 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -3440,14 +3525,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -3975,26 +4052,26 @@ class AppLocalizationsTh extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'กรีนสกอร์ เอ';
+  String get environmental_score_a_new => 'Green-Score เอ';
 
   @override
-  String get environmental_score_b_new => 'กรีนสกอร์ บี';
+  String get environmental_score_b_new => 'Green-Score บี';
 
   @override
-  String get environmental_score_c_new => 'กรีนสกอร์ ซี';
+  String get environmental_score_c_new => 'Green-Score ซี';
 
   @override
-  String get environmental_score_d_new => 'กรีนสกอร์ ดี';
+  String get environmental_score_d_new => 'Green-Score ดี';
 
   @override
-  String get environmental_score_e_new => 'กรีนสกอร์ อี';
+  String get environmental_score_e_new => 'Green-Score อี';
 
   @override
-  String get environmental_score_unknown_new => 'กรีนสกอร์ที่ไม่รู้จัก';
+  String get environmental_score_unknown_new => 'Green-Scoreที่ไม่รู้จัก';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'คะแนนสีเขียวไม่สามารถใช้งานได้';
+      'Green-Scoreไม่สามารถใช้งานได้';
 
   @override
   String get nova_group_generic_new => 'อาหารแปรรูปขั้นสูง - กลุ่ม NOVA';
@@ -4292,7 +4369,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'เพื่อให้รางวัลแก่ผลิตภัณฑ์ที่ดีกว่าภายในหมวดหมู่หนึ่ง เราจึงใช้โบนัสและบทลงโทษตามเกณฑ์หลายประการ:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4300,7 +4377,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4308,7 +4385,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'โบนัสจะมอบให้ตามแหล่งที่มาของส่วนผสม โดยโบนัสนี้จะคำนึงถึงผลกระทบต่อการขนส่งและนโยบายด้านสิ่งแวดล้อมของแต่ละประเทศผู้ผลิตด้วย';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4316,14 +4393,14 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'บรรจุภัณฑ์';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4331,19 +4408,19 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'ในการคำนวณ Green-Score อย่างแม่นยำ จำเป็นต้องมีข้อมูลที่ไม่ได้ระบุไว้บนบรรจุภัณฑ์อย่างชัดเจน (เช่น แหล่งที่มาและเปอร์เซ็นต์ที่แน่นอนของส่วนผสมแต่ละชนิด) หรือข้อมูลที่ไม่มีในรูปแบบที่ใช้งานได้จริง (เช่น รายการส่วนประกอบทั้งหมดของบรรจุภัณฑ์พร้อมประเภทของพลาสติกที่ใช้อย่างแม่นยำ)';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'ค่าเฉลี่ยจะใช้เมื่อข้อมูลนี้ยังไม่มีอยู่ แต่ขณะนี้เรากำลังขอให้ทุกคนช่วยเรารวบรวมข้อมูลซึ่งจะเป็นประโยชน์อย่างยิ่งสำหรับ Green-Score แต่ยังมีประโยชน์อื่นๆ อีกมากมายอีกด้วย';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'ประชาชนสามารถช่วยเหลือได้อย่างไร';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'พลเมืองทุกคนสามารถช่วยเรารวบรวมและจัดโครงสร้างข้อมูลที่มีอยู่ในผลิตภัณฑ์หรือที่สามารถอนุมานได้จากผลิตภัณฑ์ เช่น ข้อมูลเกี่ยวกับบรรจุภัณฑ์: ภารกิจ Emballages: การสำรวจสินค้าคงคลังบรรจุภัณฑ์ขนาดใหญ่สำหรับผลิตภัณฑ์อาหารทั้งหมด (ภาษาฝรั่งเศส)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4395,7 +4472,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'กลุ่ม NOVA แจ้งให้คุณทราบเกี่ยวกับระดับของการแปรรูปอาหาร';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4417,28 +4494,28 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'อาหารที่ไม่ผ่านการแปรรูป (หรือจากธรรมชาติ) คือส่วนที่รับประทานได้ของพืช (เมล็ด ผลไม้ ใบ ลำต้น ราก) หรือสัตว์ (กล้ามเนื้อ เครื่องใน ไข่ นม) เช่นเดียวกับเชื้อรา สาหร่าย และน้ำ หลังจากแยกออกจากธรรมชาติ';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'เครื่องปรุงอาหารที่ผ่านการแปรรูป';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'ส่วนผสมอาหารแปรรูป เช่น น้ำมัน เนย น้ำตาล และเกลือ เป็นสารที่ได้มาจากอาหารกลุ่ม 1 หรือจากธรรมชาติ โดยผ่านกระบวนการต่างๆ เช่น การกด การกลั่น การบด การโม่ และการอบแห้ง';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'อาหารแปรรูป';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'อาหารแปรรูป เช่น ผักบรรจุขวด ปลากระป๋อง ผลไม้ในน้ำเชื่อม ชีส และขนมปังสด ส่วนใหญ่ผลิตโดยการเติมเกลือ น้ำมัน น้ำตาล หรือสารอื่นๆ จากกลุ่ม 2 ลงในอาหารกลุ่ม 1 กระบวนการต่างๆ ประกอบด้วยวิธีการถนอมอาหารหรือการปรุงอาหารที่หลากหลาย และในกรณีของขนมปังและชีส จะมีการหมักแบบไม่มีแอลกอฮอล์ อาหารแปรรูปส่วนใหญ่มีส่วนผสมสองหรือสามอย่าง และเป็นที่รู้จักในฐานะอาหารกลุ่ม 1 ที่ผ่านการดัดแปลง ซึ่งสามารถรับประทานเดี่ยวๆ หรือโดยทั่วไปแล้วสามารถรับประทานร่วมกับอาหารอื่นๆ ได้';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'อาหารที่ผ่านการแปรรูประดับสูง';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'อาหารแปรรูปขั้นสูง เช่น น้ำอัดลม ขนมขบเคี้ยวบรรจุหีบห่อทั้งรสหวานและรสเค็ม ผลิตภัณฑ์เนื้อสัตว์แปรรูป และอาหารแช่แข็งสำเร็จรูป ไม่เพียงแต่เป็นอาหารแปรรูปเท่านั้น แต่ยังเป็นสูตรที่ผลิตจากสารต่างๆ ที่ได้จากอาหารและสารเติมแต่งเป็นส่วนใหญ่หรือทั้งหมด โดยแทบไม่มีหรือไม่มีอาหารกลุ่ม 1 ที่สมบูรณ์ ส่วนผสมในสูตรเหล่านี้มักประกอบด้วยส่วนผสมที่พบในอาหารแปรรูป เช่น น้ำตาล น้ำมัน ไขมัน หรือเกลือ อย่างไรก็ตาม ผลิตภัณฑ์แปรรูปขั้นสูงยังมีแหล่งพลังงานและสารอาหารอื่นๆ ที่ปกติแล้วไม่ได้ใช้ในการปรุงอาหาร บางชนิดสกัดโดยตรงจากอาหาร เช่น เคซีน แลคโตส เวย์ และกลูเตน';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'ปัญหาของการประมวลผลขั้นสูง';
@@ -4449,7 +4526,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'สารหลายชนิดได้มาจากการแปรรูปส่วนประกอบอาหารเพิ่มเติม เช่น น้ำมันไฮโดรจิเนตหรืออินเทอร์เอริฟายด์ โปรตีนไฮโดรไลซ์ โปรตีนแยกจากถั่วเหลือง มอลโตเดกซ์ทริน น้ำตาลอินเวิร์ต และน้ำเชื่อมข้าวโพดฟรุกโตสสูง';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4457,7 +4534,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'สารเติมแต่งในอาหารแปรรูปขั้นสูงประกอบด้วยสารบางชนิดที่ใช้ในอาหารแปรรูป เช่น สารกันบูด สารต้านอนุมูลอิสระ และสารให้ความคงตัว สารเติมแต่งประเภทที่พบเฉพาะในผลิตภัณฑ์แปรรูปขั้นสูง ได้แก่ สารที่ใช้เพื่อเลียนแบบหรือเพิ่มคุณภาพทางประสาทสัมผัสของอาหาร หรือเพื่อปกปิดส่วนที่ไม่น่ารับประทานของผลิตภัณฑ์ขั้นสุดท้าย สารเติมแต่งเหล่านี้ประกอบด้วยสีย้อมและสีอื่นๆ สารให้ความคงตัวของสี วัตถุแต่งกลิ่นรส สารเพิ่มรสชาติ สารให้ความหวานที่ไม่ใช่น้ำตาล และสารช่วยในกระบวนการแปรรูป เช่น สารให้คาร์บอเนต สารเพิ่มความแน่น สารเพิ่มปริมาณ และสารป้องกันการเพิ่มปริมาณ สารลดฟอง สารป้องกันการจับตัวเป็นก้อนและสารเคลือบ อิมัลซิไฟเออร์ สารจับตัว และสารเพิ่มความชื้น';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4465,7 +4542,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'มีการใช้กระบวนการหลายขั้นตอนเพื่อผสมผสานส่วนผสมต่างๆ ที่มักจะมีอยู่เป็นจำนวนมากเข้าด้วยกัน และสร้างสรรค์ผลิตภัณฑ์ขั้นสุดท้าย (จึงเรียกว่า \"กระบวนการแปรรูปขั้นสูง\") กระบวนการเหล่านี้ประกอบด้วยกระบวนการหลายอย่างที่ไม่มีกระบวนการเทียบเท่าในประเทศ เช่น ไฮโดรจิเนชันและไฮโดรไลเซชัน การอัดรีดและการขึ้นรูป และกระบวนการเตรียมการก่อนทอด';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4473,7 +4550,438 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'วัตถุประสงค์โดยรวมของการแปรรูปขั้นสูง (Ultra-Processing) คือการสร้างผลิตภัณฑ์อาหารที่มีตราสินค้า สะดวก (ทนทาน พร้อมบริโภค) น่าดึงดูด (น่ารับประทานมาก) และสร้างกำไรสูง (ใช้วัตถุดิบราคาถูก) ซึ่งออกแบบมาเพื่อแทนที่กลุ่มอาหารอื่นๆ ทั้งหมด ผลิตภัณฑ์อาหารแปรรูปขั้นสูงมักมีบรรจุภัณฑ์ที่สวยงามและจำหน่ายอย่างแพร่หลาย';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+
+  @override
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/โนวา';
+
+  @override
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_title =>
+      'What is Open Food Facts?';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+
+  @override
+  String get guide_open_food_facts_features_title =>
+      'Features of Open Food Facts';
+
+  @override
+  String get guide_open_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_food_facts_scores_title =>
+      'Help us build the \"Wikipedia of Food\"';
+
+  @override
+  String get guide_open_food_facts_scores_arg1_title =>
+      'A score on the nutritional quality';
+
+  @override
+  String get guide_open_food_facts_scores_arg2_title =>
+      'A score to avoid ultra-processed foods';
+
+  @override
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
+
+  @override
+  String get guide_open_food_facts_share_link =>
+      'https://world-th.openfoodfacts.org/discover';
+
+  @override
+  String get guide_open_pet_food_facts_title =>
+      'Welcome to Open Pet Food Facts!';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
+      'What is Open Pet Food Facts?';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+
+  @override
+  String get guide_open_pet_food_facts_features_title =>
+      'Features of Open Pet Food Facts';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_pet_food_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_pet_food_facts_scores_paragraph1 =>
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+
+  @override
+  String get guide_open_pet_food_facts_share_link =>
+      'https://world-th.openpetfoodfacts.org/discover';
+
+  @override
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
+      'What is Open Beauty Facts?';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+
+  @override
+  String get guide_open_beauty_facts_features_title =>
+      'Features of Open Beauty Facts';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_paragraph1 =>
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_beauty_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text4 =>
+      'Take as many picture as need if the bottle is curved.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text5 =>
+      'You might need to peel the label to see the list of ingredients.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text6 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_beauty_facts_scores_paragraph1 =>
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+
+  @override
+  String get guide_open_beauty_facts_share_link =>
+      'https://world-th.openbeautyfacts.org/discover';
+
+  @override
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_title =>
+      'What is Open Prices?';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph1 =>
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph2 =>
+      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+
+  @override
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
+
+  @override
+  String get guide_open_prices_how_paragraph1 =>
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+
+  @override
+  String get guide_open_prices_how_arg1_title =>
+      'Collect photos of price tags in aisles';
+
+  @override
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+
+  @override
+  String get guide_open_prices_why_title =>
+      'Why is Open Food Facts doing this ?';
+
+  @override
+  String get guide_open_prices_why_paragraph1 =>
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+
+  @override
+  String get guide_open_prices_why_arg1_title =>
+      'Track the evolution of prices over time';
+
+  @override
+  String get guide_open_prices_why_arg1_text =>
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+
+  @override
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+
+  @override
+  String get guide_open_prices_why_arg2_text =>
+      'As we get more prices, you can spot **the cheapest stores around you**.';
+
+  @override
+  String get guide_open_prices_scrapping_title =>
+      'Did you consider scraping prices from retailers\' websites?';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph1 =>
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph2 =>
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+
+  @override
+  String get guide_open_prices_retailers_title =>
+      'I\'m a retailer and I want to contribute prices. How can I do that?';
+
+  @override
+  String get guide_open_prices_retailers_paragraph1 =>
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+
+  @override
+  String get guide_open_prices_share_link =>
+      'https://prices.openfoodfacts.org/about';
+
+  @override
+  String get guide_open_products_facts_title =>
+      'Welcome to Open Products Facts!';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_title =>
+      'What is Open Products Facts?';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+
+  @override
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
+
+  @override
+  String get guide_open_products_facts_features_text =>
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+
+  @override
+  String get guide_open_products_facts_features_arg1_title =>
+      'Carbon footprints for some products';
+
+  @override
+  String get guide_open_products_facts_features_arg1_text =>
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+
+  @override
+  String get guide_open_products_facts_features_arg2_title =>
+      'Reparability index for many products';
+
+  @override
+  String get guide_open_products_facts_features_arg2_text =>
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+
+  @override
+  String get guide_open_products_facts_features_arg3_title =>
+      'Find ways to donate/resell your product';
+
+  @override
+  String get guide_open_products_facts_features_arg3_text =>
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+
+  @override
+  String get guide_open_products_facts_information_title =>
+      'What information is useful?';
+
+  @override
+  String get guide_open_products_facts_information_text =>
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph1 =>
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph2 =>
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph3 =>
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+
+  @override
+  String get guide_open_products_facts_share_link =>
+      'https://world-th.openproductsfacts.org/discover';
+
+  @override
+  String get guide_open_preferences_button_title => 'Open food preferences';
+
+  @override
+  String get guide_coming_soon_button_title => 'Coming soon';
+
+  @override
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
   String get preview_badge => 'Preview';
@@ -4784,7 +5292,42 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'ทำไมต้องราคา?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** คือโครงการที่รวบรวมและแบ่งปันราคาสินค้าทั่วโลก 🌍 Open Prices พัฒนาและดูแลโดย Open Food Facts';
+
+  @override
+  String get explanation_card_learn_more_button => 'ดูเพิ่มเติม';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Folksonomy Attribute คืออะไร?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'แอตทริบิวต์จะขึ้นอยู่กับ **คีย์-ค่า**';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'คุณสมบัติเหล่านี้ถูกสร้างและยื่นโดยผู้สนับสนุนเพื่อการใช้งานทุกประเภท';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Open external link';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'External links may be unsafe. Do you really want to visit it?';
+
+  @override
+  String get prices_products_empty_title => 'ไม่มีราคาระบุ';
+
+  @override
+  String get prices_products_empty_explanation => 'เป็นคนแรกที่จะมีส่วนร่วม!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -5158,6 +5701,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_dev_mode_folksonomy_host_title => 'พิธีกรโฟล์คโซโนมี';
 
   @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'เจ้าภาพ: $host';
+  }
+
+  @override
   String get preferences_dev_mode_accessibility_experiments_title =>
       'การทดลองการเข้าถึง';
 
@@ -5196,8 +5744,21 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'ค้นพบโครงการ';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ค้นพบข้อเท็จจริงเกี่ยวกับ Open Food';
+  String get preferences_faq_discover_off_title => 'ค้นพบOpen Food Facts';
+
+  @override
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+
+  @override
+  String get preferences_faq_discover_opff_title =>
+      'Discover Open Pet Food Facts';
+
+  @override
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+
+  @override
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'คำถามที่พบบ่อย';
@@ -5385,7 +5946,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ราคาล่าสุดที่เพิ่มโดยชุมชนราคาเปิด';
+      'ราคาล่าสุดที่เพิ่มโดยชุมชนOpen Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5468,7 +6029,17 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count จาก $total รายการ';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count รายการ';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count รายการ';
   }
 
@@ -5528,8 +6099,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'เปิดข้อมูลอาหารในห้องปฏิบัติการ';
+  String get preferences_page_open_food_facts_labs_title => 'Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';
@@ -5557,4 +6127,28 @@ class AppLocalizationsTh extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'เพิ่มเมื่อ $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'ชื่อ';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

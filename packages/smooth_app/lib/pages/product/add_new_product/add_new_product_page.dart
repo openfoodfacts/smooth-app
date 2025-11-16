@@ -14,11 +14,11 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/helpers/paint_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product/product_type_radio_list_tile.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -661,9 +661,18 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       // Everything else can only be uploaded once
       rows.add(_buildMainImageButton(context, upToDateProduct, data));
       rows.add(
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: BALANCED_SPACE),
-          child: UserPreferencesListItemDivider(),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: BALANCED_SPACE,
+          ),
+          child: CustomPaint(
+            size: const Size(double.infinity, 1.0),
+            painter: DashedBorderPainter(
+              sides: <Side>{Side.top},
+              color: Theme.of(context).dividerColor,
+            ),
+          ),
         ),
       );
     }

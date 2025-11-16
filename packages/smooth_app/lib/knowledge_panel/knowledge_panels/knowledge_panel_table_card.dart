@@ -187,7 +187,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     final Widget verticalDivider = _verticalDivider;
     final Widget horizontalDivider = _horizontalDivider;
 
-    for (final List<TableCell> row in rows) {
+    for (int rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+      final List<TableCell> row = rows[rowIndex];
       final List<Widget> rowWidgets = <Widget>[];
       int index = 0;
       for (final TableCell cell in row) {
@@ -195,7 +196,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
             (availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++])
                 .toInt();
 
-        Widget tableCellWidget = _TableCellWidget(
+        final Widget tableCellWidget = _TableCellWidget(
           cell: cell,
           cellType: _columnsType[index - 1],
           cellWidthPercent: cellWidth,
@@ -204,17 +205,17 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           isInitiallyExpanded: widget.isInitiallyExpanded,
         );
 
-        /// Add a divider below the header cell
-        if (cell.isHeader) {
-          tableCellWidget = Column(
-            children: <Widget>[
-              Expanded(child: tableCellWidget),
-              horizontalDivider,
-            ],
-          );
-        }
-
-        rowWidgets.add(Expanded(flex: cellWidth, child: tableCellWidget));
+        rowWidgets.add(
+          Expanded(
+            flex: cellWidth,
+            child: Column(
+              children: <Widget>[
+                Expanded(child: tableCellWidget),
+                if (rowIndex < rows.length - 1) horizontalDivider,
+              ],
+            ),
+          ),
+        );
 
         if (index < row.length) {
           rowWidgets.add(verticalDivider);

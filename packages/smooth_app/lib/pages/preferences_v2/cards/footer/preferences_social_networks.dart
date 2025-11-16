@@ -26,7 +26,7 @@ class SocialNetworksFooter extends StatelessWidget {
         end: width * 0.1,
         bottom: LARGE_SPACE,
       ),
-      elevation: 0.0,
+      elevation: 2.0,
       color: lightTheme ? null : extension.primaryUltraBlack,
       child: IconTheme.merge(
         data: IconThemeData(

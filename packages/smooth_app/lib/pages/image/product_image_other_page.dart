@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -355,72 +356,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
         type: MaterialType.transparency,
         child: InkWell(
           borderRadius: CIRCULAR_BORDER_RADIUS,
-          onTap: () {
-            showSmoothModalSheet(
-              context: context,
-              builder: (BuildContext lContext) {
-                return SmoothModalSheet(
-                  title: appLocalizations.photo_viewer_details_title,
-                  bodyPadding: EdgeInsets.zero,
-                  body: Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(
-                          appLocalizations
-                              .photo_viewer_details_contributor_title,
-                        ),
-                        subtitle: Text(image.contributor ?? '-'),
-                      ),
-                      const Divider(),
-                      ListTile(
-                        title: Text(
-                          appLocalizations.photo_viewer_details_date_title,
-                        ),
-                        subtitle: Text(
-                          image.uploaded != null
-                              ? MaterialLocalizations.of(context)
-                                    .formatFullDate(image.uploaded!)
-                                    .firstLetterInUppercase()
-                              : '-',
-                        ),
-                      ),
-                      const Divider(),
-                      ListTile(
-                        title: Text(
-                          appLocalizations.photo_viewer_details_size_title,
-                        ),
-                        subtitle: Text(
-                          image.width != null && image.height != null
-                              ? appLocalizations
-                                    .photo_viewer_details_size_value(
-                                      image.width!,
-                                      image.height!,
-                                    )
-                              : '-',
-                        ),
-                      ),
-                      if (url.isNotEmpty) ...<Widget>[
-                        const Divider(),
-                        ListTile(
-                          title: Text(
-                            appLocalizations.photo_viewer_details_url_title,
-                          ),
-                          subtitle: Text(url),
-                          trailing: const Icon(Icons.open_in_new_rounded),
-                          onTap: () {
-                            LaunchUrlHelper.launchURL(url);
-                          },
-                        ),
-                      ],
-                      SizedBox(
-                        height: MediaQuery.viewPaddingOf(context).bottom,
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-          },
+          onTap: () => _showDetails(context, appLocalizations, url),
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               start: SMALL_SPACE,
@@ -435,11 +371,19 @@ class _ProductImageDetailsButton extends StatelessWidget {
               excludeSemantics: true,
               child: Row(
                 children: <Widget>[
-                  const icons.Info(size: 15.0, color: Colors.white),
-                  const SizedBox(width: SMALL_SPACE),
-                  Text(
-                    appLocalizations.photo_viewer_details_button,
-                    style: const TextStyle(color: Colors.white),
+                  const icons.Info(size: 18.0, color: Colors.white),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                      bottom: 2.0,
+                    ),
+                    child: Text(
+                      appLocalizations.photo_viewer_details_button,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -447,6 +391,54 @@ class _ProductImageDetailsButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<dynamic> _showDetails(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    String url,
+  ) {
+    return showSmoothListOfItemsModalSheet(
+      context: context,
+      title: appLocalizations.photo_viewer_details_title,
+      items: <ModalSheetItem>[
+        ModalSheetItem(
+          title: appLocalizations.photo_viewer_details_contributor_title,
+          subTitle: image.contributor ?? '-',
+          leading: const icons.Profile(),
+          trailing: image.contributor?.startsWith('org') == true
+              ? const OwnerFieldIcon()
+              : null,
+        ),
+        ModalSheetItem(
+          title: appLocalizations.photo_viewer_details_date_title,
+          subTitle: image.uploaded != null
+              ? MaterialLocalizations.of(
+                  context,
+                ).formatFullDate(image.uploaded!).firstLetterInUppercase()
+              : '-',
+          leading: const icons.Calendar(),
+        ),
+        ModalSheetItem(
+          title: appLocalizations.photo_viewer_details_size_title,
+          subTitle: image.width != null && image.height != null
+              ? appLocalizations.photo_viewer_details_size_value(
+                  image.width!,
+                  image.height!,
+                )
+              : '-',
+          leading: const icons.Move(),
+        ),
+        if (url.isNotEmpty)
+          ModalSheetItem(
+            title: appLocalizations.photo_viewer_details_url_title,
+            subTitle: url,
+            leading: const icons.ImageGallery(),
+            trailing: const icons.ExternalLink(),
+            onTap: () => LaunchUrlHelper.launchURL(url),
+          ),
+      ],
     );
   }
 }
@@ -464,7 +456,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: BALANCED_SPACE,
+          vertical: SMALL_SPACE,
+        ),
         child: Selector<PageController, int>(
           selector: (_, PageController value) {
             if (!value.position.hasPixels) {
@@ -485,7 +480,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
           builder: (BuildContext context, int progress, _) {
             return Text(
               '${progress + 1} / $items',
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             );
           },
         ),

@@ -21,18 +21,51 @@ class ProductImageGalleryTabBar extends StatelessWidget
   }
 
   List<ProductLanguageWithState> productLanguages(Product product) {
-    return <OpenFoodFactsLanguage>{
-          ...getProductImageLanguages(product, ImageField.FRONT),
-          ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-          ...getProductImageLanguages(product, ImageField.NUTRITION),
-          ...getProductImageLanguages(product, ImageField.PACKAGING),
-        }
-        .map(
-          (OpenFoodFactsLanguage l) =>
-              ProductLanguageWithState.normal(language: l),
-        )
-        .toList(growable: false);
+    final List<ProductLanguageWithState> languages =
+        <OpenFoodFactsLanguage>{
+              ...getProductImageLanguages(product, ImageField.FRONT),
+              ...getProductImageLanguages(product, ImageField.INGREDIENTS),
+              ...getProductImageLanguages(product, ImageField.NUTRITION),
+              ...getProductImageLanguages(product, ImageField.PACKAGING),
+            }
+            .map(
+              (OpenFoodFactsLanguage l) =>
+                  ProductLanguageWithState.normal(language: l),
+            )
+            .toList();
+
+    _removeUnknownLanguage(languages);
+
+    return languages;
   }
+
+  /// If we have both unknown language and English, we merge them
+  void _removeUnknownLanguage(List<ProductLanguageWithState> languages) {
+    final bool hasUnknownLanguage = _hasLanguage(
+      languages,
+      OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+    );
+    if (hasUnknownLanguage) {
+      final bool hasEnglish = _hasLanguage(
+        languages,
+        OpenFoodFactsLanguage.ENGLISH,
+      );
+
+      if (hasEnglish) {
+        languages.removeWhere(
+          (ProductLanguageWithState lang) =>
+              lang.language == OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+        );
+      }
+    }
+  }
+
+  bool _hasLanguage(
+    List<ProductLanguageWithState> languages,
+    OpenFoodFactsLanguage language,
+  ) => languages.any(
+    (ProductLanguageWithState lang) => lang.language == language,
+  );
 
   bool productEquality(Product oldProduct, Product product) {
     return product.barcode == oldProduct.barcode &&

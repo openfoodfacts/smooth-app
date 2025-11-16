@@ -9,7 +9,7 @@ class AppLocalizationsSs extends AppLocalizations {
   AppLocalizationsSs([String locale = 'ss']) : super(locale);
 
   @override
-  String get app_name => 'Vula Emaciniso Ekudla';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'Ukhohliwe iphasiwedi?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsSs extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Sesha umkhicito,\nluphawu noma ibhakhodi';
+
+  @override
+  String get search_filter => 'Luphenyo lwekuphenya';
+
+  @override
+  String get search_history => 'Umlandvo wekuphenya';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Lusito: faka lidolobha noma live';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1262,6 +1277,13 @@ class AppLocalizationsSs extends AppLocalizations {
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'Kute timphahla';
+
+  @override
+  String get product_tags_explanation =>
+      'Ngekwengeta timphahla (ukhiye/linani) kumkhicito, usita kuwucebisa.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
@@ -1280,6 +1302,9 @@ class AppLocalizationsSs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Tici';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1287,6 +1312,9 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1640,6 +1668,10 @@ class AppLocalizationsSs extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Siyacolisa, ngumkhicito wetfu wesibonelo, ngeke ukwati kuwuhlela :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1675,6 +1707,9 @@ class AppLocalizationsSs extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Catsanisa eceleni';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2648,6 +2683,13 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_list_add_new_price => 'Ngeta\nintsengo lensha';
 
   @override
+  String get prices_list_empty_title => 'Kute intsengo kwanyalo!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Yiba wekucala kwengeta munye:\nNgekutsi uskene **risidi** noma **ithegi yentsengo**!';
+
+  @override
   String get prices_entry_shop_not_found => 'Sitolo lesingatiwa';
 
   @override
@@ -2737,9 +2779,23 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'Kute umnikelo!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Yiba wekucala kwengeta intsengo!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize contributors (total: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'Kute sitolo kwanyalo!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Yiba wekucala kwengeta intsengo!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2845,7 +2901,17 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_proof_subtitle => 'Proof';
 
   @override
+  String get prices_proof_empty_title => 'Kute bufakazi!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Cala ngekufaka sitfombe se **risidi** noma **ithegi yentsengo**!';
+
+  @override
   String get prices_proof_find => 'Select a proof';
+
+  @override
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Receipt';
@@ -2909,6 +2975,9 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -2938,7 +3007,21 @@ class AppLocalizationsSs extends AppLocalizations {
       '(Ingredients and packaging)';
 
   @override
+  String get dev_mode_reset_app_language_title =>
+      'Setha kabusha lulwimi lwe-app';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Faka emakhadi';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
+
+  @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -2979,6 +3062,11 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get user_search_proof_title => 'My proof';
+
+  @override
+  String search_proof_title(String user) {
+    return 'Proof from \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -3448,14 +3536,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -3983,27 +4063,25 @@ class AppLocalizationsSs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Liphuzu leliluhlata A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Sikolo lesiluhlata B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Sikolo lesiluhlata C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Liphuzu leliluhlata D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Liphuzu leliluhlata E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new =>
-      'Sikolo-lesiluhlata lesingatiwa';
+  String get environmental_score_unknown_new => 'Green-Score lesingatiwa';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Liphuzu leliluhlata alisebenti';
+  String get environmental_score_not_applicable_new => 'Green-Score alisebenti';
 
   @override
   String get nova_group_generic_new =>
@@ -4226,7 +4304,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Ikhodi yembala ihluka kusuka kuluhlata lolumnyama (**A+**) lwemikhicito **lenemtselela lomncane** kuya kulobovu lobumnyama (**F**) lwemikhicito **lenemtselela lomkhulu**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'Timphawu Temaphuzu Laluhlata';
+  String get guide_greenscore_logos_caption => 'Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4306,7 +4384,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Kuvuza imikhicito lencono ngaphakatsi kwesigaba, sibese sifaka emabhonasi & tinhlawulo ngekuya ngemigomo leminyenti:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4314,7 +4392,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4322,7 +4400,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ibhonasi iniketwa ngekuya ngemvelaphi yetitsako. Lebhonasi itsatsa umtselela wekutfutsa kanye nenchubomgomo yemvelo yelive lemkhiciti ngamunye.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4330,14 +4408,14 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4345,19 +4423,19 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Kubala kahle iGreen-Score, kuyadzingeka kutsi ube nelwati lolungakacaciswa ngalokucondzile emaphaketheni (njengemvelaphi kanye neliphesenti lelicondzile lesitsako ngasinye) noma lelingakavami kutfolakala ngendlela lesebentako (njengeluhlu lwato tonkhe tincenye temaphakethe ngeluhlobo lolucondzile lwepulasitiki lesetjentiswako).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Emanani lasemkhatsini asetjentiswa uma lolwati lungakatfolakali, kepha nyalo sicela wonkhe umuntfu kutsi asisite sibutsele ndzawonye lolwati lolutawuba lusito kakhulu ku-Green-Score kepha nakuletinye tintfo letinyenti letisetjentiswako.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Indlela takhamuti letingasita ngayo .';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Tonkhe takhamuti tingasisita kutsi sibutsele ndzawonye futsi sihlele lwati lolukhona kumikhicito noma lolungatsatfwa kuyo, njengelwati ngekupakisha: Mission Emballages: luhlu lolukhulu lwekubambisana lwekupakisha yonkhe imikhicito yekudla (ngesiFulentshi)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4433,28 +4511,28 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Kudla lokungakalungiswa (noma kwemvelo) tincenye letidliwako tetitjalo (tinhlanyelo, titselo, emacembe, ticu, timphandze) noma tilwane (imisipha, i-offal, emacandza, lubisi), kanye ne fungi, algae, kanye nemanti, ngemuva kwekuhlukaniswa nemvelo.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Tintfo letilungisiwe tekupheka, njengemafutsa, ibhotela, shukela, kanye neluswayi, tintfo letisuselwa ekudleni kweLicembu 1 noma kusuka emvelweni ngetinchubo letifaka ekhatsi kucindzetela, kucolisa, kugaya, kugaya, kanye nekomisa.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Kudla lokuphekiwe, njengetibhidvo letisemabhodleleni, imfishi lefakwe emathinini, titselo letisesiraphu, emashizi, kanye nesinkhwa lesisandza kwentiwa, kwentiwa kakhulu ngekufaka luswayi, emafutsa, shukela, noma letinye tintfo kusuka ekudleni kweLicembu 2 kuya kuLicembu 1. Tinchubo tifaka tindlela letehlukene tekulondvolota noma tekupheka, futsi esimeni sesinkhwa kanye nashizi, kubiliswa lokungekho tjwala. Kudla lokuningi lokucubunguliwe kunetintfo letimbili noma letintsatfu futsi kuyabonakala njengetinhlobo letiguculwe tekudla kweLicembu 1. Tingadliwa todvwa noma, ngalokuvamile, tihlanganiswe nalokunye kudla.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 To group 1** foods. processes include various preservation or cooking methods, and in the case Of breads and cheese, non-alcoholic fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Kudla lokucubungulwe kakhulu, njengetiphuzo letinongotelako, kudla lokuncane lokupakishiwe lokumnandzi noma lokunongotelako, imikhicito yenyama lephindze yakhiwe, kanye netidlo letilungiswe ngaphambilini letifriziwe, akusiko nje kudla lokuguculwe kepha kwakheka lokwentiwe kakhulu noma ngalokuphelele kusuka etintfweni letisuselwa ekudleni kanye nekwengeteka, ngekudla lokuncane noma lokute Group1 . Titsako letikuletinhlobo tivame kufaka ekhatsi leto letitfolakala ekudleni lokucubunguliwe, njengashukela, emafutsa, emafutsa, noma luswayi. Nomakunjalo, imikhicito lecubungulwe kakhulu iphindze ibe naleminye imitfombo yemandla kanye nemanutrients langakavami kusetjentiswa ekulungiseleleni kwekupheka. Letinye taletintfo titsatfwa ngco ekudleni, njenge-casein, i-lactose, i-whey, ne-gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little To No intact group 1 food. ingredients in these formulations usually include those also found In processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also Contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'Tinkinga tekucubungula kakhulu';
@@ -4465,7 +4543,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Letinyenti titsatfwa ngekucubungula lokunyenti kwetintfo tekudla, njengemafutsa lane hydrogen noma lanesitsakatelo, emaprotein lane hydrogen, emaprotein e soy isolate, imaltodextrin, shukela logucukile, kanye nesiraphu yemabele lene fructose lesetulu.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4473,7 +4551,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Tintfo letingetiwe ekudleni lokucubunguliwe kakhulu tifaka ekhatsi letinye letiphindze tisetjentiswe ekudleni lokucubunguliwe, njengetintfo letilondvolotako, ema-antioxidants, kanye neticinisa. Emakilasi etintfo letingetiwe letitfolakala kuphela kumikhicito lecubungulwe kakhulu afaka ekhatsi leto letisetjentiselwa kulingisa noma kutfutfukisa timfanelo tetinzwa tekudla noma kufihla tincenye letingajabulisi temkhicito wekugcina. Letintfo letingetiwe tifaka ekhatsi emadayi kanye naleminye imibala, tintfo leticinisa imibala; tinongo, tintfo letikhutsata kunambitseka, tintfo letingashukela; kanye netinsita tekucubungula letifana nekukhipha icarbonate, kucinisa, kukhulisa kanye nekulwa nekukhulisa, kukhipha igwebu, kulwa nekukheka kanye nekugcobisa, tintfo letihlanganisako, tintfo letifaka emanti, kanye netintfo letifaka emanti.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4481,7 +4559,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Incumbi yekulandzelana kwetinchubo isetjentiswa kuhlanganisa tintfo letivame kuba tiningi kanye nekwakha umkhicito wekugcina (ngako ‘ultra-processed’). Letinchubo tifaka letiningi letite letilinganako tasekhaya, njenge hydrogenation kanye ne hydrolysis, kukhipha kanye nekubumba, kanye nekucubungula ngaphambi kwekuthosa.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4489,7 +4567,438 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Inhloso jikelele ye ultra-processing kwenta imikhicito yekudla leneluphawu, lelula (lehlala sikhatsi lesidze, lekulungele kudliwa), lekhangako (hyper-palatable) kanye nenzuzo lenkhulu (titsako letibita kancane) leyentelwe kususa onkhe lamanye emacembu ekudla. Imikhicito yekudla lecubunguliwe kakhulu ivame kupakishwa ngendlela lekhangako futsi itsengiswe kakhulu.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+
+  @override
+  String get guide_nova_share_link => 'https://world-ss.openfoodfacts.org/nova';
+
+  @override
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_title =>
+      'What is Open Food Facts?';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+
+  @override
+  String get guide_open_food_facts_features_title =>
+      'Features of Open Food Facts';
+
+  @override
+  String get guide_open_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_food_facts_scores_title =>
+      'Help us build the \"Wikipedia of Food\"';
+
+  @override
+  String get guide_open_food_facts_scores_arg1_title =>
+      'A score on the nutritional quality';
+
+  @override
+  String get guide_open_food_facts_scores_arg2_title =>
+      'A score to avoid ultra-processed foods';
+
+  @override
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
+
+  @override
+  String get guide_open_food_facts_share_link =>
+      'https://mhlaba-si.emaciniso ekudla lavulekile.org/tfola';
+
+  @override
+  String get guide_open_pet_food_facts_title =>
+      'Welcome to Open Pet Food Facts!';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
+      'What is Open Pet Food Facts?';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+
+  @override
+  String get guide_open_pet_food_facts_features_title =>
+      'Features of Open Pet Food Facts';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_pet_food_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text4 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_pet_food_facts_scores_paragraph1 =>
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+
+  @override
+  String get guide_open_pet_food_facts_share_link =>
+      'https://mhlaba-si.vula emaciniso ekudla kwetilwane.org/tfola';
+
+  @override
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
+      'What is Open Beauty Facts?';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+
+  @override
+  String get guide_open_beauty_facts_features_title =>
+      'Features of Open Beauty Facts';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_title =>
+      'Get alerts for your unwanted ingredients';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_paragraph1 =>
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_beauty_facts_tips_title =>
+      'Tips for taking great photos';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text1 =>
+      'Avoid shadows and glare.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text2 =>
+      'No blurry or out-of-focus text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text3 =>
+      'Don\'t crop out parts of the text.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text4 =>
+      'Avoid busy backgrounds.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text1 =>
+      'Use good, even lighting.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text2 =>
+      'Ensure text is sharp and readable.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text3 =>
+      'Capture the entire ingredients list.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text4 =>
+      'Take as many picture as need if the bottle is curved.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text5 =>
+      'You might need to peel the label to see the list of ingredients.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text6 =>
+      'Keep the product on a flat surface.';
+
+  @override
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+
+  @override
+  String get guide_open_beauty_facts_scores_paragraph1 =>
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+
+  @override
+  String get guide_open_beauty_facts_share_link =>
+      'https://mhlaba-si.vula emaciniso ebuhle.org/tfola';
+
+  @override
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_title =>
+      'What is Open Prices?';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph1 =>
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph2 =>
+      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+
+  @override
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
+
+  @override
+  String get guide_open_prices_how_paragraph1 =>
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+
+  @override
+  String get guide_open_prices_how_arg1_title =>
+      'Collect photos of price tags in aisles';
+
+  @override
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+
+  @override
+  String get guide_open_prices_why_title =>
+      'Why is Open Food Facts doing this ?';
+
+  @override
+  String get guide_open_prices_why_paragraph1 =>
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+
+  @override
+  String get guide_open_prices_why_arg1_title =>
+      'Track the evolution of prices over time';
+
+  @override
+  String get guide_open_prices_why_arg1_text =>
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+
+  @override
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+
+  @override
+  String get guide_open_prices_why_arg2_text =>
+      'As we get more prices, you can spot **the cheapest stores around you**.';
+
+  @override
+  String get guide_open_prices_scrapping_title =>
+      'Did you consider scraping prices from retailers\' websites?';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph1 =>
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph2 =>
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+
+  @override
+  String get guide_open_prices_retailers_title =>
+      'I\'m a retailer and I want to contribute prices. How can I do that?';
+
+  @override
+  String get guide_open_prices_retailers_paragraph1 =>
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+
+  @override
+  String get guide_open_prices_share_link =>
+      'https://prices.openfoodfacts.org/about';
+
+  @override
+  String get guide_open_products_facts_title =>
+      'Welcome to Open Products Facts!';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_title =>
+      'What is Open Products Facts?';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+
+  @override
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
+
+  @override
+  String get guide_open_products_facts_features_text =>
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+
+  @override
+  String get guide_open_products_facts_features_arg1_title =>
+      'Carbon footprints for some products';
+
+  @override
+  String get guide_open_products_facts_features_arg1_text =>
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+
+  @override
+  String get guide_open_products_facts_features_arg2_title =>
+      'Reparability index for many products';
+
+  @override
+  String get guide_open_products_facts_features_arg2_text =>
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+
+  @override
+  String get guide_open_products_facts_features_arg3_title =>
+      'Find ways to donate/resell your product';
+
+  @override
+  String get guide_open_products_facts_features_arg3_text =>
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+
+  @override
+  String get guide_open_products_facts_information_title =>
+      'What information is useful?';
+
+  @override
+  String get guide_open_products_facts_information_text =>
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph1 =>
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph2 =>
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph3 =>
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+
+  @override
+  String get guide_open_products_facts_share_link =>
+      'https://si.vulela imikhicito.org/tfola';
+
+  @override
+  String get guide_open_preferences_button_title => 'Open food preferences';
+
+  @override
+  String get guide_coming_soon_button_title => 'Coming soon';
+
+  @override
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
   String get preview_badge => 'Preview';
@@ -4799,7 +5308,42 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Kungani emanani?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** yiphrojekthi yekubutsela ndzawonye nekwabelana ngemanani emikhicito emhlabeni wonkhe 🌍. Intsengo Levulekile itfutfukiswa futsi igcinwe yi-Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Yini timfanelo teFolksonomy?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Timphawu tisekelwe **kukhiye-linani**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Letimphahla takhiwe futsi tifakwe ngulabafaka sandla kunobe nguyiphi inhlobo yekusetjentiswa.';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Open external link';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'External links may be unsafe. Do you really want to visit it?';
+
+  @override
+  String get prices_products_empty_title => 'Kute intsengo lekhonako';
+
+  @override
+  String get prices_products_empty_explanation => 'Yiba wekucala kunikela!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -5077,7 +5621,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Emaciniso Ekudla Lavulekile yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
+      'Open Food Facts yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5128,7 +5672,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5180,6 +5724,11 @@ class AppLocalizationsSs extends AppLocalizations {
       'Umsingatsi webantfu';
 
   @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Umsingatsi: $host';
+  }
+
+  @override
   String get preferences_dev_mode_accessibility_experiments_title =>
       'Kuhlolwa kwekufinyeleleka';
 
@@ -5219,15 +5768,27 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tfola Emaciniso Ekudla Lavulekile';
+  String get preferences_faq_discover_off_title => 'Tfola Open Food Facts';
+
+  @override
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+
+  @override
+  String get preferences_faq_discover_opff_title =>
+      'Discover Open Pet Food Facts';
+
+  @override
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+
+  @override
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'I-NGO yeMaciniso Ekudla Lokuvulekile';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5249,8 +5810,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5463,7 +6023,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5500,7 +6060,17 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count ye $total tintfo';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count tintfo';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count tintfo';
   }
 
@@ -5561,14 +6131,14 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula Emalabs Emaciniso Ekudla';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Letsa Emaciniso Ekudla Lavulekile elulwimini lwakho';
+      'Letsa Open Food Facts elulwimini lwakho';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -5589,4 +6159,28 @@ class AppLocalizationsSs extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Kwengetwe ku $created';
   }
+
+  @override
+  String get location_map_details_title => 'Location details';
+
+  @override
+  String get location_map_details_name => 'Name';
+
+  @override
+  String get location_map_details_street => 'Street';
+
+  @override
+  String get location_map_details_city => 'City';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coordinates';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

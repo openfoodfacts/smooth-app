@@ -103,7 +103,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 SmoothPopupMenuItem<String>(
                   value: 'add_to_list',
                   label: appLocalizations.user_list_button_add_product,
-                  icon: const icons.AddToList.symbol().icon,
+                  icon: const icons.AddToList.symbol(),
                 ),
               ];
             },
@@ -111,8 +111,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         ],
       ),
       body: ChangeNotifierProvider<PersonalizedRankingModel>(
-        create: (final BuildContext context) => _model,
-        builder: (final BuildContext context, final Widget? wtf) {
+        create: (_) => _model,
+        builder: (final BuildContext context, _) {
           context.watch<PersonalizedRankingModel>();
           final List<String> compactPreferences = productPreferences
               .getCompactView();
@@ -128,7 +128,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
               // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
               return Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                   child: SmoothLargeButtonWithIcon(
                     leadingIcon: const icons.Reload(),
                     text: appLocalizations.refresh_with_new_preferences,
@@ -215,7 +215,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       child: ColoredBox(
         color: helper.getColor(context),
         child: Padding(
-          padding: const EdgeInsets.all(MEDIUM_SPACE),
+          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
           child: Text(
             helper.getHeaderText(appLocalizations),
             textAlign: TextAlign.center,

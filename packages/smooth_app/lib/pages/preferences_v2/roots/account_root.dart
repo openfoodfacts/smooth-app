@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
@@ -12,6 +12,8 @@ import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class AccountRoot extends PreferencesRoot {
   const AccountRoot({required super.title});
@@ -115,21 +117,35 @@ class AccountRoot extends PreferencesRoot {
   Future<bool?> _confirmLogout(
     BuildContext context,
     AppLocalizations appLocalizations,
-  ) async => showDialog<bool>(
-    context: context,
-    builder: (BuildContext context) {
-      return SmoothAlertDialog(
-        title: appLocalizations.sign_out,
-        body: Text(appLocalizations.sign_out_confirmation),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.yes,
-          onPressed: () async => Navigator.of(context).pop(true),
+  ) async {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return showSmoothListOfChoicesModalSheet<bool>(
+      context: context,
+      safeArea: true,
+      title: appLocalizations.sign_out,
+      header: Align(
+        alignment: AlignmentDirectional.topStart,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: MEDIUM_SPACE,
+          ),
+          child: Text(
+            appLocalizations.sign_out_confirmation,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+          ),
         ),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.no,
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
-      );
-    },
-  );
+      ),
+      labels: <String>[appLocalizations.yes, appLocalizations.no],
+      values: <bool>[true, false],
+      prefixIcons: <Widget>[
+        icons.Check.circled(color: theme.success),
+        icons.Close.circled(color: theme.error),
+      ],
+    );
+  }
 }

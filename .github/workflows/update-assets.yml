@@ -1,7 +1,7 @@
 name: Update assets
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 on:
@@ -32,13 +32,14 @@ jobs:
       id: cpr
       uses: peter-evans/create-pull-request@v7
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         base: develop
         commit-message: Update assets
-        committer: GitHub <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         signoff: false
         branch: auto-update-assets
         delete-branch: true
         title: 'chore: Update assets'
         body: |
           Automated update of asset cache - Link to revert if needed: https://world.openfoodfacts.org/product/093270067481501/a-good-product-for-you-open-food-facts
+
+

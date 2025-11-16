@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>checkbox</title>
+    <g id="checkbox" stroke="none" fill="none" fill-rule="nonzero">
+        <path d="M1.88888889,0 C0.85,0 0,0.85 0,1.88888889 L0,15.1111111 C0,16.15 0.85,17 1.88888889,17 L15.1111111,17 C16.15,17 17,16.15 17,15.1111111 L17,1.88888889 C17,0.85 16.15,0 15.1111111,0 L1.88888889,0 Z M15.1111111,15.1111111 L1.88888889,15.1111111 L1.88888889,1.88888889 L15.1111111,1.88888889 L15.1111111,15.1111111 Z" id="Shape" fill="color(display-p3 0.000 0.000 0.000)"></path>
+    </g>
+</svg>

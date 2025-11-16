@@ -37,7 +37,7 @@ jobs:
       
       # Get dependencies.
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
 
       # Check for formatting issues
       - name: Check for formatting issues (run "dart format . ")
@@ -63,7 +63,7 @@ jobs:
 
       # Upload generated apk to the artifacts.
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk

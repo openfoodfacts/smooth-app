@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -95,13 +96,20 @@ class PreferencesPage extends StatelessWidget {
           GithubSearchPreferenceTile(),
           ForumSearchPreferenceTile(),
         ],
-        footer: (_) => Consumer<PreferencesRootSearchController>(
-          builder: (_, PreferencesRootSearchController controller, _) {
-            if (controller.query?.isNotEmpty == true) {
-              return EMPTY_WIDGET;
-            }
-            return const SocialNetworksFooter();
-          },
+        footer: (_) => Consumer2<PreferencesRootSearchController, FocusNode>(
+          builder:
+              (
+                BuildContext context,
+                PreferencesRootSearchController controller,
+                FocusNode focusNode,
+                _,
+              ) {
+                if (controller.query?.isNotEmpty == true ||
+                    focusNode.hasFocus) {
+                  return EMPTY_WIDGET;
+                }
+                return const SocialNetworksFooter();
+              },
         ),
       ),
     );
@@ -115,8 +123,7 @@ class PreferencesPage extends StatelessWidget {
     final AutoSizeGroup autoSizeGroup = AutoSizeGroup();
 
     return PreferenceCard(
-      title: appLocalizations.contribute,
-      gridView: true,
+      grid: true,
       tiles: <PreferenceTile>[
         _buildPricesContributionTile(context, appLocalizations, autoSizeGroup),
         _buildHungerGamesTile(context, autoSizeGroup),
@@ -209,7 +216,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const UserPreferencesPage(type: PreferencePageType.FOOD),
+      target: const UserPreferencesFoodPage(),
     );
   }
 
@@ -220,7 +227,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Personalization.alt(size: 20.0),
       title: appLocalizations.myPreferences_settings_title,
       subtitleText: appLocalizations.myPreferences_settings_subtitle,
-      root: AppSettingsRoot(title: appLocalizations.settings_app_app),
+      root: AppSettingsRoot(
+        title: appLocalizations.myPreferences_settings_title,
+      ),
     );
   }
 
@@ -244,7 +253,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
-      url: appLocalizations.donate_url,
+      // the donate page includes javascript, not well accepted by webviews
+      url: 'using onTap instead',
+      onTap: () async => LaunchUrlHelper.launchURL(appLocalizations.donate_url),
     );
   }
 

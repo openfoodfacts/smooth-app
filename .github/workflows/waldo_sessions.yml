@@ -50,7 +50,7 @@ jobs:
       - run: flutter --version
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
         
       # Build apk.
       - name: Build APK

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>checked_flag</title>
+    <g id="checked_flag" stroke="none" fill="none" fill-rule="nonzero">
+        <path d="M1.7,0 L1.7,17 L3.4,17 L3.4,11.05 L13.6,11.05 C14.5363286,11.05 15.3,10.2863286 15.3,9.35 L15.3,1.7 C15.3,0.7636723 14.5363286,0 13.6,0 L1.7,0 Z M5.95,1.7 L8.5,1.7 L8.5,4.25 L11.05,4.25 L11.05,1.7 L13.6,1.7 L13.6,4.25 L11.05,4.25 L11.05,6.8 L13.6,6.8 L13.6,9.35 L11.05,9.35 L11.05,6.8 L8.5,6.8 L8.5,9.35 L5.95,9.35 L5.95,6.8 L3.4,6.8 L3.4,4.25 L5.95,4.25 L5.95,1.7 Z M5.95,4.25 L5.95,6.8 L8.5,6.8 L8.5,4.25 L5.95,4.25 Z" id="Shape" fill="color(display-p3 0.000 0.000 0.000)"></path>
+    </g>
+</svg>

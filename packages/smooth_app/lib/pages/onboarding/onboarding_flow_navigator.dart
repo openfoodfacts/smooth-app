@@ -107,7 +107,10 @@ enum OnboardingPage {
     onWillPop: () async => (false, null),
     // wrap the widget in [Builder] to allow navigation on the [context].
     child: Builder(
-      builder: (BuildContext context) => SmoothScaffold(body: widget),
+      builder: (BuildContext context) => SmoothBrightnessOverride(
+        brightness: Brightness.dark,
+        child: SmoothScaffold(body: widget),
+      ),
     ),
   );
 }

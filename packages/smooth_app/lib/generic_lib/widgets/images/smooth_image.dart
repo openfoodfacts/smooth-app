@@ -19,6 +19,7 @@ class SmoothImage extends StatelessWidget {
     this.heroTag,
     this.cacheWidth,
     this.cacheHeight,
+    this.semanticsLabel,
   }) : assert(
          cacheWidth == null || imageProvider is NetworkImage,
          'cacheWidth requires a NetworkImage',
@@ -38,6 +39,7 @@ class SmoothImage extends StatelessWidget {
   final bool rounded;
   final int? cacheWidth;
   final int? cacheHeight;
+  final String? semanticsLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class SmoothImage extends StatelessWidget {
       NetworkImage(url: final String url) => Image.network(
         url,
         fit: fit,
+        semanticLabel: semanticsLabel,
         loadingBuilder: _loadingBuilder,
         errorBuilder: _errorBuilder,
         frameBuilder: (_, Widget child, int? frame, _) {
@@ -60,6 +63,7 @@ class SmoothImage extends StatelessWidget {
       ImageProvider<Object>() => Image(
         image: imageProvider!,
         fit: fit,
+        semanticLabel: semanticsLabel,
         loadingBuilder: _loadingBuilder,
         errorBuilder: _errorBuilder,
       ),

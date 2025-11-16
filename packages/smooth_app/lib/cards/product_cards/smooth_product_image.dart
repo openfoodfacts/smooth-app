@@ -210,6 +210,7 @@ class _ProductPictureState extends State<ProductPicture> {
       widget.product,
       widget.transientFile,
       widget.imageProvider,
+      widget.language ?? ProductQuery.getLanguage(),
       widget.allowAlternativeLanguage,
     );
 
@@ -311,21 +312,33 @@ class _ProductPictureState extends State<ProductPicture> {
     Product? product,
     TransientFile? transientFile,
     ImageProvider? imageProvider,
+    OpenFoodFactsLanguage language,
     bool allowAlternativeLanguage,
   ) {
     if (imageProvider != null) {
       return (imageProvider, false);
     } else if (transientFile != null) {
-      return (transientFile.getImageProvider(), transientFile.expired);
+      final ImageProvider<Object>? provider = transientFile.getImageProvider();
+
+      // Special case: Unknown language and English are considered equivalent
+      if (provider == null && language == OpenFoodFactsLanguage.ENGLISH) {
+        return _getImageProvider(
+          product,
+          null,
+          null,
+          OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+          allowAlternativeLanguage,
+        );
+      }
+      return (provider, transientFile.expired);
     }
 
     final TransientFile productTransientFile = TransientFile.fromProduct(
       product!,
       widget.imageField!,
-      widget.language ?? ProductQuery.getLanguage(),
+      language,
     );
     final ImageProvider? provider = productTransientFile.getImageProvider();
-
     if (provider != null) {
       return (provider, productTransientFile.expired);
     }

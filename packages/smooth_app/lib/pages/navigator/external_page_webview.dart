@@ -1,12 +1,15 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -95,19 +98,21 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
       return SmoothScaffold(
         appBar: SmoothAppBar(
           title: Text(widget.pageName ?? AppLocalizations.of(context).loading),
-          leading: const CloseButton(),
+          leading: const SmoothBackButton(),
         ),
         body: const Center(child: CircularProgressIndicator.adaptive()),
       );
     } else {
       return SmoothScaffold(
         appBar: SmoothAppBar(
-          title: Text(
+          title: AutoSizeText(
             _pageTitle ??
                 widget.pageName ??
                 AppLocalizations.of(context).loading,
           ),
-          leading: const CloseButton(),
+          leading: const SmoothBackButton(
+            backButtonType: BackButtonType.minimize,
+          ),
           bottom: _progress < 100
               ? PreferredSize(
                   preferredSize: const Size(double.infinity, 5.0),
@@ -115,7 +120,8 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
                 )
               : null,
         ),
-        bottomNavigationBar: _WebViewBottomBar(controller: _controller),
+        floatingActionButton: _WebViewBottomBar(controller: _controller),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         body: RefreshIndicator(
           onRefresh: () => _controller.reload(),
           child: WebViewWidget(controller: _controller),
@@ -139,40 +145,50 @@ class _WebViewBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Color? backgroundColor = AppBarTheme.of(context).backgroundColor;
 
-    return Container(
-      color: AppBarTheme.of(context).backgroundColor,
+    return TooltipTheme(
+      data: TooltipTheme.of(context).copyWith(preferBelow: false),
       child: Padding(
-        padding: EdgeInsetsDirectional.only(
+        padding: const EdgeInsetsDirectional.only(
           top: VERY_SMALL_SPACE,
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
-          bottom: VERY_SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+          start: SMALL_SPACE * 3,
         ),
         child: Row(
           children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              tooltip: appLocalizations.previous_label,
-              enableFeedback: true,
-              onPressed: () => controller.goBack(),
+            Material(
+              color: backgroundColor,
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  IconButton(
+                    icon: const icons.Arrow.left(size: 18.0),
+                    tooltip: appLocalizations.previous_label,
+                    enableFeedback: true,
+                    onPressed: () => controller.goBack(),
+                  ),
+                  IconButton(
+                    icon: const icons.Arrow.right(size: 18.0),
+                    tooltip: appLocalizations.next_label,
+                    enableFeedback: true,
+                    onPressed: () => controller.goForward(),
+                  ),
+                  IconButton(
+                    icon: const icons.Reload(),
+                    tooltip: appLocalizations.label_reload,
+                    enableFeedback: true,
+                    onPressed: () => controller.reload(),
+                  ),
+                ],
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward),
-              tooltip: appLocalizations.next_label,
-              enableFeedback: true,
-              onPressed: () => controller.goForward(),
-            ),
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              tooltip: appLocalizations.label_reload,
-              enableFeedback: true,
-              onPressed: () => controller.reload(),
-            ),
+
             const Spacer(),
             IconButton(
-              icon: const Icon(Icons.share),
+              icon: icons.Share(),
               tooltip: appLocalizations.share,
+              style: IconButton.styleFrom(backgroundColor: backgroundColor),
               enableFeedback: true,
               onPressed: () async {
                 final String? url = await controller.currentUrl();

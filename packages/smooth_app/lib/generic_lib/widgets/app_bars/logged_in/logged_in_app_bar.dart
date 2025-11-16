@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/all_statistics_button.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_body.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar_header.dart';
@@ -22,7 +21,6 @@ class LoggedInAppBar extends StatelessWidget {
           AllStatisticsButton.MIN_HEIGHT,
       title: LoggedInAppBarHeader(userId: userId),
       content: LoggedInAppBarBody(userId: userId),
-      progressOffset: SEARCH_BOTTOM_HEIGHT,
     );
   }
 }

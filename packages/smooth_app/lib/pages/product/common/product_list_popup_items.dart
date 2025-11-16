@@ -17,6 +17,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_list_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,7 +38,7 @@ abstract class ProductListPopupItem {
   String getTitle(final AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
-  IconData getIconData();
+  Widget getIcon();
 
   /// Popup menu entry of the popup menu item.
   ProductListPopupMenuEntry getEntry();
@@ -59,7 +60,7 @@ abstract class ProductListPopupItem {
     final AppLocalizations appLocalizations,
   ) => SmoothPopupMenuItem<ProductListPopupItem>(
     value: this,
-    icon: getIconData(),
+    icon: getIcon(),
     label: getTitle(appLocalizations),
   );
 
@@ -88,7 +89,10 @@ class ProductListPopupClear extends ProductListPopupItem {
       appLocalizations.clear_long;
 
   @override
-  IconData getIconData() => Icons.delete_sweep;
+  Widget getIcon() => const Padding(
+    padding: EdgeInsetsDirectional.only(start: 1.5),
+    child: icons.Trash.clear(),
+  );
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.clear;
@@ -139,7 +143,7 @@ class ProductListPopupRename extends ProductListPopupItem {
       appLocalizations.user_list_popup_rename;
 
   @override
-  IconData getIconData() => Icons.edit;
+  Widget getIcon() => const icons.Edit(size: 16.0);
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.rename;
@@ -161,7 +165,7 @@ class ProductListPopupShare extends ProductListPopupItem {
       appLocalizations.share;
 
   @override
-  IconData getIconData() => Icons.share;
+  Widget getIcon() => icons.Share();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.share;
@@ -200,7 +204,7 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
       appLocalizations.label_web;
 
   @override
-  IconData getIconData() => Icons.public;
+  Widget getIcon() => const icons.Countries();
 
   @override
   ProductListPopupMenuEntry getEntry() =>
@@ -231,7 +235,7 @@ class ProductListPopupExport extends ProductListPopupItem {
       appLocalizations.product_list_export;
 
   @override
-  IconData getIconData() => Icons.download;
+  Widget getIcon() => const icons.Download();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.export;
@@ -293,7 +297,7 @@ class ProductListPopupImport extends ProductListPopupItem {
       appLocalizations.product_list_import;
 
   @override
-  IconData getIconData() => Icons.upload;
+  Widget getIcon() => const icons.Upload();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.import;
@@ -332,7 +336,7 @@ class ProductListPopupDelete extends ProductListPopupItem {
       appLocalizations.action_delete_list;
 
   @override
-  IconData getIconData() => Icons.delete;
+  Widget getIcon() => const icons.Trash();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.delete;

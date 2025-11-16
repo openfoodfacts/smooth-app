@@ -198,7 +198,7 @@ class _SmoothProductCardHeader extends StatelessWidget {
                 SmoothCloseButton(
                   onClose: onClose!,
                   circleColor: bgColor,
-                  crossSize: 11.5,
+                  crossSize: 11.75,
                   crossColor: Colors.white,
                   circleBorderColor: Colors.white,
                   tooltip: closeTooltip,

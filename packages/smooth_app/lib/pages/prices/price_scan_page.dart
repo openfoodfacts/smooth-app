@@ -9,6 +9,7 @@ import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -100,6 +101,9 @@ class _PriceScanPageState extends State<PriceScanPage>
         hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
         toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
         toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
+        barcodeScannerIcon: const icons.Search.off(),
+        torchOnIcon: const icons.Torch.on(),
+        torchOffIcon: const icons.Torch.off(),
         contentPadding: null,
       ),
     );

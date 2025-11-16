@@ -42,7 +42,7 @@ class SmoothLeadingButton extends StatelessWidget {
             splashColor: Colors.white70,
             child: Ink(
               decoration: BoxDecoration(
-                border: Border.all(color: color, width: 1.0),
+                border: Border.all(color: color, width: 1.5),
                 shape: BoxShape.circle,
               ),
               child: SizedBox.square(
@@ -60,7 +60,7 @@ class SmoothLeadingButton extends StatelessWidget {
     assert(size >= 0.0);
 
     return switch (action) {
-      SmoothLeadingAction.close => icons.Close(size: size, color: color),
+      SmoothLeadingAction.close => icons.Close.bold(size: size, color: color),
       SmoothLeadingAction.back => icons.Arrow.left(size: size, color: color),
       SmoothLeadingAction.minimize => Padding(
         padding: const EdgeInsetsDirectional.only(top: 1.0),

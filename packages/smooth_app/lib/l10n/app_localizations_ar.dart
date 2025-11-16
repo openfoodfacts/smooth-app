@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get app_name => 'حقائق غذائية مفتوحة';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -43,7 +43,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get next_label => 'التالى';
 
   @override
-  String get continue_label => 'Continue';
+  String get continue_label => 'يكمل';
 
   @override
   String get exit_label => 'خروج';
@@ -79,7 +79,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get stop => 'توقّف';
 
   @override
-  String get finish => 'Finish';
+  String get finish => 'ينهي';
 
   @override
   String get calculate => 'قم بالحساب';
@@ -97,7 +97,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get featureInProgress => 'لا زلنا نعمل على هذه الميزة. ترقبوا';
 
   @override
-  String get label_web => 'View on the web';
+  String get label_web => 'عرض على الويب';
 
   @override
   String get learnMore => 'لمعرفة المزيد';
@@ -106,37 +106,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unknown => 'غير معروف';
 
   @override
-  String get match_very_good => 'Very good match';
+  String get match_very_good => 'مباراة جيدة جدًا';
 
   @override
-  String get match_good => 'Good match';
+  String get match_good => 'مباراة جيدة';
 
   @override
-  String get match_poor => 'Poor match';
+  String get match_poor => 'مباراة سيئة';
 
   @override
-  String get match_may_not => 'May not match';
+  String get match_may_not => 'قد لا يتطابق';
 
   @override
-  String get match_does_not => 'Does not match';
+  String get match_does_not => 'لا يتطابق';
 
   @override
   String get match_unknown => 'تطابق غير معروف';
 
   @override
-  String get match_short_very_good => 'Very good match';
+  String get match_short_very_good => 'مباراة جيدة جدًا';
 
   @override
-  String get match_short_good => 'Good match';
+  String get match_short_good => 'مباراة جيدة';
 
   @override
-  String get match_short_poor => 'Poor match';
+  String get match_short_poor => 'مباراة سيئة';
 
   @override
-  String get match_short_may_not => 'May not match';
+  String get match_short_may_not => 'قد لا يتطابق';
 
   @override
-  String get match_short_does_not => 'Does not match';
+  String get match_short_does_not => 'لا يتطابق';
 
   @override
   String get match_short_unknown => 'تطابق غير معروف';
@@ -170,28 +170,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sign_in_text =>
-      'Sign in to your Open Food Facts account to save your contributions';
+      'قم بتسجيل الدخول إلى حساب Open Food Facts الخاص بك لحفظ مساهماتك';
 
   @override
   String get incorrect_credentials => 'اسم المستخدم أو كلمة المرور غير صحيحة.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'هذا البريد الإلكتروني أو اسم المستخدم غير موجود. يُرجى التحقق من بيانات اعتمادك.';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'نواجه حاليًا تباطؤًا في خوادمنا، ونعتذر عن ذلك. يُرجى المحاولة لاحقًا.';
 
   @override
   String get login => 'اسم المستخدم';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable => 'الشبكة غير قابلة للوصول';
 
   @override
   String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+      'مشكلة في الخادم. يُرجى المحاولة لاحقًا.';
 
   @override
   String get login_page_username_or_email =>
@@ -207,7 +207,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sign_in => 'تسجيل الدخول';
 
   @override
-  String get sign_in_mandatory => 'For that feature we need you to sign in.';
+  String get sign_in_mandatory =>
+      'للحصول على هذه الميزة، نحتاج منك تسجيل الدخول.';
 
   @override
   String get help_improve_country =>
@@ -224,6 +225,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forgot_password => 'نسيت كلمة المرور';
+
+  @override
+  String get forgot_password_question => 'هل نسيت كلمة السر؟';
 
   @override
   String get view_profile => 'عرض الصفحة الشخصية';
@@ -277,7 +281,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sign_up_page_email_error_invalid => 'بريد إلكتروني غير صالح';
 
   @override
-  String get sign_up_page_username_hint => 'Username: Publicly visible';
+  String get sign_up_page_username_hint => 'اسم المستخدم: مرئي للعامة';
 
   @override
   String get sign_up_page_username_error_empty => 'برجاء إدخال اسم المستخدم';
@@ -288,11 +292,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sign_up_page_username_description =>
-      'Username cannot contains spaces, caps or special characters.';
+      'لا يمكن أن يحتوي اسم المستخدم على مسافات أو أحرف كبيرة أو أحرف خاصة.';
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Username cannot exceed $value characters';
+    return 'لا يمكن أن يتجاوز اسم المستخدم $value حرفًا';
   }
 
   @override
@@ -317,10 +321,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'كلمة السر غير مطابقة';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text => 'أوافق على حقائق الغذاء المفتوحة';
 
   @override
-  String get sign_up_page_terms_text => 'terms of use and contribution';
+  String get sign_up_page_terms_text => 'شروط الاستخدام والمساهمة';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
@@ -341,23 +345,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'أرغب في الاشتراك في النشرة الإخبارية Open Food Facts (يمكنك إلغاء الاشتراك فيها في أي وقت)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'The user name already exists, please choose another username.';
+      'اسم المستخدم موجود بالفعل، يرجى اختيار اسم مستخدم آخر.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'already exists, login to the account or try with another email.';
+      'موجود بالفعل، قم بتسجيل الدخول إلى الحساب أو حاول باستخدام بريد إلكتروني آخر.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Please provide a valid email address.';
+      'يرجى تقديم عنوان بريد إلكتروني صالح.';
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'نأسف بشدة، نواجه بعض الصعوبات التقنية في إنشاء حسابك. يُرجى المحاولة لاحقًا.';
 
   @override
   String get settingsTitle => 'الإعدادات';
@@ -375,37 +379,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get darkmode_system_default => 'الإعداد الافتراضي للنظام';
 
   @override
-  String get thanks_for_contributing => 'Thanks for contributing!';
+  String get thanks_for_contributing => 'شكرا لمساهمتك!';
 
   @override
-  String get contributors_label => 'They are building the app';
+  String get contributors_label => 'إنهم يقومون ببناء التطبيق';
 
   @override
   String get contributors_dialog_title => 'المساهمون';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Contributor: $name';
+    return 'المساهم: $name';
   }
 
   @override
-  String get contributors_description =>
-      'A list of all contributors of this app';
+  String get contributors_description => 'قائمة بجميع المساهمين في هذا التطبيق';
 
   @override
-  String get support => 'Support';
+  String get support => 'يدعم';
 
   @override
   String get support_join_slack => 'طلب المساعدة في قناتنا على Slack';
 
   @override
-  String get support_via_forum => 'Ask for help on our forum';
+  String get support_via_forum => 'اطلب المساعدة في منتدانا';
 
   @override
   String get support_via_email => 'ارسل لنا بريد إلكتروني';
 
   @override
-  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
+  String get support_via_email_include_logs_dialog_title =>
+      'إرسال سجلات التطبيق؟';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
@@ -415,10 +419,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get termsOfUse => 'شروط الاستخدام';
 
   @override
-  String get legalNotices => 'Legal notices';
+  String get legalNotices => 'الإشعارات القانونية';
 
   @override
-  String get privacy_policy => 'Privacy policy';
+  String get privacy_policy => 'سياسة الخصوصية';
 
   @override
   String get about_this_app => 'حول هذا التطبيق';
@@ -431,27 +435,27 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contribute_develop_text =>
-      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
+      'كود جميع منتجات Open Food Facts متاح على GitHub. نرحب بك لإعادة استخدام الكود (إنه مفتوح المصدر) ومساعدتنا في تحسينه، للجميع في جميع أنحاء العالم.';
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'يمكنك الانضمام إلى غرفة الدردشة الخاصة بـ Open Food Facts على Slack وهي الطريقة المفضلة لطرح الأسئلة.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV Mode?';
+  String get contribute_develop_dev_mode_title => 'وضع DEV؟';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
+  String get contribute_develop_dev_mode_subtitle => 'تفعيل وضع DEV';
 
   @override
   String get contribute_donate_title => 'تبرع';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'التبرع لـ Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'يرجى العلم أنه مع الإصدار ألفا الداخلي، من الممكن فقدان البيانات بالكامل، وقد يصبح التطبيق غير قابل للاستخدام في أي وقت!';
 
   @override
   String get contribute_improve_ProductsToBeCompleted => 'مُنتجات مراد إكمالها';
@@ -461,7 +465,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'قاعدة البيانات هي جوهر المشروع. المساعدة سهلة وسريعة جدًا. يمكنك تنزيل تطبيق الهاتف المحمول على هاتفك، والبدء بإضافة المنتجات أو تحسينها.\n\nمن ناحية أخرى، يوفر موقع Open Food Facts العديد من طرق المساهمة: ';
 
   @override
   String get contribute_translate_header => 'ترجم';
@@ -474,7 +478,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      'حقائق الغذاء المفتوحة مشروع عالمي، يضم منتجات من أكثر من 160 دولة. تُرجمت حقائق الغذاء المفتوحة إلى عشرات اللغات، ويتطور محتواها باستمرار.';
 
   @override
   String get contribute_translate_text_2 =>
@@ -482,30 +486,29 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'ساهم بمهاراتك في \"Open Food Facts\". انضم إلى فريقنا!';
 
   @override
-  String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+  String get contribute_share_header => 'شارك حقائق الطعام المفتوحة مع أصدقائك';
 
   @override
   String get contribute_share_content =>
-      'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app';
+      'أردتُ أن أخبركم عن تطبيق Open Food Facts الذي أستخدمه، والذي يُمكّنكم من معرفة الآثار الصحية والبيئية لغذائكم، بطريقة شخصية. يعمل التطبيق عن طريق مسح الباركود الموجود على العبوة. وأخيرًا، التطبيق مجاني ولا يتطلب تسجيلًا، ويُمكنكم حتى من زيادة عدد المنتجات التي تُفك رموزها. إليكم رابط تحميله على هاتفكم: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'ساهم في الأسعار من خلال طلب تصدير بيانات بطاقات الولاء الخاصة بك وفقًا لمعايير حماية البيانات العامة (GDPR)';
 
   @override
   String get tap_to_answer => 'اضغط هنا للإجابة على الأسئلة';
 
   @override
   String get tap_to_answer_hint =>
-      'Tap here to answer questions about this product';
+      'انقر هنا للإجابة على الأسئلة المتعلقة بهذا المنتج';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Please wait while questions about this product are loaded';
+      'يرجى الانتظار أثناء تحميل الأسئلة المتعلقة بهذا المنتج';
 
   @override
   String get saving_answer => 'حفظ إجابتك';
@@ -515,16 +518,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'قم بتسجيل الدخول إلى حساب Open Food Facts الخاص بك للحصول على رصيد لمساهماتك';
 
   @override
-  String get question_yes_button_accessibility_value => 'Answer with yes';
+  String get question_yes_button_accessibility_value => 'أجب بنعم';
 
   @override
-  String get question_no_button_accessibility_value => 'Answer with no';
+  String get question_no_button_accessibility_value => 'الإجابة بـ لا';
 
   @override
-  String get question_skip_button_accessibility_value => 'Skip this question';
+  String get question_skip_button_accessibility_value => 'تخطي هذا السؤال';
 
   @override
   String get tap_to_edit_search => 'ماهذا وكيف يستخدم';
@@ -534,7 +537,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'قم بإنشاء حسابك وانضم إلى مجتمع Open Food Facts للمساعدة في بناء المعرفة الغذائية في جميع أنحاء العالم!';
 
   @override
   String get join_us => 'انضم إلينا';
@@ -544,13 +547,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Manage your Open Food Facts contributor account.';
+      'قم بإدارة حساب المساهم الخاص بك في Open Food Facts.';
 
   @override
   String get myPreferences_settings_title => 'إعدادات التطبيق';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'الوضع الداكن، اللغات…';
 
   @override
   String get myPreferences_food_title => 'أضف تفضيلات غذائية';
@@ -561,7 +564,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'اختر المعلومات الغذائية الأكثر أهمية بالنسبة لك، لتصنيف الطعام حسب تفضيلاتك، واطلع على المعلومات التي تهمك أولًا، واحصل على ملخص التوافق. تبقى هذه التفضيلات الغذائية على جهازك، وليست مرتبطة بحساب مساهمك في Open Food Facts، إن كان لديك حساب.';
 
   @override
   String get confirmResetPreferences => 'إعادة تعيين تفضيلات التطبيق؟';
@@ -573,7 +576,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ranking_tab_all => 'الكل';
 
   @override
-  String get ranking_subtitle_match_yes => 'A great match for you';
+  String get ranking_subtitle_match_yes => 'مباراة رائعة لك';
 
   @override
   String get ranking_subtitle_match_no => 'تطابُق ضعيف جداً';
@@ -583,11 +586,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get refresh_with_new_preferences =>
-      'Refresh the list with your new preferences';
+      'قم بتحديث القائمة بتفضيلاتك الجديدة';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Reloaded with your new preferences';
+      'تم إعادة تحميلها بتفضيلاتك الجديدة';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -599,7 +602,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get history_navbar_label => 'السجل';
 
   @override
-  String get list_navbar_label => 'Lists';
+  String get list_navbar_label => 'القوائم';
 
   @override
   String get category => 'فرز حسب الفئة';
@@ -614,19 +617,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String get filter => 'تصفية';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'المنتجات من شاشة المسح الضوئي';
 
   @override
-  String get scan_history => 'Scan history';
+  String get scan_history => 'سجل المسح الضوئي';
 
   @override
   String get search => 'بحث';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_product_help =>
+      'ابحث عن منتج أو\nعلامة تجارية أو رمز شريطي';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get search_filter => 'مرشح البحث';
+
+  @override
+  String get search_history => 'سجل البحث';
+
+  @override
+  String get search_store => 'ابحث عن متجر';
+
+  @override
+  String get search_store_help => 'تلميح: أضف المدينة أو البلد';
+
+  @override
+  String get tap_for_more => 'انقر لرؤية المزيد من المعلومات…';
 
   @override
   String get product => 'نتاج';
@@ -641,7 +657,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get label_refresh => 'تحديث';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'إعادة التحميل';
 
   @override
   String get image => 'الصورة';
@@ -651,18 +667,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (قد تكون هذه الصورة قديمة)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'قد تكون قديمة';
 
   @override
   String get ingredients => 'المكونات';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'احتفظ بالترتيب الأصلي. بيّن النسبة المئوية عند تحديدها. افصل بين المكونات بفاصلة أو شرطة، واستخدم الأقواس.';
 
   @override
   String get ingredients_editing_error => 'فشل في حفظ المكونات.';
@@ -679,17 +695,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get packaging_editing_instructions =>
-      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
+      'قم بإدراج جميع أجزاء التغليف مفصولة بفاصلة أو سطر، مع ذكر كميتها (مثل 1 أو 6) ونوعها (مثل زجاجة أو صندوق أو علبة) ومادة الصنع (مثل بلاستيك أو معدن أو ألومنيوم) وإذا كان متاحًا حجمها (مثل 33 سل) وتعليمات إعادة التدوير.\nمثال: زجاجة زجاجية واحدة لإعادة التدوير، وسدادة بلاستيكية واحدة للتخلص منها';
 
   @override
-  String get packaging_editing_error => 'Failed to save the packaging.';
+  String get packaging_editing_error => 'فشل في حفظ العبوة.';
 
   @override
   String get packaging_editing_image_error =>
-      'Failed to get a new packaging image.';
+      'فشل الحصول على صورة التغليف الجديدة.';
 
   @override
-  String get packaging_editing_title => 'Edit Packaging';
+  String get packaging_editing_title => 'تحرير التغليف';
 
   @override
   String get nutrition => 'التغذية';
@@ -698,7 +714,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutrition_facts_photo => 'صورة حقائق التغذية';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'تعديل حقائق التغذية';
 
   @override
   String get packaging_information => 'معلومات التعبِئة';
@@ -711,11 +727,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get add_product_take_photos =>
-      'Take photos of the packaging to add this product to Open Food Facts';
+      'التقط صورًا للتغليف لإضافة هذا المنتج إلى حقائق الطعام المفتوحة';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Please take some photos first. You may always complete the product at a later time.';
+      'يرجى التقاط بعض الصور أولاً. يمكنك إكمال المنتج لاحقًا.';
 
   @override
   String get add_product_information_button_label => 'إضافة معلومات عن المنتج';
@@ -724,65 +740,65 @@ class AppLocalizationsAr extends AppLocalizations {
   String get new_product => 'منتج جديد';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'تم العثور على منتج جديد!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'تحتوي قاعدة بياناتنا التعاونية على أكثر من **3 ملايين منتج**، ولكن هذا الرمز الشريطي غير موجود: ';
 
   @override
   String get new_product_found_button => 'إضافة منتج';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'مغادرة هذه الصفحة؟';
 
   @override
   String get new_product_leave_message =>
-      'It looks like you didn\'t input anything. Do you really want to leave this page?';
+      'يبدو أنك لم تُدخل أي شيء. هل ترغب حقًا بمغادرة هذه الصفحة؟';
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'يرجى التقاط صور للتغليف لإضافة هذا المنتج إلى قاعدة بياناتنا المشتركة';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'رسم توضيحي باستخدام Nutri-Score وGreen Score غير المعروفين';
 
   @override
-  String get front_packaging_photo_button_label => 'Front packaging photo';
+  String get front_packaging_photo_button_label => 'صورة العبوة الأمامية';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Confirm upload of Front packaging photo';
+      'تأكيد تحميل صورة العبوة الأمامية';
 
   @override
-  String get confirm_button_label => 'Confirm';
+  String get confirm_button_label => 'يتأكد';
 
   @override
-  String get send_image_button_label => 'Send image';
+  String get send_image_button_label => 'إرسال الصورة';
 
   @override
-  String get crop_page_action_saving => 'Saving the image…';
+  String get crop_page_action_saving => 'حفظ الصورة…';
 
   @override
-  String get crop_page_action_cropping => 'Cropping the image…';
+  String get crop_page_action_cropping => 'قص الصورة…';
 
   @override
-  String get crop_page_action_local => 'Saving a local version…';
+  String get crop_page_action_local => 'حفظ النسخة المحلية…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Oops… there\'s something with your photo!';
+      'عفواً… هناك شيء ما في صورتك!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
+      'لا يمكننا معالجة الصورة محليًا قبل إرسالها إلى خادمنا. يُرجى المحاولة لاحقًا أو التواصل معنا إذا استمرت المشكلة.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'إعادة التقاط الصورة';
 
   @override
-  String get crop_page_too_small_image_title => 'The image is too small!';
+  String get crop_page_too_small_image_title => 'الصورة صغيرة جدًا!';
 
   @override
   String crop_page_too_small_image_message(
@@ -791,14 +807,14 @@ class AppLocalizationsAr extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
+    return 'الحد الأدنى لحجم الصورة بالبكسل هو ${expectedMinWidth}x$expectedMinHeight. الصورة الحالية هي ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'Preparing a call to the server…';
+  String get crop_page_action_server => 'تحضير مكالمة إلى الخادم…';
 
   @override
-  String get front_packaging_photo_title => 'Front Packaging Photo';
+  String get front_packaging_photo_title => 'صورة التغليف الأمامية';
 
   @override
   String get ingredients_photo_title => 'صورة المكونات';
@@ -807,7 +823,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'صورة الحقائق الغذائية';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'إعادة تدوير الصور';
 
   @override
   String get take_photo_title => 'التقاط صورة';
@@ -826,89 +842,87 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nutrition_cache_loading_error =>
-      'Unable to load nutrients from cache';
+      'غير قادر على تحميل العناصر الغذائية من ذاكرة التخزين المؤقت';
 
   @override
   String get nutritional_facts_photo_button_label => 'صورة حقائق التغذية';
 
   @override
-  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
+  String get nutritional_facts_input_button_label => 'املأ حقائق التغذية';
 
   @override
-  String get nutritional_facts_added => 'Nutrition facts added';
+  String get nutritional_facts_added => 'تمت إضافة حقائق التغذية';
 
   @override
-  String get categories_added => 'Categories added';
+  String get categories_added => 'تمت إضافة الفئات';
 
   @override
   String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Help us by filling at least a category and nutritional values';
+      'ساعدنا عن طريق ملء فئة واحدة على الأقل والقيم الغذائية';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score => 'حساب النتيجة الخضراء';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'احصل عليه عن طريق ملء فئة واحدة على الأقل';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'جعل حساب النتيجة الخضراء أكثر دقة مع الأصول والتغليف والمزيد';
 
   @override
-  String get new_product_title_nova =>
-      'Compute the food processing level (NOVA)';
+  String get new_product_title_nova => 'حساب مستوى معالجة الأغذية (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Get it by filling the food category and ingredients';
+      'احصل عليه عن طريق ملء فئة الطعام والمكونات';
 
   @override
   String get new_product_desc_nova_unknown => 'مستوى معالجة الطعام غير معروف';
 
   @override
-  String get new_product_title_pictures => 'New product';
+  String get new_product_title_pictures => 'منتج جديد';
 
   @override
   String get new_product_title_pictures_details =>
       'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'And some basic data…';
+  String get new_product_title_misc => 'وبعض البيانات الأساسية…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return 'شكرًا على مساهمتك “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user => 'شكرا لمساهمتك!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'اكتشف المنتج المكتمل';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'اضغط للإجابة على 3 أسئلة الآن لحساب Nutri-Score وGreen Score وUltra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'انقر الآن للإجابة على سؤالين للمساعدة في تحليل هذا المستحضر التجميلي!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'انقر الآن للإجابة على 3 أسئلة للمساعدة في تحليل منتج طعام الحيوانات الأليفة هذا!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'انقر الآن للمساعدة في إكمال هذا المنتج!';
 
   @override
-  String get nutritional_facts_photo_uploaded =>
-      'Nutrition facts photo uploaded';
+  String get nutritional_facts_photo_uploaded => 'تم تحميل صورة حقائق التغذية';
 
   @override
   String get recycling_photo_button_label => 'صورة معلومات إعادة التدوير';
@@ -933,40 +947,39 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'تحميل الصورة الأمامية إلى Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'تحميل صورة المكونات إلى Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'تحميل صورة التغذية إلى Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'تحميل صورة التغليف إلى Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+      'تحميل صورة أخرى إلى Open Food Facts';
 
   @override
-  String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+  String get uploading_image_type_generic => 'تحميل الصورة إلى Open Food Facts';
 
   @override
   String get score_add_missing_ingredients => 'أضف المكونات المفقودة';
 
   @override
-  String get score_add_missing_packaging_image => 'Add missing packaging image';
+  String get score_add_missing_packaging_image => 'إضافة صورة التغليف المفقودة';
 
   @override
   String get score_add_missing_nutrition_facts =>
       'إضافة معلومات التغذية المفقودة';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces => 'إضافة آثار المنتج المفقودة';
 
   @override
   String get score_add_missing_product_category => 'إضافة فئة المنتج مفقودة';
@@ -976,23 +989,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Add missing product countries';
+      'إضافة البلدان المفقودة للمنتج';
 
   @override
-  String get score_add_missing_product_emb =>
-      'Add missing product traceability codes';
+  String get score_add_missing_product_emb => 'إضافة رموز تتبع المنتج المفقودة';
 
   @override
-  String get score_add_missing_product_labels => 'Add missing product labels';
+  String get score_add_missing_product_labels =>
+      'إضافة ملصقات المنتجات المفقودة';
 
   @override
-  String get score_add_missing_product_origins => 'Add missing product origins';
+  String get score_add_missing_product_origins => 'إضافة أصول المنتج المفقودة';
 
   @override
-  String get score_add_missing_product_stores => 'Add missing product stores';
+  String get score_add_missing_product_stores =>
+      'إضافة متاجر المنتجات المفقودة';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands =>
+      'إضافة العلامات التجارية للمنتجات المفقودة';
 
   @override
   String get score_update_nutrition_facts => 'تحديث المعلومات الغذائية';
@@ -1001,11 +1016,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutrition_page_title => 'حقائق غذائية';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'المعلومات الغذائية';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'القيم المحددة على المنتج:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'نعم';
@@ -1014,24 +1029,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'لا';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'افتح الصورة';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'الممارسات الجيدة: المعلومات الغذائية';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'أحيانًا لا تُذكر المعلومات الغذائية على العبوة أو في المستند المرفق بالمنتج. في هذه الحالة، وفي هذه الحالة فقط، يُمكنك ضبط القيمة على \"لا\".';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'القيم الغذائية:';
 
   @override
   String get nutrition_page_per_100g => 'لكل 100 غرام';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'لكل 100 جرام/مل';
 
   @override
   String get nutrition_page_per_serving => 'لكل وجبة';
@@ -1044,47 +1059,47 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'أدخل حجم الحصة (على سبيل المثال: 100 جرام)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'الممارسات الجيدة: حجم الحصة';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'تساعد هذه القيمة على **إجراء حساب متناسب لكل عنصر غذائي لكل حجم حصة**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**الوحدات المسموح بها** هي: كجم، جرام، ملجم، ميكروجرام، أونصة، لتر، ديسيلتر، cl، مل، فلوريدا أوقية، г، мг، kg، л، дл، кл، мл، 毫克، 公斤، 毫升، 公升، 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 جرامًا**، **60 جرامًا** أو **60 جرامًا** (يفضل الأول)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 مل** أو **1 لتر**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'وحدة غير صالحة';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **gr**';
+      '30 **جرام**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'وحدات غير صالحة';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **حلوى** و 2 **بسكويت**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'وحدة مفقودة';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1094,31 +1109,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutrition_page_invalid_number => 'الرقم غير صحيح';
 
   @override
-  String get nutrition_page_update_running =>
-      'Updating the product on the server…';
+  String get nutrition_page_update_running => 'تحديث المنتج على الخادم…';
 
   @override
   String get nutrition_page_update_done => 'تم تحديث المنتج!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'استخدم كمية المنتج كحجم للوجبة';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'غير قادر على تحميل الصورة';
 
   @override
   String get more_photos => 'صور أكثر إثارة للاهتمام';
 
   @override
-  String get view_more_photo_button =>
-      'View all existing photos for this product';
+  String get view_more_photo_button => 'عرض جميع الصور الموجودة لهذا المنتج';
 
   @override
   String get no_product_found => 'لم يتم العثور على أي منتج';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'لم يتم العثور على الموقع';
 
   @override
   String get not_found => 'لم يتم العثور على نتائج:';
@@ -1131,33 +1144,33 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'الصورة مأخوذة في $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'الصورة التُقطت في $date. قد تكون هذه الصورة قديمة.';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated => 'قد تكون هذه الصورة قديمة';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'قد تكون هذه الصورة قديمة';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'التُقطت هذه الصورة منذ أكثر من عام.\n**يرجى التأكد من أنها لا تزال مُحدَّثة**.\n\nهذا **مجرد تحذير**. إذا ظل المحتوى كما هو، يُمكنك تجاهل هذه الرسالة.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'استبدال الصورة ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'أضف صورة ($type)';
   }
 
   @override
@@ -1167,75 +1180,72 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_image_action_take_picture => 'التقاط صورة';
 
   @override
-  String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+  String get product_image_action_from_gallery => 'اختر من معرض هاتفك';
 
   @override
-  String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+  String get product_image_action_choose_existing_photo => 'اختر من صور المنتج';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'معلومات عن الصورة';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'من المنتج';
 
   @override
   String get product_image_details_contributor => 'مساهم';
 
   @override
-  String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+  String get product_image_details_contributor_producer => 'المساهم (المنتج)';
 
   @override
-  String get product_image_details_date => 'Date';
+  String get product_image_details_date => 'تاريخ';
 
   @override
   String get product_image_details_date_unknown => 'غير معروف';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Welcome to Open Food Facts';
+      'مرحباً بكم في حقائق الطعام المفتوحة';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      '**امسح** الرمز الشريطي أو\n**ابحث** عن منتج';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'ابحث عن منتج';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'ابدأ البحث';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'آخر الأخبار: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Do you like the app?';
+  String get tagline_app_review => 'هل يعجبك التطبيق؟';
 
   @override
-  String get tagline_app_review_button_positive => 'I love it! 😍';
+  String get tagline_app_review_button_positive => 'انا احبه! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Not really…';
+  String get tagline_app_review_button_negative => 'ليس حقا…';
 
   @override
-  String get tagline_app_review_button_later => 'Ask me later';
+  String get tagline_app_review_button_later => 'اسألني لاحقا';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'اعرف المزيد';
 
   @override
-  String get app_review_negative_modal_title => 'You don\'t like our app?';
+  String get app_review_negative_modal_title => 'هل لا يعجبك تطبيقنا؟';
 
   @override
   String get app_review_negative_modal_text =>
-      'Could you take a few seconds to tell us why?';
+      'هل يمكنك أن تأخذ بضع ثوان لتخبرنا لماذا؟';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
+  String get app_review_negative_modal_positive_button => 'نعم بالتأكيد!';
 
   @override
   String get app_review_negative_modal_negative_button => 'لا';
@@ -1244,63 +1254,76 @@ class AppLocalizationsAr extends AppLocalizations {
   String get could_not_refresh => 'تعذر تحديث المنتج';
 
   @override
-  String get product_internet_error_modal_title => 'An error has occurred!';
+  String get product_internet_error_modal_title => 'لقد حدث خطأ!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'لا يمكننا الحصول على معلومات حول هذا المنتج بسبب عطل في الشبكة. يُرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.\n\nخطأ داخلي:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'خصائص المنتج';
 
   @override
   String get no_product_tags_found_message =>
       'No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.';
 
   @override
+  String get product_tags_empty => 'لا يوجد خصائص';
+
+  @override
+  String get product_tags_explanation =>
+      'من خلال إضافة خصائص (مفتاح/قيمة) إلى المنتج، فإنك تساعد في إثرائه.';
+
+  @override
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'إضافة خصائص';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'إضافة أو تعديل الخصائص';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'تعديل الخاصية';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'إزالة الممتلكات';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'ملكية';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_keys => 'ملكيات';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_uneditable => 'الملكية (غير قابلة للتعديل)';
+
+  @override
+  String get tag_key_input_hint => 'إدخال خاصية';
 
   @override
   String get tag_value => 'القيمة';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_values => 'Values';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_value_input_hint => 'أدخل قيمة';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_key_item => 'ملكية:';
+
+  @override
+  String get tag_value_item => 'قيمة:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'يجب أن يكون المفتاح بأحرف صغيرة وبدون أي مسافات.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return 'يوجد بالفعل علامة تحتوي على الخاصية $property !';
   }
 
   @override
@@ -1318,7 +1341,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'لا يمكن استخدام هذه الميزة إلا للمنتجات التي تحتوي على فئة.\n\nيرجى تعديل المنتج لإضافة فئة.';
 
   @override
   String get product_improvement_add_category => 'إضافة فئة لحساب Nutri-Score.';
@@ -1341,30 +1364,30 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'يأخذ التقييم الأخضر في الاعتبار أصول المكونات. يُرجى التقاط صورة لقائمة المكونات و/أو أي ادعاء جغرافي، أو تعديل المنتج، لتتم مراعاة ذلك.';
 
   @override
   String get country_chooser_label => 'الرجاء اختيار بلد';
 
   @override
-  String get currency_chooser_label => 'Please choose a currency';
+  String get currency_chooser_label => 'الرجاء اختيار العملة';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'لقد قمت بتغيير البلدان للتو.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
+    return 'هل تريد تغيير العملة من $previousCurrency إلى $possibleCurrency؟';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'الرجاء اختيار البلد:';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'بلدك';
 
   @override
   String get country_selection_explanation => 'بعض السمات البيئية خاصة بالموقع';
@@ -1373,17 +1396,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_removed_comparison => 'تم إزالة المنتج من المقارنة';
 
   @override
-  String get native_app_settings => 'Native App Settings';
+  String get native_app_settings => 'إعدادات التطبيق الأصلي';
 
   @override
   String get native_app_description =>
-      'Open systems settings for Open Food Facts';
+      'إعدادات النظام المفتوحة لـ Open Food Facts';
 
   @override
   String get product_removed_history => 'تم إزالة المنتج من السجل';
 
   @override
-  String get product_removed_list => 'Product removed from list';
+  String get product_removed_list => 'تمت إزالة المنتج من القائمة';
 
   @override
   String get product_could_not_remove => 'لا يمكن إزالة المنتج';
@@ -1395,13 +1418,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get no_product_in_section => 'لا يوجد منتج في هذا القسم';
 
   @override
-  String get recently_seen_products => 'All viewed products';
+  String get recently_seen_products => 'جميع المنتجات التي تم عرضها';
 
   @override
   String get clear => 'محو';
 
   @override
-  String get clear_long => 'Empty the list';
+  String get clear_long => 'إفراغ القائمة';
 
   @override
   String get really_clear => 'هل تريد حقًا حذف هذه القائمة؟';
@@ -1472,8 +1495,8 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Compare $count Products',
-      one: 'Compare one Product',
+      other: 'قارن $count المنتجات',
+      one: 'قارن منتجًا واحدًا',
     );
     return '$_temp0';
   }
@@ -1483,31 +1506,31 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count منتجات محددة',
+      one: 'منتج واحد محدد',
+      zero: 'لم يتم تحديد أي منتج',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'مقارنة المنتجات المختارة';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'حذف المنتجات المحددة';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'حدد جميع المنتجات';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'لا تختار أي شيء';
 
   @override
   String get compare_products_appbar_title => 'مقارنة المنتجات';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Please select at least two products';
+      'الرجاء تحديد منتجين على الأقل';
 
   @override
   String get retry_button_label => 'إعادة المحاولة';
@@ -1516,37 +1539,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get connect_with_us => 'اتصل بنا';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'تابعونا على تيك توك';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Follow us on Instagram';
+  String get instagram => 'تابعونا على الانستغرام';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Follow us on X (formerly Twitter)';
+  String get twitter => 'تابعونا على X (تويتر سابقًا)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'تابعونا على ماستودون';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'تابعونا على بلو سكاي';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'Blog';
+  String get blog => 'مدونة';
 
   @override
   String get faq => 'الأسئلة المتكررة';
@@ -1559,7 +1582,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get hint_knowledge_panel_message =>
-      'Your can tap on any part of the card to get more details about what you see. Try it now!';
+      'يمكنك النقر على أي جزء من البطاقة للحصول على مزيد من التفاصيل حول ما تراه. جرّبها الآن!';
 
   @override
   String get permissions_page_title => 'الوصول إلى الكاميرا';
@@ -1570,7 +1593,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
+      'إذا غيرت رأيك، يمكنك تمكين هذا الخيار أو تعطيله في أي وقت من الإعدادات.';
 
   @override
   String contact_form_body_android(
@@ -1581,7 +1604,7 @@ class AppLocalizationsAr extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
+    return 'نظام التشغيل: أندرويد (SDK Int: $sdkInt / الإصدار: $release)\nالطراز: $model\nالمنتج: $product\nالجهاز: $device\nالعلامة التجارية:$brand';
   }
 
   @override
@@ -1590,7 +1613,7 @@ class AppLocalizationsAr extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
+    return 'نظام التشغيل: iOS ($version)\nالطراز: $model\nالطراز الموضعي: $localizedModel';
   }
 
   @override
@@ -1600,7 +1623,7 @@ class AppLocalizationsAr extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
+    return '$osContent\nإصدار التطبيق:$appVersion\nرقم بناء التطبيق:$appBuildNumber\nاسم حزمة التطبيق:$appPackageName';
   }
 
   @override
@@ -1613,7 +1636,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ask_me_later_button_label => 'لاحقاً';
 
   @override
-  String get are_you_sure => 'Are you sure?';
+  String get are_you_sure => 'هل أنت متأكد؟';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
@@ -1621,18 +1644,22 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'مرحباً !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'التطبيق الذي يساعدك على اختيار الطعام الجيد لك وللكوكب!';
 
   @override
-  String get onboarding_continue_button => 'Continue';
+  String get onboarding_continue_button => 'يكمل';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Loading your first example product';
+      'تحميل منتج المثال الأول الخاص بك';
+
+  @override
+  String get onboarding_welcome_warning =>
+      'عذراً، هذا هو منتجنا المثال، لا يمكنك تعديله :)';
 
   @override
   String get product_list_your_ranking => 'ترتيبك هو';
@@ -1641,7 +1668,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_list_empty_icon_desc => 'السجل غير متوفر';
 
   @override
-  String get product_list_empty_title => 'Start scanning';
+  String get product_list_empty_title => 'ابدأ المسح';
 
   @override
   String get product_list_empty_message =>
@@ -1652,11 +1679,11 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
-      one: 'product',
-      zero: 'product',
+      other: 'المنتجات',
+      one: 'المنتج',
+      zero: 'المنتج',
     );
-    return 'Refreshing $_temp0 in your history';
+    return 'تحديث $_temp0 في تاريخك';
   }
 
   @override
@@ -1664,12 +1691,15 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Products',
-      one: 'Product',
-      zero: 'Product',
+      other: 'المنتجات',
+      one: 'المنتج',
+      zero: 'المنتج',
     );
-    return '$_temp0 refresh complete';
+    return '$_temp0 تم التحديث';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'مقارنة جنبًا إلى جنب';
 
   @override
   String get loading_dialog_default_title => 'تحميل البيانات';
@@ -1691,16 +1721,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'قم بتسجيل الدخول أو الاشتراك للانضمام إلى مجتمع Open Food Facts';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'تسجيل الدخول إلى Open Food Facts: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Welcome $id!';
+    return 'مرحباً $id!';
   }
 
   @override
@@ -1708,47 +1738,47 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'مرحبًا، يُرجى حذف حسابي في Open Food Facts: $userId';
   }
 
   @override
-  String get settings_app_app => 'Application';
+  String get settings_app_app => 'طلب';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Camera';
+  String get settings_app_camera => 'آلة تصوير';
 
   @override
   String get settings_app_products => 'المنتجات';
 
   @override
-  String get settings_app_miscellaneous => 'Miscellaneous';
+  String get settings_app_miscellaneous => 'متنوع';
 
   @override
-  String get camera_play_sound_title => 'Play a sound on scan';
+  String get camera_play_sound_title => 'تشغيل صوت عند المسح';
 
   @override
-  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
+  String get camera_play_sound_subtitle => 'سوف يصدر صوت تنبيه عند كل مسح ناجح';
 
   @override
   String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+      'امسح الرمز الشريطي باستخدام الكاميرا الخاصة بك';
 
   @override
-  String get app_haptic_feedback_title => 'Vibration & Haptics';
+  String get app_haptic_feedback_title => 'الاهتزاز واللمس';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Vibrations after executing some actions (barcode decoded, product removed…).';
+      'اهتزازات بعد تنفيذ بعض الإجراءات (فك تشفير الباركود، إزالة المنتج…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'عند تمكين هذه الميزة، يتم إرسال تقارير الأعطال تلقائيًا إلى نظام تتبع الأخطاء الخاص بـ Open Food Facts، بحيث يمكن إصلاح الأخطاء وبالتالي تحسين التطبيق.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1790,72 +1820,72 @@ class AppLocalizationsAr extends AppLocalizations {
   String get permission_photo_denied_dialog_settings_button_cancel => 'إلغاء';
 
   @override
-  String get permission_photo_none_found => 'No camera detected';
+  String get permission_photo_none_found => 'لم يتم اكتشاف أي كاميرا';
 
   @override
   String get permission_photo_denied => 'لم يتم منح الوصول إلى الكاميرا';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'عرض صور المنتج';
 
   @override
   String get edit_product_label => 'تحرير المنتج';
 
   @override
-  String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+  String get edit_product_pending_operations_banner_title => 'تحميل تعديلاتك…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'سيتم إرسال تعديلاتك **في الخلفية** (أو لاحقًا في حالة حدوث خطأ).\nيمكنك الاستمرار في تحرير حقول المنتج الأخرى.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'سيتم إرسال تعديلاتك **في الخلفية** (أو لاحقًا في حالة حدوث خطأ).';
 
   @override
   String get edit_product_label_short => 'تحرير';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return 'كيفية إدخال \"$value\"؟';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'الرجاء إدخال قيمة غير فارغة!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+      'هذه القيمة موجودة بالفعل!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand =>
+      'أضف علامة تجارية جديدة';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label => 'إضافة تسمية جديدة';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'إضافة متجر جديد';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin => 'إضافة أصل جديد';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'إضافة رمز تتبع جديد';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'أضف بلدًا جديدًا';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category => 'إضافة فئة جديدة';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'إضافة أثر جديد';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'إضافة اقتراح';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'رفض الاقتراح';
@@ -1868,10 +1898,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'اسم المنتج، العلامة التجارية، الكمية';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Additional details';
+  String get edit_product_form_item_other_details_title => 'تفاصيل إضافية';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Website…';
+  String get edit_product_form_item_other_details_subtitle =>
+      'الموقع الإلكتروني…';
 
   @override
   String get edit_product_form_item_photos_title => 'صور';
@@ -1883,23 +1914,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get edit_product_form_item_labels_title => 'التسميات وشهادات الاعتماد';
 
   @override
-  String get edit_product_form_item_labels_subtitle =>
-      'Environmental, Quality labels…';
+  String get edit_product_form_item_labels_subtitle => 'ملصقات الجودة البيئية…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'أدخل تسمية (على سبيل المثال: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'al3alama';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'الممارسات الجيدة: الملصقات';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'أي خاصية للمنتج **والتي هي واقعية** وتختلف عن المجالات الأخرى.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1907,134 +1937,134 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'صُنع في بلجيكا، أُنتج في بريتاني…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
-      'ISO 9001, ISO 22000…';
+      'آيزو 9001، آيزو 22000…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'غني بالألياف ومصدر للحديد…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'التجارة العادلة، ماكس هافيلار…';
 
   @override
   String get edit_product_form_item_stores_title => 'المتاجر';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'إدخال متجر';
 
   @override
   String get edit_product_form_item_stores_type => 'متجر';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'الممارسات الجيدة: المتاجر';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'أدخل المتجر الذي اشتريت منه المنتج.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
-      'Walmart';
+      'وول مارت';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_2 =>
-      'Carrefour';
+      'كارفور';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_3 =>
-      'Lidl';
+      'ليدل';
 
   @override
   String get edit_product_form_item_origins_title => 'أصلي';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'أدخل الأصل (على سبيل المثال: ألمانيا)';
 
   @override
   String get edit_product_form_item_origins_type => 'الدولة';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'الممارسات الجيدة: الأصول';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'أضف **أي دلالات على المنشأ يمكنك العثور عليها على العبوة**.\nلا داعي للقلق بشأن المنشأ المشار إليه مباشرة في قائمة المكونات.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'لحم البقر من الأرجنتين';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'الصويا لا يأتي من الاتحاد الأوروبي';
 
   @override
-  String get edit_product_form_item_countries_title => 'البلد';
+  String get edit_product_form_item_countries_title => 'بلد';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'أدخل بلدًا (على سبيل المثال: ألمانيا)';
 
   @override
   String get edit_product_form_item_countries_type => 'الدولة';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'الممارسات الجيدة: البلدان';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**الدول التي يتوفر فيها المنتج على نطاق واسع** (لا يشمل المتاجر المتخصصة في المنتجات الأجنبية).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'رموز التتبع';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'أدخل الرمز (على سبيل المثال: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
   String get edit_product_form_item_emb_codes_type => 'رمز التتبع';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'أفضل الممارسات: رموز التتبع';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'في هذا القسم، يمكنك إدخال الرموز المتعلقة بـ **علامات التغليف** أو **علامات التعريف** أو **العلامات الصحية**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'أمثلة على رموز التتبع';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**رموز EC** المستخدمة في المجتمع الأوروبي لتحديد منتجي أو معبئي الأغذية:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
-      'FR\n72.264.002\nCE';
+      'الفرنسية\n72.264.002\nCE';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: رمز دولة **فرنسا**\n**72.264.002**: البيانات الجغرافية\n**CE**: الجماعة الأوروبية';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**رموز EMB** المستخدمة في فرنسا:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
-      'EMB 72264';
+      'المجلس الإداري للإدارة 72264';
 
   @override
   String get edit_product_form_item_traces_title => 'آثار';
@@ -2044,7 +2074,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'أدخل أثرًا (على سبيل المثال: فول الصويا)';
 
   @override
   String get edit_product_form_item_categories_title => 'الفئات';
@@ -2054,38 +2084,38 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'أدخل فئة (على سبيل المثال: عصير البرتقال)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'أفضل الممارسات: الفئات';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'أشر **فقط إلى الفئة الأكثر تحديدًا**.\nسيتم إضافة الفئات الرئيسية تلقائيًا.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'الفئة المفقودة؟';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'في حالة عدم توفر فئة **في الإكمال التلقائي**، فلا تتردد في إضافتها على أي حال.\nسيساعدنا هذا في تحسين حقائق الطعام المفتوحة في بلدك.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'السردين في زيت الزيتون';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'عصير البرتقال من المركز';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'الخروج بدون حفظ؟';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Do you want to save your changes before leaving this page?';
+      'هل تريد حفظ التغييرات قبل مغادرة هذه الصفحة؟';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
@@ -2093,22 +2123,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Discard changes';
+      'تجاهل التغييرات';
 
   @override
   String get edit_product_form_item_ingredients_title => 'المكونات';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'تكبير وتصغير الشاشة عن طريق الضغط عليها';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'تكبير وتصغير الصورة';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'باستخدام **إشارة التكبير والتصغير**، يمكنك تكبير الصورة أو تصغيرها:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'إضافة';
@@ -2121,15 +2151,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get edit_product_form_item_remove_item_tooltip => 'إزالة';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip => 'احفظ تعديلك';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'إلغاء التعديل الخاص بك';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Recycling instructions photo';
+      'صورة تعليمات إعادة التدوير';
 
   @override
   String get edit_product_form_item_nutrition_facts_title => 'حقائق غذائية';
@@ -2140,15 +2170,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'الممارسات الجيدة: حقائق التغذية';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'القيم الغذائية';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'أولاً، حدد ما إذا كانت **القيم مقدمة**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2156,15 +2186,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'ثم أدخل القيم الغذائية **كما هو موضح على العبوة**. إذا لم تجد أي قيمة، يمكنك النقر على أيقونة \"العين\".';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'حقل مفقود؟';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'إذا كان هناك إدخال مفقود، يمكنك **النقر على أيقونة \"زائد\"** لإضافته (على سبيل المثال: فيتامين د، المغنيسيوم…).';
 
   @override
   String get edit_product_form_save => 'تحرير';
@@ -2176,32 +2206,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String get edit_product_ingredients_list_title => 'قائمة المكونات';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'صورة التغليف';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'قائمة التعبئة والتغليف';
 
   @override
   String get no_data_available => 'لا توجد بيانات متاحة';
 
   @override
-  String get product_field_website_title => 'Website';
+  String get product_field_website_title => 'موقع إلكتروني';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'تحرير الأصول';
 
   @override
-  String get completed_basic_details_btn_text => 'Complete basic details';
+  String get completed_basic_details_btn_text => 'التفاصيل الأساسية الكاملة';
 
   @override
-  String get not_implemented_snackbar_text => 'Not implemented yet';
+  String get not_implemented_snackbar_text => 'لم يتم تنفيذه بعد';
 
   @override
   String get category_picker_page_appbar_text => 'الفئات';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'استخرج المكونات من الصورة';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2209,74 +2239,73 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'استخراج المكونات\nمن الصورة';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'جاري تحميل الصورة…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'لماذا أرى هذه الرسالة؟';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'لاستخدام ميزة \"استخراج المكونات\"، يجب تحميل الصورة أولاً.\n\nيرجى الانتظار بضع ثوانٍ أو إدخالها يدويًا.';
 
   @override
   String get edit_ingredients_refresh_photo_btn_text => 'تحديث الصورة';
 
   @override
-  String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+  String get edit_packaging_extract_btn_text => 'استخرج العبوة\nمن الصورة';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short =>
+      'استخراج التعبئة والتغليف';
 
   @override
-  String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+  String get edit_packaging_extracting_btn_text => 'استخراج العبوة من الصورة';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'جاري تحميل الصورة…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'لماذا أرى هذه الرسالة؟';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'لاستخدام ميزة \"استخراج العبوة\"، يجب تحميل الصورة أولاً.\n\nيرجى الانتظار بضع ثوانٍ أو إدخالها يدويًا.';
 
   @override
   String get edit_packaging_refresh_photo_btn_text => 'تحديث الصورة';
 
   @override
-  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
+  String get edit_ocr_extract_failed => 'فشل في اكتشاف النص في الصورة.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'لا يوجد صورة!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'لكي تتمكن من استخدام ميزة استخراج النص، يجب عليك أولاً التقاط صورة.';
 
   @override
-  String get user_list_dialog_new_title => 'New list of products';
+  String get user_list_dialog_new_title => 'قائمة جديدة من المنتجات';
 
   @override
-  String get user_list_dialog_rename_title => 'Rename list';
+  String get user_list_dialog_rename_title => 'إعادة تسمية القائمة';
 
   @override
-  String get user_list_subtitle_product => 'Lists';
+  String get user_list_subtitle_product => 'القوائم';
 
   @override
   String get user_list_title => 'قوائمك';
 
   @override
-  String get user_list_add_product => 'Add the product to your lists';
+  String get user_list_add_product => 'أضف المنتج إلى قوائمك';
 
   @override
-  String get user_list_button_new => 'Create a new list';
+  String get user_list_button_new => 'إنشاء قائمة جديدة';
 
   @override
   String get user_list_empty_label =>
@@ -2286,127 +2315,128 @@ class AppLocalizationsAr extends AppLocalizations {
   String get user_list_button_add_product => 'أضف إلى القائمة';
 
   @override
-  String get added_to_list_msg => 'Added to list';
+  String get added_to_list_msg => 'تمت الإضافة إلى القائمة';
 
   @override
-  String get user_list_popup_clear => 'Clear your history';
+  String get user_list_popup_clear => 'مسح تاريخك';
 
   @override
-  String get user_list_popup_rename => 'Rename';
+  String get user_list_popup_rename => 'إعادة التسمية';
 
   @override
-  String get user_list_name_hint => 'My list';
+  String get user_list_name_hint => 'قائمتي';
 
   @override
-  String get user_list_name_error_empty => 'Name is mandatory';
+  String get user_list_name_error_empty => 'الاسم إلزامي';
 
   @override
-  String get user_list_name_error_already => 'That name is already used';
+  String get user_list_name_error_already => 'هذا الاسم مستخدم بالفعل';
 
   @override
-  String get user_list_name_error_same => 'That is the same name';
+  String get user_list_name_error_same => 'هذا هو نفس الاسم';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'اسم القائمة';
 
   @override
-  String get try_again => 'Try Again';
+  String get try_again => 'حاول ثانية';
 
   @override
-  String get there_was_an_error => 'There was an error';
+  String get there_was_an_error => 'لقد حدث خطأ';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'No category found for $items';
+    return 'لم يتم العثور على فئة لـ $items';
   }
 
   @override
-  String get camera_toggle_camera => 'Switch between back and front camera';
+  String get camera_toggle_camera => 'التبديل بين الكاميرا الخلفية والأمامية';
 
   @override
-  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
+  String get camera_toggle_flash => 'تشغيل أو إيقاف فلاش الكاميرا';
 
   @override
-  String get camera_enable_flash => 'Enable flash';
+  String get camera_enable_flash => 'تمكين الفلاش';
 
   @override
-  String get camera_disable_flash => 'Disable flash';
+  String get camera_disable_flash => 'تعطيل الفلاش';
 
   @override
-  String get camera_flash_error_dialog_title => 'An error occurred!';
+  String get camera_flash_error_dialog_title => 'حدث خطأ!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
+      'حدث خطأ أثناء تغيير حالة الفلاش. يُرجى التأكد من عدم تفعيل المصباح اليدوي على هاتفك الذكي.';
 
   @override
   String get category_picker_no_category_found_button => 'عودة';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Click to open in your browser or in the application (if installed)';
+      'انقر لفتحه في متصفحك أو في التطبيق (إذا كان مثبتًا)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV Mode';
+  String get dev_preferences_screen_title => 'وضع التطوير';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'الوصول إلى الميزات التجريبية وأدوات التطوير';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
+  String get dev_preferences_reset_onboarding_title =>
+      'إعادة تشغيل عملية التوجيه';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'You then have to restart the App to see it again.';
+      'يجب عليك بعد ذلك إعادة تشغيل التطبيق لتتمكن من رؤيته مرة أخرى.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Switch between openfoodfacts.org (PROD) and test env';
+      'التبديل بين openfoodfacts.org (PROD) وبيئة الاختبار';
 
   @override
-  String get dev_preferences_test_environment_title =>
-      'Test environment parameters';
+  String get dev_preferences_test_environment_title => 'معلمات بيئة الاختبار';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Base URL for current test env: $url';
+    return 'عنوان URL الأساسي لبيئة الاختبار الحالية: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Test environment host';
+      'مضيف بيئة الاختبار';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Use ML Kit';
+  String get dev_preferences_ml_kit_title => 'استخدم مجموعة ML';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'then you have to restart this app';
+      'ثم عليك إعادة تشغيل هذا التطبيق';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Additional button on product page';
+      'زر إضافي على صفحة المنتج';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Edit ingredients via a knowledge panel button';
+      'تعديل المكونات عبر زر لوحة المعرفة';
 
   @override
-  String get dev_preferences_export_history_title => 'Export History';
+  String get dev_preferences_export_history_title => 'تاريخ التصدير';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'exception';
+  String get dev_preferences_export_history_progress_error => 'استثناء';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'product found';
+  String get dev_preferences_export_history_progress_found =>
+      'تم العثور على المنتج';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'product NOT found';
+      'لم يتم العثور على المنتج';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Export history';
+  String get dev_preferences_export_history_dialog_title => 'تاريخ التصدير';
 
   @override
   String get dev_preferences_button_positive => 'موافق';
@@ -2415,100 +2445,96 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dev_preferences_button_negative => 'إلغاء';
 
   @override
-  String get dev_preferences_migration_title => 'Data migration from V1';
+  String get dev_preferences_migration_title => 'نقل البيانات من الإصدار 1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Status: $status';
+    return 'الحالة: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'success or fresh install';
+      'النجاح أو التثبيت الجديد';
 
   @override
-  String get dev_preferences_migration_status_success => 'success';
+  String get dev_preferences_migration_status_success => 'نجاح';
 
   @override
-  String get dev_preferences_migration_status_error => 'error';
+  String get dev_preferences_migration_status_error => 'خطأ';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'in progress';
+  String get dev_preferences_migration_status_in_progress => 'في تَقَدم';
 
   @override
-  String get dev_preferences_migration_status_required =>
-      'required (click to start)';
+  String get dev_preferences_migration_status_required => 'مطلوب (انقر للبدء)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'unknown';
+  String get dev_preferences_migration_status_not_started => 'مجهول';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Will clear history and put 3 products in there';
+      'سيتم مسح التاريخ ووضع 3 منتجات هناك';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title => 'عنوان URL مخصص للأخبار';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+  String get dev_preferences_news_custom_url_subtitle => 'عنوان URL لملف JSON:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Not set';
+  String get dev_preferences_news_custom_url_empty_value => 'غير محدد';
 
   @override
   String get dev_preferences_news_provider_status_title => 'الحالة';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Last refresh: $date';
+    return 'آخر تحديث: $date';
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'طعام';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'العناية الشخصية';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'طعام الحيوانات الأليفة';
 
   @override
   String get product_type_label_product => 'أخرى';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'نوع المنتج';
 
   @override
-  String get product_type_selection_subtitle =>
-      'Select the type of this product';
+  String get product_type_selection_subtitle => 'حدد نوع هذا المنتج';
 
   @override
-  String get product_type_selection_empty =>
-      'You need to select a product type first!';
+  String get product_type_selection_empty => 'يجب عليك تحديد نوع المنتج أولاً!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'لا يمكنك تغيير نوع المنتج ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+      'اختصار لتطبيق الأسعار على صفحة المنتج';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'انتقل إلى تطبيق الأسعار';
 
   @override
   String get prices_website_button => 'افتح على موقع الأسعار المفتوحة';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'أضف علامات الأسعار مباشرة من المعرض';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'بمجرد تحديد الصور، لن تتمكن من تحريرها!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2519,10 +2545,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'السماح للمجتمع بالتحقق من الأسعار المستخرجة بواسطة الذكاء الاصطناعي.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'علامات أسعار متعددة';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'تحميل الدليل الشامل';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'اختيار الملفات';
@@ -2546,15 +2572,15 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Prices';
+  String get prices_generic_title => 'الأسعار';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'أضف $count أسعارًا',
+      one: 'أضف سعرًا',
     );
     return '$_temp0';
   }
@@ -2564,42 +2590,42 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'أرسل $count الأسعار',
+      one: 'أرسل السعر',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'إضافة عنصر';
 
   @override
-  String get prices_add_a_price => 'Add a price';
+  String get prices_add_a_price => 'أضف سعرا';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'أضف إيصالاً';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'إضافة علامات الأسعار';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'هذا الرمز الشريطي ($barcode) موجود بالفعل في القائمة!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'لا يوجد منتج حتى الآن';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'أبحث عن $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'أدخل الرمز الشريطي';
 
   @override
   String get prices_category_enter => 'العنصر بدون رمز شريطي';
@@ -2626,10 +2652,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_category_error_mandatory => 'الفئة إلزامية';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'قارئ الباركود';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'عرض الأسعار';
 
   @override
   String get prices_list_title => 'قائمة الأسعار';
@@ -2639,6 +2665,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get prices_list_add_new_price => 'أضف سعرًا جديدًا\n';
+
+  @override
+  String get prices_list_empty_title => 'لا يوجد سعر حتى الآن!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'كن أول من يضيف واحدًا:\nعن طريق مسح **الإيصال** أو **بطاقة السعر**!';
 
   @override
   String get prices_entry_shop_not_found => 'متجر غير معروف';
@@ -2669,10 +2702,10 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count أسعار',
+      one: '1 سعر',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 لـ $product';
   }
 
   @override
@@ -2680,16 +2713,16 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'جميع الأسعار $count',
+      one: 'سعر واحد فقط',
+      zero: 'لا يوجد سعر حتى الآن',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'أحدث الأسعار $pageSize (الإجمالي: $total)';
   }
 
   @override
@@ -2699,42 +2732,54 @@ class AppLocalizationsAr extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'السعر: $price / المتجر: \"$location\" / نُشر في $date بواسطة \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return 'الأدلة المفتوحة لـ \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'دليل السعر المفتوح';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'جميع $count الأدلة',
+      one: 'دليل واحد فقط',
+      zero: 'لا يوجد دليل حتى الآن',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'أحدث $pageSize من الأدلة (المجموع: $total)';
   }
+
+  @override
+  String get prices_users_empty_title => 'لا يوجد مساهم حتى الآن!';
+
+  @override
+  String get prices_users_empty_explanation => 'كن أول من يضيف سعراً!';
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'أعلى $pageSize مساهمين (المجموع: $total)';
   }
 
   @override
+  String get prices_locations_empty_title => 'لا يوجد متجر حتى الآن!';
+
+  @override
+  String get prices_locations_empty_explanation => 'كن أول من يضيف سعراً!';
+
+  @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'أعلى $pageSize مواقع (المجموع: $total)';
   }
 
   @override
@@ -2742,9 +2787,9 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count أدلة',
+      one: 'دليل واحد',
+      zero: 'لا يوجد دليل',
     );
     return '$_temp0';
   }
@@ -2754,9 +2799,9 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count منتجات',
+      one: 'منتج واحد',
+      zero: 'لا يوجد منتج',
     );
     return '$_temp0';
   }
@@ -2766,9 +2811,9 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count مستخدمين',
+      one: 'مستخدم واحد',
+      zero: 'لا يوجد مستخدم',
     );
     return '$_temp0';
   }
@@ -2778,9 +2823,9 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count الأسعار',
+      one: 'سعر واحد',
+      zero: 'لا يوجد سعر',
     );
     return '$_temp0';
   }
@@ -2789,150 +2834,176 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'السعر المضاف سابقا';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'كمية';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'هل هو مخفض؟';
 
   @override
-  String get prices_amount_price_normal => 'Price';
+  String get prices_amount_price_normal => 'سعر';
 
   @override
-  String get prices_amount_price_discounted => 'Discounted price';
+  String get prices_amount_price_discounted => 'سعر مخفض';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'السعر الأصلي';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'منتج واحد مفقود!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'قيمة غير صحيحة';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'القيمة الإلزامية';
 
   @override
-  String get prices_currency_subtitle => 'Currency';
+  String get prices_currency_subtitle => 'عملة';
 
   @override
-  String get prices_date_subtitle => 'Date';
+  String get prices_date_subtitle => 'تاريخ';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'محل';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'ابحث عن متجر';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'يجب عليك اختيار متجر!';
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'لم تجد ما تبحث عنه؟ لنجرب بحثًا أوسع!';
 
   @override
-  String get prices_proof_subtitle => 'Proof';
+  String get prices_proof_subtitle => 'دليل';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_empty_title => 'لا يوجد دليل حتى الآن!';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_empty_explanation =>
+      'ابدأ بإضافة صورة **الإيصال** أو **بطاقة السعر**!';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_find => 'اختر دليلا';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_change => 'دليل التغيير';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_proof_receipt => 'إيصال';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_proof_price_tag => 'سعر البطاقة';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_proof_mandatory => 'يجب عليك اختيار الدليل!';
+
+  @override
+  String get prices_add_validation_error => 'خطأ التحقق';
+
+  @override
+  String get prices_privacy_warning_title => 'تحذير بشأن الخصوصية';
+
+  @override
+  String get prices_unknown_product => 'منتج غير معروف';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'الأسعار **ستكون علنية**، إلى جانب المتجر الذي تشير إليه.\n\nقد يسمح هذا للأشخاص الذين يعرفون اسمك المستعار في Open Food Facts بما يلي:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'استنتج في أي منطقة تعيش';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+  String get prices_privacy_warning_message_bullet_2 => 'اعرف ما تشتريه';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'إذا كنت تشعر بعدم الارتياح تجاه ذلك، فيرجى تغيير اسمك المستعار، أو إنشاء حساب جديد على Open Food Facts وتسجيل الدخول إلى التطبيق باستخدام هذا الحساب.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'انا ارفض';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'انا اقبل';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'تغيير العملة؟';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'عملتك الحالية هي **$currency**. هل ترغب بتغييرها إلى **$newCurrency**؟';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'نعم، استخدم $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'لا، ابق $currency';
   }
+
+  @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'تم';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'تكوين الخادم';
 
   @override
-  String get dev_mode_section_news => 'News provider configuration';
+  String get dev_mode_section_news => 'تكوين مزود الأخبار';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'صفحة المنتج';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'واجهة المستخدم';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features => 'الميزات التجريبية';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title =>
+      'استبعاد النتيجة الخضراء';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'استخدم مدقق الإملاء لشاشات التعرف الضوئي على الحروف (OCR)';
 
   @override
-  String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+  String get dev_mode_spellchecker_for_ocr_subtitle => '(المكونات والتغليف)';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get dev_mode_reset_app_language_title => 'إعادة تعيين لغة التطبيق';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'إضافة بطاقات';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'التبديل بين prices.openfoodfacts.org (PROD) وبيئة الاختبار';
+
+  @override
+  String get search_history_item_edit_tooltip =>
+      'إعادة استخدام هذا البحث وتحريره';
+
+  @override
+  String get search_history_item_remove_tooltip => 'إزالة';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'You\'ve downloaded all the $totalSize products.';
+    return 'لقد قمت بتنزيل جميع المنتجات $totalSize .';
   }
 
   @override
@@ -2941,34 +3012,39 @@ class AppLocalizationsAr extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
+    return 'تنزيل $count المزيد من المنتجات\nتم تنزيل $downloaded بالفعل من أصل $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
+    return 'بحثك عن $search جاري.\n\nيرجى الانتظار بضع ثوانٍ…';
   }
 
   @override
-  String get user_search_contributor_title => 'Products I added';
+  String get user_search_contributor_title => 'المنتجات التي أضفتها';
 
   @override
   String get user_search_informer_title => 'المنتجات المعدلة';
 
   @override
-  String get user_search_photographer_title => 'Products I photographed';
+  String get user_search_photographer_title => 'المنتجات التي قمت بتصويرها';
 
   @override
-  String get user_search_to_be_completed_title => 'My to-be-completed products';
+  String get user_search_to_be_completed_title => 'منتجاتي التي سيتم إكمالها';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'أسعاري';
 
   @override
-  String get user_search_proofs_title => 'My proofs';
+  String get user_search_proofs_title => 'أدلتي';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'دليلي';
+
+  @override
+  String search_proof_title(String user) {
+    return 'دليل من \"$user\"';
+  }
 
   @override
   String user_any_search_prices_title(String user) {
@@ -2976,17 +3052,17 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'أحدث الأسعار المضافة';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title => 'مساهمي الأسعار الأعلى';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+      'المتاجر ذات الأسعار الأعلى';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'مساعد مساهمة الأسعار';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -2995,53 +3071,55 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'إضافة أدلة متعددة';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title => 'الأسعار في المتجر';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+      'المنتجات ذات الأسعار الأعلى';
 
   @override
-  String get all_search_to_be_completed_title => 'All to-be-completed products';
+  String get all_search_to_be_completed_title =>
+      'جميع المنتجات التي سيتم إكمالها';
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'ساعد في تصنيف المنتجات في بلدك';
 
   @override
-  String get edit_product_action_retake_picture => 'Retake photo';
+  String get edit_product_action_retake_picture => 'إعادة التقاط الصورة';
 
   @override
-  String get edit_product_action_take_picture => 'Take photo';
+  String get edit_product_action_take_picture => 'التقط الصورة';
 
   @override
-  String get edit_product_action_confirm => 'Confirm';
+  String get edit_product_action_confirm => 'يتأكد';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+      'أوافق على حقائق الغذاء المفتوحة ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
+  String get signup_page_terms_of_use_line2 => 'شروط الاستخدام والمساهمة';
 
   @override
   String get analytics_consent_image_semantic_label => 'عربية';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'خطأ فادح: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'خطأ فادح: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details => 'Complete basic details';
+  String get summary_card_button_add_basic_details =>
+      'التفاصيل الأساسية الكاملة';
 
   @override
   String get edit_photo_button_label => 'تحرير';
@@ -3059,11 +3137,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'حدد الصورة بالضغط عليها';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Retrieving existing images…';
+      'استرجاع الصور الموجودة…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
@@ -3071,40 +3149,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit_photo_language_not_this_one =>
-      'No image in that language yet';
+      'لا توجد صورة بهذه اللغة حتى الآن';
 
   @override
-  String get edit_photo_language_none => 'No image yet';
+  String get edit_photo_language_none => 'لا توجد صورة حتى الآن';
 
   @override
   String get category_picker_screen_title => 'الفئات';
 
   @override
-  String get basic_details => 'Basic Details';
+  String get basic_details => 'التفاصيل الأساسية';
 
   @override
   String get product_name => 'اسم المنتج';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'أسماء المنتجات';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'أضف ترجمة جديدة';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'قبل التحقق، يرجى التأكد من إضافة الترجمة فقط **إذا كانت اللغة موجودة على العبوة**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'عرض الصورة الأمامية';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo => 'التقط صورة أمامية';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'أدخل اسم المنتج (على سبيل المثال: نوتيلا)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3118,53 +3196,53 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'أمثلة جيدة';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'أمثلة سيئة';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'أفضل الممارسات: اسم المنتج';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'اسم المنتج هو **الاسم الرئيسي المطبوع على العبوة**. ويمكن أن يكون علامة تجارية مسجلة.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**ملاحظة:** يرجى عدم إضافة ترجمة **إذا لم تكن اللغة موجودة على العبوة**.';
 
   @override
-  String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
+  String get add_basic_details_product_name_help_good_examples_1 => 'نسكويك';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'كاتشب الطماطم';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'لا تقم بتضمين العلامة التجارية في الاسم';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'كاتشب الطماطم **من هاينز**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'لا تستخدم الرموز ® أو ™ أو © أو ما شابه ذلك';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
-      'Nesquik**®**';
+      'نسكويك**®**';
 
   @override
   String add_basic_details_product_name_other_translations(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count ترجمات أخرى',
+      one: '$count ترجمة أخرى',
     );
     return '$_temp0';
   }
@@ -3173,103 +3251,105 @@ class AppLocalizationsAr extends AppLocalizations {
   String get brand_name => 'اسم العلامة التجارية';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'الأسماء التجارية';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'Please enter the brand name';
+      'الرجاء إدخال اسم العلامة التجارية';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'العلامات التجارية المدخلة (على سبيل المثال: فيريرو)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'الممارسات الجيدة: العلامات التجارية';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'أدخل **جميع العلامات التجارية للمنتج**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title =>
+      'العلامة التجارية الرئيسية';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      'يجب **إدخال العلامة التجارية الرئيسية**، والتي تظهر بشكل واضح على العبوة الأمامية، أولاً.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'ماركات أخرى';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'عند بيعها **بواسطة شركة كبيرة**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel** يُباع بواسطة **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'عند بيعها مع علامتها التجارية **مترجمة إلى لغات متعددة**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**وادي الطبيعة** يُكتب أحيانًا **فال الطبيعة**';
 
   @override
-  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
+  String get add_basic_details_product_brand_help_good_examples_1 => 'نوتيلا';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_2 =>
-      'Oreo, Mondelez';
+      'أوريو، موندليز';
 
   @override
   String get quantity => 'الكمية و الوزن';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'أدخل الوزن وإذا لزم الأمر الكمية (على سبيل المثال: 4 × 100 جرام)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'الممارسات الجيدة: الكمية';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'انسخ القيمة الموضحة على المنتج و**لا تنس الوحدات**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 جرام** أو **230 جرام**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (لـ 6 بيضات)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 × 150 جرام**\n(لمنتج يحتوي على 3 صناديق، كل منها يزن 150 جرامًا)';
 
   @override
   String get barcode => 'الرمز الشريطي';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Barcode: $barcode';
+    return 'الرمز الشريطي: $barcode';
   }
 
   @override
   String get barcode_invalid_error => 'باركود غير صالح';
 
   @override
-  String get basic_details_add_success => 'Basic details added successfully';
+  String get basic_details_add_success => 'تمت إضافة التفاصيل الأساسية بنجاح';
 
   @override
   String get basic_details_add_error =>
-      'Unable to add basic details. Please try again after some time';
+      'تعذر إضافة التفاصيل الأساسية. يُرجى المحاولة مرة أخرى بعد قليل.';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'مسح بحثك';
 
   @override
   String get confirm_clear =>
@@ -3277,15 +3357,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get alert_clear_selected_user_list =>
-      'You\'re about to clear selected items in your history';
+      'أنت على وشك مسح العناصر المحددة في سجلك';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'Are you sure you want to continue?';
+      'هل أنت متأكد أنك تريد الاستمرار؟';
 
   @override
   String get alert_select_items_to_clear =>
-      'Please select one or more items to clear';
+      'الرجاء تحديد عنصر واحد أو أكثر لمسحه';
 
   @override
   String confirm_clear_user_list(String name) {
@@ -3293,112 +3373,110 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'حذف القائمة؟';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
+    return 'أنت على وشك حذف القائمة \"$name\".\nهل أنت متأكد أنك تريد المتابعة؟';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'نعم أؤكد';
 
   @override
   String importance_label(String name, String id) {
-    return '$name importance: $id';
+    return '$name الأهمية: $id';
   }
 
   @override
-  String get user_list_all_title => 'Lists';
+  String get user_list_all_title => 'القوائم';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'إنشاء قائمتك الأولى';
 
   @override
-  String get product_list_select => 'Select a list';
+  String get product_list_select => 'حدد القائمة';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'Empty list',
+      other: '$count منتجات',
+      one: 'منتج واحد',
+      zero: 'قائمة فارغة',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Add list';
+  String get add_list_label => 'إضافة القائمة';
 
   @override
-  String get open_food_preferences_tooltip => 'Edit your food preferences';
+  String get open_food_preferences_tooltip => 'تعديل تفضيلاتك الغذائية';
 
   @override
-  String get add_photo_button_label => 'Add photo';
+  String get add_photo_button_label => 'أضف صورة';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Take photos of any packaging/recycling information';
+      'التقط صورًا لأي معلومات تتعلق بالتغليف/إعادة التدوير';
 
   @override
-  String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+  String get add_origin_photo_button_label => 'التقط صورًا لأي معلومات أصلية';
 
   @override
-  String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+  String get add_emb_photo_button_label => 'التقط صورًا لأي معلومات رمز التتبع';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'التقط صورًا لأي معلومات عن الملصقات والشهادات';
 
   @override
-  String get choose_image_source_title => 'Choose image source';
+  String get choose_image_source_title => 'اختر مصدر الصورة';
 
   @override
-  String get choose_image_source_body => 'Please choose a image source';
+  String get choose_image_source_body => 'الرجاء اختيار مصدر الصورة';
 
   @override
-  String get gallery_source_label => 'Gallery';
+  String get gallery_source_label => 'معرض الصور';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Access denied';
+  String get gallery_source_access_denied_dialog_title => 'تم الرفض';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
+      'لسوء الحظ، لا يمكن للتطبيق الوصول إلى معرض الصور الخاص بك، لأنك رفضت الإذن مسبقًا.\n\nيرجى الانتقال إلى إعدادات التطبيق في هاتفك الإعدادات -> الصور';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button => 'افتح الإعدادات';
 
   @override
   String get share => 'مشاركة';
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'ألق نظرة على هذا المنتج على Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'ألقي نظرة على هذا المنتج على Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'ألق نظرة على هذا المنتج على Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'ألق نظرة على هذا المنتج على حقائق المنتجات المفتوحة: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'ألق نظرة على قائمة المنتجات الخاصة بي على Open Food Facts: $url';
   }
 
   @override
@@ -3408,7 +3486,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get capture_new_picture => 'التقاط صورة';
 
   @override
-  String get choose_from_gallery => 'Choose from gallery';
+  String get choose_from_gallery => 'اختر من المعرض';
 
   @override
   String get image_upload_queued =>
@@ -3416,75 +3494,66 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'سيتم إرسال السعر إلى الخادم في أقرب وقت ممكن.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Starting the refresh of all the products locally stored';
+      'بدء تحديث جميع المنتجات المخزنة محليًا';
 
   @override
-  String get background_task_title_top_n =>
-      'Starting the download of the most popular products';
+  String get background_task_title_top_n => 'بدء تنزيل المنتجات الأكثر شعبية';
 
   @override
-  String get expand_nutrition_facts => 'Expand nutrition facts table';
+  String get expand_nutrition_facts => 'توسيع جدول حقائق التغذية';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Keep the nutrition facts table expanded';
+      'حافظ على جدول حقائق التغذية موسعًا';
 
   @override
-  String get expand_ingredients => 'Expand ingredients';
+  String get expand_ingredients => 'توسيع المكونات';
 
   @override
-  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
+  String get expand_ingredients_body => 'حافظ على توسيع لوحة المكونات';
 
   @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
+  String get no_internet_connection => 'لا يوجد اتصال بالإنترنت';
 
   @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
+  String get world_results_label => 'العالم كله';
 
   @override
-  String get no_internet_connection => 'No internet connection';
+  String get world_results_action => 'توسيع نطاق بحثك ليشمل العالم';
 
   @override
-  String get world_results_label => 'Entire world';
+  String get copy_to_clipboard => 'ينسخ';
 
   @override
-  String get world_results_action => 'Extend your search to the world';
-
-  @override
-  String get copy_to_clipboard => 'Copy';
-
-  @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'لصق من الحافظة';
 
   @override
   String get no_data_available_in_clipboard =>
-      'No data available in your clipboard';
+      'لا توجد بيانات متاحة في الحافظة الخاصة بك';
 
   @override
   String get clipboard_barcode_copy => 'نسخ الباركود إلى الحافظة';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Barcode $barcode copied to the clipboard!';
+    return 'تم نسخ الرمز الشريطي $barcode إلى الحافظة!';
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'افتح هذا المنتج على الموقع';
 
   @override
-  String get language_picker_label => 'Your language';
+  String get language_picker_label => 'لغتك';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'بلدك';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'عملتك';
 
   @override
   String get help_with_openfoodfacts => 'Help with Open Food Facts';
@@ -3494,250 +3563,250 @@ class AppLocalizationsAr extends AppLocalizations {
       'سيتم تحديث المنتج في الخلفية بأسرع ما يمكن.';
 
   @override
-  String get no_email_client_available_dialog_title => 'No email apps!';
+  String get no_email_client_available_dialog_title =>
+      'لا تطبيقات البريد الإلكتروني!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'يرجى إرسال بريد إلكتروني إلينا يدويًا إلى mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'All Images';
+  String get all_images => 'جميع الصور';
 
   @override
-  String get selected_images => 'Selected Images';
+  String get selected_images => 'صور مختارة';
 
   @override
-  String get product_card_remove_product_tooltip => 'Remove product';
+  String get product_card_remove_product_tooltip => 'إزالة المنتج';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'New barcode scanned: $barcode';
+    return 'تم مسح الرمز الشريطي الجديد: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Remove all products from the carousel';
+      'إزالة جميع المنتجات من الدوارة';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Please scan at least two products to compare them';
+      'يرجى مسح منتجين على الأقل لمقارنتهما';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Click to compare the products you have scanned';
+      'انقر لمقارنة المنتجات التي قمت بمسحها ضوئيًا';
 
   @override
-  String get scan_product_loading => 'You have scanned\nthe barcode:';
+  String get scan_product_loading => 'لقد قمت بمسح الرمز الشريطي\n:';
 
   @override
   String get scan_product_loading_initial =>
-      'We\'re looking for this product!\nPlease wait a few seconds…';
+      'نحن نبحث عن هذا المنتج!\nيرجى الانتظار بضع ثوان…';
 
   @override
   String get scan_product_loading_long_request =>
-      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
+      'ما زلنا نبحث عن هذا المنتج!\nهل يستغرق تحميله وقتًا طويلاً؟ كذلك…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'مازلنا نبحث عن هذا المنتج.\nهل ترغب في إعادة بدء البحث؟';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'إعادة تشغيل البحث';
 
   @override
   String get portion_calculator_description =>
       'احسب المعلومات الغذائية لكمية محددة';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'الكمية في';
 
   @override
   String get portion_calculator_accessibility =>
-      'Input a quantity to calculate nutrition facts';
+      'أدخل كمية لحساب الحقائق الغذائية';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Please enter a quantity between $min and $max g';
+    return 'الرجاء إدخال كمية بين $min و $max جرام';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'البيانات مفقودة. تعذر إجراء الحساب.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Nutrition facts for $grams g (or ml)';
+    return 'حقائق غذائية لـ $grams جرام (أو مل)';
   }
 
   @override
-  String get offline_data => 'Offline Data';
+  String get offline_data => 'البيانات غير المتصلة بالإنترنت';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Upload an image to automatically extract the information it contains.';
+      'قم بتحميل صورة لاستخراج المعلومات التي تحتوي عليها تلقائيًا.';
 
   @override
-  String get upload_image => 'Upload Photo';
+  String get upload_image => 'تحميل الصورة';
 
   @override
   String get word_separator_char => ',';
 
   @override
-  String get word_separator => ', ';
+  String get word_separator => '، ';
 
   @override
-  String get image_download_error => 'Failed to download image';
+  String get image_download_error => 'فشل تنزيل الصورة';
 
   @override
   String get image_edit_url_error =>
-      'Failed to edit image because the image URL was not set.';
+      'فشل تحرير الصورة لأن عنوان URL للصورة لم يتم تعيينه.';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'تذكر اختياري';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'اسأل في كل مرة';
 
   @override
-  String get robotoff_continue => 'Continue';
+  String get robotoff_continue => 'يكمل';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count questions',
-      one: 'question',
+      other: '$count الأسئلة',
+      one: '',
     );
-    return 'Next $_temp0';
+    return 'السؤال التالي $_temp0';
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'إظهار كلمة المرور';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'القيم المقدمة من المنتج';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'من خلال هذا الشعار، نسلط الضوء على البيانات التي يقدمها المنتج، والتي قد لا تكون قابلة للتعديل.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'اغلاق هذه المعلومات';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'هذه الصورة مقدمة من المنتج. قد لا تكون قابلة للتعديل.';
 
   @override
-  String get edit_packagings_title => 'Packaging components';
+  String get edit_packagings_title => 'مكونات التعبئة والتغليف';
 
   @override
-  String get edit_packagings_element_add => 'Add a packaging component';
+  String get edit_packagings_element_add => 'إضافة مكون التغليف';
 
   @override
-  String get edit_packagings_completed => 'The packaging is complete';
+  String get edit_packagings_completed => 'التغليف كامل';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Packaging component #$index';
+    return 'مكون التغليف #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Number of units';
+  String get edit_packagings_element_field_units => 'عدد الوحدات';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Enter the number of packaging units of the same shape and material contained in the product.';
+      'أدخل عدد وحدات التغليف من نفس الشكل والمادة الموجودة في المنتج.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Shape';
+  String get edit_packagings_element_field_shape => 'شكل';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
+      'أدخل اسم الشكل المدرج في تعليمات إعادة التدوير إذا كانت متوفرة، أو حدد شكلاً.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Bottle';
+  String get edit_packagings_element_example_shape => 'زجاجة';
 
   @override
-  String get edit_packagings_element_field_material => 'Material';
+  String get edit_packagings_element_field_material => 'مادة';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
+      'أدخل المادة المحددة إذا كان من الممكن تحديدها (غالبًا ما يمكن العثور على رمز المادة داخل مثلث على أجزاء التغليف)، أو مادة عامة (على سبيل المثال البلاستيك أو المعدن) إذا كنت غير متأكد.';
 
   @override
-  String get edit_packagings_element_example_material => 'Glass';
+  String get edit_packagings_element_example_material => 'زجاج';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Recycling instruction';
+  String get edit_packagings_element_field_recycling => 'تعليمات إعادة التدوير';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Enter recycling instructions only if they are listed on the product.';
+      'أدخل تعليمات إعادة التدوير فقط إذا كانت مدرجة على المنتج.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Recycle';
+  String get edit_packagings_element_example_recycling => 'إعادة التدوير';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Net quantity of product per unit';
+      'الكمية الصافية للمنتج لكل وحدة';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
+      'أدخل الوزن الصافي أو الحجم الصافي وأشر إلى الوحدة (على سبيل المثال جرام أو مل).';
 
   @override
-  String get edit_packagings_element_field_weight =>
-      'Weight of one empty unit (g)';
+  String get edit_packagings_element_field_weight => 'وزن الوحدة الفارغة (جم)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
+      'أزل أي بقايا طعام، واغسل وجفف غلاف العبوة قبل الوزن. استخدم ميزانًا بدقة ٠٫١ غرام أو ٠٫٠١ غرام، إن أمكن.';
 
   @override
-  String get background_task_title => 'Pending contributions';
+  String get background_task_title => 'المساهمات المعلقة';
 
   @override
   String get background_task_subtitle =>
-      'Your contributions are automatically saved to our server, but not always in real-time.';
+      'سيتم حفظ مساهماتك تلقائيًا على خادمنا، ولكن ليس دائمًا في الوقت الفعلي.';
 
   @override
-  String get background_task_list_empty => 'No Pending Background Tasks';
+  String get background_task_list_empty => 'لا توجد مهام خلفية معلقة';
 
   @override
-  String get background_task_error_server_time_out => 'Server timeout';
+  String get background_task_error_server_time_out => 'انتهاء مهلة الخادم';
 
   @override
   String get background_task_error_no_internet =>
-      'Internet connection error. Try later.';
+      'خطأ في اتصال الإنترنت. حاول لاحقًا.';
 
   @override
-  String get background_task_operation_unknown => 'unknown operation type';
+  String get background_task_operation_unknown => 'نوع العملية غير معروف';
 
   @override
-  String get background_task_operation_details => 'detailed changes';
+  String get background_task_operation_details => 'تغييرات مفصلة';
 
   @override
-  String get background_task_operation_image => 'photo upload';
+  String get background_task_operation_image => 'تحميل الصور';
 
   @override
   String get background_task_operation_refresh =>
-      'refresh delayed after photo upload';
+      'تأخر التحديث بعد تحميل الصورة';
 
   @override
-  String get background_task_run_started => 'started';
+  String get background_task_run_started => 'بدأت';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'لم تبدأ بعد';
 
   @override
-  String get background_task_run_to_be_deleted => 'to be deleted';
+  String get background_task_run_to_be_deleted => 'سيتم حذفه';
 
   @override
   String get background_task_question_stop =>
-      'Do you want to stop that task ASAP?';
+      'هل تريد إيقاف هذه المهمة في أقرب وقت ممكن؟';
 
   @override
   String get feed_back => 'ملاحظات';
@@ -3746,228 +3815,233 @@ class AppLocalizationsAr extends AppLocalizations {
   String get undo => 'تراجع';
 
   @override
-  String get copy_email_to_clip_board => 'Copy email to clipboard';
+  String get copy_email_to_clip_board => 'نسخ البريد الإلكتروني إلى الحافظة';
 
   @override
   String get please_send_us_an_email_to =>
-      'Please send us manually an email to';
+      'يرجى إرسال بريد إلكتروني إلينا يدويًا إلى';
 
   @override
-  String get email_copied_to_clip_board => 'Email copied to clipboard!';
+  String get email_copied_to_clip_board =>
+      'تم نسخ البريد الإلكتروني إلى الحافظة!';
 
   @override
-  String get select_accent_color => 'Select Accent Color';
+  String get select_accent_color => 'حدد لون التمييز';
 
   @override
-  String get theme_amoled => 'AMOLED';
+  String get theme_amoled => 'أموليد';
 
   @override
-  String get color_blue => 'Blue';
+  String get color_blue => 'أزرق';
 
   @override
-  String get color_cyan => 'Cyan';
+  String get color_cyan => 'سماوي';
 
   @override
-  String get color_green => 'Green';
+  String get color_green => 'أخضر';
 
   @override
-  String get color_light_brown => 'Default';
+  String get color_light_brown => 'تقصير';
 
   @override
-  String get color_magenta => 'Magenta';
+  String get color_magenta => 'أرجواني';
 
   @override
-  String get color_orange => 'Orange';
+  String get color_orange => 'البرتقالي';
 
   @override
-  String get color_pink => 'Pink';
+  String get color_pink => 'لون القرنفل';
 
   @override
-  String get color_red => 'Red';
+  String get color_red => 'أحمر';
 
   @override
-  String get color_rust => 'Rust';
+  String get color_rust => 'الصدأ';
 
   @override
-  String get color_teal => 'Teal';
+  String get color_teal => 'أزرق مخضر';
 
   @override
-  String get text_contrast_mode => 'Text Contrast';
+  String get text_contrast_mode => 'تباين النص';
 
   @override
-  String get contrast_high => 'High';
+  String get contrast_high => 'عالي';
 
   @override
-  String get contrast_medium => 'Medium';
+  String get contrast_medium => 'واسطة';
 
   @override
-  String get contrast_low => 'Low';
+  String get contrast_low => 'قليل';
 
   @override
-  String get product_refresher_internet_not_found => 'Product not found!';
+  String get product_refresher_internet_not_found =>
+      'لم يتم العثور على المنتج!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'You are not connected to internet!';
+      'أنت غير متصل بالإنترنت!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server down ($host)';
+    return 'الخادم معطل ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server error ($exception)';
+    return 'خطأ في الخادم ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Product not found!';
+  String get product_loader_not_found_title => 'لم يتم العثور على المنتج!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
+    return 'لا يوجد منتج يحمل الرمز الشريطي التالي في قاعدة بياناتنا: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'No internet connection!';
+  String get product_loader_network_error_title => 'لا يوجد اتصال بالإنترنت!';
 
   @override
   String get product_loader_network_error_message =>
-      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
+      'يرجى التأكد من أن هاتفك الذكي متصل بشبكة WiFi أو تم تمكين بيانات الهاتف المحمول به';
 
   @override
-  String get page_not_found_title => 'Page not found!';
+  String get page_not_found_title => 'لم يتم العثور على الصفحة!';
 
   @override
-  String get page_not_found_button => 'Go back to the homepage';
+  String get page_not_found_button => 'العودة إلى الصفحة الرئيسية';
 
   @override
-  String get download_data => 'Download data';
+  String get download_data => 'تنزيل البيانات';
 
   @override
   String get download_top_products =>
-      'Download the top 1000 products in your country for instant scanning';
+      'قم بتنزيل أفضل 1000 منتج في بلدك للمسح الفوري';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
+      other: '$count المنتجات',
     );
-    return 'Download the top $_temp0 in your country for instant scanning';
+    return 'قم بتنزيل أفضل $_temp0 في بلدك للمسح الفوري';
   }
 
   @override
-  String get download_in_progress => 'Downloading data\nThis may take a while';
+  String get download_in_progress =>
+      'جاري تنزيل البيانات\nقد يستغرق هذا بعض الوقت';
 
   @override
   String downloaded_products(int num) {
-    return '$num products added';
+    return 'تمت إضافة $num منتجات';
   }
 
   @override
-  String get update_offline_data => 'Update offline product data';
+  String get update_offline_data => 'تحديث بيانات المنتج غير المتصلة بالإنترنت';
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'تحديث قاعدة بيانات المنتجات المحلية بأحدث البيانات من Open Food Facts';
 
   @override
-  String get clear_local_database => 'Clear offline product data';
+  String get clear_local_database => 'مسح بيانات المنتج غير المتصلة بالإنترنت';
 
   @override
   String get clear_local_database_sub =>
-      'Clear all local product data from your app to free up space';
+      'امسح جميع بيانات المنتج المحلية من تطبيقك لتحرير المساحة';
 
   @override
   String deleted_products(int num) {
-    return '$num products deleted';
+    return 'تم حذف $num من المنتجات';
   }
 
   @override
   String get loading => 'جاري التحميل…';
 
   @override
-  String get know_more => 'Know More';
+  String get know_more => 'اعرف المزيد';
 
   @override
-  String get offline_data_desc => 'Click to know more about offline data';
+  String get offline_data_desc =>
+      'انقر لمعرفة المزيد عن البيانات غير المتصلة بالإنترنت';
 
   @override
-  String get offline_product_data_title => 'Offline product data';
+  String get offline_product_data_title =>
+      'بيانات المنتج غير المتصلة بالإنترنت';
 
   @override
   String available_for_download(int num) {
-    return '$num products available for immediate scaning';
+    return '$num منتجات متاحة للمسح الفوري';
   }
 
   @override
-  String get country_selector_title => 'Select your country:';
+  String get country_selector_title => 'اختر بلدك:';
 
   @override
-  String get currency_selector_title => 'Select your currency:';
+  String get currency_selector_title => 'اختر عملتك:';
 
   @override
-  String get language_selector_title => 'Select your language:';
+  String get language_selector_title => 'اختر لغتك:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'اللغات المختارة';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'يستخدم بشكل متكرر';
 
   @override
   String get action_delete_list => 'حذف';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'تغيير القائمة الحالية';
 
   @override
   String get product_list_create => 'إنشاء';
 
   @override
-  String get product_list_create_tooltip => 'Create a new list';
+  String get product_list_create_tooltip => 'إنشاء قائمة جديدة';
 
   @override
-  String get nutriscore_generic => 'درجة الجودة الغذائية';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => 'Nutri-Score أ';
 
   @override
-  String get nutriscore_b => 'Nutri-Score B';
+  String get nutriscore_b => 'Nutri-Score ب';
 
   @override
   String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Nutri-Score D';
+  String get nutriscore_d => 'Nutri-Score د';
 
   @override
-  String get nutriscore_e => 'Nutri-Score E';
+  String get nutriscore_e => 'Nutri-Score إي';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (New calculation)';
+    return 'Nutri-Score $letter (حساب جديد)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (حساب جديد)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Nutri-Score غير المعروفة';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'Nutri-Score غير المعروفة (حساب جديد)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => 'Nutri-Score غير قابل للتطبيق';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Nutri-Score غير قابل للتطبيق (حساب جديد)';
 
   @override
   String get environmental_score_generic_new => 'النتيجة البيئية';
@@ -3994,96 +4068,96 @@ class AppLocalizationsAr extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'لا ينطبق Green-Score';
 
   @override
-  String get nova_group_generic_new => 'الأطعمة فائقة المعالجة - مجموعة نوفا';
+  String get nova_group_generic_new => 'الأطعمة فائقة المعالجة - مجموعة NOVA';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'مجموعة NOVA 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'مجموعة NOVA 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'مجموعة NOVA 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'مجموعة NOVA 4';
 
   @override
-  String get nova_group_unknown => 'Unknown NOVA Group';
+  String get nova_group_unknown => 'مجموعة NOVA غير المعروفة';
 
   @override
   String get nutrition_facts => '23423456bk';
 
   @override
-  String get faq_title_partners => 'Partners & Patrons of the NGO';
+  String get faq_title_partners => 'شركاء ورعاة المنظمة غير الحكومية';
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'رؤية ورسالة وقيم وبرامج مؤسسة Open Food Facts';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'قم بتثبيت Open Beauty Facts لإنشاء قاعدة بيانات مستحضرات التجميل';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'قم بتثبيت Open Pet Food Facts لإنشاء قاعدة بيانات لأطعمة الحيوانات الأليفة';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'قم بتثبيت Open Products Facts لإنشاء قاعدة بيانات للمنتجات لتمديد عمر الكائنات';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'حساب جديد لـ Nutri-Score: ما الجديد؟';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+      'محترف؟ استورد منتجاتك من خلال Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'جهة اتصال المنتج';
 
   @override
-  String get contact_title_press_page => 'Press Page';
+  String get contact_title_press_page => 'صفحة الصحافة';
 
   @override
-  String get contact_title_press_email => 'Press Contact';
+  String get contact_title_press_email => 'جهة الاتصال الصحفية';
 
   @override
   String get contact_title_newsletter => 'اشترك إلى نشرتنا الإخبارية';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'اشترك في تقويم مجتمعنا';
 
   @override
-  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
+  String get hunger_games_loading_line1 => 'من فضلك أعطنا بضع ثوان…';
 
   @override
-  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
+  String get hunger_games_loading_line2 => 'نحن نقوم بتنزيل الأسئلة!';
 
   @override
   String get hunger_games_error_label =>
-      'Argh! Something went wrong… and we couldn\'t load the questions.';
+      'آه! حدث خطأ ما… ولم نتمكن من تحميل الأسئلة.';
 
   @override
-  String get hunger_games_error_retry_button => 'Let\'s retry!';
+  String get hunger_games_error_retry_button => 'دعونا نحاول مرة أخرى!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'إعادة ترتيب السمات';
 
   @override
   String get link_cant_be_opened =>
-      'This link can\'t be opened on your device. Please check that you have a browser installed.';
+      'لا يمكن فتح هذا الرابط على جهازك. يُرجى التأكد من تثبيت متصفح.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'تفاصيل عن $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return 'تفاصيل عن $pageName مع $productName';
   }
 
   @override
@@ -4093,7 +4167,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get guide_share_label => 'مشاركة';
 
   @override
-  String get guide_nutriscore_v2_title => 'الدرجة الغذائية في تطور: تفسيرات!';
+  String get guide_nutriscore_v2_title =>
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
@@ -4101,7 +4176,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
@@ -4171,15 +4246,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'أين يمكنني العثور على حساب Nutri-Score الجديد؟';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'يتم تطبيق نظام Nutri-Score في 7 دول: فرنسا، ألمانيا، بلجيكا، إسبانيا، لوكسمبورج، هولندا وسويسرا.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'لدى المصنعين مهلة لا تتجاوز **سنتين** بعد توقيع المرسوم **لاستبدال** الحساب القديم بالحساب الجديد.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4285,21 +4360,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'لمكافأة المنتجات الأفضل ضمن فئة معينة، نقوم بعد ذلك بتطبيق المكافآت والعقوبات بناءً على عدة معايير:';
+      'لمكافأة المنتجات الأفضل ضمن فئة معينة، نقوم بعد ذلك بتطبيق **المكافآت والعقوبات بناءً على عدة معايير**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'طريقة الإنتاج';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'يتم منح مكافأة للمنتجات التي تحمل ملصقًا رسميًا أو علامة أو شهادة تضمن الفوائد البيئية (عضوي، تجارة عادلة، HVE، Label Rouge، Bleu Blanc Cœur، MSC/ASC).';
+      'يتم منح **مكافأة** للمنتجات التي تحمل **ملصقًا رسميًا أو ملصقًا أو شهادة تضمن الفوائد البيئية** (عضوي، تجارة عادلة، HVE، Label Rouge، Bleu Blanc Cœur، MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => 'أصل المكونات';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'تُمنح مكافأة بناءً على مصدر المكونات، مع مراعاة تأثيرها على النقل والسياسة البيئية لكل بلد مُنتِج.';
+      'تُمنح **مكافأة** بناءً على منشأ المكونات. وتراعي هذه المكافأة **التأثير على النقل** و**السياسة البيئية** لكل بلد مُنتِج.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4307,14 +4382,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'ويتم فرض عقوبة على المنتجات التي تحتوي على مكونات لها آثار سلبية كبيرة على التنوع البيولوجي والنظم البيئية، مثل زيت النخيل، الذي يتسبب إنتاجه في إزالة الغابات على نطاق واسع.';
+      'يتم فرض عقوبة على المنتجات التي تحتوي على مكونات لها تأثيرات سلبية كبيرة على التنوع البيولوجي والنظم البيئية، مثل زيت النخيل، الذي يتسبب إنتاجه في إزالة الغابات على نطاق واسع.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'التغليف';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'يتم احتساب عقوبة عند عدم مراعاة الالتزام بجودة التغليف (استخدام المواد الخام المعاد تدويرها والقابلة أصلًا لإعادة التدوير) والالتزام بعدم التعبئة الزائدة للمنتج في العبوات أو الصناديق.';
+      'يتم حساب **العقوبة** مع الأخذ في الاعتبار **دائرية التغليف** (استخدام المواد الخام المعاد تدويرها وإمكانية إعادة التدوير) والإفراط في التغليف.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4322,19 +4397,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'لحساب الدرجة الخضراء بشكل دقيق، من الضروري الحصول على معلومات غير محددة بالضرورة على العبوة (مثل المنشأ والنسبة المئوية الدقيقة لكل مكون) أو التي نادراً ما تكون متاحة في شكل قابل للاستخدام (مثل قائمة بجميع مكونات العبوة مع الأنواع الدقيقة من البلاستيك المستخدمة).';
+      'لحساب الدرجة الخضراء بشكل دقيق، من الضروري الحصول على **معلومات غير محددة بالضرورة على العبوة** (مثل المنشأ والنسبة المئوية الدقيقة لكل مكون) أو التي نادراً ما تكون متاحة في شكل قابل للاستخدام (مثل قائمة بجميع مكونات العبوة مع الأنواع الدقيقة من البلاستيك المستخدمة).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'يتم استخدام القيم المتوسطة عندما لا تكون هذه المعلومات متاحة بعد، ولكننا ندعو الجميع الآن لمساعدتنا في جمع هذه المعلومات التي ستكون مفيدة للغاية لـ Green-Score ولكن أيضًا للعديد من الاستخدامات الأخرى.';
+      '**يتم استخدام القيم المتوسطة عندما لا تكون هذه المعلومات متاحة بعد**، ولكننا ندعو الجميع الآن لمساعدتنا في جمع هذه المعلومات التي ستكون مفيدة للغاية بالنسبة لـ Green-Score ولكن أيضًا للعديد من الاستخدامات الأخرى.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'كيف يمكن للمواطنين المساعدة';
+      'كيف يمكن للمواطنين المساعدة؟';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'يمكن لجميع المواطنين مساعدتنا في جمع وتنظيم المعلومات الموجودة على المنتجات أو التي يمكن استنتاجها منها، مثل المعلومات المتعلقة بالتغليف: مهمة Emballages: جرد تعاوني واسع النطاق للتغليف لجميع المنتجات الغذائية (بالفرنسية)';
+      'يمكن لجميع المواطنين مساعدتنا في جمع وتنظيم المعلومات الموجودة على المنتجات أو التي يمكن استنتاجها منها، مثل المعلومات المتعلقة بالتغليف: \"Mission Emballages\": جرد تعاوني واسع النطاق للتغليف لجميع المنتجات الغذائية (باللغة الفرنسية).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4393,10 +4468,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'يسمح تصنيف NOVA بتقسيم الأطعمة إلى **4 مجموعات** بناءً على **درجة المعالجة الصناعية** (الأطعمة المعالجة بشكل بسيط أو غير المعالجة، والمكونات الطهوية، والأطعمة المعالجة، والأطعمة المعالجة للغاية).';
 
   @override
-  String get guide_nova_logos_caption => 'شعارات نوفا';
+  String get guide_nova_logos_caption => 'شعارات NOVA';
 
   @override
-  String get guide_nova_groups_title => 'مجموعات نوفا الأربعة';
+  String get guide_nova_groups_title => 'مجموعات NOVA الأربعة';
 
   @override
   String get guide_nova_groups_intro =>
@@ -4408,14 +4483,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'الأطعمة غير المصنعة (أو الطبيعية) هي الأجزاء الصالحة للأكل من النباتات (البذور والفواكه والأوراق والسيقان والجذور) أو الحيوانات (العضلات والأحشاء والبيض والحليب)، وكذلك الفطريات والطحالب والماء، بعد فصلها عن الطبيعة.';
+      'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'المكونات الطهوية المعالجة';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'المكونات الطهوية المصنعة، مثل الزيوت والزبدة والسكر والملح، هي مواد مشتقة من الأطعمة من المجموعة 1 أو من الطبيعة من خلال عمليات تشمل الضغط والتكرير والطحن والطحن والتجفيف.';
+      'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title =>
@@ -4423,14 +4498,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'تُصنع الأطعمة المصنّعة، مثل الخضراوات المعبأة، والأسماك المعلبة، والفواكه المُحلاة، والأجبان، والخبز الطازج، بشكل أساسي بإضافة الملح، أو الزيت، أو السكر، أو مواد أخرى من أطعمة المجموعة الثانية إلى أطعمة المجموعة الأولى. تشمل العمليات طرقًا مختلفة للحفظ أو الطهي، وفي حالة الخبز والجبن، التخمير غير الكحولي. تحتوي معظم الأطعمة المصنّعة على مكونين أو ثلاثة مكونات، ويمكن تمييزها كنسخ معدلة من أطعمة المجموعة الأولى. يمكن تناولها بمفردها، أو - وهو الأكثر شيوعًا - مع أطعمة أخرى.';
+      'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'الأطعمة فائقة المعالجة، مثل المشروبات الغازية، والوجبات الخفيفة الحلوة أو المالحة المعبأة، ومنتجات اللحوم المُعاد تكوينها، والأطباق المجمدة المُجهزة مسبقًا، ليست مجرد أطعمة مُعدّلة، بل تركيبات مُصنّعة في معظمها أو كليًا من مواد مُشتقة من الأطعمة والمواد المُضافة، مع وجود كميات قليلة أو معدومة من أطعمة المجموعة الأولى. عادةً ما تشمل مكونات هذه التركيبات مكونات موجودة أيضًا في الأطعمة المُصنّعة، مثل السكريات والزيوت والدهون والملح. ومع ذلك، تحتوي المنتجات فائقة المعالجة أيضًا على مصادر أخرى للطاقة والمغذيات لا تُستخدم عادةً في تحضيرات الطهي. يُستخرج بعضها مباشرةً من الأطعمة، مثل الكازين واللاكتوز ومصل اللبن والغلوتين.';
+      'ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title => 'مشاكل المعالجة الفائقة';
@@ -4441,7 +4516,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'يتم الحصول على العديد منها من خلال المعالجة الإضافية لمكونات الغذاء، مثل الزيوت المهدرجة أو المهدرجة، والبروتينات المحللة، ومعزول بروتين الصويا، والمالتوديكسترين، والسكر المحول، وشراب الذرة عالي الفركتوز.';
+      'يتم الحصول على العديد منها **من خلال المعالجة الإضافية لمكونات الغذاء**، مثل الزيوت المهدرجة أو المهدرجة، والبروتينات المحللة، ومعزول بروتين الصويا، والمالتوديكسترين، والسكر المحول، وشراب الذرة عالي الفركتوز.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4449,7 +4524,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'تشمل الإضافات في الأطعمة فائقة المعالجة بعض المواد المستخدمة أيضًا في الأطعمة المصنعة، مثل المواد الحافظة ومضادات الأكسدة والمثبتات. وتشمل فئات الإضافات الموجودة فقط في المنتجات فائقة المعالجة تلك المستخدمة لمحاكاة أو تحسين الخصائص الحسية للأطعمة أو لإخفاء الجوانب غير المستساغة للمنتج النهائي. تشمل هذه الإضافات الأصباغ والألوان الأخرى، ومثبتات الألوان؛ والنكهات، ومحسنات النكهة، والمحليات غير السكرية؛ ومساعدات المعالجة مثل عوامل الكربنة، والتماسك، والتكتل، وعوامل منع التكتل، وعوامل إزالة الرغوة، وعوامل منع التكتل، والتزجيج، والمستحلبات، ومواد العزل، والمرطبات.';
+      'تشمل الإضافات في الأطعمة فائقة المعالجة بعض المواد المستخدمة أيضًا في الأطعمة المصنعة، مثل المواد الحافظة ومضادات الأكسدة والمثبتات. وتشمل فئات الإضافات الموجودة فقط في المنتجات فائقة المعالجة تلك المستخدمة **لمحاكاة أو تحسين الخصائص الحسية للأطعمة أو لإخفاء الجوانب غير المستساغة للمنتج النهائي**. تشمل هذه الإضافات الأصباغ والألوان الأخرى، ومثبتات الألوان؛ والنكهات، ومحسنات النكهة، والمحليات غير السكرية؛ ومساعدات المعالجة مثل عوامل الكربنة، والتماسك، والتكتل، وعوامل منع التكتل، وعوامل إزالة الرغوة، وعوامل منع التكتل، والتزجيج، والمستحلبات، ومواد العزل، والمرطبات.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4457,7 +4532,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'تُستخدم سلسلة من العمليات لدمج المكونات العديدة عادةً، ولإنتاج المنتج النهائي (ومن هنا جاء مصطلح \"المعالجة الفائقة\"). تشمل هذه العمليات عدة عمليات لا مثيل لها محليًا، مثل الهدرجة والتحلل المائي، والبثق والقولبة، والمعالجة المسبقة للقلي.';
+      '**تُستخدم سلسلة من العمليات** لدمج المكونات العديدة عادةً، ولإنتاج المنتج النهائي (ومن هنا جاء مصطلح \"المعالجة الفائقة\"). تشمل هذه العمليات عدة عمليات **لا مثيل لها محليًا**، مثل الهدرجة والتحلل المائي، والبثق والقولبة، والمعالجة المسبقة للقلي.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4465,68 +4540,491 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'الهدف العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية، سهلة الاستخدام (متينة، جاهزة للاستهلاك)، جذابة (شهية للغاية)، ومربحة للغاية (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بكثافة.';
+      '**الغرض العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية**، و**مريحة** (متينة، وجاهزة للاستهلاك)، و**جذابة** (شهية للغاية) و**مربحة للغاية** (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بشكل مكثف.';
 
   @override
-  String get preview_badge => 'Preview';
+  String get guide_nova_explanations_arg5_title => 'خطر على الصحة';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title => 'توصي الدول بالحد منها';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'تستخدم بعض البلدان مجموعات NOVA لإرشاداتها أو أهدافها الغذائية، على سبيل المثال:\n\n- **🇧🇷 توصي الإرشادات الغذائية للبرازيل بالحد من استهلاك** الأطعمة المصنعة وتجنب الأطعمة فائقة المعالجة.\n\n- **🇫🇷 تهدف أهداف السياسة الغذائية الصحية العامة في فرنسا للفترة 2018-2022 إلى **تقليل استهلاك الأطعمة فائقة المعالجة من المجموعة 4 بنسبة 20%**.';
+
+  @override
+  String get guide_nova_share_link => 'https://world-ar.openfoodfacts.org/nova';
+
+  @override
+  String get guide_open_food_facts_title =>
+      'مرحباً بكم في حقائق الغذاء المفتوحة!';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_title =>
+      'What is Open Food Facts?';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
+      'Open Food Facts عبارة عن قاعدة بيانات **تعاونية** و**مجانية** و**مفتوحة** للمنتجات الغذائية من جميع أنحاء العالم.';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'نؤمن بحق كل فرد في الحصول على معلومات حول ما يأكله. من خلال جمع البيانات حول المكونات، ومسببات الحساسية، والمعلومات الغذائية، وغيرها، **نمكّن المستهلكين من اتخاذ خيارات مدروسة** وندفع قطاع الأغذية **نحو مزيد من الشفافية**.';
+
+  @override
+  String get guide_open_food_facts_features_title => 'مميزات Open Food Facts';
+
+  @override
+  String get guide_open_food_facts_features_arg1_title =>
+      'احصل على تنبيهات بشأن المكونات غير المرغوب فيها';
+
+  @override
+  String get guide_open_food_facts_tips_title => 'نصائح لالتقاط صور رائعة';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_title => 'لا تفعل';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text1 => 'تجنب الظلال والوهج.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text2 =>
+      'لا يوجد نص ضبابي أو خارج التركيز.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text3 =>
+      'لا تقم بقص أجزاء من النص.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text4 => 'تجنب الخلفيات المزدحمة.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_title => 'افعل';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text1 =>
+      'استخدم إضاءة جيدة ومتساوية.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text2 =>
+      'تأكد من أن النص حاد وقابل للقراءة.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text3 =>
+      'التقاط قائمة المكونات بأكملها.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text4 =>
+      'احتفظ بالمنتج على سطح مستو.';
+
+  @override
+  String get guide_open_food_facts_scores_title =>
+      'ساعدنا في بناء \"ويكيبيديا الطعام\"';
+
+  @override
+  String get guide_open_food_facts_scores_arg1_title =>
+      'درجة على الجودة الغذائية';
+
+  @override
+  String get guide_open_food_facts_scores_arg2_title =>
+      'نتيجة لتجنب الأطعمة شديدة المعالجة';
+
+  @override
+  String get guide_open_food_facts_scores_arg3_title => 'نتيجة للكوكب';
+
+  @override
+  String get guide_open_food_facts_share_link =>
+      'https://world-ar.openfoodfacts.org/discover';
+
+  @override
+  String get guide_open_pet_food_facts_title =>
+      'مرحباً بكم في حقائق طعام الحيوانات الأليفة المفتوحة!';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
+      'What is Open Pet Food Facts?';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
+      'نقوم بجمع المعلومات حول **المكونات** و**التحليل الغذائي** وإرشادات التغذية لمساعدة أصحاب الحيوانات الأليفة في اختيار أفضل طعام يناسب احتياجات حيواناتهم.';
+
+  @override
+  String get guide_open_pet_food_facts_features_title =>
+      'Features of Open Pet Food Facts';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_title =>
+      'احصل على تنبيهات بشأن المكونات غير المرغوب فيها';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
+      'هل يعاني حيوانك الأليف من حساسية تجاه أي من مكونات مستحضرات التجميل؟ يمكنك تحديد قائمة بالمكونات التي يجب تجنبها مباشرةً من التطبيق!';
+
+  @override
+  String get guide_open_pet_food_facts_tips_title => 'نصائح لالتقاط صور رائعة';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_title => 'لا تفعل';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text1 => 'تجنب الظلال والوهج.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text2 =>
+      'لا يوجد نص ضبابي أو خارج التركيز.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text3 =>
+      'لا تقم بقص أجزاء من النص.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text4 =>
+      'تجنب الخلفيات المزدحمة.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_title => 'افعل';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text1 =>
+      'استخدم إضاءة جيدة ومتساوية.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text2 =>
+      'تأكد من أن النص حاد وقابل للقراءة.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text3 =>
+      'التقاط قائمة المكونات بأكملها.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text4 =>
+      'احتفظ بالمنتج على سطح مستو.';
+
+  @override
+  String get guide_open_pet_food_facts_scores_title => 'ملاحظة حول التسجيل';
+
+  @override
+  String get guide_open_pet_food_facts_scores_paragraph1 =>
+      'تطوير نظام تقييم لأغذية الحيوانات الأليفة **ليس أولويةً حاليًا**. ستكون منهجيته معقدة، إذ تختلف الاحتياجات الغذائية اختلافًا كبيرًا باختلاف الأنواع والأعمار والحالات الصحية. لم نجد حتى الآن فريقًا علميًا مستقلًا قادرًا على تطوير مثل هذا التقييم.';
+
+  @override
+  String get guide_open_pet_food_facts_share_link =>
+      'https://world-ar.openpetfoodfacts.org/discover';
+
+  @override
+  String get guide_open_beauty_facts_title =>
+      'مرحباً بكم في حقائق الجمال المفتوحة!';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
+      'What is Open Beauty Facts?';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
+      'Open Beauty Facts عبارة عن قاعدة بيانات تعاونية لمنتجات التجميل.';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
+      'هدفنا هو تحليل قوائم المكونات لمساعدتكِ **على فهم مكونات منتجات العناية الشخصية**. من المرطبات إلى مستحضرات التجميل، نجمع بيانات عن المكونات ومسببات الحساسية والتغليف لتعزيز الشفافية في صناعة مستحضرات التجميل.';
+
+  @override
+  String get guide_open_beauty_facts_features_title =>
+      'مميزات تطبيق Open Beauty Facts';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_title =>
+      'احصل على تنبيهات بشأن المكونات غير المرغوب فيها';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_paragraph1 =>
+      'هل تعاني من حساسية تجاه أي من المكونات؟ هل ترغب في تجنب المواد المسببة للرؤوس السوداء؟ هل ترغب في تجنب المكونات المثيرة للجدل؟ يمكنك تحديد قائمة بالمكونات التجميلية التي يجب تجنبها مباشرةً من التطبيق!';
+
+  @override
+  String get guide_open_beauty_facts_tips_title => 'نصائح لالتقاط صور رائعة';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_title => 'لا تفعل';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text1 => 'تجنب الظلال والوهج.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text2 =>
+      'لا يوجد نص ضبابي أو خارج التركيز.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text3 =>
+      'لا تقم بقص أجزاء من النص.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text4 =>
+      'تجنب الخلفيات المزدحمة.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_title => 'افعل';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text1 =>
+      'استخدم إضاءة جيدة ومتساوية.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text2 =>
+      'تأكد من أن النص حاد وقابل للقراءة.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text3 =>
+      'التقاط قائمة المكونات بأكملها.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text4 =>
+      'التقط أكبر عدد ممكن من الصور حسب الحاجة إذا كانت الزجاجة منحنية.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text5 =>
+      'قد تحتاج إلى تقشير الملصق لرؤية قائمة المكونات.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text6 =>
+      'احتفظ بالمنتج على سطح مستو.';
+
+  @override
+  String get guide_open_beauty_facts_scores_title => 'ملاحظة حول التسجيل';
+
+  @override
+  String get guide_open_beauty_facts_scores_paragraph1 =>
+      'على عكس المنتجات الغذائية، لا يعتمد عالم مستحضرات التجميل نظام تقييم معتمد عالميًا ومدعوم حكوميًا مثل نظام Nutri-Score. قد تختلف تأثيرات المكونات باختلاف نوع البشرة والحساسية والمخاوف الشخصية.';
+
+  @override
+  String get guide_open_beauty_facts_share_link =>
+      'https://world-ar.openbeautyfacts.org/discover';
+
+  @override
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_title =>
+      'What is Open Prices?';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph1 =>
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph2 =>
+      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+
+  @override
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
+
+  @override
+  String get guide_open_prices_how_paragraph1 =>
+      '**نعمل على جمع بيانات أسعار مفتوحة المصدر من الجمهور**. يمكن للمستخدمين إضافة الأسعار عبر تطبيق الويب هذا، أو عبر تطبيق Open Food Facts الرسمي للهواتف المحمولة. كما يمكن لتجار التجزئة أو تطبيقات الجهات الخارجية المساهمة باستخدام واجهة برمجة التطبيقات الخاصة بنا.';
+
+  @override
+  String get guide_open_prices_how_arg1_title =>
+      'جمع صور لعلامات الأسعار في الممرات';
+
+  @override
+  String get guide_open_prices_how_arg2_title => 'جمع صور الإيصالات';
+
+  @override
+  String get guide_open_prices_why_title => 'لماذا تقوم Open Food Facts بهذا؟';
+
+  @override
+  String get guide_open_prices_why_paragraph1 =>
+      'تُعد معلومات الأسعار بالغة الأهمية لفهم النظم الغذائية. فهي عامل أساسي في فهم تكلفة الغذاء وتعزيز اتباع أنظمة غذائية صحية. تُسهّل بيانات الأسعار الافتتاحية على الباحثين والصحفيين والمواطنين فهم كيفية اختلاف أسعار الغذاء جغرافيًا وزمنيًا بشكل أفضل.';
+
+  @override
+  String get guide_open_prices_why_arg1_title =>
+      'تتبع تطور الأسعار بمرور الوقت';
+
+  @override
+  String get guide_open_prices_why_arg1_text =>
+      'انظر إلى **تطور الأسعار**: التضخم الانكماشي، والتضخم الرخيص، يمكننا تتبعهما معًا!';
+
+  @override
+  String get guide_open_prices_why_arg2_title => 'قارن الأسعار بالقرب منك';
+
+  @override
+  String get guide_open_prices_why_arg2_text =>
+      'مع حصولنا على المزيد من الأسعار، يمكنك تحديد **المتاجر الأرخص حولك**.';
+
+  @override
+  String get guide_open_prices_scrapping_title =>
+      'هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph1 =>
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph2 =>
+      'يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.';
+
+  @override
+  String get guide_open_prices_retailers_title =>
+      'I\'m a retailer and I want to contribute prices. How can I do that?';
+
+  @override
+  String get guide_open_prices_retailers_paragraph1 =>
+      'يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.';
+
+  @override
+  String get guide_open_prices_share_link =>
+      'https://prices.openfoodfacts.org/about';
+
+  @override
+  String get guide_open_products_facts_title =>
+      'مرحباً بكم في حقائق المنتجات المفتوحة!';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_title =>
+      'What is Open Products Facts?';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
+      'من **الإلكترونيات** إلى **الألعاب**، ومن **الملابس** إلى **مستلزمات التنظيف**، إذا كانت تحتوي على رمز شريطي، يُمكن إضافتها. يهدف هذا المشروع إلى إنشاء \"إنترنت الأشياء\" للأشياء اليومية، مما يجعل المعلومات المتعلقة بها في متناول الجميع.';
+
+  @override
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
+
+  @override
+  String get guide_open_products_facts_features_text =>
+      'تهدف Open Products Facts إلى تمكين المستهلكين من **إطالة عمر الأشياء** من خلال توفير الحلول الدائرية للحفاظ على أشيائهم وإصلاحها وإعادة تدويرها أو منحها مالكًا جديدًا.';
+
+  @override
+  String get guide_open_products_facts_features_arg1_title =>
+      'البصمة الكربونية لبعض المنتجات';
+
+  @override
+  String get guide_open_products_facts_features_arg1_text =>
+      'يوفر تقرير **تأثير ثاني أكسيد الكربون** الصادر عن هيئة البيئة الفرنسية ADEME **تأثير الكربون** للعديد من الفئات، تأكد من تصنيف المنتجات بدقة.';
+
+  @override
+  String get guide_open_products_facts_features_arg2_title =>
+      'مؤشر قابلية الإصلاح للعديد من المنتجات';
+
+  @override
+  String get guide_open_products_facts_features_arg2_text =>
+      'كلما توفر مؤشر قابلية الإصلاح الفرنسي، سنعرضه. علاوة على ذلك، **يمكنك البدء بجمع المتغيرات باستخدام محرك Folksonomy**؛ حتى نتمكن من إعادة حسابه بأنفسنا مستقبلًا، حتى في الدول التي لا يتوفر فيها.';
+
+  @override
+  String get guide_open_products_facts_features_arg3_title =>
+      'ابحث عن طرق للتبرع بمنتجك أو إعادة بيعه';
+
+  @override
+  String get guide_open_products_facts_features_arg3_text =>
+      'نوفر روابط لخدمات خارجية صديقة للبيئة تساعدك في الحصول على المنتج الذي تبحث عنه، كمنتج مستعمل، ليكون أكثر مراعاةً للموارد الطبيعية.\nيُرجى العلم أننا لا نتقاضى أجرًا مقابل ذلك، وأن النظام يعمل فقط كمثال لموقعين إلكترونيين في فرنسا. يمكنك المساهمة في توسيع هذا النظام بتوثيق المزيد من المواقع على الويكي.';
+
+  @override
+  String get guide_open_products_facts_information_title =>
+      'ما هي المعلومات المفيدة؟';
+
+  @override
+  String get guide_open_products_facts_information_text =>
+      'لهذه المجموعة الواسعة من العناصر، **البيانات التي نجمعها مرنة**. ولتحقيق ذلك، **أنشأنا محرك Folksonomy**.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_title => 'محرك الفولكسونومي';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph1 =>
+      'محرك Folksonomy هو أداة تساعدك على إكمال المنتجات بالخصائص المناسبة. يُحسّن هذا البحث وإمكانية الاكتشاف، بالإضافة إلى حساب وعرض العناصر المهمة مستقبلًا.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph2 =>
+      'يمكنك إضافة أي مفاتيح وقيم مثل: **compatibility_with_5G_mobile_network: yes**';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph3 =>
+      'سوف تحصل على اقتراح تلقائي للخصائص المحتملة، ويسعدنا أن نضيف وتوثّق خصائص جديدة لأنواع المنتجات المفضلة لديك.';
+
+  @override
+  String get guide_open_products_facts_share_link =>
+      'https://world-ar.openproductsfacts.org/discover';
+
+  @override
+  String get guide_open_preferences_button_title => 'تفضيلات الطعام المفتوحة';
+
+  @override
+  String get guide_coming_soon_button_title => 'قريباً';
+
+  @override
+  String get guide_learn_more_subtitle => 'انقر لمعرفة المزيد';
+
+  @override
+  String get preview_badge => 'معاينة';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'انقر هنا لإرسال تعليقاتك حول هذه الميزة الجديدة!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'حدد إجراءً';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'خطأ في تحميل الصورة';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'استخدم كـ…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip => 'استخدم هذه الصورة كـ…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'استخدم هذه الصورة كـ… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'تفاصيل';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'تفاصيل هذه الصورة';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'تفاصيل الصورة';
 
   @override
   String get photo_viewer_details_contributor_title => 'مساهم';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'مقاس';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height بكسل';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Date';
+  String get photo_viewer_details_date_title => 'تاريخ';
 
   @override
-  String get photo_viewer_details_url_title => 'URL';
+  String get photo_viewer_details_url_title => 'عنوان URL';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'متناسق';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'اختيار متعدد';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'درجة توافقك: $score%';
   }
 
   @override
@@ -4537,164 +5035,164 @@ class AppLocalizationsAr extends AppLocalizations {
       'صورة للقائمة المكونات';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label => 'صورة التغذية';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label => 'صورة التغليف';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'صورة اخرى';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message => 'قد تكون هذه الصورة قديمة';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (قد تكون هذه الصورة قديمة)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (قد يتم قفل هذه الصورة بواسطة المنتج)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'غير قادر على تحميل الصورة!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return 'غير قادر على تحميل $type (خطأ في الشبكة؟)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'لا يوجد صورة\n!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'لا توجد صورة متاحة لهذا المنتج';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'إعادة ترتيب الإجراءات أو إخفاؤها';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title => 'تحرير الإجراءات';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'تحرك للأعلى';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'تحرك للأسفل';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'تمكين الإجراء';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'تعطيل الإجراء';
 
   @override
-  String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+  String get product_page_pending_operations_banner_title => 'تحميل تعديلاتك…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'البيانات المعروضة على هذه الصفحة **لا تعكس تعديلاتك بعد**.\nيرجى الانتظار بضع ثوان…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'إضافة لغة';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'الباركود $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'إزالة هذا المنتج من الدوارة';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'الباركود غير مدعوم!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'اوبس!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'لا يدعم Open Food Facts الرمز الشريطي الممسوح ضوئيًا!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'خطأ!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'إنه أمر محبط!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'لم نتمكن من تنزيل المعلومات حول هذا الرمز الشريطي:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'يرجى التحقق من اتصالك بالإنترنت أو انقر فوق هذا الزر:';
 
   @override
   String get carousel_error_button => 'إعادة المحاولة';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'منتج غير معروف';
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'مبروك!\nلقد وجدت __الجوهرة النادرة!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'تحتوي قاعدة بياناتنا التعاونية على أكثر من **3 ملايين منتج**، ولكن هذا الرمز الشريطي غير موجود: ';
 
   @override
   String get carousel_unknown_product_button => 'إضافة منتج';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'جاري تحميل المعلومات...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'لقد قمت للتو بمسح المنتج بالرمز الشريطي التالي:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'نحن نبحث عنه في قاعدة بياناتنا التي تحتوي على أكثر من **3 ملايين منتج!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food =>
+      'الخضروات والفواكه والأطعمة المجمدة…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'المكياج والصابون ومعجون الأسنان…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'طعام للكلاب والقطط…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'الهواتف الذكية والأثاث…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'صورة المنتج';
 
   @override
   String get photo_field_ingredients => 'صورة المكونات';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'صورة التغذية';
 
   @override
   String get photo_field_packaging => 'صورة معلومات التعبِئة';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'هذه الصورة موجودة بالفعل';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'هذه الصورة مفقودة';
 
   @override
-  String get date => 'Date';
+  String get date => 'تاريخ';
 
   @override
   String get photo_rotate_left => 'دوران لليسار';
@@ -4703,117 +5201,149 @@ class AppLocalizationsAr extends AppLocalizations {
   String get photo_rotate_right => 'تدوير الحق';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'التراجع عن الإجراء السابق';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'خريطة العالم $location';
   }
 
   @override
-  String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+  String get open_street_map_contributor_attribution => 'مساهمو OpenStreetMap';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'غير متوفر';
 
   @override
   String get knowledge_panel_warning_text => 'تحذير';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'لماذا يختلف هذا Nutri-Score عن ذلك الموجود على العبوة؟';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'هناك تفسيران محتملان:\nقائمة المكونات و/أو المعلومات الغذائية غير محدثة.\n\nنوفر \"حسابًا جديدًا\" لـ Nutri-Score (أو الإصدار الثاني). يُرجى التأكد من وجود شعار \"حساب جديد\" على العبوة.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'التحقق من المكونات';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'التحقق من الحقائق الغذائية';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'لسوء الحظ، لا يمكننا فتح عنوان URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'يصدّر';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'يستورد';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'عرض الباركود';
 
   @override
   String get product_footer_action_barcode_short => 'الرمز الشريطي';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'افتح الموقع';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'تقرير';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'يساعد';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'جودة البيانات';
 
   @override
   String get product_page_tab_for_me => 'لي';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'موقع إلكتروني';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'الأسعار';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get prices_explanation_card_title => 'لماذا الاسعار؟';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'لمعرفة المزيد';
+
+  @override
+  String get product_page_tab_folksonomy => 'علم اللغة الشعبية';
+
+  @override
+  String get folksonomy_explanation_card_title => 'ما هي سمات Folksonomy؟';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'السمات تعتمد على **المفتاح والقيمة**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'يتم إنشاء هذه الخصائص وتسجيلها بواسطة المساهمين لأي نوع من الاستخدامات.';
+
+  @override
+  String get folksonomy_action_external_link_title => 'افتح الرابط الخارجي';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'قد تكون الروابط الخارجية غير آمنة. هل ترغب حقًا بزيارتها؟';
+
+  @override
+  String get prices_products_empty_title => 'لا يوجد سعر متاح';
+
+  @override
+  String get prices_products_empty_explanation => 'كن أول من يساهم!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'أفضل $pageSize المنتجات (المجموع: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'هل تستمتع بهذا التطبيق؟';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'يمكن أن أفعل أفضل';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'ليس سيئًا';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'أنا أحبه!';
 
   @override
-  String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+  String get app_review_feedback_modal_title => 'ساعدنا على تحسين تطبيقنا';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'إذا كان لديك بضع دقائق، هل يمكنك الإجابة على هذا النموذج حتى نتمكن من التحسين في التحديثات المستقبلية:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'أجب على النموذج';
 
   @override
-  String get app_review_feedback_modal_later => 'Ask me later';
+  String get app_review_feedback_modal_later => 'اسألني لاحقا';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'جديد: يمكنك استخراج العناصر الغذائية من الصورة تلقائيًا!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'استخرج الآن';
 
   @override
   String get nutrition_facts_extract_in_progress => 'جاري الاستخراج…';
@@ -4823,19 +5353,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'فشل في استخراج العناصر الغذائية من الصورة';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'إحصائيات';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'إحصائيات الأسعار';
 
   @override
-  String get prices_stats_prices_section => 'Prices';
+  String get prices_stats_prices_section => 'الأسعار';
 
   @override
   String get prices_stats_products_section => 'المنتجات';
@@ -4853,7 +5383,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Miscellaneous';
+  String get prices_stats_misc_section => 'متنوع';
 
   @override
   String get prices_stats_total => 'Total';
@@ -4877,7 +5407,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'طعام';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -4886,10 +5416,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_stats_products => 'المنتجات';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'طعام الحيوانات الأليفة';
 
   @override
-  String get prices_stats_osm => 'OpenStreetMap';
+  String get prices_stats_osm => 'خريطة الشارع المفتوحة';
 
   @override
   String get prices_stats_online => 'Online';
@@ -4898,10 +5428,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_stats_countries => 'بلدان';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'سعر البطاقة';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'إيصال';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -4925,35 +5455,35 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Website';
+  String get prices_stats_website => 'موقع إلكتروني';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
 
   @override
-  String get prices_stats_api => 'API';
+  String get prices_stats_api => 'واجهة برمجة التطبيقات (API)';
 
   @override
   String get prices_stats_other => 'أخرى';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'تم التحديث آخر مرة في';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'حدث خطأ أثناء تحميل الإحصائيات.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered =>
+      'تمت الإجابة على السؤال!';
 
   @override
-  String get product_edit_robotoff_proof => 'Proof';
+  String get product_edit_robotoff_proof => 'دليل';
 
   @override
   String get preferences_card_general => 'عام';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'الأسعار';
 
   @override
   String get preferences_prices_subtitle => 'إدارة تفضيلات الأسعار الخاصة بك';
@@ -5052,7 +5582,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'Open Food Facts عبارة عن قاعدة بيانات لمنتجات الأغذية **أنشأها الجميع، من أجل الجميع**.\nيمكنك استخدامها لاتخاذ خيارات غذائية أفضل، وبما أنها **بيانات مفتوحة**، يمكن لأي شخص **إعادة استخدامها لأي غرض**.';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'سياسة الخصوصية';
 
   @override
   String get preferences_licenses => 'التراخيص';
@@ -5150,6 +5680,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get preferences_dev_mode_folksonomy_host_title => 'مضيف الفولكسونومي';
 
   @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'المضيف: $host';
+  }
+
+  @override
   String get preferences_dev_mode_accessibility_experiments_title =>
       'تجارب إمكانية الوصول';
 
@@ -5188,15 +5723,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'اكتشاف المشروع';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'اكتشف حقائق الطعام المفتوحة';
+  String get preferences_faq_discover_off_title => 'اكتشف Open Food Facts';
+
+  @override
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+
+  @override
+  String get preferences_faq_discover_opff_title =>
+      'Discover Open Pet Food Facts';
+
+  @override
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+
+  @override
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'الأسئلة الشائعة';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'منظمة حقائق الغذاء المفتوحة غير الحكومية';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'معلومات';
@@ -5211,14 +5758,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'اشترك في تقويم مجتمعنا';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'شارك من خلال حضور أحد فعالياتنا الافتراضية';
 
   @override
-  String get preferences_connect_blog_title => 'مدونة حقائق الغذاء المفتوحة';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5317,7 +5864,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'خطوات بسيطة لتعزيز الشفافية الغذائية في بلدك';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'جودة البيانات';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -5344,10 +5891,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'جميع المنتجات غير المكتملة';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'الأسعار';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'أسعاري';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -5381,7 +5928,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'أحدث الأسعار المضافة من قبل مجتمع الأسعار المفتوحة';
+      'أحدث الأسعار المضافة من قبل مجتمع Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5426,7 +5973,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'طرق بسيطة للمساعدة في فتح حقائق الطعام';
+      'طرق بسيطة للمساعدة في Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5463,7 +6010,17 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count من $total عناصر';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count عناصر';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count عناصر';
   }
 
@@ -5523,14 +6080,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'مختبرات حقائق الغذاء المفتوحة';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'الحساب';
 
   @override
   String get preferences_contribute_translate_header =>
-      'جلب حقائق الطعام المفتوحة إلى لغتك';
+      'جلب Open Food Facts إلى لغتك';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -5550,4 +6107,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'تمت الإضافة في $created';
   }
+
+  @override
+  String get location_map_details_title => 'تفاصيل الموقع';
+
+  @override
+  String get location_map_details_name => 'اﻹسم';
+
+  @override
+  String get location_map_details_street => 'شارع';
+
+  @override
+  String get location_map_details_city => 'مدينة';
+
+  @override
+  String get location_map_details_postcode => 'شفرة البريد';
+
+  @override
+  String get location_map_details_country => 'بلد';
+
+  @override
+  String get location_map_details_coordinates => 'الإحداثيات';
+
+  @override
+  String get location_map_details_osm_id => 'معرف OSM';
 }

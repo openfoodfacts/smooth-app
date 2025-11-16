@@ -20,6 +20,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     required this.constraints,
     required this.manager,
     this.minLengthForSuggestions = 1,
+    this.autofocus = false,
     this.allowEmojis = true,
     this.suffixIcon,
     this.borderRadius,
@@ -30,6 +31,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   });
 
   final FocusNode focusNode;
+  final bool autofocus;
   final TextEditingController controller;
   final Key autocompleteKey;
   final String hintText;
@@ -146,8 +148,7 @@ class _SmoothAutocompleteTextFieldState
                 ),
               ),
             ),
-            // a lot of confusion if set to `true`
-            autofocus: false,
+            autofocus: widget.autofocus,
             focusNode: focusNode,
           ),
       onSelected: (String search) {

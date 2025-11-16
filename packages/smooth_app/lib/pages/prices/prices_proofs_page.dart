@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -21,6 +22,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 /// Page that displays the latest proofs of the current user.
 class PricesProofsPage extends StatefulWidget {
@@ -178,6 +180,19 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
         ? appLocalizations.proofs_count_with_total(loadedItems, totalItems)
         : appLocalizations.proof_count(loadedItems);
   }
+
+  @override
+  Widget get emptyListIcon => const SvgPicture(
+    AssetBytesLoader('assets/icons/price_receipt_empty.svg.vec'),
+  );
+
+  @override
+  String emptyListTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.prices_proof_empty_title;
+
+  @override
+  String emptyListExplanation(AppLocalizations appLocalizations) =>
+      appLocalizations.prices_proof_empty_explanation;
 }
 
 class _PriceProofListItem extends StatelessWidget {

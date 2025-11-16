@@ -8,9 +8,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
-import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Card that displays a Knowledge Panel _Text_ element.
 class KnowledgePanelTextCard extends StatelessWidget {
@@ -42,8 +40,7 @@ class KnowledgePanelTextCard extends StatelessWidget {
         child: MergeSemantics(
           child: SmoothHtmlWidget(
             textElement.html,
-            textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED
-                .copyWith(fontSize: 15.5),
+            textStyle: const TextStyle(height: 1.9, fontSize: 15.5),
           ),
         ),
       );
@@ -68,7 +65,16 @@ class KnowledgePanelTextCard extends StatelessWidget {
             appLocalizations.knowledge_panel_text_source(
               textElement.sourceText!,
             ),
-            trailingIcon: Icon(ConstantIcons.forwardIcon),
+            trailingIcon: DecoratedBox(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black12,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                child: icons.Chevron.horizontalDirectional(context, size: 15.0),
+              ),
+            ),
             onPressed: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
               context,
               textElement.sourceUrl!,

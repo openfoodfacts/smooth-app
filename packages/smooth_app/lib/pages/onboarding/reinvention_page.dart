@@ -19,40 +19,45 @@ class OnboardingHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmoothScaffold(
-      backgroundColor: const Color(0xFFE3F3FE),
-      body: Provider<OnboardingConfig>.value(
-        value: OnboardingConfig._(MediaQuery.sizeOf(context)),
-        child: Stack(
-          children: <Widget>[
-            const _OnboardingWelcomePageContent(),
-            OnboardingBottomHills(
-              onTap: () async {
-                final UserPreferences userPreferences = context
-                    .read<UserPreferences>();
-                final LocalDatabase localDatabase = context
-                    .read<LocalDatabase>();
+    return SmoothBrightnessOverride(
+      brightness: Brightness.dark,
+      child: SmoothScaffold(
+        backgroundColor: const Color(0xFFE3F3FE),
+        body: Provider<OnboardingConfig>.value(
+          value: OnboardingConfig._(MediaQuery.sizeOf(context)),
+          child: Stack(
+            children: <Widget>[
+              const _OnboardingWelcomePageContent(),
+              OnboardingBottomHills(
+                onTap: () async {
+                  final UserPreferences userPreferences = context
+                      .read<UserPreferences>();
+                  final LocalDatabase localDatabase = context
+                      .read<LocalDatabase>();
 
-                /// Enable crash reports and user tracking by default
-                /// (Can be disabled by the user later in the settings)
-                await userPreferences.setCrashReports(true);
-                await userPreferences.setUserTracking(true);
+                  /// Enable crash reports and user tracking by default
+                  /// (Can be disabled by the user later in the settings)
+                  await userPreferences.setCrashReports(true);
+                  await userPreferences.setUserTracking(true);
 
-                if (context.mounted) {
-                  await OnboardingLoader(
-                    localDatabase,
-                  ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
-                }
+                  if (context.mounted) {
+                    await OnboardingLoader(
+                      localDatabase,
+                    ).runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                  }
 
-                if (context.mounted) {
-                  await OnboardingFlowNavigator(userPreferences).navigateToPage(
-                    context,
-                    OnboardingPage.HOME_PAGE.getNextPage(),
-                  );
-                }
-              },
-            ),
-          ],
+                  if (context.mounted) {
+                    await OnboardingFlowNavigator(
+                      userPreferences,
+                    ).navigateToPage(
+                      context,
+                      OnboardingPage.HOME_PAGE.getNextPage(),
+                    );
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

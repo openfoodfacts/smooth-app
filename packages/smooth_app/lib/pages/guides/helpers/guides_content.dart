@@ -23,12 +23,24 @@ class GuidesPage extends StatelessWidget {
     required this.body,
     required this.pageName,
     this.footer,
+    this.headerType = GuidesHeaderType.large,
     super.key,
   }) : assert(pageName.length > 0);
+
+  const GuidesPage.smallHeader({
+    required this.header,
+    required this.body,
+    required this.pageName,
+    this.footer,
+    super.key,
+  }) : headerType = GuidesHeaderType.small,
+       assert(pageName.length > 0);
 
   final Widget header;
   final List<Widget> body;
   final Widget? footer;
+
+  final GuidesHeaderType headerType;
 
   // Page name for the Analytics event
   final String pageName;
@@ -36,9 +48,12 @@ class GuidesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      body: _GuidesPageBody(
-        pageName: pageName,
-        slivers: <Widget>[header, ...body, if (footer != null) footer!],
+      body: Provider<GuidesHeaderType>(
+        create: (_) => headerType,
+        child: _GuidesPageBody(
+          pageName: pageName,
+          slivers: <Widget>[header, ...body, if (footer != null) footer!],
+        ),
       ),
     );
   }
@@ -97,9 +112,9 @@ class _GuidesPageBodyState extends State<_GuidesPageBody>
           controller: _controller,
           physics: VerticalSnapScrollPhysics.get(
             lastStepBlocking: false,
-            steps: const <double>[
+            steps: <double>[
               0,
-              GuidesHeader.HEADER_HEIGHT - kToolbarHeight,
+              context.read<GuidesHeaderType>().height - kToolbarHeight,
             ],
           ),
           slivers: widget.slivers,
@@ -171,7 +186,9 @@ class _GuidesParagraphTitle extends StatelessWidget {
       header: true,
       excludeSemantics: true,
       child: ColoredBox(
-        color: colors.primaryDark,
+        color: context.lightTheme()
+            ? colors.primaryDark
+            : colors.primaryUltraBlack,
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: GuidesParagraph._HORIZONTAL_PADDING,
@@ -192,7 +209,7 @@ class _GuidesParagraphTitle extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 17.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -320,7 +337,7 @@ class GuidesTitleContainer extends StatelessWidget {
   }) : assert(title.length > 0);
 
   final Widget child;
-  final AppIcon icon;
+  final Widget icon;
   final String title;
 
   @override
@@ -333,7 +350,7 @@ class GuidesTitleContainer extends StatelessWidget {
         end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: 15.0,
         children: <Widget>[
           _GuidesTextTitle(title: title, icon: icon),
@@ -353,7 +370,7 @@ class GuidesTitleWithText extends StatelessWidget {
   });
 
   final String title;
-  final AppIcon icon;
+  final Widget icon;
   final String text;
 
   @override
@@ -379,7 +396,7 @@ class GuidesTitleWithBulletPoints extends StatelessWidget {
   });
 
   final String title;
-  final AppIcon icon;
+  final Widget icon;
   final List<String> bulletPoints;
   final BulletPointType type;
 
@@ -441,7 +458,7 @@ class _GuidesTextTitle extends StatelessWidget {
     : assert(title.length > 0);
 
   final String title;
-  final AppIcon icon;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
@@ -455,14 +472,14 @@ class _GuidesTextTitle extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          const SizedBox(width: 14.0),
+          const SizedBox(width: 15.0),
           icon,
-          const SizedBox(width: 11.0),
+          const SizedBox(width: 10.5),
           Expanded(
             child: DecoratedBox(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: colors.primarySemiDark,
+                color: context.lightTheme() ? Colors.black38 : Colors.black54,
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
@@ -476,7 +493,7 @@ class _GuidesTextTitle extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 15.5,
                     color: Colors.white,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -494,6 +511,7 @@ class GuidesContainer extends StatelessWidget {
     this.color,
     this.margin,
     this.padding,
+    this.onTap,
     super.key,
   });
 
@@ -502,6 +520,7 @@ class GuidesContainer extends StatelessWidget {
   final Color? color;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -516,25 +535,27 @@ class GuidesContainer extends StatelessWidget {
             start: GuidesParagraph._HORIZONTAL_PADDING,
             end: GuidesParagraph._HORIZONTAL_PADDING,
           ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color:
-              color ??
-              (context.lightTheme()
-                  ? colors.primaryMedium
-                  : colors.primaryUltraBlack),
+      child: Material(
+        color:
+            color ??
+            (context.lightTheme()
+                ? colors.primaryMedium
+                : colors.primaryUltraBlack),
+        borderRadius: BorderRadius.circular(20.0),
+        child: InkWell(
           borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Padding(
-          padding:
-              padding ??
-              const EdgeInsetsDirectional.only(
-                top: 14.0,
-                bottom: SMALL_SPACE,
-                start: MEDIUM_SPACE,
-                end: MEDIUM_SPACE,
-              ),
-          child: child,
+          onTap: onTap,
+          child: Padding(
+            padding:
+                padding ??
+                const EdgeInsetsDirectional.only(
+                  top: 14.0,
+                  bottom: SMALL_SPACE,
+                  start: MEDIUM_SPACE,
+                  end: MEDIUM_SPACE,
+                ),
+            child: child,
+          ),
         ),
       ),
     );
@@ -547,15 +568,19 @@ class GuidesGrid extends StatelessWidget {
     this.columns,
     this.horizontalSpacing,
     this.verticalSpacing,
-    this.itemAssetHeight,
+    this.itemHeightPercent,
+    this.itemWidthPercent,
+    this.maxLines = 1,
     super.key,
   });
 
   final List<GuidesGridItem> items;
-  final double? itemAssetHeight;
+  final double? itemHeightPercent;
+  final double? itemWidthPercent;
   final double? horizontalSpacing;
   final double? verticalSpacing;
   final int? columns;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -565,6 +590,8 @@ class GuidesGrid extends StatelessWidget {
 
     final double spacing = horizontalSpacing ?? 0.0;
     final int columns = this.columns ?? 3;
+
+    final AutoSizeGroup group = AutoSizeGroup();
 
     return GuidesContainer(
       padding: const EdgeInsetsDirectional.symmetric(
@@ -602,19 +629,28 @@ class GuidesGrid extends StatelessWidget {
                             spacing: MEDIUM_SPACE,
                             children: <Widget>[
                               SizedBox(
-                                height: 30.0,
+                                height:
+                                    itemHeightPercent == null &&
+                                        itemWidthPercent == null
+                                    ? 30.0
+                                    : null,
                                 child: Align(
                                   alignment: AlignmentDirectional.bottomCenter,
                                   child: _ImageFromAssets(
                                     imagePath: item.asset,
+                                    desiredHeightPercent: itemHeightPercent,
+                                    desiredWidthPercent: itemWidthPercent,
                                   ),
                                 ),
                               ),
                               AutoSizeText(
-                                item.label,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-
+                                item.label + _addNewLines(),
+                                group: group,
+                                maxLines: maxLines,
+                                minFontSize: 3.0,
+                                overflow: maxLines != null
+                                    ? TextOverflow.ellipsis
+                                    : null,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 13.0,
@@ -634,6 +670,12 @@ class GuidesGrid extends StatelessWidget {
       ),
     );
   }
+
+  String _addNewLines() {
+    return (maxLines != null && maxLines! > 1
+        ? List<String>.generate(maxLines! - 1, (_) => '\n').join()
+        : '');
+  }
 }
 
 @immutable
@@ -648,34 +690,51 @@ class GuidesCaptionContainer extends StatelessWidget {
   const GuidesCaptionContainer({
     required this.caption,
     required this.child,
+    this.trailing,
+    this.spacing,
+    this.onTap,
     super.key,
   }) : assert(caption.length > 0);
 
   final String caption;
   final Widget child;
+  final Widget? trailing;
+  final VoidCallback? onTap;
+  final double? spacing;
 
   @override
   Widget build(BuildContext context) {
+    Widget body = Column(
+      spacing: spacing ?? 5.0,
+      children: <Widget>[
+        child,
+        Text(
+          caption,
+          style: TextStyle(
+            fontSize: 13.0,
+            fontStyle: FontStyle.italic,
+            color: context.lightTheme() ? Colors.black : Colors.white,
+          ),
+        ),
+      ],
+    );
+
+    if (trailing != null) {
+      body = Row(
+        mainAxisSize: MainAxisSize.min,
+        spacing: MEDIUM_SPACE,
+        children: <Widget>[
+          Expanded(child: body),
+          trailing!,
+        ],
+      );
+    }
+
     return Semantics(
       label: caption,
       image: true,
       excludeSemantics: true,
-      child: GuidesContainer(
-        child: Column(
-          spacing: 5.0,
-          children: <Widget>[
-            child,
-            Text(
-              caption,
-              style: TextStyle(
-                fontSize: 13.0,
-                fontStyle: FontStyle.italic,
-                color: context.lightTheme() ? Colors.black : Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: GuidesContainer(onTap: onTap, child: body),
     );
   }
 }
@@ -684,8 +743,10 @@ class GuidesImage extends StatelessWidget {
   const GuidesImage({
     required this.imagePath,
     required this.caption,
+    this.spacing,
     this.desiredWidthPercent,
     this.desiredHeightPercent,
+    this.onTap,
     super.key,
   }) : assert(caption.length > 0),
        assert(
@@ -698,14 +759,18 @@ class GuidesImage extends StatelessWidget {
        );
 
   final String imagePath;
+  final double? spacing;
   final double? desiredWidthPercent;
   final double? desiredHeightPercent;
   final String caption;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GuidesCaptionContainer(
+      onTap: onTap,
       caption: caption,
+      spacing: spacing,
       child: _ImageFromAssets(
         imagePath: imagePath,
         desiredWidthPercent: desiredWidthPercent,

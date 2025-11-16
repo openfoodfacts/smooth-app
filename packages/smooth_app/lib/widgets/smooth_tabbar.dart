@@ -18,6 +18,7 @@ class SmoothTabBar<T> extends StatefulWidget {
     this.leadingItems,
     this.trailingItems,
     this.overflowMainColor,
+    this.unselectedTabColor,
     super.key,
   }) : assert(items.length > 0);
 
@@ -30,6 +31,7 @@ class SmoothTabBar<T> extends StatefulWidget {
   final Function(T) onTabChanged;
   final EdgeInsetsGeometry? padding;
   final Color? overflowMainColor;
+  final Color? unselectedTabColor;
 
   @override
   State<SmoothTabBar<T>> createState() => _SmoothTabBarState<T>();
@@ -51,7 +53,7 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             widget.overflowMainColor ??
             (lightTheme ? theme.primaryLight : theme.primaryDark),
         bottomSeparatorColor: lightTheme
-            ? theme.primaryBlack
+            ? theme.secondaryLight
             : theme.primaryNormal,
       ),
       child: SizedBox(
@@ -88,6 +90,7 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
                   ? theme.primaryNormal.withValues(alpha: 0.2)
                   : theme.primaryLight.withValues(alpha: 0.2),
             ),
+            unselectedLabelColor: widget.unselectedTabColor ?? Colors.white,
             splashBorderRadius: const BorderRadius.vertical(
               top: Radius.circular(5.0),
             ),
@@ -236,7 +239,4 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
   @override
   bool shouldRepaint(_ProductHeaderTabBarPainter oldDelegate) =>
       oldDelegate.progress != progress;
-
-  @override
-  bool shouldRebuildSemantics(_ProductHeaderTabBarPainter oldDelegate) => true;
 }

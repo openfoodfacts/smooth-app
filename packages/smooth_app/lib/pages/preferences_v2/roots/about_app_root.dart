@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -19,7 +20,6 @@ class AboutAppRoot extends PreferencesRoot {
   @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     return <PreferenceCard>[
       PreferenceCard(
@@ -34,7 +34,17 @@ class AboutAppRoot extends PreferencesRoot {
         title: appLocalizations.preferences_contribute_title,
         tiles: <PreferenceTile>[_buildSourceCodeTile(appLocalizations)],
       ),
-      PreferenceCard(
+    ];
+  }
+
+  @override
+  WidgetBuilder? getFooter() => (BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+      child: PreferenceCard(
         title: appLocalizations.preferences_about_app_development_title,
         titleBackgroundColor: context
             .extension<SmoothColorsThemeExtension>()
@@ -43,8 +53,8 @@ class AboutAppRoot extends PreferencesRoot {
           _buildDevModeTile(appLocalizations, userPreferences),
         ],
       ),
-    ];
-  }
+    );
+  };
 
   // Information section
   PreferenceTile _buildVersionTile(AppLocalizations appLocalizations) {
@@ -108,7 +118,7 @@ class AboutAppRoot extends PreferencesRoot {
     return TogglePreferenceTile(
       title: appLocalizations.contribute_develop_dev_mode_title,
       subtitleText: appLocalizations.contribute_develop_dev_mode_subtitle,
-      icon: const icons.DangerousZone(),
+      icon: const icons.Contribute(),
       state: userPreferences.devMode != 0,
       onToggle: (final bool devMode) async =>
           userPreferences.setDevMode(devMode ? 1 : 0),

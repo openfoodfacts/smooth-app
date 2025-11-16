@@ -15,7 +15,7 @@ class ProductFooterDataQualityButton extends StatelessWidget {
     return ProductFooterButton(
       label: appLocalizations.product_footer_action_data_quality_tags,
       semanticsLabel: appLocalizations.product_footer_action_data_quality_tags,
-      icon: const icons.CheckList(),
+      icon: const icons.CheckList.document(),
       onTap: () => _openDataQualityWarnings(context, context.read<Product>()),
     );
   }

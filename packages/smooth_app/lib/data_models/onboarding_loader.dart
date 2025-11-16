@@ -28,11 +28,14 @@ class OnboardingLoader {
           ).onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
+        return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.HOME_PAGE:
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+        // nothing special to do
+        return;
       case OnboardingPage.PERMISSIONS_PAGE:
         // that was the last page of onboarding: after that, we clean up
         await _unloadData();

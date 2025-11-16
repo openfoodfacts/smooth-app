@@ -1,5 +1,5 @@
 {
-  "app_name": "Відкриті факти про їжу",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Забули пароль?",
   "view_profile": "Переглянути сторінку",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -348,7 +349,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Підтримати проєкт",
+  "contribute": "Долучитись",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Пошук товару,\nбренду або штрих-коду",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Фільтр пошуку",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Історія пошуку",
   "search_store": "Пошук магазину",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Підказка: додайте місто або країну",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Натисніть, щоб побачити більше…",
   "@Product": {},
@@ -715,7 +729,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультра-обробки (ЗАРАЗ)!",
+  "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультраобробки (NOVA)!",
   "hey_incomplete_product_message_beauty": "Торкніться зараз, щоб відповісти на 2 запитання, щоб допомогти проаналізувати цю косметику!",
   "hey_incomplete_product_message_pet_food": "Торкніться зараз, щоб відповісти на 3 запитання, щоб допомогти проаналізувати цей корм для домашніх тварин!",
   "hey_incomplete_product_message_product": "Торкніться зараз, щоб допомогти завершити цей продукт!",
@@ -788,7 +802,7 @@
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Іноді інформація про харчову цінність **не вказана на пакуванні** або в документі, що додається до продукту. У цьому випадку, і тільки в цьому випадку, ви можете встановити значення **НІ**.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
@@ -802,23 +816,23 @@
   "nutrition_page_add_nutrient": "Додати поживну речовину",
   "nutrition_page_serving_size": "Розмір порції",
   "nutrition_page_serving_size_hint": "Введення службового розміру (наприклад: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_explanation_title": "Належна практика: Розмір порції",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "Це значення допомагає **пропорційно розрахувати кількість кожної поживної речовини на порцію**.",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Дозволені одинці** такі: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 г**, **60г** або **60 Г** (бажано перший варіант)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 мл** або **1л**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
@@ -826,7 +840,7 @@
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_example": "30 **gr**",
+  "nutrition_page_serving_size_explanation_bad_example1_example": "30 **гр**",
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
@@ -834,7 +848,7 @@
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **цукерок** та 2 **печива**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
@@ -1010,15 +1024,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Немає властивостей",
+  "product_tags_explanation": "Додаючи властивості (ключ/значення) до продукту, ви допомагаєте його збагатити.",
   "add_tag": "Додати властивість",
   "add_tags": "Додати властивості",
   "add_edit_tags": "Додати або редагувати властивості",
   "edit_tag": "Змінити властивість",
   "remove_tag": "Видалити властивість",
   "tag_key": "Властивість",
+  "tag_keys": "Властивості",
   "tag_key_uneditable": "Власність (не можна редагувати)",
   "tag_key_input_hint": "Введіть властивість",
   "tag_value": "Цінність",
+  "tag_values": "Цінності",
   "tag_value_input_hint": "Введіть значення",
   "tag_key_item": "Властивість:",
   "tag_value_item": "Значення:",
@@ -1244,7 +1262,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Блог",
   "faq": "ЧаПИ",
-  "discover": "Дізнатись більше",
+  "discover": "Огляд",
   "how_to_contribute": "Як зробити внесок",
   "hint_knowledge_panel_message": "Ви можете торкнутися будь-якої частини картки, щоб дізнатися більше про те, що ви бачите. Спробуй зараз!",
   "@hint_knowledge_panel_message": {
@@ -1367,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Вибачте, це наш приклад продукту, ви не можете його редагувати :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Ваш рейтинг",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1397,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Порівняти пліч-о-пліч",
   "loading_dialog_default_title": "Завантаження даних",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1652,11 +1675,11 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "Належна практика: Етикетки",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+  "edit_product_form_item_labels_explanation_info1": "Будь-яка характеристика продукту, яка є фактичною і відрізняється від інших полів.",
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1664,7 +1687,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Зроблено в Бельгії, вироблено в Британії…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1672,11 +1695,11 @@
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Багатий на клітковину, джерело заліза…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Справедлива торгівля, Макс Гейфелар…",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1692,19 +1715,19 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "Хороші практики: Магазини",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "Додайте магазин, де ви знайшли цей товар",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_good_examples_1": "Walmart",
+  "edit_product_form_item_stores_explanation_good_examples_1": "Сільпо",
   "@edit_product_form_item_stores_explanation_good_examples_1": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_stores_explanation_good_examples_2": "Carrefour",
+  "edit_product_form_item_stores_explanation_good_examples_2": "АТБ",
   "@edit_product_form_item_stores_explanation_good_examples_2": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
@@ -1724,19 +1747,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "Належні практики: Походження",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "Додайте **всі вказівки про походження, які ви можете знайти на пакуванні**.\nНе потрібно турбуватися про походження, вказане безпосередньо в списку інгредієнтів.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "Яловичина з Аргентини",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "Соя не походить з Європейського Союзу",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1752,11 +1775,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "Належні практики: Країни",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Країни, де продукт широко доступний** (не включаючи магазини, що спеціалізуються на іноземних товарах).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1772,19 +1795,19 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "Належні практики: Коди відстеження",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
-  "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+  "edit_product_form_item_emb_help_info1": "У цьому розділі ви можете ввести коди, пов'язані з **маркуванням пакування**, **ідентифікаційними маркуваннями** або **маркуваннями здоров'я**.",
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "Приклади кодів відстеження",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**Коди ЄС**, що використовуються в Європейському Співтоваристві для ідентифікації виробників або пакувальників харчових продуктів:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
@@ -1792,11 +1815,11 @@
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: код країни **Франція**\n**72.264.002**: географічні дані\n**CE**: Європейський Союз",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "**EMB коди**, що використовуються у Франції:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1828,27 +1851,27 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "Рекомендовані практики: Категорії",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "Вкажіть **тільки найбільш конкретну категорію**.\nБатьківські категорії будуть додані автоматично.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Відсутня категорія?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Якщо категорія **недоступна в автозаповненні**, однаково додайте її. \nЦе допоможе нам покращити Open Food Facts у вашій країні.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Сардини в оливковій олії",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Апельсиновий сік з концентрату",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1868,7 +1891,7 @@
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "За допомогою **Pinch-to-zoom жесту** можна збільшувати або зменшувати масштаб фотографії:",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
@@ -1895,15 +1918,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Корисні практики: Харчова цінність",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Харчова цінність",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Спочатку виберіть, чи **значення вказані**:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1911,15 +1934,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Потім введіть харчову цінність **відповідно до інформації на пакуванні**. Якщо цінність не вказана, ви можете натиснути на піктограму «Око».",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Відсутнє поле?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Якщо якась позиція відсутня, ви можете **натиснути на значок «Плюс»**, щоб додати її (наприклад: вітамін D, магній…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2389,6 +2412,8 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "Ціни ще немає!",
+  "prices_list_empty_subtitle": "Додайте першим:\nВідскануйте **чек** або **цінник**!",
   "prices_entry_shop_not_found": "Невідомий магазин",
   "prices_entry_menu_title": "Введена ціна від \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2489,6 +2514,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Ще немає учасників!",
+  "prices_users_empty_explanation": "Будьте першим, хто додасть ціну!",
   "prices_users_list_length_many_pages": "Топ {pageSize} учасників (всього: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2528,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Магазину ще немає!",
+  "prices_locations_empty_explanation": "Будьте першим, хто додасть ціну!",
   "prices_locations_list_length_many_pages": "Топ {pageSize} місць (всього: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2565,21 +2594,24 @@
   "prices_location_mandatory": "Вам потрібно вибрати магазин!",
   "prices_location_search_broader": "Не змогли знайти те, що шукали? Давайте спробуємо розширити пошук!",
   "prices_proof_subtitle": "Доказ",
+  "prices_proof_empty_title": "Поки що немає доказів!",
+  "prices_proof_empty_explanation": "Почніть із додавання фотографії **чек** або **цінника**!",
   "prices_proof_find": "Виберіть доказ",
+  "prices_proof_change": "Змінити доказ",
   "prices_proof_receipt": "Квитанція",
   "prices_proof_price_tag": "Цінник",
   "prices_proof_mandatory": "Вам потрібно вибрати доказ!",
   "prices_add_validation_error": "Помилка перевірки",
   "prices_privacy_warning_title": "Попередження про конфіденційність",
   "prices_unknown_product": "Невідомий продукт",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-  "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-  "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
-  "prices_currency_change_proposal_title": "Change the currency?",
-  "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+  "prices_privacy_warning_main_message": "Ціни **будуть оприлюднені** разом із магазином, до якого вони відносяться.\n\nЦе може дозволити людям, які знають про ваш псевдонім в Open Food Facts:",
+  "prices_privacy_warning_message_bullet_1": "Визначте, в якій області ви проживаєте",
+  "prices_privacy_warning_message_bullet_2": "Знайте, що купуєте",
+  "prices_privacy_warning_sub_message": "Якщо вас це турбує, будь ласка, змініть свій псевдонім або створіть новий обліковий запис Open Food Facts і увійдіть в додаток за допомогою нього.",
+  "i_refuse": "Відмовляюсь",
+  "i_accept": "Я приймаю",
+  "prices_currency_change_proposal_title": "Змінити валюту?",
+  "prices_currency_change_proposal_message": "Ваша поточна валюта – **{currency}**. Бажаєте змінити її на **{newCurrency}**?",
   "@prices_currency_change_proposal_message": {
     "description": "Message to ask the user if they want to change the currency",
     "placeholders": {
@@ -2591,7 +2623,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+  "prices_currency_change_proposal_action_approve": "Так, використовувати {newCurrency}",
   "@prices_currency_change_proposal_action_approve": {
     "description": "Button to approve the currency change",
     "placeholders": {
@@ -2600,7 +2632,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+  "prices_currency_change_proposal_action_cancel": "Ні, залишити {currency}",
   "@prices_currency_change_proposal_action_cancel": {
     "description": "Button to cancel the currency change",
     "placeholders": {
@@ -2611,6 +2643,10 @@
   },
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
+  },
+  "prices_menu_know_more": "Знайте більше про Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
   },
   "dev_preferences_import_history_result_success": "Виконано",
   "@dev_preferences_import_history_result_success": {
@@ -2633,9 +2669,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Скинути мову програми",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Додати картки",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Перемикання між prices.openfoodfacts.org (PROD) та тестовим середовищем",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Повторно використовуйте та редагуйте цей пошук",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Видалити",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Всі {totalSize} продукти завантажено.",
   "@product_search_no_more_results": {
@@ -2696,6 +2748,15 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
+  "search_proof_title": "",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
   "user_any_search_prices_title": "Ціни для учасників: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
@@ -2722,7 +2783,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Випробування",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -2879,7 +2940,7 @@
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "Належні практики: Назва продукту",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
@@ -2928,69 +2989,69 @@
   "brand_names": "Торгові марки",
   "add_basic_details_brand_name_error": "Будь ласка, введіть назву бренду",
   "add_basic_details_brand_names_hint": "Введіть бренди (наприклад, Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_product_brand_help_title": "Належні практики: Бренди",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Введіть **всі бренди продукту**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Основний бренд",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "**Основний бренд**, який зазвичай чітко зображений на передній стороні пакування, слід **вводити першим**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Інші бренди",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Коли продається **великою компанією**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Актимель** продається компанією **Данон**",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Коли продається з брендом, **перекладеним кількома мовами**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** іноді написано як **Val Nature**",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_good_examples_1": "Nutella",
+  "add_basic_details_product_brand_help_good_examples_1": "Нутелла",
   "@add_basic_details_product_brand_help_good_examples_1": {
     "description": "A 1st good example for the brand name (you can change it if necessary)"
   },
-  "add_basic_details_product_brand_help_good_examples_2": "Oreo, Mondelez",
+  "add_basic_details_product_brand_help_good_examples_2": "Орео, Монделез",
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "Кількість і вага",
   "add_basic_details_quantity_hint": "Введіть вагу та, якщо необхідно, кількість (наприклад, 4x100 г)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_product_quantity_help_title": "Належні практики: Кількість",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "Скопіюйте значення, зазначене на товарі, і **не забудьте про одиниці вимірювання**.",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230г** або **230 г**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (для 6 яєць)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150 г**\n(для продукту з 3 коробками, кожна по 150 г)",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3217,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Тримайте панель інгредієнтів розгорнутою",
-  "search_product_filter_visibility_title": "Показати фільтр у пошуку",
-  "search_product_filter_visibility_subtitle": "Виберіть пошуковий сайт: Open Food Facts, Open Beauty Facts, Open Pet Food Facts або Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Відсутнє підключення до Інтернету",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3922,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "Морська та прісна вода (частинки, підкислення, евтрофікація)",
   "guide_greenscore_lca_arg3_text8": "Виснаження ресурсів.",
   "guide_greenscore_bonuses_penalties_title": "Бонуси та штрафи",
-  "guide_greenscore_bonuses_penalties_intro": "Щоб винагородити кращі продукти в категорії, ми застосовуємо бонуси та штрафи на основі кількох критеріїв:",
+  "guide_greenscore_bonuses_penalties_intro": "Щоб винагородити кращі продукти в межах категорії, ми застосовуємо **бонуси та штрафи на основі кількох критеріїв**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Спосіб виробництва",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Бонус присвоюється продуктами, які мають офіційну етикетку, мітку або сертифікацію, яка гарантує екологічні переваги (органічна, чесна торгівля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Бонус** надається продуктам, які мають **офіційну етикетку, маркування або сертифікат, що гарантує екологічні переваги** (органічний, справедлива торгівля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Походження інгредієнтів",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Бонус надається залежно від походження інгредієнтів. Цей бонус враховує вплив на транспортування, а також екологічну політику країни кожного виробника.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "**Бонус** надається залежно від походження інгредієнтів. Цей бонус враховує **вплив на транспортування**, а також **екологічну політику** країни кожного виробника.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Види, які знаходяться під загрозою зникнення",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Продукти, що містять інгредієнти, які мають негативний вплив на біорізноманіття та екосистеми, підлягають покаранню, наприклад пальмова олія, виробництво якої спричиняє масову вирубку лісів.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Штраф** накладається на продукти, що містять інгредієнти, які мають значний **негативний вплив на біорізноманіття та екосистеми**, такі як пальмова олія, виробництво якої є причиною масового вирубування лісів.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Упаковка",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Штраф розраховується з урахуванням округлості упакування (використовуючи перероблену сировину та можливість вторинного перероблення) та перепакування.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "**Штраф** розраховується з урахуванням **циклічності пакування** (використання переробленої сировини та можливість вторинної переробки) та перепакування.",
   "guide_greenscore_transparency_title": "Зростання потреби в прозорості для кращого вимірювання та зменшення впливу на навколишнє середовище",
-  "guide_greenscore_transparency_intro1": "Для точного розрахунку Green-Score необхідно мати інформацію, яка не обов'язково вказана на упаковці (наприклад, походження та точний відсоток кожного інгредієнта) або яка рідко доступна у зручній для використання формі (наприклад, список усіх компонентів упаковки з точними типами використаного пластику).",
-  "guide_greenscore_transparency_intro2": "Середні значення використовуються, коли ця інформація ще недоступна, але зараз ми закликаємо всіх допомогти нам зібрати цю інформацію, яка буде дуже корисною для Green-Score, а також для багатьох інших цілей.",
-  "guide_greenscore_transparency_arg1_title": "Як громадяни можуть допомогти",
-  "guide_greenscore_transparency_arg1_text": "Усі громадяни можуть допомогти нам зібрати та структурувати інформацію, яка присутня на продуктах або яку можна з них вивести, наприклад, інформацію про упаковку: Mission Emballages: масштабна спільна інвентаризація упаковки для всіх харчових продуктів (французькою мовою)",
+  "guide_greenscore_transparency_intro1": "Для точного розрахунку Green-Score необхідно мати **інформацію, яка не обов'язково вказана на упаковці** (таку як походження та точний відсоток кожного інгредієнта) або яка рідко доступна у придатній для використання формі (таку як перелік усіх компонентів упаковки з точним зазначенням типів використаних пластиків).",
+  "guide_greenscore_transparency_intro2": "**Якщо ця інформація ще не доступна, використовуються середні значення**, але зараз ми звертаємося до всіх із проханням допомогти нам зібрати цю інформацію, яка буде дуже корисною для Green-Score, а також для багатьох інших цілей.",
+  "guide_greenscore_transparency_arg1_title": "Як громадяни можуть допомогти?",
+  "guide_greenscore_transparency_arg1_text": "Всі громадяни можуть допомогти нам зібрати та систематизувати інформацію, яка міститься на продуктах або може бути виведена з них, наприклад, інформацію на **упаковці**: «Mission Emballages»: великомасштабний спільний інвентар упаковки для всіх харчових продуктів (французькою мовою).",
   "guide_greenscore_transparency_arg2_title": "Як виробники можуть допомогти",
   "guide_greenscore_transparency_arg2_text": "Виробники можуть надсилати нам свою інформацію безпосередньо через нашу безкоштовну платформу для виробників.",
   "guide_greenscore_better_product_title": "Який продукт кращий для планети?",
@@ -3952,7 +4008,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nova_what_is_nova_title": "Що таке ультраобробка?",
-  "guide_nova_what_is_nova_paragraph1": "Групи NOVA інформують вас про рівень обробки харчових продуктів.",
+  "guide_nova_what_is_nova_paragraph1": "Групи NOVA інформують вас про **рівень обробки харчових продуктів**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3964,22 +4020,183 @@
   "guide_nova_groups_title": "4 групи NOVA",
   "guide_nova_groups_intro": "Існує 4 групи NOVA, проблемною є Група 4 – Ультраоброблені продукти.",
   "guide_nova_groups_arg1_title": "Мінімально оброблені або необроблені продукти",
-  "guide_nova_groups_arg1_text": "Необроблені (або натуральні) продукти харчування – це їстівні частини рослин (насіння, плоди, листя, стебла, коріння) або тварин (м’язи, субпродукти, яйця, молоко), а також гриби, водорості та вода, після того, як їх відокремили від природи.",
+  "guide_nova_groups_arg1_text": "Неперероблені (або натуральні) продукти харчування — це **їстівні частини рослин** (насіння, плоди, листя, стебла, коріння) **або тварин** (м'язові тканини, субпродукти, яйця, молоко), а також гриби, водорості та вода після їх відокремлення від природи.",
   "guide_nova_groups_arg2_title": "Оброблені кулінарні інгредієнти",
-  "guide_nova_groups_arg2_text": "Оброблені кулінарні інгредієнти, такі як олії, масло, цукор та сіль, – це речовини, отримані з продуктів Групи 1 або з природи за допомогою процесів, що включають пресування, рафінування, подрібнення, фрезерування та сушіння.",
+  "guide_nova_groups_arg2_text": "Перероблені кулінарні інгредієнти, такі як **олії, масло, цукор і сіль**, є речовинами, отриманими з продуктів групи 1 або з природних джерел шляхом пресування, рафінування, подрібнення, помелу та сушіння.",
   "guide_nova_groups_arg3_title": "Напівфабрикати",
-  "guide_nova_groups_arg3_text": "Перероблені харчові продукти, такі як овочі в пляшках, рибні консерви, фрукти в сиропі, сири та свіжоспечений хліб, в основному виготовляються шляхом додавання солі, олії, цукру або інших речовин з 2-ї групи до продуктів 1-ї групи. Процеси включають різні методи консервування або приготування їжі, а у випадку хліба та сиру - безалкогольне бродіння. Більшість перероблених харчових продуктів містять два або три інгредієнти та є модифікованими версіями продуктів 1-ї групи. Їх можна вживати окремо або, що частіше, у поєднанні з іншими продуктами.",
+  "guide_nova_groups_arg3_text": "Перероблені харчові продукти, такі як консервовані овочі, рибні консерви, фрукти в сиропі, сир та свіжоспечений хліб, **переважно виготовляються шляхом додавання солі, олії, цукру або інших речовин з продуктів 2-ї до 1-ї групи**. Процеси включають різні методи консервування або приготування їжі, а у випадку хліба та сиру – безалкогольне бродіння. Більшість перероблених харчових продуктів містять два або три інгредієнти та є модифікованими версіями продуктів 1-ї групи. Їх можна вживати окремо або, що частіше, у поєднанні з іншими продуктами.",
   "guide_nova_groups_arg4_title": "Ультраоброблені продукти",
-  "guide_nova_groups_arg4_text": "Ультраоброблені харчові продукти, такі як безалкогольні напої, солодкі або солоні упаковані снеки, відновлені м'ясні продукти та попередньо приготовані заморожені страви, – це не просто модифіковані харчові продукти, а рецептури, виготовлені переважно або повністю з речовин, отриманих з харчових продуктів та добавок, з малою кількістю або взагалі без неушкоджених харчових продуктів Групи 1. Інгредієнти в цих рецептурах зазвичай включають ті, що також містяться в оброблених харчових продуктах, такі як цукри, олії, жири або сіль. Однак ультраоброблені продукти також містять інші джерела енергії та поживних речовин, які зазвичай не використовуються в кулінарних приготуваннях. Деякі з них безпосередньо видобуваються з харчових продуктів, такі як казеїн, лактоза, сироватка та глютен.",
+  "guide_nova_groups_arg4_text": "Ультраоброблені харчові продукти, такі як безалкогольні напої, солодкі або солоні упаковані снеки, відновлені м'ясні продукти та попередньо приготовані заморожені страви, **це не просто модифіковані харчові продукти, а рецептури, виготовлені переважно або повністю з речовин, отриманих з харчових продуктів та добавок**, з малою кількістю або взагалі без незмінних харчових продуктів Групи 1. Інгредієнти в цих рецептурах зазвичай включають ті, що також містяться в оброблених харчових продуктах, такі як цукри, олії, жири або сіль. Однак ультраоброблені продукти також містять інші джерела енергії та поживних речовин, які зазвичай не використовуються в кулінарних приготуваннях. Деякі з них безпосередньо видобуваються з харчових продуктів, такі як казеїн, лактоза, сироватка та глютен.",
   "guide_nova_explanations_title": "Проблеми з ультраобробкою",
   "guide_nova_explanations_arg1_title": "Екстремальна обробка харчових інгредієнтів",
-  "guide_nova_explanations_arg1_text": "Багато з них отримують в результаті подальшої обробки харчових компонентів, таких як гідрогенізовані або переетерифіковані олії, гідролізовані білки, ізолят соєвого білка, мальтодекстрин, інвертний цукор та кукурудзяний сироп з високим вмістом фруктози.",
+  "guide_nova_explanations_arg1_text": "Багато з них **отримують шляхом подальшої переробки харчових компонентів**, таких як гідрогенізовані або переетерифіковані олії, гідролізовані білки, ізолят соєвого білка, мальтодекстрин, інвертний цукор та кукурудзяний сироп з високим вмістом фруктози.",
   "guide_nova_explanations_arg2_title": "Добавки, що виходять за рамки чистої безпеки харчових продуктів",
-  "guide_nova_explanations_arg2_text": "Добавки в ультраоброблених харчових продуктах включають деякі, що також використовуються в оброблених харчових продуктах, такі як консерванти, антиоксиданти та стабілізатори. Класи добавок, що містяться лише в ультраоброблених продуктах, включають ті, що використовуються для імітації або покращення сенсорних якостей харчових продуктів або для маскування несмачних аспектів кінцевого продукту. Ці добавки включають барвники та інші барвники, стабілізатори кольору; ароматизатори, підсилювачі смаку, нецукрові підсолоджувачі; та допоміжні речовини для обробки, такі як карбонізатори, зміцнювачі, наповнювачі та антинаповнювачі, піногасники, антизлежувачі та глазурувальники, емульгатори, секвестранти та зволожувачі.",
+  "guide_nova_explanations_arg2_text": "Добавки в надмірно оброблених продуктах харчування включають деякі, які також використовуються в оброблених продуктах харчування, такі як консерванти, антиоксиданти та стабілізатори. Класи добавок, які містяться тільки в надмірно оброблених продуктах, включають ті, що використовуються **для імітації або поліпшення сенсорних якостей продуктів харчування або для маскування неприємних смакових якостей кінцевого продукту**. До цих добавок належать барвники та інші кольорові речовини, стабілізатори кольору; ароматизатори, підсилювачі смаку, нецукрові підсолоджувачі; а також технологічні добавки, такі як карбонізуючі, зміцнювальні, наповнювальні та антинаповнювальні агенти, антипінні, антизлежувальні та глазурувальні агенти, емульгатори, секвестранти та зволожувачі.",
   "guide_nova_explanations_arg3_title": "Обробка, яку неможливо виконати вдома",
-  "guide_nova_explanations_arg3_text": "Для поєднання зазвичай багатьох інгредієнтів та створення кінцевого продукту (звідси й «ультраоброблений») використовується безліч послідовностей процесів. Ці процеси включають кілька, які не мають побутових аналогів, таких як гідрогенізація та гідролізація, екструзія та формування, а також попередня обробка для смаження.",
+  "guide_nova_explanations_arg3_text": "**Використовується безліч послідовностей процесів** для поєднання, як правило, багатьох інгредієнтів і створення кінцевого продукту (звідси і назва «ультраоброблені»). Ці процеси включають кілька **процесів, які не мають аналогів у побуті**, таких як гідрогенізація та гідролізація, екструзія та формування, а також попередня обробка для смаження.",
   "guide_nova_explanations_arg4_title": "Хижацькі та фінансові аспекти ультраобробки",
-  "guide_nova_explanations_arg4_text": "Загальна мета ультраобробки полягає у створенні брендованих, зручних (міцних, готових до вживання), привабливих (надто смачних) та високоприбуткових (з низькими витратами на інгредієнти) харчових продуктів, призначених для витіснення всіх інших груп продуктів харчування. Ультраоброблені харчові продукти зазвичай привабливо упаковуються та інтенсивно просуваються на ринку.",
+  "guide_nova_explanations_arg4_text": "**Загальна мета ультраобробки полягає у створенні брендових**, **зручних** (довготривалих, готових до споживання), **привабливих** (надзвичайно смачних) та **високоприбуткових** (з дешевими інгредієнтами) харчових продуктів, призначених для витіснення всіх інших груп харчових продуктів. Ультраоброблені харчові продукти зазвичай мають привабливу упаковку та інтенсивно рекламуються.",
+  "guide_nova_explanations_arg5_title": "Небезпека для здоров'я",
+  "guide_nova_explanations_arg5_text": "З 2018 року, завдяки NutriNet-Santé, було виявлено перші зв'язки між **споживанням надмірно оброблених продуктів харчування та підвищеним ризиком розвитку раку, серцево-судинних захворювань і діабету**. На сьогоднішній день понад 90 досліджень у всьому світі підтверджують ці висновки.\nНайсильніші зв'язки стосуються **ожиріння, серцево-судинної смертності та депресивних симптомів**. У дітей ефекти в першу чергу спостерігаються на вазі та ліпідному дисбалансі.",
+  "guide_nova_explanations_arg6_title": "Країни рекомендують обмежити їх",
+  "guide_nova_explanations_arg6_text": "Деякі країни використовують групи NOVA для своїх дієтичних рекомендацій або цілей, наприклад:\n\n- **🇧🇷 Бразилія** у своїх дієтичних рекомендаціях **рекомендує обмежити споживання** перероблених продуктів і уникати ультраоброблених продуктів.\n\n- **🇫🇷 Франція** у своїх цілях щодо політики громадського здоров'я в галузі харчування на 2018-2022 роки ставить за мету **зменшити споживання ультраоброблених продуктів групи 4 на 20%**.",
+  "guide_nova_share_link": "https://world-uk.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Вітаємо в Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Що таке Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts - це некомерційна, спільна, безкоштовна та відкрита база даних про харчові продукти з усього світу.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Ми вважаємо, що кожен повинен мати доступ до інформації про те, що він їсть. Збираючи дані про інгредієнти, алергени, харчову цінність та інше, **ми даємо споживачам можливість робити обґрунтований вибір** і сприяємо **підвищенню прозорості** в харчовій промисловості.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Функції Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Отримуйте сповіщення про небажані інгредієнти",
+  "guide_open_food_facts_tips_title": "Поради щодо створення чудових фотографій",
+  "guide_open_food_facts_tips_arg1_title": "Що не робити",
+  "guide_open_food_facts_tips_arg1_text1": "Уникати тіней та відблиску.",
+  "guide_open_food_facts_tips_arg1_text2": "Без розмитого або нечіткого тексту.",
+  "guide_open_food_facts_tips_arg1_text3": "Не обрізайте частини тексту.",
+  "guide_open_food_facts_tips_arg1_text4": "Уникайте завантажених фонів.",
+  "guide_open_food_facts_tips_arg2_title": "Що робити",
+  "guide_open_food_facts_tips_arg2_text1": "Використовуйте гарне, рівномірне освітлення.",
+  "guide_open_food_facts_tips_arg2_text2": "Переконайтеся, що текст чіткий та читабельний.",
+  "guide_open_food_facts_tips_arg2_text3": "Захопіть весь список інгредієнтів.",
+  "guide_open_food_facts_tips_arg2_text4": "Тримайте продукт на плоскій поверхні.",
+  "guide_open_food_facts_scores_title": "Допоможіть нам створити «Вікіпедію їжі»",
+  "guide_open_food_facts_scores_arg1_title": "Оцінка за поживну якість",
+  "guide_open_food_facts_scores_arg2_title": "Оцінка, щоб уникнути ультраоброблених продуктів",
+  "guide_open_food_facts_scores_arg3_title": "Оцінка для планети",
+  "guide_open_food_facts_share_link": "https://world-uk.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Вітаємо в Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Що таке Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts розширює нашу місію на наших пухнастих друзів! Це **база даних продуктів харчування для котів, собак та інших домашніх тварин**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Ми збираємо інформацію про **інгредієнти**, **харчову цінність** та рекомендації щодо годування, щоб допомогти власникам домашніх тварин вибрати найкращий корм для потреб своїх улюбленців.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Функції Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Отримуйте сповіщення про небажані інгредієнти",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Чи має ваш улюбленець алергію на якісь інгредієнти? Ви можете створити список косметичних інгредієнтів, яких слід уникати, прямо в додатку!",
+  "guide_open_pet_food_facts_tips_title": "Поради щодо створення чудових фотографій",
+  "guide_open_pet_food_facts_tips_arg1_title": "Що не робити",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Уникати тіней та відблиску.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Без розмитого або нечіткого тексту.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Не обрізайте частини тексту.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Уникайте завантажених фонів.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Що робити",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Використовуйте гарне, рівномірне освітлення.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Переконайтеся, що текст чіткий та читабельний.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Захопіть весь список інгредієнтів.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Тримайте продукт на плоскій поверхні.",
+  "guide_open_pet_food_facts_scores_title": "Примітка щодо підрахунку очок",
+  "guide_open_pet_food_facts_scores_paragraph1": "Розробка системи оцінювання кормів для домашніх тварин **наразі не є пріоритетом**. Методологія буде складною, оскільки потреби в поживних речовинах значно різняться залежно від виду, віку та стану здоров'я тварин. Ми ще не знайшли незалежної наукової групи, здатної розробити таку систему оцінювання.",
+  "guide_open_pet_food_facts_share_link": "https://world-uk.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Вітаємо в Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Що таке Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts - це спільна база даних **косметичної продукції**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Наша мета — розшифрувати списки інгредієнтів, щоб допомогти вам **зрозуміти, що міститься у ваших засобах особистої гігієни**. Від зволожуючих кремів до косметики — ми збираємо дані про інгредієнти, алергени та упаковку, щоб сприяти прозорості в косметичній галузі.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Функції Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Отримуйте сповіщення про небажані інгредієнти",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Ви маєте алергію на якісь інгредієнти? Хочете уникати комедогенних речовин? Хочете уникати суперечливих компонентів? Ви можете створити список косметичних інгредієнтів, яких слід уникати, прямо в додатку!",
+  "guide_open_beauty_facts_tips_title": "Поради щодо створення чудових фотографій",
+  "guide_open_beauty_facts_tips_arg1_title": "Що не робити",
+  "guide_open_beauty_facts_tips_arg1_text1": "Уникати тіней та відблиску.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Без розмитого або нечіткого тексту.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Не обрізайте частини тексту.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Уникайте завантажених фонів.",
+  "guide_open_beauty_facts_tips_arg2_title": "Що робити",
+  "guide_open_beauty_facts_tips_arg2_text1": "Використовуйте гарне, рівномірне освітлення.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Переконайтеся, що текст чіткий та читабельний.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Захопіть весь список інгредієнтів.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Зробіть стільки фотографій, скільки потрібно, якщо пляшка вигнута.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Можливо, вам доведеться відклеїти етикетку, щоб побачити список інгредієнтів.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Тримайте продукт на плоскій поверхні.",
+  "guide_open_beauty_facts_scores_title": "Примітка щодо підрахунку очок",
+  "guide_open_beauty_facts_scores_paragraph1": "На відміну від харчових продуктів, у світі косметики **не існує загальновизнаної, підтриманої урядом системи оцінювання, подібної до Nutri-Score**. Вплив інгредієнтів може бути дуже індивідуальним і залежати від типу шкіри, алергій та особистих особливостей.",
+  "guide_open_beauty_facts_share_link": "https://world-uk.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Вітаємо в Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "Що таке Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices — це проект, спрямований на **збір та обмін інформацією про ціни на товари по всьому світу**. Це загальнодоступний набір даних, який можна використовувати для досліджень, аналізу та інших цілей. Open Prices розроблений та підтримується Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Зараз мало компаній, які мають великі бази даних про ціни на продукцію на рівні штрих-коду. Цих цін нема у вільному доступі, а продаються вони за високу ціну приватним гравцям, дослідникам та іншим організаціям, які можуть їх собі дозволити.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "Як Open Prices працюють?",
+  "guide_open_prices_how_paragraph1": "**Ми збираємо відкритий набір даних про ціни за допомогою краудсорсингу**. Користувачі можуть додавати ціни через цей веб-додаток або через офіційний мобільний додаток Open Food Facts. Роздрібні продавці або сторонні додатки також можуть брати участь у цьому процесі, використовуючи наш API.",
+  "guide_open_prices_how_arg1_title": "Збирайте фотографії цінників у торгових залах",
+  "guide_open_prices_how_arg2_title": "Збирайте фотографії чеків",
+  "guide_open_prices_why_title": "Чому Open Food Facts це робить?",
+  "guide_open_prices_why_paragraph1": "Інформація про ціни має надзвичайно важливе значення для розуміння продовольчих систем. Це ключовий фактор для розуміння вартості продуктів харчування та сприяння здоровому харчуванню. Відкриття даних про ціни є способом полегшити дослідникам, журналістам та громадянам **краще розуміння того, як ціни на продукти харчування змінюються в залежності від географічного положення та часу**.",
+  "guide_open_prices_why_arg1_title": "Відстежуйте динаміку цін з часом",
+  "guide_open_prices_why_arg1_text": "Дивіться на **еволюцію цін**: шринкфляція, дефляція, ми можемо відстежувати їх разом!",
+  "guide_open_prices_why_arg2_title": "Порівняйте ціни поруч із вами",
+  "guide_open_prices_why_arg2_text": "Коли ми дізнаємося більше про ціни, ви зможете знайти **найдешевші магазини навколо вас**.",
+  "guide_open_prices_scrapping_title": "Ви розглядали можливість зібрати ціни з веб-сайтів роздрібних торговців?",
+  "guide_open_prices_scrapping_paragraph1": "З юридичних та технічних причин **ми не вважаємо копіювання цін з веб-сайтів роздрібних продавців дійсним способом внеску в Open Prices**. Ми хочемо бути впевнені, що ціни, які ми збираємо, є точними та актуальними, а отримання скопійованих цін від учасників не дозволяє нам цього зробити.",
+  "guide_open_prices_scrapping_paragraph2": "Скрейпінг цін є варіантом, який розглядається в майбутній версії Open Prices, але це буде робити сама Open Prices, щоб ми могли отримати підтвердження ціни на основі HTML-сторінки.",
+  "guide_open_prices_retailers_title": "Я роздрібний продавець і хочу вказати ціни. Як я можу це зробити?",
+  "guide_open_prices_retailers_paragraph1": "Ви можете надавати ціни, використовуючи наш API.\nЯкщо ви хочете надавати ціни у великих обсягах, зв'яжіться з нами за адресою prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Вітаємо в Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Що таке Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts — це величезна відкрита база даних про **будь-які товари зі штрих-кодом, за винятком продуктів харчування, косметики та кормів для домашніх тварин**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Від **електроніки** до **іграшок**, від **одягу** до **чистячих засобів** — якщо на товарі є штрих-код, його можна додати. Цей проект має на меті створити «Інтернет речей» для повсякденних предметів, зробивши інформацію про них загальнодоступною.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Функції Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts має на меті допомогти споживачам **продовжити термін експлуатації предметів**, пропонуючи циркулярні рішення для їхнього обслуговування, **ремонту**, **переробки** або передачі новому власнику.",
+  "guide_open_products_facts_features_arg1_title": "Вуглецевий слід деяких продуктів",
+  "guide_open_products_facts_features_arg1_text": "**Вплив CO2** від французького агентства з охорони навколишнього середовища ADEME надає інформацію про **вплив вуглецю** для багатьох категорій, тому переконайтеся, що ви точно класифікували продукти.",
+  "guide_open_products_facts_features_arg2_title": "Індекс ремонтопридатності для багатьох виробів",
+  "guide_open_products_facts_features_arg2_text": "Коли французький індекс ремонтопридатності буде доступний, ми його відобразимо. Більше того, **ви можете почати збирати змінні за допомогою Folksonomy Engine**, щоб ми могли перерахувати його самостійно в майбутньому, навіть у країнах, де він недоступний.",
+  "guide_open_products_facts_features_arg3_title": "Знайдіть способи пожертвувати/перепродати свій продукт",
+  "guide_open_products_facts_features_arg3_text": "Ми надаємо посилання на **послуги третіх сторін, що сприяють циркулярній економіці**, які допоможуть вам знайти продукт, який ви шукаєте, у вигляді вживаного товару, щоб бути більш дбайливими до ресурсів планети.\nЗверніть увагу, що ми не отримуємо за це винагороду, і що система працює лише як приклад для двох веб-сайтів у Франції. Ви можете допомогти розширити цю систему, додавши інформацію про інші сайти на вікі.",
+  "guide_open_products_facts_information_title": "Яка інформація корисна?",
+  "guide_open_products_facts_information_text": "Для такого широкого спектру товарів **дані, які ми збираємо, є гнучкими**. Для цього **ми створили Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine — це інструмент, який допомагає доповнювати продукти відповідними властивостями. Це сприяє поліпшенню пошуку та виявлення, а також обчисленню та відображенню цікавих речей у майбутньому.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Ви можете додати будь-які ключі та значення, наприклад: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Ви отримаєте автопідказки щодо можливих властивостей, а також можете додавати та документувати нові властивості для своїх улюблених видів продуктів.",
+  "guide_open_products_facts_share_link": "https://world-uk.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Open food налаштування",
+  "guide_coming_soon_button_title": "Незабаром!",
+  "guide_learn_more_subtitle": "Торкніться, щоб дізнатися більше",
   "preview_badge": "Попередній перегляд",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4310,7 +4527,7 @@
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Скарга",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4334,10 +4551,26 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Чому ціни?",
+  "prices_explanation_card_line1": "**Open Prices** – це проєкт для збору та поширення інформації про ціни на товари з усього світу 🌍. Open Prices розроблено та підтримується Open Food Facts.",
+  "explanation_card_learn_more_button": "Докладніше",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Які атрибути фолксономії?",
+  "folksonomy_explanation_card_line1": "Атрибути базуються на парі **ключ-значення**.",
+  "folksonomy_explanation_card_line2": "Ці властивості створюються та зберігаються учасниками для будь-якого використання.",
+  "folksonomy_action_external_link_title": "Відкрити зовнішнє посилання",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "Зовнішні посилання можуть бути небезпечними. Ви справді хочете це відвідати?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Ціна недоступна",
+  "prices_products_empty_explanation": "Будьте першим, хто зробить свій внесок!",
   "prices_products_list_length_many_pages": "Топ {pageSize} продуктів (всього: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4514,7 +4747,7 @@
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Випробування",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
@@ -4526,7 +4759,7 @@
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Роки",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
@@ -4582,7 +4815,7 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Підтримати проєкт",
+  "preferences_contribute_title": "Долучитись",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
@@ -4638,7 +4871,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Ціни додано",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4818,6 +5051,15 @@
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Ведучий: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
   "preferences_dev_mode_accessibility_experiments_title": "Експерименти з доступністю",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"
@@ -4858,15 +5100,31 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Відкрийте для себе факти про відкриту їжу",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Відкрийте для себе Open Beauty Facts.",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Відкрийте для себе Open Pet Food Facts",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Відкрийте для себе Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Відкрийте для себе Open Products Facts",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
   },
   "preferences_faq_faq_title": "FAQ - Часті запитання",
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Громадська організація «Факти про відкриту їжу»",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -4890,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Блог «Факти про відкриту їжу»",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -4942,7 +5200,7 @@
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
-  "preferences_connect_press_title": "Натисніть",
+  "preferences_connect_press_title": "Преса",
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },
@@ -5114,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Прості способи допомогти. Відкрийте факти про їжу.",
+  "preferences_page_contribute_project_subtitle": "Прості способи допомогти. Open Food Facts.",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5180,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} від {total} елементів",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} елементів",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} елементів",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5290,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Відкриті лабораторії фактів про їжу",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5324,5 +5606,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Деталі місцезнаходження",
+  "location_map_details_name": "Ім’я",
+  "location_map_details_street": "Вулиця",
+  "location_map_details_city": "Місто",
+  "location_map_details_postcode": "Поштовий індекс",
+  "location_map_details_country": "Країна",
+  "location_map_details_coordinates": "Координати",
+  "location_map_details_osm_id": "OSM ID"
 }

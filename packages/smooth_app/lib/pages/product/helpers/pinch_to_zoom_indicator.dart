@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart' show RiveAnimation;
+import 'package:smooth_app/generic_lib/animations/rive_animation_player.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -8,7 +8,10 @@ import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class PinchToZoomExplainer extends StatelessWidget {
-  const PinchToZoomExplainer();
+  const PinchToZoomExplainer({this.backgroundColor, this.customBorder});
+
+  final Color? backgroundColor;
+  final ShapeBorder? customBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class PinchToZoomExplainer extends StatelessWidget {
         message: appLocalizations
             .edit_product_form_item_ingredients_pinch_to_zoom_tooltip,
         child: InkWell(
-          customBorder: const CircleBorder(),
+          customBorder: customBorder ?? const CircleBorder(),
           onTap: () {
             showSmoothModalSheet(
               context: context,
@@ -40,13 +43,10 @@ class PinchToZoomExplainer extends StatelessWidget {
                         ),
                         const SizedBox(height: LARGE_SPACE),
                         ExcludeSemantics(
-                          child: SizedBox(
-                            width: width,
-                            height: (width * 172.0) / 247.0,
-                            child: const RiveAnimation.asset(
-                              'assets/animations/explanations.riv',
-                              artboard: 'pinch-to-zoom',
-                            ),
+                          child: RiveAnimationPlayer(
+                            'assets/animations/explanations.riv',
+                            artboard: 'pinch-to-zoom',
+                            size: Size(width, (width * 172.0) / 247.0),
                           ),
                         ),
                       ],
@@ -56,7 +56,11 @@ class PinchToZoomExplainer extends StatelessWidget {
               },
             );
           },
-          child: const SmoothIndicatorIcon(icon: icons.PinchToZoom()),
+          child: SmoothIndicatorIcon(
+            customBorder: customBorder,
+            backgroundColor: backgroundColor,
+            icon: const icons.PinchToZoom(),
+          ),
         ),
       ),
     );

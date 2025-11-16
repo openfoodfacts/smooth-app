@@ -3,6 +3,7 @@ import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 class TextHighlighter extends StatelessWidget {
@@ -24,16 +25,31 @@ class TextHighlighter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
+    final TextStyle defaultStyle =
+        textStyle ?? TextStyle(fontWeight: selected ? FontWeight.bold : null);
+
+    if (filter.isEmpty) {
+      return Text(
+        text,
+        style: defaultStyle,
+        softWrap: softWrap,
+        textAlign: textAlign,
+      );
+    }
+
     List<(String, TextStyle?)> parts;
     try {
-      final TextStyle defaultStyle =
-          textStyle ?? TextStyle(fontWeight: selected ? FontWeight.bold : null);
       parts = _getParts(
         defaultStyle: defaultStyle,
         highlightedStyle: defaultStyle.copyWith(
-          backgroundColor: Theme.of(
-            context,
-          ).primaryColor.withValues(alpha: 0.2),
+          backgroundColor:
+              (context.lightTheme()
+                      ? extension.primaryBlack
+                      : extension.primaryLight)
+                  .withValues(alpha: 0.2),
         ),
       );
     } catch (e, trace) {

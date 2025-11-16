@@ -5,7 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 /// Standard text button for the "edit image" pages.
 class EditImageButton extends StatelessWidget {
   const EditImageButton({
-    required this.iconData,
+    required this.icon,
     required this.label,
     required this.onPressed,
     this.borderWidth,
@@ -13,13 +13,13 @@ class EditImageButton extends StatelessWidget {
 
   /// Centered version of the button.
   const EditImageButton.center({
-    required this.iconData,
+    required this.icon,
     required this.label,
     required this.onPressed,
     this.borderWidth,
   }) : _centerContent = true;
 
-  final IconData iconData;
+  final Widget icon;
   final String label;
   final VoidCallback onPressed;
   final double? borderWidth;
@@ -31,7 +31,10 @@ class EditImageButton extends StatelessWidget {
     return Tooltip(
       message: label,
       child: OutlinedButton.icon(
-        icon: Icon(iconData),
+        icon: IconTheme.merge(
+          data: IconThemeData(size: !_centerContent ? 15.0 : null),
+          child: icon,
+        ),
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
           shape: WidgetStateProperty.all(
@@ -47,7 +50,7 @@ class EditImageButton extends StatelessWidget {
                 ),
           padding: _centerContent
               ? WidgetStateProperty.all(
-                  const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+                  const EdgeInsetsDirectional.symmetric(vertical: LARGE_SPACE),
                 )
               : null,
           alignment: _centerContent ? AlignmentDirectional.center : null,
@@ -56,11 +59,18 @@ class EditImageButton extends StatelessWidget {
         label: SizedBox(
           width: !_centerContent ? double.infinity : null,
           child: Padding(
-            padding: EdgeInsets.all(borderWidth ?? 0),
+            padding: EdgeInsetsDirectional.symmetric(
+              horizontal:
+                  (borderWidth ?? 0.0) + (_centerContent ? SMALL_SPACE : 0.0),
+              vertical: borderWidth ?? 0.0,
+            ),
             child: AutoSizeText(
               label,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+              style: _centerContent
+                  ? const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)
+                  : null,
             ),
           ),
         ),

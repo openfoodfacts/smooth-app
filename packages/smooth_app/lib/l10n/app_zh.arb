@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "忘記密碼？",
   "view_profile": "檢視個人檔案",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Search filter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Search history",
   "search_store": "搜索商店",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Hint: add the city or the country",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "点击获取更多信息",
   "@Product": {},
@@ -715,7 +729,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "立即点击回答 3 个问题来计算营养分数、绿色分数和超加工分组 (NOVA)！",
+  "hey_incomplete_product_message": "立即点击回答 3 个问题来计算Nutri-Score、绿色分数和超加工分组 (NOVA)！",
   "hey_incomplete_product_message_beauty": "立即点击回答 2 个问题来帮助分析这款化妆品！",
   "hey_incomplete_product_message_pet_food": "立即点击回答 3 个问题来帮助分析这种宠物食品！",
   "hey_incomplete_product_message_product": "立即点击以帮助完成该产品信息的收集！",
@@ -770,7 +784,7 @@
   "score_add_missing_nutrition_facts": "補充營養成分",
   "score_add_missing_product_traces": "添加缺失的产品轨迹",
   "score_add_missing_product_category": "选择一个类别",
-  "score_add_missing_precise_product_category": "选择更精确的类别",
+  "score_add_missing_precise_product_category": "選擇更精確的類別",
   "score_add_missing_product_countries": "添加缺失的产品产地国",
   "score_add_missing_product_emb": "添加缺失的产品代码（翻译注：可能是条形码",
   "score_add_missing_product_labels": "添加缺失的产品标签",
@@ -1010,15 +1024,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "沒有屬性",
+  "product_tags_explanation": "透過為產品添加屬性（鍵/值），您可以幫助豐富產品。",
   "add_tag": "添加属性",
   "add_tags": "添加属性",
   "add_edit_tags": "添加或编辑属性",
   "edit_tag": "编辑属性",
   "remove_tag": "删除属性",
   "tag_key": "属性",
+  "tag_keys": "特性",
   "tag_key_uneditable": "属性（不可编辑）",
   "tag_key_input_hint": "Input a property",
   "tag_value": "值",
+  "tag_values": "Values",
   "tag_value_input_hint": "Input a value",
   "tag_key_item": "Property:",
   "tag_value_item": "Value:",
@@ -1038,7 +1056,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "寻找替代方案",
+  "product_search_same_category": "尋找替代方案",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1054,15 +1072,15 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "新增營養成分和類別以計算營養評分。",
+  "product_improvement_add_nutrition_facts": "新增營養成分和類別以計算Nutri-Score。",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "新增營養成分和類別以計算營養評分。",
+  "product_improvement_add_nutrition_facts_and_category": "新增營養成分和類別以計算Nutri-Score。",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "无法计算此产品的营养评分，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。",
+  "product_improvement_categories_but_no_nutriscore": "无法计算此产品的Nutri-Score，这可能是由于例如：非标准类别。如果这被认为是错误，请与我们联系。",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1367,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "抱歉，這是我們的範例產品，您無法編輯 :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "你的排名",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1397,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Compare side by side",
   "loading_dialog_default_title": "正在下載資料",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1409,7 +1432,7 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_delete_title": "Delete my account",
+  "account_delete_title": "刪除我的帳戶",
   "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
@@ -1608,7 +1631,7 @@
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
-  "edit_product_form_item_deny_suggestion": "拒绝建议",
+  "edit_product_form_item_deny_suggestion": "拒絕建議",
   "@edit_product_form_item_deny_suggestion": {
     "description": "Tooltip to show when the user long presses the (-) button on a suggestion"
   },
@@ -1740,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "地區",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2143,7 +2166,7 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
-  "dev_preferences_screen_subtitle": "访问实验性功能和开发工具",
+  "dev_preferences_screen_subtitle": "存取實驗性功能和開發工具",
   "@dev_preferences_screen_subtitle": {
     "description": "User dev preferences - Subtitle"
   },
@@ -2285,16 +2308,16 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
-  "prices_website_button": "Open on the Open Prices website",
+  "prices_website_button": "在公開價格網站上打開",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
-  "prices_bulk_proof_upload_community_switch": "允许社区验证人工智能提取的价格。",
+  "prices_bulk_proof_upload_community_switch": "允許社群驗證人工智慧提取的價格。",
   "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
   "prices_bulk_proof_upload_title": "Bulk Proof Upload",
-  "prices_bulk_proof_upload_step_selecting": "选择文件",
-  "prices_bulk_proof_upload_step_starting": "开始上传",
-  "prices_bulk_proof_upload_step_copying": "本地复制文件 #{index}/{count}",
+  "prices_bulk_proof_upload_step_selecting": "選擇文件",
+  "prices_bulk_proof_upload_step_starting": "開始上傳",
+  "prices_bulk_proof_upload_step_copying": "本地複製檔 #{index}/{count}",
   "@prices_bulk_proof_upload_step_copying": {
     "description": "A message stating the current copy step",
     "placeholders": {
@@ -2306,7 +2329,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_preparing": "准备上传 #{index}/{count}",
+  "prices_bulk_proof_upload_step_preparing": "準備上傳 #{index}/{count}",
   "@prices_bulk_proof_upload_step_preparing": {
     "description": "A message stating the current upload step",
     "placeholders": {
@@ -2318,7 +2341,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_error": "图像 #{index}/{count}失败",
+  "prices_bulk_proof_upload_step_error": "圖片 #{index}/{count}失敗",
   "@prices_bulk_proof_upload_step_error": {
     "description": "A message stating the current error step",
     "placeholders": {
@@ -2358,8 +2381,8 @@
     }
   },
   "prices_barcode_enter": "Enter the Barcode",
-  "prices_category_enter": "商品无条形码",
-  "prices_per_kilogram": "每公斤价格",
+  "prices_category_enter": "商品無條碼",
+  "prices_per_kilogram": "每公斤價格",
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
@@ -2371,26 +2394,28 @@
   "@prices_per_kilogram_short": {
     "description": "Short title for PricePer.kilogram"
   },
-  "prices_per_unit_short": " / 单元",
+  "prices_per_unit_short": " / 單元",
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
   "prices_category_mandatory": "Mandatory",
-  "prices_category_optional": "选修的",
-  "prices_category_error_mandatory": "此类别为必填项",
+  "prices_category_optional": "選修的",
+  "prices_category_error_mandatory": "此類別為必填項",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
-  "prices_list_title": "价目表",
-  "prices_list_count": "\n价格的数量",
+  "prices_list_title": "價目表",
+  "prices_list_count": "\n價格的數量",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "添加\n新价格",
+  "prices_list_add_new_price": "加\n新價格",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
+  "prices_list_empty_title": "尚無價格！",
+  "prices_list_empty_subtitle": "第一個新增：\n透過掃描**收據**或**價格標籤**！",
   "prices_entry_shop_not_found": "未知商店",
-  "prices_entry_menu_title": "价格条目来自“{user}”",
+  "prices_entry_menu_title": "價格條目來自“{user}”",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2399,11 +2424,11 @@
       }
     }
   },
-  "prices_entry_menu_open_product_prices": "查看该产品的所有价格",
-  "prices_entry_menu_open_proof": "查看证明",
-  "prices_entry_menu_my_prices": "查看我的其他价格",
-  "prices_entry_menu_author_prices": "查看作者的其他价格",
-  "prices_entry_menu_shop_prices": "查看商店其他价格",
+  "prices_entry_menu_open_product_prices": "查看該產品的所有價格",
+  "prices_entry_menu_open_proof": "查看證明",
+  "prices_entry_menu_my_prices": "查看我的其他價格",
+  "prices_entry_menu_author_prices": "查看作者的其他價格",
+  "prices_entry_menu_shop_prices": "查看商店其他價格",
   "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2489,6 +2514,8 @@
       }
     }
   },
+  "prices_users_empty_title": "尚無貢獻者！",
+  "prices_users_empty_explanation": "率先添加價格！",
   "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2501,6 +2528,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "暫無店！",
+  "prices_locations_empty_explanation": "率先添加價格！",
   "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2549,7 +2578,7 @@
       }
     }
   },
-  "prices_amount_existing_subtitle": "之前添加的价格",
+  "prices_amount_existing_subtitle": "之前新增的價格",
   "prices_amount_subtitle": "Amount",
   "prices_amount_is_discounted": "Is discounted?",
   "prices_amount_price_normal": "价格",
@@ -2565,7 +2594,10 @@
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
   "prices_proof_subtitle": "证明",
+  "prices_proof_empty_title": "尚無證據！",
+  "prices_proof_empty_explanation": "首先添加**收據**或**價格標籤**的照片！",
   "prices_proof_find": "Select a proof",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "收据",
   "prices_proof_price_tag": "价格标签",
   "prices_proof_mandatory": "You need to select a proof!",
@@ -2612,6 +2644,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "已完成",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2633,9 +2669,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "重置應用語言",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "添加卡片",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "在 prices.openfoodfacts.org (PROD) 和測試環境之間切換",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "沿用與編輯此搜尋的項目",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "移除",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "已成功加载 {totalSize} 产品.",
   "@product_search_no_more_results": {
@@ -2696,7 +2748,16 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "贡献者价格： {user}",
+  "search_proof_title": "Proof from \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "user_any_search_prices_title": "貢獻者價格： {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
@@ -2858,11 +2919,11 @@
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "add_basic_details_product_name_change_main_language_title": "更改默认语言？",
+  "add_basic_details_product_name_change_main_language_title": "更改預設語言？",
   "@add_basic_details_product_name_change_main_language_title": {
     "description": "Title of the dialog to change the main language of the product name"
   },
-  "add_basic_details_product_name_change_main_language_text": "您是否希望将产品的默认语言设置为“{language}”？",
+  "add_basic_details_product_name_change_main_language_text": "您是否希望將產品的預設語言設定為“{language}”？",
   "@add_basic_details_product_name_change_main_language_text": {
     "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
     "placeholders": {
@@ -3217,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "保持成分面板扩展",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "无互联网连接",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3786,18 +3842,18 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "绿色评分A",
+  "environmental_score_a_new": "绿色评分 A",
   "environmental_score_b_new": "绿色评分 B",
   "environmental_score_c_new": "绿色评分 C",
   "environmental_score_d_new": "绿色评分 D",
   "environmental_score_e_new": "绿色评分 E",
-  "environmental_score_unknown_new": "未知绿色评分",
-  "environmental_score_not_applicable_new": "绿色评分不适用",
+  "environmental_score_unknown_new": "未知Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",
-  "nova_group_1": "Nova 分组 — 第 1 级",
-  "nova_group_2": "Nova 分组 — 第 2 级",
-  "nova_group_3": "Nova 分组 — 第 3 级",
-  "nova_group_4": "Nova 分组 — 第 4 级",
+  "nova_group_1": "NOVA 分组 — 第 1 级",
+  "nova_group_2": "NOVA 分组 — 第 2 级",
+  "nova_group_3": "NOVA 分组 — 第 3 级",
+  "nova_group_4": "NOVA 分组 — 第 4 级",
   "nova_group_unknown": "未知 NOVA 分组信息",
   "nutrition_facts": "营养水平",
   "faq_title_partners": "非政府组织的合作伙伴和赞助人",
@@ -3890,96 +3946,257 @@
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_greenscore_what_is_greenscore_title": "什么是绿色分数？",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score 是一个标志，旨在告知您**食品对环境的影响**。",
+  "guide_greenscore_what_is_greenscore_title": "什麼是綠色分數？",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score 是一個標誌，旨在告知您**食品對環境的影響**。",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "颜色代码从代表**影响最小**产品的深绿色（**A+**）到代表**影响最大**产品的深红色（**F**）不等。",
+  "guide_greenscore_what_is_greenscore_paragraph2": "顏色代碼從代表**影響最小**產品的深綠色（**A+**）到代表**影響最大**產品的深紅色（**F**）不等。",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Green-Score 徽标",
-  "guide_greenscore_lca_title": "核心：生命周期评估（LCA）",
-  "guide_greenscore_lca_arg1_title": "食品类别的科学评估",
-  "guide_greenscore_lca_arg1_text1": "对于每个产品类别，使用来自 Agribalyse 环境数据库（由 ADEME 和 INRAE 设计）的数据建立一个**基准**分数。",
-  "guide_greenscore_lca_arg1_text2": "**生命周期分析**是一种进行多阶段、多标准环境评估的标准化评估方法。",
-  "guide_greenscore_lca_arg1_text3": "**其测量：**",
-  "guide_greenscore_lca_arg2_title": "6个生产步骤",
+  "guide_greenscore_logos_caption": "Green-Score 標誌",
+  "guide_greenscore_lca_title": "核心：生命週期評估（LCA）",
+  "guide_greenscore_lca_arg1_title": "食品類別的科學評估",
+  "guide_greenscore_lca_arg1_text1": "對於每個產品類別，使用來自 Agribalyse 環境資料庫（由 ADEME 和 INRAE 設計）的資料建立一個**基準**分數。",
+  "guide_greenscore_lca_arg1_text2": "**生命週期分析**是一種進行多階段、多標準環境評估的標準化評估方法。",
+  "guide_greenscore_lca_arg1_text3": "**其測量：**",
+  "guide_greenscore_lca_arg2_title": "6個生產步驟",
   "guide_greenscore_lca_arg2_agriculture": "Agriculture",
   "guide_greenscore_lca_arg2_processing": "Processing",
   "guide_greenscore_lca_arg2_packaging": "包装",
   "guide_greenscore_lca_arg2_transportation": "Transportation",
   "guide_greenscore_lca_arg2_distribution": "Distribution",
   "guide_greenscore_lca_arg2_consumption": "Consumption",
-  "guide_greenscore_lca_arg3_title": "14项环境影响指标",
-  "guide_greenscore_lca_arg3_text1": "气候变化/碳足迹",
-  "guide_greenscore_lca_arg3_text2": "臭氧层损耗",
-  "guide_greenscore_lca_arg3_text3": "电离辐射",
+  "guide_greenscore_lca_arg3_title": "14項環境影響指標",
+  "guide_greenscore_lca_arg3_text1": "氣候變遷/碳足跡",
+  "guide_greenscore_lca_arg3_text2": "臭氧層損耗",
+  "guide_greenscore_lca_arg3_text3": "電離輻射",
   "guide_greenscore_lca_arg3_text4": "土地",
   "guide_greenscore_lca_arg3_text5": "水和能源的使用",
-  "guide_greenscore_lca_arg3_text6": "空气污染",
-  "guide_greenscore_lca_arg3_text7": "海水和淡水（颗粒、酸化、富营养化）",
-  "guide_greenscore_lca_arg3_text8": "资源枯竭。",
-  "guide_greenscore_bonuses_penalties_title": "奖金和罚款",
-  "guide_greenscore_bonuses_penalties_intro": "为了奖励某一类别中更好的产品，我们会根据以下几个标准施加奖金和惩罚：",
+  "guide_greenscore_lca_arg3_text6": "空氣污染",
+  "guide_greenscore_lca_arg3_text7": "海水和淡水（顆粒、酸化、富營養化）",
+  "guide_greenscore_lca_arg3_text8": "資源枯竭。",
+  "guide_greenscore_bonuses_penalties_title": "獎金和罰款",
+  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "成分來源",
-  "guide_greenscore_bonuses_penalties_arg2_text": "根据原料的产地，我们会给予一定的奖励。该奖励会考虑运输的影响以及每个生产商所在国家的环境政策。",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
   "guide_greenscore_bonuses_penalties_arg4_title": "包装",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "为了准确计算绿色分数，需要获得包装上不一定指定的信息（例如每种成分的来源和确切百分比）或很少以可用形式提供的信息（例如包装所有组件的列表以及所用塑料的确切类型）。",
-  "guide_greenscore_transparency_intro2": "当这些信息尚未可用时，将使用平均值，但我们现在呼吁大家帮助我们收集这些信息，这对于绿色评分以及其他许多用途都非常有用。",
-  "guide_greenscore_transparency_arg1_title": "公民如何提供帮助",
-  "guide_greenscore_transparency_arg1_text": "所有公民都可以帮助我们收集和整理产品上存在的信息或从产品中推断出的信息，例如包装信息：Mission Emballages：所有食品包装的大规模协作清单（法语）",
-  "guide_greenscore_transparency_arg2_title": "制造商如何提供帮助",
-  "guide_greenscore_transparency_arg2_text": "制造商可以通过我们为生产商提供的免费平台直接向我们发送他们的信息。",
-  "guide_greenscore_better_product_title": "哪种产品对地球更好？",
-  "guide_greenscore_better_product_arg1_title": "很难说",
-  "guide_greenscore_better_product_arg1_text": "选择可持续食品是我们为气候所能做的最有力的事情之一，因为**我们的全球食品系统造成了超过四分之一的温室气体排放**。\n（来源：Poore & Nemecek，Science，2018）。",
+  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
+  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
+  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_arg2_title": "製造商如何提供協助",
+  "guide_greenscore_transparency_arg2_text": "製造商可以透過我們為生產商提供的免費平台直接向我們發送他們的資訊。",
+  "guide_greenscore_better_product_title": "哪種產品對地球比較好？",
+  "guide_greenscore_better_product_arg1_title": "很難說",
+  "guide_greenscore_better_product_arg1_text": "選擇永續食品是我們為氣候所能做的最強大的事情之一，因為**我們的全球食品系統造成了超過四分之一的溫室氣體排放**。\n（資料來源：Poore & Nemecek，Science，2018）。",
   "guide_greenscore_better_product_arg2_title": "你有力量！",
-  "guide_greenscore_better_product_arg2_text": "好消息是，这为我们提供了一种强有力的变革方法。\n**我们每个人每年大约吃1000顿饭**。这意味着我们有1000个机会**为地球选择更美好的未来**！",
-  "guide_greenscore_better_product_arg3_title": "帮助承担责任并做出决定",
-  "guide_greenscore_better_product_arg3_text": "选择可持续食品可能感觉很复杂。标签令人困惑，信息也常常缺失。Green-Score 的创建旨在简化这一过程，为您提供**清晰**、**基于科学**且**透明**的食品环境评级，就在您需要的时候：购物时。",
+  "guide_greenscore_better_product_arg2_text": "好消息是，這為我們提供了一種強而有力的變革方法。\n**我們每個人每年大約吃1000餐**。這意味著我們有1000個機會**為地球選擇更美好的未來**！",
+  "guide_greenscore_better_product_arg3_title": "幫助承擔責任並做出決定",
+  "guide_greenscore_better_product_arg3_text": "選擇永續食品可能感覺很複雜。標籤令人困惑，資訊也常常缺少。 Green-Score 的創建旨在簡化這一過程，為您提供**清晰**、**基於科學**且**透明**的食品環境評級，就在您需要的時候：購物時。",
   "guide_greenscore_better_product_arg4_title": "透明度",
-  "guide_greenscore_better_product_arg4_text": "与专有标签不同，Green-Score 计算**完全开放**，并且**任何人都可以验证**。",
+  "guide_greenscore_better_product_arg4_text": "與專有標籤不同，Green-Score 計算**完全開放**，並且**任何人都可以驗證**。",
   "guide_nova_title": "The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nova_what_is_nova_title": "什么是超加工？",
-  "guide_nova_what_is_nova_paragraph1": "NOVA 集团向您提供有关食品加工水平的信息。",
+  "guide_nova_what_is_nova_title": "什麼是超加工？",
+  "guide_nova_what_is_nova_paragraph1": "The NOVA groups inform you about **the level of food processing**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "NOVA 分类允许根据食品的**工业加工程度**将其分为**4 类**（最低限度加工或未加工食品、烹饪原料、加工食品、超加工食品）。",
+  "guide_nova_what_is_nova_paragraph2": "NOVA 分類允許根據食品的**工業加工程度**將其分為**4 類**（最低限度加工或未加工食品、烹飪原料、加工食品、超加工食品）。",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "NOVA 标志",
-  "guide_nova_groups_title": "4个NOVA组",
-  "guide_nova_groups_intro": "NOVA 有 4 个组，有问题的是第 4 组 - 超加工食品。",
+  "guide_nova_logos_caption": "NOVA 標誌",
+  "guide_nova_groups_title": "4個NOVA組",
+  "guide_nova_groups_intro": "NOVA 有 4 組，有問題的是第 4 組 - 超加工食品。",
   "guide_nova_groups_arg1_title": "低度加工或未加工食品",
-  "guide_nova_groups_arg1_text": "未加工食品（或称天然食品）是指从自然界分离出来的植物（种子、果实、叶、茎、根）或动物（肌肉、内脏、蛋、奶）等可食用的部分，以及菌类、藻类和水。",
+  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "加工的烹飪用食品",
-  "guide_nova_groups_arg2_text": "加工烹饪原料，例如油、黄油、糖和盐，是通过压榨、精炼、研磨、碾磨和干燥等工艺从第一类食品或自然界中提取的物质。",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "第三類： 加工食品",
-  "guide_nova_groups_arg3_text": "瓶装蔬菜、罐装鱼、糖浆水果、奶酪和新鲜面包等加工食品，主要通过在第一类食品中添加盐、油、糖或其他来自第二类食品的物质制成。加工过程包括各种保存或烹饪方法，对于面包和奶酪而言，还包括非酒精发酵。大多数加工食品含有两到三种成分，可识别为第一类食品的改良版。它们可以单独食用，或者更常见的是与其他食物搭配食用。",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_groups_arg4_text": "超加工食品，例如软饮料、甜味或咸味包装零食、复原肉制品和预制冷冻食品，不仅仅是简单的改性食品，而是主要或完全由源自食品和添加剂的物质制成的配方，几乎不含或完全不含第一类食品。这些配方中的成分通常也包含在加工食品中，例如糖、油、脂肪或盐。然而，超加工产品也含有其他通常不用于烹饪的能量和营养来源。其中一些是直接从食品中提取的，例如酪蛋白、乳糖、乳清和麸质。",
-  "guide_nova_explanations_title": "超加工的问题",
-  "guide_nova_explanations_arg1_title": "食品原料的极端加工",
-  "guide_nova_explanations_arg1_text": "许多都来自食品成分的进一步加工，例如氢化或酯交换油、水解蛋白、大豆分离蛋白、麦芽糊精、转化糖和高果糖玉米糖浆。",
-  "guide_nova_explanations_arg2_title": "超越纯食品安全的添加剂",
-  "guide_nova_explanations_arg2_text": "超加工食品中的添加剂包括一些也用于加工食品的添加剂，例如防腐剂、抗氧化剂和稳定剂。仅存在于超加工产品中的添加剂类别包括用于模仿或增强食品感官品质，或掩盖最终产品不良口感的添加剂。这些添加剂包括染料和其他色素、色素稳定剂；香精、增味剂、非糖甜味剂；以及加工助剂，例如碳酸化剂、固化剂、膨松剂和抗膨松剂、消泡剂、抗结剂和上光剂、乳化剂、螯合剂和保湿剂。",
-  "guide_nova_explanations_arg3_title": "在家无法完成的处理",
-  "guide_nova_explanations_arg3_text": "通常需要经过一系列工序，将多种原料组合在一起，才能制成最终产品（因此被称为“超加工”）。这些工序包括一些国内尚无的工艺，例如氢化和水解、挤压和成型，以及油炸的预处理。",
-  "guide_nova_explanations_arg4_title": "超加工的掠夺性和财务方面",
-  "guide_nova_explanations_arg4_text": "超加工的总体目标是打造品牌化、便捷化（耐用、即食）、吸引力（超级美味）和高利润（低成本原料）的食品，旨在取代所有其他食品类别。超加工食品通常包装精美，营销力度强。",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_explanations_title": "超加工的問題",
+  "guide_nova_explanations_arg1_title": "食品原料的極端加工",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg2_title": "超越純淨食品安全的添加物",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg3_title": "在家無法完成的處理",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg4_title": "超加工的掠奪性和財務面",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
+  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_share_link": "https://world-zh.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
+  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
+  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_share_link": "https://world-zh.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_pet_food_facts_scores_title": "A note on scoring",
+  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_share_link": "https://world-zh.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
+  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
+  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
+  "guide_open_beauty_facts_scores_title": "A note on scoring",
+  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_share_link": "https://world-zh.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Welcome to Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
+  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
+  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
+  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
+  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
+  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
+  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
+  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
+  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
+  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
+  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
+  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_share_link": "https://world-zh.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_coming_soon_button_title": "Coming soon",
+  "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Preview",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4322,7 +4539,7 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "product_page_tab_for_me": "为我",
+  "product_page_tab_for_me": "為我",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
@@ -4334,10 +4551,26 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "為什麼是價格？",
+  "prices_explanation_card_line1": "**Open Prices** 是一個收集和分享全球產品價格的項目🌍。 Open Prices 由 Open Food Facts 開發和維護。",
+  "explanation_card_learn_more_button": "瞭解更多",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "民間分類法的屬性有哪些？",
+  "folksonomy_explanation_card_line1": "屬性採用**鍵值對**格式。",
+  "folksonomy_explanation_card_line2": "這些屬性由貢獻者建立和歸檔，可用於任何用途。",
+  "folksonomy_action_external_link_title": "Open external link",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "暫無價格",
+  "prices_products_empty_explanation": "成為第一個做出貢獻的人！",
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4390,11 +4623,11 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_in_progress": "Extraction in progress…",
+  "nutrition_facts_extract_in_progress": "正在提取…",
   "@nutrition_facts_extract_in_progress": {
     "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
   },
-  "nutrition_facts_extract_successful": "Extraction successful",
+  "nutrition_facts_extract_successful": "提取成功",
   "@nutrition_facts_extract_successful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
@@ -4574,11 +4807,11 @@
   "@preferences_prices_title": {
     "description": "Title for the prices preferences title"
   },
-  "preferences_prices_subtitle": "管理您的价格偏好",
+  "preferences_prices_subtitle": "管理您的價格偏好",
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "开放食品事实项目",
+  "preferences_card_project": "開放食品事實項目",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -4590,19 +4823,19 @@
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
-  "preferences_my_stats_title": "My statistics",
+  "preferences_my_stats_title": "我的統計數據",
   "@preferences_my_stats_title": {
     "description": "Title for my stats preferences tile"
   },
-  "preferences_contribute_subtitle": "翻译，改进我们的工具…",
+  "preferences_contribute_subtitle": "翻譯，改進我們的工具…",
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_connect_title": "连接",
+  "preferences_connect_title": "連接",
   "@preferences_connect_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_connect_subtitle": "联系我们或在社交媒体上关注我们",
+  "preferences_connect_subtitle": "聯絡我們或在社交媒體上關注我們",
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
@@ -4610,11 +4843,11 @@
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
-  "preferences_support_subtitle": "帮助我们向全球数百万消费者提供信息",
+  "preferences_support_subtitle": "幫助我們向全球數百萬消費者提供信息",
   "@preferences_support_subtitle": {
     "description": "Subtitle for the support preferences tile"
   },
-  "preferences_card_help": "帮助与支持",
+  "preferences_card_help": "幫助與支持",
   "@preferences_card_help": {
     "description": "Title for the help and support preferences card"
   },
@@ -4622,15 +4855,15 @@
   "@preferences_faq_title": {
     "description": "Title for the faq preferences tile"
   },
-  "preferences_faq_subtitle": "获取问题的答案",
+  "preferences_faq_subtitle": "獲得問題的答案",
   "@preferences_faq_subtitle": {
     "description": "Subtitle for the faq preferences tile"
   },
-  "logged_out": "已注销",
+  "logged_out": "已註銷",
   "@logged_out": {
     "description": "Text to show when the user is logged out"
   },
-  "preferences_app_bar_message": "感谢您成为我们的会员之一！",
+  "preferences_app_bar_message": "感謝您成為我們的會員之一！",
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
@@ -4642,11 +4875,11 @@
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
-  "preferences_app_bar_see_all_stats": "查看所有统计数据",
+  "preferences_app_bar_see_all_stats": "查看所有統計數據",
   "@preferences_app_bar_see_all_stats": {
     "description": "Preferences app bar see all stats button"
   },
-  "external_search_tile_title": "在 {provider} 中搜索“{keyword}”",
+  "external_search_tile_title": "在 {provider} 中搜尋“{keyword}”",
   "@external_search_tile_title": {
     "description": "External search preference tile title",
     "placeholders": {
@@ -4658,15 +4891,15 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "搜索设置（例如 Nutri-Score）",
+  "preferences_app_bar_search_hint": "搜尋設定（例如 Nutri-Score）",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
-  "preferences_accessibility_show_emoji": "辅助功能：显示表情符号",
+  "preferences_accessibility_show_emoji": "輔助使用：顯示表情符號",
   "@preferences_accessibility_show_emoji": {
     "description": "Preferences dev mode tile for showing emoji"
   },
-  "preferences_accessibility_remove_colors": "辅助功能：删除颜色",
+  "preferences_accessibility_remove_colors": "輔助使用：刪除顏色",
   "@preferences_accessibility_remove_colors": {
     "description": "Preferences dev mode tile for removing colors"
   },
@@ -4678,11 +4911,11 @@
   "@preferences_card_about": {
     "description": "Title for the app settings products card"
   },
-  "preferences_legal_information_title": "法律信息",
+  "preferences_legal_information_title": "法律資訊",
   "@preferences_legal_information_title": {
     "description": "Title for the preferences legal information card"
   },
-  "preferences_legal_information_subtitle": "使用条款、隐私政策等",
+  "preferences_legal_information_subtitle": "使用條款、隱私權政策等",
   "@preferences_legal_information_subtitle": {
     "description": "Subtitle for the preferences legal information card"
   },
@@ -4694,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.",
+  "preferences_legal_header": "Open Food Facts 是一個食品產品資料庫，**由每個人創建，為每個人服務**。\n您可以使用它來做出更好的食物選擇，而且由於它是**開放資料**，任何人都可以**將其重新用於任何目的**。",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4702,15 +4935,15 @@
   "@preferences_privacy_policy": {
     "description": "Title for the preferences privacy policy tile"
   },
-  "preferences_licenses": "许可证",
+  "preferences_licenses": "許可證",
   "@preferences_licenses": {
     "description": "Title for the preferences licenses tile"
   },
-  "preferences_about_app_title": "关于应用程序",
+  "preferences_about_app_title": "關於應用程式",
   "@preferences_about_app_title": {
     "description": "Title for the preferences about app card"
   },
-  "preferences_about_app_subtitle": "技术信息、开发人员信息等",
+  "preferences_about_app_subtitle": "技術資訊、開發人員資訊等",
   "@preferences_about_app_subtitle": {
     "description": "Subtitle for the preferences about app card"
   },
@@ -4718,27 +4951,27 @@
   "@preferences_card_information": {
     "description": "Title for the preferences information card"
   },
-  "preferences_version_number_title": "版本号",
+  "preferences_version_number_title": "版本號",
   "@preferences_version_number_title": {
     "description": "Title for the preferences version number tile"
   },
-  "preferences_scanner_title": "扫描器",
+  "preferences_scanner_title": "掃描器",
   "@preferences_scanner_title": {
     "description": "Title for the preferences scanner tile"
   },
-  "preferences_app_store": "应用商店",
+  "preferences_app_store": "應用程式商店",
   "@preferences_app_store": {
     "description": "Title for the preferences app store tile"
   },
-  "preferences_app_system_settings": "系统设置",
+  "preferences_app_system_settings": "系統設定",
   "@preferences_app_system_settings": {
     "description": "Title for the preferences app system settings tile"
   },
-  "preferences_source_code": "访问源代码",
+  "preferences_source_code": "存取原始碼",
   "@preferences_source_code": {
     "description": "Title for the preferences source code tile"
   },
-  "preferences_source_code_subtitle": "并开始对数百万人产生影响",
+  "preferences_source_code_subtitle": "並開始對數百萬人產生影響",
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
@@ -4754,31 +4987,31 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "探索新的营养评分",
+  "tips_discover_nutriscore": "探索新的Nutri-Score",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "在开放食品事实网站上",
+  "preferences_on_off_website_subtitle": "在Open Food Facts網站上",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
-  "preferences_manage_account_title": "管理我的帐户",
+  "preferences_manage_account_title": "管理我的帳戶",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
   },
-  "preferences_manage_account_tooltip": "Manage your account",
+  "preferences_manage_account_tooltip": "管理您的帳戶",
   "@preferences_manage_account_tooltip": {
     "description": "Tooltip for a button that lets the user manage his account"
   },
-  "preferences_change_password_title": "更改我的密码",
+  "preferences_change_password_title": "更改我的密碼",
   "@preferences_change_password_title": {
     "description": "Title for the preferences change password tile"
   },
-  "preferences_danger_zone": "危险区域",
+  "preferences_danger_zone": "危險區域",
   "@preferences_danger_zone": {
     "description": "Title for the preferences danger zone tile"
   },
-  "preferences_account_deletion_subtitle": "您的所有贡献都将丢失",
+  "preferences_account_deletion_subtitle": "您的所有貢獻都將丟失",
   "@preferences_account_deletion_subtitle": {
     "description": "Subtitle for the preferences account deletion tile"
   },
@@ -4786,19 +5019,19 @@
   "@preferences_contributions_title": {
     "description": "Title of the contributions preferences tile"
   },
-  "preferences_dev_mode_app_settings_title": "应用设置",
+  "preferences_dev_mode_app_settings_title": "應用程式設定",
   "@preferences_dev_mode_app_settings_title": {
     "description": "Title for the dev mode app settings card"
   },
-  "preferences_dev_mode_offline_data_subtitle": "离线扫描产品的非常实验性的方法",
+  "preferences_dev_mode_offline_data_subtitle": "離線掃描產品的非常實驗性的方法",
   "@preferences_dev_mode_offline_data_subtitle": {
     "description": "Subtitle for the offline data tile in dev mode"
   },
-  "preferences_dev_mode_refresh_products_title": "从服务器刷新所有产品",
+  "preferences_dev_mode_refresh_products_title": "從伺服器刷新所有產品",
   "@preferences_dev_mode_refresh_products_title": {
     "description": "Title for refreshing all products from server"
   },
-  "preferences_dev_mode_refresh_products_subtitle": "除非绝对必要，否则请避免这样做",
+  "preferences_dev_mode_refresh_products_subtitle": "除非絕對必要，否則請避免這樣做",
   "@preferences_dev_mode_refresh_products_subtitle": {
     "description": "Subtitle warning for refreshing all products"
   },
@@ -4806,51 +5039,60 @@
   "@preferences_dev_mode_demo_mode_title": {
     "description": "Title for the demo mode card in dev mode"
   },
-  "preferences_dev_mode_add_cards_title": "将卡片添加到扫描仪",
+  "preferences_dev_mode_add_cards_title": "將卡片加入掃描儀",
   "@preferences_dev_mode_add_cards_title": {
     "description": "Title for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_add_cards_subtitle": "向扫描仪添加 3 个样品产品",
+  "preferences_dev_mode_add_cards_subtitle": "在掃描器中加入 3 個樣品產品",
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "大众分类法主持人",
+  "preferences_dev_mode_folksonomy_host_title": "大眾分類法主持人",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
-  "preferences_dev_mode_accessibility_experiments_title": "可访问性实验",
+  "preferences_dev_mode_folksonomy_host_subtitle": "主持人： {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "可訪問性實驗",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"
   },
-  "preferences_dev_mode_multi_products_selection_title": "多产品价格选择",
+  "preferences_dev_mode_multi_products_selection_title": "多產品價格選擇",
   "@preferences_dev_mode_multi_products_selection_title": {
     "description": "Title for multi-products selection feature"
   },
-  "preferences_dev_mode_user_ordered_kp_title": "用户订购的知识面板",
+  "preferences_dev_mode_user_ordered_kp_title": "使用者訂購的知識面板",
   "@preferences_dev_mode_user_ordered_kp_title": {
     "description": "Title for user ordered knowledge panels feature"
   },
-  "preferences_dev_mode_location_search_title": "临时访问位置搜索",
+  "preferences_dev_mode_location_search_title": "臨時訪問位置搜索",
   "@preferences_dev_mode_location_search_title": {
     "description": "Title for temporary location search access"
   },
-  "preferences_dev_mode_comparison_title": "并排比较 2 或 3 种产品",
+  "preferences_dev_mode_comparison_title": "並排比較 2 或 3 種產品",
   "@preferences_dev_mode_comparison_title": {
     "description": "Title for side by side comparison feature"
   },
-  "preferences_dev_mode_product_list_import_title": "产品列表导入",
+  "preferences_dev_mode_product_list_import_title": "產品清單導入",
   "@preferences_dev_mode_product_list_import_title": {
     "description": "Title for product list import feature"
   },
-  "preferences_faq_scores_methodologies_title": "分数和方法",
+  "preferences_faq_scores_methodologies_title": "分數和方法",
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "了解营养评分的计算方法",
+  "preferences_faq_nutriscore_subtitle": "了解Nutri-Score的計算方法",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
-  "preferences_faq_nutriscore_v2_subtitle": "了解方法论的主要变化",
+  "preferences_faq_nutriscore_v2_subtitle": "了解方法論的主要變化",
   "@preferences_faq_nutriscore_v2_subtitle": {
     "description": "Subtitle for Nutri-Score V2 in FAQ"
   },
@@ -4858,15 +5100,31 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "发现开放食品事实",
+  "preferences_faq_discover_off_title": "發現Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_faq_title": "FAQ - 常见问题",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - 常見問題",
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "开放食品事实非政府组织",
+  "preferences_faq_off_ngo_title": "Open Food Facts非政府組織",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -4874,11 +5132,11 @@
   "@preferences_about_information_title": {
     "description": "Title for information card in about app"
   },
-  "preferences_connect_community_updates_title": "获取社区更新",
+  "preferences_connect_community_updates_title": "獲取社區更新",
   "@preferences_connect_community_updates_title": {
     "description": "Title for community updates card"
   },
-  "preferences_connect_newsletter_subtitle": "随时了解应用和社区新闻",
+  "preferences_connect_newsletter_subtitle": "隨時了解應用程式和社區新聞",
   "@preferences_connect_newsletter_subtitle": {
     "description": "Subtitle for newsletter tile"
   },
@@ -4886,59 +5144,59 @@
   "@preferences_connect_community_calendar_title": {
     "description": "Title for community calendar tile"
   },
-  "preferences_connect_community_calendar_subtitle": "参加我们的虚拟活动",
+  "preferences_connect_community_calendar_subtitle": "參加我們的虛擬活動",
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "开放食品事实博客",
+  "preferences_connect_blog_title": "Open Food Facts博客",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
-  "preferences_connect_blog_subtitle": "获取最新资讯",
+  "preferences_connect_blog_subtitle": "取得最新資訊",
   "@preferences_connect_blog_subtitle": {
     "description": "Subtitle for blog tile"
   },
-  "preferences_connect_community_help_title": "获取社区帮助",
+  "preferences_connect_community_help_title": "獲取社區協助",
   "@preferences_connect_community_help_title": {
     "description": "Title for community help card"
   },
-  "preferences_connect_improve_app_title": "帮助我们改进应用程序",
+  "preferences_connect_improve_app_title": "幫助我們改進應用程式",
   "@preferences_connect_improve_app_title": {
     "description": "Title for improve app card"
   },
-  "preferences_connect_debug_info_title": "向我们发送调试信息",
+  "preferences_connect_debug_info_title": "向我們發送調試訊息",
   "@preferences_connect_debug_info_title": {
     "description": "Title for debug information tile"
   },
-  "preferences_connect_debug_info_subtitle": "向我们发送包含详细调试信息的电子邮件",
+  "preferences_connect_debug_info_subtitle": "向我們發送包含詳細調試資訊的電子郵件",
   "@preferences_connect_debug_info_subtitle": {
     "description": "Subtitle for debug information tile"
   },
-  "preferences_connect_feedback_title": "向我们发送有关应用程序的反馈",
+  "preferences_connect_feedback_title": "向我們發送有關應用程式的回饋",
   "@preferences_connect_feedback_title": {
     "description": "Title for feedback tile"
   },
-  "preferences_connect_feedback_subtitle": "帮助塑造应用程序的未来",
+  "preferences_connect_feedback_subtitle": "幫助塑造應用程式的未來",
   "@preferences_connect_feedback_subtitle": {
     "description": "Subtitle for feedback tile"
   },
-  "preferences_connect_survey_title": "参与应用调查",
+  "preferences_connect_survey_title": "參與應用調查",
   "@preferences_connect_survey_title": {
     "description": "Title for survey tile"
   },
-  "preferences_connect_survey_subtitle": "帮助我们了解下一步应该构建什么",
+  "preferences_connect_survey_subtitle": "幫助我們了解下一步該建立什麼",
   "@preferences_connect_survey_subtitle": {
     "description": "Subtitle for survey tile"
   },
-  "preferences_connect_professionals_title": "专业人士",
+  "preferences_connect_professionals_title": "專業人士",
   "@preferences_connect_professionals_title": {
     "description": "Title for professionals card"
   },
-  "preferences_connect_pro_subtitle": "完全免费，确保 500 个应用和数百万消费者的数据准确无误。自助服务，兼容您的 PIM 或电子表格 (XLSX)",
+  "preferences_connect_pro_subtitle": "完全免費，確保 500 個應用程式和數百萬消費者的數據準確無誤。自助服務，與您的 PIM 或電子表格 (XLSX)",
   "@preferences_connect_pro_subtitle": {
     "description": "Subtitle for professional contact tile"
   },
-  "preferences_connect_pro_email_subtitle": "联系我们开始使用",
+  "preferences_connect_pro_email_subtitle": "聯絡我們開始使用",
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
@@ -4946,51 +5204,51 @@
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },
-  "preferences_connect_press_page_subtitle": "获取报告所需的所有材料",
+  "preferences_connect_press_page_subtitle": "取得報告所需的所有資料",
   "@preferences_connect_press_page_subtitle": {
     "description": "Subtitle for press page tile"
   },
-  "preferences_connect_press_email_subtitle": "如有新闻咨询或想告知我们您的报告，请联系我们",
+  "preferences_connect_press_email_subtitle": "如有新聞諮詢或想告知我們您的報告，請聯絡我們",
   "@preferences_connect_press_email_subtitle": {
     "description": "Subtitle for press email tile"
   },
-  "preferences_contribute_active_volunteer_title": "成为一名积极的志愿者",
+  "preferences_contribute_active_volunteer_title": "成為一名積極的志願者",
   "@preferences_contribute_active_volunteer_title": {
     "description": "Title for active volunteer card"
   },
-  "preferences_contribute_skill_pool_subtitle": "开发、沟通、设计… 欢迎任何形式的志愿服务或专业知识！",
+  "preferences_contribute_skill_pool_subtitle": "發展、溝通、設計… 歡迎任何形式的志願服務或專業知識！",
   "@preferences_contribute_skill_pool_subtitle": {
     "description": "Subtitle for skill pool tile"
   },
-  "preferences_contribute_how_to_subtitle": "探索您可以做出贡献的多种方式",
+  "preferences_contribute_how_to_subtitle": "探索您可以做出貢獻的多種方式",
   "@preferences_contribute_how_to_subtitle": {
     "description": "Subtitle for how to contribute tile"
   },
-  "preferences_contribute_mobile_dev_title": "移动应用程序开发",
+  "preferences_contribute_mobile_dev_title": "行動應用程式開發",
   "@preferences_contribute_mobile_dev_title": {
     "description": "Title for mobile app development card"
   },
-  "preferences_contribute_sw_dev_subtitle": "了解如何为软件开发做出贡献",
+  "preferences_contribute_sw_dev_subtitle": "了解如何為軟體開發做出貢獻",
   "@preferences_contribute_sw_dev_subtitle": {
     "description": "Subtitle for software development tile"
   },
-  "preferences_contribute_alpha_subtitle": "每日不稳定版本，全新功能",
+  "preferences_contribute_alpha_subtitle": "每日不穩定版本，全新功能",
   "@preferences_contribute_alpha_subtitle": {
     "description": "Subtitle for alpha enrollment tile"
   },
-  "preferences_contribute_local_community_title": "发展您的当地社区",
+  "preferences_contribute_local_community_title": "發展您的當地社區",
   "@preferences_contribute_local_community_title": {
     "description": "Title for local community card"
   },
-  "preferences_contribute_translate_subtitle": "协助软件、内容、成分分析翻译",
+  "preferences_contribute_translate_subtitle": "協助軟體、內容、成分分析翻譯",
   "@preferences_contribute_translate_subtitle": {
     "description": "Subtitle for translate tile"
   },
-  "preferences_contribute_share_subtitle": "我们准备了一个小模板来帮助您:-)",
+  "preferences_contribute_share_subtitle": "我們準備了一個小模板來幫助您:-)",
   "@preferences_contribute_share_subtitle": {
     "description": "Subtitle for share tile"
   },
-  "preferences_contribute_country_subtitle": "提高贵国食品透明度的简单步骤",
+  "preferences_contribute_country_subtitle": "提高貴國食品透明度的簡單步驟",
   "@preferences_contribute_country_subtitle": {
     "description": "Subtitle for improve country tile"
   },
@@ -4998,27 +5256,27 @@
   "@preferences_contribute_data_quality_title": {
     "description": "Title for data quality card"
   },
-  "preferences_contribute_data_quality_team_title": "加入数据质量团队",
+  "preferences_contribute_data_quality_team_title": "加入數據品質團隊",
   "@preferences_contribute_data_quality_team_title": {
     "description": "Title for data quality team tile"
   },
-  "preferences_contribute_data_quality_team_subtitle": "加入我们的努力，确保数据库的完整和准确",
+  "preferences_contribute_data_quality_team_subtitle": "加入我們的努力，確保資料庫的完整和準確",
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_products_added_title": "Added products",
+  "preferences_contributions_products_added_title": "添加的產品",
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "我添加到 Open Food Facts 的新产品",
+  "preferences_contributions_new_products_subtitle": "我添加到 Open Food Facts 的新產品",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
-  "preferences_contributions_to_be_completed_title": "我需要完成的产品",
+  "preferences_contributions_to_be_completed_title": "我需要完成的產品",
   "@preferences_contributions_to_be_completed_title": {
     "description": "Title for products to be completed tile"
   },
-  "preferences_contributions_all_incomplete_title": "所有未完成产品",
+  "preferences_contributions_all_incomplete_title": "所有未完成產品",
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
   },
@@ -5030,119 +5288,119 @@
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
-  "preferences_my_contributions_my_prices_subtitle": "My prices, my proofs…",
+  "preferences_my_contributions_my_prices_subtitle": "我的價格，我的證據…",
   "@preferences_my_contributions_my_prices_subtitle": {
     "description": "Subtitle for opening prices stats"
   },
-  "preferences_contributions_all_incomplete_subtitle": "您可以帮助完成的产品",
+  "preferences_contributions_all_incomplete_subtitle": "您可以幫助完成的產品",
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "帮助计算您所在国家/地区的营养分数和绿色分数",
+  "preferences_contributions_categorize_subtitle": "幫助計算您所在國家/地區的Nutri-Score和Green-Score",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
-  "preferences_prices_user_prices_subtitle": "我贡献的价格",
+  "preferences_prices_user_prices_subtitle": "我貢獻的價格",
   "@preferences_prices_user_prices_subtitle": {
     "description": "Subtitle for user prices tile"
   },
-  "preferences_prices_proofs_subtitle": "价格标签和收据",
+  "preferences_prices_proofs_subtitle": "價格標籤和收據",
   "@preferences_prices_proofs_subtitle": {
     "description": "Subtitle for proofs tile"
   },
-  "preferences_prices_add_receipt_subtitle": "拍摄收据照片并扫描相关条形码",
+  "preferences_prices_add_receipt_subtitle": "拍攝收據照片並掃描相關條碼",
   "@preferences_prices_add_receipt_subtitle": {
     "description": "Subtitle for add receipt tile"
   },
-  "preferences_prices_add_price_tags_subtitle": "拍摄商店里的价格照片",
+  "preferences_prices_add_price_tags_subtitle": "拍攝商店裡的價格照片",
   "@preferences_prices_add_price_tags_subtitle": {
     "description": "Subtitle for add price tags tile"
   },
-  "preferences_prices_newest_title": "最新价格",
+  "preferences_prices_newest_title": "最新價格",
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "公开价格社区添加的最新价格",
+  "preferences_prices_newest_subtitle": "Open Prices社群新增的最新價格",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
-  "preferences_prices_top_contributors_title": "贡献最多奖项的贡献者",
+  "preferences_prices_top_contributors_title": "貢獻最多獎項的貢獻者",
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "开盘价指标",
+  "preferences_prices_metrics_title": "開盤價指標",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
-  "preferences_prices_metrics_subtitle": "跟踪项目的进展",
+  "preferences_prices_metrics_subtitle": "追蹤專案的進展",
   "@preferences_prices_metrics_subtitle": {
     "description": "Subtitle for price metrics tile"
   },
-  "preferences_prices_ways_contribute_title": "贡献方式",
+  "preferences_prices_ways_contribute_title": "貢獻方式",
   "@preferences_prices_ways_contribute_title": {
     "description": "Title for ways to contribute card"
   },
-  "preferences_prices_validation_assistant_subtitle": "在人工智能的帮助下确认自己或他人添加的价格",
+  "preferences_prices_validation_assistant_subtitle": "在人工智慧的幫助下確認自己或他人添加的價格",
   "@preferences_prices_validation_assistant_subtitle": {
     "description": "Subtitle for validation assistant tile"
   },
-  "preferences_prices_multiple_proof_subtitle": "从相机胶卷中快速添加多张收据或货架照片",
+  "preferences_prices_multiple_proof_subtitle": "從相機膠卷中快速添加多張收據或貨架照片",
   "@preferences_prices_multiple_proof_subtitle": {
     "description": "Subtitle for multiple proof addition tile"
   },
-  "preferences_prices_challenges_title": "每月挑战",
+  "preferences_prices_challenges_title": "每月挑戰",
   "@preferences_prices_challenges_title": {
     "description": "Title for monthly challenges tile"
   },
-  "preferences_prices_challenges_subtitle": "参与每月主题任务收集价格",
+  "preferences_prices_challenges_subtitle": "參與每月主題任務收集價格",
   "@preferences_prices_challenges_subtitle": {
     "description": "Subtitle for monthly challenges tile"
   },
-  "preferences_prices_loyalty_data_title": "恢复您的忠诚度数据",
+  "preferences_prices_loyalty_data_title": "恢復您的忠誠度數據",
   "@preferences_prices_loyalty_data_title": {
     "description": "Title for loyalty data card"
   },
-  "preferences_prices_gdpr_subtitle": "了解如何请求您的数据",
+  "preferences_prices_gdpr_subtitle": "了解如何請求您的數據",
   "@preferences_prices_gdpr_subtitle": {
     "description": "Subtitle for GDPR tile"
   },
-  "preferences_page_customize_app_title": "自定义应用程序",
+  "preferences_page_customize_app_title": "自訂應用程式",
   "@preferences_page_customize_app_title": {
     "description": "Title for the customize app card on preferences page"
   },
-  "preferences_page_contribute_project_title": "为项目做出贡献",
+  "preferences_page_contribute_project_title": "為專案做出貢獻",
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "帮助开放食品事实的简单方法",
+  "preferences_page_contribute_project_subtitle": "幫助Open Food Facts的簡單方法",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
-  "preferences_page_faq_subtitle": "评分方法、帮助以及有关项目的更多信息",
+  "preferences_page_faq_subtitle": "評分方法、幫助以及有關項目的更多信息",
   "@preferences_page_faq_subtitle": {
     "description": "Subtitle for the FAQ navigation tile on preferences page"
   },
-  "product_edit_robotoff_positive_button": "接受建议",
+  "product_edit_robotoff_positive_button": "接受建議",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_negative_button": "拒绝建议",
+  "product_edit_robotoff_negative_button": "拒絕建議",
   "@product_edit_robotoff_negative_button": {
     "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_show_proof": "出示证明",
+  "product_edit_robotoff_show_proof": "出示證明",
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "扩大证明",
+  "product_edit_robotoff_expand_proof": "擴大證明",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
-  "product_page_tab_raw_data": "原始数据",
+  "product_page_tab_raw_data": "原始數據",
   "@product_page_tab_raw_data": {
     "description": "Label of the raw data tab on the product page"
   },
-  "page_indicator_with_total": "页面 {current} / {total}",
+  "page_indicator_with_total": "頁 {current} / {total}",
   "@page_indicator_with_total": {
     "description": "Page indicator showing current page and total pages",
     "placeholders": {
@@ -5156,7 +5414,7 @@
       }
     }
   },
-  "page_indicator": "页面 {current}",
+  "page_indicator": "頁 {current}",
   "@page_indicator": {
     "description": "Page indicator showing only current page when total is unknown",
     "placeholders": {
@@ -5166,7 +5424,7 @@
       }
     }
   },
-  "item_count_with_total": "{count} 项中的 {total} 项",
+  "item_count_with_total": "{count} 項中的 {total} 項",
   "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
@@ -5176,6 +5434,20 @@
       },
       "total": {
         "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count_with_total_string": "{count} 項中的 {total} 項",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
         "description": "Total number of items available"
       }
     }
@@ -5190,19 +5462,29 @@
       }
     }
   },
-  "prices_no_result": "未找到价格统计数据。",
+  "item_count_string": "{count} 件",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "prices_no_result": "未找到價格統計。",
   "@prices_no_result": {
     "description": "Message shown when there are no price statistics available to display"
   },
-  "prices_error_loading_more_items": "加载更多项目时出错",
+  "prices_error_loading_more_items": "加載更多項目時出錯",
   "@prices_error_loading_more_items": {
     "description": "Error message shown when additional items fail to load"
   },
-  "prices_proof_error": "身份验证失败，无法获取证明",
+  "prices_proof_error": "身份驗證失敗，無法取得證明",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
-  "proofs_count_with_total": "{count} of {total} proofs",
+  "proofs_count_with_total": "{count} 的 {total} 證明",
   "@proofs_count_with_total": {
     "description": "Number of proofs",
     "placeholders": {
@@ -5226,7 +5508,7 @@
       }
     }
   },
-  "contributors_count_with_total": "{count} of {total} contributors",
+  "contributors_count_with_total": "{count} 的 {total} 位貢獻者",
   "@contributors_count_with_total": {
     "description": "Number of contributors",
     "placeholders": {
@@ -5250,7 +5532,7 @@
       }
     }
   },
-  "prices_locations_count_with_total": "{count} of {total} locations",
+  "prices_locations_count_with_total": "{count} 個位置中的 {total} 個位置",
   "@prices_locations_count_with_total": {
     "description": "Number of locations",
     "placeholders": {
@@ -5264,7 +5546,7 @@
       }
     }
   },
-  "prices_locations_count": "{count} locations",
+  "prices_locations_count": "{count} 位置",
   "@prices_locations_count": {
     "description": "Number of locations (when we don't know the total)",
     "placeholders": {
@@ -5274,15 +5556,15 @@
       }
     }
   },
-  "restart_to_apply_message": "请重新启动应用程序以应用更改。",
+  "restart_to_apply_message": "請重新啟動應用程式以應用變更。",
   "@restart_to_apply_message": {
     "description": "Message to restart the app to apply changes, used in the preferences screen"
   },
-  "preferences_app_settings_graphical_interface_title": "图形界面",
+  "preferences_app_settings_graphical_interface_title": "圖形介面",
   "@preferences_app_settings_graphical_interface_title": {
     "description": "Title for the graphical interface preferences card in app settings"
   },
-  "preferences_app_settings_media_title": "媒体",
+  "preferences_app_settings_media_title": "媒體",
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
@@ -5290,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "开放食品事实实验室",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts實驗室",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5298,17 +5580,17 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "将 Open Food Facts 引入您的语言",
+  "preferences_contribute_translate_header": "將 Open Food Facts 引入您的語言",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "preferences_contribute_enroll_alpha": "注册该应用程序的 alpha 版本",
+  "preferences_contribute_enroll_alpha": "註冊該應用程式的 alpha 版本",
   "@preferences_contribute_enroll_alpha": {},
-  "preferences_dev_mode_section_data": "贡献和产品数据",
+  "preferences_dev_mode_section_data": "貢獻和產品數據",
   "@preferences_dev_mode_section_data": {
     "description": "Title for the contributions and product data preferences card in dev mode"
   },
-  "preferences_dev_preferences_show_folksonomy_title": "不显示大众分类法",
+  "preferences_dev_preferences_show_folksonomy_title": "不顯示大眾分類法",
   "@preferences_dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
@@ -5316,7 +5598,7 @@
   "@preferences_account_title": {
     "description": "Title for the account preferences root"
   },
-  "prices_adding_timestamp_tooltip": "Added on {created}",
+  "prices_adding_timestamp_tooltip": "加入於 {created}",
   "@prices_adding_timestamp_tooltip": {
     "description": "Tooltip to show the timestamp on which price was added",
     "placeholders": {
@@ -5324,5 +5606,13 @@
         "type": "String"
       }
     }
-  }
+  },
+  "location_map_details_title": "Location details",
+  "location_map_details_name": "名称",
+  "location_map_details_street": "Street",
+  "location_map_details_city": "City",
+  "location_map_details_postcode": "Postcode",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_osm_id": "OSM ID"
 }

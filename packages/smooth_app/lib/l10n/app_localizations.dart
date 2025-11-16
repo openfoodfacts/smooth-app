@@ -344,6 +344,7 @@ abstract class AppLocalizations {
     Locale('yi'),
     Locale('yo'),
     Locale('zh'),
+    Locale('zh', 'CN'),
     Locale('zu'),
   ];
 
@@ -560,7 +561,7 @@ abstract class AppLocalizations {
   /// Label for product page regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_may_not;
 
   /// Label for product page regarding product compatibility with the user preferences: does not match
@@ -596,7 +597,7 @@ abstract class AppLocalizations {
   /// Short label for product list view regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_short_may_not;
 
   /// Short label for product list view regarding product compatibility with the user preferences: does not match
@@ -760,6 +761,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot password'**
   String get forgot_password;
+
+  /// No description provided for @forgot_password_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgot_password_question;
 
   /// Button label: For to show your account
   ///
@@ -1475,11 +1482,35 @@ abstract class AppLocalizations {
   /// **'Search'**
   String get search;
 
+  /// Help text of a search text input field. Please respect the line break.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a product,\na brand or a barcode'**
+  String get search_product_help;
+
+  /// Title of the OxF selector.
+  ///
+  /// In en, this message translates to:
+  /// **'Search filter'**
+  String get search_filter;
+
+  /// No description provided for @search_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Search history'**
+  String get search_history;
+
   /// Hint text of a search store text input field
   ///
   /// In en, this message translates to:
   /// **'Search for a store'**
   String get search_store;
+
+  /// Help text of a search store text input field. Please inject a line break if suitable.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint: add the city or the country'**
+  String get search_store_help;
 
   /// No description provided for @tap_for_more.
   ///
@@ -2584,6 +2615,18 @@ abstract class AppLocalizations {
   /// **'No product properties found. Properties can be used to describe products in more details, in a flexible way.'**
   String get no_product_tags_found_message;
 
+  /// No description provided for @product_tags_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties'**
+  String get product_tags_empty;
+
+  /// No description provided for @product_tags_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'By adding properties (key/value) to a product, you help enrich it.'**
+  String get product_tags_explanation;
+
   /// No description provided for @add_tag.
   ///
   /// In en, this message translates to:
@@ -2620,6 +2663,12 @@ abstract class AppLocalizations {
   /// **'Property'**
   String get tag_key;
 
+  /// No description provided for @tag_keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Properties'**
+  String get tag_keys;
+
   /// No description provided for @tag_key_uneditable.
   ///
   /// In en, this message translates to:
@@ -2637,6 +2686,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Value'**
   String get tag_value;
+
+  /// No description provided for @tag_values.
+  ///
+  /// In en, this message translates to:
+  /// **'Values'**
+  String get tag_values;
 
   /// No description provided for @tag_value_input_hint.
   ///
@@ -3143,6 +3198,12 @@ abstract class AppLocalizations {
   /// **'Loading your first example product'**
   String get onboarding_welcome_loading_dialog_title;
 
+  /// Warning message displayed in the rare cases when the users try to edit the onboarding example product
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, it\'s our example product, you cannot edit it :)'**
+  String get onboarding_welcome_warning;
+
   /// Your ranking screen title
   ///
   /// In en, this message translates to:
@@ -3178,6 +3239,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete'**
   String product_list_reloading_success_multiple(num count);
+
+  /// No description provided for @product_list_compare_side_by_side.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare side by side'**
+  String get product_list_compare_side_by_side;
 
   /// Default loading dialog title
   ///
@@ -4817,6 +4884,18 @@ abstract class AppLocalizations {
   /// **'Add a\nnew price'**
   String get prices_list_add_new_price;
 
+  /// No description provided for @prices_list_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No price yet!'**
+  String get prices_list_empty_title;
+
+  /// No description provided for @prices_list_empty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add one:\nBy scanning a **receipt** or a **price tag**!'**
+  String get prices_list_empty_subtitle;
+
   /// No description provided for @prices_entry_shop_not_found.
   ///
   /// In en, this message translates to:
@@ -4912,11 +4991,35 @@ abstract class AppLocalizations {
   /// **'Latest {pageSize} proofs (total: {total})'**
   String prices_proofs_list_length_many_pages(int pageSize, int total);
 
+  /// No description provided for @prices_users_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No contributor yet!'**
+  String get prices_users_empty_title;
+
+  /// No description provided for @prices_users_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add a price!'**
+  String get prices_users_empty_explanation;
+
   /// Number of users for one-page result
   ///
   /// In en, this message translates to:
   /// **'Top {pageSize} contributors (total: {total})'**
   String prices_users_list_length_many_pages(int pageSize, int total);
+
+  /// No description provided for @prices_locations_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No shop yet!'**
+  String get prices_locations_empty_title;
+
+  /// No description provided for @prices_locations_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to add a price!'**
+  String get prices_locations_empty_explanation;
 
   /// Number of locations for one-page result
   ///
@@ -5044,11 +5147,29 @@ abstract class AppLocalizations {
   /// **'Proof'**
   String get prices_proof_subtitle;
 
+  /// No description provided for @prices_proof_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No proof yet!'**
+  String get prices_proof_empty_title;
+
+  /// No description provided for @prices_proof_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Start by adding a photo of a **receipt** or a **price tag**!'**
+  String get prices_proof_empty_explanation;
+
   /// No description provided for @prices_proof_find.
   ///
   /// In en, this message translates to:
   /// **'Select a proof'**
   String get prices_proof_find;
+
+  /// No description provided for @prices_proof_change.
+  ///
+  /// In en, this message translates to:
+  /// **'Change proof'**
+  String get prices_proof_change;
 
   /// No description provided for @prices_proof_receipt.
   ///
@@ -5149,6 +5270,12 @@ abstract class AppLocalizations {
   /// **'No, keep {currency}'**
   String prices_currency_change_proposal_action_cancel(String currency);
 
+  /// Menu item to open the Open Prices guide
+  ///
+  /// In en, this message translates to:
+  /// **'Know more about Open Prices'**
+  String get prices_menu_know_more;
+
   /// User dev preferences - Import history - Result successful
   ///
   /// In en, this message translates to:
@@ -5203,11 +5330,35 @@ abstract class AppLocalizations {
   /// **'(Ingredients and packaging)'**
   String get dev_mode_spellchecker_for_ocr_subtitle;
 
+  /// User dev preferences - Reset app language - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Reset app language'**
+  String get dev_mode_reset_app_language_title;
+
+  /// User dev preferences - Add cards - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Add cards'**
+  String get dev_mode_add_demo_cards_language_title;
+
+  /// User dev preferences - Switch server environment (Open Prices) - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Switch between prices.openfoodfacts.org (PROD) and test env'**
+  String get dev_mode_openprices_switch_env_title;
+
   /// A tooltip to explain the Pen button near a search term -> it allows to reuse the item
   ///
   /// In en, this message translates to:
   /// **'Reuse and edit this search'**
   String get search_history_item_edit_tooltip;
+
+  /// A tooltip to explain the Remove button near a search term
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get search_history_item_remove_tooltip;
 
   /// Product search list - No more results available
   ///
@@ -5272,6 +5423,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My proof'**
   String get user_search_proof_title;
+
+  /// Proof viewer: page title (when not the user proof)
+  ///
+  /// In en, this message translates to:
+  /// **'Proof from \"{user}\"'**
+  String search_proof_title(String user);
 
   /// User prices (everybody except me): list tile title
   ///
@@ -6018,18 +6175,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep the ingredients panel expanded'**
   String get expand_ingredients_body;
-
-  /// No description provided for @search_product_filter_visibility_title.
-  ///
-  /// In en, this message translates to:
-  /// **'Show a filter in the search'**
-  String get search_product_filter_visibility_title;
-
-  /// Label for showing the product type filter in the search bar
-  ///
-  /// In en, this message translates to:
-  /// **'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts'**
-  String get search_product_filter_visibility_subtitle;
 
   /// Message when there is no internet connection
   ///
@@ -7474,7 +7619,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_intro.
   ///
   /// In en, this message translates to:
-  /// **'To reward better products within a category, we then apply bonuses & penalties based on several criterion:'**
+  /// **'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:'**
   String get guide_greenscore_bonuses_penalties_intro;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg1_title.
@@ -7486,7 +7631,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'A bonus is awarded to products that have an official label, a label or a certification that guarantees environmental benefits (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).'**
+  /// **'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).'**
   String get guide_greenscore_bonuses_penalties_arg1_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg2_title.
@@ -7498,7 +7643,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'A bonus is awarded based on the origin of the ingredients. This bonus takes into account the impact on transportation and also the environmental policy of each producer\'s country.'**
+  /// **'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.'**
   String get guide_greenscore_bonuses_penalties_arg2_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg3_title.
@@ -7510,7 +7655,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'A penalty is given to products that contain ingredients that have significant negative impacts on biodiversity and ecosystems, such as palm oil, the production of which is responsible for massive deforestation.'**
+  /// **'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.'**
   String get guide_greenscore_bonuses_penalties_arg3_text;
 
   /// No description provided for @guide_greenscore_bonuses_penalties_arg4_title.
@@ -7522,7 +7667,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_bonuses_penalties_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'A penalty is calculated to take into account the circularity of packaging (use of recycled raw material and recyclability) and overpacking.'**
+  /// **'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.'**
   String get guide_greenscore_bonuses_penalties_arg4_text;
 
   /// No description provided for @guide_greenscore_transparency_title.
@@ -7534,25 +7679,25 @@ abstract class AppLocalizations {
   /// No description provided for @guide_greenscore_transparency_intro1.
   ///
   /// In en, this message translates to:
-  /// **'To accurately calculate the Green-Score, it is necessary to have information which is not necessarily specified on the packaging (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).'**
+  /// **'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).'**
   String get guide_greenscore_transparency_intro1;
 
   /// No description provided for @guide_greenscore_transparency_intro2.
   ///
   /// In en, this message translates to:
-  /// **'Average values are used when this information is not yet available, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.'**
+  /// **'**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.'**
   String get guide_greenscore_transparency_intro2;
 
   /// No description provided for @guide_greenscore_transparency_arg1_title.
   ///
   /// In en, this message translates to:
-  /// **'How citizens can help'**
+  /// **'How citizens can help?'**
   String get guide_greenscore_transparency_arg1_title;
 
   /// No description provided for @guide_greenscore_transparency_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on packaging: Mission Emballages: a large-scale collaborative inventory of packaging for all food products (in French)'**
+  /// **'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).'**
   String get guide_greenscore_transparency_arg1_text;
 
   /// No description provided for @guide_greenscore_transparency_arg2_title.
@@ -7636,7 +7781,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'The NOVA groups inform you about the level of food processing.'**
+  /// **'The NOVA groups inform you about **the level of food processing**.'**
   String get guide_nova_what_is_nova_paragraph1;
 
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
@@ -7672,7 +7817,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'Unprocessed (or natural) foods are the edible parts of plants (seeds, fruits, leaves, stems, roots) or animals (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.'**
+  /// **'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.'**
   String get guide_nova_groups_arg1_text;
 
   /// No description provided for @guide_nova_groups_arg2_title.
@@ -7684,7 +7829,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'Processed culinary ingredients, such as oils, butter, sugar, and salt, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.'**
+  /// **'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.'**
   String get guide_nova_groups_arg2_text;
 
   /// No description provided for @guide_nova_groups_arg3_title.
@@ -7696,7 +7841,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1 foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.'**
+  /// **'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.'**
   String get guide_nova_groups_arg3_text;
 
   /// No description provided for @guide_nova_groups_arg4_title.
@@ -7708,7 +7853,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_groups_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.'**
+  /// **'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.'**
   String get guide_nova_groups_arg4_text;
 
   /// No description provided for @guide_nova_explanations_title.
@@ -7726,7 +7871,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'Many are derived from further processing of food constituents, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.'**
+  /// **'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.'**
   String get guide_nova_explanations_arg1_text;
 
   /// No description provided for @guide_nova_explanations_arg2_title.
@@ -7738,7 +7883,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
+  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
   String get guide_nova_explanations_arg2_text;
 
   /// No description provided for @guide_nova_explanations_arg3_title.
@@ -7750,7 +7895,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg3_text.
   ///
   /// In en, this message translates to:
-  /// **'A multitude of sequences of processes is used to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several with no domestic equivalents, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.'**
+  /// **'**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.'**
   String get guide_nova_explanations_arg3_text;
 
   /// No description provided for @guide_nova_explanations_arg4_title.
@@ -7762,8 +7907,686 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg4_text.
   ///
   /// In en, this message translates to:
-  /// **'The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.'**
+  /// **'**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.'**
   String get guide_nova_explanations_arg4_text;
+
+  /// No description provided for @guide_nova_explanations_arg5_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A health hazard'**
+  String get guide_nova_explanations_arg5_title;
+
+  /// No description provided for @guide_nova_explanations_arg5_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.'**
+  String get guide_nova_explanations_arg5_text;
+
+  /// No description provided for @guide_nova_explanations_arg6_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Countries recommend limiting them'**
+  String get guide_nova_explanations_arg6_title;
+
+  /// No description provided for @guide_nova_explanations_arg6_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.'**
+  String get guide_nova_explanations_arg6_text;
+
+  /// No description provided for @guide_nova_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://world.openfoodfacts.org/nova'**
+  String get guide_nova_share_link;
+
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Open Food Facts!'**
+  String get guide_open_food_facts_title;
+
+  /// No description provided for @guide_open_food_facts_what_is_open_food_facts_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is Open Food Facts?'**
+  String get guide_open_food_facts_what_is_open_food_facts_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.'**
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.'**
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2;
+
+  /// No description provided for @guide_open_food_facts_features_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Features of Open Food Facts'**
+  String get guide_open_food_facts_features_title;
+
+  /// No description provided for @guide_open_food_facts_features_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Get alerts for your unwanted ingredients'**
+  String get guide_open_food_facts_features_arg1_title;
+
+  /// No description provided for @guide_open_food_facts_tips_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips for taking great photos'**
+  String get guide_open_food_facts_tips_title;
+
+  /// No description provided for @guide_open_food_facts_tips_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’ts'**
+  String get guide_open_food_facts_tips_arg1_title;
+
+  /// No description provided for @guide_open_food_facts_tips_arg1_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid shadows and glare.'**
+  String get guide_open_food_facts_tips_arg1_text1;
+
+  /// No description provided for @guide_open_food_facts_tips_arg1_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'No blurry or out-of-focus text.'**
+  String get guide_open_food_facts_tips_arg1_text2;
+
+  /// No description provided for @guide_open_food_facts_tips_arg1_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t crop out parts of the text.'**
+  String get guide_open_food_facts_tips_arg1_text3;
+
+  /// No description provided for @guide_open_food_facts_tips_arg1_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid busy backgrounds.'**
+  String get guide_open_food_facts_tips_arg1_text4;
+
+  /// No description provided for @guide_open_food_facts_tips_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Do’s'**
+  String get guide_open_food_facts_tips_arg2_title;
+
+  /// No description provided for @guide_open_food_facts_tips_arg2_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Use good, even lighting.'**
+  String get guide_open_food_facts_tips_arg2_text1;
+
+  /// No description provided for @guide_open_food_facts_tips_arg2_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'Ensure text is sharp and readable.'**
+  String get guide_open_food_facts_tips_arg2_text2;
+
+  /// No description provided for @guide_open_food_facts_tips_arg2_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture the entire ingredients list.'**
+  String get guide_open_food_facts_tips_arg2_text3;
+
+  /// No description provided for @guide_open_food_facts_tips_arg2_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the product on a flat surface.'**
+  String get guide_open_food_facts_tips_arg2_text4;
+
+  /// No description provided for @guide_open_food_facts_scores_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us build the \"Wikipedia of Food\"'**
+  String get guide_open_food_facts_scores_title;
+
+  /// No description provided for @guide_open_food_facts_scores_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A score on the nutritional quality'**
+  String get guide_open_food_facts_scores_arg1_title;
+
+  /// No description provided for @guide_open_food_facts_scores_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A score to avoid ultra-processed foods'**
+  String get guide_open_food_facts_scores_arg2_title;
+
+  /// No description provided for @guide_open_food_facts_scores_arg3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A score for the planet'**
+  String get guide_open_food_facts_scores_arg3_title;
+
+  /// No description provided for @guide_open_food_facts_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://world-en.openfoodfacts.org/discover'**
+  String get guide_open_food_facts_share_link;
+
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Open Pet Food Facts!'**
+  String get guide_open_pet_food_facts_title;
+
+  /// No description provided for @guide_open_pet_food_facts_what_is_open_pet_food_facts_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is Open Pet Food Facts?'**
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.'**
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.'**
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2;
+
+  /// No description provided for @guide_open_pet_food_facts_features_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Features of Open Pet Food Facts'**
+  String get guide_open_pet_food_facts_features_title;
+
+  /// No description provided for @guide_open_pet_food_facts_features_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Get alerts for your unwanted ingredients'**
+  String get guide_open_pet_food_facts_features_arg1_title;
+
+  /// No description provided for @guide_open_pet_food_facts_features_arg1_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!'**
+  String get guide_open_pet_food_facts_features_arg1_paragraph1;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips for taking great photos'**
+  String get guide_open_pet_food_facts_tips_title;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’ts'**
+  String get guide_open_pet_food_facts_tips_arg1_title;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg1_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid shadows and glare.'**
+  String get guide_open_pet_food_facts_tips_arg1_text1;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg1_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'No blurry or out-of-focus text.'**
+  String get guide_open_pet_food_facts_tips_arg1_text2;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg1_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t crop out parts of the text.'**
+  String get guide_open_pet_food_facts_tips_arg1_text3;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg1_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid busy backgrounds.'**
+  String get guide_open_pet_food_facts_tips_arg1_text4;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Do’s'**
+  String get guide_open_pet_food_facts_tips_arg2_title;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg2_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Use good, even lighting.'**
+  String get guide_open_pet_food_facts_tips_arg2_text1;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg2_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'Ensure text is sharp and readable.'**
+  String get guide_open_pet_food_facts_tips_arg2_text2;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg2_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture the entire ingredients list.'**
+  String get guide_open_pet_food_facts_tips_arg2_text3;
+
+  /// No description provided for @guide_open_pet_food_facts_tips_arg2_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the product on a flat surface.'**
+  String get guide_open_pet_food_facts_tips_arg2_text4;
+
+  /// No description provided for @guide_open_pet_food_facts_scores_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A note on scoring'**
+  String get guide_open_pet_food_facts_scores_title;
+
+  /// No description provided for @guide_open_pet_food_facts_scores_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.'**
+  String get guide_open_pet_food_facts_scores_paragraph1;
+
+  /// No description provided for @guide_open_pet_food_facts_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://world-en.openpetfoodfacts.org/discover'**
+  String get guide_open_pet_food_facts_share_link;
+
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Open Beauty Facts!'**
+  String get guide_open_beauty_facts_title;
+
+  /// No description provided for @guide_open_beauty_facts_what_is_open_beauty_facts_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is Open Beauty Facts?'**
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Beauty Facts is a collaborative database of **cosmetic products**.'**
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.'**
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2;
+
+  /// No description provided for @guide_open_beauty_facts_features_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Features of Open Beauty Facts'**
+  String get guide_open_beauty_facts_features_title;
+
+  /// No description provided for @guide_open_beauty_facts_features_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Get alerts for your unwanted ingredients'**
+  String get guide_open_beauty_facts_features_arg1_title;
+
+  /// No description provided for @guide_open_beauty_facts_features_arg1_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!'**
+  String get guide_open_beauty_facts_features_arg1_paragraph1;
+
+  /// No description provided for @guide_open_beauty_facts_tips_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips for taking great photos'**
+  String get guide_open_beauty_facts_tips_title;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’ts'**
+  String get guide_open_beauty_facts_tips_arg1_title;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg1_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid shadows and glare.'**
+  String get guide_open_beauty_facts_tips_arg1_text1;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg1_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'No blurry or out-of-focus text.'**
+  String get guide_open_beauty_facts_tips_arg1_text2;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg1_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t crop out parts of the text.'**
+  String get guide_open_beauty_facts_tips_arg1_text3;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg1_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid busy backgrounds.'**
+  String get guide_open_beauty_facts_tips_arg1_text4;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Do’s'**
+  String get guide_open_beauty_facts_tips_arg2_title;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Use good, even lighting.'**
+  String get guide_open_beauty_facts_tips_arg2_text1;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text2.
+  ///
+  /// In en, this message translates to:
+  /// **'Ensure text is sharp and readable.'**
+  String get guide_open_beauty_facts_tips_arg2_text2;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture the entire ingredients list.'**
+  String get guide_open_beauty_facts_tips_arg2_text3;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Take as many picture as need if the bottle is curved.'**
+  String get guide_open_beauty_facts_tips_arg2_text4;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text5.
+  ///
+  /// In en, this message translates to:
+  /// **'You might need to peel the label to see the list of ingredients.'**
+  String get guide_open_beauty_facts_tips_arg2_text5;
+
+  /// No description provided for @guide_open_beauty_facts_tips_arg2_text6.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the product on a flat surface.'**
+  String get guide_open_beauty_facts_tips_arg2_text6;
+
+  /// No description provided for @guide_open_beauty_facts_scores_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A note on scoring'**
+  String get guide_open_beauty_facts_scores_title;
+
+  /// No description provided for @guide_open_beauty_facts_scores_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.'**
+  String get guide_open_beauty_facts_scores_paragraph1;
+
+  /// No description provided for @guide_open_beauty_facts_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://world-en.openbeautyfacts.org/discover'**
+  String get guide_open_beauty_facts_share_link;
+
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Open Prices!'**
+  String get guide_open_prices_title;
+
+  /// No description provided for @guide_open_prices_what_is_open_prices_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is Open Prices?'**
+  String get guide_open_prices_what_is_open_prices_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.'**
+  String get guide_open_prices_what_is_open_prices_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.'**
+  String get guide_open_prices_what_is_open_prices_paragraph2;
+
+  /// No description provided for @guide_open_prices_how_title.
+  ///
+  /// In en, this message translates to:
+  /// **'How does Open Prices work?'**
+  String get guide_open_prices_how_title;
+
+  /// No description provided for @guide_open_prices_how_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.'**
+  String get guide_open_prices_how_paragraph1;
+
+  /// No description provided for @guide_open_prices_how_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Collect photos of price tags in aisles'**
+  String get guide_open_prices_how_arg1_title;
+
+  /// No description provided for @guide_open_prices_how_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Collect photos of receipts'**
+  String get guide_open_prices_how_arg2_title;
+
+  /// No description provided for @guide_open_prices_why_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Why is Open Food Facts doing this ?'**
+  String get guide_open_prices_why_title;
+
+  /// No description provided for @guide_open_prices_why_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.'**
+  String get guide_open_prices_why_paragraph1;
+
+  /// No description provided for @guide_open_prices_why_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Track the evolution of prices over time'**
+  String get guide_open_prices_why_arg1_title;
+
+  /// No description provided for @guide_open_prices_why_arg1_text.
+  ///
+  /// In en, this message translates to:
+  /// **'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!'**
+  String get guide_open_prices_why_arg1_text;
+
+  /// No description provided for @guide_open_prices_why_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare prices near you'**
+  String get guide_open_prices_why_arg2_title;
+
+  /// No description provided for @guide_open_prices_why_arg2_text.
+  ///
+  /// In en, this message translates to:
+  /// **'As we get more prices, you can spot **the cheapest stores around you**.'**
+  String get guide_open_prices_why_arg2_text;
+
+  /// No description provided for @guide_open_prices_scrapping_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Did you consider scraping prices from retailers\' websites?'**
+  String get guide_open_prices_scrapping_title;
+
+  /// No description provided for @guide_open_prices_scrapping_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.'**
+  String get guide_open_prices_scrapping_paragraph1;
+
+  /// No description provided for @guide_open_prices_scrapping_paragraph2.
+  ///
+  /// In en, this message translates to:
+  /// **'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.'**
+  String get guide_open_prices_scrapping_paragraph2;
+
+  /// No description provided for @guide_open_prices_retailers_title.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m a retailer and I want to contribute prices. How can I do that?'**
+  String get guide_open_prices_retailers_title;
+
+  /// No description provided for @guide_open_prices_retailers_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.'**
+  String get guide_open_prices_retailers_paragraph1;
+
+  /// No description provided for @guide_open_prices_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://prices.openfoodfacts.org/about'**
+  String get guide_open_prices_share_link;
+
+  /// The title of the guide (please don't forget the use of non-breaking spaces)
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Open Products Facts!'**
+  String get guide_open_products_facts_title;
+
+  /// No description provided for @guide_open_products_facts_what_is_open_products_facts_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What is Open Products Facts?'**
+  String get guide_open_products_facts_what_is_open_products_facts_title;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.'**
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1;
+
+  /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
+  ///
+  /// In en, this message translates to:
+  /// **'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.'**
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2;
+
+  /// No description provided for @guide_open_products_facts_features_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Features of Open Products Facts'**
+  String get guide_open_products_facts_features_title;
+
+  /// No description provided for @guide_open_products_facts_features_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.'**
+  String get guide_open_products_facts_features_text;
+
+  /// No description provided for @guide_open_products_facts_features_arg1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Carbon footprints for some products'**
+  String get guide_open_products_facts_features_arg1_title;
+
+  /// No description provided for @guide_open_products_facts_features_arg1_text.
+  ///
+  /// In en, this message translates to:
+  /// **'**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.'**
+  String get guide_open_products_facts_features_arg1_text;
+
+  /// No description provided for @guide_open_products_facts_features_arg2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reparability index for many products'**
+  String get guide_open_products_facts_features_arg2_title;
+
+  /// No description provided for @guide_open_products_facts_features_arg2_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.'**
+  String get guide_open_products_facts_features_arg2_text;
+
+  /// No description provided for @guide_open_products_facts_features_arg3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Find ways to donate/resell your product'**
+  String get guide_open_products_facts_features_arg3_title;
+
+  /// No description provided for @guide_open_products_facts_features_arg3_text.
+  ///
+  /// In en, this message translates to:
+  /// **'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.'**
+  String get guide_open_products_facts_features_arg3_text;
+
+  /// No description provided for @guide_open_products_facts_information_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What information is useful?'**
+  String get guide_open_products_facts_information_title;
+
+  /// No description provided for @guide_open_products_facts_information_text.
+  ///
+  /// In en, this message translates to:
+  /// **'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.'**
+  String get guide_open_products_facts_information_text;
+
+  /// No description provided for @guide_open_products_facts_folksonomy_title.
+  ///
+  /// In en, this message translates to:
+  /// **'The Folksonomy Engine'**
+  String get guide_open_products_facts_folksonomy_title;
+
+  /// No description provided for @guide_open_products_facts_folksonomy_paragraph1.
+  ///
+  /// In en, this message translates to:
+  /// **'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.'**
+  String get guide_open_products_facts_folksonomy_paragraph1;
+
+  /// No description provided for @guide_open_products_facts_folksonomy_paragraph2.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**'**
+  String get guide_open_products_facts_folksonomy_paragraph2;
+
+  /// No description provided for @guide_open_products_facts_folksonomy_paragraph3.
+  ///
+  /// In en, this message translates to:
+  /// **'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.'**
+  String get guide_open_products_facts_folksonomy_paragraph3;
+
+  /// No description provided for @guide_open_products_facts_share_link.
+  ///
+  /// In en, this message translates to:
+  /// **'https://world-en.openproductsfacts.org/discover'**
+  String get guide_open_products_facts_share_link;
+
+  /// No description provided for @guide_open_preferences_button_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Open food preferences'**
+  String get guide_open_preferences_button_title;
+
+  /// No description provided for @guide_coming_soon_button_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get guide_coming_soon_button_title;
+
+  /// No description provided for @guide_learn_more_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to learn more'**
+  String get guide_learn_more_subtitle;
 
   /// Badge to indicate that the product is in preview mode (Be careful with this translation)
   ///
@@ -8305,11 +9128,71 @@ abstract class AppLocalizations {
   /// **'Prices'**
   String get product_page_tab_prices;
 
+  /// No description provided for @prices_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Why prices?'**
+  String get prices_explanation_card_title;
+
+  /// No description provided for @prices_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.'**
+  String get prices_explanation_card_line1;
+
+  /// No description provided for @explanation_card_learn_more_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more'**
+  String get explanation_card_learn_more_button;
+
   /// Label of the folksonomy tab on the product page
   ///
   /// In en, this message translates to:
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
+
+  /// No description provided for @folksonomy_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are Folksonomy attributes?'**
+  String get folksonomy_explanation_card_title;
+
+  /// No description provided for @folksonomy_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'Attributes are **key-value** based.'**
+  String get folksonomy_explanation_card_line1;
+
+  /// No description provided for @folksonomy_explanation_card_line2.
+  ///
+  /// In en, this message translates to:
+  /// **'These properties are created and filed by contributors for any kind of usages.'**
+  String get folksonomy_explanation_card_line2;
+
+  /// Label of the 'open external link' action on a folksonomy entry
+  ///
+  /// In en, this message translates to:
+  /// **'Open external link'**
+  String get folksonomy_action_external_link_title;
+
+  /// Warning about the 'open external link' action on a folksonomy entry
+  ///
+  /// In en, this message translates to:
+  /// **'External links may be unsafe. Do you really want to visit it?'**
+  String get folksonomy_action_external_link_warning;
+
+  /// No description provided for @prices_products_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No price available'**
+  String get prices_products_empty_title;
+
+  /// No description provided for @prices_products_empty_explanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to contribute!'**
+  String get prices_products_empty_explanation;
 
   /// Number of products for one-page result
   ///
@@ -9007,6 +9890,12 @@ abstract class AppLocalizations {
   /// **'Folksonomy host'**
   String get preferences_dev_mode_folksonomy_host_title;
 
+  /// Subtitle for folksonomy host setting
+  ///
+  /// In en, this message translates to:
+  /// **'Host: {host}'**
+  String preferences_dev_mode_folksonomy_host_subtitle(String host);
+
   /// Title for accessibility experiments card
   ///
   /// In en, this message translates to:
@@ -9072,6 +9961,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discover Open Food Facts'**
   String get preferences_faq_discover_off_title;
+
+  /// Title for discover Open Beauty Facts tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Open Beauty Facts'**
+  String get preferences_faq_discover_obf_title;
+
+  /// Title for discover Open Pet Food Facts tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Open Pet Food Facts'**
+  String get preferences_faq_discover_opff_title;
+
+  /// Title for discover Open Prices tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Open Prices'**
+  String get preferences_faq_discover_op_title;
+
+  /// Title for discover Open Products Facts tile
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Open Products Facts'**
+  String get preferences_faq_discover_opf_title;
 
   /// Title for FAQ tile
   ///
@@ -9511,11 +10424,23 @@ abstract class AppLocalizations {
   /// **'{count} of {total} items'**
   String item_count_with_total(int count, int total);
 
+  /// Item count showing current number of items and total items
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} items'**
+  String item_count_with_total_string(String count, String total);
+
   /// Item count showing only current number of items when total is unknown
   ///
   /// In en, this message translates to:
   /// **'{count} items'**
   String item_count(int count);
+
+  /// Item count showing only current number of items when total is unknown
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String item_count_string(String count);
 
   /// Message shown when there are no price statistics available to display
   ///
@@ -9642,6 +10567,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Added on {created}'**
   String prices_adding_timestamp_tooltip(String created);
+
+  /// No description provided for @location_map_details_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Location details'**
+  String get location_map_details_title;
+
+  /// No description provided for @location_map_details_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get location_map_details_name;
+
+  /// No description provided for @location_map_details_street.
+  ///
+  /// In en, this message translates to:
+  /// **'Street'**
+  String get location_map_details_street;
+
+  /// No description provided for @location_map_details_city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get location_map_details_city;
+
+  /// No description provided for @location_map_details_postcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Postcode'**
+  String get location_map_details_postcode;
+
+  /// No description provided for @location_map_details_country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get location_map_details_country;
+
+  /// No description provided for @location_map_details_coordinates.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinates'**
+  String get location_map_details_coordinates;
+
+  /// No description provided for @location_map_details_osm_id.
+  ///
+  /// In en, this message translates to:
+  /// **'OSM ID'**
+  String get location_map_details_osm_id;
 }
 
 class _AppLocalizationsDelegate
@@ -9795,6 +10768,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case 'BR':
             return AppLocalizationsPtBr();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return AppLocalizationsZhCn();
         }
         break;
       }

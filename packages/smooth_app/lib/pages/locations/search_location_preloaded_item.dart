@@ -8,6 +8,9 @@ import 'package:smooth_app/pages/locations/favorite_location_helper.dart';
 import 'package:smooth_app/pages/locations/location_map_page.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Location search preloaded list item, for locations historically selected.
 class SearchLocationPreloadedItem extends SearchPreloadedItem {
@@ -24,16 +27,25 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
     final String? title = osmLocation.getTitle();
     final String? subtitle = osmLocation.getSubtitle();
     final Widget child = SmoothCard(
+      elevation: 4.0,
       child: ListTile(
         leading: Consumer<LocalDatabase>(
           builder: (BuildContext context, LocalDatabase localDatabase, _) {
+            final SmoothColorsThemeExtension theme = context
+                .extension<SmoothColorsThemeExtension>();
+
             final bool isFavorite = FavoriteLocationHelper().isFavorite(
               localDatabase,
               osmLocation,
             );
 
             return IconButton(
-              icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+              icon: isFavorite
+                  ? const icons.Heart.filled()
+                  : const icons.Heart.outline(),
+              style: IconButton.styleFrom(
+                foregroundColor: isFavorite ? theme.error : null,
+              ),
               onPressed: () async => FavoriteLocationHelper().setFavorite(
                 localDatabase,
                 osmLocation,
@@ -60,7 +72,7 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
                   LocationMapPage(osmLocation, popFirst: popFirst),
             ),
           ),
-          icon: const Icon(Icons.map),
+          icon: const icons.World.location(),
         ),
       ),
     );

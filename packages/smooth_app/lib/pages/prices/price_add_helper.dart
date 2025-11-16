@@ -9,7 +9,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
-import 'package:smooth_app/resources/app_icons.dart' as app_icons;
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -140,23 +140,39 @@ class PriceAddHelper {
               text: appLocalizations.prices_privacy_warning_main_message,
               textStyle: Theme.of(
                 context,
-              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
             ),
-            _buildBulletPoint(
-              appLocalizations.prices_privacy_warning_message_bullet_1,
-              context,
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: extension.warning.withValues(alpha: 0.1),
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                child: Column(
+                  spacing: LARGE_SPACE,
+                  children: <Widget>[
+                    _buildBulletPoint(
+                      appLocalizations.prices_privacy_warning_message_bullet_1,
+                      context,
+                    ),
+                    _buildBulletPoint(
+                      appLocalizations.prices_privacy_warning_message_bullet_2,
+                      context,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            const SizedBox(height: MEDIUM_SPACE),
-            _buildBulletPoint(
-              appLocalizations.prices_privacy_warning_message_bullet_2,
-              context,
-            ),
+
             const SizedBox(height: MEDIUM_SPACE),
             Text(
               appLocalizations.prices_privacy_warning_sub_message,
               style: Theme.of(
                 context,
-              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -164,28 +180,28 @@ class PriceAddHelper {
       labels: <String>[appLocalizations.i_accept, appLocalizations.i_refuse],
       values: <bool>[true, false],
       prefixIcons: <Widget>[
-        Icon(Icons.check_circle_rounded, color: extension.success),
-        Icon(Icons.cancel_rounded, color: extension.error),
+        icons.Check.circled(color: extension.success),
+        icons.Close.circled(color: extension.error),
       ],
       title: appLocalizations.prices_privacy_warning_title,
     );
   }
 
   Widget _buildBulletPoint(String text, BuildContext context) {
-    const double defaultIconSize = 7.0;
-    const double radius = 10.0;
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     return Row(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const SizedBox(width: MEDIUM_SPACE),
-        CircleAvatar(
-          radius: radius,
-          backgroundColor: extension.greyMedium,
-          child: const app_icons.Arrow.right(
+        Padding(
+          padding: const EdgeInsetsDirectional.only(top: 2.0),
+          child: icons.CircledArrow.right(
+            type: icons.CircledArrowType.normal,
+            circleColor: extension.warning,
             color: Colors.white,
-            size: defaultIconSize,
+            size: 20.0,
           ),
         ),
         const SizedBox(width: SMALL_SPACE),

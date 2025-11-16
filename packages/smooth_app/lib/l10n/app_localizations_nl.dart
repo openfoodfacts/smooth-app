@@ -9,7 +9,7 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get app_name => 'Open voedselfeiten';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -46,7 +46,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get continue_label => 'Doorgaan';
 
   @override
-  String get exit_label => 'Verlaten';
+  String get exit_label => 'Afsluiten';
 
   @override
   String get previous_label => 'Vorige';
@@ -79,7 +79,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get stop => 'Stop';
 
   @override
-  String get finish => 'Beëindigen';
+  String get finish => 'Voltooien';
 
   @override
   String get calculate => 'Berekenen';
@@ -97,7 +97,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get featureInProgress => 'We werken nog aan deze functie, wacht af';
 
   @override
-  String get label_web => 'Bekijk op het web';
+  String get label_web => 'Bekijk in een browser';
 
   @override
   String get learnMore => 'Meer informatie';
@@ -156,11 +156,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get productDataUtility =>
-      'Bekijk de voedselgegevens die relevant zijn voor uw voorkeuren.';
+      'Zie de voedselgegevens die relevant zijn voor uw voorkeuren.';
 
   @override
-  String get healthCardUtility =>
-      'Kies voedingsmiddelen die goed voor je zijn.';
+  String get healthCardUtility => 'Kies de producten die goed voor je zijn.';
 
   @override
   String get ecoCardUtility => 'Kies voedsel dat goed is voor de planeet.';
@@ -185,7 +184,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'We ondervinden momenteel vertragingen op onze servers en bieden hiervoor onze excuses aan. Probeer het later opnieuw.';
 
   @override
-  String get login => 'Log in';
+  String get login => 'Inloggen';
 
   @override
   String get login_result_type_server_unreachable => 'Netwerk niet bereikbaar';
@@ -196,7 +195,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get login_page_username_or_email =>
-      'Voer je gebruikersnaam of e-mailadres in';
+      'Voer gebruikersnaam of e-mailadres in';
 
   @override
   String get login_page_password_error_empty =>
@@ -228,10 +227,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get forgot_password => 'Wachtwoord vergeten?';
 
   @override
+  String get forgot_password_question => 'Wachtwoord vergeten?';
+
+  @override
   String get view_profile => 'Profiel bekijken';
 
   @override
-  String get reset_password => 'Paswoord resetten';
+  String get reset_password => 'Wachtwoord resetten';
 
   @override
   String get reset_password_explanation_text =>
@@ -242,7 +244,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reset_password_done =>
-      'Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap';
+      'Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap.';
 
   @override
   String get send_reset_password_mail => 'Wachtwoord wijzigen';
@@ -274,7 +276,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'E-mail is vereist';
+  String get sign_up_page_email_error_empty => 'E-mail is verplicht';
 
   @override
   String get sign_up_page_email_error_invalid => 'Ongeldig e-mailadres';
@@ -283,12 +285,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sign_up_page_username_hint => 'Gebruikersnaam: Openbaar zichtbaar';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'Voer aub. een gebruikersnaam in';
+  String get sign_up_page_username_error_empty => 'Voer een gebruikersnaam in';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Vul a. u. b. een geldige gebruikersnaam in';
+      'Vul a.u.b. een geldige gebruikersnaam in';
 
   @override
   String get sign_up_page_username_description =>
@@ -296,7 +297,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'De gebruikersnaam mag niet langer zijn dan $value tekens';
+    return 'Gebruikersnaam mag niet langer zijn dan $value tekens';
   }
 
   @override
@@ -311,11 +312,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Voer een geldig wachtwoord in (minimaal 6 tekens)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Wachtwoord bevestigen';
+  String get sign_up_page_confirm_password_hint => 'Bevestig wachtwoord';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Bevestig uw wachtwoord';
+      'Bevestig a.u.b. het nieuwe wachtwoord';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
@@ -362,7 +363,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sign_up_page_server_busy =>
-      'Het spijt ons zeer erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.';
+      'Het spijt ons heel erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.';
 
   @override
   String get settingsTitle => 'Instellingen';
@@ -386,7 +387,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get contributors_label => 'Ze bouwen de app';
 
   @override
-  String get contributors_dialog_title => 'Bijdragers';
+  String get contributors_dialog_title => 'Medewerkers';
 
   @override
   String contributors_dialog_entry_description(Object name) {
@@ -415,7 +416,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Wilt u toepassingslogboeken toevoegen aan uw e-mail?';
+      'Wilt u toepassingslogboeken als bijlage bij uw e-mail voegen?';
 
   @override
   String get termsOfUse => 'Gebruiksvoorwaarden';
@@ -471,7 +472,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'De database is het hart van het project. Je kan ons makkelijk en heel snel helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen: ';
 
   @override
-  String get contribute_translate_header => 'Vertaal';
+  String get contribute_translate_header => 'Vertalen';
 
   @override
   String get contribute_data_quality => 'Gegevenskwaliteit';
@@ -518,7 +519,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get contribute_to_get_rewards =>
-      'Word een speler voor voedseltransparantie';
+      'Word een deelnemer aan voedseltransparantie';
 
   @override
   String get question_sign_in_text =>
@@ -547,11 +548,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get join_us => 'Doe mee';
 
   @override
-  String get myPreferences_profile_title => 'Jouw profiel';
+  String get myPreferences_profile_title => 'Uw profiel';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Beheer je Open Food Facts-bijdragersaccount.';
+      'Beheer uw Open Food Facts-bijdragersaccount.';
 
   @override
   String get myPreferences_settings_title => 'App-instellingen';
@@ -568,7 +569,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get myPreferences_food_comment =>
-      'Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.';
+      'Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.';
 
   @override
   String get confirmResetPreferences => 'Voedselvoorkeuren resetten?';
@@ -577,7 +578,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get myPersonalizedRanking => 'Mijn persoonlijke ranglijst';
 
   @override
-  String get ranking_tab_all => 'Alle';
+  String get ranking_tab_all => 'Alles';
 
   @override
   String get ranking_subtitle_match_yes => 'Een geweldige overeenkomst voor u';
@@ -590,7 +591,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get refresh_with_new_preferences =>
-      'Vernieuw de lijst met uw nieuwe voorkeuren';
+      'Ververs de lijst met je nieuwe voorkeuren';
 
   @override
   String get reloaded_with_new_preferences =>
@@ -612,7 +613,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get category => 'Filter op categorie';
 
   @override
-  String get category_all => 'Alle';
+  String get category_all => 'Alles';
 
   @override
   String get category_search => '(categorie zoeken)';
@@ -630,7 +631,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get search => 'Zoeken';
 
   @override
+  String get search_product_help =>
+      'Zoek een product,\neen merk of een streepjescode';
+
+  @override
+  String get search_filter => 'Zoekfilter';
+
+  @override
+  String get search_history => 'Zoekgeschiedenis';
+
+  @override
   String get search_store => 'Zoeken naar een winkel';
+
+  @override
+  String get search_store_help => 'Tip: voeg de stad of het land toe';
 
   @override
   String get tap_for_more => 'Tik om meer info te zien…';
@@ -645,7 +659,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unknownProductName => 'Onbekende productnaam';
 
   @override
-  String get label_refresh => 'Herladen';
+  String get label_refresh => 'Vernieuw';
 
   @override
   String get label_reload => 'Herladen';
@@ -676,13 +690,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get ingredients_editing_image_error =>
-      'Kan geen afbeelding voor de nieuwe ingrediënten ophalen.';
+      'Kan geen afbeelding voor nieuwe ingrediënten ophalen.';
 
   @override
   String get ingredients_editing_title => 'Ingrediënten bewerken';
 
   @override
-  String get ingredients_photo => 'Foto van de ingrediëntenlijst';
+  String get ingredients_photo => 'Ingrediënten foto';
 
   @override
   String get packaging_editing_instructions =>
@@ -814,13 +828,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ingredients_photo_title => 'Foto van de ingrediëntenlijst';
 
   @override
-  String get nutritional_facts_photo_title => 'Foto van voedingswaarden';
+  String get nutritional_facts_photo_title => 'Foto van de voedingswaardetabel';
 
   @override
-  String get recycling_photo_title => 'Recycling afbeelding';
+  String get recycling_photo_title => 'Foto recycleren';
 
   @override
-  String get take_photo_title => 'Maak een foto';
+  String get take_photo_title => 'Neem een foto';
 
   @override
   String get take_more_photo_title => 'Maak meer foto\'s';
@@ -829,7 +843,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get front_photo_uploaded => 'Foto voorkant geüpload';
 
   @override
-  String get ingredients_photo_button_label => 'Foto van de ingrediëntenlijst';
+  String get ingredients_photo_button_label => 'Ingrediënten foto';
 
   @override
   String get ingredients_photo_uploaded => 'Foto van ingrediënten geüpload';
@@ -842,7 +856,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutritional_facts_photo_button_label => 'Foto van voedingswaarden';
 
   @override
-  String get nutritional_facts_input_button_label => 'Voer voedingswaarden in';
+  String get nutritional_facts_input_button_label => 'Vul voedingswaarden in';
 
   @override
   String get nutritional_facts_added => 'Voedingswaarden toegevoegd';
@@ -944,7 +958,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get uploading_image_type_front =>
-      'Voorste afbeelding uploaden naar Open Food Facts';
+      'Afbeelding van de voorkant uploaden naar Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
@@ -952,7 +966,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploaden van afbeelding van voedingswaarden naar Open Food Facts';
+      'Voedingswaardenafbeelding uploaden naar Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
@@ -1063,7 +1077,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Voer een portiegrootte in (bijv. 100g)';
+      'Voer een portiegrootte in (bijv. 100 g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
@@ -1143,7 +1157,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get not_found => 'niet gevonden:';
 
   @override
-  String get refreshing_product => 'Product herladen';
+  String get refreshing_product => 'Herladen product';
 
   @override
   String get product_refreshed => 'Product herladen';
@@ -1183,7 +1197,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_image_action_take_new_picture => 'Maak een nieuwe foto';
 
   @override
-  String get product_image_action_take_picture => 'Maak een foto';
+  String get product_image_action_take_picture => 'Neem een foto';
 
   @override
   String get product_image_action_from_gallery =>
@@ -1241,7 +1255,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get tagline_app_review_button_negative => 'Niet echt…';
 
   @override
-  String get tagline_app_review_button_later => 'Vraag me later nog eens';
+  String get tagline_app_review_button_later => 'Vraag het me later nog eens';
 
   @override
   String get tagline_feed_news_button => 'Meer weten';
@@ -1275,10 +1289,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get no_product_tags_found_message =>
-      'Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven. Tik om toe te voegen.';
+      'Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven.';
 
   @override
-  String get add_tag => 'Eigenschap toevoegen';
+  String get product_tags_empty => 'Geen eigenschappen';
+
+  @override
+  String get product_tags_explanation =>
+      'Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.';
+
+  @override
+  String get add_tag => 'Voeg een eigenschap toe';
 
   @override
   String get add_tags => 'Eigenschappen toevoegen';
@@ -1296,6 +1317,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get tag_key => 'Eigenschap';
 
   @override
+  String get tag_keys => 'Eigenschappen';
+
+  @override
   String get tag_key_uneditable => 'Eigenschap (niet te bewerken)';
 
   @override
@@ -1303,6 +1327,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get tag_value => 'Waarde';
+
+  @override
+  String get tag_values => 'Waarden';
 
   @override
   String get tag_value_input_hint => 'Voer een waarde in';
@@ -1333,7 +1360,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_search_same_category => 'Vind alternatieven';
 
   @override
-  String get product_search_same_category_short => 'Vergelijken';
+  String get product_search_same_category_short => 'Vergelijk';
 
   @override
   String get product_search_same_category_error =>
@@ -1357,14 +1384,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'De voedingsafbeelding is verouderd: vernieuw deze alstublieft.';
+      'De voedingsafbeelding is verouderd: ververs deze alstublieft.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
       'De Green Score houdt rekening met de herkomst van de ingrediënten. Maak een foto van de ingrediëntenlijst en/of een geografische claim of bewerk het product, zodat er rekening mee kan worden gehouden.';
 
   @override
-  String get country_chooser_label => 'Kies een land a.u.b.';
+  String get country_chooser_label => 'Kies een land a.u.b';
 
   @override
   String get currency_chooser_label => 'Kies een valuta';
@@ -1388,14 +1415,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get country_selection_explanation =>
-      'Sommige omgevingskenmerken zijn locatiespecifiek';
+      'Sommige milieukenmerken zijn locatie-specifiek';
 
   @override
   String get product_removed_comparison =>
       'Product verwijderd uit vergelijking';
 
   @override
-  String get native_app_settings => 'Native app-instellingen';
+  String get native_app_settings => 'Instellingen voor native applicaties';
 
   @override
   String get native_app_description =>
@@ -1495,7 +1522,7 @@ class AppLocalizationsNl extends AppLocalizations {
       count,
       locale: localeName,
       other: 'Vergelijk $count producten',
-      one: 'Compare one Product',
+      one: 'Vergelijk één product',
     );
     return '$_temp0';
   }
@@ -1525,7 +1552,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get select_none_products_mode => 'Niets selecteren';
 
   @override
-  String get compare_products_appbar_title => 'Producten vergelijken';
+  String get compare_products_appbar_title => 'Vergelijk Producten';
 
   @override
   String get compare_products_appbar_subtitle =>
@@ -1588,11 +1615,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get permissions_page_body1 =>
-      'Om barcodes te scannen met de camera van uw telefoon, moet u de toegang autoriseren.';
+      'Om barcodes te scannen met de camera van uw telefoon, moet u toestemming verlenen.';
 
   @override
   String get permissions_page_body2 =>
-      'Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden aan- en uitgeschakeld.';
+      'Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden in- en uitgeschakeld.';
 
   @override
   String contact_form_body_android(
@@ -1622,7 +1649,7 @@ class AppLocalizationsNl extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nApp-versie:$appVersion\nApp-buildnummer:$appBuildNumber\nApp-pakketnaam:$appPackageName';
+    return '$osContent\nApp versie:$appVersion\nApp build nummer:$appBuildNumber\nApp package naam:$appPackageName';
   }
 
   @override
@@ -1657,6 +1684,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Uw eerste voorbeeldproduct wordt geladen';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sorry, dit is ons voorbeeldproduct, u kunt het niet bewerken :)';
+
+  @override
   String get product_list_your_ranking => 'Jouw ranking';
 
   @override
@@ -1674,7 +1705,7 @@ class AppLocalizationsNl extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
+      other: 'producten',
       one: 'product',
       zero: 'product',
     );
@@ -1690,11 +1721,14 @@ class AppLocalizationsNl extends AppLocalizations {
       one: 'Product',
       zero: 'Product',
     );
-    return '$_temp0 verversen voltooid';
+    return '$_temp0 vernieuwing voltooid';
   }
 
   @override
-  String get loading_dialog_default_title => 'Gegevens downloaden';
+  String get product_list_compare_side_by_side => 'Vergelijk naast elkaar';
+
+  @override
+  String get loading_dialog_default_title => 'Gegevens worden gedownload...';
 
   @override
   String get loading_dialog_default_error_message =>
@@ -1750,7 +1784,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get settings_app_miscellaneous => 'Diversen';
 
   @override
-  String get camera_play_sound_title => 'Een geluid afspelen bij het scannen';
+  String get camera_play_sound_title => 'Een geluid afspelen bij scannen';
 
   @override
   String get camera_play_sound_subtitle => 'Piept bij elke geslaagde scan';
@@ -1782,7 +1816,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Wanneer ingeschakeld, wordt strikt anonieme informatie over het gebruik van functies naar de Open Food Facts-servers verzonden, zodat we kunnen begrijpen hoe functies worden gebruikt om ze te verbeteren. Anders wordt een 0-id verzonden.';
 
   @override
-  String get product_edit_photo_title => 'Foto Bewerken';
+  String get product_edit_photo_title => 'Foto bewerken';
 
   @override
   String get permission_photo_error => 'Foutmelding';
@@ -1809,7 +1843,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Instellingen openen';
+      'Open instellingen';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel =>
@@ -1914,7 +1948,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Foto\'s toevoegen of vernieuwen';
 
   @override
-  String get edit_product_form_item_labels_title => 'Etiketten & certificaten';
+  String get edit_product_form_item_labels_title => 'Labels en certificeringen';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
@@ -2011,7 +2045,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'De soja komt niet uit de Europese Unie';
 
   @override
-  String get edit_product_form_item_countries_title => 'Land';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2119,7 +2153,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Wilt u uw wijzigingen opslaan voordat u deze pagina verlaat?';
+      'Wilt u de wijzigingen opslaan voor het verlaten van deze pagina?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
@@ -2205,8 +2239,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get edit_product_form_save => 'Bewerken';
 
   @override
-  String get edit_product_ingredients_photo_title =>
-      'Foto van de ingrediëntenlijst';
+  String get edit_product_ingredients_photo_title => 'Ingrediënten foto';
 
   @override
   String get edit_product_ingredients_list_title => 'Lijst van ingrediënten';
@@ -2241,7 +2274,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
-      'Extract ingrediënten';
+      'Ingrediënten extraheren';
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
@@ -2299,10 +2332,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Om de tekstextractiefunctie te kunnen gebruiken, moet u eerst een foto maken.';
 
   @override
-  String get user_list_dialog_new_title => 'Nieuwe lijst met producten';
+  String get user_list_dialog_new_title => 'Nieuwe lijst van producten';
 
   @override
-  String get user_list_dialog_rename_title => 'Lijstnaam wijzigen';
+  String get user_list_dialog_rename_title => 'Lijst hernoemen';
 
   @override
   String get user_list_subtitle_product => 'Lijsten';
@@ -2314,7 +2347,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get user_list_add_product => 'Voeg het product toe aan je lijsten';
 
   @override
-  String get user_list_button_new => 'Maak een nieuwe lijst aan';
+  String get user_list_button_new => 'Een nieuwe lijst maken';
 
   @override
   String get user_list_empty_label =>
@@ -2336,10 +2369,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get user_list_name_hint => 'Mijn lijst';
 
   @override
-  String get user_list_name_error_empty => 'Naam is verplicht';
+  String get user_list_name_error_empty => 'Naam is verplicht!';
 
   @override
-  String get user_list_name_error_already => 'Deze naam is al in gebruik';
+  String get user_list_name_error_already => 'Deze naam is al in gebruik!';
 
   @override
   String get user_list_name_error_same => 'Dat is dezelfde naam';
@@ -2348,10 +2381,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get user_list_name_input_hint => 'Naam van de lijst';
 
   @override
-  String get try_again => 'Probeer het opnieuw';
+  String get try_again => 'Probeer opnieuw';
 
   @override
-  String get there_was_an_error => 'Er is een fout opgetreden';
+  String get there_was_an_error => 'Er is een fout opgetreden!';
 
   @override
   String category_picker_no_category_found_message(String items) {
@@ -2366,17 +2399,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get camera_toggle_flash => 'Zet de flitser van de camera AAN of UIT';
 
   @override
-  String get camera_enable_flash => 'Flits inschakelen';
+  String get camera_enable_flash => 'Schakel flitser in';
 
   @override
-  String get camera_disable_flash => 'Flits uitschakelen';
+  String get camera_disable_flash => 'Flitser uitschakelen';
 
   @override
   String get camera_flash_error_dialog_title => 'Er is een fout opgetreden!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'Er is een fout opgetreden tijdens het wijzigen van de status van uw flitser. Zorg ervoor dat de zaklamp niet reeds is ingeschakeld op uw smartphone.';
+      'Er is een fout opgetreden bij het wijzigen van de status van uw flitser. Zorg ervoor dat op uw smartphone de zaklamp nog niet is ingeschakeld.';
 
   @override
   String get category_picker_no_category_found_button => 'Terug';
@@ -2436,7 +2469,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get dev_preferences_export_history_title => 'Geschiedenis exporteren';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'uitzondering';
+  String get dev_preferences_export_history_progress_error => 'Uitzondering';
 
   @override
   String get dev_preferences_export_history_progress_found =>
@@ -2500,7 +2533,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get dev_preferences_news_custom_url_empty_value => 'Niet ingesteld';
 
   @override
-  String get dev_preferences_news_provider_status_title => 'Toestand';
+  String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
@@ -2631,7 +2664,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => 'Geen product gevonden';
+  String get prices_barcode_search_not_found => 'Product niet gevonden';
 
   @override
   String get prices_barcode_search_none_yet => 'Nog geen product';
@@ -2682,6 +2715,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_list_add_new_price => 'Voeg een\nnieuwe prijs toe';
+
+  @override
+  String get prices_list_empty_title => 'Nog geen prijs!';
+
+  @override
+  String get prices_list_empty_subtitle =>
+      'Wees de eerste om er een toe te voegen:\nDoor een **bon** of een **prijskaartje** te scannen!';
 
   @override
   String get prices_entry_shop_not_found => 'Onbekende winkel';
@@ -2773,9 +2813,23 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get prices_users_empty_title => 'No contributor yet!';
+
+  @override
+  String get prices_users_empty_explanation =>
+      'Wees de eerste om een prijs toe te voegen!';
+
+  @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
     return 'Top $pageSize bijdragers (totaal: $total)';
   }
+
+  @override
+  String get prices_locations_empty_title => 'No shop yet!';
+
+  @override
+  String get prices_locations_empty_explanation =>
+      'Wees de eerste om een prijs toe te voegen!';
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
@@ -2880,7 +2934,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_proof_subtitle => 'Bewijs';
 
   @override
+  String get prices_proof_empty_title => 'Nog geen bewijs!';
+
+  @override
+  String get prices_proof_empty_explanation =>
+      'Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!';
+
+  @override
   String get prices_proof_find => 'Selecteer een bewijs';
+
+  @override
+  String get prices_proof_change => 'Wijzig bewijs';
 
   @override
   String get prices_proof_receipt => 'Bon';
@@ -2943,6 +3007,9 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get prices_menu_know_more => 'Know more about Open Prices';
+
+  @override
   String get dev_preferences_import_history_result_success => 'Voltooid';
 
   @override
@@ -2961,8 +3028,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get dev_mode_section_experimental_features => 'Experimentele functies';
 
   @override
-  String get dev_mode_hide_environmental_score_title =>
-      'Green-score uitsluiten';
+  String get dev_mode_hide_environmental_score_title => 'Greenscore uitsluiten';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
@@ -2973,8 +3039,21 @@ class AppLocalizationsNl extends AppLocalizations {
       '(Ingrediënten en verpakking)';
 
   @override
+  String get dev_mode_reset_app_language_title => 'App-taal resetten';
+
+  @override
+  String get dev_mode_add_demo_cards_language_title => 'Kaarten toevoegen';
+
+  @override
+  String get dev_mode_openprices_switch_env_title =>
+      'Schakel tussen prices.openfoodfacts.org (PROD) en testomgeving';
+
+  @override
   String get search_history_item_edit_tooltip =>
       'Hergebruik en bewerk deze zoekopdracht';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Verwijderen';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3018,12 +3097,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get user_search_proof_title => 'Mijn bewijs';
 
   @override
+  String search_proof_title(String user) {
+    return 'Bewijs van \"$user\"';
+  }
+
+  @override
   String user_any_search_prices_title(String user) {
     return 'Prijzen van bijdrager: $user';
   }
 
   @override
-  String get all_search_prices_latest_title => 'Laatst toegevoegde prijzen';
+  String get all_search_prices_latest_title => 'Laatste toegevoegde prijzen';
 
   @override
   String get all_search_prices_top_user_title => 'Beste prijsbijdragers';
@@ -3123,13 +3207,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Nog geen afbeelding in die taal';
 
   @override
-  String get edit_photo_language_none => 'Nog geen afbeelding';
+  String get edit_photo_language_none => 'Nog geen afbeeldingen';
 
   @override
   String get category_picker_screen_title => 'Categorieën';
 
   @override
-  String get basic_details => 'Basisdetails';
+  String get basic_details => 'Basisgegevens';
 
   @override
   String get product_name => 'Productnaam';
@@ -3224,11 +3308,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get brand_name => 'Merknaam';
 
   @override
-  String get brand_names => 'Merknamen';
+  String get brand_names => 'Merknaam';
 
   @override
-  String get add_basic_details_brand_name_error =>
-      'Vul a. u. b. de merknaam in';
+  String get add_basic_details_brand_name_error => 'Vul a.u.b. de merknaam in';
 
   @override
   String get add_basic_details_brand_names_hint =>
@@ -3319,7 +3402,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get basic_details_add_error =>
-      'Kan de basisgegevens niet toevoegen. Probeer het later opnieuw';
+      'Kan basisgegevens niet toevoegen. Probeer het later opnieuw';
 
   @override
   String get clear_search => 'Wis je zoekopdracht';
@@ -3342,7 +3425,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'Je staat op het punt deze lijst te wissen ($name): weet je zeker dat je door wilt gaan?';
+    return 'Je staat op het punt deze lijst ($name) te wissen: weet je zeker dat je wilt doorgaan?';
   }
 
   @override
@@ -3376,7 +3459,7 @@ class AppLocalizationsNl extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count producten',
-      one: 'Een product',
+      one: 'Eén product',
       zero: 'Lege lijst',
     );
     return '$_temp0';
@@ -3408,7 +3491,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Maak foto\'s van alle labels en certificeringsinformatie';
 
   @override
-  String get choose_image_source_title => 'Kies een afbeeldingsbron';
+  String get choose_image_source_title => 'Kies afbeeldingsbron';
 
   @override
   String get choose_image_source_body => 'Kies een afbeeldingsbron';
@@ -3459,7 +3542,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get capture => 'Maak een nieuwe foto';
 
   @override
-  String get capture_new_picture => 'Maak een foto';
+  String get capture_new_picture => 'Neem een foto';
 
   @override
   String get choose_from_gallery => 'Kies uit gallerij';
@@ -3495,14 +3578,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Houd het ingrediëntenpaneel uitgevouwen';
 
   @override
-  String get search_product_filter_visibility_title =>
-      'Filter weergeven in de zoekopdracht';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecteer de zoeksite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts of Open Products Facts';
-
-  @override
   String get no_internet_connection => 'Geen internetverbinding';
 
   @override
@@ -3522,11 +3597,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Er zijn geen gegevens beschikbaar op uw klembord';
 
   @override
-  String get clipboard_barcode_copy => 'Kopieer de barcode naar het klembord';
+  String get clipboard_barcode_copy => 'Kopieer streepjescode naar klembord';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Barcode $barcode gekopieerd naar het klembord!';
+    return 'Streepjescode $barcode gekopieerd naar het klembord!';
   }
 
   @override
@@ -3549,7 +3624,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het product zal zo snel mogelijk op de achtergrond worden bijgewerkt.';
 
   @override
-  String get no_email_client_available_dialog_title => 'Geen e-mail apps!';
+  String get no_email_client_available_dialog_title => 'Geen e-mail-apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
@@ -3629,7 +3704,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get ocr_image_upload_instruction =>
-      'Upload een afbeelding om automatisch de informatie die erop staat te extraheren.';
+      'Upload een afbeelding om de verstrekte informatie automatisch te extraheren.';
 
   @override
   String get upload_image => 'Foto uploaden';
@@ -3668,7 +3743,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get show_password => 'Laat wachtwoord zien';
+  String get show_password => 'Toon wachtwoord';
 
   @override
   String get owner_field_info_title => 'Door de producent verstrekte waarden';
@@ -3730,10 +3805,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Voer recyclinginstructies alleen in als ze op het product vermeld staan.';
+      'Voer alleen recyclinginstructies in als deze op het product staan vermeld.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Recyclen';
+  String get edit_packagings_element_example_recycling => 'Hergebruik';
 
   @override
   String get edit_packagings_element_field_quantity =>
@@ -3741,7 +3816,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Vul het netto gewicht of netto volume in en geef de eenheid aan (bijvoorbeeld g of ml).';
+      'Vul het nettogewicht of het nettovolume in en geef de eenheid aan (bijvoorbeeld g of ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
@@ -3788,7 +3863,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get background_task_run_not_started => 'nog niet gestart';
 
   @override
-  String get background_task_run_to_be_deleted => 'wordt verwijderd';
+  String get background_task_run_to_be_deleted => 'om te worden verwijderd';
 
   @override
   String get background_task_question_stop => 'Wil je die taak ASAP stoppen?';
@@ -3896,7 +3971,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get page_not_found_button => 'Ga terug naar de startpagina';
 
   @override
-  String get download_data => 'Gegevens downloaden';
+  String get download_data => 'Download gegevens';
 
   @override
   String get download_top_products =>
@@ -3925,10 +4000,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get update_local_database_sub =>
-      'Werk de lokale productdatabase bij met de nieuwste gegevens van Open Food Facts';
+      'Update de lokale productdatabase met de nieuwste gegevens van Open Food Facts';
 
   @override
-  String get clear_local_database => 'Wis offline productgegevens';
+  String get clear_local_database => 'Offline productgegevens wissen';
 
   @override
   String get clear_local_database_sub =>
@@ -3976,13 +4051,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get action_delete_list => 'Verwijder';
 
   @override
-  String get action_change_list => 'Wijzig de huidige lijst';
+  String get action_change_list => 'De huidige lijst wijzigen';
 
   @override
   String get product_list_create => 'Aanmaken';
 
   @override
-  String get product_list_create_tooltip => 'Maak een nieuwe lijst aan';
+  String get product_list_create_tooltip => 'Een nieuwe lijst maken';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4096,7 +4171,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Importeer je producten in Open Food Facts';
+      'Pro? Importeer uw producten in Open Food Facts';
 
   @override
   String get contact_title_pro_email => 'Producentcontact';
@@ -4108,7 +4183,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get contact_title_press_email => 'Perscontact';
 
   @override
-  String get contact_title_newsletter => 'Abonneer op onze nieuwsbrief';
+  String get contact_title_newsletter => 'Abonneer u op onze nieuwsbrief';
 
   @override
   String get contact_title_calendar => 'Abonneer je op onze communitykalender';
@@ -4347,14 +4422,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Om betere producten binnen een categorie te belonen, passen we bonussen en malussen toe op basis van verschillende criteria:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Productiewijze';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Er wordt een bonus toegekend aan producten die een officieel label, een label of een certificering hebben die milieuvoordelen garandeert (biologisch, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4362,7 +4437,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Er wordt een bonus toegekend op basis van de herkomst van de ingrediënten. Deze bonus houdt rekening met de impact op transport en het milieubeleid van het land van de producent.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4370,14 +4445,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Producten die ingrediënten bevatten die aanzienlijke negatieve gevolgen hebben voor de biodiversiteit en ecosystemen, worden bestraft. Zoals palmolie, waarvan de productie tot massale ontbossing leidt.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Verpakking';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Er wordt een sanctie berekend om rekening te houden met de circulariteit van verpakkingen (gebruik van gerecyclycleerde grondstoffen en recycleerbaarheid) en oververpakking.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4385,19 +4460,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Om de Green-Score nauwkeurig te kunnen berekenen, is informatie nodig die niet per se op de verpakking staat (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst met alle bestanddelen van de verpakking en de precieze soorten plastic die zijn gebruikt).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      'Wanneer deze informatie (nog) niet beschikbaar is, gebruiken we gemiddelde waarden. We roepen nu echter iedereen op om ons te helpen deze informatie te verzamelen. Deze informatie is niet alleen nuttig voor de Green-Score, maar ook voor veel andere doeleinden.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Hoe burgers kunnen helpen';
+      'Hoe kunnen burgers helpen?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Alle burgers kunnen ons helpen bij het verzamelen en structureren van de informatie die op producten aanwezig is of die daaruit kan worden afgeleid, zoals informatie op verpakkingen: Mission Emballages: een grootschalige, gezamenlijke inventarisatie van verpakkingen voor alle voedingsproducten (in het Frans)';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4449,7 +4524,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'De NOVA-groepen informeren u over het niveau van voedselverwerking.';
+      'De NOVA-groepen informeren u over **het niveau van voedselverwerking**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4471,28 +4546,28 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Onbewerkte (of natuurlijke) voedingsmiddelen zijn de eetbare delen van planten (zaden, vruchten, bladeren, stengels, wortels) of dieren (spieren, orgaanvlees, eieren, melk), maar ook van schimmels, algen en water, nadat ze uit de natuur zijn gehaald.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title => 'Berwerkte ingrediënten';
+  String get guide_nova_groups_arg2_title => 'Bewerkte ingrediënten';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Bewerkte culinaire ingrediënten, zoals oliën, boter, suiker en zout, zijn stoffen die afkomstig zijn van voedingsmiddelen uit groep 1 of uit de natuur komen via processen als persen, raffineren, malen, frezen en drogen.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Bewerkte voedingsmiddelen';
+  String get guide_nova_groups_arg3_title => 'Bewerkte levensmiddelen';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Bewerkte voedingsmiddelen, zoals groenten uit blik, vis uit blik, fruit op siroop, kaas en versgebakken brood, worden voornamelijk gemaakt door zout, olie, suiker of andere stoffen uit groep 2 toe te voegen aan producten uit groep 1. Deze processen omvatten verschillende conserverings- of kookmethoden, en in het geval van brood en kaas, alcoholvrije fermentatie. De meeste bewerkte voedingsmiddelen bestaan uit twee of drie ingrediënten en zijn herkenbaar als aangepaste versies van producten uit groep 1. Ze kunnen op zichzelf worden gegeten of, meestal, in combinatie met andere voedingsmiddelen.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-verwerkte voedingsmiddelen';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultrabewerkte voedingsmiddelen, zoals frisdranken, zoete of hartige snacks, gereconstitueerde vleesproducten en kant-en-klare diepvriesmaaltijden, zijn niet zomaar gemodificeerde voedingsmiddelen, maar formules die grotendeels of volledig bestaan uit stoffen die afkomstig zijn van voedingsmiddelen en additieven, met weinig tot geen intacte groep 1-voedingsmiddelen. De ingrediënten in deze formules bevatten meestal ingrediënten die ook in bewerkte voedingsmiddelen voorkomen, zoals suikers, oliën, vetten of zout. Ultrabewerkte producten bevatten echter ook andere energiebronnen en voedingsstoffen die doorgaans niet in culinaire bereidingen worden gebruikt. Sommige hiervan worden rechtstreeks uit voedingsmiddelen gewonnen, zoals caseïne, lactose, wei en gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4504,7 +4579,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Veel ervan worden verkregen door verdere verwerking van bestanddelen in voedingsmiddelen, zoals gehydrogeneerde of geësterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en glucosestroop met een hoog fructosegehalte.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4512,7 +4587,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additieven in ultrabewerkte voedingsmiddelen omvatten stoffen die ook in bewerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultrabewerkte producten voorkomen, zijn onder andere stoffen die worden gebruikt om de sensorische eigenschappen van voedingsmiddelen te imiteren of te versterken of om onaangename aspecten van het eindproduct te verhullen. Deze additieven omvatten kleurstoffen, kleurstabilisatoren; smaakstoffen, smaakversterkers, zoetstoffen zonder suiker; en verwerkingshulpmiddelen zoals carbonatatiemiddelen, verstevigingsmiddelen, vul- en anti-vulmiddelen, anti-schuimmiddelen, antiklontemiddelen en glansmiddelen, emulgatoren, sequestreermiddelen en bevochtigingsmiddelen.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4520,7 +4595,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      'Er wordt een verscheidenheid aan processen gebruikt om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar \'ultra-bewerkt\'). De processen omvatten zaken die geen equivalent hebben in de huishoudelijke context, zoals hydrogenering en hydrolysering, extrusie en manipulatie, en voorbewerkingen voor frituren.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4528,7 +4603,444 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Het algemene doel van ultra-bewerking is het creëren van merkproducten die gemakkelijk te consumeren (klaar voor consumptie), aantrekkelijk (superlekker) en zeer winstgevend (met goedkope ingrediënten) zijn, ontworpen om alle andere voedselgroepen te verdringen. Ultra-bewerkte voedselproducten worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+
+  @override
+  String get guide_nova_explanations_arg5_title => 'Een gezondheidsrisico';
+
+  @override
+  String get guide_nova_explanations_arg5_text =>
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+
+  @override
+  String get guide_nova_explanations_arg6_title =>
+      'Countries recommend limiting them';
+
+  @override
+  String get guide_nova_explanations_arg6_text =>
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+
+  @override
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
+
+  @override
+  String get guide_open_food_facts_title => 'Welkom bij Open Food Facts!';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_title =>
+      'Wat is Open Food Facts?';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+
+  @override
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+
+  @override
+  String get guide_open_food_facts_features_title =>
+      'Kenmerken van Open Food Facts';
+
+  @override
+  String get guide_open_food_facts_features_arg1_title =>
+      'Ontvang meldingen voor uw ongewenste ingrediënten';
+
+  @override
+  String get guide_open_food_facts_tips_title =>
+      'Tips voor het maken van geweldige foto\'s';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_title => 'Wat je niet moet doen';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text1 =>
+      'Vermijd schaduwen en schittering.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text2 =>
+      'Geen wazige of onscherpe tekst.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text3 =>
+      'Knip geen delen van de tekst weg.';
+
+  @override
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Vermijd drukke achtergronden.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text1 =>
+      'Zorg voor goede, gelijkmatige verlichting.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text2 =>
+      'Zorg ervoor dat de tekst scherp en leesbaar is.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text3 =>
+      'Leg de gehele ingrediëntenlijst vast.';
+
+  @override
+  String get guide_open_food_facts_tips_arg2_text4 =>
+      'Plaats het product op een vlakke ondergrond.';
+
+  @override
+  String get guide_open_food_facts_scores_title =>
+      'Help ons de \"Wikipedia van Voedsel\" te bouwen';
+
+  @override
+  String get guide_open_food_facts_scores_arg1_title =>
+      'A score on the nutritional quality';
+
+  @override
+  String get guide_open_food_facts_scores_arg2_title =>
+      'Een score om ultrabewerkte voedingsmiddelen te vermijden';
+
+  @override
+  String get guide_open_food_facts_scores_arg3_title =>
+      'Een score voor de planeet';
+
+  @override
+  String get guide_open_food_facts_share_link =>
+      'https://world-nl.openfoodfacts.org/discover';
+
+  @override
+  String get guide_open_pet_food_facts_title =>
+      'Welkom bij Open Pet Food Facts!';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
+      'Wat is Open Pet Food Facts?';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+
+  @override
+  String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+
+  @override
+  String get guide_open_pet_food_facts_features_title =>
+      'Kenmerken van Open Pet Food Facts';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_title =>
+      'Ontvang meldingen voor uw ongewenste ingrediënten';
+
+  @override
+  String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
+      'Is uw huisdier allergisch voor bepaalde ingrediënten? U kunt direct in de app een lijst met te vermijden ingrediënten instellen!';
+
+  @override
+  String get guide_open_pet_food_facts_tips_title =>
+      'Tips voor het maken van geweldige foto\'s';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_title =>
+      'Wat je niet moet doen';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text1 =>
+      'Vermijd schaduwen en schittering.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text2 =>
+      'Geen wazige of onscherpe tekst.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text3 =>
+      'Knip geen delen van de tekst weg.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg1_text4 =>
+      'Vermijd drukke achtergronden.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text1 =>
+      'Zorg voor goede, gelijkmatige verlichting.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text2 =>
+      'Zorg ervoor dat de tekst scherp en leesbaar is.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text3 =>
+      'Leg de gehele ingrediëntenlijst vast.';
+
+  @override
+  String get guide_open_pet_food_facts_tips_arg2_text4 =>
+      'Plaats het product op een vlakke ondergrond.';
+
+  @override
+  String get guide_open_pet_food_facts_scores_title =>
+      'Een opmerking over het scoren';
+
+  @override
+  String get guide_open_pet_food_facts_scores_paragraph1 =>
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+
+  @override
+  String get guide_open_pet_food_facts_share_link =>
+      'https://world-nl.openpetfoodfacts.org/discover';
+
+  @override
+  String get guide_open_beauty_facts_title => 'Welkom bij Open Beauty Facts!';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
+      'Wat is Open Beauty Facts?';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+
+  @override
+  String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+
+  @override
+  String get guide_open_beauty_facts_features_title =>
+      'Kenmerken van Open Beauty Facts';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_title =>
+      'Ontvang meldingen voor uw ongewenste ingrediënten';
+
+  @override
+  String get guide_open_beauty_facts_features_arg1_paragraph1 =>
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+
+  @override
+  String get guide_open_beauty_facts_tips_title =>
+      'Tips voor het maken van geweldige foto\'s';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_title => 'Wat je niet moet doen';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text1 =>
+      'Vermijd schaduwen en schittering.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text2 =>
+      'Geen wazige of onscherpe tekst.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text3 =>
+      'Knip geen delen van de tekst weg.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg1_text4 =>
+      'Vermijd drukke achtergronden.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text1 =>
+      'Zorg voor goede, gelijkmatige verlichting.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text2 =>
+      'Zorg ervoor dat de tekst scherp en leesbaar is.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text3 =>
+      'Leg de gehele ingrediëntenlijst vast.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text4 =>
+      'Take as many picture as need if the bottle is curved.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text5 =>
+      'You might need to peel the label to see the list of ingredients.';
+
+  @override
+  String get guide_open_beauty_facts_tips_arg2_text6 =>
+      'Plaats het product op een vlakke ondergrond.';
+
+  @override
+  String get guide_open_beauty_facts_scores_title =>
+      'Een opmerking over het scoren';
+
+  @override
+  String get guide_open_beauty_facts_scores_paragraph1 =>
+      'In tegenstelling tot voedingsproducten kent de cosmeticawereld **geen universeel erkend, door de overheid ondersteund scoresysteem zoals de Nutri-Score**. De effecten van ingrediënten kunnen zeer persoonlijk zijn en hangen af van huidtype, allergieën en individuele behoeften.';
+
+  @override
+  String get guide_open_beauty_facts_share_link =>
+      'https://world-nl.openbeautyfacts.org/discover';
+
+  @override
+  String get guide_open_prices_title => 'Welkom bij Open Prices!';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_title =>
+      'Wat is Open Prices?';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph1 =>
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get guide_open_prices_what_is_open_prices_paragraph2 =>
+      'Er zijn momenteel weinig bedrijven die grote databases met productprijzen op barcodeniveau bezitten. Deze prijzen zijn niet vrij beschikbaar, maar worden tegen een hoge prijs verkocht aan private actoren, onderzoekers en andere organisaties die ze zich kunnen veroorloven.';
+
+  @override
+  String get guide_open_prices_how_title => 'Hoe werkt Open Prices?';
+
+  @override
+  String get guide_open_prices_how_paragraph1 =>
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+
+  @override
+  String get guide_open_prices_how_arg1_title =>
+      'Collect photos of price tags in aisles';
+
+  @override
+  String get guide_open_prices_how_arg2_title =>
+      'Verzamel foto\'s van bonnetjes';
+
+  @override
+  String get guide_open_prices_why_title => 'Waarom doet Open Food Facts dit?';
+
+  @override
+  String get guide_open_prices_why_paragraph1 =>
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+
+  @override
+  String get guide_open_prices_why_arg1_title =>
+      'Track the evolution of prices over time';
+
+  @override
+  String get guide_open_prices_why_arg1_text =>
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+
+  @override
+  String get guide_open_prices_why_arg2_title =>
+      'Vergelijk prijzen bij u in de buurt';
+
+  @override
+  String get guide_open_prices_why_arg2_text =>
+      'As we get more prices, you can spot **the cheapest stores around you**.';
+
+  @override
+  String get guide_open_prices_scrapping_title =>
+      'Did you consider scraping prices from retailers\' websites?';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph1 =>
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+
+  @override
+  String get guide_open_prices_scrapping_paragraph2 =>
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+
+  @override
+  String get guide_open_prices_retailers_title =>
+      'Ik ben een detailhandelaar en ik wil prijzen bijdragen. Hoe kan ik dat doen?';
+
+  @override
+  String get guide_open_prices_retailers_paragraph1 =>
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+
+  @override
+  String get guide_open_prices_share_link =>
+      'https://prices.openfoodfacts.org/about';
+
+  @override
+  String get guide_open_products_facts_title =>
+      'Welkom bij Open Products Facts!';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_title =>
+      'Wat is Open Products Facts?';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+
+  @override
+  String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+
+  @override
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
+
+  @override
+  String get guide_open_products_facts_features_text =>
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+
+  @override
+  String get guide_open_products_facts_features_arg1_title =>
+      'Carbon footprints for some products';
+
+  @override
+  String get guide_open_products_facts_features_arg1_text =>
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+
+  @override
+  String get guide_open_products_facts_features_arg2_title =>
+      'Reparability index for many products';
+
+  @override
+  String get guide_open_products_facts_features_arg2_text =>
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+
+  @override
+  String get guide_open_products_facts_features_arg3_title =>
+      'Find ways to donate/resell your product';
+
+  @override
+  String get guide_open_products_facts_features_arg3_text =>
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+
+  @override
+  String get guide_open_products_facts_information_title =>
+      'Welke informatie is nuttig?';
+
+  @override
+  String get guide_open_products_facts_information_text =>
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph1 =>
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph2 =>
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+
+  @override
+  String get guide_open_products_facts_folksonomy_paragraph3 =>
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+
+  @override
+  String get guide_open_products_facts_share_link =>
+      'https://world-nl.openproductsfacts.org/discover';
+
+  @override
+  String get guide_open_preferences_button_title => 'Open food preferences';
+
+  @override
+  String get guide_coming_soon_button_title => 'Binnenkort beschikbaar';
+
+  @override
+  String get guide_learn_more_subtitle => 'Tik om meer te weten te komen';
 
   @override
   String get preview_badge => 'Voorbeeld';
@@ -4586,7 +5098,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_page_compatibility_score => 'Compatibel';
 
   @override
-  String get user_lists_action_multi_select => 'Meervoudige selectie';
+  String get user_lists_action_multi_select => 'Meerdere selecteren';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
@@ -4595,7 +5107,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get product_image_front_accessibility_label =>
-      'Foto van het product (voorzijde)';
+      'Foto van het product (voorkant)';
 
   @override
   String get product_image_ingredients_accessibility_label =>
@@ -4648,7 +5160,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_page_action_bar_setting_modal_title => 'Acties bewerken';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Verplaats naar omhoog';
+  String get product_page_action_bar_item_move_up => 'Verplaats naar boven';
 
   @override
   String get product_page_action_bar_item_move_down => 'Verplaats naar beneden';
@@ -4747,7 +5259,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get photo_field_front => 'Productfoto';
 
   @override
-  String get photo_field_ingredients => 'Foto van de ingrediëntenlijst';
+  String get photo_field_ingredients => 'Ingrediënten foto';
 
   @override
   String get photo_field_nutrition => 'Voedingswaarde foto';
@@ -4765,10 +5277,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get date => 'Datum';
 
   @override
-  String get photo_rotate_left => 'Naar links draaien';
+  String get photo_rotate_left => 'Draai naar links';
 
   @override
-  String get photo_rotate_right => 'Naar rechts draaien';
+  String get photo_rotate_right => 'Draai naar rechts';
 
   @override
   String get photo_undo_action => 'Vorige actie ongedaan maken';
@@ -4843,7 +5355,43 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_page_tab_prices => 'Prijzen';
 
   @override
+  String get prices_explanation_card_title => 'Waarom prijzen?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is een project om productprijzen wereldwijd te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Meer informatie';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Wat zijn Folksonomy-attributen?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributen zijn **sleutel-waarde** gebaseerd.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Externe link openen';
+
+  @override
+  String get folksonomy_action_external_link_warning =>
+      'Externe links kunnen onveilig zijn. Wilt u deze echt bezoeken?';
+
+  @override
+  String get prices_products_empty_title => 'Geen prijs beschikbaar';
+
+  @override
+  String get prices_products_empty_explanation =>
+      'Wees de eerste om bij te dragen!';
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
@@ -4874,7 +5422,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get app_review_feedback_modal_open_form => 'Beantwoord de vragenlijst';
 
   @override
-  String get app_review_feedback_modal_later => 'Vraag me later nog eens';
+  String get app_review_feedback_modal_later => 'Vraag het me later nog eens';
 
   @override
   String get nutrition_facts_extract_new =>
@@ -4915,7 +5463,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get prices_stats_proofs_section => 'Bewijzen';
 
   @override
-  String get prices_stats_contributors_section => 'Bijdragers';
+  String get prices_stats_contributors_section => 'Medewerkers';
 
   @override
   String get prices_stats_experiments_section => 'Experimenten';
@@ -5115,7 +5663,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get preferences_terms_of_use => 'Gebruiksvoorwaarden';
 
   @override
-  String get preferences_legal_mentions => 'Juridische vermeldingen';
+  String get preferences_legal_mentions => 'Wettelijke vermeldingen';
 
   @override
   String get preferences_legal_header =>
@@ -5160,7 +5708,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get preferences_add_prices => 'Prijzen toevoegen';
 
   @override
-  String get preferences_complete_products => 'Producten voltooien';
+  String get preferences_complete_products => 'Voltooi producten';
 
   @override
   String get preferences_tips => 'Tips';
@@ -5221,6 +5769,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get preferences_dev_mode_folksonomy_host_title => 'Folksonomy host';
 
   @override
+  String preferences_dev_mode_folksonomy_host_subtitle(String host) {
+    return 'Gastheer: $host';
+  }
+
+  @override
   String get preferences_dev_mode_accessibility_experiments_title =>
       'Toegankelijkheidsexperimenten';
 
@@ -5261,6 +5814,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title => 'Ontdek Open Food Facts';
+
+  @override
+  String get preferences_faq_discover_obf_title => 'Ontdek Open Beauty Facts';
+
+  @override
+  String get preferences_faq_discover_opff_title =>
+      'Ontdek Open Pet Food Facts';
+
+  @override
+  String get preferences_faq_discover_op_title => 'Ontdek Open Prices';
+
+  @override
+  String get preferences_faq_discover_opf_title => 'Ontdek Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Veelgestelde vragen';
@@ -5538,7 +6104,17 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count van $total items';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count items';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count items';
   }
 
@@ -5627,4 +6203,28 @@ class AppLocalizationsNl extends AppLocalizations {
   String prices_adding_timestamp_tooltip(String created) {
     return 'Toegevoegd op $created';
   }
+
+  @override
+  String get location_map_details_title => 'Locatiedetails';
+
+  @override
+  String get location_map_details_name => 'Naam';
+
+  @override
+  String get location_map_details_street => 'Straat';
+
+  @override
+  String get location_map_details_city => 'Stad';
+
+  @override
+  String get location_map_details_postcode => 'Postcode';
+
+  @override
+  String get location_map_details_country => 'Country';
+
+  @override
+  String get location_map_details_coordinates => 'Coördinaten';
+
+  @override
+  String get location_map_details_osm_id => 'OSM ID';
 }

@@ -133,9 +133,9 @@ Future<PhotoRowActions?> _showPhotoBanner({
             ? extension.primaryDark
             : extension.primaryMedium,
         prefixIcons: <Widget>[
-          const Icon(Icons.camera),
-          const Icon(Icons.perm_media_rounded),
-          const Icon(Icons.image_search_rounded),
+          const icons.Camera.filled(),
+          const icons.ImageGallery(),
+          const icons.Milk.happy(),
         ],
         contentPadding: const EdgeInsetsDirectional.symmetric(
           horizontal: LARGE_SPACE,
@@ -327,8 +327,8 @@ class _PhotoRowContributor extends StatelessWidget {
       icon = const OwnerFieldIcon(size: 19.0);
       padding = const EdgeInsetsDirectional.only(bottom: 1.0, end: 1.0);
     } else {
-      icon = const Icon(Icons.person);
-      padding = EdgeInsets.zero;
+      icon = const icons.Profile(size: 18.0);
+      padding = EdgeInsetsDirectional.zero;
     }
 
     return ListTile(

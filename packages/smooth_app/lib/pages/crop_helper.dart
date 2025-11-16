@@ -17,7 +17,7 @@ abstract class CropHelper {
   String getPageTitle(final AppLocalizations appLocalizations);
 
   /// Icon of the "process!" button.
-  IconData getProcessIcon();
+  Widget getProcessIcon();
 
   /// Label of the "process!" button.
   String getProcessLabel(final AppLocalizations appLocalizations);
