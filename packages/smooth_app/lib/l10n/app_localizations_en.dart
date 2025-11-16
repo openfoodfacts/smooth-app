@@ -116,7 +116,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get match_poor => 'Poor match';
 
   @override
-  String get match_may_not => 'May not match';
+  String get match_may_not => 'May not match\n';
 
   @override
   String get match_does_not => 'Does not match';
@@ -134,7 +134,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get match_short_poor => 'Poor match';
 
   @override
-  String get match_short_may_not => 'May not match';
+  String get match_short_may_not => 'May not match\n';
 
   @override
   String get match_short_does_not => 'Does not match';

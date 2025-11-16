@@ -1709,7 +1709,7 @@ class AppLocalizationsEo extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Komparu flank-al-flanke';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5612,7 +5612,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Malfermaj Nutraĵaj Faktoj estas datumbazo pri nutraĵoj **farita de ĉiuj, por ĉiuj**.\nVi povas uzi ĝin por fari pli bonajn elektojn pri nutraĵoj, kaj ĉar ĝi estas **malfermaj datumoj**, ĉiu povas **reuzi ĝin por iu ajn celo**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5749,7 +5749,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Malkovru kiel la Nutri-Poentaro estas kalkulata';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5759,8 +5759,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Esploru la projekton';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Malkovru Malfermajn Manĝaĵojn Faktojn';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5780,7 +5779,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_faq_title => 'Oftaj Demandoj - Oftaj Demandoj';
 
   @override
-  String get preferences_faq_off_ngo_title => 'La Malferma Manĝaĵa Faktoj NRO';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5919,7 +5918,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Novaj produktoj, kiujn mi aldonis al Malfermaj Manĝaĵaj Faktoj';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6122,14 +6121,14 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Malfermaj Laboratorioj pri Manĝaĵaj Faktoj';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Alportu Malfermajn Manĝaĵajn Informojn al via lingvo';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

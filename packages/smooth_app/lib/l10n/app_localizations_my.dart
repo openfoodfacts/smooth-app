@@ -1711,7 +1711,7 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'ဘေးချင်းယှဉ်';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3020,7 +3020,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -6033,7 +6033,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6142,7 +6142,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Food Facts Labs ကိုဖွင့်ပါ။';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

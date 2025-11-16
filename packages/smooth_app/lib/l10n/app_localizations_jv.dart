@@ -1709,7 +1709,8 @@ class AppLocalizationsJv extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Bandingake sisih dening sisih';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5757,8 +5758,7 @@ class AppLocalizationsJv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Temokake Fakta Panganan Terbuka';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';

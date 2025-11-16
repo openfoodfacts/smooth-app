@@ -1709,7 +1709,7 @@ class AppLocalizationsCy extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Cymharwch ochr yn ochr';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5582,7 +5582,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Chwiliwch am leoliad (e.e. Sgôr Maeth)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Hygyrchedd: Dangos emoji';
@@ -5659,7 +5659,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_tips => 'Awgrymiadau';
 
   @override
-  String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle => 'Ar wefan Open Food Facts';

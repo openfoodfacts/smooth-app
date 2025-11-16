@@ -3876,19 +3876,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => '绿色评分 A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => '绿色评分 B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => '绿色评分 C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => '绿色评分 D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => '绿色评分 E';
 
   @override
   String get environmental_score_unknown_new => '未知Green-Score';
@@ -7495,6 +7495,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
+  String get product_list_compare_side_by_side => '并排比较';
+
+  @override
   String get loading_dialog_default_title => '正在下载数据';
 
   @override
@@ -9666,22 +9669,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get product_list_create_tooltip => '创建新列表';
 
   @override
-  String get nutriscore_generic => '营养分数';
+  String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => '营养评分 A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Nutri-ScoreB';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'Nutri-ScoreC';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => '营养评分 D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => '营养评分 E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -10477,7 +10480,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      '什么是开放产品信息？';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -10488,7 +10491,8 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '从电子产品到玩具，从服装到清洁用品，只要有条形码，都可以添加进去。本项目旨在为日常物品构建“物联网”，使所有相关信息都能被普遍获取。';
 
   @override
-  String get guide_open_products_facts_features_title => '开放产品事实的特点';
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -11283,7 +11287,8 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get preferences_faq_discover_op_title => '探索Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title => '了解开放产品信息';
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - 常见问题';

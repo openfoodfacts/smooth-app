@@ -1710,7 +1710,7 @@ class AppLocalizationsYi extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'פאַרגלייַכן זייַט ביי זייַט';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5307,7 +5307,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** איז אַ פּראָיעקט צו זאַמלען און טיילן פּרייזן פֿון פּראָדוקטן אַרום דער וועלט 🌍. Open Prices ווערט דעוועלאָפּט און אויפֿגעהאַלטן דורך אפֿענע פֿוד פֿאַקטן.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5586,7 +5586,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'זוכן אַ סעטינג (למשל נוטרי-סקאָר)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5617,7 +5617,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'אָפן פוד פאַקס איז אַ דאַטאַבאַזע פֿאַר עסן פּראָדוקטן **געמאַכט דורך אַלעמען, פֿאַר אַלעמען**.\nאיר קענט עס נוצן צו מאַכן בעסערע עסן ברירות, און וויבאַלד עס איז **אָפן דאַטן**, קען יעדער עס **ווידער נוצן פֿאַר יעדן צוועק**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5664,7 +5664,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get preferences_tips => 'עצות';
 
   @override
-  String get tips_discover_nutriscore => 'אַנטדעקן דעם נײַעם נוטרי-סקאָר';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5754,7 +5754,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'אַנטדעקן ווי דער נוטרי-סקאָר ווערט אויסגערעכנט';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5764,8 +5764,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'אַנטדעקן אָפֿענע פֿוטער פֿאַקטן';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5786,8 +5785,7 @@ class AppLocalizationsYi extends AppLocalizations {
       'אָפֿט געשטעלטע פֿראַגעס - אָפֿט געשטעלטע פֿראַגעס';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'די אָפֿענע פֿוד פֿאַקטן נישט-רעגירונגס אָרגאַניזאַציע';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5809,7 +5807,7 @@ class AppLocalizationsYi extends AppLocalizations {
       'נעמט זיך אנטייל דורך באטייליקן זיך אין איינעם פון אונדזערע ווירטועלע געשעענישן';
 
   @override
-  String get preferences_connect_blog_title => 'דער אפענער עסן פאקטן בלאג';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5951,7 +5949,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'העלפט אויסרעכענען דעם נוטרי-סקאָר און גרין-סקאָר אין אייער לאַנד';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5973,7 +5971,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'לעצטע פרייזן צוגעגעבן דורך די אפענע פרייזן קהילה';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6021,7 +6019,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'פּשוטע וועגן צו העלפֿן עפֿענען פֿוד פֿאַקטן';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6128,14 +6126,14 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'עפֿענע עסן פאַקטן לאַבאָראַטאָריעס';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ברענגט אפענע עסן פאקטן צו אייער שפראך';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

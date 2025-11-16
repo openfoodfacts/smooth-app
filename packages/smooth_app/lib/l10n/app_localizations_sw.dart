@@ -1708,7 +1708,8 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Linganisha upande kwa upande';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5304,7 +5305,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Bei Huria** ni mradi wa kukusanya na kushiriki bei za bidhaa kote ulimwenguni 🌍. Bei Huzi hutengenezwa na kudumishwa na Open Food Facts.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5607,7 +5608,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Fungua Ukweli wa Chakula ni hifadhidata ya bidhaa za chakula **iliyoundwa na kila mtu, kwa kila mtu**.\nUnaweza kuitumia kufanya chaguo bora zaidi za chakula, na kwa vile ni **data wazi**, mtu yeyote anaweza **kuitumia tena kwa madhumuni yoyote**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5654,7 +5655,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_tips => 'Vidokezo';
 
   @override
-  String get tips_discover_nutriscore => 'Gundua Nutri-Alama mpya';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5754,8 +5755,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Gundua Ukweli wa Chakula cha Wazi';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5960,7 +5960,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6007,7 +6007,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Njia rahisi za kusaidia Fungua Ukweli wa Chakula';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6115,14 +6115,14 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Fungua Maabara ya Ukweli wa Chakula';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Leta Ukweli wa Chakula Huria kwa lugha yako';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

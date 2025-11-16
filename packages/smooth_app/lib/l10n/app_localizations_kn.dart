@@ -1711,7 +1711,7 @@ class AppLocalizationsKn extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'ಅಕ್ಕಪಕ್ಕ ಹೋಲಿಕೆ ಮಾಡಿ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5306,7 +5306,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**ಓಪನ್ ಪ್ರೈಸಸ್** ಎಂಬುದು ಪ್ರಪಂಚದಾದ್ಯಂತದ ಉತ್ಪನ್ನಗಳ ಬೆಲೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಿ ಹಂಚಿಕೊಳ್ಳುವ ಯೋಜನೆಯಾಗಿದೆ 🌍. ಓಪನ್ ಪ್ರೈಸಸ್ ಅನ್ನು Open Food Facts ಅಭಿವೃದ್ಧಿಪಡಿಸಿದೆ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತದೆ.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5586,7 +5586,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'ಸೆಟ್ಟಿಂಗ್‌ಗಾಗಿ ಹುಡುಕಿ (ಉದಾ. ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5664,7 +5664,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get preferences_tips => 'ಸಲಹೆಗಳು';
 
   @override
-  String get tips_discover_nutriscore => 'ಹೊಸ ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ವೇಷಿಸಿ';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5754,7 +5754,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ನು ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕಲಾಗುತ್ತದೆ ಎಂಬುದನ್ನು ಕಂಡುಕೊಳ್ಳಿ';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5764,8 +5764,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ಓಪನ್ ಫುಡ್ ಸಂಗತಿಗಳನ್ನು ಅನ್ವೇಷಿಸಿ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5923,7 +5922,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳಿಗೆ ನಾನು ಸೇರಿಸಿದ ಹೊಸ ಉತ್ಪನ್ನಗಳು';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5949,7 +5948,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'ನಿಮ್ಮ ದೇಶದಲ್ಲಿ ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಮತ್ತು ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು ಸಹಾಯ ಮಾಡಿ';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5972,7 +5971,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ಮುಕ್ತ ಬೆಲೆಗಳ ಸಮುದಾಯದಿಂದ ಸೇರಿಸಲಾದ ಇತ್ತೀಚಿನ ಬೆಲೆಗಳು';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6021,7 +6020,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ಆಹಾರ ಸಂಗತಿಗಳನ್ನು ತೆರೆಯಲು ಸಹಾಯ ಮಾಡುವ ಸರಳ ಮಾರ್ಗಗಳು';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6136,7 +6135,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'ಮುಕ್ತ ಆಹಾರ ಸಂಗತಿಗಳನ್ನು ನಿಮ್ಮ ಭಾಷೆಗೆ ತನ್ನಿ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

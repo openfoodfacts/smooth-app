@@ -1658,7 +1658,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get onboarding_welcome_warning =>
-      'סליחה, זה מוצר לדוגמה שלנו, אינך יכול לערוך אותו :)';
+      'סליחה, זה מוצר לדוגמה שלנו, אסור לערוך אותו :)';
 
   @override
   String get product_list_your_ranking => 'הדירוג שלך';
@@ -1702,7 +1702,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'השוואה זה לצד זה';
 
   @override
   String get loading_dialog_default_title => 'הנתונים מתקבלים';
@@ -5274,7 +5274,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'מידע נוסף';
@@ -5714,7 +5714,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'לגלות עוד על המיזם';
 
   @override
-  String get preferences_faq_discover_off_title => 'גלה עובדות על אוכל פתוח';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5734,7 +5734,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_faq_title => 'שאלות נפוצות - שאלות נפוצות';
 
   @override
-  String get preferences_faq_off_ngo_title => 'עמותת \"עובדות על אוכל פתוח\"';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'פרטים';
@@ -5755,7 +5755,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו';
 
   @override
-  String get preferences_connect_blog_title => 'הבלוג של עובדות המזון הפתוחות';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6064,14 +6064,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'מעבדות עובדות מזון פתוחות';
+      'מעבדות Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'חשבון';
 
   @override
   String get preferences_contribute_translate_header =>
-      'הביאו עובדות פתוחות על מזון לשפה שלכם';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

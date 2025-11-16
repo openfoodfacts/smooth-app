@@ -1376,7 +1376,7 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Дадаць звесткі аб пажыўнасці для разліку Nutri-ацэнкі.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
@@ -1384,7 +1384,7 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-ацэнка для гэтага прадукта не можа быць разлічана, што можа быць звязана, напрыклад, з нестандартнай катэгорыяй. Калі вы гэта лічыце памылкай, звяжыцеся з намі.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1728,7 +1728,7 @@ class AppLocalizationsBe extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Параўнайце побач';
 
   @override
   String get loading_dialog_default_title => 'Спампоўванне даных';
@@ -5785,8 +5785,7 @@ class AppLocalizationsBe extends AppLocalizations {
       'Адкрыйце для сябе праект';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Адкрыйце для сябе адкрытыя факты пра ежу';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5806,7 +5805,7 @@ class AppLocalizationsBe extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Часта задаваныя пытанні';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НДА «Адкрытыя факты пра ежу»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5828,7 +5827,7 @@ class AppLocalizationsBe extends AppLocalizations {
       'Далучайцеся, наведаўшы адно з нашых віртуальных мерапрыемстваў';
 
   @override
-  String get preferences_connect_blog_title => 'Блог «Адкрытыя факты пра ежу»';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6149,14 +6148,14 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Адкрытыя лабараторыі фактаў пра ежу';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Уліковы запіс';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Перанясіце адкрытыя факты пра ежу на сваю мову';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

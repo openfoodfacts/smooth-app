@@ -1710,7 +1710,7 @@ class AppLocalizationsTw extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Fa toto ho wɔ nkyɛnkyɛn';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -4912,7 +4912,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/ɛfa';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>

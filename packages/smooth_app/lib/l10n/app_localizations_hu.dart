@@ -907,7 +907,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -1726,7 +1726,8 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Hasonlítsa össze egymás mellett';
 
   @override
   String get loading_dialog_default_title => 'Adatok letöltése';
@@ -6171,14 +6172,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Nyílt Élelmiszerinformációs Laboratóriumok';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Fiók';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Hozd el a Nyílt Élelmiszerinformációkat a saját nyelvedre';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

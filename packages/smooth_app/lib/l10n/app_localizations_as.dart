@@ -1710,7 +1710,7 @@ class AppLocalizationsAs extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'কাষে কাষে তুলনা কৰক';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5655,7 +5655,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_tips => 'কিটিপসমূহ';
 
   @override
-  String get tips_discover_nutriscore => 'নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5743,7 +5743,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'নিউট্ৰি-স্ক’ৰ কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5753,8 +5753,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'মুকলি খাদ্যৰ তথ্য আৱিষ্কাৰ কৰক';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6117,7 +6116,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'আপোনাৰ ভাষালৈ মুকলি খাদ্যৰ তথ্য আনিব';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

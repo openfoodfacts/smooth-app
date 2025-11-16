@@ -1711,7 +1711,7 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Keñveriañ skoaz-ouzh-skoaz';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5764,8 +5764,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Dizoleiñ ar raktres';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Dizoloit fedoù diwar-benn ar boued digor';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5950,7 +5949,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Sikour da jediñ ar Skor Nutri hag ar Skor Glas en ho bro';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6130,14 +6129,14 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Labouradegoù digor war ar fedoù boued';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Degas fedoù boued digor d\'ho yezh';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
