@@ -4552,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Niyə qiymətlər?",
-  "prices_explanation_card_line1": "**Open Prices** bütün dünya üzrə məhsulların qiymətlərini toplamaq və paylaşmaq layihəsidir 🌍. Open Prices Open Food Facts tərəfindən hazırlanır və saxlanılır.",
+  "prices_explanation_card_line1": "**Open Prices** bütün dünya üzrə məhsulların qiymətlərini toplamaq və paylaşmaq layihəsidir 🌍. Açıq Qiymətlər Open Food Facts tərəfindən hazırlanır və saxlanılır.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4811,7 +4811,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "Open Food Facts layihəsi",
+  "preferences_card_project": "Açıq Qida Faktları layihəsi",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -5124,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Open Food Facts QHT",
+  "preferences_faq_off_ngo_title": "Açıq Qida Faktları QHT",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Open Food Facts bloqu",
+  "preferences_connect_blog_title": "Açıq Qida Faktları bloqu",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
