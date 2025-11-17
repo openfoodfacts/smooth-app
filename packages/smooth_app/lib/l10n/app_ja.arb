@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "最も人気のある製品のダウンロードを開始します",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
