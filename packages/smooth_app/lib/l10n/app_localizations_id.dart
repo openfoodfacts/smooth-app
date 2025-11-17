@@ -3547,6 +3547,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Memulai penyegaran semua produk yang disimpan secara lokal';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Memulai pengunduhan produk paling populer';
 

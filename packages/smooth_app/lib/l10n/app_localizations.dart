@@ -6146,6 +6146,12 @@ abstract class AppLocalizations {
   /// **'Starting the refresh of all the products locally stored'**
   String get background_task_title_full_refresh;
 
+  /// Snackbar message when server action for folksonomy updates is started
+  ///
+  /// In en, this message translates to:
+  /// **'Starting to perform the server actions for folksonomy updates stored locally'**
+  String get background_task_title_folksonomy;
+
   /// Snackbar message when a download of the most popular products is started
   ///
   /// In en, this message translates to:

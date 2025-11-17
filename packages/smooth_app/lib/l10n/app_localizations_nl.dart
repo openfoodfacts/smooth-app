@@ -3560,6 +3560,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het vernieuwen starten van alle producten die lokaal zijn opgeslagen';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Het downloaden van de meest populaire producten starten';
 

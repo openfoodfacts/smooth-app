@@ -3598,6 +3598,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Έναρξη ανανέωσης όλων των προϊόντων που είναι αποθηκευμένα τοπικά';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Έναρξη λήψης των πιο δημοφιλών προϊόντων';
 

@@ -3539,6 +3539,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Spouštění aktualizace všech lokálně uložených produktů';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Zahájení stahování nejoblíbenějších produktů';
 

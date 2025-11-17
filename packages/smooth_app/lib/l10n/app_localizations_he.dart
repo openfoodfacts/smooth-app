@@ -3506,6 +3506,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'מתחיל רענון של כל המוצרים שמאוחסנים מקומית';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'מתחילה הורדת המוצרים הנפוצים ביותר';
 

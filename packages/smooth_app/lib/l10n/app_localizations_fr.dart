@@ -3602,6 +3602,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Démarrage de la mise à jour de tous les produits stockés localement';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Démarrage du téléchargement des produits les plus populaires';
 
