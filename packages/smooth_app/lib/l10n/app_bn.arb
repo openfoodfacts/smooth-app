@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "স্থানীয়ভাবে সংরক্ষিত লোকসাহিত্য আপডেটের জন্য সার্ভারের ক্রিয়া সম্পাদন শুরু করা হচ্ছে",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "সর্বাধিক জনপ্রিয় পণ্যগুলির ডাউনলোড শুরু হচ্ছে",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
