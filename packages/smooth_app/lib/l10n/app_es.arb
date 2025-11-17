@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Iniciando la ejecución de las acciones del servidor para las actualizaciones de folksonomía almacenadas localmente.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Iniciando la descarga de los productos más populares",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
