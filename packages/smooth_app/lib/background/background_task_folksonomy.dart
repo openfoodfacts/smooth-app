@@ -53,7 +53,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   ) => BackgroundTaskFolksonomy._(
     processName: _operationType.processName,
     uniqueId: uniqueId,
-    stamp: ';folksonomy;$barcode',
+    stamp: '$barcode;folksonomy;',
     barcode: barcode,
   );
 
