@@ -71,7 +71,11 @@
   unawaited(_refreshDisplayableTags());
 
   try {
-    await _folksonomyManager.serverRefresh(barcode);
+    await BackgroundTaskFolksonomy.serverRefresh(
+      barcode,
+      _daoFolksonomy,
+      _localDatabase,
+    );
   } catch (e) {
     if (_tags.isEmpty) {
       value = FolksonomyStateError(error: e);

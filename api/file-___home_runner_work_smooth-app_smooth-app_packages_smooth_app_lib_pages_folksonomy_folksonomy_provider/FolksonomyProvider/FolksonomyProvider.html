@@ -50,7 +50,7 @@
 
     <section class="multi-line-signature">
       <span class="name ">FolksonomyProvider</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>, </span></li>
-<li><span class="parameter" id="-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span></span></li>
+<li><span class="parameter" id="-param-_localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">_localDatabase</span></span></li>
 </ol>)
     </section>
 
@@ -60,11 +60,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">FolksonomyProvider(this.barcode, LocalDatabase localDatabase)
-  : _daoFolksonomy = DaoFolksonomy(localDatabase),
-    _folksonomyManager = FolksonomyManager(localDatabase),
+  <pre class="language-dart"><code class="language-dart">FolksonomyProvider(this.barcode, this._localDatabase)
+  : _daoFolksonomy = DaoFolksonomy(_localDatabase),
+    _daoTransientFolksonomy = DaoTransientFolksonomy(_localDatabase),
     super(const FolksonomyStateLoading()) {
-  unawaited(_init());
+  unawaited(fetchProductTags());
 }</code></pre>
 </section>
 

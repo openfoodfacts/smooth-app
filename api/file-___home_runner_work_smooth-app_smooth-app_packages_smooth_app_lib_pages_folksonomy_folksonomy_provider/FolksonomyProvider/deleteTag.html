@@ -66,10 +66,20 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; deleteTag(String key) async {
   try {
-    await _folksonomyManager.deleteTag(
+    final ProductTag tagToDelete = ProductTag(
+      barcode: barcode,
+      key: key,
+      value: &#39;&#39;,
+      owner: &#39;&#39;,
+      version: _getCurrentTagVersion(key),
+      editor: &#39;&#39;,
+      lastEdit: DateTime.now(),
+      comment: &#39;&#39;,
+    );
+
+    await _addOperation(
       barcode,
-      key,
-      _getCurrentTagVersion(key),
+      FolksonomyOperation(type: FolksonomyAction.remove, tag: tagToDelete),
     );
     unawaited(_refreshDisplayableTags());
   } catch (e) {

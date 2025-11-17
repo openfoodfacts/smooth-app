@@ -67,11 +67,20 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; editTag(String key, String newValue) async {
   try {
-    await _folksonomyManager.editTag(
+    final ProductTag editedProductTag = ProductTag(
+      barcode: barcode,
+      key: key,
+      value: newValue,
+      owner: &#39;&#39;,
+      version: _getCurrentTagVersion(key) + 1,
+      editor: &#39;&#39;,
+      lastEdit: DateTime.now(),
+      comment: &#39;&#39;,
+    );
+
+    await _addOperation(
       barcode,
-      key,
-      newValue,
-      _getCurrentTagVersion(key) + 1,
+      FolksonomyOperation(type: FolksonomyAction.edit, tag: editedProductTag),
     );
     unawaited(_refreshDisplayableTags());
   } catch (e) {
