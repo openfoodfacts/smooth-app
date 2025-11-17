@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "ಸ್ಥಳೀಯವಾಗಿ ಸಂಗ್ರಹವಾಗಿರುವ ಫೋಲ್ಕ್‌ಸೊನಮಿ ನವೀಕರಣಗಳಿಗಾಗಿ ಸರ್ವರ್ ಕ್ರಿಯೆಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
