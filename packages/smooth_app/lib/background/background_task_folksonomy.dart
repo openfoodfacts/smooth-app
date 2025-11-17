@@ -25,7 +25,6 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
 
   final String barcode;
 
-  String? _bearerToken;
   static const String _jsonTagBarcode = 'barcode';
   static const OperationType _operationType = OperationType.folksonomy;
 
@@ -83,15 +82,17 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
       }
 
       if (!operation.isPerformed) {
+        final String bearerToken = await _getBearerToken();
+
         switch (operation.type) {
           case FolksonomyAction.add:
-            await _serverAdd(operation.tag);
+            await _serverAdd(operation.tag, bearerToken);
             break;
           case FolksonomyAction.edit:
-            await _serverEdit(operation.tag);
+            await _serverEdit(operation.tag, bearerToken);
             break;
           case FolksonomyAction.remove:
-            await _serverDelete(operation.tag);
+            await _serverDelete(operation.tag, bearerToken);
             break;
           default:
             throw Exception('Invalid operation type: ${operation.type}');
@@ -100,6 +101,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
         final List<FolksonomyOperation>? pendingOperations =
             _getPendingOperations(barcode, daoTransientFolksonomy);
         if (pendingOperations == null || pendingOperations.isEmpty) {
+          // Not supposed to happen as we don't store null/empty lists.
           return;
         }
 
@@ -114,6 +116,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
       if (pendingOperations == null ||
           pendingOperations.isEmpty ||
           !pendingOperations.first.isPerformed) {
+        // Not supposed to happen as we don't store null/empty lists and 'isPerformed' flag for first operation is set to true before.
         return;
       }
 
@@ -127,9 +130,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
     }
   }
 
-  Future<void> _serverAdd(ProductTag tag) async {
-    final String bearerToken = await _getBearerToken();
-
+  Future<void> _serverAdd(ProductTag tag, String bearerToken) async {
     // FIXME: The addProduct tag method does not yet have a way to add a comment.
     final MaybeError<bool> result = await FolksonomyAPIClient.addProductTag(
       barcode: tag.barcode,
@@ -143,9 +144,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
     }
   }
 
-  Future<void> _serverEdit(ProductTag tag) async {
-    final String bearerToken = await _getBearerToken();
-
+  Future<void> _serverEdit(ProductTag tag, String bearerToken) async {
     final MaybeError<bool> result = await FolksonomyAPIClient.updateProductTag(
       barcode: tag.barcode,
       key: tag.key,
@@ -159,9 +158,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
     }
   }
 
-  Future<void> _serverDelete(ProductTag tag) async {
-    final String bearerToken = await _getBearerToken();
-
+  Future<void> _serverDelete(ProductTag tag, String bearerToken) async {
     final MaybeError<bool> result = await FolksonomyAPIClient.deleteProductTag(
       barcode: tag.barcode,
       key: tag.key,
@@ -195,10 +192,6 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
   ) => daoTransientFolksonomy.get(barcode);
 
   Future<String> _getBearerToken() async {
-    if (_bearerToken != null) {
-      return _bearerToken!;
-    }
-
     final User? user = OpenFoodAPIConfiguration.globalUser;
     if (user == null) {
       throw Exception('No user found');
@@ -219,7 +212,6 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
       throw Exception('Unexpected empty token');
     }
 
-    _bearerToken = token.value;
     return token.value;
   }
 
