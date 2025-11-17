@@ -1374,7 +1374,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Shtoni faktet ushqyese dhe nje kategori per te llogaritur piket-ushqyese.';
+      'Shtoni faktet ushqyese dhe nje kategori per te llogaritur Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -1722,7 +1722,7 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Krahaso krah për krah';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5777,8 +5777,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Zbuloni Fakte të Hapura për Ushqimin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5820,8 +5819,7 @@ class AppLocalizationsSq extends AppLocalizations {
       'Angazhohuni duke marrë pjesë në një nga eventet tona virtuale';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Blogu i Fakte të Hapura Ushqimore';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5987,7 +5985,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6036,7 +6034,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Mënyra të thjeshta për të ndihmuar në Hapjen e Fakte Ushqimore';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6144,14 +6142,14 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorët e Fakteve Ushqimore të Hapura';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Sillni Fakte Ushqimore të Hapura në gjuhën tuaj';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

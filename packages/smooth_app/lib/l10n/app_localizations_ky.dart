@@ -1709,7 +1709,7 @@ class AppLocalizationsKy extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Жанаша салыштырыңыз';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -6126,14 +6126,14 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Тамак-аш фактылары лабораториясын ачыңыз';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ачык тамак-аш фактыларын өз тилиңизге алып келиңиз';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Vergelijk naast elkaar",
   "loading_dialog_default_title": "Gegevens worden gedownload...",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -4103,7 +4104,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Plaats het product op een vlakke ondergrond.",
   "guide_open_pet_food_facts_scores_title": "Een opmerking over het scoren",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
-  "guide_open_pet_food_facts_share_link": "https://world-en.openpetfoodfacts.org/discover",
+  "guide_open_pet_food_facts_share_link": "https://world-nl.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Welkom bij Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4135,7 +4136,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Plaats het product op een vlakke ondergrond.",
   "guide_open_beauty_facts_scores_title": "Een opmerking over het scoren",
   "guide_open_beauty_facts_scores_paragraph1": "In tegenstelling tot voedingsproducten kent de cosmeticawereld **geen universeel erkend, door de overheid ondersteund scoresysteem zoals de Nutri-Score**. De effecten van ingrediënten kunnen zeer persoonlijk zijn en hangen af van huidtype, allergieën en individuele behoeften.",
-  "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
+  "guide_open_beauty_facts_share_link": "https://world-nl.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Welkom bij Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4165,11 +4166,11 @@
   "guide_open_prices_retailers_title": "Ik ben een detailhandelaar en ik wil prijzen bijdragen. Hoe kan ik dat doen?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Welkom bij Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Wat is Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4192,7 +4193,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
+  "guide_open_products_facts_share_link": "https://world-nl.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Binnenkort beschikbaar",
   "guide_learn_more_subtitle": "Tik om meer te weten te komen",
@@ -4560,11 +4561,11 @@
   "folksonomy_explanation_card_title": "Wat zijn Folksonomy-attributen?",
   "folksonomy_explanation_card_line1": "Attributen zijn **sleutel-waarde** gebaseerd.",
   "folksonomy_explanation_card_line2": "Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Externe link openen",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Externe links kunnen onveilig zijn. Wilt u deze echt bezoeken?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },

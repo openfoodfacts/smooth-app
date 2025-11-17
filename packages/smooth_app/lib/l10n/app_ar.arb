@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "ساعد في تحسين حقائق الأغذية المفتوحة في بلدك",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +395,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "الترجمات هي إحدى المهام الرئيسية للمشروع",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "ساهم بمهاراتك في \"حقائق الطعام المفتوحة\". انضم إلى فريقنا!",
+  "contribute_join_skill_pool": "ساهم بمهاراتك في \"Open Food Facts\". انضم إلى فريقنا!",
   "contribute_share_header": "شارك حقائق الطعام المفتوحة مع أصدقائك",
   "@contribute_share_header": {},
   "contribute_share_content": "أردتُ أن أخبركم عن تطبيق Open Food Facts الذي أستخدمه، والذي يُمكّنكم من معرفة الآثار الصحية والبيئية لغذائكم، بطريقة شخصية. يعمل التطبيق عن طريق مسح الباركود الموجود على العبوة. وأخيرًا، التطبيق مجاني ولا يتطلب تسجيلًا، ويُمكنكم حتى من زيادة عدد المنتجات التي تُفك رموزها. إليكم رابط تحميله على هاتفكم: https://openfoodfacts.app",
@@ -703,7 +703,7 @@
   "nutritional_facts_input_button_label": "املأ حقائق التغذية",
   "nutritional_facts_added": "تمت إضافة حقائق التغذية",
   "categories_added": "تمت إضافة الفئات",
-  "new_product_title_nutriscore": "حساب النتيجة الغذائية",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "ساعدنا عن طريق ملء فئة واحدة على الأقل والقيم الغذائية",
   "new_product_title_environmental_score": "حساب النتيجة الخضراء",
   "new_product_subtitle_environmental_score": "احصل عليه عن طريق ملء فئة واحدة على الأقل",
@@ -712,7 +712,7 @@
   "new_product_subtitle_nova": "احصل عليه عن طريق ملء فئة الطعام والمكونات",
   "new_product_desc_nova_unknown": "مستوى معالجة الطعام غير معروف",
   "new_product_title_pictures": "منتج جديد",
-  "new_product_title_pictures_details": "يرجى التقاط الصور التالية وسيتمكن محرك حقائق الغذاء المفتوحة من معرفة الباقي!",
+  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "وبعض البيانات الأساسية…",
   "new_product_done_msg": "شكرًا على مساهمتك “{username}”!",
   "@new_product_done_msg": {
@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "مقارنة جنبًا إلى جنب",
   "loading_dialog_default_title": "تحميل البيانات",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1682,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "نيوتري سكور، نوفا…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2643,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "تعرف على المزيد حول الأسعار المفتوحة",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3821,11 +3822,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "نوتري-سكور أ",
-  "nutriscore_b": "نوتري سكور ب",
-  "nutriscore_c": "نيوتري-سكور سي",
-  "nutriscore_d": "نوتري-سكور د",
-  "nutriscore_e": "نوتري-سكور إي",
+  "nutriscore_a": "Nutri-Score أ",
+  "nutriscore_b": "Nutri-Score ب",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score د",
+  "nutriscore_e": "Nutri-Score إي",
   "nutriscore_new_formula": "Nutri-Score {letter} (حساب جديد)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3836,8 +3837,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (حساب جديد)",
-  "nutriscore_unknown": "درجة التغذية غير المعروفة",
-  "nutriscore_unknown_new_formula": "درجة التغذية غير المعروفة (حساب جديد)",
+  "nutriscore_unknown": "Nutri-Score غير المعروفة",
+  "nutriscore_unknown_new_formula": "Nutri-Score غير المعروفة (حساب جديد)",
   "nutriscore_not_applicable": "Nutri-Score غير قابل للتطبيق",
   "nutriscore_not_applicable_new_formula": "Nutri-Score غير قابل للتطبيق (حساب جديد)",
   "environmental_score_generic_new": "النتيجة البيئية",
@@ -3848,12 +3849,12 @@
   "environmental_score_e_new": "النتيجة الخضراء E",
   "environmental_score_unknown_new": "نتيجة خضراء غير معروفة",
   "environmental_score_not_applicable_new": "لا ينطبق Green-Score",
-  "nova_group_generic_new": "الأطعمة فائقة المعالجة - مجموعة نوفا",
-  "nova_group_1": "مجموعة نوفا 1",
-  "nova_group_2": "مجموعة نوفا 2",
-  "nova_group_3": "مجموعة نوفا 3",
-  "nova_group_4": "مجموعة نوفا 4",
-  "nova_group_unknown": "مجموعة نوفا غير المعروفة",
+  "nova_group_generic_new": "الأطعمة فائقة المعالجة - مجموعة NOVA",
+  "nova_group_1": "مجموعة NOVA 1",
+  "nova_group_2": "مجموعة NOVA 2",
+  "nova_group_3": "مجموعة NOVA 3",
+  "nova_group_4": "مجموعة NOVA 4",
+  "nova_group_unknown": "مجموعة NOVA غير المعروفة",
   "nutrition_facts": "23423456bk",
   "faq_title_partners": "شركاء ورعاة المنظمة غير الحكومية",
   "faq_title_vision": "رؤية ورسالة وقيم وبرامج مؤسسة Open Food Facts",
@@ -3905,12 +3906,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "مشاركة",
-  "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
+  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4015,8 +4016,8 @@
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "شعارات نوفا",
-  "guide_nova_groups_title": "مجموعات نوفا الأربعة",
+  "guide_nova_logos_caption": "شعارات NOVA",
+  "guide_nova_groups_title": "مجموعات NOVA الأربعة",
   "guide_nova_groups_intro": "هناك 4 مجموعات NOVA، المجموعة التي تشكل المشكلة هي المجموعة 4 - الأطعمة فائقة المعالجة.",
   "guide_nova_groups_arg1_title": "الأطعمة المعالجة بشكل طفيف أو غير المعالجة",
   "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
@@ -4047,7 +4048,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "ما هي حقائق الغذاء المفتوحة؟",
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts عبارة عن قاعدة بيانات **تعاونية** و**مجانية** و**مفتوحة** للمنتجات الغذائية من جميع أنحاء العالم.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4056,7 +4057,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "مميزات حقائق الطعام المفتوحة",
+  "guide_open_food_facts_features_title": "مميزات Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "احصل على تنبيهات بشأن المكونات غير المرغوب فيها",
   "guide_open_food_facts_tips_title": "نصائح لالتقاط صور رائعة",
   "guide_open_food_facts_tips_arg1_title": "لا تفعل",
@@ -4078,8 +4079,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ما هي حقائق طعام الحيوانات الأليفة المفتوحة؟",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "حقائق طعام الحيوانات الأليفة المفتوحة تُوسّع نطاق مهمتها لتشمل حيواناتنا الأليفة! إنها **قاعدة بيانات لمنتجات طعام الحيوانات الأليفة للقطط والكلاب وغيرها من الحيوانات الأليفة**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4087,7 +4088,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "مميزات حقائق طعام الحيوانات الأليفة المفتوحة",
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "احصل على تنبيهات بشأن المكونات غير المرغوب فيها",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "هل يعاني حيوانك الأليف من حساسية تجاه أي من مكونات مستحضرات التجميل؟ يمكنك تحديد قائمة بالمكونات التي يجب تجنبها مباشرةً من التطبيق!",
   "guide_open_pet_food_facts_tips_title": "نصائح لالتقاط صور رائعة",
@@ -4108,7 +4109,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ما هي حقائق الجمال المفتوحة؟",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts عبارة عن قاعدة بيانات تعاونية لمنتجات التجميل.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4136,12 +4137,12 @@
   "guide_open_beauty_facts_scores_title": "ملاحظة حول التسجيل",
   "guide_open_beauty_facts_scores_paragraph1": "على عكس المنتجات الغذائية، لا يعتمد عالم مستحضرات التجميل نظام تقييم معتمد عالميًا ومدعوم حكوميًا مثل نظام Nutri-Score. قد تختلف تأثيرات المكونات باختلاف نوع البشرة والحساسية والمخاوف الشخصية.",
   "guide_open_beauty_facts_share_link": "https://world-ar.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "مرحباً بكم في الأسعار المفتوحة!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ما هي الأسعار المفتوحة؟",
-  "guide_open_prices_what_is_open_prices_paragraph1": "\"الأسعار المفتوحة\" مشروع لجمع ومشاركة أسعار المنتجات حول العالم. وهي قاعدة بيانات متاحة للعامة، ويمكن استخدامها للبحث والتحليل وغيرها. طُوّرت \"الأسعار المفتوحة\" وصيانتها بواسطة \"حقائق الغذاء المفتوحة\".",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4149,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "كيف تعمل الأسعار المفتوحة؟",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**نعمل على جمع بيانات أسعار مفتوحة المصدر من الجمهور**. يمكن للمستخدمين إضافة الأسعار عبر تطبيق الويب هذا، أو عبر تطبيق Open Food Facts الرسمي للهواتف المحمولة. كما يمكن لتجار التجزئة أو تطبيقات الجهات الخارجية المساهمة باستخدام واجهة برمجة التطبيقات الخاصة بنا.",
   "guide_open_prices_how_arg1_title": "جمع صور لعلامات الأسعار في الممرات",
   "guide_open_prices_how_arg2_title": "جمع صور الإيصالات",
@@ -4160,7 +4161,7 @@
   "guide_open_prices_why_arg2_title": "قارن الأسعار بالقرب منك",
   "guide_open_prices_why_arg2_text": "مع حصولنا على المزيد من الأسعار، يمكنك تحديد **المتاجر الأرخص حولك**.",
   "guide_open_prices_scrapping_title": "هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟",
-  "guide_open_prices_scrapping_paragraph1": "لأسباب قانونية وفنية، **لا نعتبر جمع الأسعار من مواقع تجار التجزئة طريقةً صالحةً للمساهمة في \"الأسعار المفتوحة\". نحرص على دقة الأسعار التي نجمعها وتحديثها، وتلقينا أسعارًا من المساهمين لا يسمح لنا بذلك.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.",
@@ -4169,8 +4170,8 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "ما هي حقائق المنتجات المفتوحة؟",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "حقائق المنتجات المفتوحة عبارة عن قاعدة بيانات ضخمة مفتوحة لأي منتج يحمل رمزًا شريطيًا، وهو ليس طعامًا أو مستحضر تجميل أو طعامًا للحيوانات الأليفة.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "مميزات حقائق المنتجات المفتوحة",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "تهدف Open Products Facts إلى تمكين المستهلكين من **إطالة عمر الأشياء** من خلال توفير الحلول الدائرية للحفاظ على أشيائهم وإصلاحها وإعادة تدويرها أو منحها مالكًا جديدًا.",
   "guide_open_products_facts_features_arg1_title": "البصمة الكربونية لبعض المنتجات",
   "guide_open_products_facts_features_arg1_text": "يوفر تقرير **تأثير ثاني أكسيد الكربون** الصادر عن هيئة البيئة الفرنسية ADEME **تأثير الكربون** للعديد من الفئات، تأكد من تصنيف المنتجات بدقة.",
@@ -4551,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "لماذا الاسعار؟",
-  "prices_explanation_card_line1": "**الأسعار المفتوحة** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير \"الأسعار المفتوحة\" وصيانتها بواسطة Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
   "explanation_card_learn_more_button": "لمعرفة المزيد",
   "product_page_tab_folksonomy": "علم اللغة الشعبية",
   "@product_page_tab_folksonomy": {
@@ -5099,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "اكتشف حقائق الطعام المفتوحة",
+  "preferences_faq_discover_off_title": "اكتشف Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "اكتشف الأسعار المفتوحة",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "اكتشف حقائق المنتجات المفتوحة",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5123,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "منظمة حقائق الغذاء المفتوحة غير الحكومية",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "مدونة حقائق الغذاء المفتوحة",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5579,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "جلب حقائق الطعام المفتوحة إلى لغتك",
+  "preferences_contribute_translate_header": "جلب Open Food Facts إلى لغتك",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

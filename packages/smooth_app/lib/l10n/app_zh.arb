@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Compare side by side",
   "loading_dialog_default_title": "正在下載資料",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3845,11 +3846,7 @@
   "environmental_score_b_new": "绿色评分 B",
   "environmental_score_c_new": "绿色评分 C",
   "environmental_score_d_new": "绿色评分 D",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_e_new": "绿色评分 E",
   "environmental_score_unknown_new": "未知Green-Score",
   "environmental_score_not_applicable_new": "Green-Score不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",

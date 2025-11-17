@@ -703,7 +703,7 @@
   "nutritional_facts_input_button_label": "栄養成分表を入力する",
   "nutritional_facts_added": "栄養成分表が追加されました",
   "categories_added": "カテゴリーが追加されました。",
-  "new_product_title_nutriscore": "ニュートリスコアを計算する",
+  "new_product_title_nutriscore": "Nutri-Scoreを計算する",
   "new_product_subtitle_nutriscore": "食品カテゴリと栄養価を満たして入手する",
   "new_product_title_environmental_score": "グリーンスコアを計算する",
   "new_product_subtitle_environmental_score": "少なくとも1つのカテゴリを入力して取得してください",
@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "並べて比較する",
   "loading_dialog_default_title": "データをダウンロード中",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1682,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "ニュートリスコア、NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score、NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2643,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "オープン価格について詳しく知る",
+  "prices_menu_know_more": "Open Pricesについて詳しく知る",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3821,11 +3822,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "ニュートリスコアA",
-  "nutriscore_b": "ニュートリスコアB",
-  "nutriscore_c": "ニュートリスコアC",
-  "nutriscore_d": "ニュートリスコアD",
-  "nutriscore_e": "ニュートリスコアE",
+  "nutriscore_a": "Nutri-ScoreA",
+  "nutriscore_b": "Nutri-ScoreB",
+  "nutriscore_c": "Nutri-ScoreC",
+  "nutriscore_d": "Nutri-ScoreD",
+  "nutriscore_e": "Nutri-ScoreE",
   "nutriscore_new_formula": "Nutri-Score {letter} (新しい計算)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3836,10 +3837,10 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
-  "nutriscore_unknown": "不明な栄養スコア",
-  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
+  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
-  "nutriscore_not_applicable_new_formula": "ニュートリスコアは適用されません（新しい計算）",
+  "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "グリーンスコアA",
   "environmental_score_b_new": "グリーンスコアB",
@@ -4056,7 +4057,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "オープンフードファクトの特徴",
+  "guide_open_food_facts_features_title": "Open Food Factsの特徴",
   "guide_open_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
   "guide_open_food_facts_tips_arg1_title": "してはいけないこと",
@@ -4087,7 +4088,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "オープンペットフードファクトの特徴",
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "ペットにアレルギーのある成分はありますか？避けるべき化粧品成分のリストをアプリ内で設定できます。",
   "guide_open_pet_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4117,7 +4118,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "オープンビューティーファクトの特徴",
+  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_beauty_facts_features_arg1_paragraph1": "成分にアレルギーがありますか？コメドゲン物質を避けたいですか？物議を醸す成分を避けたいですか？アプリ内で、避けたい化粧品成分のリストを設定できます！",
   "guide_open_beauty_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4136,11 +4137,11 @@
   "guide_open_beauty_facts_scores_title": "スコアリングに関する注意",
   "guide_open_beauty_facts_scores_paragraph1": "食品とは異なり、化粧品の世界には**Nutri-Score**のような、世界的に認知され、政府が支援する評価システムはありません。成分の効果は個人差が大きく、肌質、アレルギー、個人の悩みによって異なります。",
   "guide_open_beauty_facts_share_link": "https://world-ja.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "オープン価格へようこそ！",
+  "guide_open_prices_title": "Open Pricesへようこそ！",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "オープン価格とは何ですか?",
+  "guide_open_prices_what_is_open_prices_title": "Open Pricesとは何ですか?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices は、**世界中の商品の価格を収集・共有する**プロジェクトです。これは、研究や分析などに利用できる公開データセットです。Open Prices は、Open Food Facts によって開発・管理されています。",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4149,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "オープン価格はどのように機能しますか?",
+  "guide_open_prices_how_title": "Open Pricesはどのように機能しますか?",
   "guide_open_prices_how_paragraph1": "**オープンソースの価格データセットをクラウドソーシングしています**。ユーザーは、このウェブアプリまたは公式のOpen Food Factsモバイルアプリから価格を追加できます。小売業者やサードパーティ製アプリも、APIを使用して価格データに貢献できます。",
   "guide_open_prices_how_arg1_title": "通路にある値札の写真を集める",
   "guide_open_prices_how_arg2_title": "領収書の写真を集める",
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "オープンプロダクトの特徴",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts は、物品を維持、**修理**、**リサイクル**したり、新しい所有者に譲渡したりするための循環型ソリューションを提供することで、消費者に**物品の寿命を延ばす**ことを目指しています。",
   "guide_open_products_facts_features_arg1_title": "一部の製品のカーボンフットプリント",
   "guide_open_products_facts_features_arg1_text": "フランス環境庁 ADEME による **Impact CO2** では、多くのカテゴリーの **炭素影響** が示されています。製品を正確に分類するようにしてください。",
@@ -4990,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "オープンフードファクトのウェブサイト",
+  "preferences_on_off_website_subtitle": "Open Food Factsのウェブサイト",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5099,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "オープンフードファクトを発見",
+  "preferences_faq_discover_off_title": "Open Food Factsを発見",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "オープンビューティーファクトを発見",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "オープンペットフードの事実を知る",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "オープン価格を見る",
+  "preferences_faq_discover_op_title": "Open Pricesを見る",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "オープンプロダクトの詳細を見る",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5123,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "オープンフードファクトNGO",
+  "preferences_faq_off_ngo_title": "Open Food FactsNGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "オープンフードファクトブログ",
+  "preferences_connect_blog_title": "Open Food Factsブログ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "オープンフードファクトラボ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Factsラボ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

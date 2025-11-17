@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "पार्श्वे पार्श्वे तुलनां कुरुत",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -4007,7 +4008,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nova_what_is_nova_title": "अति-प्रक्रियाकरणं किम् ?",
-  "guide_nova_what_is_nova_paragraph1": "नोवा-समूहाः भवन्तं खाद्यप्रसंस्करणस्य स्तरस्य विषये सूचयन्ति ।",
+  "guide_nova_what_is_nova_paragraph1": "NOVA-समूहाः भवन्तं खाद्यप्रसंस्करणस्य स्तरस्य विषये सूचयन्ति ।",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4015,9 +4016,9 @@
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "नोवा-चिह्नानि",
-  "guide_nova_groups_title": "४ नोवा समूहाः",
-  "guide_nova_groups_intro": "अत्र ४ नोवा-समूहाः सन्ति, समस्याप्रदः समूहः ४ - अल्ट्रा-प्रोसेस्ड् खाद्यानि ।",
+  "guide_nova_logos_caption": "NOVA-चिह्नानि",
+  "guide_nova_groups_title": "४ NOVA समूहाः",
+  "guide_nova_groups_intro": "अत्र ४ NOVA-समूहाः सन्ति, समस्याप्रदः समूहः ४ - अल्ट्रा-प्रोसेस्ड् खाद्यानि ।",
   "guide_nova_groups_arg1_title": "न्यूनतमरूपेण संसाधितानि अथवा असंसाधितानि आहारपदार्थानि",
   "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
@@ -5099,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

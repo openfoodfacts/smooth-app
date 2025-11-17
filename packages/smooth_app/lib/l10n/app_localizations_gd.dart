@@ -1710,7 +1710,7 @@ class AppLocalizationsGd extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Dèan coimeas taobh ri taobh';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5773,8 +5773,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Faigh a-mach Fiosrachadh mu Bhiadh Fosgailte';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5795,7 +5794,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Ceistean Bitheanta - Ceistean Bitheanta';
 
   @override
-  String get preferences_faq_off_ngo_title => 'NGO Fiosrachadh Biadh Fosgailte';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5817,8 +5816,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Gabh pàirt le bhith an làthair aig aon de na tachartasan brìgheil againn';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Am blog Fiosrachadh Biadh Fosgailte';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6141,14 +6139,14 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Obair-lannan Fiosrachaidh Bidhe Fosgailte';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Thoir Fiosrachadh Biadh Fosgailte don chànan agad';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

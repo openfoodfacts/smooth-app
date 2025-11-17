@@ -1716,7 +1716,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Sammenlign side om side';
 
   @override
   String get loading_dialog_default_title => 'Downloader data';
@@ -5776,7 +5776,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Gå på opdagelse i projektet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Opdag åbne fødevarefakta';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6136,14 +6136,14 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Åbne fødevarefakta-laboratorier';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Få åbne fødevarefakta på dit sprog';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

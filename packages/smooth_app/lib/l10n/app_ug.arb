@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "يانمۇ-يان سېلىشتۇرۇڭ",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -5295,7 +5296,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "دۆلىتىڭىزدىكى ئوزۇقلۇق نومۇرى ۋە يېشىل نومۇرلارنى ھېسابلاشقا ياردەملىشىڭ",
+  "preferences_contributions_categorize_subtitle": "Help compute the Nutri-Score & Green-Score in your country",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },

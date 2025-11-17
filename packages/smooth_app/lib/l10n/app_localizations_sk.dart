@@ -1730,7 +1730,7 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Porovnajte vedľa seba';
 
   @override
   String get loading_dialog_default_title => 'Sťahovanie údajov';
@@ -4157,7 +4157,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get faq_title_install_product =>
-      'Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
@@ -5799,8 +5799,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Objavte projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objavte fakty o otvorenom jedle';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5844,7 +5843,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Zapojte sa účasťou na jednom z našich virtuálnych podujatí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otvorené fakty o jedle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6165,14 +6164,14 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otvorené laboratóriá faktov o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prineste fakty o otvorených potravinách do svojho jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

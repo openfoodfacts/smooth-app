@@ -1710,7 +1710,8 @@ class AppLocalizationsMl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'വശങ്ങളിലായി താരതമ്യം ചെയ്യുക';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5920,7 +5921,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5968,7 +5969,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6017,7 +6018,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>

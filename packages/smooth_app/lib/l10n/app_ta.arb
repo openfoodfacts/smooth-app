@@ -703,7 +703,7 @@
   "nutritional_facts_input_button_label": "Fill nutrition facts",
   "nutritional_facts_added": "Nutrition facts added",
   "categories_added": "Categories added",
-  "new_product_title_nutriscore": "நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "உணவு வகை மற்றும் ஊட்டச்சத்து மதிப்புகளை நிரப்புவதன் மூலம் அதைப் பெறுங்கள்",
   "new_product_title_environmental_score": "Compute the Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "அருகருகே ஒப்பிடுக",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3840,7 +3841,7 @@
   "nutriscore_unknown_new_formula": "தெரியாத Nutri-Score (புதிய கணக்கீடு)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score பொருந்தாது (புதிய கணக்கீடு)",
-  "environmental_score_generic_new": "பச்சை-ஸ்கோர்",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
@@ -3941,7 +3942,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "பச்சை-ஸ்கோர்",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4494,7 +4495,7 @@
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
   "knowledge_panel_nutriscore_banner_incorrect_score_title": "இந்த Nutri-Score தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "பொருட்களைச் சரிபார்க்கவும்",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "ஊட்டச்சத்து உண்மைகளைச் சரிபார்க்கவும்",
   "url_not_supported": "துரதிருஷ்டவசமாக, எங்களால் URL ஐ திறக்க முடியவில்லை:\n{url}",
@@ -4926,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ஓபன் ஃபுட் ஃபேக்ட்ஸ் என்பது அனைவராலும், அனைவருக்கும்** உருவாக்கப்பட்ட உணவுப் பொருட்களின் தரவுத்தளமாகும்.\nசிறந்த உணவுத் தேர்வுகளைச் செய்ய நீங்கள் இதைப் பயன்படுத்தலாம், மேலும் இது **திறந்த தரவு** என்பதால், யார் வேண்டுமானாலும் எந்த நோக்கத்திற்காகவும் இதை மீண்டும் பயன்படுத்தலாம்**.",
+  "preferences_legal_header": "Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4986,11 +4987,11 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்",
+  "tips_discover_nutriscore": "Discover the new Nutri-Score",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்",
+  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },

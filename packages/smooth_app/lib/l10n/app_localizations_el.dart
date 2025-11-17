@@ -1752,7 +1752,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Σύγκριση δίπλα-δίπλα';
 
   @override
   String get loading_dialog_default_title => 'Λήψη δεδομένων';
@@ -5869,8 +5869,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Ανακαλύψτε το έργο';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6232,14 +6231,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Λογαριασμός';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Φέρτε τα Ανοιχτά Γεγονότα για τα Τρόφιμα στη γλώσσα σας';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

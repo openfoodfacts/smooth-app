@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Porovnajte vedľa seba",
   "loading_dialog_default_title": "Sťahovanie údajov",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -3859,7 +3860,7 @@
   "faq_title_vision": "Open Food Facts vízia, misia, hodnoty a programy",
   "faq_title_install_beauty": "Nainštalujte si Open Beauty Facts a vytvorte kozmetickú databázu",
   "faq_title_install_pet": "Nainštalujte si Open Pet Food Facts a vytvorte databázu krmiva pre domáce zvieratá",
-  "faq_title_install_product": "Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov",
+  "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
   "faq_nutriscore_nutriscore": "Nový výpočet Nutri-Score: čo je nové?",
   "contact_title_pro_page": "Profesionál? Importujte svoje produkty do Open Food Facts",
   "contact_title_pro_email": "Kontakt na výrobcu",
@@ -5099,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5147,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blog Otvorené fakty o jedle",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5579,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Prineste fakty o otvorených potravinách do svojho jazyka",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

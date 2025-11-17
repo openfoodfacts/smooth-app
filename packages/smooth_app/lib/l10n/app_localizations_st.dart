@@ -1709,7 +1709,7 @@ class AppLocalizationsSt extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Bapisa ka lehlakore';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -5761,8 +5761,7 @@ class AppLocalizationsSt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Fumana Lintlha tsa Open Food';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6019,7 +6018,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Mekhoa e bonolo ea ho thusa Bula Lintlha tsa Lijo';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6134,7 +6133,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tlisa Lintlha tse Bulehileng tsa Lijo puong ea hau';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

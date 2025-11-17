@@ -1739,7 +1739,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Compare lado a lado';
 
   @override
   String get loading_dialog_default_title => 'A descarregar os dados';
@@ -5850,8 +5850,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubra o projeto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra factos sobre os alimentos abertos';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6213,7 +6212,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratórios Abertos de Informação Alimentar';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Conta';
@@ -8002,6 +8001,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
+  String get product_list_compare_side_by_side => 'Compare lado a lado';
+
+  @override
   String get loading_dialog_default_title => 'A descarregar os dados';
 
   @override
@@ -9284,7 +9286,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get prices_menu_know_more => 'Saiba mais sobre preços abertos';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Concluído';
@@ -11170,7 +11172,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Diferente dos produtos alimentícios, o mundo dos cosméticos **não possui um sistema de pontuação reconhecido e respaldado por governos, como a Pontuação de Nutrição. Os efeitos dos ingredientes podem ser altamente pessoais e depender do tom de pele, alergias e preocupações individuais.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -12114,8 +12116,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get preferences_faq_discover_project_title => 'Descubra o projeto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra fatos sobre alimentos abertos';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -12478,7 +12479,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratórios Abertos de Informações Alimentares';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Conta';

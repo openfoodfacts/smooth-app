@@ -1419,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Jämför sida vid sida",
   "loading_dialog_default_title": "Laddar ner data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2643,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Läs mer om öppna priser",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3836,8 +3837,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beräkning)",
-  "nutriscore_unknown": "Okänt näringsvärde",
-  "nutriscore_unknown_new_formula": "Okänt näringsvärde (ny beräkning)",
+  "nutriscore_unknown": "Okänt Nutri-Score",
+  "nutriscore_unknown_new_formula": "Okänt Nutri-Score (ny beräkning)",
   "nutriscore_not_applicable": "Nutri-Score är inte tillämpligt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score är inte tillämpligt (ny beräkning)",
   "environmental_score_generic_new": "Green-Score",
@@ -4047,7 +4048,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Vad är öppna matfakta?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts är en **samarbetsbaserad**, **gratis** och **öppen** databas med livsmedelsprodukter från hela världen.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4136,11 +4137,11 @@
   "guide_open_beauty_facts_scores_title": "En anmärkning om poängsättning",
   "guide_open_beauty_facts_scores_paragraph1": "Till skillnad från livsmedelsprodukter har kosmetikaindustrin **inte ett universellt erkänt, statligt stödt poängsystem som Nutri-Score**. Ingrediensernas effekter kan vara mycket personliga och bero på hudtyp, allergier och individuella behov.",
   "guide_open_beauty_facts_share_link": "https://world-sv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Välkommen till Öppna Priser!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Vad är öppningspriser?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices är ett projekt för att **samla in och dela priser på produkter runt om i världen**. Det är en offentligt tillgänglig datauppsättning som kan användas för forskning, analys och mer. Open Prices utvecklas och underhålls av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4149,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Hur fungerar öppna priser?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Vi crowdsourcar en öppen källkodsdatauppsättning med priser**. Priser kan läggas till av användare via den här webbappen eller via den officiella mobilappen Open Food Facts. Återförsäljare eller tredjepartsappar kan också bidra genom att använda vårt API.",
   "guide_open_prices_how_arg1_title": "Samla foton på prislappar i gångarna",
   "guide_open_prices_how_arg2_title": "Samla foton på kvitton",
@@ -4160,7 +4161,7 @@
   "guide_open_prices_why_arg2_title": "Jämför priser nära dig",
   "guide_open_prices_why_arg2_text": "Allt eftersom vi får fler priser kan du hitta **de billigaste butikerna i närheten**.",
   "guide_open_prices_scrapping_title": "Har du funderat på att hämta priser från återförsäljarnas webbplatser?",
-  "guide_open_prices_scrapping_paragraph1": "Av juridiska och tekniska skäl **anser vi inte att det är ett giltigt sätt att bidra till öppna priser att hämta priser från återförsäljares webbplatser.** Vi vill se till att de priser vi samlar in är korrekta och aktuella, och att ta emot hämtade priser från bidragsgivare tillåter oss inte att göra det.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Prisskrapning är ett övervägt alternativ i en framtida version av Open Prices, men det skulle göras av Open Prices själva så att vi kan ha ett bevis på priset baserat på HTML-sidan.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser genom att använda vårt API.\nOm du vill bidra med priser i stor skala, vänligen kontakta oss på prices@openfoodfacts.org.",
@@ -4169,7 +4170,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Vad är fakta om öppna produkter?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts är en massiv, öppen databas för **alla produkter med streckkod, som inte är livsmedel, kosmetika eller djurfoder**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4178,7 +4179,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Funktioner i öppna produktfakta",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts syftar till att ge konsumenter möjlighet att **förlänga livslängden på föremål** genom att tillhandahålla cirkulära lösningar för att underhålla, **reparera**, **återvinna** sina föremål eller ge dem en ny ägare.",
   "guide_open_products_facts_features_arg1_title": "Koldioxidavtryck för vissa produkter",
   "guide_open_products_facts_features_arg1_text": "**CO2-påverkan** från den franska miljömyndigheten ADEME tillhandahåller **koldioxidpåverkan** för många kategorier, se till att kategorisera produkterna exakt.",
@@ -5099,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Upptäck öppna matfakta",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Upptäck fakta om öppna skönhetsföremål",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Upptäck öppna fakta om husdjursmat",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Upptäck öppna priser",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Upptäck fakta om öppna produkter",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5571,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Öppna matfaktalabb",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
