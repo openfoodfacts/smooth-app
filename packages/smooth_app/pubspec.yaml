@@ -60,7 +60,7 @@ dependencies:
   share_plus: 12.0.1
   fimber: 0.7.0
   shimmer: 3.0.0
-  rive: 0.14.0-dev.13
+  rive: 0.14.0-dev.14
   webview_flutter: 4.13.0
   webview_flutter_android: 4.10.5
   webview_flutter_wkwebview: 3.23.2
