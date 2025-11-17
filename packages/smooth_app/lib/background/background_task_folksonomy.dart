@@ -71,6 +71,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
         DaoTransientFolksonomy(localDatabase);
     final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
 
+    String? bearerToken;
     while (true) {
       final FolksonomyOperation? operation = _getPendingOperations(
         barcode,
@@ -82,7 +83,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
       }
 
       if (!operation.isPerformed) {
-        final String bearerToken = await _getBearerToken();
+        bearerToken ??= await _getBearerToken();
 
         switch (operation.type) {
           case FolksonomyAction.add:
@@ -102,7 +103,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
             _getPendingOperations(barcode, daoTransientFolksonomy);
         if (pendingOperations == null || pendingOperations.isEmpty) {
           throw Exception(
-            'Not supposed to happen as we do not store null/empty lists.',
+            'As we have just performed an operation, there should be at least this operation in the queue.',
           );
         }
 
@@ -118,7 +119,7 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
           pendingOperations.isEmpty ||
           !pendingOperations.first.isPerformed) {
         throw Exception(
-          'Not supposed to happen as we do not store null/empty lists and isPerformed flag for first operation is set to true before',
+          'As we have just performed an operation, there should be at least this operation, as performed, in the queue.',
         );
       }
 
