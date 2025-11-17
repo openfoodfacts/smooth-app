@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "உள்ளூரில் சேமிக்கப்பட்ட ஃபோல்க்சனமி புதுப்பிப்புகளுக்கான சேவையக செயல்களைச் செய்யத் தொடங்குகிறது.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "மிகவும் பிரபலமான தயாரிப்புகளின் பதிவிறக்கத்தைத் தொடங்குகிறது",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
