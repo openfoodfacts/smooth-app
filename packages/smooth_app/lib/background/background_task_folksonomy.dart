@@ -101,8 +101,9 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
         final List<FolksonomyOperation>? pendingOperations =
             _getPendingOperations(barcode, daoTransientFolksonomy);
         if (pendingOperations == null || pendingOperations.isEmpty) {
-          // Not supposed to happen as we don't store null/empty lists.
-          return;
+          throw Exception(
+            'Not supposed to happen as we do not store null/empty lists.',
+          );
         }
 
         pendingOperations[0].isPerformed = true;
@@ -116,8 +117,9 @@ class BackgroundTaskFolksonomy extends BackgroundTask {
       if (pendingOperations == null ||
           pendingOperations.isEmpty ||
           !pendingOperations.first.isPerformed) {
-        // Not supposed to happen as we don't store null/empty lists and 'isPerformed' flag for first operation is set to true before.
-        return;
+        throw Exception(
+          'Not supposed to happen as we do not store null/empty lists and isPerformed flag for first operation is set to true before',
+        );
       }
 
       pendingOperations.removeAt(0);
