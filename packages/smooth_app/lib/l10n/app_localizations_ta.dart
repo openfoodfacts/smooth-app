@@ -3532,6 +3532,10 @@ class AppLocalizationsTa extends AppLocalizations {
       'உள்நாட்டில் சேமிக்கப்பட்ட அனைத்து தயாரிப்புகளையும் புதுப்பிக்கத் தொடங்குகிறது';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'மிகவும் பிரபலமான தயாரிப்புகளின் பதிவிறக்கத்தைத் தொடங்குகிறது';
 

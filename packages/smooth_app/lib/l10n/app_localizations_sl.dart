@@ -3554,6 +3554,10 @@ class AppLocalizationsSl extends AppLocalizations {
       'Začetek osveževanja vseh lokalno shranjenih izdelkov';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Začetek prenosa najbolj priljubljenih izdelkov';
 

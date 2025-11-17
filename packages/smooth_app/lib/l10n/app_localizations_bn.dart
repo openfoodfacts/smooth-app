@@ -3542,6 +3542,10 @@ class AppLocalizationsBn extends AppLocalizations {
       'স্থানীয়ভাবে সংরক্ষিত সমস্ত পণ্যের রিফ্রেশ শুরু করা হচ্ছে';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'সর্বাধিক জনপ্রিয় পণ্যগুলির ডাউনলোড শুরু হচ্ছে';
 

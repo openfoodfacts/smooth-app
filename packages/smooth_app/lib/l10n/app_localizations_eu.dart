@@ -3527,6 +3527,10 @@ class AppLocalizationsEu extends AppLocalizations {
       'Bertan gordeta dauden produktu guztiak freskatzeari ekiten';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Produktu ezagunenen deskargari ekiten';
 
