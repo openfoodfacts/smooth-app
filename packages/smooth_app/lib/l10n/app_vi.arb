@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Bắt đầu tải xuống các sản phẩm phổ biến nhất",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
