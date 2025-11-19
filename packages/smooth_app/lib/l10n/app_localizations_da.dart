@@ -3535,6 +3535,10 @@ class AppLocalizationsDa extends AppLocalizations {
       'Starter opdateringen af alle de lokalt lagrede produkter';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starter download af de mest populære produkter';
 

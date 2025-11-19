@@ -25,9 +25,6 @@ class DaoTransientFolksonomy extends AbstractDao {
     return _getFolksonomyOperationsFromJson(value);
   }
 
-  List<String> getAllBarcodes() =>
-      _getBox().keys.map((dynamic barcode) => barcode.toString()).toList();
-
   Future<void> put(
     final String barcode,
     final List<FolksonomyOperation> operations,

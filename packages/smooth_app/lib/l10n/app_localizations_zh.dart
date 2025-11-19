@@ -3360,6 +3360,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get background_task_title_full_refresh => '开始刷新本地存储的所有产品';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n => '开始下载最受欢迎的产品';
 
   @override

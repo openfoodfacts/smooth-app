@@ -3538,6 +3538,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yerel olarak depolanan tüm ürünlerin yenilenmesinin başlatılması';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'En popüler ürünlerin indirilmesinin başlatılması';
 

@@ -3549,6 +3549,10 @@ class AppLocalizationsVi extends AppLocalizations {
       'Bắt đầu làm mới tất cả các sản phẩm được lưu trữ cục bộ';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Bắt đầu tải xuống các sản phẩm phổ biến nhất';
 

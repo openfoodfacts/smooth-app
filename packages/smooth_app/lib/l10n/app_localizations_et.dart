@@ -3531,6 +3531,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kõigi kohalikult salvestatud toodete värskendamise alustamine';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Kõige populaarsemate toodete allalaadimise alustamine';
 

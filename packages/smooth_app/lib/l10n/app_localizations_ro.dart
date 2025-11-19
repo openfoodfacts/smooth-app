@@ -3588,6 +3588,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Începe reîmprospătarea tuturor produselor stocate local';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Începe descărcarea celor mai populare produse';
 

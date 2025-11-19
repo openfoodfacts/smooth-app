@@ -3547,6 +3547,10 @@ class AppLocalizationsSv extends AppLocalizations {
       'Startar uppdateringen av alla lokalt lagrade produkter';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Startar nedladdningen av de mest populära produkterna';
 

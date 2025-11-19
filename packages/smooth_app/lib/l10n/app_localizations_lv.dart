@@ -3571,6 +3571,10 @@ class AppLocalizationsLv extends AppLocalizations {
       'Tiek sākta visu lokāli saglabāto produktu atsvaidzināšana';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Sākam populārāko produktu lejupielādi';
 

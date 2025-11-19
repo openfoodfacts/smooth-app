@@ -3522,6 +3522,10 @@ class AppLocalizationsKu extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 

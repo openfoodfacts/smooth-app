@@ -3555,6 +3555,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Az összes helyben tárolt termék frissítésének megkezdése';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'A legnépszerűbb termékek letöltésének megkezdése';
 
