@@ -42,6 +42,9 @@ class WillPopScope2 extends StatelessWidget {
                         // Using regular Navigator as fallback
                         Navigator.of(context).pop(res);
                       } catch (navigatorError) {
+                        // not sure that makes sense anymore, as there's only
+                        // one place where we should have the app killed: a back
+                        // from the root "scan" tab.
                         // Force to kill the app
                         SystemNavigator.pop();
                       }

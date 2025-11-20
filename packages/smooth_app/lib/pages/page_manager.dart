@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -133,14 +134,13 @@ class PageManagerState extends State<PageManager> {
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != BottomNavigationTab.Scan) {
             _selectTab(BottomNavigationTab.Scan, 1);
-            return (false, null);
           } else {
             /// Exit the app
-            return (true, null);
+            SystemNavigator.pop();
           }
         }
 
-        // let system handle back button if we're on the first route
+        // let system handle back button
         return (false, null);
       },
       child: Scaffold(
