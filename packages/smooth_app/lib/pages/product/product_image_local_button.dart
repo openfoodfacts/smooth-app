@@ -3,6 +3,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Button asking for a "local" photo (new from camera, existing from gallery).
 class ProductImageLocalButton extends ProductImageButton {
@@ -18,7 +19,7 @@ class ProductImageLocalButton extends ProductImageButton {
   final bool imageExists;
 
   @override
-  IconData getIconData() => Icons.add_a_photo;
+  Widget getIcon() => const icons.Camera.add();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) => imageExists

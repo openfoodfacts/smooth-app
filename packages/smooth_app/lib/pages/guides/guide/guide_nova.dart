@@ -222,7 +222,7 @@ class _NOVASection3 extends StatelessWidget {
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_explanations_arg5_title,
-          icon: const icons.Hearth.monitoring(),
+          icon: const icons.Heart.monitoring(),
           text: appLocalizations.guide_nova_explanations_arg5_text,
         ),
         GuidesTitleWithText(

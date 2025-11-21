@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/pages/search/search_icon.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -15,12 +15,14 @@ class SearchField extends StatefulWidget {
     required this.searchHelper,
     this.autofocus = false,
     this.showClearButton = true,
-    this.showNavigationButton = true,
     this.searchOnChange = false,
+    this.leading,
+    this.height,
     this.heroTag,
     this.onFocus,
     this.backgroundColor,
     this.foregroundColor,
+    this.borderColor,
     this.focusNode,
     this.enableSuggestions = false,
     this.autocorrect = false,
@@ -30,16 +32,19 @@ class SearchField extends StatefulWidget {
   final SearchHelper searchHelper;
   final bool autofocus;
   final bool showClearButton;
-  final bool showNavigationButton;
   final bool searchOnChange;
   final bool enableSuggestions;
   final bool autocorrect;
 
+  final double? height;
   final String? heroTag;
   final void Function()? onFocus;
   final Color? backgroundColor;
   final Color? foregroundColor;
+  final Color? borderColor;
   final TextStyle? hintTextStyle;
+
+  final Widget? leading;
 
   final FocusNode? focusNode;
 
@@ -79,10 +84,11 @@ class _SearchFieldState extends State<SearchField> {
     }
 
     final TextStyle textStyle = SearchFieldUIHelper.textStyle;
-    final SmoothColorsThemeExtension themeExtension = context
+
+    final Widget? leadingWidget = widget.searchHelper.getLeadingWidget(context);
+    final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
 
-    final Widget? additionalFilter = widget.searchHelper.getAdditionalFilter();
     return ChangeNotifierProvider<TextEditingController>.value(
       value: _controller!,
       child: SmoothHero(
@@ -98,86 +104,81 @@ class _SearchFieldState extends State<SearchField> {
                 }
               }
             : null,
-        child: Material(
-          // ↑ Needed by the Hero Widget
-          color: Colors.transparent,
-          child: Column(
-            children: <Widget>[
-              TextField(
-                controller: _controller,
-                focusNode: _focusNode,
-                onChanged: widget.searchOnChange
-                    ? (String query) => _performSearch(context, query)
-                    : null,
-                onSubmitted: (String query) => _performSearch(context, query),
-                textInputAction: TextInputAction.search,
-                enableSuggestions: widget.enableSuggestions,
-                autocorrect: widget.autocorrect,
-                style: textStyle,
-                decoration: _getInputDecoration(
-                  context,
-                  localizations,
-                  themeExtension,
+        child: SizedBox(
+          height: widget.height ?? SearchFieldUIHelper.SEARCH_BAR_HEIGHT,
+          child: Material(
+            // ↑ Needed by the Hero Widget
+            borderRadius: MAX_BORDER_RADIUS,
+            color: widget.borderColor ?? Colors.white,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.all(1.0),
+              child: Material(
+                borderRadius: MAX_BORDER_RADIUS,
+                color: widget.backgroundColor ?? Colors.white,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    if (leadingWidget != null)
+                      SizedBox(
+                        height: double.infinity,
+                        child: icons.AppIconTheme(
+                          color: context.lightTheme()
+                              ? theme.primaryBlack
+                              : theme.primaryUltraBlack,
+                          child: leadingWidget,
+                        ),
+                      )
+                    else
+                      const SizedBox(width: SMALL_SPACE),
+                    Expanded(
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: SMALL_SPACE,
+                          ),
+                          child: TextField(
+                            controller: _controller,
+                            focusNode: _focusNode,
+                            onChanged: widget.searchOnChange
+                                ? (String query) =>
+                                      _performSearch(context, query)
+                                : null,
+                            onSubmitted: (String query) =>
+                                _performSearch(context, query),
+                            textInputAction: TextInputAction.search,
+                            enableSuggestions: widget.enableSuggestions,
+                            autocorrect: widget.autocorrect,
+                            style: textStyle,
+                            textAlignVertical: TextAlignVertical.center,
+                            scrollPadding: EdgeInsets.zero,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.zero,
+                              hintText: widget.searchHelper.getHintText(
+                                localizations,
+                              ),
+                              hintStyle:
+                                  widget.hintTextStyle ??
+                                  SearchFieldUIHelper.hintTextStyle,
+                              border: InputBorder.none,
+                            ),
+
+                            cursorColor: textStyle.color,
+                          ),
+                        ),
+                      ),
+                    ),
+                    _SearchIcon(
+                      onTap: () => _performSearch(context, _controller!.text),
+                    ),
+                  ],
                 ),
-                cursorColor: textStyle.color,
               ),
-              if (additionalFilter != null) additionalFilter,
-            ],
+            ),
           ),
         ),
       ),
-    );
-  }
-
-  InputDecoration _getInputDecoration(
-    BuildContext context,
-    AppLocalizations localizations,
-    SmoothColorsThemeExtension themeExtension,
-  ) {
-    final BoxDecoration decoration = SearchFieldUIHelper.decoration(context);
-    final OutlineInputBorder border = OutlineInputBorder(
-      borderRadius: decoration.borderRadius! as BorderRadius,
-      borderSide: decoration.border!.top.copyWith(
-        width: 1.0,
-        color: context.lightTheme()
-            ? themeExtension.primaryDark
-            : themeExtension.secondaryVibrant,
-      ),
-    );
-
-    return InputDecoration(
-      fillColor: decoration.color,
-      filled: true,
-      constraints: const BoxConstraints.tightFor(
-        height: SearchFieldUIHelper.SEARCH_BAR_HEIGHT,
-      ),
-      border: border,
-      enabledBorder: border,
-      focusedBorder: border.copyWith(
-        borderSide: decoration.border!.top.copyWith(
-          width: 2.0,
-          color: context.lightTheme()
-              ? themeExtension.primaryDark
-              : themeExtension.secondaryVibrant,
-        ),
-      ),
-      contentPadding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
-      hintText: widget.searchHelper.getHintText(localizations),
-      hintStyle: widget.hintTextStyle ?? SearchFieldUIHelper.hintTextStyle,
-      prefixIcon: widget.showNavigationButton
-          ? const Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: _BackIcon(),
-            )
-          : null,
-      prefixIconConstraints: BoxConstraints.tightFor(
-        width:
-            SearchFieldUIHelper.SEARCH_BAR_HEIGHT +
-            (SearchFieldUIHelper.SEARCH_BAR_PADDING.horizontal) / 2,
-      ),
-      suffixIcon: widget.showClearButton
-          ? _SearchIcon(onTap: () => _performSearch(context, _controller!.text))
-          : null,
     );
   }
 
@@ -192,19 +193,6 @@ class _SearchFieldState extends State<SearchField> {
     }
 
     super.dispose();
-  }
-}
-
-class _BackIcon extends StatelessWidget {
-  const _BackIcon();
-
-  @override
-  Widget build(BuildContext context) {
-    return SearchBarIcon(
-      icon: const icons.Arrow.left(size: 15.0),
-      label: MaterialLocalizations.of(context).closeButtonTooltip,
-      onTap: () => Navigator.of(context).pop(),
-    );
   }
 }
 
@@ -226,65 +214,6 @@ class _SearchIcon extends StatelessWidget {
   }
 }
 
-class SearchBarIcon extends StatelessWidget {
-  const SearchBarIcon({
-    this.icon,
-    this.onTap,
-    this.label,
-    this.padding,
-    super.key,
-  }) : assert(label == null || onTap != null);
-
-  final VoidCallback? onTap;
-  final EdgeInsetsGeometry? padding;
-  final String? label;
-  final Widget? icon;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
-
-    final Widget widget = AspectRatio(
-      aspectRatio: 1.0,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: context.lightTheme()
-              ? theme.primaryBlack
-              : theme.secondaryVibrant,
-          shape: BoxShape.circle,
-        ),
-        child: Padding(
-          padding: padding ?? const EdgeInsetsDirectional.all(BALANCED_SPACE),
-          child: IconTheme(
-            data: const IconThemeData(size: 20.0, color: Colors.white),
-            child: icon ?? const icons.Search.off(),
-          ),
-        ),
-      ),
-    );
-
-    if (onTap == null) {
-      return widget;
-    } else {
-      return Semantics(
-        label: label,
-        button: true,
-        excludeSemantics: true,
-        child: Tooltip(
-          message: label ?? '',
-          child: InkWell(
-            borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-            onTap: onTap,
-            child: widget,
-          ),
-        ),
-      );
-    }
-  }
-}
-
 /// Constants shared between [SearchField] and [_SearchBar]
 class SearchFieldUIHelper {
   const SearchFieldUIHelper._();
@@ -293,7 +222,7 @@ class SearchFieldUIHelper {
   static const BorderRadius SEARCH_BAR_BORDER_RADIUS = BorderRadius.all(
     Radius.circular(30.0),
   );
-  static const EdgeInsetsGeometry SEARCH_BAR_PADDING =
+  static const EdgeInsetsDirectional SEARCH_BAR_PADDING =
       EdgeInsetsDirectional.only(start: 20.0, end: BALANCED_SPACE, bottom: 3.0);
 
   static TextStyle get hintTextStyle => const TextStyle(
@@ -308,11 +237,11 @@ class SearchFieldUIHelper {
     final SmoothColorsThemeExtension theme = Theme.of(
       context,
     ).extension<SmoothColorsThemeExtension>()!;
-    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
+    final bool lightTheme = context.lightTheme();
 
     return BoxDecoration(
       borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
-      color: lightTheme ? Colors.white : lightColorScheme.secondary,
+      color: Colors.white,
       border: Border.all(
         color: lightTheme ? theme.primaryBlack : theme.primarySemiDark,
       ),

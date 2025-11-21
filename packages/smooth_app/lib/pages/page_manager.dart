@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -30,21 +29,29 @@ class PageManagerState extends State<PageManager> {
     BottomNavigationTab.List,
   ];
 
-  final Map<BottomNavigationTab, GlobalKey<NavigatorState>> _navigatorKeys =
-      <BottomNavigationTab, GlobalKey<NavigatorState>>{
-        BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
-        BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
-        BottomNavigationTab.List: GlobalKey<NavigatorState>(),
-      };
+  static final Map<BottomNavigationTab, GlobalKey<NavigatorState>>
+  _navigatorKeys = <BottomNavigationTab, GlobalKey<NavigatorState>>{
+    BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.List: GlobalKey<NavigatorState>(),
+  };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
 
-  /// To implement a lazy-loading algorithm to only load visible tabs, we
-  /// store a list of boolean if a tab have been visible at least one time.
-  final List<bool> _loadedTabs = List<bool>.generate(
-    BottomNavigationTab.values.length,
-    (_) => false,
-  );
+  static final List<Widget> tabs = <Widget>[
+    TabNavigator(
+      navigatorKey: _navigatorKeys[BottomNavigationTab.Profile]!,
+      tabItem: BottomNavigationTab.Profile,
+    ),
+    TabNavigator(
+      navigatorKey: _navigatorKeys[BottomNavigationTab.Scan]!,
+      tabItem: BottomNavigationTab.Scan,
+    ),
+    TabNavigator(
+      navigatorKey: _navigatorKeys[BottomNavigationTab.List]!,
+      tabItem: BottomNavigationTab.List,
+    ),
+  ];
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
@@ -67,12 +74,6 @@ class PageManagerState extends State<PageManager> {
     if (carouselManager.forceShowScannerTab) {
       _currentPage = BottomNavigationTab.Scan;
     }
-
-    final List<Widget> tabs = <Widget>[
-      _buildOffstageNavigator(BottomNavigationTab.Profile),
-      _buildOffstageNavigator(BottomNavigationTab.Scan),
-      _buildOffstageNavigator(BottomNavigationTab.List),
-    ];
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final bool isProd =
@@ -125,19 +126,28 @@ class PageManagerState extends State<PageManager> {
     );
     return WillPopScope2(
       onWillPop: () async {
-        final bool isFirstRouteInCurrentTab =
-            !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
+        final bool isFirstRouteInCurrentTab = !_navigatorKeys[_currentPage]!
+            .currentState!
+            .canPop();
+
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != BottomNavigationTab.Scan) {
             _selectTab(BottomNavigationTab.Scan, 1);
             return (false, null);
+          } else {
+            /// Exit the app
+            return (true, null);
           }
         }
+
         // let system handle back button if we're on the first route
-        return (isFirstRouteInCurrentTab, null);
+        return (false, null);
       },
       child: Scaffold(
-        body: Stack(children: tabs),
+        body: Provider<BottomNavigationTab>.value(
+          value: _currentPage,
+          child: IndexedStack(index: _currentPage.index, children: tabs),
+        ),
         bottomNavigationBar: isProd
             ? bar
             : Banner(
@@ -146,28 +156,6 @@ class PageManagerState extends State<PageManager> {
                 color: Colors.blue,
                 child: bar,
               ),
-      ),
-    );
-  }
-
-  Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
-    final bool offstage = _currentPage != tabItem;
-    final int tabPosition = BottomNavigationTab.values.indexOf(tabItem);
-
-    if (offstage && _loadedTabs[tabPosition] == false) {
-      return EMPTY_WIDGET;
-    } else if (!offstage) {
-      _loadedTabs[tabPosition] = true;
-    }
-
-    return Offstage(
-      offstage: offstage,
-      child: Provider<BottomNavigationTab>.value(
-        value: _currentPage,
-        child: TabNavigator(
-          navigatorKey: _navigatorKeys[tabItem]!,
-          tabItem: tabItem,
-        ),
       ),
     );
   }

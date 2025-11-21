@@ -9,7 +9,7 @@ class AppLocalizationsBm extends AppLocalizations {
   AppLocalizationsBm([String locale = 'bm']) : super(locale);
 
   @override
-  String get app_name => 'Dumuni Tiɲɛniw Dabɔ';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'I ɲinɛna tɔgɔlasɛbɛn kɔ wa?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsBm extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Fɛn dɔ ɲini,\nmarka walima barɔdi';
+
+  @override
+  String get search_filter => 'Ɲini filɛri';
+
+  @override
+  String get search_history => 'Ɲini tariku';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Ladilikan: dugu walima jamana fara a kan';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1302,9 @@ class AppLocalizationsBm extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Bolo fɛnw';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1312,9 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1668,10 @@ class AppLocalizationsBm extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Basi, o ye an ka misali fɛn ye, i tɛ se k\'a ladilan :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1707,10 @@ class AppLocalizationsBm extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Aw bɛ ɲɔgɔn sanga ɲɔgɔn ma kɛrɛfɛ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2992,6 +3021,9 @@ class AppLocalizationsBm extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3489,6 +3521,10 @@ class AppLocalizationsBm extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3504,14 +3540,6 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4558,7 +4586,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-bm.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4641,7 +4669,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-bm.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4722,7 +4750,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-bm.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4810,7 +4838,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-bm.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4886,7 +4914,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://sɔngɔw.openfoodfacts.org/ko la';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4962,7 +4990,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/ka sɔrɔ ka a dɔn';
+      'https://world-bm.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5281,7 +5309,28 @@ class AppLocalizationsBm extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Mun na sɔngɔw bɛ sɔrɔ?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** ye poroze ye ka fɛnw sɔngɔ lajɛ ani k’u tila ɲɔgɔn na diɲɛ fan bɛɛ 🌍. Open Prices bɛ labɛn ani ka mara Open Food Facts fɛ.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title => 'Folksonomy jogo ye mun ye?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Siginidenw bɛ **key-value** sinsin.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'O nafolo ninnu bɛ Dabɔ ani ka Dòn bolomafaraw fɛ baara suguya bɛɛ kama.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5721,7 +5770,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Dumuni Dabɔlenw Tiɲɛw Sɔrɔ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5742,7 +5791,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'FAQ - Ɲininkali minnu bɛ kɛ tuma caman na';
 
   @override
-  String get preferences_faq_off_ngo_title => 'ONG min bɛ dumuni dafalenw kofɔ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5764,7 +5813,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la';
 
   @override
-  String get preferences_connect_blog_title => 'Dumuni dafalenw ka bulɔgu';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6014,7 +6063,17 @@ class AppLocalizationsBm extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count ka $total fɛnw';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count fɛnw';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count fɛnw';
   }
 
@@ -6073,14 +6132,14 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Dumunifɛnw tiɲɛni laboratuwaraw da wuli';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Aw ka na ni Dumuni Dabɔlenw Tiɲɛw ye aw ka kan na';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

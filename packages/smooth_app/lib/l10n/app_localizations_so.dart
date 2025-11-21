@@ -9,7 +9,7 @@ class AppLocalizationsSo extends AppLocalizations {
   AppLocalizationsSo([String locale = 'so']) : super(locale);
 
   @override
-  String get app_name => 'Xaqiiqooyinka Cuntada Furan';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'Ilmaamay erayga sirta ah?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsSo extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Ka raadi badeecad,\ncalaamad ama barcode';
+
+  @override
+  String get search_filter => 'Raadi filter';
+
+  @override
+  String get search_history => 'Taariikhda raadi';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Tilmaan: ku dar magaalada ama dalka';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1302,9 @@ class AppLocalizationsSo extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Guryaha';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1312,9 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1668,10 @@ class AppLocalizationsSo extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Waan ka xunnahay, waa alaabtayada tusaalaha, ma tafatiri kartid :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1707,9 @@ class AppLocalizationsSo extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Is barbar dhig dhinac';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2984,10 +3012,13 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'U beddelo qiimaha.openfoodfacts.org (PROD) iyo tijaabi env';
+      'U beddelo prices.openfoodfacts.org (PROD) iyo tijaabi env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3487,6 +3518,10 @@ class AppLocalizationsSo extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3502,14 +3537,6 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4559,7 +4586,7 @@ class AppLocalizationsSo extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-so.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4642,7 +4669,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-so.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4723,7 +4750,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-so.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4811,7 +4838,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-so.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4963,7 +4990,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-so.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5282,7 +5309,29 @@ class AppLocalizationsSo extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Waa maxay sababta qiimaha?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '** Sicirka Furan** waa mashruuc lagu uruurinayo laguna wadaagayo qiimaha badeecadaha aduunka 🌍 Open Prices waxa horumariya oo ilaaliya Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Waa maxay sifooyinka Folksonomy?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Sifooyinku waxay ku salaysan yihiin **qiimaha muhiimka ah**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Guryahaan waxaa abuurey oo xereeyay ka qaybqaatayaasha nooc kasta oo la isticmaalo.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5573,7 +5622,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Xaqiiqooyinka Cuntada Furan waa keydka alaabta cuntada ** qof walba uu sameeyay, qof walba ***.\nWaxaad u isticmaali kartaa si aad u samayso doorashooyin cunto oo wanaagsan, iyo sida ay tahay **xogta furan**, qof kastaa ** dib ayuu u isticmaali karaa ujeedo kasta**.';
+      'Open Food Facts waa keydka alaabta cuntada ** qof walba uu sameeyay, qof walba ***.\nWaxaad u isticmaali kartaa si aad u samayso doorashooyin cunto oo wanaagsan, iyo sida ay tahay **xogta furan**, qof kastaa ** dib ayuu u isticmaali karaa ujeedo kasta**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5719,8 +5768,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Soo hel Xaqiiqooyinka Cuntada Furan';
+  String get preferences_faq_discover_off_title => 'Soo hel Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5741,8 +5789,7 @@ class AppLocalizationsSo extends AppLocalizations {
       'FAQ - Su\'aalaha Inta badan La Isweydiiyo';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'NGO-ga Xaqiiqooyinka Cuntada Furan';
+  String get preferences_faq_off_ngo_title => 'NGO-ga Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5764,8 +5811,7 @@ class AppLocalizationsSo extends AppLocalizations {
       'Ka qayb gal adigoo ka qayb galaya mid ka mid ah dhacdooyinkayada casriga ah';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Buloogga Xaqiiqooyinka Cuntada Furan';
+  String get preferences_connect_blog_title => 'Buloogga Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5881,7 +5927,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Alaabooyin cusub oo aan ku daray Xaqiiqooyinka Cuntada Furan';
+      'Alaabooyin cusub oo aan ku daray Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5930,7 +5976,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Qiimihii ugu dambeeyay ee ay ku dartay bulshada Qiimaha Furan';
+      'Qiimihii ugu dambeeyay ee ay ku dartay bulshada Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5978,7 +6024,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6015,7 +6061,17 @@ class AppLocalizationsSo extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count of $total walxaha';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count alaab';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count alaab';
   }
 
@@ -6076,14 +6132,14 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Fur shaybaadhka Xaqiiqooyinka Cuntada';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Keen Xaqiiqo Cunno Furan luqadaada';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

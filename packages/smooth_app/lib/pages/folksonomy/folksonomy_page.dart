@@ -3,12 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
@@ -22,15 +21,15 @@ import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class FolksonomyPage extends StatelessWidget {
-  const FolksonomyPage({required this.product, required this.provider});
+  const FolksonomyPage({required this.product});
 
   final Product product;
-  final FolksonomyProvider provider;
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<FolksonomyProvider>.value(
-      value: provider,
+    return ChangeNotifierProvider<FolksonomyProvider>(
+      create: (BuildContext context) =>
+          FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: _FolksonomyContent(product),
     );
   }
@@ -49,72 +48,40 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   final ProductRefresher _productRefresher = ProductRefresher();
+  final List<ProductTag> _tags = <ProductTag>[];
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final FolksonomyProvider provider = context.watch<FolksonomyProvider>();
 
-    return SmoothScaffold(
-      appBar: SmoothAppBar(
-        title: Text(appLocalizations.product_tags_title),
-        subTitle: Text(
-          getProductNameAndBrands(widget.product, AppLocalizations.of(context)),
+    return Consumer<FolksonomyProvider>(
+      builder:
+          (BuildContext context, FolksonomyProvider provider, Widget? child) {
+            _onStateChanged(provider.value);
+            return child!;
+          },
+      child: SmoothScaffold(
+        appBar: SmoothAppBar(
+          title: Text(appLocalizations.product_tags_title),
+          subTitle: Text(
+            getProductNameAndBrands(widget.product, appLocalizations),
+          ),
         ),
-      ),
-      body: Listener<FolksonomyProvider>(
-        listener: _onProviderChanged,
-        child: Consumer<FolksonomyProvider>(
-          builder: (BuildContext context, FolksonomyProvider provider, _) {
-            if (provider.value is FolksonomyStateLoading ||
-                provider.value is FolksonomyStateError &&
-                    (provider.value as FolksonomyStateError).action == null) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            } else if (provider.value.tags?.isNotEmpty != true) {
-              return const FolksonomyEmptyPage();
+        body: _buildBody(),
+        floatingActionButton: SmoothExpandableFloatingActionButton(
+          scrollController: _scrollController,
+          onPressed: () async {
+            if (!await _checkIfLoggedIn()) {
+              return;
             }
-
-            return AnimatedList.separated(
-              key: _listKey,
-              controller: _scrollController,
-              initialItemCount: provider.value.tags!.length,
-              itemBuilder:
-                  (
-                    BuildContext context,
-                    int index,
-                    Animation<double> animation,
-                  ) {
-                    final ProductTag entry = provider.value.tags![index];
-                    return _buildItem(context, entry, animation);
-                  },
-              separatorBuilder: (_, _, Animation<double> animation) =>
-                  SizeTransition(sizeFactor: animation, child: const Divider()),
-              removedSeparatorBuilder:
-                  (
-                    BuildContext context,
-                    int index,
-                    Animation<double> animation,
-                  ) => SizeTransition(
-                    sizeFactor: animation,
-                    child: const Divider(),
-                  ),
+            await _showEditDialog(
+              action: FolksonomyAction.add,
+              existingKeys: _tags.map((ProductTag tag) => tag.key).toList(),
             );
           },
+          label: Text(appLocalizations.add_tag),
+          icon: const icons.AddProperty.alt(),
         ),
-      ),
-      floatingActionButton: SmoothExpandableFloatingActionButton(
-        scrollController: _scrollController,
-        onPressed: () async {
-          if (!await _checkIfLoggedIn()) {
-            return;
-          }
-          await _showEditDialog(
-            action: FolksonomyAction.add,
-            existingKeys: _getExistingKeys(provider),
-          );
-        },
-        label: Text(appLocalizations.add_tag),
-        icon: const icons.AddProperty.alt(),
       ),
     );
   }
@@ -215,11 +182,14 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                 value: entry.value,
               );
             } else if (value == FolksonomyAction.remove) {
+              if (!await _checkIfLoggedIn()) {
+                return;
+              }
+              if (!context.mounted) {
+                return;
+              }
               unawaited(
-                context.read<FolksonomyProvider>().deleteTag(
-                  context,
-                  entry.key,
-                ),
+                context.read<FolksonomyProvider>().deleteTag(entry.key),
               );
             }
           },
@@ -229,9 +199,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
   }
 
   List<String> _getExistingKeys(FolksonomyProvider provider) {
-    return provider.value.tags!
-        .map((ProductTag tag) => tag.key)
-        .toList(growable: false);
+    return _tags.map((ProductTag tag) => tag.key).toList(growable: false);
   }
 
   Future<void> _showEditDialog({
@@ -265,20 +233,12 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
         unawaited(
-          context.read<FolksonomyProvider>().editTag(
-            context,
-            res.key,
-            res.value,
-          ),
+          context.read<FolksonomyProvider>().editTag(res.key, res.value),
         );
       } else if (action == FolksonomyAction.add) {
         try {
           unawaited(
-            context.read<FolksonomyProvider>().addTag(
-              context,
-              res.key,
-              res.value,
-            ),
+            context.read<FolksonomyProvider>().addTag(res.key, res.value),
           );
         } catch (e) {
           if (!mounted) {
@@ -295,32 +255,90 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     }
   }
 
-  void _onProviderChanged(
-    BuildContext context,
-    _,
-    FolksonomyProvider provider,
-  ) {
-    if (provider.value is FolksonomyStateAddedItem) {
-      final FolksonomyStateAddedItem state =
-          provider.value as FolksonomyStateAddedItem;
-      _listKey.currentState?.insertItem(state.addedPosition);
-
-      onNextFrame(() => provider.markAsConsumed());
-    } else if (provider.value is FolksonomyStateRemovedItem) {
-      final FolksonomyStateRemovedItem state =
-          provider.value as FolksonomyStateRemovedItem;
-      _listKey.currentState?.removeItem(state.removedPosition, (
-        BuildContext context,
-        Animation<double> animation,
-      ) {
-        return FadeTransition(
-          opacity: animation,
-          child: _buildItem(context, state.item, animation),
-        );
-      });
-
-      onNextFrame(() => provider.markAsConsumed());
+  void _onStateChanged(FolksonomyState newState) {
+    if (_listKey.currentState == null) {
+      return;
     }
+
+    if (newState is! FolksonomyStateLoaded) {
+      if (_tags.isNotEmpty) {
+        for (int i = _tags.length - 1; i >= 0; i--) {
+          final ProductTag tag = _tags[i];
+          _listKey.currentState?.removeItem(
+            i,
+            (BuildContext context, Animation<double> animation) =>
+                _buildItem(context, tag, animation),
+          );
+        }
+        _tags.clear();
+      }
+      return;
+    }
+
+    final List<ProductTag> newTags = newState.tags!;
+
+    // Delete tags that are not in the new list.
+    for (int i = _tags.length - 1; i >= 0; i--) {
+      final ProductTag tag = _tags[i];
+      if (!newTags.any((ProductTag newTag) => newTag.key == tag.key)) {
+        _tags.removeAt(i);
+        _listKey.currentState?.removeItem(
+          i,
+          (BuildContext context, Animation<double> animation) =>
+              _buildItem(context, tag, animation),
+        );
+      }
+    }
+
+    // Add tags that are new.
+    for (int i = 0; i < newTags.length; i++) {
+      final ProductTag tag = newTags[i];
+      if (!_tags.any((ProductTag oldTag) => oldTag.key == tag.key)) {
+        _tags.insert(i, tag);
+        _listKey.currentState?.insertItem(i);
+      }
+    }
+
+    // Edit tags that have changed.
+    for (int i = 0; i < newTags.length; i++) {
+      if (i < _tags.length &&
+          newTags[i].key == _tags[i].key &&
+          newTags[i].value != _tags[i].value) {
+        _tags[i] = newTags[i];
+      }
+    }
+  }
+
+  Widget _buildBody() {
+    final FolksonomyState state = context.watch<FolksonomyProvider>().value;
+
+    if (state is FolksonomyStateLoaded && _tags.isEmpty) {
+      _tags.addAll(state.tags!);
+    }
+
+    if (state is FolksonomyStateLoading && _tags.isEmpty) {
+      return const Center(child: CircularProgressIndicator.adaptive());
+    } else if (state is FolksonomyStateLoaded && state.tags!.isEmpty) {
+      return const FolksonomyEmptyPage();
+    } else if (state is FolksonomyStateError && state.action == null) {
+      return const FolksonomyEmptyPage();
+    }
+
+    return AnimatedList.separated(
+      key: _listKey,
+      controller: _scrollController,
+      initialItemCount: _tags.length,
+      itemBuilder:
+          (BuildContext context, int index, Animation<double> animation) {
+            final ProductTag entry = _tags[index];
+            return _buildItem(context, entry, animation);
+          },
+      separatorBuilder: (_, _, Animation<double> animation) =>
+          SizeTransition(sizeFactor: animation, child: const Divider()),
+      removedSeparatorBuilder:
+          (BuildContext context, int index, Animation<double> animation) =>
+              SizeTransition(sizeFactor: animation, child: const Divider()),
+    );
   }
 
   Future<bool> _checkIfLoggedIn() {

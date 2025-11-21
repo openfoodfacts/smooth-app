@@ -18,10 +18,12 @@ class SmoothBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String semanticLabel = _semanticLabel(context);
+
     return Tooltip(
-      message: MaterialLocalizations.of(context).backButtonTooltip,
+      message: semanticLabel,
       child: Semantics(
-        value: MaterialLocalizations.of(context).backButtonTooltip,
+        value: semanticLabel,
         excludeSemantics: true,
         button: true,
         child: SizedBox(
@@ -35,7 +37,7 @@ class SmoothBackButton extends StatelessWidget {
               child: _circledIcon(switch (backButtonType ??
                   BackButtonType.back) {
                 BackButtonType.back => const icons.Arrow.left(),
-                BackButtonType.close => const icons.Close.bold(),
+                BackButtonType.close => const icons.Close.bold(size: 14.0),
                 BackButtonType.minimize => const icons.Chevron.down(),
               }),
             ),
@@ -44,6 +46,17 @@ class SmoothBackButton extends StatelessWidget {
       ),
     );
   }
+
+  String _semanticLabel(BuildContext context) => switch (backButtonType ??
+      BackButtonType.back) {
+    BackButtonType.back => MaterialLocalizations.of(context).backButtonTooltip,
+    BackButtonType.close => MaterialLocalizations.of(
+      context,
+    ).closeButtonTooltip,
+    BackButtonType.minimize => MaterialLocalizations.of(
+      context,
+    ).closeButtonTooltip,
+  };
 
   Widget _circledIcon(Widget icon) => Padding(
     padding: const EdgeInsetsDirectional.all(SMALL_SPACE),

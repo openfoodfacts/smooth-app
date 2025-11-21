@@ -9,7 +9,7 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get app_name => 'Открытые факты о еде';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -228,6 +228,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get forgot_password => 'Не помню пароль';
+
+  @override
+  String get forgot_password_question => 'Забыли пароль?';
 
   @override
   String get view_profile => 'Профиль';
@@ -636,7 +639,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get search => 'Поиск';
 
   @override
+  String get search_product_help => 'Поиск продукта,\nбренда или штрихкода';
+
+  @override
+  String get search_filter => 'Фильтр поиска';
+
+  @override
+  String get search_history => 'История поиска';
+
+  @override
   String get search_store => 'Поиск магазина';
+
+  @override
+  String get search_store_help => 'Подсказка: добавьте город или страну.';
 
   @override
   String get tap_for_more => 'Нажмите для просмотра…';
@@ -1317,6 +1332,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tag_key => 'Свойство';
 
   @override
+  String get tag_keys => 'Характеристики';
+
+  @override
   String get tag_key_uneditable => 'Свойство (нередактируемое)';
 
   @override
@@ -1324,6 +1342,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tag_value => 'Значение';
+
+  @override
+  String get tag_values => 'Ценности';
 
   @override
   String get tag_value_input_hint => 'Введите значение';
@@ -1681,6 +1702,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Загрузка вашего первого примера продукта';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Извините, это наш пример товара, вы не можете его редактировать :)';
+
+  @override
   String get product_list_your_ranking => 'Ваш рейтинг';
 
   @override
@@ -1720,6 +1745,9 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0 обновление завершено';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Сравните бок о бок';
 
   @override
   String get loading_dialog_default_title => 'Загрузка данных';
@@ -2952,7 +2980,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get prices_proof_find => 'Выберите доказательство';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Изменение доказательства';
 
   @override
   String get prices_proof_receipt => 'Чек';
@@ -3056,11 +3084,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
       'Повторно используйте и редактируйте этот поиск';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Удалить';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3105,7 +3136,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Доказательство из \"$user\"';
   }
 
   @override
@@ -3571,6 +3602,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Начинаем обновление всех локально хранящихся продуктов.';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Начинаем загрузку самых популярных продуктов';
 
@@ -3587,14 +3622,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Оставить панель ингредиентов развернутой';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показать фильтр в поиске';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Выберите сайт поиска: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
 
   @override
   String get no_internet_connection => 'Нет подключения к интернету';
@@ -4458,7 +4485,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Чтобы поощрить лучшие продукты в категории, мы применяем **бонусы и штрафы на основе нескольких критериев**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4466,7 +4493,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Бонус** начисляется за продукцию, имеющую **официальную маркировку, этикетку или сертификацию, гарантирующую экологические преимущества** (органическая, справедливая торговля, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4474,21 +4501,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      '**Бонус** присуждается в зависимости от происхождения ингредиентов. Он учитывает **воздействие на транспорт**, а также **экологическую политику** страны-производителя.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title => 'Вымирающие виды';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Штраф** налагается на продукты, содержащие ингредиенты, которые оказывают значительное **негативное воздействие на биоразнообразие и экосистемы**, например, пальмовое масло, производство которого приводит к массовой вырубке лесов.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**Штраф** рассчитывается с учетом **циркуляционности упаковки** (использования переработанного сырья и возможности вторичной переработки), а также избыточной упаковки.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4496,19 +4523,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Для точного расчета Green-Score необходимо иметь **информацию, которая не обязательно указана на упаковке** (например, происхождение и точное процентное содержание каждого ингредиента) или которая редко доступна в удобной для использования форме (например, список всех компонентов упаковки с указанием точных типов использованного пластика).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Когда эта информация еще недоступна, используются средние значения**, но сейчас мы призываем всех помочь нам собрать эту информацию, которая будет очень полезна для Green-Score, а также для многих других целей.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Какую помощь могут оказать граждане?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Все граждане могут помочь нам собрать и структурировать информацию, которая присутствует на продуктах или которую можно из них вывести, например, информацию об **упаковке**: «Mission Emballages»: масштабная совместная инвентаризация упаковки для всех пищевых продуктов (на французском языке).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4582,7 +4609,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Необработанные (или натуральные) продукты — это **съедобные части растений** (семена, плоды, листья, стебли, корни) **или животных** (мышцы, субпродукты, яйца, молоко), а также грибы, водоросли и вода после отделения от природы.';
 
   @override
   String get guide_nova_groups_arg2_title =>
@@ -4615,7 +4642,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Многие из них **получены в результате дальнейшей переработки пищевых компонентов**, таких как гидрогенизированные или переэтерифицированные масла, гидролизованные белки, изолят соевого белка, мальтодекстрин, инвертный сахар и кукурузный сироп с высоким содержанием фруктозы.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4623,7 +4650,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Добавки в ультрапереработанных продуктах включают в себя те же, что используются и в обработанных продуктах, например, консерванты, антиоксиданты и стабилизаторы. К классам добавок, встречающихся только в ультрапереработанных продуктах, относятся те, которые используются **для имитации или улучшения сенсорных качеств продуктов или для маскировки неприятных вкусовых качеств конечного продукта**. К таким добавкам относятся красители и другие красители, стабилизаторы цвета, ароматизаторы, усилители вкуса, подсластители, не содержащие сахара, а также технологические добавки, такие как карбонизаторы, уплотнители, наполнители и антинаполнители, пеногасители, антислеживатели и глазирующие агенты, эмульгаторы, секвестранты и увлажнители.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4631,7 +4658,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Для объединения обычно многочисленных ингредиентов и создания конечного продукта (отсюда и название «ультраобработанный») используется множество последовательных процессов**. В их число входят несколько процессов, **не имеющих отечественных аналогов**, например, гидрогенизация и гидролиз, экструзия и формование, а также предварительная обработка для жарки.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4639,288 +4666,293 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Главная цель ультрапереработки — создание фирменных**, **удобных** (долговечных, готовых к употреблению), **привлекательных** (очень вкусных) и **высокорентабельных** (с недорогими ингредиентами) пищевых продуктов, призванных вытеснить все другие группы продуктов. Ультрапереработанные продукты обычно имеют привлекательную упаковку и активно продвигаются на рынке.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Опасность для здоровья';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'С 2018 года благодаря проекту NutriNet-Santé впервые была выявлена связь между **потреблением ультра-обработанных продуктов и повышенным риском развития рака, сердечно-сосудистых заболеваний и диабета**. Сегодня более 90 исследований по всему миру подтверждают эти результаты.\nНаиболее выраженная связь связана с **ожирением, смертностью от сердечно-сосудистых заболеваний и симптомами депрессии**. У детей это влияние в первую очередь проявляется в виде нарушения веса и липидного баланса.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Страны рекомендуют ограничить их';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Некоторые страны используют группы NOVA для своих рекомендаций или целей по питанию, например:\n\n- **🇧🇷 Рекомендации по питанию Бразилии** **рекомендуют ограничить потребление** обработанных пищевых продуктов и избегать ультра-обработанных продуктов.\n\n- **🇫🇷 Цели политики общественного здравоохранения в области питания Франции** на 2018–2022 годы направлены на **сокращение потребления группы 4 ультра-обработанных продуктов на 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Добро пожаловать на сайт Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Что такое Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts — это **совместная**, **бесплатная** и **открытая** база данных о продуктах питания со всего мира.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Мы считаем, что каждый должен иметь доступ к информации о том, что он ест. Собирая данные об ингредиентах, аллергенах, пищевой ценности и многом другом, мы **даем потребителям возможность делать осознанный выбор** и способствуем большей прозрачности пищевой промышленности**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Особенности Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Получайте оповещения о нежелательных ингредиентах';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Советы по съемке отличных фотографий';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Что нельзя делать';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Избегайте теней и бликов.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Никакого размытого или нерезкого текста.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрезайте части текста.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Избегайте перегруженного фона.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Что нужно делать';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Используйте хорошее, равномерное освещение.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Убедитесь, что текст четкий и читаемый.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Сохраните полный список ингредиентов.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Храните изделие на ровной поверхности.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Помогите нам создать «Википедию еды»';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Оценка качества питания';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Оценка, позволяющая избегать ультра-обработанных продуктов';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Оценка для планеты';
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-ru.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Добро пожаловать на сайт Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Что такое Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts распространяет свою миссию и на наших пушистых друзей! Это **база данных о кормах для кошек, собак и других домашних любимцев**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Мы собираем информацию о **ингредиентах**, **анализе питательной ценности** и рекомендациях по кормлению, чтобы помочь владельцам домашних животных выбрать лучший корм, соответствующий потребностям их животных.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Особенности Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Получайте оповещения о нежелательных ингредиентах';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Есть ли у вашего питомца аллергия на какие-либо ингредиенты в косметике? Вы можете составить список косметических ингредиентов, которых следует избегать, прямо в приложении!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Советы по съемке отличных фотографий';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Что нельзя делать';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Избегайте теней и бликов.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Никакого размытого или нерезкого текста.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрезайте части текста.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Избегайте перегруженного фона.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Что нужно делать';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Используйте хорошее, равномерное освещение.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Убедитесь, что текст четкий и читаемый.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Сохраните полный список ингредиентов.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Храните изделие на ровной поверхности.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Примечание о подсчете очков';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Разработка системы оценки кормов для домашних животных **сейчас не является приоритетом**. Методология будет сложной, поскольку потребности в питании сильно различаются в зависимости от вида, возраста и состояния здоровья. Мы пока не нашли ни одной независимой научной группы, способной разработать такую систему.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-ru.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Добро пожаловать на сайт Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Что такое Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts — это совместная база данных **косметических продуктов**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Наша цель — расшифровать списки ингредиентов, чтобы помочь вам **понять, что входит в состав ваших средств личной гигиены**. От увлажняющих средств до декоративной косметики — мы собираем данные об ингредиентах, аллергенах и упаковке, чтобы способствовать прозрачности в косметической промышленности.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Особенности Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Получайте оповещения о нежелательных ингредиентах';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'У вас аллергия на какие-либо ингредиенты? Хотите избежать комедогенов? Хотите избежать использования спорных компонентов? Вы можете составить список косметических ингредиентов, которых следует избегать, прямо в приложении!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Советы по съемке отличных фотографий';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Что нельзя делать';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Избегайте теней и бликов.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Никакого размытого или нерезкого текста.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Не обрезайте части текста.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Избегайте перегруженного фона.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Что нужно делать';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Используйте хорошее, равномерное освещение.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Убедитесь, что текст четкий и читаемый.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Сохраните полный список ингредиентов.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Если бутылка изогнута, сделайте столько снимков, сколько необходимо.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Возможно, вам придется снять этикетку, чтобы увидеть список ингредиентов.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Храните изделие на ровной поверхности.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'Примечание о подсчете очков';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'В отличие от продуктов питания, в мире косметики **нет общепризнанной, поддерживаемой государством системы оценки, подобной Nutri-Score**. Влияние ингредиентов может быть очень индивидуальным и зависеть от типа кожи, наличия аллергии и индивидуальных особенностей.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-ru.openfoodfacts.org/discover';
+      'https://world-ru.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Добро пожаловать в Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Что такое Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices — это проект по сбору и распространению данных о ценах на продукты по всему миру. Это общедоступный набор данных, который можно использовать для исследований, анализа и других целей. Open Prices разработан и поддерживается компанией Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4931,49 +4963,50 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Мы собираем данные о ценах из открытого источника**. Пользователи могут добавлять цены через это веб-приложение или через официальное мобильное приложение Open Food Facts. Розничные продавцы и сторонние приложения также могут вносить свой вклад, используя наш API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Собирайте фотографии ценников в проходах.';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title =>
+      'Собирайте фотографии квитанций';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Почему Open Food Facts это делает?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Информация о ценах имеет первостепенное значение для понимания продовольственных систем. Это ключевой фактор в оценке стоимости продуктов питания и продвижении более здорового питания. Данные о ценах на продукты питания позволяют исследователям, журналистам и гражданам **лучше понимать, как цены на продукты питания меняются в зависимости от географического положения и времени**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Отслеживайте динамику цен с течением времени';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Посмотрите на **эволюцию цен**: деструкционная инфляция, дешевая инфляция — мы можем отслеживать их вместе!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title => 'Сравните цены рядом с вами';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'По мере появления новых цен вы сможете найти **самые дешевые магазины рядом с вами**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Рассматривали ли вы возможность копирования цен с сайтов розничных продавцов?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'По юридическим и техническим причинам **мы не считаем сбор цен с сайтов розничных продавцов допустимым способом участия в проекте Open Prices**. Мы хотим быть уверены в точности и актуальности собираемых нами цен, а получение данных о ценах, собранных с сайтов розничных продавцов, не позволяет нам этого делать.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Возможность извлечения данных о ценах рассматривается в качестве опции в будущей версии Open Prices, но Open Prices будет осуществлять ее самостоятельно, чтобы мы могли получить подтверждение цены на основе HTML-страницы.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4981,7 +5014,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Вы можете вносить цены, используя наш API.\nЕсли вы хотите вносить цены в больших объемах, свяжитесь с нами по адресу prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4989,88 +5022,89 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Добро пожаловать на сайт Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Что такое Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts — это огромная открытая база данных для **любых продуктов со штрихкодом, которые не являются продуктами питания, косметикой или кормом для домашних животных**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'От **электроники** до **игрушек**, от **одежды** до **чистящих средств** — если у них есть штрихкод, его можно добавить. Цель этого проекта — создать «Интернет вещей» для повседневных предметов, сделав информацию о них общедоступной.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Особенности Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Цель Open Products Facts — предоставить потребителям возможность **продлить срок службы предметов**, предлагая циклические решения для обслуживания, **ремонта**, **переработки** их предметов или передачи их новому владельцу.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Углеродный след некоторых продуктов';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**Воздействие CO2**, предоставляемое французским агентством по охране окружающей среды ADEME, предоставляет данные о **воздействии углерода** для многих категорий. Обязательно точно классифицируйте продукты.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Индекс ремонтопригодности для многих продуктов';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Мы будем отображать французский индекс ремонтопригодности, как только он станет доступен. Более того, **вы можете начать сбор переменных с помощью Folksonomy Engine**, чтобы мы могли пересчитать его самостоятельно в будущем, даже в тех странах, где он недоступен.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Найдите способы пожертвовать/перепродать свой продукт';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Мы предоставляем ссылки на **сторонние сервисы, ориентированные на циклическое использование**, которые помогут вам получить нужный вам товар, будучи бывшим в употреблении, чтобы бережнее относиться к планетарным ресурсам.\nОбратите внимание, что нам за это не платят, и система работает только в качестве примера для двух сайтов во Франции. Вы можете помочь расширить эту систему, опубликовав информацию о других сайтах в вики.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Какая информация полезна?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Для столь широкого спектра товаров **мы собираем гибкие данные**. Для этого мы создали **Folksonomy Engine**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'Двигатель Фолксономии';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'Folksonomy Engine — это инструмент, который поможет вам дополнить товары релевантными свойствами. Это помогает улучшить поиск и найти нужную информацию, а также вычислить и отобразить интересную информацию в будущем.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Вы можете добавить любые ключи и значения, например: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Вы получите автоматическое предложение возможных свойств, и вы с радостью добавите и задокументируете новые свойства для ваших любимых видов продукции.';
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-ru.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Открытые предпочтения в еде';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Вскоре';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Нажмите, чтобы узнать больше';
 
   @override
   String get preview_badge => 'Предварительный просмотр';
@@ -5386,14 +5420,36 @@ class AppLocalizationsRu extends AppLocalizations {
   String get product_page_tab_prices => 'Цены';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get prices_explanation_card_title => 'Почему цены?';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** — это проект по сбору и обмену ценами на продукты по всему миру 🌍. Open Prices разработан и поддерживается Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Узнать больше';
+
+  @override
+  String get product_page_tab_folksonomy => 'Фолксономия';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Что такое атрибуты фолксономии?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Атрибуты основаны на **ключ-значение**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Эти свойства создаются и сохраняются участниками для любого вида использования.';
+
+  @override
+  String get folksonomy_action_external_link_title => 'Открыть внешнюю ссылку';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Внешние ссылки могут быть небезопасны. Вы действительно хотите туда зайти?';
 
   @override
   String get prices_products_empty_title => 'Цена не указана';
@@ -5823,8 +5879,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте для себя проект';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Откройте для себя факты об открытых продуктах питания';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5834,7 +5889,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title => 'Откройте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
@@ -5844,7 +5899,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НПО «Открытые факты о еде»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Информация';
@@ -6115,7 +6170,17 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count из $total предметов';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count предметов';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count предметов';
   }
 
@@ -6176,7 +6241,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Открытые лаборатории фактов о продуктах питания';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Учётная запись';
@@ -6205,26 +6270,26 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Подробности местоположения';
 
   @override
   String get location_map_details_name => 'Название';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Улица';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Город';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Почтовый индекс';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Координаты';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'Идентификатор OSM';
 }

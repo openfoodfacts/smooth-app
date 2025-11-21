@@ -111,7 +111,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                         _PhotoRowIndicator(transientFile: transientFile),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
+                            padding: const EdgeInsetsDirectional.symmetric(
                               horizontal: SMALL_SPACE,
                             ),
                             child: Row(

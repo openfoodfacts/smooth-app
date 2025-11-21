@@ -9,7 +9,7 @@ on:
 jobs:
     deploy-pages:
         name: Deploy to GitHub Pages
-        runs-on: ubuntu-slim
+        runs-on: ubuntu-latest
         defaults:
           run:
             working-directory: ./packages/smooth_app

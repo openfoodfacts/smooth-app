@@ -105,6 +105,9 @@ jobs:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
+      - name: Enable Rive dependency
+        run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
+
       - name: Build app
         run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm -f Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
         env:

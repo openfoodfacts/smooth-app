@@ -10,7 +10,6 @@ class LoggedOutAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ProfileAppBar(
       contentHeight: LoggedOutAppBarContent.MIN_HEIGHT,
-      progressOffset: 110.0,
       title: LoggedOutAppBarTitle(),
       content: LoggedOutAppBarContent(),
     );

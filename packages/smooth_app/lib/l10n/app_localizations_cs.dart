@@ -9,7 +9,7 @@ class AppLocalizationsCs extends AppLocalizations {
   AppLocalizationsCs([String locale = 'cs']) : super(locale);
 
   @override
-  String get app_name => 'Otevřená fakta o jídle';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -228,6 +228,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get forgot_password => 'Zapomenuté heslo';
+
+  @override
+  String get forgot_password_question => 'Zapomněli jste heslo?';
 
   @override
   String get view_profile => 'Zobrazit profil';
@@ -501,7 +504,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Přispějte k cenám požadavkem na export dat z vašich věrnostních karet dle GDPR';
 
   @override
   String get tap_to_answer => 'Klepnutím sem odpovíte na otázky';
@@ -632,7 +635,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get search => 'Vyhledat';
 
   @override
+  String get search_product_help =>
+      'Vyhledejte produkt,\nznačku nebo čárový kód';
+
+  @override
+  String get search_filter => 'Vyhledávací filtr';
+
+  @override
+  String get search_history => 'Historie vyhledávání';
+
+  @override
   String get search_store => 'Vyhledat obchod';
+
+  @override
+  String get search_store_help => 'Nápověda: přidejte město nebo zemi';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte více informací…';
@@ -1302,6 +1318,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get tag_key => 'Vlastnosti';
 
   @override
+  String get tag_keys => 'Nemovitosti';
+
+  @override
   String get tag_key_uneditable => 'Vlastnost (neupravitelná)';
 
   @override
@@ -1309,6 +1328,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get tag_value => 'Hodnota';
+
+  @override
+  String get tag_values => 'Hodnoty';
 
   @override
   String get tag_value_input_hint => 'Zadejte hodnotu';
@@ -1359,7 +1381,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
+      'Nutri-Score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1664,6 +1686,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Načítám váš první příklad produktu';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Omlouváme se, je to náš vzorový produkt, nemůžete ho upravovat :)';
+
+  @override
   String get product_list_your_ranking => 'Vaše hodnocení';
 
   @override
@@ -1703,6 +1729,9 @@ class AppLocalizationsCs extends AppLocalizations {
     );
     return 'Aktualizace $_temp0 dokončena';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Porovnejte vedle sebe';
 
   @override
   String get loading_dialog_default_title => 'Stahování dat';
@@ -2013,7 +2042,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Sója nepochází z Evropské unie';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Země';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3009,6 +3038,9 @@ class AppLocalizationsCs extends AppLocalizations {
       'Znovu použijte a upravte toto vyhledávání';
 
   @override
+  String get search_history_item_remove_tooltip => 'Odstranit';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stáhli jste všech $totalSize produktů.';
   }
@@ -3507,6 +3539,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Spouštění aktualizace všech lokálně uložených produktů';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Zahájení stahování nejoblíbenějších produktů';
 
@@ -3522,14 +3558,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Nechte panel ingrediencí rozbalený';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Zobrazit filtr ve vyhledávání';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vyberte vyhledávací stránku: Open Food Facts, Open Beauty Facts, Open Pet Food Facts nebo Open Products Facts';
 
   @override
   String get no_internet_connection => 'Žádné připojení k Internetu';
@@ -4264,11 +4292,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'Nutri-Score se používá v 7 zemích: Francii, Německu, Belgii, Španělsku, Lucembursku, Nizozemsku a Švýcarsku.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Výrobci mají nejpozději **2 roky** od podpisu vyhlášky na to, aby starý výpočet **nahradili** novým.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4377,14 +4405,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Abychom odměnili lepší produkty v dané kategorii, uplatňujeme **bonusy a sankce na základě několika kritérií**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Způsob výroby';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Bonus** se uděluje výrobkům, které mají **oficiální etiketu, označení nebo certifikace, která zaručuje přínos pro životní prostředí** (organický obchod, spravedlivý obchod, HVE, označení Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => 'Původ přísad';
@@ -4421,11 +4449,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Jak mohou občané pomoci?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Všichni občané nám mohou pomoci shromáždit a strukturovat informace, které jsou na produktech uvedeny nebo z nich lze odvodit, například informace o **obalech**: „Mission Emballages“: rozsáhlý společný inventář obalů pro všechny potravinářské výrobky (ve francouzštině).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4574,7 +4602,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-cs.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4657,7 +4685,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-cs.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4826,7 +4854,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-cs.openfoodfacts.org/discover';
+      'https://world-cs.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4978,7 +5006,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://cs.openproductsfacts.org/discover';
+      'https://world-cs.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5300,7 +5328,29 @@ class AppLocalizationsCs extends AppLocalizations {
   String get product_page_tab_prices => 'Ceny';
 
   @override
+  String get prices_explanation_card_title => 'Proč ceny?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** je projekt, jehož cílem je shromažďovat a sdílet ceny produktů z celého světa 🌍. Open Prices je vyvíjen a spravován společností Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Zjistit více';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomie';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Jaké jsou atributy folksonomie?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Atributy jsou založeny na **klíč-hodnota**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Tyto vlastnosti jsou vytvářeny a archivovány přispěvateli pro jakékoli použití.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5737,8 +5787,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zjistěte více o projektu';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objevte fakta o jídle na Open Food';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5782,7 +5831,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zapojte se účastí na jedné z našich virtuálních akcí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otevřená fakta o jídle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6031,7 +6080,17 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count z $total položek';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count položek';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count položek';
   }
 
@@ -6091,14 +6150,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otevřené laboratoře faktů o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Přineste fakta o otevřeném jídle do svého jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6135,7 +6194,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Země';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

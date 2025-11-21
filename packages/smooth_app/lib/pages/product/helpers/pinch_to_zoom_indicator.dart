@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart' show RiveAnimation;
+import 'package:smooth_app/generic_lib/animations/rive_animation_player.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -43,13 +43,10 @@ class PinchToZoomExplainer extends StatelessWidget {
                         ),
                         const SizedBox(height: LARGE_SPACE),
                         ExcludeSemantics(
-                          child: SizedBox(
-                            width: width,
-                            height: (width * 172.0) / 247.0,
-                            child: const RiveAnimation.asset(
-                              'assets/animations/explanations.riv',
-                              artboard: 'pinch-to-zoom',
-                            ),
+                          child: RiveAnimationPlayer(
+                            'assets/animations/explanations.riv',
+                            artboard: 'pinch-to-zoom',
+                            size: Size(width, (width * 172.0) / 247.0),
                           ),
                         ),
                       ],

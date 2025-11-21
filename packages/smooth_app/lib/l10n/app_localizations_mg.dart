@@ -226,6 +226,9 @@ class AppLocalizationsMg extends AppLocalizations {
   String get forgot_password => 'Forgot password';
 
   @override
+  String get forgot_password_question => 'Hadino ny tenimiafina?';
+
+  @override
   String get view_profile => 'View profile';
 
   @override
@@ -626,7 +629,21 @@ class AppLocalizationsMg extends AppLocalizations {
   String get search => 'Karoka';
 
   @override
+  String get search_product_help =>
+      'Mitadiava vokatra iray,\nmarika na barcode';
+
+  @override
+  String get search_filter => 'Fikarohana sivana';
+
+  @override
+  String get search_history => 'Tantaran\'ny fikarohana';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help =>
+      'Soso-kevitra: ampio ny tanàna na ny firenena';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1304,9 @@ class AppLocalizationsMg extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Properties';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1314,9 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get tag_value => 'Sandany';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1670,10 @@ class AppLocalizationsMg extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Miala tsiny fa vokatra ohatra anay io, tsy azonao ovaina :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1709,9 @@ class AppLocalizationsMg extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Ampitahao mifanila';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2994,6 +3024,9 @@ class AppLocalizationsMg extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3491,6 +3524,10 @@ class AppLocalizationsMg extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3506,14 +3543,6 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4561,7 +4590,7 @@ class AppLocalizationsMg extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-mg.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4644,7 +4673,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-mg.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4725,7 +4754,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-mg.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4813,7 +4842,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-mg.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4965,7 +4994,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-mg.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5284,7 +5313,29 @@ class AppLocalizationsMg extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Nahoana ny vidiny?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** dia tetikasa hanangonana sy hizarana ny vidin\'ny vokatra manerana izao tontolo izao 🌍. Ny Open Prices dia novolavolaina sy nokarakarain\'ny Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Inona avy ireo toetran\'ny Folksonomy?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Ny toetra dia mifototra amin\'ny **key-value**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Ireo fananana ireo dia noforonina sy napetraky ny mpandray anjara ho an\'ny karazana fampiasana rehetra.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5723,8 +5774,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Fantaro ny tetikasa';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Fantaro ny zava-misy momba ny sakafo misokatra';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6015,7 +6065,17 @@ class AppLocalizationsMg extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count amin\'ny $total entana';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count singa';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count singa';
   }
 

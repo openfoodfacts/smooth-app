@@ -9,7 +9,7 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get app_name => 'Fakta Makanan Terbuka';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -228,6 +228,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get forgot_password => 'Lupa kata sandi';
+
+  @override
+  String get forgot_password_question => 'Lupa kata sandi?';
 
   @override
   String get view_profile => 'Lihat profil';
@@ -631,7 +634,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get search => 'Cari';
 
   @override
+  String get search_product_help => 'Cari produk,\nmerek atau kode batang';
+
+  @override
+  String get search_filter => 'Filter pencarian';
+
+  @override
+  String get search_history => 'Riwayat pencarian';
+
+  @override
   String get search_store => 'Cari toko';
+
+  @override
+  String get search_store_help => 'Petunjuk: tambahkan kota atau negara';
 
   @override
   String get tap_for_more => 'Ketuk untuk lihat info selengkapnya…';
@@ -1305,6 +1320,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get tag_key => 'Properti';
 
   @override
+  String get tag_keys => 'Properti';
+
+  @override
   String get tag_key_uneditable => 'Properti (tidak dapat disunting)';
 
   @override
@@ -1312,6 +1330,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get tag_value => 'Nilai';
+
+  @override
+  String get tag_values => 'Nilai';
 
   @override
   String get tag_value_input_hint => 'Masukkan nilai';
@@ -1667,6 +1688,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Memuat produk contoh pertama Anda';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Maaf, ini contoh produk kami, Anda tidak dapat mengeditnya :)';
+
+  @override
   String get product_list_your_ranking => 'Peringkat Anda';
 
   @override
@@ -1702,6 +1727,9 @@ class AppLocalizationsId extends AppLocalizations {
     );
     return 'Pembaruan $_temp0 selesai';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Bandingkan berdampingan';
 
   @override
   String get loading_dialog_default_title => 'Mengunduh data';
@@ -3014,6 +3042,9 @@ class AppLocalizationsId extends AppLocalizations {
       'Gunakan kembali dan sunting pencarian ini';
 
   @override
+  String get search_history_item_remove_tooltip => 'Hapus';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Anda telah mengunduh semua produk $totalSize.';
   }
@@ -3516,6 +3547,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Memulai penyegaran semua produk yang disimpan secara lokal';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Memulai pengunduhan produk paling populer';
 
@@ -3531,14 +3566,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Pertahankan panel bahan yang diperluas';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Tampilkan filter dalam pencarian';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Pilih situs pencarian: Open Food Facts, Open Beauty Facts, Open Pet Food Facts, atau Open Products Facts';
 
   @override
   String get no_internet_connection => 'Tidak ada sambungan Internet';
@@ -4587,7 +4614,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4670,7 +4697,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-id.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4751,7 +4778,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-id.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4839,7 +4866,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-id.openbeautyfacts.org/temukan';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4915,7 +4942,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/tentang';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4991,7 +5018,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-id.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5313,7 +5340,29 @@ class AppLocalizationsId extends AppLocalizations {
   String get product_page_tab_prices => 'Harga';
 
   @override
+  String get prices_explanation_card_title => 'Mengapa harga?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** adalah proyek untuk mengumpulkan dan berbagi harga produk di seluruh dunia 🌍. Open Prices dikembangkan dan dikelola oleh Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Pelajari lebih lanjut';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Apa saja atribut Folksonomi?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Atribut didasarkan pada **kunci-nilai**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5753,8 +5802,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Temukan proyeknya';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Temukan Fakta Makanan Terbuka';
+  String get preferences_faq_discover_off_title => 'Temukan Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5797,7 +5845,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Berpartisipasilah dengan menghadiri salah satu acara virtual kami';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Fakta Makanan Terbuka';
+  String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6046,7 +6094,17 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count dari $total item';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count item';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count item';
   }
 
@@ -6107,7 +6165,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorium Fakta Makanan Terbuka';
+      'Laboratorium Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Akun';

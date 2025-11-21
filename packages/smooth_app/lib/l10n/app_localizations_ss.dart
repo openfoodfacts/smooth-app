@@ -9,7 +9,7 @@ class AppLocalizationsSs extends AppLocalizations {
   AppLocalizationsSs([String locale = 'ss']) : super(locale);
 
   @override
-  String get app_name => 'Vula Emaciniso Ekudla';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'Ukhohliwe iphasiwedi?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsSs extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Sesha umkhicito,\nluphawu noma ibhakhodi';
+
+  @override
+  String get search_filter => 'Luphenyo lwekuphenya';
+
+  @override
+  String get search_history => 'Umlandvo wekuphenya';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Lusito: faka lidolobha noma live';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1302,9 @@ class AppLocalizationsSs extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Tici';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1312,9 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1668,10 @@ class AppLocalizationsSs extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Siyacolisa, ngumkhicito wetfu wesibonelo, ngeke ukwati kuwuhlela :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1707,9 @@ class AppLocalizationsSs extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Catsanisa eceleni';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2987,10 +3015,13 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3490,6 +3521,10 @@ class AppLocalizationsSs extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3505,14 +3540,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4040,27 +4067,25 @@ class AppLocalizationsSs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Liphuzu leliluhlata A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Sikolo lesiluhlata B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Sikolo lesiluhlata C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Liphuzu leliluhlata D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Liphuzu leliluhlata E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new =>
-      'Sikolo-lesiluhlata lesingatiwa';
+  String get environmental_score_unknown_new => 'Green-Score lesingatiwa';
 
   @override
-  String get environmental_score_not_applicable_new =>
-      'Liphuzu leliluhlata alisebenti';
+  String get environmental_score_not_applicable_new => 'Green-Score alisebenti';
 
   @override
   String get nova_group_generic_new =>
@@ -4283,7 +4308,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Ikhodi yembala ihluka kusuka kuluhlata lolumnyama (**A+**) lwemikhicito **lenemtselela lomncane** kuya kulobovu lobumnyama (**F**) lwemikhicito **lenemtselela lomkhulu**.';
 
   @override
-  String get guide_greenscore_logos_caption => 'Timphawu Temaphuzu Laluhlata';
+  String get guide_greenscore_logos_caption => 'Green-Score';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4564,7 +4589,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-ss.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4647,7 +4672,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://mhlaba-si.emaciniso ekudla lavulekile.org/tfola';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4728,7 +4753,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://mhlaba-si.vula emaciniso ekudla kwetilwane.org/tfola';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4816,7 +4841,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://mhlaba-si.vula emaciniso ebuhle.org/tfola';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4892,7 +4917,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://intsengo.emaciniso ekudla lavulekile.org/mayelana';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5287,7 +5312,29 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Kungani emanani?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** yiphrojekthi yekubutsela ndzawonye nekwabelana ngemanani emikhicito emhlabeni wonkhe 🌍. Intsengo Levulekile itfutfukiswa futsi igcinwe yi-Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Yini timfanelo teFolksonomy?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Timphawu tisekelwe **kukhiye-linani**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Letimphahla takhiwe futsi tifakwe ngulabafaka sandla kunobe nguyiphi inhlobo yekusetjentiswa.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5578,7 +5625,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Emaciniso Ekudla Lavulekile yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
+      'Open Food Facts yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5629,7 +5676,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5725,8 +5772,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tfola Emaciniso Ekudla Lavulekile';
+  String get preferences_faq_discover_off_title => 'Tfola Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5746,8 +5792,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'I-NGO yeMaciniso Ekudla Lokuvulekile';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5769,8 +5814,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5983,7 +6027,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6020,7 +6064,17 @@ class AppLocalizationsSs extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count ye $total tintfo';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count tintfo';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count tintfo';
   }
 
@@ -6081,14 +6135,14 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula Emalabs Emaciniso Ekudla';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Letsa Emaciniso Ekudla Lavulekile elulwimini lwakho';
+      'Letsa Open Food Facts elulwimini lwakho';
 
   @override
   String get preferences_contribute_enroll_alpha =>

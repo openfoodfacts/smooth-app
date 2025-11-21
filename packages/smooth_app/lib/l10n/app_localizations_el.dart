@@ -9,7 +9,7 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
-  String get app_name => 'Ανοιχτά στοιχεία για τα τρόφιμα';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -228,6 +228,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get forgot_password => 'Ξέχασα τον κωδικό';
+
+  @override
+  String get forgot_password_question => 'Ξεχάσατε τον κωδικό πρόσβασης;';
 
   @override
   String get view_profile => 'Προβολή προφίλ';
@@ -637,7 +640,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get search => 'Αναζήτηση';
 
   @override
+  String get search_product_help =>
+      'Αναζήτηση προϊόντος,\nμάρκας ή γραμμωτού κώδικα';
+
+  @override
+  String get search_filter => 'Φίλτρο αναζήτησης';
+
+  @override
+  String get search_history => 'Ιστορικό αναζήτησης';
+
+  @override
   String get search_store => 'Αναζήτηση για κατάστημα';
+
+  @override
+  String get search_store_help => 'Υπόδειξη: προσθέστε την πόλη ή τη χώρα';
 
   @override
   String get tap_for_more => 'Πατήστε για να δείτε περισσότερες πληροφορίες…';
@@ -1327,6 +1343,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get tag_key => 'Ιδιότητα';
 
   @override
+  String get tag_keys => 'Σκηνικά θέατρου';
+
+  @override
   String get tag_key_uneditable => 'Ιδιότητα (μη επεξεργάσιμο)';
 
   @override
@@ -1334,6 +1353,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get tag_value => 'Τιμή';
+
+  @override
+  String get tag_values => 'Αξίες';
 
   @override
   String get tag_value_input_hint => 'Εισαγάγετε μια τιμή';
@@ -1689,6 +1711,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Φόρτωση του πρώτου παραδείγματος προϊόντος σας';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Λυπούμαστε, είναι το παράδειγμα προϊόντος μας, δεν μπορείτε να το επεξεργαστείτε :)';
+
+  @override
   String get product_list_your_ranking => 'Η κατάταξή σας';
 
   @override
@@ -1724,6 +1750,9 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return 'Η ανανέωση $_temp0 ολοκληρώθηκε';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Σύγκριση δίπλα-δίπλα';
 
   @override
   String get loading_dialog_default_title => 'Λήψη δεδομένων';
@@ -3056,6 +3085,9 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης';
 
   @override
+  String get search_history_item_remove_tooltip => 'Αφαίρεση';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Έχετε κατεβάσει και τα $totalSize προϊόντα.';
   }
@@ -3566,6 +3598,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Έναρξη ανανέωσης όλων των προϊόντων που είναι αποθηκευμένα τοπικά';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Έναρξη λήψης των πιο δημοφιλών προϊόντων';
 
@@ -3582,14 +3618,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Διατήρηση πίνακα συστατικών εκτεταμένο';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Εμφάνιση φίλτρου στην αναζήτηση';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Product Facts';
 
   @override
   String get no_internet_connection => 'Χωρίς σύνδεση στο διαδίκτυο';
@@ -4649,7 +4677,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-el.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4732,7 +4760,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-el.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4813,7 +4841,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-el.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4901,7 +4929,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-gr.openfoodfacts.org/discover';
+      'https://world-el.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -5053,7 +5081,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-el.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5381,7 +5409,29 @@ class AppLocalizationsEl extends AppLocalizations {
   String get product_page_tab_prices => 'Τιμές';
 
   @override
+  String get prices_explanation_card_title => 'Γιατί τιμές;';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      'Το **Open Prices** είναι ένα έργο για τη συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο 🌍. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Μάθετε περισσότερα';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Ποια είναι τα χαρακτηριστικά της Λαϊκής Προσωπικότητας;';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Τα χαρακτηριστικά βασίζονται **σε κλειδί-τιμή**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Αυτές οι ιδιότητες δημιουργούνται και καταχωρούνται από τους συνεισφέροντες για κάθε είδους χρήση.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5823,8 +5873,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Ανακαλύψτε το έργο';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6115,7 +6164,17 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count από $total στοιχεία';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count στοιχεία';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count στοιχεία';
   }
 
@@ -6176,14 +6235,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Λογαριασμός';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Φέρτε τα Ανοιχτά Γεγονότα για τα Τρόφιμα στη γλώσσα σας';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

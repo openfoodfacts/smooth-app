@@ -9,7 +9,7 @@ class AppLocalizationsNb extends AppLocalizations {
   AppLocalizationsNb([String locale = 'nb']) : super(locale);
 
   @override
-  String get app_name => 'Åpne matfakta';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -226,6 +226,9 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get forgot_password => 'Glemt passordet';
+
+  @override
+  String get forgot_password_question => 'Glemt passord?';
 
   @override
   String get view_profile => 'Vis profil';
@@ -629,7 +632,20 @@ class AppLocalizationsNb extends AppLocalizations {
   String get search => 'Søk';
 
   @override
+  String get search_product_help =>
+      'Søk etter et produkt,\net merke eller en strekkode';
+
+  @override
+  String get search_filter => 'Søk i filter';
+
+  @override
+  String get search_history => 'Søk historikk';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Tips: legg til byen eller landet';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1294,6 +1310,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Egenskaper';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1301,6 +1320,9 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get tag_value => 'Verdi';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1655,6 +1677,10 @@ class AppLocalizationsNb extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Beklager, det er vårt eksempelprodukt, du kan ikke redigere det :)';
+
+  @override
   String get product_list_your_ranking => 'Din rangering';
 
   @override
@@ -1690,6 +1716,9 @@ class AppLocalizationsNb extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Sammenlign side ved side';
 
   @override
   String get loading_dialog_default_title => 'Laster ned data';
@@ -2995,10 +3024,13 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Bytt mellom priser.openfoodfacts.org (PROD) og test env';
+      'Bytt mellom prices.openfoodfacts.org (PROD) og test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3501,6 +3533,10 @@ class AppLocalizationsNb extends AppLocalizations {
       'Starter oppdateringen av alle produktene som er lagret lokalt';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starter nedlastingen av de mest populære produktene';
 
@@ -3516,14 +3552,6 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Hold ingredienspanelet utvidet';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ingen internettforbindelse';
@@ -4569,7 +4597,7 @@ class AppLocalizationsNb extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4652,7 +4680,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-nb.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4733,7 +4761,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-nb.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4821,7 +4849,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-nb.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4973,7 +5001,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://no.openfoodfacts.org/discover';
+      'https://world-nb.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5292,7 +5320,29 @@ class AppLocalizationsNb extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Hvorfor priser?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** er et prosjekt for å samle og dele priser på produkter rundt om i verden 🌍. Open Prices utvikles og vedlikeholdes av Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Lær mer';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Hva er Folksonomi attributter?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attributter er **nøkkelverdi** basert.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Eiendommene lages og deles av bidragsytere for alle typer bruk.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5551,7 +5601,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Søk etter innstillinger (f.eks. nøtt-resultat)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -6018,7 +6068,17 @@ class AppLocalizationsNb extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count av $total objekter';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count objekter';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count objekter';
   }
 

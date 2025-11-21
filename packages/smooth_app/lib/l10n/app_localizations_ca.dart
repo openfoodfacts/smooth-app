@@ -9,7 +9,7 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
-  String get app_name => 'Dades sobre aliments oberts';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -227,6 +227,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get forgot_password => 'Contrasenya oblidada';
+
+  @override
+  String get forgot_password_question => 'Has oblidat la contrasenya?';
 
   @override
   String get view_profile => 'Mostra el perfil';
@@ -635,7 +638,20 @@ class AppLocalizationsCa extends AppLocalizations {
   String get search => 'Cerca';
 
   @override
+  String get search_product_help =>
+      'Cerca un producte,\nuna marca o un codi de barres';
+
+  @override
+  String get search_filter => 'Filtre de cerca';
+
+  @override
+  String get search_history => 'Historial de cerca';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Consell: afegiu la ciutat o el país';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1313,6 +1329,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Propietats';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1320,6 +1339,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get tag_value => 'Valor';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1370,7 +1392,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'La Nutri-score d\'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa\'t en contacte amb nosaltres.';
+      'La Nutri-Score d\'aquest producte no es pot calcular, la qual cosa pot ser degut, per exemple, a una categoria no estàndard. Si ho consideres un error, posa\'t en contacte amb nosaltres.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1673,6 +1695,10 @@ class AppLocalizationsCa extends AppLocalizations {
       'S\'està carregant el vostre primer exemple de producte';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Ho sento, és el nostre producte d\'exemple, no el pots editar :)';
+
+  @override
   String get product_list_your_ranking => 'La teva classificació';
 
   @override
@@ -1708,6 +1734,9 @@ class AppLocalizationsCa extends AppLocalizations {
     );
     return 'Refrescament acabat $_temp0';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Comparar costat a costat';
 
   @override
   String get loading_dialog_default_title => 'Descàrregant les dades';
@@ -3026,6 +3055,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Suprimeix';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Has baixat tots els $totalSize productes.';
   }
@@ -3528,6 +3560,10 @@ class AppLocalizationsCa extends AppLocalizations {
       'Començant l\'actualització de tots els productes emmagatzemats localment';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Començant la descàrrega dels productes més populars';
 
@@ -3544,14 +3580,6 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Manteniu el panell d\'ingredients expandit';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No hi ha connexió a Internet';
@@ -4078,7 +4106,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-score desconegut (nou càlcul)';
+      'Nutri-Score desconegut (nou càlcul)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
@@ -4611,7 +4639,7 @@ class AppLocalizationsCa extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-ca.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4694,7 +4722,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-ca.openfoodfacts.org/descobrir';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4775,7 +4803,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-ca.openpetfoodfacts.org/descobrir';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4863,7 +4891,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-ca.openfoodfacts.org/discover';
+      'https://world-ca.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -5015,7 +5043,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://ca.openproductsfacts.org/descobrir';
+      'https://world-ca.openproductsfacts.org/descobrir';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5334,7 +5362,29 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_page_tab_prices => 'Preus';
 
   @override
+  String get prices_explanation_card_title => 'Per què els preus?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** és un projecte per recopilar i compartir preus de productes d\'arreu del món 🌍. Open Prices està desenvolupat i mantingut per Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Saber-ne més';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Quins són els atributs de la folksonomia?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Els atributs es basen en **valor-clau**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Aquestes propietats són creades i arxivades pels col·laboradors per a qualsevol tipus d\'ús.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5775,8 +5825,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descobreix el projecte';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descobreix els fets sobre menjar obert';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6034,7 +6083,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Maneres senzilles d\'ajudar a obrir la informació sobre aliments';
+      'Maneres senzilles d\'ajudar a Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6071,7 +6120,17 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count de $total elements';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count elements';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count elements';
   }
 
@@ -6132,7 +6191,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratoris oberts d\'informació sobre aliments';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Compte';

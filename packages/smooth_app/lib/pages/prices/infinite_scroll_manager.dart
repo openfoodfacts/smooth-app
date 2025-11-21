@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
@@ -140,6 +142,10 @@ abstract class InfiniteScrollManager<T> {
     }
   }
 
+  final NumberFormat _numberFormat = NumberFormat.decimalPattern(
+    ProductQuery.getLocaleString(),
+  );
+
   /// Returns a formatted item count (e.g., "25 of 100 items")
   String formattedItemCount(
     BuildContext context,
@@ -148,7 +154,10 @@ abstract class InfiniteScrollManager<T> {
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return totalItems != null
-        ? appLocalizations.item_count_with_total(loadedItems, totalItems)
-        : appLocalizations.item_count(loadedItems);
+        ? appLocalizations.item_count_with_total_string(
+            _numberFormat.format(loadedItems),
+            _numberFormat.format(totalItems),
+          )
+        : appLocalizations.item_count_string(_numberFormat.format(loadedItems));
   }
 }

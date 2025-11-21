@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar_content.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -27,54 +28,59 @@ class AppBarAuthenticationButton extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         borderRadius: ROUNDED_BORDER_RADIUS,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                              color: lightTheme
-                                  ? themeExtension.primaryBlack
-                                  : Colors.white,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minHeight: LoggedOutAppBarContent.MIN_HEIGHT,
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Flexible(
+                            child: Text(
+                              title,
+                              style: TextStyle(
+                                color: lightTheme
+                                    ? themeExtension.primaryBlack
+                                    : Colors.white,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        icons.CircledArrow.right(
-                          type: icons.CircledArrowType.normal,
-                          circleColor: lightTheme
-                              ? themeExtension.primaryBlack
-                              : Colors.white,
-                          color: lightTheme
-                              ? Colors.white
-                              : themeExtension.primaryBlack,
-                          size: 20.0,
-                          padding: const EdgeInsetsDirectional.symmetric(
-                            horizontal: 6.0,
-                            vertical: 7.5,
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          icons.CircledArrow.right(
+                            type: icons.CircledArrowType.normal,
+                            circleColor: lightTheme
+                                ? themeExtension.primaryBlack
+                                : Colors.white,
+                            color: lightTheme
+                                ? Colors.white
+                                : themeExtension.primaryBlack,
+                            size: 20.0,
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: 6.0,
+                              vertical: 7.5,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

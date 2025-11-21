@@ -9,7 +9,7 @@ class AppLocalizationsSk extends AppLocalizations {
   AppLocalizationsSk([String locale = 'sk']) : super(locale);
 
   @override
-  String get app_name => 'Otvorené fakty o jedle';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -229,6 +229,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get forgot_password => 'Zabudnuté heslo';
+
+  @override
+  String get forgot_password_question => 'Zabudli ste heslo?';
 
   @override
   String get view_profile => 'Zobraziť účet';
@@ -635,7 +638,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get search => 'Vyhľadať';
 
   @override
+  String get search_product_help =>
+      'Vyhľadajte produkt,\nznačku alebo čiarový kód';
+
+  @override
+  String get search_filter => 'Vyhľadávací filter';
+
+  @override
+  String get search_history => 'História vyhľadávania';
+
+  @override
   String get search_store => 'Vyhľadajte obchod';
+
+  @override
+  String get search_store_help => 'Tip: pridajte mesto alebo krajinu';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte ďalšie informácie…';
@@ -1308,6 +1324,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get tag_key => 'Vlastnosť';
 
   @override
+  String get tag_keys => 'Nehnuteľnosti';
+
+  @override
   String get tag_key_uneditable => 'Vlastnosť (neupraviteľné)';
 
   @override
@@ -1315,6 +1334,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get tag_value => 'Hodnota';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Zadajte hodnotu';
@@ -1667,6 +1689,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Načítava sa váš prvý vzorový produkt';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Prepáčte, je to náš vzorový produkt, nemôžete ho upravovať :)';
+
+  @override
   String get product_list_your_ranking => 'Vaše hodnotenie';
 
   @override
@@ -1702,6 +1728,9 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0 obnova dokončená';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Porovnajte vedľa seba';
 
   @override
   String get loading_dialog_default_title => 'Sťahovanie údajov';
@@ -3016,6 +3045,9 @@ class AppLocalizationsSk extends AppLocalizations {
       'Opätovne použite a upravte toto vyhľadávanie';
 
   @override
+  String get search_history_item_remove_tooltip => 'Odstrániť';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stiahli ste si všetky $totalSize produkty.';
   }
@@ -3519,6 +3551,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Spustenie obnovy všetkých lokálne uložených produktov';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Spustenie sťahovania najpopulárnejších produktov';
 
@@ -3534,14 +3570,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Rozbaľovať tabuľku zložiek';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Zobraziť filter vo vyhľadávaní';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vyberte zdroj vyhľadávania: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts';
 
   @override
   String get no_internet_connection => 'Žiadne pripojenie na internet';
@@ -4133,7 +4161,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get faq_title_install_product =>
-      'Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
@@ -4589,7 +4617,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4672,7 +4700,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-sk.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4753,7 +4781,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-sk.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4841,7 +4869,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-sk.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4993,7 +5021,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-sk.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5317,7 +5345,29 @@ class AppLocalizationsSk extends AppLocalizations {
   String get product_page_tab_prices => 'Ceny';
 
   @override
+  String get prices_explanation_card_title => 'Prečo ceny?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** je projekt na zhromažďovanie a zdieľanie cien produktov z celého sveta 🌍. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Zistiť viac';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Aké sú atribúty folksonomie?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Atribúty sú založené na **kľúč-hodnota**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Tieto vlastnosti vytvárajú a ukladajú prispievatelia pre akékoľvek použitie.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5753,8 +5803,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Objavte projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objavte fakty o otvorenom jedle';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5798,7 +5847,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Zapojte sa účasťou na jednom z našich virtuálnych podujatí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otvorené fakty o jedle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6048,7 +6097,17 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count z $total položiek';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count položiek';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count položiek';
   }
 
@@ -6109,14 +6168,14 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otvorené laboratóriá faktov o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prineste fakty o otvorených potravinách do svojho jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

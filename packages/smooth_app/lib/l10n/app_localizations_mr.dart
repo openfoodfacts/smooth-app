@@ -9,7 +9,7 @@ class AppLocalizationsMr extends AppLocalizations {
   AppLocalizationsMr([String locale = 'mr']) : super(locale);
 
   @override
-  String get app_name => 'ओपन फूड तथ्ये';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -225,6 +225,9 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'पासवर्ड विसरलात?';
 
   @override
   String get view_profile => 'View profile';
@@ -627,7 +630,19 @@ class AppLocalizationsMr extends AppLocalizations {
   String get search => 'शोध';
 
   @override
+  String get search_product_help => 'उत्पादन,\nब्रँड किंवा बारकोड शोधा';
+
+  @override
+  String get search_filter => 'शोध फिल्टर';
+
+  @override
+  String get search_history => 'शोध इतिहास';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'सूचना: शहर किंवा देश जोडा';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1288,6 +1303,9 @@ class AppLocalizationsMr extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'गुणधर्म';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1295,6 +1313,9 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1648,6 +1669,10 @@ class AppLocalizationsMr extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'माफ करा, हे आमचे उदाहरण उत्पादन आहे, तुम्ही ते संपादित करू शकत नाही :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1683,6 +1708,9 @@ class AppLocalizationsMr extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'शेजारी शेजारी तुलना करा';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2988,6 +3016,9 @@ class AppLocalizationsMr extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3485,6 +3516,10 @@ class AppLocalizationsMr extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3500,14 +3535,6 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4057,8 +4084,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'ग्रीन-स्कोअर लागू नाही.';
 
   @override
-  String get nova_group_generic_new =>
-      'अल्ट्रा-प्रक्रिया केलेले अन्न - नोव्हा गट';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4465,7 +4491,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA लोगो';
 
   @override
-  String get guide_nova_groups_title => '४ नोव्हा गट';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -4551,7 +4577,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-mr.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4634,7 +4660,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-mr.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4715,7 +4741,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-mr.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4803,7 +4829,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-mr.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4955,7 +4981,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-mr.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5274,7 +5300,29 @@ class AppLocalizationsMr extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'किंमती का?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** हा जगभरातील उत्पादनांच्या किमती गोळा करण्याचा आणि शेअर करण्याचा प्रकल्प आहे 🌍. Open Prices Open Food Facts द्वारे विकसित आणि देखभाल केली जाते.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'फोकसोनोमीचे गुणधर्म काय आहेत?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'गुणधर्म **की-व्हॅल्यू** वर आधारित आहेत.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'हे गुणधर्म कोणत्याही प्रकारच्या वापरासाठी योगदानकर्त्यांद्वारे तयार केले जातात आणि दाखल केले जातात.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5533,7 +5581,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'सेटिंग शोधा (उदा. न्यूट्री-स्कोअर)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5564,7 +5612,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ओपन फूड फॅक्ट्स हा एक अन्न उत्पादनांचा डेटाबेस आहे जो **प्रत्येकाने, प्रत्येकासाठी बनवला आहे**.\nतुम्ही त्याचा वापर चांगल्या अन्न निवडी करण्यासाठी करू शकता आणि तो **ओपन डेटा** असल्याने, कोणीही **कोणत्याही कारणासाठी त्याचा पुन्हा वापर करू शकतो**.';
+      'Open Food Facts हा एक अन्न उत्पादनांचा डेटाबेस आहे जो **प्रत्येकाने, प्रत्येकासाठी बनवला आहे**.\nतुम्ही त्याचा वापर चांगल्या अन्न निवडी करण्यासाठी करू शकता आणि तो **ओपन डेटा** असल्याने, कोणीही **कोणत्याही कारणासाठी त्याचा पुन्हा वापर करू शकतो**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5611,10 +5659,10 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_tips => 'टिपा';
 
   @override
-  String get tips_discover_nutriscore => 'नवीन न्यूट्री-स्कोअर शोधा';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
-  String get preferences_on_off_website_subtitle => 'ओपन फूड फॅक्ट्स वेबसाइटवर';
+  String get preferences_on_off_website_subtitle => 'Open Food Facts वेबसाइटवर';
 
   @override
   String get preferences_manage_account_title => 'माझे खाते व्यवस्थापित करा';
@@ -5697,7 +5745,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'न्यूट्री-स्कोअर कसा मोजला जातो ते शोधा';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5707,7 +5755,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Open Food तथ्ये शोधा.';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5728,7 +5776,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'वारंवार विचारले जाणारे प्रश्न - वारंवार विचारले जाणारे प्रश्न';
 
   @override
-  String get preferences_faq_off_ngo_title => 'द ओपन फूड फॅक्ट्स एनजीओ';
+  String get preferences_faq_off_ngo_title => 'द Open Food Facts एनजीओ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5750,7 +5798,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'आमच्या एका व्हर्च्युअल कार्यक्रमात सहभागी व्हा.';
 
   @override
-  String get preferences_connect_blog_title => 'द ओपन फूड फॅक्ट्स ब्लॉग';
+  String get preferences_connect_blog_title => 'द Open Food Facts ब्लॉग';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5866,7 +5914,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ओपन फूड फॅक्ट्स मध्ये मी जोडलेली नवीन उत्पादने';
+      'Open Food Facts मध्ये मी जोडलेली नवीन उत्पादने';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5892,7 +5940,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'तुमच्या देशातील न्यूट्री-स्कोअर आणि ग्रीन-स्कोअरची गणना करण्यात मदत करा.';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'मी दिलेल्या किमती';
@@ -5913,7 +5961,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ओपन प्राइसेस समुदायाने जोडलेल्या नवीनतम किमती';
+      'Open Prices समुदायाने जोडलेल्या नवीनतम किमती';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5962,7 +6010,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'अन्न तथ्ये उघडण्यास मदत करण्याचे सोपे मार्ग';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5999,7 +6047,17 @@ class AppLocalizationsMr extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count पैकी $total आयटम';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count आयटम';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count आयटम';
   }
 
@@ -6060,14 +6118,14 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'अन्न तथ्य प्रयोगशाळा उघडा';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'तुमच्या भाषेत खुल्या अन्नाचे तथ्य आणा';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

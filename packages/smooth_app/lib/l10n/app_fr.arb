@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Mot de passe oublié ?",
   "view_profile": "Afficher le profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Rechercher un produit,\nune marque ou un code-barres",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtre de recherche",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Historique de recherche",
   "search_store": "Rechercher un magasin",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Conseil : ajoutez la ville ou le pays",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Appuyez pour plus d'informations…",
   "@Product": {},
@@ -1018,9 +1032,11 @@
   "edit_tag": "Modifier la propriété",
   "remove_tag": "Supprimer la propriété",
   "tag_key": "Propriété",
+  "tag_keys": "Propriétés",
   "tag_key_uneditable": "Propriété (non modifiable)",
   "tag_key_input_hint": "Saisir une propriété",
   "tag_value": "Valeur",
+  "tag_values": "Valeurs",
   "tag_value_input_hint": "Saisir une valeur",
   "tag_key_item": "Propriété :",
   "tag_value_item": "Valeur :",
@@ -1369,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Désolé, il s'agit d'un exemple de produit, vous ne pouvez pas le modifier :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Votre classement",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1399,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Comparer côte à côte",
   "loading_dialog_default_title": "Téléchargement des données",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2664,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Retirer",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Vous avez téléchargé les {totalSize} produits.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3253,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Garder le panneau des ingrédients étendu",
-  "search_product_filter_visibility_title": "Afficher un filtre dans la recherche",
-  "search_product_filter_visibility_subtitle": "Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Pas de connexion internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -4020,7 +4040,7 @@
   "guide_nova_explanations_arg5_text": "Depuis 2018, avec NutriNet-Santé, les premiers liens entre **la consommation d'aliments ultra-transformés et l'augmentation des risques de cancer, de maladies cardiovasculaires et de diabète ont été soulignés**. Aujourd'hui, plus de 90 études dans le monde confirment ces conclusions.\nLes associations les plus fortes portent sur l'**obésité, la mortalité cardiovasculaire et les symptômes dépressifs**. Pour les enfants, les effets sont principalement observés sur les déséquilibres de poids et de lipide.",
   "guide_nova_explanations_arg6_title": "Les pays recommandent de les limiter",
   "guide_nova_explanations_arg6_text": "Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.",
-  "guide_nova_share_link": "https://fr.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-fr.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4054,7 +4074,7 @@
   "guide_open_food_facts_scores_arg1_title": "Une note sur la qualité nutritionnelle",
   "guide_open_food_facts_scores_arg2_title": "Une note pour éviter les aliments ultra-transformés",
   "guide_open_food_facts_scores_arg3_title": "Un score pour la planète",
-  "guide_open_food_facts_share_link": "https://fr.openfoodfacts.org/openfoodfacts",
+  "guide_open_food_facts_share_link": "https://world-fr.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Bienvenue sur Open Pet Food Facts !",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4084,7 +4104,7 @@
   "guide_open_pet_food_facts_tips_arg2_text4": "Gardez le produit sur une surface plane.",
   "guide_open_pet_food_facts_scores_title": "Note sur la notation",
   "guide_open_pet_food_facts_scores_paragraph1": "L'élaboration d'un système de notation pour les aliments pour animaux de compagnie **n'est pas une priorité actuellement**. La méthodologie serait complexe, car les besoins nutritionnels varient considérablement selon l'espèce, l'âge et l'état de santé. Nous n'avons pas encore trouvé d'équipe scientifique indépendante capable de développer un tel système.",
-  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/decouvrir",
+  "guide_open_pet_food_facts_share_link": "https://world-fr.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Bienvenue sur Open Beauty Facts !",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4116,7 +4136,7 @@
   "guide_open_beauty_facts_tips_arg2_text6": "Gardez le produit sur une surface plane.",
   "guide_open_beauty_facts_scores_title": "Note sur la notation",
   "guide_open_beauty_facts_scores_paragraph1": "Contrairement aux produits alimentaires, le monde des cosmétiques ne dispose pas d'un système de notation universellement reconnu et approuvé par les pouvoirs publics, tel que le Nutri-Score. Les effets des ingrédients peuvent être très variables d'une personne à l'autre et dépendent du type de peau, des allergies et des préoccupations individuelles.",
-  "guide_open_beauty_facts_share_link": "https://world-fr.openfoodfacts.org/decouvrir",
+  "guide_open_beauty_facts_share_link": "https://world-fr.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bienvenue chez Open Prices !",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4145,7 +4165,7 @@
   "guide_open_prices_scrapping_paragraph2": "Le scraping des prix est une option envisagée dans une version future d'Open Prices, mais il serait effectué par Open Prices directement afin que nous puissions avoir une preuve du prix basée sur la page HTML.",
   "guide_open_prices_retailers_title": "Je suis un distributeur et je souhaite contribuer des prix. Comment puis-je le faire ?",
   "guide_open_prices_retailers_paragraph1": "Vous pouvez contribuer en fournissant des prix via notre API.\nSi vous souhaitez contribuer à grande échelle, veuillez nous contacter à l'adresse prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://en.openfoodfacts.org/openprices",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Bienvenue sur Open Products Facts !",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4173,7 +4193,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
   "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
   "guide_open_products_facts_folksonomy_paragraph3": "Vous recevrez des suggestions automatiques de propriétés possibles, et vous êtes invités à en ajouter et à documenter de nouvelles sur vos types de produits préférés.",
-  "guide_open_products_facts_share_link": "https://en.openfoodfacts.org/openproductsfacts",
+  "guide_open_products_facts_share_link": "https://world-fr.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Ouvrir les préférences alimentaires",
   "guide_coming_soon_button_title": "Bientôt disponible",
   "guide_learn_more_subtitle": "Appuyez pour en savoir plus",
@@ -4531,10 +4551,16 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Pourquoi ces prix ?",
+  "prices_explanation_card_line1": "**Open Prices** est un projet visant à collecter et partager les prix des produits du monde entier 🌍. Open Prices est développé et maintenu par Open Food Facts.",
+  "explanation_card_learn_more_button": "En savoir plus",
   "product_page_tab_folksonomy": "Folksonomie",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
+  "folksonomy_explanation_card_title": "Quels sont les attributs de la folksonomie ?",
+  "folksonomy_explanation_card_line1": "Les attributs sont de type **clé-valeur**.",
+  "folksonomy_explanation_card_line2": "Ces propriétés sont créées et enregistrées par les contributeurs pour tout type d'utilisation.",
   "folksonomy_action_external_link_title": "Ouvrir le lien externe",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
@@ -5346,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5412,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} sur {total} articles",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} articles",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} articles",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5530,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

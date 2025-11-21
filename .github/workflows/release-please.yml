@@ -10,7 +10,7 @@ env:
 
 jobs:
   release-please:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     if: github.repository_owner == 'openfoodfacts'
     #permissions:
       #contents: read
@@ -27,24 +27,12 @@ jobs:
         id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
-           release-type: simple
-           pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Mobile app - Release${component} ${version}."
-           changelog-types: |
-            [
-            {"type":"feat","section":"🚀 Features","hidden":false},
-            {"type":"fix","section":"🐛 Bug Fixes","hidden":false},
-            {"type":"docs","section":"📖 Documentation","hidden":false},
-            {"type":"ci","section":"🤖 Automation","hidden":false},
-            {"type":"refactor","section":"👷 Refactoring","hidden":false},
-            {"type":"chore","section":"🛠 Miscellaneous","hidden":false},
-            {"type":"l10n","section":"🌍 Translations","hidden":false}
-            ]
 
   create-release:
     concurrency: 
       group: release
       cancel-in-progress: false
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     #permissions:
       #contents: read
       #packages: write

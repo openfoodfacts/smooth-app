@@ -5,6 +5,7 @@ import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
+import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/background/background_task_image.dart';
@@ -40,7 +41,8 @@ enum OperationType {
   languageRefresh('L', 'LANGUAGE_REFRESH'),
   addPrice('A', 'ADD_PRICE'),
   addOtherPrice('E', 'ADD_OTHER_PRICE'),
-  details('D', 'PRODUCT_EDIT');
+  details('D', 'PRODUCT_EDIT'),
+  folksonomy('X', 'UPDATE_PRODUCT_TAG');
 
   const OperationType(this.header, this.processName);
 
@@ -88,6 +90,7 @@ enum OperationType {
     offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
     fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
     languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
+    folksonomy => BackgroundTaskFolksonomy.fromJson(map),
   };
 
   bool matches(final TransientOperation action) =>
@@ -109,6 +112,7 @@ enum OperationType {
     OperationType.fullRefresh => 'Refreshing the full local database',
     OperationType.languageRefresh =>
       'Refreshing the local database to a new language',
+    OperationType.folksonomy => 'Updating folksonomy product tags',
   };
 
   static int getSequentialId(final TransientOperation operation) {

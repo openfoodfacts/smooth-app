@@ -3,65 +3,25 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_operation.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode, this.localDatabase)
-    : super(const FolksonomyStateLoading()) {
-    fetchProductTags();
+  FolksonomyProvider(this.barcode, this._localDatabase)
+    : _daoFolksonomy = DaoFolksonomy(_localDatabase),
+      _daoTransientFolksonomy = DaoTransientFolksonomy(_localDatabase),
+      super(const FolksonomyStateLoading()) {
+    unawaited(fetchProductTags());
   }
 
   final String barcode;
-  final LocalDatabase localDatabase;
-  String? _bearerToken;
+  final LocalDatabase _localDatabase;
+  final DaoFolksonomy _daoFolksonomy;
+  final DaoTransientFolksonomy _daoTransientFolksonomy;
   final List<ProductTag> _tags = <ProductTag>[];
-  final ProductRefresher _productRefresher = ProductRefresher();
-
-  Future<String?> _getBearerToken(BuildContext context) async {
-    if (_bearerToken != null) {
-      return _bearerToken!;
-    }
-
-    final bool isLoggedIn = await _productRefresher.checkIfLoggedIn(
-      context,
-      isLoggedInMandatory: true,
-    );
-
-    if (!isLoggedIn) {
-      return null;
-    }
-
-    final User? user = OpenFoodAPIConfiguration.globalUser;
-
-    if (user == null) {
-      throw Exception('No user found');
-    }
-
-    try {
-      final MaybeError<String> token =
-          await FolksonomyAPIClient.getAuthenticationToken(
-            username: user.userId,
-            password: user.password,
-            uriHelper: ProductQuery.uriFolksonomyHelper,
-          );
-
-      if (token.isError) {
-        throw Exception('Could not get token: ${token.error}');
-      }
-
-      if (token.value.isEmpty) {
-        throw Exception('Unexpected empty token');
-      }
-
-      _bearerToken = token.value;
-      return token.value;
-    } catch (err) {
-      throw Exception('Could not get token');
-    }
-  }
 
   // Display tags from local database first (to see it offline), then update from API.
   Future<void> fetchProductTags() async {
@@ -69,22 +29,14 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
       value = const FolksonomyStateLoading();
     }
 
+    unawaited(_refreshDisplayableTags());
+
     try {
-      final DaoFolksonomy daoFolksonomy = DaoFolksonomy(localDatabase);
-      final List<ProductTag>? localTags = await daoFolksonomy.get(barcode);
-      if (localTags != null) {
-        _updateTags(localTags);
-      }
-
-      final Map<String, ProductTag> tags =
-          await FolksonomyAPIClient.getProductTags(
-            barcode: barcode,
-            uriHelper: ProductQuery.uriFolksonomyHelper,
-          );
-      final List<ProductTag> remoteTags = tags.values.toList();
-
-      await daoFolksonomy.put(barcode, remoteTags);
-      _updateTags(remoteTags);
+      await BackgroundTaskFolksonomy.serverRefresh(
+        barcode,
+        _daoFolksonomy,
+        _localDatabase,
+      );
     } catch (e) {
       if (_tags.isEmpty) {
         value = FolksonomyStateError(error: e);
@@ -92,27 +44,8 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> addTag(BuildContext context, String key, String value) async {
+  Future<void> addTag(String key, String value) async {
     try {
-      final String? bearerToken = await _getBearerToken(context);
-      if (bearerToken == null) {
-        return;
-      }
-
-      final ProductTag? tag = _getTag(key);
-      if (tag != null) {
-        throw Exception('This tag already exists!');
-      }
-
-      // to-do: The addProduct tag method does not yet have a way to add a comment.
-      await FolksonomyAPIClient.addProductTag(
-        barcode: barcode,
-        key: key,
-        value: value,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
-
       final ProductTag newProductTag = ProductTag(
         barcode: barcode,
         key: key,
@@ -124,14 +57,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
         comment: '',
       );
 
-      _tags.add(newProductTag);
-      _sortTags();
-
-      this.value = FolksonomyStateAddedItem(
-        tags: _tags,
-        addedPosition: _getPosition(key),
-        item: newProductTag,
+      await _addOperation(
+        barcode,
+        FolksonomyOperation(type: FolksonomyAction.add, tag: newProductTag),
       );
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       this.value = FolksonomyStateError(
         error: e,
@@ -141,49 +71,24 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> editTag(
-    BuildContext context,
-    String key,
-    String newValue,
-  ) async {
+  Future<void> editTag(String key, String newValue) async {
     try {
-      final String? bearerToken = await _getBearerToken(context);
-      if (bearerToken == null) {
-        return;
-      }
-
-      final ProductTag? tag = _getTag(key);
-      if (tag == null) {
-        throw Exception('Tag not found');
-      }
-
-      await FolksonomyAPIClient.updateProductTag(
-        barcode: barcode,
-        key: key,
-        value: newValue,
-        version: tag.version + 1,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
-
       final ProductTag editedProductTag = ProductTag(
         barcode: barcode,
         key: key,
         value: newValue,
         owner: '',
-        version: tag.version + 1,
+        version: _getCurrentTagVersion(key) + 1,
         editor: '',
         lastEdit: DateTime.now(),
         comment: '',
       );
 
-      final int position = _getPosition(key);
-      _tags[position] = editedProductTag;
-      value = FolksonomyStateEditedItem(
-        tags: _tags,
-        item: editedProductTag,
-        position: position,
+      await _addOperation(
+        barcode,
+        FolksonomyOperation(type: FolksonomyAction.edit, tag: editedProductTag),
       );
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
@@ -193,34 +98,24 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  Future<void> deleteTag(BuildContext context, String key) async {
+  Future<void> deleteTag(String key) async {
     try {
-      final String? bearerToken = await _getBearerToken(context);
-      if (bearerToken == null) {
-        return;
-      }
-
-      final ProductTag? tag = _getTag(key);
-      if (tag == null) {
-        throw Exception('Tag not found');
-      }
-
-      await FolksonomyAPIClient.deleteProductTag(
+      final ProductTag tagToDelete = ProductTag(
         barcode: barcode,
         key: key,
-        version: tag.version,
-        bearerToken: bearerToken,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
+        value: '',
+        owner: '',
+        version: _getCurrentTagVersion(key),
+        editor: '',
+        lastEdit: DateTime.now(),
+        comment: '',
       );
 
-      final int position = _getPosition(key);
-      _tags.removeAt(position);
-
-      value = FolksonomyStateRemovedItem(
-        tags: _tags,
-        removedPosition: position,
-        item: tag,
+      await _addOperation(
+        barcode,
+        FolksonomyOperation(type: FolksonomyAction.remove, tag: tagToDelete),
       );
+      unawaited(_refreshDisplayableTags());
     } catch (e) {
       value = FolksonomyStateError(
         error: e,
@@ -230,34 +125,9 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     }
   }
 
-  void markAsConsumed() {
-    value = FolksonomyStateLoaded(tags: _tags);
-  }
-
-  Future<void> fetchKeys({String? query}) async {
-    try {
-      value = const FolksonomyStateLoading();
-
-      final Map<String, KeyStats> keyStats = await FolksonomyAPIClient.getKeys(
-        query: query,
-        uriHelper: ProductQuery.uriFolksonomyHelper,
-      );
-
-      value = FolksonomyStateKeysLoaded(keys: keyStats, tags: _tags);
-    } catch (e) {
-      value = FolksonomyStateError(error: e);
-    }
-  }
-
-  int _getPosition(String key) =>
-      _tags.indexWhere((ProductTag tag) => tag.key == key);
-
-  ProductTag? _getTag(String key) =>
-      _tags.firstWhereOrNull((ProductTag tag) => tag.key == key);
-
-  void _updateTags(final List<ProductTag> tags) {
+  void _updateDisplayableTags(final List<ProductTag> tags) {
     if (_equals(tags)) {
-      if (value is FolksonomyStateLoading) {
+      if (value is! FolksonomyStateLoaded) {
         value = FolksonomyStateLoaded(tags: _tags);
       }
       return;
@@ -278,6 +148,61 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     final List<ProductTag> toSort = tags ?? _tags;
     toSort.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
   }
+
+  Future<void> _refreshDisplayableTags() async {
+    final List<ProductTag> localTags =
+        await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
+    final List<FolksonomyOperation> pendingOperations =
+        _getPendingOperations(barcode) ?? <FolksonomyOperation>[];
+
+    for (final FolksonomyOperation operation in pendingOperations) {
+      final FolksonomyAction type = operation.type;
+      final ProductTag tag = operation.tag;
+      final int index = localTags.indexWhere(
+        (ProductTag t) => t.key == tag.key,
+      );
+
+      switch (type) {
+        case FolksonomyAction.add:
+          if (index == -1) {
+            localTags.add(tag);
+          }
+          break;
+        case FolksonomyAction.edit:
+          if (index != -1) {
+            localTags[index] = tag;
+          }
+          break;
+        case FolksonomyAction.remove:
+          if (index != -1) {
+            localTags.removeAt(index);
+          }
+          break;
+        case FolksonomyAction.visitUrl:
+          break;
+      }
+    }
+
+    _updateDisplayableTags(localTags);
+  }
+
+  int _getCurrentTagVersion(String key) =>
+      _tags.firstWhere((ProductTag tag) => tag.key == key).version;
+
+  Future<void> _addOperation(
+    String barcode,
+    FolksonomyOperation operation,
+  ) async {
+    await _daoTransientFolksonomy.put(barcode, <FolksonomyOperation>[
+      ..._getPendingOperations(barcode) ?? <FolksonomyOperation>[],
+      operation,
+    ]);
+
+    await BackgroundTaskFolksonomy.addTask(barcode, _localDatabase);
+  }
+
+  List<FolksonomyOperation>? _getPendingOperations(final String barcode) =>
+      _daoTransientFolksonomy.get(barcode);
 }
 
 sealed class FolksonomyState {
@@ -295,57 +220,6 @@ class FolksonomyStateLoaded extends FolksonomyState {
 
   @override
   List<ProductTag>? get tags => super.tags!;
-}
-
-class FolksonomyStateAddedItem extends FolksonomyState {
-  FolksonomyStateAddedItem({
-    required List<ProductTag> tags,
-    required this.addedPosition,
-    required this.item,
-  }) : super(tags: tags);
-
-  final int addedPosition;
-  final ProductTag item;
-
-  @override
-  List<ProductTag>? get tags => super.tags!;
-}
-
-class FolksonomyStateRemovedItem extends FolksonomyState {
-  FolksonomyStateRemovedItem({
-    required List<ProductTag> tags,
-    required this.removedPosition,
-    required this.item,
-  }) : super(tags: tags);
-
-  final int removedPosition;
-  final ProductTag item;
-
-  @override
-  List<ProductTag>? get tags => super.tags!;
-}
-
-class FolksonomyStateEditedItem extends FolksonomyState {
-  FolksonomyStateEditedItem({
-    required List<ProductTag> tags,
-    required this.position,
-    required this.item,
-  }) : super(tags: tags);
-
-  final int position;
-  final ProductTag item;
-
-  @override
-  List<ProductTag>? get tags => super.tags!;
-}
-
-class FolksonomyStateKeysLoaded extends FolksonomyState {
-  FolksonomyStateKeysLoaded({
-    required this.keys,
-    required List<ProductTag> tags,
-  }) : super(tags: tags);
-
-  final Map<String, KeyStats> keys;
 }
 
 class FolksonomyStateError extends FolksonomyState {

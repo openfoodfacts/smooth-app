@@ -9,7 +9,7 @@ class AppLocalizationsHu extends AppLocalizations {
   AppLocalizationsHu([String locale = 'hu']) : super(locale);
 
   @override
-  String get app_name => 'Nyílt Élelmiszer Tények';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -227,6 +227,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get forgot_password => 'Elfelejtett jelszó';
+
+  @override
+  String get forgot_password_question => 'Elfelejtett jelszó?';
 
   @override
   String get view_profile => 'Profil megtekintése';
@@ -636,7 +639,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get search => 'Keresés';
 
   @override
+  String get search_product_help =>
+      'Keressen egy terméket,\negy márkát vagy vonalkódot';
+
+  @override
+  String get search_filter => 'Keresési szűrő';
+
+  @override
+  String get search_history => 'Keresési előzmények';
+
+  @override
   String get search_store => 'Üzlet keresése';
+
+  @override
+  String get search_store_help => 'Tipp: add meg a várost vagy az országot';
 
   @override
   String get tap_for_more => 'Koppintson a további információkért…';
@@ -891,7 +907,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -1302,6 +1318,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get tag_key => 'Tulajdonság';
 
   @override
+  String get tag_keys => 'Tulajdonságok';
+
+  @override
   String get tag_key_uneditable => 'Tulajdonság (nem szerkeszthető)';
 
   @override
@@ -1309,6 +1328,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get tag_value => 'Érték';
+
+  @override
+  String get tag_values => 'Értékek';
 
   @override
   String get tag_value_input_hint => 'Adjon meg egy értéket';
@@ -1663,6 +1685,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Az első példa termék betöltése';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Sajnálom, ez a példatermékünk, nem szerkeszthető :)';
+
+  @override
   String get product_list_your_ranking => 'Az Ön helyezése';
 
   @override
@@ -1698,6 +1724,10 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0 frissítése befejeződött';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Hasonlítsa össze egymás mellett';
 
   @override
   String get loading_dialog_default_title => 'Adatok letöltése';
@@ -3022,6 +3052,9 @@ class AppLocalizationsHu extends AppLocalizations {
       'Használja újra és szerkessze ezt a keresést';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eltávolítás';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Letöltötte mind a(z) $totalSize terméket.';
   }
@@ -3522,6 +3555,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Az összes helyben tárolt termék frissítésének megkezdése';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'A legnépszerűbb termékek letöltésének megkezdése';
 
@@ -3537,14 +3574,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Nyitva tartja az összetevők paneljét';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Szűrő megjelenítése a keresőben';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Keresőoldal kiválasztása: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vagy Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nincs internetkapcsolat';
@@ -4594,7 +4623,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-hu.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4677,7 +4706,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-hu.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4846,7 +4875,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-hu.openfoodfacts.org/discover';
+      'https://world-hu.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4998,7 +5027,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-hu.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5321,7 +5350,29 @@ class AppLocalizationsHu extends AppLocalizations {
   String get product_page_tab_prices => 'Árak';
 
   @override
+  String get prices_explanation_card_title => 'Miért az árak?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      'Az **Open Prices** egy olyan projekt, amelynek célja a világ minden tájáról származó termékek árainak összegyűjtése és megosztása 🌍. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.';
+
+  @override
+  String get explanation_card_learn_more_button => 'További információk';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Mik a folksonomia attribútumai?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Az attribútumok **kulcs-érték** alapúak.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Ezeket a tulajdonságokat a közreműködők hozzák létre és iktatják bármilyen felhasználásra.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5968,7 +6019,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'A Nyílt Árak közössége által hozzáadott legújabb árak';
+      'A Open Prices közössége által hozzáadott legújabb árak';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6054,7 +6105,17 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count a $total elemből';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count elem';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count elem';
   }
 
@@ -6115,14 +6176,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Nyílt Élelmiszerinformációs Laboratóriumok';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Fiók';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Hozd el a Nyílt Élelmiszerinformációkat a saját nyelvedre';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

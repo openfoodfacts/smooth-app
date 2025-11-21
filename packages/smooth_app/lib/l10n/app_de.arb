@@ -1,5 +1,5 @@
 {
-  "app_name": "Öffnen Sie Lebensmittelfakten",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Passwort vergessen?",
   "view_profile": "Profil anzeigen",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -394,7 +395,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!",
+  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
   "@contribute_share_header": {},
   "contribute_share_content": "Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Suche ein Produkt,\neine Marke oder einen Barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Suchfilter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Suchverlauf",
   "search_store": "Nach einem Store suchen",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Hinweis: Fügen Sie die Stadt oder das Land hinzu.",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Antippen, um weitere Infos anzuzeigen …",
   "@Product": {},
@@ -1018,9 +1032,11 @@
   "edit_tag": "Eigenschaft bearbeiten",
   "remove_tag": "Eigenschaft entfernen",
   "tag_key": "Eigenschaft",
+  "tag_keys": "Eigenschaften",
   "tag_key_uneditable": "Eigenschaft (nicht bearbeitbar)",
   "tag_key_input_hint": "Eigenschaft eingeben",
   "tag_value": "Wert",
+  "tag_values": "Werte",
   "tag_value_input_hint": "Wert eingeben",
   "tag_key_item": "Eigenschaft:",
   "tag_value_item": "Wert:",
@@ -1369,6 +1385,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Tut mir leid, das ist nur ein Beispielprodukt, Sie können es nicht bearbeiten.",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Ihr Ranking",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1399,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Vergleichen Sie nebeneinander",
   "loading_dialog_default_title": "Daten werden heruntergeladen",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2576,7 +2597,7 @@
   "prices_proof_empty_title": "Noch kein Beweis!",
   "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto einer **Quittung** oder eines **Preisschilds** hinzu!",
   "prices_proof_find": "Wählen Sie einen Nachweis",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Wechselnachweis",
   "prices_proof_receipt": "Kassenbon",
   "prices_proof_price_tag": "Preisschild",
   "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
@@ -2664,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Entfernen",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Sie haben alle {totalSize} Produkte heruntergeladen.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -2723,7 +2748,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Beweis aus \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3253,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Zutatenliste geöffnet lassen",
-  "search_product_filter_visibility_title": "Einen Filter in der Suche anzeigen",
-  "search_product_filter_visibility_subtitle": "Wählen Sie eine zu durchsuchende Seite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts oder Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Keine Internetverbindung",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3830,10 +3850,10 @@
   "environmental_score_unknown_new": "Unbekannter Green-Score",
   "environmental_score_not_applicable_new": "Green-Score ist nicht anwendbar",
   "nova_group_generic_new": "Ultraverarbeitete Lebensmittel - NOVA-Gruppen",
-  "nova_group_1": "Nova-Gruppe 1",
-  "nova_group_2": "Nova-Gruppe 2",
-  "nova_group_3": "Nova-Gruppe 3",
-  "nova_group_4": "Nova-Gruppe 4",
+  "nova_group_1": "NOVA-Gruppe 1",
+  "nova_group_2": "NOVA-Gruppe 2",
+  "nova_group_3": "NOVA-Gruppe 3",
+  "nova_group_4": "NOVA-Gruppe 4",
   "nova_group_unknown": "Unbekannt NOVA-Gruppe",
   "nutrition_facts": "Nährstoffwerte",
   "faq_title_partners": "Partner und Gönner der NGO",
@@ -3958,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "Meer- und Süßwasser (Partikel, Versauerung, Eutrophierung)",
   "guide_greenscore_lca_arg3_text8": "Erschöpfung der Ressourcen.",
   "guide_greenscore_bonuses_penalties_title": "Boni & Strafen",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "Um bessere Produkte innerhalb einer Kategorie zu belohnen, wenden wir **Boni und Strafen auf der Grundlage mehrerer Kriterien** an:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Produktionsart",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Ein **Bonus** wird für Produkte vergeben, die über ein **offizielles Label, ein Label oder eine Zertifizierung verfügen, die Umweltvorteile garantiert** (Bio, Fair Trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Herkunft der Inhaltsstoffe",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Ein **Bonus** wird basierend auf der Herkunft der Zutaten gewährt. Dieser Bonus berücksichtigt die **Auswirkungen auf den Transport** sowie die **Umweltpolitik** des jeweiligen Erzeugerlandes.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Gefährdete Arten",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Produkte, die Inhaltsstoffe enthalten, welche erhebliche negative Auswirkungen auf die Biodiversität und die Ökosysteme haben, wie beispielsweise Palmöl, dessen Produktion für massive Entwaldung verantwortlich ist, werden mit einer **Strafe** belegt.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Art der Verpackung",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Bei der Berechnung der **Strafe** werden die **Kreislauffähigkeit der Verpackung** (Verwendung von recyceltem Rohmaterial und Recyclingfähigkeit) sowie Überverpackungen berücksichtigt.",
   "guide_greenscore_transparency_title": "Ein erhöhter Bedarf an Transparenz, um Umweltauswirkungen besser zu bewerten und zu verringern",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_intro1": "Für eine genaue Berechnung des Green-Scores sind **Informationen erforderlich, die nicht unbedingt auf der Verpackung angegeben sind** (wie z. B. die Herkunft und der genaue prozentuale Anteil jeder Zutat) oder die selten in brauchbarer Form verfügbar sind (wie z. B. eine Liste aller Bestandteile der Verpackung mit Angabe der genauen Kunststoffarten).",
+  "guide_greenscore_transparency_intro2": "**Wenn diese Informationen noch nicht verfügbar sind, werden Durchschnittswerte verwendet.** Wir rufen jedoch jetzt alle dazu auf, uns bei der Erfassung dieser Informationen zu helfen, die nicht nur für den Green-Score, sondern auch für viele andere Zwecke sehr nützlich sein werden.",
+  "guide_greenscore_transparency_arg1_title": "Wie können Bürger helfen?",
+  "guide_greenscore_transparency_arg1_text": "Alle Bürger können uns helfen, die Informationen, die auf Produkten vorhanden sind oder sich daraus ableiten lassen, zu sammeln und zu strukturieren, wie zum Beispiel Informationen über **Verpackungen**: \"Mission Emballages\": eine groß angelegte gemeinschaftliche Bestandsaufnahme von Verpackungen für alle Lebensmittelprodukte (auf Französisch).",
   "guide_greenscore_transparency_arg2_title": "Wie Hersteller helfen können",
   "guide_greenscore_transparency_arg2_text": "Hersteller können uns ihre Informationen direkt über unsere kostenlose Plattform für Produzenten übermitteln.",
   "guide_greenscore_better_product_title": "Welches Produkt ist besser für den Planeten?",
@@ -4009,120 +4029,120 @@
   "guide_nova_groups_arg4_text": "Ultra-Processed foods, Such as soft drinks, sweet Or savory Packaged snacks, reconstituted Meat products, and pre-prepared frozen Dishes, **are Not merely modified foods but formulations made Mostly or Entirely from Substances derived from foods and additives**, with little To no Intact Group 1 Food. ingredients In these Formulations usually include those Also found in processed foods, such As sugars, oils, fats, or Salt. However, Ultra-processed Products Also Contain other sources of energy And nutrients Not typically used in Culinary preparations. some of these Are directly Extracted from foods, such As casein, lactose, Whey, And Gluten.",
   "guide_nova_explanations_title": "Die Probleme mit der Ultraverarbeitung",
   "guide_nova_explanations_arg1_title": "Extreme Verarbeitung von Lebensmittelzutaten",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "Viele werden **aus der Weiterverarbeitung von Lebensmittelbestandteilen** gewonnen, wie z. B. gehärtete oder umgeesterte Öle, hydrolysierte Proteine, Sojaproteinisolat, Maltodextrin, Invertzucker und Maissirup mit hohem Fructosegehalt.",
   "guide_nova_explanations_arg2_title": "Zusatzstoffe, die über die reine Lebensmittelsicherheit hinausgehen",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Zu den Zusatzstoffen in ultraverarbeiteten Lebensmitteln gehören solche, die auch in verarbeiteten Lebensmitteln verwendet werden, wie Konservierungsstoffe, Antioxidantien und Stabilisatoren. Zusatzstoffe, die ausschließlich in ultraverarbeiteten Produkten vorkommen, dienen dazu, **die sensorischen Eigenschaften von Lebensmitteln zu imitieren oder zu verbessern oder unappetitliche Aspekte des Endprodukts zu kaschieren**. Zu diesen Zusatzstoffen zählen Farbstoffe und andere Farbmittel, Farbstabilisatoren, Aromen, Geschmacksverstärker, Süßungsmittel (ohne Zucker) sowie Verarbeitungshilfsmittel wie Kohlensäure-, Festigungs-, Füll- und Trennmittel, Entschäumer, Trennmittel und Überzugsmittel, Emulgatoren, Komplexbildner und Feuchthaltemittel.",
   "guide_nova_explanations_arg3_title": "Verarbeitung, die Sie nicht zu Hause durchführen können",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "Zur Herstellung des Endprodukts (daher „ultraverarbeitet“) werden zahlreiche Verfahrensschritte eingesetzt, um die in der Regel vielen Zutaten zu kombinieren. Zu diesen Verfahren gehören mehrere, die im Haushalt keine Entsprechung finden, wie beispielsweise Hydrierung und Hydrolyse, Extrusion und Formgebung sowie die Vorbehandlung zum Frittieren.",
   "guide_nova_explanations_arg4_title": "Die räuberischen und finanziellen Aspekte der Ultraverarbeitung",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg4_text": "Das übergeordnete Ziel der Ultraverarbeitung ist die Herstellung von Markenprodukten, die haltbar, verzehrfertig, attraktiv (besonders schmackhaft) und hochprofitabel (dank kostengünstiger Zutaten) sind und alle anderen Lebensmittelgruppen verdrängen sollen. Ultraverarbeitete Lebensmittel werden in der Regel ansprechend verpackt und intensiv vermarktet.",
+  "guide_nova_explanations_arg5_title": "Eine Gesundheitsgefahr",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_explanations_arg6_title": "Die Länder empfehlen, sie zu begrenzen",
+  "guide_nova_explanations_arg6_text": "Einige Länder verwenden die NOVA-Gruppen für ihre Ernährungsrichtlinien oder -ziele, zum Beispiel:\n\n– Die Ernährungsrichtlinien Brasiliens empfehlen, den Konsum von verarbeiteten Lebensmitteln einzuschränken und ultraverarbeitete Lebensmittel zu vermeiden.\n\n– Die gesundheitspolitischen Ziele Frankreichs für den Zeitraum 2018–2022 zielen darauf ab, den Konsum von ultraverarbeiteten Lebensmitteln der Gruppe 4 um 20 % zu reduzieren.",
+  "guide_nova_share_link": "https://world-de.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Willkommen bei Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Was ist Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts ist eine **gemeinschaftliche**, **kostenlose** und **offene** Datenbank für Lebensmittelprodukte aus aller Welt.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Wir sind überzeugt, dass jeder Zugang zu Informationen über seine Ernährung haben sollte. Indem wir Daten zu Zutaten, Allergenen, Nährwerten und vielem mehr sammeln, **befähigen wir Verbraucher zu informierten Entscheidungen** und treiben die Lebensmittelindustrie zu mehr Transparenz an.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
+  "guide_open_food_facts_tips_title": "Tipps für tolle Fotos",
+  "guide_open_food_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_food_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
+  "guide_open_food_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
+  "guide_open_food_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_food_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
+  "guide_open_food_facts_tips_arg2_title": "DOS",
+  "guide_open_food_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
+  "guide_open_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_food_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
+  "guide_open_food_facts_tips_arg2_text4": "Stellen Sie das Produkt auf eine ebene Fläche.",
+  "guide_open_food_facts_scores_title": "Hilf uns beim Aufbau der \"Wikipedia des Essens\"",
+  "guide_open_food_facts_scores_arg1_title": "Eine Bewertung der Nährwertqualität",
+  "guide_open_food_facts_scores_arg2_title": "Eine Empfehlung, um hochverarbeitete Lebensmittel zu vermeiden",
+  "guide_open_food_facts_scores_arg3_title": "Ein Ergebnis für den Planeten",
+  "guide_open_food_facts_share_link": "https://world-de.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Willkommen bei Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Was ist Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts weitet unsere Mission auf unsere vierbeinigen Freunde aus! Es handelt sich um eine **Datenbank mit Tiernahrungsprodukten für Katzen, Hunde und andere Haustiere**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Wir sammeln Informationen über **Zutaten**, **Nährwertanalysen** und Fütterungsempfehlungen, um Tierhaltern bei der Auswahl des besten Futters für die Bedürfnisse ihrer Tiere zu helfen.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
-  "guide_open_pet_food_facts_share_link": "https://world-de.openpetfoodfacts.org/entdecken",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_pet_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Ist Ihr Haustier gegen bestimmte Inhaltsstoffe allergisch? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
+  "guide_open_pet_food_facts_tips_title": "Tipps für tolle Fotos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
+  "guide_open_pet_food_facts_tips_arg2_title": "DOS",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Stellen Sie das Produkt auf eine ebene Fläche.",
+  "guide_open_pet_food_facts_scores_title": "Eine Anmerkung zur Bewertung",
+  "guide_open_pet_food_facts_scores_paragraph1": "Die Entwicklung eines Bewertungssystems für Tierfutter hat derzeit keine Priorität. Die Methodik wäre komplex, da der Nährstoffbedarf je nach Tierart, Alter und Gesundheitszustand stark variiert. Uns ist bisher kein unabhängiges Wissenschaftlerteam bekannt, das ein solches Bewertungssystem entwickeln könnte.",
+  "guide_open_pet_food_facts_share_link": "https://world-de.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Willkommen bei Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Was ist Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts ist eine kollaborative Datenbank für **Kosmetikprodukte**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Unser Ziel ist es, Inhaltsstofflisten zu entschlüsseln, damit Sie **verstehen, was in Ihren Körperpflegeprodukten enthalten ist**. Von Feuchtigkeitscremes bis hin zu Make-up sammeln wir Daten zu Inhaltsstoffen, Allergenen und Verpackungen, um mehr Transparenz in der Kosmetikindustrie zu fördern.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
-  "guide_open_beauty_facts_share_link": "https://world-de.openfoodfacts.org/entdecken",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_beauty_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Sind Sie gegen bestimmte Inhaltsstoffe allergisch? Möchten Sie komedogene Substanzen vermeiden? Wollen Sie umstrittene Inhaltsstoffe meiden? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
+  "guide_open_beauty_facts_tips_title": "Tipps für tolle Fotos",
+  "guide_open_beauty_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_beauty_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
+  "guide_open_beauty_facts_tips_arg2_title": "DOS",
+  "guide_open_beauty_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Machen Sie so viele Fotos wie nötig, wenn die Flasche gebogen ist.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Möglicherweise müssen Sie das Etikett abziehen, um die Zutatenliste zu sehen.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Stellen Sie das Produkt auf eine ebene Fläche.",
+  "guide_open_beauty_facts_scores_title": "Eine Anmerkung zur Bewertung",
+  "guide_open_beauty_facts_scores_paragraph1": "Anders als bei Lebensmitteln gibt es in der Kosmetikbranche **kein allgemein anerkanntes, staatlich gefördertes Bewertungssystem wie den Nutri-Score**. Die Wirkung von Inhaltsstoffen kann sehr individuell sein und hängt vom Hauttyp, Allergien und persönlichen Bedürfnissen ab.",
+  "guide_open_beauty_facts_share_link": "https://world-de.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Willkommen bei Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices ist ein Projekt zur **Erfassung und Weitergabe von Produktpreisen weltweit**. Es handelt sich um einen öffentlich zugänglichen Datensatz, der für Forschung, Analysen und mehr genutzt werden kann. Open Prices wird von Open Food Facts entwickelt und gepflegt.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4130,53 +4150,53 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_how_title": "Wie funktioniert Open Prices?",
+  "guide_open_prices_how_paragraph1": "Wir erstellen per Crowdsourcing einen Open-Source-Datensatz mit Preisen. Nutzer können Preise über diese Webanwendung oder die offizielle Open Food Facts-App hinzufügen. Auch Einzelhändler und Drittanbieter-Apps können über unsere API beitragen.",
+  "guide_open_prices_how_arg1_title": "Sammeln Sie Fotos von Preisschildern in den Regalen.",
+  "guide_open_prices_how_arg2_title": "Sammeln Sie Fotos von Belegen",
+  "guide_open_prices_why_title": "Warum macht Open Food Facts das?",
+  "guide_open_prices_why_paragraph1": "Preisinformationen sind von entscheidender Bedeutung für das Verständnis von Lebensmittelsystemen. Sie sind ein Schlüsselfaktor, um die Kosten von Lebensmitteln zu verstehen und eine gesündere Ernährung zu fördern. Die Öffnung von Preisdaten erleichtert es Forschern, Journalisten und Bürgern, **besser zu verstehen, wie Lebensmittelpreise regional und zeitlich variieren**.",
+  "guide_open_prices_why_arg1_title": "Verfolgen Sie die Preisentwicklung im Laufe der Zeit",
+  "guide_open_prices_why_arg1_text": "Sehen Sie die **Preisentwicklung**: Shrinkflation, Cheapflation, wir können sie gemeinsam verfolgen!",
+  "guide_open_prices_why_arg2_title": "Vergleiche die Preise in deiner Nähe",
+  "guide_open_prices_why_arg2_text": "Sobald wir mehr Preise erhalten, können Sie **die günstigsten Geschäfte in Ihrer Nähe** ausfindig machen.",
+  "guide_open_prices_scrapping_title": "Haben Sie in Erwägung gezogen, Preise von den Webseiten der Einzelhändler abzurufen?",
+  "guide_open_prices_scrapping_paragraph1": "Aus rechtlichen und technischen Gründen **betrachten wir das Auslesen von Preisen von Händlerwebseiten nicht als zulässige Methode, zu Open Prices beizutragen**. Wir möchten sicherstellen, dass die von uns erfassten Preise korrekt und aktuell sind, und das Auslesen von Preisen durch Mitwirkende ermöglicht uns dies nicht.",
+  "guide_open_prices_scrapping_paragraph2": "Das Auslesen von Preisen ist eine erwogene Option in einer zukünftigen Version von Open Prices, würde aber von Open Prices selbst durchgeführt werden, damit wir einen Nachweis über den Preis auf Basis der HTML-Seite haben.",
   "guide_open_prices_retailers_title": "Ich bin ein Einzelhändler und möchte Preise beisteuern. Wie kann ich das tun?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Sie können Preise über unsere API beitragen.\nWenn Sie Preise in großem Umfang beitragen möchten, kontaktieren Sie uns bitte unter prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Willkommen bei Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Was sind Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts ist eine riesige, offene Datenbank für **alle Produkte mit Barcode, ausgenommen Lebensmittel, Kosmetika und Tiernahrung**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Von Elektronikartikeln über Spielzeug und Kleidung bis hin zu Reinigungsmitteln – alles mit Barcode kann erfasst werden. Ziel dieses Projekts ist die Schaffung eines „Internets der Dinge“ für Alltagsgegenstände, um Informationen darüber universell zugänglich zu machen.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_open_products_facts_features_text": "Open Products Facts hat sich zum Ziel gesetzt, Verbrauchern die Möglichkeit zu geben, die Lebensdauer von Gegenständen zu verlängern, indem Kreislauflösungen zur Instandhaltung, Reparatur, zum Recycling oder zur Weitergabe an einen neuen Besitzer angeboten werden.",
+  "guide_open_products_facts_features_arg1_title": "CO2-Fußabdruck für einige Produkte",
+  "guide_open_products_facts_features_arg1_text": "Die **CO2-Auswirkungen** der französischen Umweltbehörde ADEME geben die **Kohlenstoffbilanz** vieler Kategorien an. Achten Sie darauf, die Produkte genau zu kategorisieren.",
+  "guide_open_products_facts_features_arg2_title": "Reparierbarkeitsindex für viele Produkte",
+  "guide_open_products_facts_features_arg2_text": "Sobald ein französischer Reparaturindex verfügbar ist, zeigen wir ihn an. Darüber hinaus **können Sie mit der Folksonomie-Engine mit der Erfassung der Variablen beginnen**, sodass wir ihn zukünftig selbst berechnen können, auch in Ländern, in denen er nicht verfügbar ist.",
+  "guide_open_products_facts_features_arg3_title": "Finden Sie Möglichkeiten, Ihr Produkt zu spenden/weiterzuverkaufen.",
+  "guide_open_products_facts_features_arg3_text": "Wir bieten Links zu **externen, ressourcenschonenden Diensten**, die Ihnen helfen, das gewünschte Produkt als Gebrauchtware zu finden und so die Ressourcen unseres Planeten zu schonen.\nBitte beachten Sie, dass wir dafür nicht bezahlt werden und das System lediglich als Beispiel für zwei französische Websites dient. Sie können dazu beitragen, das System zu erweitern, indem Sie weitere Websites im Wiki dokumentieren.",
+  "guide_open_products_facts_information_title": "Welche Informationen sind nützlich?",
+  "guide_open_products_facts_information_text": "Für ein so breites Spektrum an Artikeln sind die von uns erfassten Daten flexibel. Um dies zu ermöglichen, haben wir die Folksonomy Engine entwickelt.",
+  "guide_open_products_facts_folksonomy_title": "Die Folksonomie-Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "Die Folksonomie-Engine ist ein Tool, mit dem Sie Produkte anhand relevanter Eigenschaften vervollständigen können. Dies verbessert nicht nur die Such- und Auffindbarkeit, sondern ermöglicht auch die Berechnung und Anzeige interessanter Ergebnisse in der Zukunft.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Sie können beliebige Schlüssel und Werte hinzufügen, z. B.: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Sie erhalten automatische Vorschläge für mögliche Eigenschaften und können gerne neue Eigenschaften für Ihre bevorzugten Produktarten hinzufügen und dokumentieren.",
+  "guide_open_products_facts_share_link": "https://world-de.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Offene Essenspräferenzen",
+  "guide_coming_soon_button_title": "Demnächst verfügbar",
+  "guide_learn_more_subtitle": "Tippen Sie hier, um mehr zu erfahren.",
   "preview_badge": "Vorschau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4531,15 +4551,21 @@
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
+  "prices_explanation_card_title": "Warum Preise?",
+  "prices_explanation_card_line1": "**Open Prices** ist ein Projekt zur Erfassung und Verbreitung von Produktpreisen weltweit 🌍. Open Prices wird von Open Food Facts entwickelt und betreut.",
+  "explanation_card_learn_more_button": "Erfahren Sie mehr",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_explanation_card_title": "Was sind Folksonomie-Attribute?",
+  "folksonomy_explanation_card_line1": "Attribute basieren auf **Schlüssel-Wert-Paaren**.",
+  "folksonomy_explanation_card_line2": "Diese Eigenschaften werden von Mitwirkenden für jegliche Art von Nutzung erstellt und abgelegt.",
+  "folksonomy_action_external_link_title": "Externen Link öffnen",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Externe Links könnten unsicher sein. Möchten Sie diese Seite wirklich besuchen?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5412,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} von {total} Artikeln",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} Artikel",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} Artikel",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5522,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Offene Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5557,12 +5607,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Standortdetails",
   "location_map_details_name": "Name",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Straße",
+  "location_map_details_city": "Stadt",
+  "location_map_details_postcode": "Postleitzahl",
   "location_map_details_country": "Country",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Koordinaten",
+  "location_map_details_osm_id": "OSM-ID"
 }

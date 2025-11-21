@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Aidez-nous à améliorer Open Food Facts dans votre pays';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -231,6 +231,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get forgot_password => 'Mot de passe oublié';
+
+  @override
+  String get forgot_password_question => 'Mot de passe oublié ?';
 
   @override
   String get view_profile => 'Afficher le profil';
@@ -642,7 +645,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get search => 'Rechercher';
 
   @override
+  String get search_product_help =>
+      'Rechercher un produit,\nune marque ou un code-barres';
+
+  @override
+  String get search_filter => 'Filtre de recherche';
+
+  @override
+  String get search_history => 'Historique de recherche';
+
+  @override
   String get search_store => 'Rechercher un magasin';
+
+  @override
+  String get search_store_help => 'Conseil : ajoutez la ville ou le pays';
 
   @override
   String get tap_for_more => 'Appuyez pour plus d\'informations…';
@@ -1325,6 +1341,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tag_key => 'Propriété';
 
   @override
+  String get tag_keys => 'Propriétés';
+
+  @override
   String get tag_key_uneditable => 'Propriété (non modifiable)';
 
   @override
@@ -1332,6 +1351,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tag_value => 'Valeur';
+
+  @override
+  String get tag_values => 'Valeurs';
 
   @override
   String get tag_value_input_hint => 'Saisir une valeur';
@@ -1687,6 +1709,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Chargement de votre premier exemple de produit';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Désolé, il s\'agit d\'un exemple de produit, vous ne pouvez pas le modifier :)';
+
+  @override
   String get product_list_your_ranking => 'Votre classement';
 
   @override
@@ -1722,6 +1748,9 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return 'Rafraîchissement de $_temp0 terminé';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Comparer côte à côte';
 
   @override
   String get loading_dialog_default_title => 'Téléchargement des données';
@@ -3063,6 +3092,9 @@ class AppLocalizationsFr extends AppLocalizations {
       'Réutiliser et modifier cette recherche';
 
   @override
+  String get search_history_item_remove_tooltip => 'Retirer';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Vous avez téléchargé les $totalSize produits.';
   }
@@ -3570,6 +3602,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Démarrage de la mise à jour de tous les produits stockés localement';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Démarrage du téléchargement des produits les plus populaires';
 
@@ -3586,14 +3622,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Garder le panneau des ingrédients étendu';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Afficher un filtre dans la recherche';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Pas de connexion internet';
@@ -4655,7 +4683,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Certains pays utilisent les groupes NOVA pour leurs recommandations ou objectifs nutritionnels, par exemple :\n\n- Les recommandations nutritionnelles du **🇧🇷 Brésil** recommandent de limiter la consommation d’aliments transformés et d’éviter les aliments ultra-transformés.\n\n- Les objectifs de la politique nutritionnelle de santé publique de la **🇫🇷 France** pour la période 2018-2022 visent à **réduire de 20 % la consommation d’aliments ultra-transformés du groupe 4**.';
 
   @override
-  String get guide_nova_share_link => 'https://fr.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-fr.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Bienvenue sur Open Food Facts !';
@@ -4741,7 +4769,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://fr.openfoodfacts.org/openfoodfacts';
+      'https://world-fr.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4823,7 +4851,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-fr.openpetfoodfacts.org/decouvrir';
+      'https://world-fr.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title =>
@@ -4913,7 +4941,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-fr.openfoodfacts.org/decouvrir';
+      'https://world-fr.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Bienvenue chez Open Prices !';
@@ -4991,7 +5019,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://en.openfoodfacts.org/openprices';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5067,7 +5095,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openfoodfacts.org/openproductsfacts';
+      'https://world-fr.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title =>
@@ -5393,7 +5421,29 @@ class AppLocalizationsFr extends AppLocalizations {
   String get product_page_tab_prices => 'Prix';
 
   @override
+  String get prices_explanation_card_title => 'Pourquoi ces prix ?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** est un projet visant à collecter et partager les prix des produits du monde entier 🌍. Open Prices est développé et maintenu par Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'En savoir plus';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomie';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Quels sont les attributs de la folksonomie ?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Les attributs sont de type **clé-valeur**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Ces propriétés sont créées et enregistrées par les contributeurs pour tout type d\'utilisation.';
 
   @override
   String get folksonomy_action_external_link_title => 'Ouvrir le lien externe';
@@ -6091,7 +6141,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Des moyens simples pour aider Open Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6128,7 +6178,17 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count sur $total articles';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count articles';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count articles';
   }
 
@@ -6196,7 +6256,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Traduire Open Food Facts dans votre langue';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -9,7 +9,7 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String get app_name => 'ข้อมูลอาหารเปิด';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -223,6 +223,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get forgot_password => 'ชืมรหัสผ่าน';
+
+  @override
+  String get forgot_password_question => 'ลืมรหัสผ่าน?';
 
   @override
   String get view_profile => 'ดูโปรไฟล์';
@@ -621,7 +624,19 @@ class AppLocalizationsTh extends AppLocalizations {
   String get search => 'ค้นหา';
 
   @override
+  String get search_product_help => 'ค้นหาผลิตภัณฑ์\nยี่ห้อหรือบาร์โค้ด';
+
+  @override
+  String get search_filter => 'ตัวกรองการค้นหา';
+
+  @override
+  String get search_history => 'ประวัติการค้นหา';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'คำใบ้: เพิ่มเมืองหรือประเทศ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1283,6 +1298,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'คุณสมบัติ';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1290,6 +1308,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1643,6 +1664,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'ขออภัยค่ะ นี่เป็นสินค้าตัวอย่างของเรา คุณไม่สามารถแก้ไขได้ค่ะ :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1678,6 +1703,9 @@ class AppLocalizationsTh extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'เปรียบเทียบแบบเคียงข้างกัน';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2982,6 +3010,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3479,6 +3510,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3494,14 +3529,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4029,26 +4056,26 @@ class AppLocalizationsTh extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'กรีนสกอร์ เอ';
+  String get environmental_score_a_new => 'Green-Score เอ';
 
   @override
-  String get environmental_score_b_new => 'กรีนสกอร์ บี';
+  String get environmental_score_b_new => 'Green-Score บี';
 
   @override
-  String get environmental_score_c_new => 'กรีนสกอร์ ซี';
+  String get environmental_score_c_new => 'Green-Score ซี';
 
   @override
-  String get environmental_score_d_new => 'กรีนสกอร์ ดี';
+  String get environmental_score_d_new => 'Green-Score ดี';
 
   @override
-  String get environmental_score_e_new => 'กรีนสกอร์ อี';
+  String get environmental_score_e_new => 'Green-Score อี';
 
   @override
-  String get environmental_score_unknown_new => 'กรีนสกอร์ที่ไม่รู้จัก';
+  String get environmental_score_unknown_new => 'Green-Scoreที่ไม่รู้จัก';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'คะแนนสีเขียวไม่สามารถใช้งานได้';
+      'Green-Scoreไม่สามารถใช้งานได้';
 
   @override
   String get nova_group_generic_new => 'อาหารแปรรูปขั้นสูง - กลุ่ม NOVA';
@@ -4545,7 +4572,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/โนวา';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4628,7 +4655,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-th.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4709,7 +4736,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-th.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4797,7 +4824,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-th.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4873,7 +4900,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/เกี่ยวกับ';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4949,7 +4976,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-th.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5269,7 +5296,29 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'ทำไมต้องราคา?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** คือโครงการที่รวบรวมและแบ่งปันราคาสินค้าทั่วโลก 🌍 Open Prices พัฒนาและดูแลโดย Open Food Facts';
+
+  @override
+  String get explanation_card_learn_more_button => 'ดูเพิ่มเติม';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Folksonomy Attribute คืออะไร?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'แอตทริบิวต์จะขึ้นอยู่กับ **คีย์-ค่า**';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'คุณสมบัติเหล่านี้ถูกสร้างและยื่นโดยผู้สนับสนุนเพื่อการใช้งานทุกประเภท';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5699,8 +5748,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'ค้นพบโครงการ';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ค้นพบข้อเท็จจริงเกี่ยวกับ Open Food';
+  String get preferences_faq_discover_off_title => 'ค้นพบOpen Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5902,7 +5950,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ราคาล่าสุดที่เพิ่มโดยชุมชนราคาเปิด';
+      'ราคาล่าสุดที่เพิ่มโดยชุมชนOpen Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5985,7 +6033,17 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count จาก $total รายการ';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count รายการ';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count รายการ';
   }
 
@@ -6045,8 +6103,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'เปิดข้อมูลอาหารในห้องปฏิบัติการ';
+  String get preferences_page_open_food_facts_labs_title => 'Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';

@@ -224,12 +224,28 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
-              builder: (_, GoRouterState state) {
+              pageBuilder: (_, GoRouterState state) {
+                final Widget page;
+
                 if (state.extra != null) {
-                  return SearchPage.fromExtra(state.extra! as SearchPageExtra);
+                  page = SearchPage.fromExtra(state.extra! as SearchPageExtra);
                 } else {
-                  return SearchPage(SearchProductHelper());
+                  page = SearchPage(SearchProductHelper());
                 }
+
+                return switch (ProductPageTransition.byName(
+                  state.uri.queryParameters['transition'],
+                )) {
+                  ProductPageTransition.standard => MaterialPage<void>(
+                    key: state.pageKey,
+                    child: page,
+                  ),
+                  ProductPageTransition.slideUp =>
+                    OpenUpwardsPage.getTransition<void>(
+                      key: state.pageKey,
+                      child: page,
+                    ),
+                };
               },
             ),
             GoRoute(
@@ -540,7 +556,9 @@ class AppRoutes {
       '/${_InternalAppRoutes.PREFERENCES_PAGE}/food';
 
   // Search view
-  static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
+  static String SEARCH({
+    ProductPageTransition? transition = ProductPageTransition.standard,
+  }) => '/${_InternalAppRoutes.SEARCH_PAGE}?transition=${transition?.name}';
 
   // Guide for NutriScore V2
   static String get GUIDE_NUTRISCORE_V2 =>

@@ -30,8 +30,12 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       markers.add(
         Marker(
           point: latLng,
-          child: const Icon(Icons.pin_drop, color: Colors.lightBlue),
-          alignment: Alignment.topCenter,
+          child: const icons.Location(
+            color: Colors.black,
+            size: markerSize,
+            shadow: Shadow(color: Colors.black26, blurRadius: 4.0),
+          ),
+          alignment: const Alignment(0.0, -0.9),
           width: markerSize,
           height: markerSize,
         ),

@@ -9,7 +9,7 @@ class AppLocalizationsCy extends AppLocalizations {
   AppLocalizationsCy([String locale = 'cy']) : super(locale);
 
   @override
-  String get app_name => 'Ffeithiau Bwyd Agored';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'Wedi anghofio cyfrinair?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsCy extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Chwiliwch am gynnyrch,\nbrand neu god bar';
+
+  @override
+  String get search_filter => 'Hidlydd chwilio';
+
+  @override
+  String get search_history => 'Hanes chwilio';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Awgrym: ychwanegwch y ddinas neu\'r wlad';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1302,9 @@ class AppLocalizationsCy extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Priodweddau';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1312,9 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1668,10 @@ class AppLocalizationsCy extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Mae\'n ddrwg gennym, dyma ein cynnyrch enghreifftiol, ni allwch ei olygu :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1707,9 @@ class AppLocalizationsCy extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Cymharwch ochr yn ochr';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2990,6 +3018,9 @@ class AppLocalizationsCy extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3487,6 +3518,10 @@ class AppLocalizationsCy extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3502,14 +3537,6 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4556,7 +4583,7 @@ class AppLocalizationsCy extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-cy.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4639,7 +4666,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-cy.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4720,7 +4747,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-cy.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4808,7 +4835,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-cy.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4960,7 +4987,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://cy.openproductsfacts.org/discover';
+      'https://world-cy.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5279,7 +5306,29 @@ class AppLocalizationsCy extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Pam prisiau?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      'Mae **Open Prices** yn brosiect i gasglu a rhannu prisiau cynhyrchion ledled y byd 🌍. Mae Open Prices yn cael ei ddatblygu a\'i gynnal gan Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Beth yw priodoleddau Folksonomy?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Mae priodoleddau\'n seiliedig ar **werth allwedd**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Mae\'r priodweddau hyn yn cael eu creu a\'u ffeilio gan gyfranwyr ar gyfer unrhyw fath o ddefnyddiau.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5537,7 +5586,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Chwiliwch am leoliad (e.e. Sgôr Maeth)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Hygyrchedd: Dangos emoji';
@@ -5614,11 +5663,10 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_tips => 'Awgrymiadau';
 
   @override
-  String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'Ar wefan Ffeithiau Bwyd Agored';
+  String get preferences_on_off_website_subtitle => 'Ar wefan Open Food Facts';
 
   @override
   String get preferences_manage_account_title => 'Rheoli fy nghyfrif';
@@ -5715,7 +5763,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title =>
-      'Darganfyddwch Ffeithiau Bwyd Agored';
+      'Darganfyddwch Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5736,7 +5784,7 @@ class AppLocalizationsCy extends AppLocalizations {
       'Cwestiynau Cyffredin - Cwestiynau Cyffredin';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Y NGO Ffeithiau Bwyd Agored';
+  String get preferences_faq_off_ngo_title => 'Y NGO Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5758,7 +5806,7 @@ class AppLocalizationsCy extends AppLocalizations {
       'Cymerwch ran drwy fynychu un o\'n digwyddiadau rhithwir';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Ffeithiau Bwyd Agored';
+  String get preferences_connect_blog_title => 'Blog Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5921,7 +5969,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Prisiau diweddaraf wedi\'u hychwanegu gan y gymuned Prisiau Agored';
+      'Prisiau diweddaraf wedi\'u hychwanegu gan y gymuned Open Prices';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5969,7 +6017,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ffyrdd syml o helpu Ffeithiau Bwyd Agored';
+      'Ffyrdd syml o helpu Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6006,7 +6054,17 @@ class AppLocalizationsCy extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count o $total eitemau';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count eitemau';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count eitemau';
   }
 
@@ -6066,14 +6124,14 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Labordai Ffeithiau Bwyd Agored';
+      'Labordai Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Dewch â Ffeithiau Bwyd Agored i\'ch iaith';
+      'Dewch â Open Food Facts i\'ch iaith';
 
   @override
   String get preferences_contribute_enroll_alpha =>

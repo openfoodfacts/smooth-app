@@ -15,6 +15,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
@@ -170,6 +171,7 @@ class _CropPageState extends State<CropPage> {
             widget.cropHelper.getPageTitle(appLocalizations),
             maxLines: 2,
           ),
+          leading: const SmoothBackButton(backButtonType: BackButtonType.close),
           actions: <Widget>[
             if (widget.onRetakePhoto != null)
               Padding(
@@ -219,7 +221,7 @@ class _CropPageState extends State<CropPage> {
                         children: <Widget>[
                           if (!_isErasing)
                             _IconButton(
-                              iconData: Icons.rotate_90_degrees_ccw_outlined,
+                              icon: const icons.Rotate.antiClockwise(),
                               tooltip: appLocalizations.photo_rotate_left,
                               onPressed: () => setState(() {
                                 _controller.rotateLeft();
@@ -228,13 +230,15 @@ class _CropPageState extends State<CropPage> {
                             ),
                           if (widget.cropHelper.enableEraser)
                             _IconButton(
-                              iconData: _isErasing ? Icons.crop : Icons.brush,
+                              icon: _isErasing
+                                  ? const icons.Crop()
+                                  : const icons.Brush(),
                               onPressed: () =>
                                   setState(() => _isErasing = !_isErasing),
                             ),
                           if (_isErasing)
                             _IconButton(
-                              iconData: Icons.undo,
+                              icon: const icons.Undo(),
                               tooltip: appLocalizations.photo_undo_action,
                               onPressed: _eraserModel.isEmpty
                                   ? null
@@ -242,7 +246,7 @@ class _CropPageState extends State<CropPage> {
                             ),
                           if (!_isErasing)
                             _IconButton(
-                              iconData: Icons.rotate_90_degrees_cw_outlined,
+                              icon: const icons.Rotate.clockwise(),
                               tooltip: appLocalizations.photo_rotate_right,
                               onPressed: () => setState(() {
                                 _controller.rotateRight();
@@ -313,7 +317,7 @@ class _CropPageState extends State<CropPage> {
                       child: SizedBox(
                         width: double.infinity,
                         child: EditImageButton.center(
-                          iconData: widget.cropHelper.getProcessIcon(),
+                          icon: widget.cropHelper.getProcessIcon(),
                           label: widget.cropHelper.getProcessLabel(
                             appLocalizations,
                           ),
@@ -575,27 +579,27 @@ class _CropPageState extends State<CropPage> {
 /// Standard icon button for this page.
 class _IconButton extends StatelessWidget {
   const _IconButton({
-    required this.iconData,
+    required this.icon,
     required this.onPressed,
     this.tooltip,
   });
 
-  final IconData iconData;
+  final Widget icon;
   final VoidCallback? onPressed;
   final String? tooltip;
 
   @override
   Widget build(BuildContext context) {
-    final Widget icon = ElevatedButton(
+    final Widget iconWidget = ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-      child: Icon(iconData, semanticLabel: tooltip),
+      child: icons.AppIconTheme(semanticLabel: tooltip, child: icon),
     );
 
     if (tooltip != null) {
-      return Tooltip(message: tooltip, child: icon);
+      return Tooltip(message: tooltip, child: iconWidget);
     } else {
-      return icon;
+      return iconWidget;
     }
   }
 }

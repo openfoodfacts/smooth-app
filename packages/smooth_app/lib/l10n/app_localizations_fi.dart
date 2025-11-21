@@ -9,7 +9,7 @@ class AppLocalizationsFi extends AppLocalizations {
   AppLocalizationsFi([String locale = 'fi']) : super(locale);
 
   @override
-  String get app_name => 'Avoimet ruokatiedot';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -229,6 +229,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get forgot_password => 'Unohtunut salasana';
+
+  @override
+  String get forgot_password_question => 'Unohditko salasanasi?';
 
   @override
   String get view_profile => 'Näytä profiili';
@@ -629,7 +632,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get search => 'Etsi';
 
   @override
+  String get search_product_help =>
+      'Hae tuotetta,\ntuotemerkkiä tai viivakoodia';
+
+  @override
+  String get search_filter => 'Hakusuodatin';
+
+  @override
+  String get search_history => 'Hakuhistoria';
+
+  @override
   String get search_store => 'Hae myymälää';
+
+  @override
+  String get search_store_help => 'Vihje: lisää kaupunki tai maa';
 
   @override
   String get tap_for_more => 'Napauta nähdäksesi lisätietoja…';
@@ -1289,6 +1305,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tag_key => 'Ominaisuus';
 
   @override
+  String get tag_keys => 'Ominaisuudet';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1296,6 +1315,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get tag_value => 'Arvo';
+
+  @override
+  String get tag_values => 'Arvot';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1334,19 +1356,19 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Lisää luokka laskeaksesi Nutri-pisteytyksen.';
+      'Lisää kategoria laskeaksesi Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Lisää ravintosisältö saadaksesi Nutri-pisteytyksen.';
+      'Lisää ravitsemustietoja Nutri-Scoren laskemiseksi.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Lisää ravitsemustiedot ja luokka laskeaksesi Nutri-pisteytyksen.';
+      'Lisää ravintosisältö ja kategoria Nutri-Scoren laskemiseksi.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1648,6 +1670,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Ladataan ensimmäistä esimerkkituotettasi';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Anteeksi, tämä on esimerkkituotteemme, etkä voi muokata sitä :)';
+
+  @override
   String get product_list_your_ranking => 'Sijoituksesi';
 
   @override
@@ -1683,6 +1709,9 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0 päivitys onnistui';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Vertaile rinnakkain';
 
   @override
   String get loading_dialog_default_title => 'Ladataan tietoja';
@@ -2992,6 +3021,9 @@ class AppLocalizationsFi extends AppLocalizations {
       'Käytä ja muokkaa tätä hakua uudelleen';
 
   @override
+  String get search_history_item_remove_tooltip => 'Poista';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Olet ladannut kaikki $totalSize tuotetta.';
   }
@@ -3483,6 +3515,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Aloitetaan kaikkien paikallisesti tallennettujen tuotteiden päivitys';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Aloitetaan suosituimpien tuotteiden lataus';
 
@@ -3498,13 +3534,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Pidä ainesosat laajennettuna';
-
-  @override
-  String get search_product_filter_visibility_title => 'Näytä suodatin haussa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ei Internet-yhteyttä';
@@ -4550,7 +4579,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-fi.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4633,7 +4662,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-fi.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4802,7 +4831,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-fi.openfoodfacts.org/discover';
+      'https://world-fi.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4954,7 +4983,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://fi.openproductsfacts.org/discover';
+      'https://world-fi.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5273,7 +5302,29 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_page_tab_prices => 'Hinnat';
 
   @override
+  String get prices_explanation_card_title => 'Miksi hinnat?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** on projekti, jonka tarkoituksena on kerätä ja jakaa tuotteiden hintoja ympäri maailmaa 🌍. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Opi lisää';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Mitä ovat folksonomiaominaisuudet?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Attribuutit ovat **avain-arvo**-pohjaisia.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Nämä ominaisuudet luovat ja arkistoivat avustajat kaikenlaiseen käyttöön.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5708,8 +5759,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Tutustu hankkeeseen';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tutustu avoimiin ruokatietoihin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5999,7 +6049,17 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count / $total tuotetta';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count tuotetta';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count tuotetta';
   }
 
@@ -6060,14 +6120,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Avoimet ruokatietolaboratoriot';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Tili';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tuo avoimet ruokatiedot omalle kielellesi';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

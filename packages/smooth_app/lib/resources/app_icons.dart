@@ -293,6 +293,16 @@ class Book extends AppIcon {
   }) : super._(_IconsFont.book);
 }
 
+class Brush extends AppIcon {
+  const Brush({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.brush);
+}
+
 class Build extends AppIcon {
   const Build({
     super.color,
@@ -575,6 +585,32 @@ class Chevron extends AppIcon {
        super._(_IconsFont.chevron_down);
 
   final int turns;
+
+  static Chevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => Chevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => Chevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -1020,6 +1056,16 @@ class CreativeCommons extends AppIcon {
   }) : super._(_IconsFont.creative_commons_share_alike);
 }
 
+class Crop extends AppIcon {
+  const Crop({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.crop);
+}
+
 class CrossWalk extends AppIcon {
   const CrossWalk({
     super.color,
@@ -1136,6 +1182,32 @@ class DoubleChevron extends AppIcon {
        super._(_IconsFont.double_chevron);
 
   final int turns;
+
+  static DoubleChevron horizontalDirectional(
+    BuildContext context, {
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => DoubleChevron.right(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => DoubleChevron.left(
+        color: color,
+        size: size,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -1447,22 +1519,30 @@ class History extends AppIcon {
   }) : super._(_IconsFont.history);
 }
 
-class Hearth extends AppIcon {
-  const Hearth({
+class Heart extends AppIcon {
+  const Heart.filled({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.hearth);
+  }) : super._(_IconsFont.heart_filled);
 
-  const Hearth.monitoring({
+  const Heart.monitoring({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
-  }) : super._(_IconsFont.hearth_monitor);
+  }) : super._(_IconsFont.heart_monitor);
+
+  const Heart.outline({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.heart_outline);
 }
 
 class Help extends AppIcon {
@@ -1665,6 +1745,40 @@ class Location extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.location);
+}
+
+class Logo extends AppIcon {
+  const Logo.openBeautyFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_obf);
+
+  const Logo.openFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_off);
+
+  const Logo.openPetFoodFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opff);
+
+  const Logo.openProductsFacts({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.logo_opf);
 }
 
 class Logout extends AppIcon {
@@ -2257,6 +2371,16 @@ class Recycling extends AppIcon {
   }) : super._(_IconsFont.recycling);
 }
 
+class Redo extends AppIcon {
+  const Redo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.redo);
+}
+
 class Reload extends AppIcon {
   const Reload({
     super.color,
@@ -2303,6 +2427,24 @@ class Robot extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.robot);
+}
+
+class Rotate extends AppIcon {
+  const Rotate.clockwise({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.rotate_cw);
+
+  const Rotate.antiClockwise({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.rotate_ccw);
 }
 
 class Salt extends AppIcon {
@@ -2445,6 +2587,16 @@ class Select extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.photo_select);
+}
+
+class Send extends AppIcon {
+  const Send({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.send);
 }
 
 class Settings extends AppIcon {
@@ -2838,6 +2990,26 @@ class Trophy extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.trophy);
+}
+
+class Undo extends AppIcon {
+  const Undo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.undo);
+}
+
+class Unselect extends AppIcon {
+  const Unselect({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.unselect);
 }
 
 class Upload extends AppIcon {

@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Button asking for a "server" photo (taken from what was already uploaded).
 class ProductImageServerButton extends ProductImageButton {
@@ -27,7 +28,7 @@ class ProductImageServerButton extends ProductImageButton {
   bool isHidden() => !_hasServerImages;
 
   @override
-  IconData getIconData() => Icons.image_search_rounded;
+  Widget getIcon() => const icons.ImageGallery();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>

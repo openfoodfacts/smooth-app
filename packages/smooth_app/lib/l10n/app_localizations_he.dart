@@ -223,6 +223,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get forgot_password => 'שכחתי סיסמה';
 
   @override
+  String get forgot_password_question => 'שכחת סיסמה?';
+
+  @override
   String get view_profile => 'הצגת פרופיל';
 
   @override
@@ -614,7 +617,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search => 'חיפוש';
 
   @override
+  String get search_product_help => 'חיפוש מוצר,\nמותג או ברקוד';
+
+  @override
+  String get search_filter => 'מסנן חיפוש';
+
+  @override
+  String get search_history => 'היסטוריית חיפוש';
+
+  @override
   String get search_store => 'חיפוש חנות';
+
+  @override
+  String get search_store_help => 'רמז: כדאי להוסיף את העיר או המדינה';
 
   @override
   String get tap_for_more => 'מידע נוסף יופיע בנגיעה…';
@@ -1265,6 +1280,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get tag_key => 'מאפיין';
 
   @override
+  String get tag_keys => 'נכסים';
+
+  @override
   String get tag_key_uneditable => 'מאפיין (נעול)';
 
   @override
@@ -1272,6 +1290,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get tag_value => 'ערך';
+
+  @override
+  String get tag_values => 'ערכים';
 
   @override
   String get tag_value_input_hint => 'נא למלא ערך';
@@ -1636,6 +1657,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'מוצר ההדגמה הראשוני שלך נטען';
 
   @override
+  String get onboarding_welcome_warning =>
+      'סליחה, זה מוצר לדוגמה שלנו, אסור לערוך אותו :)';
+
+  @override
   String get product_list_your_ranking => 'הדירוג שלך';
 
   @override
@@ -1675,6 +1700,9 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return 'רענון ה$_temp0 הושלם';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'השוואה זה לצד זה';
 
   @override
   String get loading_dialog_default_title => 'הנתונים מתקבלים';
@@ -2984,6 +3012,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'שימוש בחיפוש ועריכתו';
 
   @override
+  String get search_history_item_remove_tooltip => 'הסרה';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'הורדת את כל $totalSize המוצרים.';
   }
@@ -3475,6 +3506,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'מתחיל רענון של כל המוצרים שמאוחסנים מקומית';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'מתחילה הורדת המוצרים הנפוצים ביותר';
 
@@ -3490,13 +3525,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'לשמור על לוח הרכיבים מורחב';
-
-  @override
-  String get search_product_filter_visibility_title => 'הצגת מסנן בחיפוש';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'בחירת אתר חיפוש: Open Food Facts,‏ Open Beauty Facts,‏ Open Pet Food Facts או Open Products Facts';
 
   @override
   String get no_internet_connection => 'אין חיבור לאינטרנט';
@@ -4530,7 +4558,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://il.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'ברוך בואך ל־Open Food Facts!';
@@ -4611,7 +4639,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-he.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4779,7 +4807,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-he.openfoodfacts.org/discover';
+      'https://world-he.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4931,7 +4959,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-he.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5246,7 +5274,28 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_page_tab_prices => 'מחירים';
 
   @override
+  String get prices_explanation_card_title => 'למה מחירים?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+
+  @override
+  String get explanation_card_learn_more_button => 'מידע נוסף';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title => 'מהם מאפייני פולקסונומיה?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'מאפיינים מבוססים על **ערך מפתח**.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'מאפיינים אלה נוצרים ומוגשים על ידי תורמים לכל סוג של שימוש.';
 
   @override
   String get folksonomy_action_external_link_title => 'פתיחת קישור חיצוני';
@@ -5669,7 +5718,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'לגלות עוד על המיזם';
 
   @override
-  String get preferences_faq_discover_off_title => 'גלה עובדות על אוכל פתוח';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5689,7 +5738,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_faq_title => 'שאלות נפוצות - שאלות נפוצות';
 
   @override
-  String get preferences_faq_off_ngo_title => 'עמותת \"עובדות על אוכל פתוח\"';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'פרטים';
@@ -5710,7 +5759,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו';
 
   @override
-  String get preferences_connect_blog_title => 'הבלוג של עובדות המזון הפתוחות';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5914,7 +5963,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'דרכים פשוטות לעזור לפתוח עובדות מזון';
+      'דרכים פשוטות לעזור Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -5951,7 +6000,17 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$count מתוך $total פריטים';
+  }
+
+  @override
   String item_count(int count) {
+    return 'פריטים $count';
+  }
+
+  @override
+  String item_count_string(String count) {
     return 'פריטים $count';
   }
 
@@ -6009,14 +6068,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'מעבדות עובדות מזון פתוחות';
+      'מעבדות Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'חשבון';
 
   @override
   String get preferences_contribute_translate_header =>
-      'הביאו עובדות פתוחות על מזון לשפה שלכם';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -9,6 +9,7 @@ import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Crop Helper for proof images: brand new image.
 class ProofCropHelper extends CropHelper {
@@ -24,7 +25,7 @@ class ProofCropHelper extends CropHelper {
       model.proofType.getTitle(appLocalizations);
 
   @override
-  IconData getProcessIcon() => Icons.check;
+  Widget getProcessIcon() => const icons.Check();
 
   @override
   String getProcessLabel(final AppLocalizations appLocalizations) =>

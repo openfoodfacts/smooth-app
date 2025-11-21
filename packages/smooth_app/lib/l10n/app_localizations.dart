@@ -344,6 +344,7 @@ abstract class AppLocalizations {
     Locale('yi'),
     Locale('yo'),
     Locale('zh'),
+    Locale('zh', 'CN'),
     Locale('zu'),
   ];
 
@@ -560,7 +561,7 @@ abstract class AppLocalizations {
   /// Label for product page regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_may_not;
 
   /// Label for product page regarding product compatibility with the user preferences: does not match
@@ -596,7 +597,7 @@ abstract class AppLocalizations {
   /// Short label for product list view regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_short_may_not;
 
   /// Short label for product list view regarding product compatibility with the user preferences: does not match
@@ -760,6 +761,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot password'**
   String get forgot_password;
+
+  /// No description provided for @forgot_password_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgot_password_question;
 
   /// Button label: For to show your account
   ///
@@ -1475,11 +1482,35 @@ abstract class AppLocalizations {
   /// **'Search'**
   String get search;
 
+  /// Help text of a search text input field. Please respect the line break.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a product,\na brand or a barcode'**
+  String get search_product_help;
+
+  /// Title of the OxF selector.
+  ///
+  /// In en, this message translates to:
+  /// **'Search filter'**
+  String get search_filter;
+
+  /// No description provided for @search_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Search history'**
+  String get search_history;
+
   /// Hint text of a search store text input field
   ///
   /// In en, this message translates to:
   /// **'Search for a store'**
   String get search_store;
+
+  /// Help text of a search store text input field. Please inject a line break if suitable.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint: add the city or the country'**
+  String get search_store_help;
 
   /// No description provided for @tap_for_more.
   ///
@@ -2632,6 +2663,12 @@ abstract class AppLocalizations {
   /// **'Property'**
   String get tag_key;
 
+  /// No description provided for @tag_keys.
+  ///
+  /// In en, this message translates to:
+  /// **'Properties'**
+  String get tag_keys;
+
   /// No description provided for @tag_key_uneditable.
   ///
   /// In en, this message translates to:
@@ -2649,6 +2686,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Value'**
   String get tag_value;
+
+  /// No description provided for @tag_values.
+  ///
+  /// In en, this message translates to:
+  /// **'Values'**
+  String get tag_values;
 
   /// No description provided for @tag_value_input_hint.
   ///
@@ -3155,6 +3198,12 @@ abstract class AppLocalizations {
   /// **'Loading your first example product'**
   String get onboarding_welcome_loading_dialog_title;
 
+  /// Warning message displayed in the rare cases when the users try to edit the onboarding example product
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, it\'s our example product, you cannot edit it :)'**
+  String get onboarding_welcome_warning;
+
   /// Your ranking screen title
   ///
   /// In en, this message translates to:
@@ -3190,6 +3239,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete'**
   String product_list_reloading_success_multiple(num count);
+
+  /// No description provided for @product_list_compare_side_by_side.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare side by side'**
+  String get product_list_compare_side_by_side;
 
   /// Default loading dialog title
   ///
@@ -5299,6 +5354,12 @@ abstract class AppLocalizations {
   /// **'Reuse and edit this search'**
   String get search_history_item_edit_tooltip;
 
+  /// A tooltip to explain the Remove button near a search term
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get search_history_item_remove_tooltip;
+
   /// Product search list - No more results available
   ///
   /// In en, this message translates to:
@@ -6085,6 +6146,12 @@ abstract class AppLocalizations {
   /// **'Starting the refresh of all the products locally stored'**
   String get background_task_title_full_refresh;
 
+  /// Snackbar message when server action for folksonomy updates is started
+  ///
+  /// In en, this message translates to:
+  /// **'Starting to perform the server actions for folksonomy updates stored locally'**
+  String get background_task_title_folksonomy;
+
   /// Snackbar message when a download of the most popular products is started
   ///
   /// In en, this message translates to:
@@ -6114,18 +6181,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep the ingredients panel expanded'**
   String get expand_ingredients_body;
-
-  /// No description provided for @search_product_filter_visibility_title.
-  ///
-  /// In en, this message translates to:
-  /// **'Show a filter in the search'**
-  String get search_product_filter_visibility_title;
-
-  /// Label for showing the product type filter in the search bar
-  ///
-  /// In en, this message translates to:
-  /// **'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts'**
-  String get search_product_filter_visibility_subtitle;
 
   /// Message when there is no internet connection
   ///
@@ -7888,7 +7943,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/nova'**
+  /// **'https://world.openfoodfacts.org/nova'**
   String get guide_nova_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8020,7 +8075,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openfoodfacts.org/openfoodfacts'**
+  /// **'https://world-en.openfoodfacts.org/discover'**
   String get guide_open_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8146,7 +8201,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_pet_food_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openpetfoodfacts.org/discover'**
+  /// **'https://world-en.openpetfoodfacts.org/discover'**
   String get guide_open_pet_food_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8284,7 +8339,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_beauty_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://world.openfoodfacts.org/discover'**
+  /// **'https://world-en.openbeautyfacts.org/discover'**
   String get guide_open_beauty_facts_share_link;
 
   /// The title of the guide (please don't forget the use of non-breaking spaces)
@@ -8518,7 +8573,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_products_facts_share_link.
   ///
   /// In en, this message translates to:
-  /// **'https://en.openproductsfacts.org/discover'**
+  /// **'https://world-en.openproductsfacts.org/discover'**
   String get guide_open_products_facts_share_link;
 
   /// No description provided for @guide_open_preferences_button_title.
@@ -9079,11 +9134,47 @@ abstract class AppLocalizations {
   /// **'Prices'**
   String get product_page_tab_prices;
 
+  /// No description provided for @prices_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Why prices?'**
+  String get prices_explanation_card_title;
+
+  /// No description provided for @prices_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.'**
+  String get prices_explanation_card_line1;
+
+  /// No description provided for @explanation_card_learn_more_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more'**
+  String get explanation_card_learn_more_button;
+
   /// Label of the folksonomy tab on the product page
   ///
   /// In en, this message translates to:
   /// **'Folksonomy'**
   String get product_page_tab_folksonomy;
+
+  /// No description provided for @folksonomy_explanation_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are Folksonomy attributes?'**
+  String get folksonomy_explanation_card_title;
+
+  /// No description provided for @folksonomy_explanation_card_line1.
+  ///
+  /// In en, this message translates to:
+  /// **'Attributes are **key-value** based.'**
+  String get folksonomy_explanation_card_line1;
+
+  /// No description provided for @folksonomy_explanation_card_line2.
+  ///
+  /// In en, this message translates to:
+  /// **'These properties are created and filed by contributors for any kind of usages.'**
+  String get folksonomy_explanation_card_line2;
 
   /// Label of the 'open external link' action on a folksonomy entry
   ///
@@ -10339,11 +10430,23 @@ abstract class AppLocalizations {
   /// **'{count} of {total} items'**
   String item_count_with_total(int count, int total);
 
+  /// Item count showing current number of items and total items
+  ///
+  /// In en, this message translates to:
+  /// **'{count} of {total} items'**
+  String item_count_with_total_string(String count, String total);
+
   /// Item count showing only current number of items when total is unknown
   ///
   /// In en, this message translates to:
   /// **'{count} items'**
   String item_count(int count);
+
+  /// Item count showing only current number of items when total is unknown
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String item_count_string(String count);
 
   /// Message shown when there are no price statistics available to display
   ///
@@ -10671,6 +10774,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case 'BR':
             return AppLocalizationsPtBr();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return AppLocalizationsZhCn();
         }
         break;
       }

@@ -43,6 +43,8 @@ class KnowledgePanelCard extends StatelessWidget {
         product: product,
         isInitiallyExpanded: false,
         isClickable: isClickable,
+        roundedIcons: true,
+        overrideStyle: false,
       );
     }
 
@@ -51,34 +53,25 @@ class KnowledgePanelCard extends StatelessWidget {
     final bool improvedIsClickable =
         isClickable &&
         KnowledgePanelsBuilder.hasSomethingToDisplay(product, panelId);
-    return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(vertical: SMALL_SPACE),
-      child: InkWell(
-        borderRadius: ANGULAR_BORDER_RADIUS,
-        onTap: !improvedIsClickable
-            ? null
-            : () async => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => SmoothBrightnessOverride(
-                    brightness: SmoothBrightnessOverride.of(
-                      context,
-                    )?.brightness,
-                    child: KnowledgePanelPage(
-                      panelId: panelId,
-                      product: product,
-                    ),
-                  ),
+    return InkWell(
+      onTap: !improvedIsClickable
+          ? null
+          : () async => Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => SmoothBrightnessOverride(
+                  brightness: SmoothBrightnessOverride.of(context)?.brightness,
+                  child: KnowledgePanelPage(panelId: panelId, product: product),
                 ),
               ),
-        child:
-            KnowledgePanelsBuilder.getPanelSummaryWidget(
-              panel,
-              isClickable: improvedIsClickable,
-              margin: EdgeInsets.zero,
-            ) ??
-            const SizedBox(),
-      ),
+            ),
+      child:
+          KnowledgePanelsBuilder.getPanelSummaryWidget(
+            panel,
+            isClickable: improvedIsClickable,
+            margin: EdgeInsetsDirectional.zero,
+          ) ??
+          EMPTY_WIDGET,
     );
   }
 

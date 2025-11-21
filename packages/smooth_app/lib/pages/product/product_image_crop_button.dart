@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Product Image Button editing the current image.
 class ProductImageCropButton extends ProductImageButton {
@@ -29,7 +30,7 @@ class ProductImageCropButton extends ProductImageButton {
   });
 
   @override
-  IconData getIconData() => Icons.edit;
+  Widget getIcon() => const icons.Edit();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>

@@ -9,7 +9,7 @@ class AppLocalizationsSi extends AppLocalizations {
   AppLocalizationsSi([String locale = 'si']) : super(locale);
 
   @override
-  String get app_name => 'විවෘත ආහාර පිළිබඳ කරුණු';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'මුරපදය අමතක වුණා ද?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,20 @@ class AppLocalizationsSi extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'නිෂ්පාදනයක්,\nවෙළඳ නාමයක් හෝ තීරු කේතයක් සොයන්න';
+
+  @override
+  String get search_filter => 'සෙවුම් පෙරහන';
+
+  @override
+  String get search_history => 'සෙවුම් ඉතිහාසය';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ඉඟිය: නගරය හෝ රට එක් කරන්න';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1303,9 @@ class AppLocalizationsSi extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'දේපළ';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1313,9 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1669,10 @@ class AppLocalizationsSi extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'කණගාටුයි, එය අපගේ උදාහරණ නිෂ්පාදනයයි, ඔබට එය සංස්කරණය කළ නොහැක :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1708,10 @@ class AppLocalizationsSi extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'පැත්තෙන් පැත්තෙන් සංසන්දනය කරන්න';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2993,6 +3023,9 @@ class AppLocalizationsSi extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3490,6 +3523,10 @@ class AppLocalizationsSi extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3505,14 +3542,6 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4040,25 +4069,25 @@ class AppLocalizationsSi extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'හරිත-ලකුණු A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'හරිත-ලකුණු B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'හරිත-ලකුණු C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'හරිත-ලකුණු D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'හරිත-ලකුණු E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'නොදන්නා හරිත-ලකුණු';
+  String get environmental_score_unknown_new => 'නොදන්නා Green-Score';
 
   @override
-  String get environmental_score_not_applicable_new => 'හරිත-ලකුණු අදාළ නොවේ.';
+  String get environmental_score_not_applicable_new => 'Green-Score අදාළ නොවේ.';
 
   @override
   String get nova_group_generic_new => 'අතිශයින් සැකසූ ආහාර - NOVA කණ්ඩායම්';
@@ -4273,14 +4302,14 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'හරිත ලකුණු යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.';
+      'Green-Score යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
       '**අවම බලපෑම් සහිත** නිෂ්පාදන සඳහා වර්ණ කේතය තද කොළ (**A+**) සිට **වඩාත්ම බලපෑම් සහිත** නිෂ්පාදන සඳහා තද රතු (**F**) දක්වා වෙනස් වේ.';
 
   @override
-  String get guide_greenscore_logos_caption => 'හරිත ලකුණු ලාංඡන';
+  String get guide_greenscore_logos_caption => 'Green-Score ලාංඡන';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4441,14 +4470,14 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. හරිත-ලකුණු නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.';
+      'තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. Green-Score නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'විනිවිදභාවය';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
+      'හිමිකාර ලේබල මෙන් නොව, Green-Score ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -4553,7 +4582,7 @@ class AppLocalizationsSi extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-si.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4636,7 +4665,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-si.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4717,7 +4746,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-si.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4805,7 +4834,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-si.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4881,7 +4910,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about ගැන';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -4957,7 +4986,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-si.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5276,7 +5305,28 @@ class AppLocalizationsSi extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'මිල ගණන් ඇයි?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** යනු ලොව පුරා නිෂ්පාදනවල මිල ගණන් එකතු කර බෙදා ගැනීමේ ව්‍යාපෘතියකි 🌍. Open Prices සංවර්ධනය කර නඩත්තු කරනු ලබන්නේ Open Food Facts විසිනි.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title => 'ජන විද්‍යාවේ ගුණාංග මොනවාද?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'ගුණාංග **යතුරු-අගය** මත පදනම් වේ.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'මෙම ගුණාංග දායකයින් විසින් ඕනෑම ආකාරයක භාවිතයක් සඳහා නිර්මාණය කර ගොනු කරනු ලැබේ.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5712,7 +5762,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_off_title =>
-      'විවෘත ආහාර පිළිබඳ කරුණු සොයා ගන්න';
+      'Open Food Facts පිළිබඳ කරුණු සොයා ගන්න';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5733,7 +5783,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_faq_off_ngo_title =>
-      'විවෘත ආහාර කරුණු රාජ්‍ය නොවන සංවිධානය';
+      'Open Food Facts රාජ්‍ය නොවන සංවිධානය';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5755,7 +5805,7 @@ class AppLocalizationsSi extends AppLocalizations {
       'අපගේ අතථ්‍ය සිදුවීම්වලින් එකකට සහභාගී වීමෙන් සම්බන්ධ වන්න.';
 
   @override
-  String get preferences_connect_blog_title => 'විවෘත ආහාර කරුණු බ්ලොගය';
+  String get preferences_connect_blog_title => 'Open Food Facts බ්ලොගය';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5870,7 +5920,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'විවෘත ආහාර කරුණු වලට මා එකතු කළ නව නිෂ්පාදන';
+      'Open Food Facts වලට මා එකතු කළ නව නිෂ්පාදන';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5917,7 +5967,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'විවෘත මිල ගණන් ප්‍රජාව විසින් එකතු කරන ලද නවතම මිල ගණන්';
+      'Open Prices ගණන් ප්‍රජාව විසින් එකතු කරන ලද නවතම මිල ගණන්';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5965,7 +6015,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ආහාර කරුණු විවෘත කිරීමට උදව් කිරීමට සරල ක්‍රම';
+      'Open Food Facts කිරීමට උදව් කිරීමට සරල ක්‍රම';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6003,7 +6053,17 @@ class AppLocalizationsSi extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$total අයිතම වලින් $count';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count අයිතම';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count අයිතම';
   }
 
@@ -6064,14 +6124,14 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'විවෘත ආහාර කරුණු රසායනාගාර';
+      'Open Food Facts රසායනාගාර';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'විවෘත ආහාර කරුණු ඔබේ භාෂාවට ගෙන එන්න';
+      'Open Food Facts ඔබේ භාෂාවට ගෙන එන්න';
 
   @override
   String get preferences_contribute_enroll_alpha =>

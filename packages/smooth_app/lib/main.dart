@@ -22,6 +22,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
@@ -33,7 +34,6 @@ import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
@@ -68,8 +68,6 @@ Future<void> launchSmoothApp({
   required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
-  unawaited(RiveFile.initialize());
-
   _screenshots = screenshots;
 
   GlobalVars.barcodeScanner = barcodeScanner;
@@ -84,6 +82,7 @@ Future<void> launchSmoothApp({
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
+  await RiveNative.init();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   _enableEdgeToEdgeMode();
@@ -240,7 +239,7 @@ class _SmoothAppState extends State<SmoothApp> {
               (_) => AppReviewProvider(_userPreferences),
             ),
           ],
-          child: AnimationsLoader(
+          child: RiveAnimationsLoader(
             child: AppNavigator(
               observers: <NavigatorObserver>[
                 SentryNavigatorObserver(),

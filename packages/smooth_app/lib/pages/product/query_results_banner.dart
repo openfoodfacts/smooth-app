@@ -27,8 +27,7 @@ class QueryResultsBanner extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return Padding(
-      padding:
-          margin ?? const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+      padding: margin ?? const EdgeInsetsDirectional.only(top: SMALL_SPACE),
       child: FractionallySizedBox(
         widthFactor: 0.8,
         child: DecoratedBox(

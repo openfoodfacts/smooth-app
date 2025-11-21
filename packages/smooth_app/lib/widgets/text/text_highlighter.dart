@@ -28,10 +28,20 @@ class TextHighlighter extends StatelessWidget {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
 
+    final TextStyle defaultStyle =
+        textStyle ?? TextStyle(fontWeight: selected ? FontWeight.bold : null);
+
+    if (filter.isEmpty) {
+      return Text(
+        text,
+        style: defaultStyle,
+        softWrap: softWrap,
+        textAlign: textAlign,
+      );
+    }
+
     List<(String, TextStyle?)> parts;
     try {
-      final TextStyle defaultStyle =
-          textStyle ?? TextStyle(fontWeight: selected ? FontWeight.bold : null);
       parts = _getParts(
         defaultStyle: defaultStyle,
         highlightedStyle: defaultStyle.copyWith(

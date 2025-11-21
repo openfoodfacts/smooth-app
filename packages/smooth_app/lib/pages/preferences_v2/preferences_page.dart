@@ -96,13 +96,20 @@ class PreferencesPage extends StatelessWidget {
           GithubSearchPreferenceTile(),
           ForumSearchPreferenceTile(),
         ],
-        footer: (_) => Consumer<PreferencesRootSearchController>(
-          builder: (_, PreferencesRootSearchController controller, _) {
-            if (controller.query?.isNotEmpty == true) {
-              return EMPTY_WIDGET;
-            }
-            return const SocialNetworksFooter();
-          },
+        footer: (_) => Consumer2<PreferencesRootSearchController, FocusNode>(
+          builder:
+              (
+                BuildContext context,
+                PreferencesRootSearchController controller,
+                FocusNode focusNode,
+                _,
+              ) {
+                if (controller.query?.isNotEmpty == true ||
+                    focusNode.hasFocus) {
+                  return EMPTY_WIDGET;
+                }
+                return const SocialNetworksFooter();
+              },
         ),
       ),
     );
@@ -220,7 +227,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Personalization.alt(size: 20.0),
       title: appLocalizations.myPreferences_settings_title,
       subtitleText: appLocalizations.myPreferences_settings_subtitle,
-      root: AppSettingsRoot(title: appLocalizations.settings_app_app),
+      root: AppSettingsRoot(
+        title: appLocalizations.myPreferences_settings_title,
+      ),
     );
   }
 

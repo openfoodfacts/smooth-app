@@ -86,6 +86,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final List<double> eraserCoordinates,
     required final BuildContext context,
   }) async {
+    if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
+      return;
+    }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,

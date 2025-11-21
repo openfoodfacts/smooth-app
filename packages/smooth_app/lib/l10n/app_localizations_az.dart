@@ -9,7 +9,7 @@ class AppLocalizationsAz extends AppLocalizations {
   AppLocalizationsAz([String locale = 'az']) : super(locale);
 
   @override
-  String get app_name => 'Açıq Qida Faktları';
+  String get app_name => 'Open Food Facts';
 
   @override
   String get sep => '';
@@ -224,6 +224,9 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forgot password';
+
+  @override
+  String get forgot_password_question => 'Şifrəni unutmusunuz?';
 
   @override
   String get view_profile => 'View profile';
@@ -626,7 +629,19 @@ class AppLocalizationsAz extends AppLocalizations {
   String get search => 'Axtar';
 
   @override
+  String get search_product_help => 'Məhsul,\nbrend və ya barkod axtarın';
+
+  @override
+  String get search_filter => 'Axtarış filtri';
+
+  @override
+  String get search_history => 'Axtarış tarixçəsi';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'İpucu: şəhər və ya ölkə əlavə edin';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1287,6 +1302,9 @@ class AppLocalizationsAz extends AppLocalizations {
   String get tag_key => 'Property';
 
   @override
+  String get tag_keys => 'Xüsusiyyətlər';
+
+  @override
   String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
@@ -1294,6 +1312,9 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get tag_value => 'Value';
+
+  @override
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => 'Input a value';
@@ -1647,6 +1668,10 @@ class AppLocalizationsAz extends AppLocalizations {
       'Loading your first example product';
 
   @override
+  String get onboarding_welcome_warning =>
+      'Üzr istəyirik, bu bizim nümunə məhsulumuzdur, onu redaktə edə bilməzsiniz :)';
+
+  @override
   String get product_list_your_ranking => 'Your ranking';
 
   @override
@@ -1682,6 +1707,9 @@ class AppLocalizationsAz extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Yan-yana müqayisə edin';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2985,10 +3013,13 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Price.openfoodfacts.org (PROD) və test env arasında keçid';
+      'prices.openfoodfacts.org (PROD) və test env arasında keçid';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3488,6 +3519,10 @@ class AppLocalizationsAz extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3503,14 +3538,6 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4553,7 +4580,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://en.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world-az.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -4636,7 +4663,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://en.openfoodfacts.org/openfoodfacts';
+      'https://world-az.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4717,7 +4744,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world.openpetfoodfacts.org/discover';
+      'https://world-az.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
@@ -4805,7 +4832,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world.openfoodfacts.org/discover';
+      'https://world-az.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welcome to Open Prices!';
@@ -4957,7 +4984,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://en.openproductsfacts.org/discover';
+      'https://world-az.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5276,7 +5303,29 @@ class AppLocalizationsAz extends AppLocalizations {
   String get product_page_tab_prices => 'Prices';
 
   @override
+  String get prices_explanation_card_title => 'Niyə qiymətlər?';
+
+  @override
+  String get prices_explanation_card_line1 =>
+      '**Open Prices** bütün dünya üzrə məhsulların qiymətlərini toplamaq və paylaşmaq layihəsidir 🌍. Açıq Qiymətlər Open Food Facts tərəfindən hazırlanır və saxlanılır.';
+
+  @override
+  String get explanation_card_learn_more_button => 'Learn more';
+
+  @override
   String get product_page_tab_folksonomy => 'Folksonomy';
+
+  @override
+  String get folksonomy_explanation_card_title =>
+      'Folksonomiyanın atributları hansılardır?';
+
+  @override
+  String get folksonomy_explanation_card_line1 =>
+      'Atributlar **açar-dəyər** əsasındadır.';
+
+  @override
+  String get folksonomy_explanation_card_line2 =>
+      'Bu xassələr hər cür istifadə üçün ianəçilər tərəfindən yaradılır və təqdim olunur.';
 
   @override
   String get folksonomy_action_external_link_title => 'Open external link';
@@ -5711,8 +5760,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Açıq Qida Faktlarını kəşf edin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5732,7 +5780,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Tez-tez verilən suallar';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Açıq Qida Faktları QHT';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Məlumat';
@@ -5754,7 +5802,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Virtual tədbirlərimizdən birində iştirak etməklə siz də iştirak edin';
 
   @override
-  String get preferences_connect_blog_title => 'Açıq Qida Faktları bloqu';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle => 'Ən son xəbərləri əldə edin';
@@ -5919,7 +5967,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Açıq Qiymətlər icması tərəfindən əlavə edilən son qiymətlər';
+      'Open Prices icması tərəfindən əlavə edilən son qiymətlər';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -5967,7 +6015,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Açıq Qida Faktlarına kömək etməyin sadə yolları';
+      'Open Food Factsna kömək etməyin sadə yolları';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6004,7 +6052,17 @@ class AppLocalizationsAz extends AppLocalizations {
   }
 
   @override
+  String item_count_with_total_string(String count, String total) {
+    return '$total elementdən $count';
+  }
+
+  @override
   String item_count(int count) {
+    return '$count əşyalar';
+  }
+
+  @override
+  String item_count_string(String count) {
     return '$count əşyalar';
   }
 
@@ -6065,14 +6123,14 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Qida Faktları Laboratoriyalarını açın';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Açıq Qida Faktlarını dilinizə gətirin';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

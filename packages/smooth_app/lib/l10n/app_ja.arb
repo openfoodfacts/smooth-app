@@ -1,5 +1,5 @@
 {
-  "app_name": "オープンフードファクト",
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -18,7 +18,7 @@
   "@validate": {
     "description": "Button label: Validate the input"
   },
-  "create": "Create",
+  "create": "作成する",
   "@create": {
     "description": "An action to create"
   },
@@ -56,7 +56,7 @@
   "@no": {},
   "stop": "停止",
   "@stop": {},
-  "finish": "Finish",
+  "finish": "仕上げる",
   "@finish": {},
   "calculate": "計算",
   "@calculate": {
@@ -137,7 +137,7 @@
   "@Introduction screen": {},
   "welcomeToOpenFoodFacts": "Open Food Factsへようこそ",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "whatIsOff": "Open Food Facts は、地域社会によって運営される世界的な非営利団体です。",
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
@@ -153,9 +153,9 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+  "server_error_open_new_issue": "サーバーからの応答がありません。次のリンクから問題を報告してください。",
   "@user_management": {},
-  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+  "sign_in_text": "Open Food Factsアカウントにログインして投稿を保存しましょう",
   "incorrect_credentials": "ユーザー名またはパスワードが間違っています。",
   "password_lost_incorrect_credentials": "このメールアドレスまたはユーザー名は存在しません。認証情報を確認してください。",
   "password_lost_server_unavailable": "現在、サーバーの速度低下が発生しており、お詫び申し上げます。後でもう一度試してください。",
@@ -163,11 +163,11 @@
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
-  "login_result_type_server_unreachable": "Network is unreachable",
+  "login_result_type_server_unreachable": "ネットワークにアクセスできません",
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Problem on the server. Please try later.",
+  "login_result_type_server_issue": "サーバーに問題が発生しました。しばらくしてからもう一度お試しください。",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "あなたの国のOpen Food Factsの改善にご協力ください",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "パスワードをお忘れですか？",
   "view_profile": "プロフィールを表示",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -260,7 +261,7 @@
   "sign_up_page_confirm_password_hint": "パスワード再確認",
   "sign_up_page_confirm_password_error_empty": "パスワードの確認をしてください",
   "sign_up_page_confirm_password_error_invalid": "パスワードが一致しません",
-  "sign_up_page_agree_text": "I agree to the Open Food Facts",
+  "sign_up_page_agree_text": "私はオープンフードファクトに同意します",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
   },
@@ -279,7 +280,7 @@
   "sign_up_page_producer_checkbox": "私は食品生産者です",
   "sign_up_page_producer_hint": "生産者/ブランド",
   "sign_up_page_producer_error_empty": "生産者またはブランド名を入力してください",
-  "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+  "sign_up_page_subscribe_checkbox": "Open Food Factsニュースレターを購読します（いつでも購読を解除できます）",
   "sign_up_page_user_name_already_used": "このユーザー名は既に存在します。別のユーザー名を入力してください。",
   "sign_up_page_email_already_exists": "既に存在します。アカウントにログインするか、別のメールアドレスをお試しください。",
   "sign_up_page_provide_valid_email": "有効なメールアドレスを入力してください。",
@@ -304,7 +305,7 @@
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Thanks for contributing!",
+  "thanks_for_contributing": "ご協力ありがとうございます！",
   "contributors_label": "彼らはアプリを構築中です",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -324,7 +325,7 @@
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
-  "support": "Support",
+  "support": "サポート",
   "@support": {
     "description": "Button label: Opens a pop up window where all ways to get support are shown"
   },
@@ -356,15 +357,15 @@
   "@contribute_sw_development": {
     "description": "Button label + page title: Ways to help"
   },
-  "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+  "contribute_develop_text": "Open Food Facts のすべての製品のコードは GitHub で公開されています。コードはオープンソースなので、ぜひ再利用して、地球上のすべての人々のために改善にご協力ください。",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+  "contribute_develop_text_2": "質問をする場合は、Open Food Facts Slack チャットルームに参加することをお勧めします。",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "開発者モード？",
   "contribute_develop_dev_mode_subtitle": "開発者モードを有効にする",
   "contribute_donate_title": "寄付",
   "@contribute_donate_title": {},
-  "contribute_donate_header": "Donate to Open Food Facts",
+  "contribute_donate_header": "Open Food Factsに寄付する",
   "@contribute_donate_header": {},
   "contribute_enroll_alpha_warning": "内部アルファ版では、データが完全に失われる可能性があり、アプリはいつでも使用できなくなる可能性があることをご了承ください!",
   "@contribute_enroll_alpha_warning": {},
@@ -376,7 +377,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+  "contribute_improve_text": "データベースはプロジェクトの中核です。簡単に、そして迅速に貢献できます。スマートフォン用のモバイルアプリをダウンロードして、商品の追加や改善を始めましょう。\n\n一方、Open Food Factsのウェブサイトでは、様々な方法で貢献できます。 ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "翻訳",
   "@contribute_translate_header": {
@@ -390,18 +391,18 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+  "contribute_translate_text": "Open Food Factsは、160カ国以上の製品を網羅するグローバルプロジェクトです。Open Food Factsは数十の言語に翻訳されており、コンテンツは常に進化しています。",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "翻訳はプロジェクトの重要なタスクの1つです",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "スキルをオープンフードファクトに貢献しましょう。スキルプールに参加しましょう！",
-  "contribute_share_header": "Share Open Food Facts with your friends",
+  "contribute_join_skill_pool": "スキルをOpen Food Factsに貢献しましょう。スキルプールに参加しましょう！",
+  "contribute_share_header": "Open Food Factsを友達と共有しましょう",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "私が使っているアプリ「Open Food Facts」についてお知らせします。このアプリは、食品の健康や環境への影響を、個人に合わせて調べることができます。パッケージのバーコードをスキャンするだけで使えます。無料、登録も不要で、解読対象製品の数を増やすことにも貢献できます。スマートフォン用のダウンロードリンクはこちらです：https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "GDPRに準拠したポイントカードデータのエクスポートをリクエストして価格設定に貢献しましょう",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -409,11 +410,11 @@
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
   },
-  "tap_to_answer_hint": "Tap here to answer questions about this product",
+  "tap_to_answer_hint": "この製品に関する質問に回答するにはここをタップしてください",
   "@tap_to_answer_hint": {
     "description": "Hint for accessibility readers to answer Robotoff questions."
   },
-  "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+  "robotoff_questions_loading_hint": "この製品に関する質問が読み込まれるまでお待ちください",
   "@robotoff_questions_loading_hint": {
     "description": "Hint for accessibility readers while Robotoff questions are loaded"
   },
@@ -425,7 +426,7 @@
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
-  "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+  "question_sign_in_text": "Open Food Factsアカウントにログインして、貢献度を評価されましょう",
   "question_yes_button_accessibility_value": "「はい」で回答",
   "question_no_button_accessibility_value": "No で回答",
   "question_skip_button_accessibility_value": "この質問をスキップ",
@@ -435,7 +436,7 @@
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
-  "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+  "account_create_message": "アカウントを作成して Open Food Facts コミュニティに参加し、世界中で食品に関する知識の構築に貢献しましょう。",
   "@account_create_message": {
     "description": "The Message to be displayed if the user does not have an account and wants to contribute"
   },
@@ -444,12 +445,12 @@
     "description": "Join which is actually Signup"
   },
   "myPreferences_profile_title": "あなたのプロフィール",
-  "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+  "myPreferences_profile_subtitle": "Open Food Facts 貢献者アカウントを管理します。",
   "myPreferences_settings_title": "アプリ設定",
-  "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_settings_subtitle": "ダークモード、言語…",
   "myPreferences_food_title": "食品の好み",
   "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
-  "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_food_comment": "食品に関する最も重要な情報を選択すると、あなたの好みに応じて食品がランク付けされ、関心のある情報が最初に表示され、相性の概要が表示されます。これらの食品の好みはデバイスに保存され、Open Food Facts寄稿者アカウント（お持ちの場合）には関連付けられません。",
   "confirmResetPreferences": "食品の好みをリセットしますか？",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -512,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_store": "Search for a store",
+  "search_product_help": "製品、ブランド、またはバーコードを検索します。\n",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "検索フィルター",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "検索履歴",
+  "search_store": "店舗を検索",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "ヒント: 都市または国を追加してください",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "詳細情報を表示するにはタップしてください…",
   "@Product": {},
@@ -528,7 +542,7 @@
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
-  "label_reload": "Reload",
+  "label_reload": "リロード",
   "@label_reload": {
     "description": "Reload a page"
   },
@@ -537,20 +551,20 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+  "outdated_image_accessibility_label": "{imageType} (この画像は古い可能性があります)",
   "@outdated_image_accessibility_label": {
     "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
     "placeholders": {
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "may be outdated",
+  "outdated_image_short_label": "時代遅れかもしれない",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
   "ingredients": "原材料",
   "@ingredients": {},
-  "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+  "ingredients_editing_instructions": "元の順序を維持してください。パーセンテージが指定されている場合は示してください。カンマまたはハイフンで区切り、成分を表す場合は括弧を使用してください。",
   "ingredients_editing_error": "原材料を保存できませんでした。",
   "ingredients_editing_image_error": "新しい原材料画像を取得できませんでした。",
   "ingredients_editing_title": "原材料を編集",
@@ -568,7 +582,7 @@
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
   },
-  "nutrition_facts_editing_title": "Edit Nutrition Facts",
+  "nutrition_facts_editing_title": "栄養成分表示を編集する",
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
@@ -580,7 +594,7 @@
   "@packaging_information_photo": {},
   "missing_product": "新しい製品を見つけました！",
   "@missing_product": {},
-  "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+  "add_product_take_photos": "パッケージの写真を撮って、この商品をOpen Food Factsに追加しましょう",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "最初に何枚か画像を撮ってください。後でいつでも製品を完成させることができます。",
   "@add_product_take_photos_descriptive": {},
@@ -588,11 +602,11 @@
   "@add_product_information_button_label": {},
   "new_product": "新しい製品",
   "@new_product": {},
-  "new_product_found_title": "New product found!",
+  "new_product_found_title": "新商品発見！",
   "@new_product_found_title": {
     "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
   },
-  "new_product_found_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "new_product_found_text": "当社の共同データベースには**300 万以上の製品**が含まれていますが、このバーコードは存在しません: ",
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -601,15 +615,15 @@
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+  "new_product_leave_message": "何も入力されていないようです。本当にこのページを離れますか？",
   "@new_product_leave_message": {
     "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
   },
-  "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+  "new_product_dialog_description": "この製品を当社の共通データベースに追加するには、パッケージの写真を撮ってください。",
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+  "new_product_dialog_illustration_description": "Nutri-ScoreとGreen Scoreが不明なイラスト",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -641,15 +655,15 @@
   "@crop_page_action_local_message": {
     "description": "The save of the picture locally failed - error dialog message"
   },
-  "crop_page_action_retake": "Retake a photo",
+  "crop_page_action_retake": "写真を再撮影する",
   "@crop_page_action_retake": {
     "description": "Button which allows users to retake a photo."
   },
-  "crop_page_too_small_image_title": "The image is too small!",
+  "crop_page_too_small_image_title": "画像が小さすぎます!",
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
-  "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+  "crop_page_too_small_image_message": "画像のアップロードの最小サイズ（ピクセル単位）は {expectedMinWidth}x{expectedMinHeight}です。現在の画像は {actualWidth}x{actualHeight}です。",
   "@crop_page_too_small_image_message": {
     "description": "Message of a dialog warning the user that the image is too small for upload",
     "placeholders": {
@@ -689,16 +703,16 @@
   "nutritional_facts_input_button_label": "栄養成分表を入力する",
   "nutritional_facts_added": "栄養成分表が追加されました",
   "categories_added": "カテゴリーが追加されました。",
-  "new_product_title_nutriscore": "ニュートリスコアを計算する",
+  "new_product_title_nutriscore": "Nutri-Scoreを計算する",
   "new_product_subtitle_nutriscore": "食品カテゴリと栄養価を満たして入手する",
-  "new_product_title_environmental_score": "Compute the Green Score",
-  "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-  "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
-  "new_product_title_nova": "Compute the food processing level (NOVA)",
-  "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+  "new_product_title_environmental_score": "グリーンスコアを計算する",
+  "new_product_subtitle_environmental_score": "少なくとも1つのカテゴリを入力して取得してください",
+  "new_product_additional_environmental_score": "原産地、パッケージなどを考慮してグリーンスコアの計算をより正確にします",
+  "new_product_title_nova": "食品加工レベルを計算する（NOVA）",
+  "new_product_subtitle_nova": "食品カテゴリーと材料を入力して入手",
   "new_product_desc_nova_unknown": "食品加工レベル不明",
   "new_product_title_pictures": "写真を撮りましょう！",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "以下の写真を撮ってください。あとは Open Food Facts エンジンが計算します。",
   "new_product_title_misc": "そしていくつかの基本データ…",
   "new_product_done_msg": "ご協力ありがとうございます。「{username}」！",
   "@new_product_done_msg": {
@@ -715,10 +729,10 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-  "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-  "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-  "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+  "hey_incomplete_product_message": "今すぐタップして 3 つの質問に答え、Nutri-Score、Green Score、Ultra-processing (NOVA) を計算しましょう。",
+  "hey_incomplete_product_message_beauty": "今すぐタップして 2 つの質問に答え、この化粧品の分析に役立ててください。",
+  "hey_incomplete_product_message_pet_food": "今すぐタップして 3 つの質問に答え、このペットフード製品を分析してください。",
+  "hey_incomplete_product_message_product": "今すぐタップしてこの製品を完成させましょう!",
   "nutritional_facts_photo_uploaded": "栄養成分表の画像がアップロードされました",
   "@nutritional_facts_photo_uploaded": {},
   "recycling_photo_button_label": "リサイクル情報の画像",
@@ -741,34 +755,34 @@
   "@uploading_image": {
     "description": "Message when a new picture is uploading to the server"
   },
-  "uploading_image_type_front": "Uploading front image to Open Food Facts",
+  "uploading_image_type_front": "Open Food Factsにフロント画像をアップロードしています",
   "@uploading_image_type_front": {
     "description": "Message when a new front picture is being uploaded to the server"
   },
-  "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+  "uploading_image_type_ingredients": "Open Food Factsに原材料画像をアップロードしています",
   "@uploading_image_type_ingredients": {
     "description": "Message when a new ingredients picture is being uploaded to the server"
   },
-  "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+  "uploading_image_type_nutrition": "Open Food Factsに栄養画像をアップロードしています",
   "@uploading_image_type_nutrition": {
     "description": "Message when a new nutrition picture is being uploaded to the server"
   },
-  "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+  "uploading_image_type_packaging": "Open Food Factsにパッケージ画像をアップロードしています",
   "@uploading_image_type_packaging": {
     "description": "Message when a new packaging picture is being uploaded to the server"
   },
-  "uploading_image_type_other": "Uploading other image to Open Food Facts",
+  "uploading_image_type_other": "Open Food Factsに他の画像をアップロードしています",
   "@uploading_image_type_other": {
     "description": "Message when a new other picture is being uploaded to the server"
   },
-  "uploading_image_type_generic": "Uploading image to Open Food Facts",
+  "uploading_image_type_generic": "Open Food Factsに画像をアップロードしています",
   "@uploading_image_type_generic": {
     "description": "Message when a new picture is being uploaded to the server"
   },
   "score_add_missing_ingredients": "不足している原材料を追加",
   "score_add_missing_packaging_image": "不足しているパッケージ画像を追加",
   "score_add_missing_nutrition_facts": "不足している栄養成分表を追加",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "不足している製品トレースを追加する",
   "score_add_missing_product_category": "不足している製品カテゴリを追加",
   "score_add_missing_precise_product_category": "より正確なカテゴリを選択してください",
   "score_add_missing_product_countries": "不足している製品の国を追加",
@@ -776,69 +790,69 @@
   "score_add_missing_product_labels": "不足している製品ラベルを追加",
   "score_add_missing_product_origins": "不足している製品の産地を追加",
   "score_add_missing_product_stores": "不足している製品の販売店を追加",
-  "score_add_missing_product_brands": "Add missing product brands",
+  "score_add_missing_product_brands": "不足している製品ブランドを追加する",
   "score_update_nutrition_facts": "栄養成分表を更新",
   "nutrition_page_title": "栄養成分表",
-  "nutrition_page_nutritional_info_title": "Nutritional information",
-  "nutrition_page_nutritional_info_label": "Values specified on the product:",
+  "nutrition_page_nutritional_info_title": "栄養情報",
+  "nutrition_page_nutritional_info_label": "製品に指定されている値:",
   "nutrition_page_nutritional_info_value_positive": "はい",
   "nutrition_page_nutritional_info_value_negative": "いいえ",
-  "nutrition_page_nutritional_info_open_photo": "Open photo",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_open_photo": "写真を開く",
+  "nutrition_page_nutritional_info_explanation_title": "良い実践：栄養情報",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "栄養成分表示は、**パッケージ**や製品に同梱されている書類に記載されていない場合があります。そのような場合のみ、値を**いいえ**に設定できます。",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
-  "nutrition_page_serving_type_label": "Nutritional values:",
+  "nutrition_page_serving_type_label": "栄養価:",
   "@nutrition_page_serving_type_label": {
     "description": "Label to let the user choose between per 100g or per serving"
   },
   "nutrition_page_per_100g": "100gあたり",
-  "nutrition_page_per_100g_100ml": "per 100g/ml",
+  "nutrition_page_per_100g_100ml": "100g/mlあたり",
   "nutrition_page_per_serving": "一食当たり",
   "nutrition_page_add_nutrient": "栄養成分を追加",
   "nutrition_page_serving_size": "一人前の分量",
-  "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_hint": "1食分の量を入力してください（例：100g）",
+  "nutrition_page_serving_size_explanation_title": "良い実践：サービングサイズ",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "この値は、**1 食分あたりの各栄養素の比率計算を行う** のに役立ちます。",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**使用できる単位**は、kg、g、mg、µg、oz、l、dl、cl、ml、fl.oz、fl oz、г、мг、кг、л、дл、кл、мл、毫克、公斤、毫升、公升、吨です。",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**、**60g**、または**60 G**（最初のものを優先）",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** または **1L**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "無効な単位",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_example": "30 **gr**",
+  "nutrition_page_serving_size_explanation_bad_example1_example": "30 **グラム**",
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "無効な単位",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9個の**キャンディー**と2個の**ビスケット**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "ユニットが見つかりません",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -849,11 +863,11 @@
   "nutrition_page_invalid_number": "無効な数字です",
   "nutrition_page_update_running": "サーバー…で製品を更新しています",
   "nutrition_page_update_done": "製品が更新されました！",
-  "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+  "nutrition_page_take_serving_size_from_product_quantity": "製品の量を1食分量として使用します",
   "@nutrition_page_take_serving_size_from_product_quantity": {
     "description": "Button label: Use the product quantity as serving size (nutrition page)"
   },
-  "nutrition_page_photo_error": "Unable to load the photo",
+  "nutrition_page_photo_error": "写真を読み込めません",
   "@nutrition_page_photo_error": {
     "description": "Error message when the nutrition facts photo can't be loaded"
   },
@@ -863,7 +877,7 @@
   "@view_more_photo_button": {},
   "no_product_found": "製品が見つかりません",
   "@no_product_found": {},
-  "no_location_found": "No location found",
+  "no_location_found": "場所が見つかりません",
   "not_found": "見つかりません:",
   "refreshing_product": "製品を更新中",
   "@refreshing_product": {
@@ -873,7 +887,7 @@
   "@product_refreshed": {
     "description": "Confirmation, that the product data refresh is done"
   },
-  "product_image_accessibility_label": "Image taken on {date}",
+  "product_image_accessibility_label": "{date}に撮影された画像",
   "@product_image_accessibility_label": {
     "placeholders": {
       "date": {
@@ -882,7 +896,7 @@
       }
     }
   },
-  "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+  "product_image_outdated_accessibility_label": "画像は {date}に撮影されました。この画像は古い可能性があります",
   "@product_image_outdated_accessibility_label": {
     "placeholders": {
       "date": {
@@ -891,13 +905,13 @@
       }
     }
   },
-  "product_image_outdated": "This image may be outdated",
-  "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated": "この画像は古い可能性があります",
+  "product_image_outdated_explanations_title": "この画像は古い可能性があります",
+  "product_image_outdated_explanations_content": "この画像は1年以上前に撮影されたものです。\n**最新の状態であることを確認してください**。\n\nこれは**単なる警告**です。内容が変わっていない場合は、このメッセージを無視してください。",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_image_action_replace_photo": "Replace photo ({type})",
+  "product_image_action_replace_photo": "写真を置き換える ({type})",
   "@product_image_action_replace_photo": {
     "description": "Action on the photo gallery to replace an existing picture",
     "placeholders": {
@@ -907,7 +921,7 @@
       }
     }
   },
-  "product_image_action_add_photo": "Add a photo ({type})",
+  "product_image_action_add_photo": "写真を追加する ({type})",
   "@product_image_action_add_photo": {
     "description": "Action on the photo gallery to add a photo (eg: ingredients)",
     "placeholders": {
@@ -925,7 +939,7 @@
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
-  "product_image_action_from_gallery": "Select from your phone's gallery",
+  "product_image_action_from_gallery": "携帯電話のギャラリーから選択してください",
   "@product_image_action_from_gallery": {
     "description": "Replace the existing picture with one from the device's gallery"
   },
@@ -933,11 +947,11 @@
   "@product_image_action_choose_existing_photo": {
     "description": "Replace the existing picture with one from the product's photos"
   },
-  "product_image_details_label": "Information about the photo",
+  "product_image_details_label": "写真に関する情報",
   "@product_image_details_label": {
     "description": "Label for the photo details"
   },
-  "product_image_details_from_producer": "From the producer",
+  "product_image_details_from_producer": "プロデューサーより",
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
@@ -945,11 +959,11 @@
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
-  "product_image_details_contributor_producer": "Contributor (producer)",
+  "product_image_details_contributor_producer": "貢献者（プロデューサー）",
   "@product_image_details_contributor_producer": {
     "description": "The name of the contributor (and also the owner field) who uploaded the image"
   },
-  "product_image_details_date": "Date",
+  "product_image_details_date": "日付",
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
@@ -957,20 +971,20 @@
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
-  "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+  "homepage_main_card_logo_description": "オープンフードファクトへようこそ",
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
-  "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+  "homepage_main_card_subheading": "バーコードを**スキャン**するか、製品を\n**検索**してください",
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
   "homepage_main_card_search_field_hint": "商品を検索",
-  "homepage_main_card_search_field_tooltip": "Start search",
+  "homepage_main_card_search_field_tooltip": "検索を開始",
   "@homepage_main_card_search_field_tooltip": {
     "description": "Description for accessibility of the search field on the homepage"
   },
-  "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+  "scan_tagline_news_item_accessibility": "最新ニュース: {news_title}",
   "@scan_tagline_news_item_accessibility": {
     "description": "Accessibility label for the title of a news",
     "placeholders": {
@@ -983,7 +997,7 @@
   "tagline_app_review_button_positive": "大好きです！ 😍",
   "tagline_app_review_button_negative": "そうでもないんですが...",
   "tagline_app_review_button_later": "あとで",
-  "tagline_feed_news_button": "Know more",
+  "tagline_feed_news_button": "さらに詳しく",
   "app_review_negative_modal_title": "このアプリを気に入っていますか？",
   "app_review_negative_modal_text": "その理由を少し教えていただけますか?",
   "app_review_negative_modal_positive_button": "そのとおり！",
@@ -992,8 +1006,8 @@
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
-  "product_internet_error_modal_title": "An error has occurred!",
-  "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+  "product_internet_error_modal_title": "エラーが発生しました!",
+  "product_internet_error_modal_message": "ネットワークエラーのため、この製品に関する情報を取得できません。インターネット接続をご確認の上、もう一度お試しください。\n\n内部エラー:\n{error}",
   "@product_internet_error_modal_message": {
     "placeholders": {
       "error": {
@@ -1002,7 +1016,7 @@
       }
     }
   },
-  "product_tags_title": "Product properties",
+  "product_tags_title": "製品特性",
   "@product_tags_title": {
     "description": "The title for showing product properties, aka folksonomy data"
   },
@@ -1013,19 +1027,21 @@
   "product_tags_empty": "プロパティなし",
   "product_tags_explanation": "製品にプロパティ (キー/値) を追加することで、製品の充実に貢献できます。",
   "add_tag": "Add property",
-  "add_tags": "Add properties",
-  "add_edit_tags": "Add or edit properties",
-  "edit_tag": "Edit property",
-  "remove_tag": "Remove property",
-  "tag_key": "Property",
-  "tag_key_uneditable": "Property (uneditable)",
-  "tag_key_input_hint": "Input a property",
+  "add_tags": "プロパティを追加する",
+  "add_edit_tags": "プロパティを追加または編集する",
+  "edit_tag": "プロパティを編集",
+  "remove_tag": "プロパティを削除",
+  "tag_key": "財産",
+  "tag_keys": "プロパティ",
+  "tag_key_uneditable": "プロパティ（編集不可）",
+  "tag_key_input_hint": "プロパティを入力する",
   "tag_value": "値：",
-  "tag_value_input_hint": "Input a value",
-  "tag_key_item": "Property:",
-  "tag_value_item": "Value:",
-  "tag_key_explanations": "A key must be lowercase and without any spaces.",
-  "tag_key_already_exists": "A tag with a property {property} already exists!",
+  "tag_values": "Values",
+  "tag_value_input_hint": "値を入力してください",
+  "tag_key_item": "財産：",
+  "tag_value_item": "価値：",
+  "tag_key_explanations": "キーは小文字でスペースが含まれないようにする必要があります。",
+  "tag_key_already_exists": "プロパティ {property} を持つタグがすでに存在します。",
   "@tag_key_already_exists": {
     "placeholders": {
       "property": {
@@ -1048,7 +1064,7 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+  "product_search_same_category_error": "この機能は、カテゴリのある製品にのみ使用できます。\n\nカテゴリを追加するには、製品を編集してください。",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1072,7 +1088,7 @@
   "@product_improvement_obsolete_nutrition_image": {
     "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
   },
-  "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+  "product_improvement_origins_to_be_completed": "グリーンスコアは原材料の原産地を考慮します。原材料リストや地理的表示の記載を写真に撮るか、商品情報を編集して、グリーンスコアに反映させてください。",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
   },
@@ -1122,7 +1138,7 @@
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
-  "native_app_description": "Open systems settings for Open Food Facts",
+  "native_app_description": "Open Food Factsのオープンシステム設定",
   "@native_app_description": {
     "description": "Native App description in app settings"
   },
@@ -1201,26 +1217,26 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, =0{選択された製品はありません} =1{選択された製品 1 つ} other{{count} 選択された製品}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
       "count": {}
     }
   },
-  "compare_products_mode": "Compare selected products",
+  "compare_products_mode": "選択した製品を比較する",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
-  "delete_products_mode": "Delete selected products",
+  "delete_products_mode": "選択した商品を削除",
   "@delete_products_mode": {
     "description": "Button to switch to 'delete products'"
   },
-  "select_all_products_mode": "Select all products",
+  "select_all_products_mode": "すべての製品を選択",
   "@select_all_products_mode": {
     "description": "Button to switch to 'select all products'"
   },
-  "select_none_products_mode": "Select none",
+  "select_none_products_mode": "何も選択しない",
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
@@ -1234,15 +1250,15 @@
   },
   "retry_button_label": "再試行",
   "connect_with_us": "私たちとつながる",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "TikTokでフォローしてください",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Instagram でフォロー",
   "instagram_link": "https://instagram.com/open.food.facts",
   "twitter": "X (旧 Twitter) でフォローしてください",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "マストドンでフォローしてください",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "BlueSkyをフォローしてください",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "ブログ",
   "faq": "FAQ",
@@ -1359,8 +1375,8 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "Welcome !",
-  "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+  "onboarding_home_welcome_text1": "いらっしゃいませ ！",
+  "onboarding_home_welcome_text2": "**あなた**と**地球**に良い食べ物を選ぶのに役立つアプリです!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
   },
@@ -1368,6 +1384,10 @@
   "onboarding_welcome_loading_dialog_title": "最初の見本となる製品を読み込んでいます",
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
+  },
+  "onboarding_welcome_warning": "申し訳ありませんが、これはサンプル製品なので編集できません :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
   },
   "product_list_your_ranking": "あなたのランキング",
   "@product_list_your_ranking": {
@@ -1399,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "並べて比較する",
   "loading_dialog_default_title": "データをダウンロード中",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1423,8 +1444,8 @@
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
-  "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_subtitle_guest": "Open Food Factsコミュニティに参加するには、サインインまたはサインアップしてください。",
+  "user_profile_title_id_email": "Food Factsログインを開く: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1446,7 +1467,7 @@
   "@email_subject_account_deletion": {
     "description": "Email subject for an account deletion"
   },
-  "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+  "email_body_account_deletion": "こんにちは。Open Food Factsのアカウントを削除してください: {userId}",
   "@email_body_account_deletion": {
     "description": "Email body for an account deletion",
     "placeholders": {
@@ -1487,7 +1508,7 @@
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
-  "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+  "crash_reporting_toggle_subtitle": "有効にすると、クラッシュ レポートが Open Food Facts のエラー追跡システムに自動的に送信され、バグが修正されてアプリが改善されます。",
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
@@ -1499,7 +1520,7 @@
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Edit Photo",
+  "product_edit_photo_title": "写真を編集",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
@@ -1533,7 +1554,7 @@
   "@permission_photo_denied": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "show_product_pictures": "Show product pictures",
+  "show_product_pictures": "製品写真を表示",
   "@show_product_pictures": {
     "description": "Button to show a list of product pictures"
   },
@@ -1541,15 +1562,15 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Uploading your edits…",
+  "edit_product_pending_operations_banner_title": "編集内容をアップロードしています…",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
-  "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+  "edit_product_pending_operations_banner_message": "編集内容は**バックグラウンドで送信**されています（エラーの場合は後で送信されます）。\n他の製品フィールドの編集を続行できます。",
   "@edit_product_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+  "edit_product_pending_operations_banner_short_message": "編集内容は**バックグラウンドで**送信されています（エラーの場合は後で送信されます）。",
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
@@ -1557,7 +1578,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "How to enter \"{value}\"?",
+  "edit_product_form_item_help": "「{value}」を入力するにはどうすればいいですか？",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
@@ -1566,43 +1587,43 @@
       }
     }
   },
-  "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+  "edit_product_form_item_error_empty": "空でない値を入力してください。",
   "@edit_product_form_item_error_empty": {
     "description": "Error message when the user tries to submit an empty value"
   },
-  "edit_product_form_item_error_existing": "This value is already there!",
+  "edit_product_form_item_error_existing": "この価値はすでに存在します!",
   "@edit_product_form_item_error_existing": {
     "description": "Error message when the user tries to re-submit an existing value"
   },
-  "edit_product_form_item_add_action_brand": "Add a new brand",
+  "edit_product_form_item_add_action_brand": "新しいブランドを追加する",
   "@edit_product_form_item_add_action_brand": {
     "description": "Tooltip to show when the user long presses the (+) button on a brand"
   },
-  "edit_product_form_item_add_action_label": "Add a new label",
+  "edit_product_form_item_add_action_label": "新しいラベルを追加する",
   "@edit_product_form_item_add_action_label": {
     "description": "Tooltip to show when the user long presses the (+) button on a label"
   },
-  "edit_product_form_item_add_action_store": "Add a new store",
+  "edit_product_form_item_add_action_store": "新しいストアを追加する",
   "@edit_product_form_item_add_action_store": {
     "description": "Tooltip to show when the user long presses the (+) button on a store"
   },
-  "edit_product_form_item_add_action_origin": "Add a new origin",
+  "edit_product_form_item_add_action_origin": "新しいオリジンを追加する",
   "@edit_product_form_item_add_action_origin": {
     "description": "Tooltip to show when the user long presses the (+) button on an origin"
   },
-  "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+  "edit_product_form_item_add_action_emb_code": "新しいトレーサビリティコードを追加する",
   "@edit_product_form_item_add_action_emb_code": {
     "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
   },
-  "edit_product_form_item_add_action_country": "Add a new country",
+  "edit_product_form_item_add_action_country": "新しい国を追加する",
   "@edit_product_form_item_add_action_country": {
     "description": "Tooltip to show when the user long presses the (+) button on a country"
   },
-  "edit_product_form_item_add_action_category": "Add a new category",
+  "edit_product_form_item_add_action_category": "新しいカテゴリを追加する",
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "新しいトレースを追加する",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1646,7 +1667,7 @@
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },
-  "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+  "edit_product_form_item_labels_hint": "ラベルを入力してください（例：NutriScore）",
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
@@ -1654,31 +1675,31 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "優れた実践：ラベル",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+  "edit_product_form_item_labels_explanation_info1": "**事実に基づく**、他の分野とは異なる製品の特性。",
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score、NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "ベルギー製、ブルターニュ産…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+  "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001、ISO 22000…",
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "食物繊維が豊富で鉄分も豊富です…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "フェアトレード、マックス・ハブラー…",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1686,7 +1707,7 @@
   "@edit_product_form_item_stores_title": {
     "description": "Product edition - Stores - Title"
   },
-  "edit_product_form_item_stores_hint": "Input a store",
+  "edit_product_form_item_stores_hint": "店舗を入力してください",
   "@edit_product_form_item_stores_hint": {
     "description": "Product edition - Stores - input textfield hint"
   },
@@ -1694,23 +1715,23 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "グッドプラクティス：店舗",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "商品を購入した店舗を入力してください。",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_good_examples_1": "Walmart",
+  "edit_product_form_item_stores_explanation_good_examples_1": "ウォルマート",
   "@edit_product_form_item_stores_explanation_good_examples_1": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_stores_explanation_good_examples_2": "Carrefour",
+  "edit_product_form_item_stores_explanation_good_examples_2": "カルフール",
   "@edit_product_form_item_stores_explanation_good_examples_2": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
-  "edit_product_form_item_stores_explanation_good_examples_3": "Lidl",
+  "edit_product_form_item_stores_explanation_good_examples_3": "リドル",
   "@edit_product_form_item_stores_explanation_good_examples_3": {
     "description": "An example of store (you can change it with a more accurate one)"
   },
@@ -1718,7 +1739,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+  "edit_product_form_item_origins_hint": "原産地を入力してください（例：ドイツ）",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -1726,19 +1747,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "グッドプラクティス：起源",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "**パッケージに記載されている原産地の表示をすべて追加してください**。\n原材料リストに直接記載されている原産地については心配する必要はありません。",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "アルゼンチン産牛肉",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "大豆は欧州連合産ではない",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1746,7 +1767,7 @@
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
-  "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+  "edit_product_form_item_countries_hint": "国を入力してください（例：ドイツ）",
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
@@ -1754,11 +1775,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "優れた実践例：国",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**製品が広く入手可能な国**（海外製品専門店は除く）。",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1766,7 +1787,7 @@
   "@edit_product_form_item_emb_codes_title": {
     "description": "Product edition - Traceability codes - Title"
   },
-  "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+  "edit_product_form_item_emb_codes_hint": "コードを入力してください (例: EMB 53062、FR 62.448.034 CE、84 R 20、33 RECOLTANT 522…)",
   "@edit_product_form_item_emb_codes_hint": {
     "description": "Product edition - Traceability Codes - input textfield hint"
   },
@@ -1774,31 +1795,31 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "優れた実践：トレーサビリティコード",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
-  "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+  "edit_product_form_item_emb_help_info1": "このセクションでは、**梱包マーク**、**識別マーク**、**衛生マーク**に関連するコードを入力できます。",
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "トレーサビリティコードの例",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**EC コード** は、欧州共同体で食品生産者または包装業者を識別するために使用されます。",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_example": "FR\n72.264.002\nCE",
+  "edit_product_form_item_emb_help_info2_item1_example": "フランス\n72.264.002\nCE",
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: **フランス** の国コード\n**72.264.002**: 地理データ\n**CE**: 欧州共同体",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "フランスで使用される**EMBコード**:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1814,7 +1835,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "トレースを入力します（例：大豆）",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -1826,35 +1847,35 @@
   "@edit_product_form_item_categories_hint": {
     "description": "Product edition - Categories - input textfield hint"
   },
-  "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+  "edit_product_form_item_categories_type": "カテゴリを入力してください（例：オレンジジュース）",
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "グッドプラクティス: カテゴリ",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "**最も具体的なカテゴリのみ**を指定します。\n親カテゴリは自動的に追加されます。",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "カテゴリがありませんか?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "カテゴリが**オートコンプリートで利用できない**場合でも、自由に追加してください。\nこれは、あなたの国での Open Food Facts の改善に役立ちます。",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "オリーブオイル漬けイワシ",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "濃縮オレンジジュース",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_exit_title": "Quit without saving?",
+  "edit_product_form_item_exit_title": "保存せずに終了しますか?",
   "edit_product_form_item_exit_confirmation": "ページを離れる前に変更を保存しますか？",
   "edit_product_form_item_exit_confirmation_positive_button": "変更を保存",
   "edit_product_form_item_exit_confirmation_negative_button": "変更を破棄",
@@ -1862,26 +1883,26 @@
   "@edit_product_form_item_ingredients_title": {
     "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+  "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "画面をピンチしてズームイン・ズームアウト",
   "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
     "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+  "edit_product_form_item_ingredients_pinch_to_zoom_title": "写真を拡大・縮小する",
   "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation title"
   },
-  "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+  "edit_product_form_item_ingredients_pinch_to_zoom_message": "**ピンチしてズームするジェスチャ** を使用すると、写真を拡大または縮小できます。",
   "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
     "description": "Product edition - Ingredients - Pinch to zoom explanation message"
   },
   "edit_product_form_item_add_valid_item_tooltip": "追加",
   "edit_product_form_item_add_invalid_item_tooltip": "まずは文字を入力してください",
   "edit_product_form_item_remove_item_tooltip": "削除する",
-  "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+  "edit_product_form_item_save_edit_item_tooltip": "編集内容を保存する",
   "@edit_product_form_item_save_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will save the change."
   },
-  "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+  "edit_product_form_item_cancel_edit_item_tooltip": "編集をキャンセル",
   "@edit_product_form_item_cancel_edit_item_tooltip": {
     "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
   },
@@ -1897,15 +1918,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "良い実践：栄養成分表示",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "栄養価",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "まず、**値が提供される**かどうかを選択します。",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1913,15 +1934,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "次に、**パッケージに記載されている栄養成分**を入力してください。栄養成分値が表示されていない場合は、「目」アイコンをクリックしてください。",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "フィールドがありませんか?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "エントリが不足している場合は、**「プラス」アイコンをクリックして**追加できます (例: ビタミン D、マグネシウム…)。",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -1937,11 +1958,11 @@
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_packaging_photo_title": "Packaging photo",
+  "edit_product_packaging_photo_title": "パッケージ写真",
   "@edit_product_packaging_photo_title": {
     "description": "Product edition - Packaging - Title"
   },
-  "edit_product_packaging_list_title": "Packaging list",
+  "edit_product_packaging_list_title": "パッケージリスト",
   "@edit_product_packaging_list_title": {
     "description": "Product edition - Packaging - Title"
   },
@@ -1953,14 +1974,14 @@
   "@product_field_website_title": {
     "description": "Title of a product field: website"
   },
-  "origins_editing_title": "Edit Origins",
+  "origins_editing_title": "起源を編集",
   "@origins_editing_title": {
     "description": "Title of the button where users can edit the origins of a product"
   },
   "completed_basic_details_btn_text": "基本情報を完成させる",
   "not_implemented_snackbar_text": "まだ実装されていません",
   "category_picker_page_appbar_text": "カテゴリー",
-  "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+  "edit_ingredients_extract_ingredients_btn_text": "写真から材料を抽出する",
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
@@ -1968,15 +1989,15 @@
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
-  "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+  "edit_ingredients_extracting_ingredients_btn_text": "写真から材料を抽出\n",
   "@edit_ingredients_extracting_ingredients_btn_text": {
     "description": "Ingredients edition - Extracting ingredients"
   },
-  "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+  "edit_ingredients_loading_photo_btn_text": "写真を読み込んでいます…",
   "@edit_ingredients_loading_photo_btn_text": {
     "description": "Ingredients edition - Loading photo from the server"
   },
-  "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+  "edit_ingredients_loading_photo_help_dialog_title": "なぜこのメッセージが表示されるのでしょうか?",
   "@edit_ingredients_loading_photo_help_dialog_title": {
     "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
   },
@@ -1988,27 +2009,27 @@
   "@edit_ingredients_refresh_photo_btn_text": {
     "description": "Ingredients edition - Refresh photo"
   },
-  "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
+  "edit_packaging_extract_btn_text": "写真からパッケージ\nを抽出します",
   "@edit_packaging_extract_btn_text": {
     "description": "Packaging edition - OCR-Extract packaging"
   },
-  "edit_packaging_extract_btn_text_short": "Extract packaging",
+  "edit_packaging_extract_btn_text_short": "抽出パッケージ",
   "@edit_packaging_extract_btn_text_short": {
     "description": "Packaging edition - OCR-Extract packaging (short label)"
   },
-  "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+  "edit_packaging_extracting_btn_text": "写真からパッケージを抽出する",
   "@edit_packaging_extracting_btn_text": {
     "description": "Packaging edition - OCR-Extracting packaging"
   },
-  "edit_packaging_loading_photo_btn_text": "Loading photo…",
+  "edit_packaging_loading_photo_btn_text": "写真を読み込んでいます…",
   "@edit_packaging_loading_photo_btn_text": {
     "description": "Packaging edition - Loading photo from the server"
   },
-  "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+  "edit_packaging_loading_photo_help_dialog_title": "なぜこのメッセージが表示されるのでしょうか?",
   "@edit_packaging_loading_photo_help_dialog_title": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
   },
-  "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+  "edit_packaging_loading_photo_help_dialog_body": "「パッケージ抽出」機能を使用するには、まず写真をアップロードする必要があります。\n\n数秒待つか、手動で入力してください。",
   "@edit_packaging_loading_photo_help_dialog_body": {
     "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
   },
@@ -2020,11 +2041,11 @@
   "@edit_ocr_extract_failed": {
     "description": "OCR extraction - message for failed"
   },
-  "edit_ocr_extract_disabled_title": "No picture!",
+  "edit_ocr_extract_disabled_title": "写真がありません！",
   "@edit_ocr_extract_disabled_title": {
     "description": "OCR extraction - title for disabled"
   },
-  "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+  "edit_ocr_extract_disabled_message": "テキスト抽出機能を使用するには、まず写真を撮る必要があります。",
   "@edit_ocr_extract_disabled_message": {
     "description": "OCR extraction - message for disabled"
   },
@@ -2048,7 +2069,7 @@
   "@user_list_add_product": {
     "description": "Label for the dialog to add a product to a list"
   },
-  "user_list_button_new": "Create a new list",
+  "user_list_button_new": "新しいリストを作成する",
   "@user_list_button_new": {
     "description": "Short label of a 'create a new list' button"
   },
@@ -2056,7 +2077,7 @@
   "@user_list_empty_label": {
     "description": "Content displayed when there is no list"
   },
-  "user_list_button_add_product": "Add to list",
+  "user_list_button_add_product": "リストに追加",
   "@user_list_button_add_product": {
     "description": "Short label of an 'add to list' button from a product context"
   },
@@ -2064,7 +2085,7 @@
   "@added_to_list_msg": {
     "description": "Message when products have been successfully added to a list"
   },
-  "user_list_popup_clear": "Clear your history",
+  "user_list_popup_clear": "履歴を消去する",
   "@user_list_popup_clear": {
     "description": "Short label of a 'clear your history list' popup"
   },
@@ -2088,7 +2109,7 @@
   "@user_list_name_error_same": {
     "description": "Validation error about the renamed name that is the same as the initial list name"
   },
-  "user_list_name_input_hint": "Name of the list",
+  "user_list_name_input_hint": "リストの名前",
   "@user_list_name_input_hint": {
     "description": "A hint to indicate that the user should input a name of a list"
   },
@@ -2125,11 +2146,11 @@
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
-  "camera_flash_error_dialog_title": "An error occurred!",
+  "camera_flash_error_dialog_title": "エラーが発生しました!",
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
-  "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+  "camera_flash_error_dialog_message": "フラッシュの状態を変更中にエラーが発生しました。スマートフォンでフラッシュが既に有効になっていないことを確認してください。",
   "@camera_flash_error_dialog_message": {
     "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
@@ -2241,15 +2262,15 @@
   "@dev_preferences_import_history_subtitle": {
     "description": "User dev preferences - Import history - Subtitle"
   },
-  "dev_preferences_news_custom_url_title": "Custom URL for news",
+  "dev_preferences_news_custom_url_title": "ニュースのカスタムURL",
   "@dev_preferences_news_custom_url_title": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+  "dev_preferences_news_custom_url_subtitle": "JSON ファイルの URL:",
   "@dev_preferences_news_custom_url_subtitle": {
     "description": "News dev preferences - Custom URL for news - Title"
   },
-  "dev_preferences_news_custom_url_empty_value": "Not set",
+  "dev_preferences_news_custom_url_empty_value": "未設定",
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
@@ -2257,7 +2278,7 @@
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
-  "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+  "dev_preferences_news_provider_status_subtitle": "最終更新: {date}",
   "@dev_preferences_news_provider_status_subtitle": {
     "description": "News dev preferences - Custom URL for news - Subtitle",
     "placeholders": {
@@ -2267,16 +2288,16 @@
     }
   },
   "product_type_label_food": "食べ物",
-  "product_type_label_beauty": "Personal care",
+  "product_type_label_beauty": "パーソナルケア",
   "product_type_label_pet_food": "ペットフード",
   "product_type_label_product": "その他",
-  "product_type_selection_title": "Product type",
-  "product_type_selection_subtitle": "Select the type of this product",
-  "product_type_selection_empty": "You need to select a product type first!",
+  "product_type_selection_title": "製品タイプ",
+  "product_type_selection_subtitle": "この製品の種類を選択してください",
+  "product_type_selection_empty": "まず製品タイプを選択する必要があります。",
   "@product_type_selection_empty": {
     "description": "Error message about product type that needs to be set"
   },
-  "product_type_selection_already": "You cannot change the product type ({productType})!",
+  "product_type_selection_already": "製品タイプ ({productType}) を変更することはできません。",
   "@product_type_selection_already": {
     "description": "Error message about product type that cannot be set again",
     "placeholders": {
@@ -2288,12 +2309,12 @@
   "prices_app_dev_mode_flag": "製品ページの価格アプリへのショートカット",
   "prices_app_button": "価格アプリに移動",
   "prices_website_button": "Open Pricesウェブサイトで開く",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
+  "prices_bulk_proof_upload_select": "ギャラリーから直接値札を追加",
+  "prices_bulk_proof_upload_warning": "画像を選択すると、編集できなくなります。",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
   "prices_bulk_proof_upload_community_switch": "AI によって抽出された価格をコミュニティが検証できるようにします。",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_subtitle": "複数の値札",
+  "prices_bulk_proof_upload_title": "一括校正アップロード",
   "prices_bulk_proof_upload_step_selecting": "ファイルの選択",
   "prices_bulk_proof_upload_step_starting": "アップロードを開始",
   "prices_bulk_proof_upload_step_copying": "ファイル #{index}/{count}をローカルにコピーしています",
@@ -2332,14 +2353,14 @@
       }
     }
   },
-  "prices_generic_title": "Prices",
-  "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-  "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-  "prices_add_an_item": "Add an item",
-  "prices_add_a_price": "Add a price",
-  "prices_add_a_receipt": "Add a receipt",
-  "prices_add_price_tags": "Add price tags",
-  "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+  "prices_generic_title": "価格",
+  "prices_add_n_prices": "{count,plural, =1{価格を追加します} other{{count} 価格を追加します}}",
+  "prices_send_n_prices": "{count,plural, =1{価格を送信} other{価格を送信 {count}}}",
+  "prices_add_an_item": "アイテムを追加する",
+  "prices_add_a_price": "価格を追加する",
+  "prices_add_a_receipt": "領収書を追加する",
+  "prices_add_price_tags": "値札を追加する",
+  "prices_barcode_already": "このバーコード ({barcode}) はすでにリストに存在します。",
   "@prices_barcode_already": {
     "description": "Error message about barcode being already there",
     "placeholders": {
@@ -2349,8 +2370,8 @@
     }
   },
   "prices_barcode_search_not_found": "Product not found",
-  "prices_barcode_search_none_yet": "No product yet",
-  "prices_barcode_search_running": "Looking for {barcode}",
+  "prices_barcode_search_none_yet": "まだ製品はありません",
+  "prices_barcode_search_running": "{barcode}を探しています",
   "@prices_barcode_search_running": {
     "description": "Dialog title about barcode look-up",
     "placeholders": {
@@ -2359,7 +2380,7 @@
       }
     }
   },
-  "prices_barcode_enter": "Enter the Barcode",
+  "prices_barcode_enter": "バーコードを入力してください",
   "prices_category_enter": "バーコードのない商品",
   "prices_per_kilogram": "キログラムあたりの価格",
   "@prices_per_kilogram": {
@@ -2380,8 +2401,8 @@
   "prices_category_mandatory": "必須",
   "prices_category_optional": "オプション",
   "prices_category_error_mandatory": "カテゴリーは必須です",
-  "prices_barcode_reader_action": "Barcode reader",
-  "prices_view_prices": "View the prices",
+  "prices_barcode_reader_action": "バーコードリーダー",
+  "prices_view_prices": "価格を見る",
   "prices_list_title": "価格表",
   "prices_list_count": "\n価格の数",
   "@prices_list_count": {
@@ -2408,7 +2429,7 @@
   "prices_entry_menu_my_prices": "他の価格を見る",
   "prices_entry_menu_author_prices": "著者による他の価格を見る",
   "prices_entry_menu_shop_prices": "ショップの他の価格を見る",
-  "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+  "prices_product_accessibility_summary": "{count,plural, =1{1 つの価格} other{{count} の価格}} は {product}です",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2420,7 +2441,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+  "prices_list_length_one_page": "{count,plural, =0{価格はまだ設定されていません} =1{価格は 1 つだけです} other{すべての {count} の価格}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2429,7 +2450,7 @@
       }
     }
   },
-  "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+  "prices_list_length_many_pages": "最新の {pageSize} 価格（合計: {total}）",
   "@prices_list_length_many_pages": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2441,7 +2462,7 @@
       }
     }
   },
-  "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+  "prices_entry_accessibility_label": "価格: {price} / ストア: \"{location}\" / 公開日: {date} 、投稿者: \"{user}\"",
   "@prices_entry_accessibility_label": {
     "description": "Accessibility label for a price entry",
     "placeholders": {
@@ -2459,7 +2480,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Open proofs of \"{user}\"",
+  "prices_open_user_proofs": "「{user}」の公開証明",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -2468,11 +2489,11 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "オープン価格証明",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{まだ証明されていません} =1{証明は 1 つだけです} other{すべての {count} 証明があります}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2481,7 +2502,7 @@
       }
     }
   },
-  "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+  "prices_proofs_list_length_many_pages": "最新の {pageSize} 個の証明 (合計: {total})",
   "@prices_proofs_list_length_many_pages": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2495,7 +2516,7 @@
   },
   "prices_users_empty_title": "まだ貢献者がいません!",
   "prices_users_empty_explanation": "最初に価格を追加してください!",
-  "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+  "prices_users_list_length_many_pages": "上位 {pageSize} 人の貢献者 (合計: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
     "placeholders": {
@@ -2509,7 +2530,7 @@
   },
   "prices_locations_empty_title": "まだショップはありません！",
   "prices_locations_empty_explanation": "最初に価格を追加してください!",
-  "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+  "prices_locations_list_length_many_pages": "上位 {pageSize} か所 (合計: {total}か所)",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
     "placeholders": {
@@ -2521,7 +2542,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+  "prices_button_count_proof": "{count,plural, =0{証明なし} =1{証明1つ} other{{count} 証明あり}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2530,7 +2551,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+  "prices_button_count_product": "{count,plural, =0{商品なし} =1{商品1個} other{{count} 商品}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2539,7 +2560,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+  "prices_button_count_user": "{count,plural, =0{ユーザーなし} =1{ユーザー 1 人} other{{count} ユーザー}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2548,7 +2569,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+  "prices_button_count_price": "{count,plural, =0{価格なし} =1{単一価格} other{{count} 価格}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -2558,38 +2579,38 @@
     }
   },
   "prices_amount_existing_subtitle": "以前に追加された価格",
-  "prices_amount_subtitle": "Amount",
-  "prices_amount_is_discounted": "Is discounted?",
-  "prices_amount_price_normal": "Price",
+  "prices_amount_subtitle": "額",
+  "prices_amount_is_discounted": "割引されますか？",
+  "prices_amount_price_normal": "価格",
   "prices_amount_price_discounted": "割引価格",
-  "prices_amount_price_not_discounted": "Original price",
-  "prices_amount_no_product": "One product is missing!",
-  "prices_amount_price_incorrect": "Incorrect value",
-  "prices_amount_price_mandatory": "Mandatory value",
-  "prices_currency_subtitle": "Currency",
-  "prices_date_subtitle": "Date",
-  "prices_location_subtitle": "Shop",
-  "prices_location_find": "Find a shop",
-  "prices_location_mandatory": "You need to select a shop!",
-  "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
-  "prices_proof_subtitle": "Proof",
+  "prices_amount_price_not_discounted": "元の価格",
+  "prices_amount_no_product": "商品が1つ不足しています。",
+  "prices_amount_price_incorrect": "値が正しくありません",
+  "prices_amount_price_mandatory": "必須値",
+  "prices_currency_subtitle": "通貨",
+  "prices_date_subtitle": "日付",
+  "prices_location_subtitle": "店",
+  "prices_location_find": "お店を探す",
+  "prices_location_mandatory": "ショップを選択する必要があります！",
+  "prices_location_search_broader": "探しているものが見つかりませんでしたか？もっと広い範囲で検索してみましょう！",
+  "prices_proof_subtitle": "証拠",
   "prices_proof_empty_title": "まだ証拠はありません!",
   "prices_proof_empty_explanation": "まずは**領収書**または**値札**の写真を追加しましょう！",
-  "prices_proof_find": "Select a proof",
-  "prices_proof_change": "Change proof",
+  "prices_proof_find": "証明を選択",
+  "prices_proof_change": "変更証明",
   "prices_proof_receipt": "領収書",
   "prices_proof_price_tag": "値札",
-  "prices_proof_mandatory": "You need to select a proof!",
-  "prices_add_validation_error": "Validation error",
-  "prices_privacy_warning_title": "Privacy warning",
-  "prices_unknown_product": "Unknown product",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-  "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-  "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-  "i_refuse": "I refuse",
-  "i_accept": "I accept",
-  "prices_currency_change_proposal_title": "Change the currency?",
+  "prices_proof_mandatory": "証明を選択する必要があります。",
+  "prices_add_validation_error": "検証エラー",
+  "prices_privacy_warning_title": "プライバシーに関する警告",
+  "prices_unknown_product": "不明な製品",
+  "prices_privacy_warning_main_message": "価格は**公開されます**。**価格が参照する店舗も公開されます。\n\nこれにより、Open Food Factsの仮名を知っている人が次のことを実行できるようになります。\n",
+  "prices_privacy_warning_message_bullet_1": "あなたが住んでいる地域を推測する",
+  "prices_privacy_warning_message_bullet_2": "何を買うのかを知る",
+  "prices_privacy_warning_sub_message": "ご不安な場合は、仮名を変更するか、新しい Open Food Facts アカウントを作成して、アプリにログインしてください。",
+  "i_refuse": "拒否します",
+  "i_accept": "承諾します",
+  "prices_currency_change_proposal_title": "通貨を変更しますか?",
   "prices_currency_change_proposal_message": "現在の通貨は**{currency}** です。**{newCurrency}**に変更しますか？",
   "@prices_currency_change_proposal_message": {
     "description": "Message to ask the user if they want to change the currency",
@@ -2602,7 +2623,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+  "prices_currency_change_proposal_action_approve": "はい、 {newCurrency}を使用してください",
   "@prices_currency_change_proposal_action_approve": {
     "description": "Button to approve the currency change",
     "placeholders": {
@@ -2611,7 +2632,7 @@
       }
     }
   },
-  "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+  "prices_currency_change_proposal_action_cancel": "いいえ、 {currency}を維持します",
   "@prices_currency_change_proposal_action_cancel": {
     "description": "Button to cancel the currency change",
     "placeholders": {
@@ -2623,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Open Pricesについて詳しく知る",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2632,19 +2653,19 @@
     "description": "User dev preferences - Import history - Result successful"
   },
   "dev_mode_section_server": "サーバー設定",
-  "dev_mode_section_news": "News provider configuration",
+  "dev_mode_section_news": "ニュースプロバイダーの設定",
   "dev_mode_section_product_page": "製品ページ",
   "dev_mode_section_ui": "ユーザインタフェース",
   "dev_mode_section_experimental_features": "試験的な機能",
-  "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+  "dev_mode_hide_environmental_score_title": "グリーンスコアを除外",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
   },
-  "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+  "dev_mode_spellchecker_for_ocr_title": "OCR画面でスペルチェッカーを使用する",
   "@dev_mode_spellchecker_for_ocr_title": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
   },
-  "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+  "dev_mode_spellchecker_for_ocr_subtitle": "（原材料と包装）",
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
@@ -2663,6 +2684,10 @@
   "search_history_item_edit_tooltip": "この検索を再利用して編集する",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "削除する",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "{totalSize} 製品をすべてダウンロードしました。",
   "@product_search_no_more_results": {
@@ -2688,7 +2713,7 @@
       }
     }
   },
-  "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+  "product_search_loading_message": "{search} の検索が進行中です。\n\n数秒お待ちください…",
   "@product_search_loading_message": {
     "description": "This message will be displayed when a search is in progress.",
     "search": {
@@ -2719,11 +2744,11 @@
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
-  "user_search_proof_title": "My proof",
+  "user_search_proof_title": "私の証明",
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "「{user}」からの証明",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -2741,19 +2766,19 @@
       }
     }
   },
-  "all_search_prices_latest_title": "Latest Prices added",
+  "all_search_prices_latest_title": "最新の価格を追加しました",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
-  "all_search_prices_top_user_title": "Top price contributors",
+  "all_search_prices_top_user_title": "価格に最も大きく貢献した企業",
   "@all_search_prices_top_user_title": {
     "description": "Top price users: list tile title"
   },
-  "all_search_prices_top_location_title": "Stores with the most prices",
+  "all_search_prices_top_location_title": "価格が最も高い店舗",
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "価格貢献アシスタント",
   "prices_validation_assistant": "Price Validation Assistant",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2762,15 +2787,15 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "複数の証明を追加する",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
-  "all_search_prices_top_location_single_title": "Prices in a store",
+  "all_search_prices_top_location_single_title": "店内の価格",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
   },
-  "all_search_prices_top_product_title": "Products with the most prices",
+  "all_search_prices_top_product_title": "価格が最も高い商品",
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
@@ -2794,7 +2819,7 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+  "signup_page_terms_of_use_line1": "私はオープンフードファクトに同意します ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
@@ -2844,7 +2869,7 @@
   "@edit_photo_select_existing_all_label": {
     "description": "Page title"
   },
-  "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+  "edit_photo_select_existing_all_subtitle": "画像をクリックして選択してください",
   "@edit_photo_select_existing_all_subtitle": {
     "description": "Page title"
   },
@@ -2870,27 +2895,27 @@
   },
   "basic_details": "基本情報",
   "product_name": "製品名",
-  "product_names": "Product Names",
+  "product_names": "製品名",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
-  "add_basic_details_product_name_add_translation": "Add a new translation",
+  "add_basic_details_product_name_add_translation": "新しい翻訳を追加する",
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "検証する前に、**パッケージに言語が記載されている場合**のみ翻訳を追加してください。",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
-  "add_basic_details_product_name_open_photo": "View front photo",
+  "add_basic_details_product_name_open_photo": "前面写真を見る",
   "@add_basic_details_product_name_open_photo": {
     "description": "Button to view the front photo of the product (on top of the screen)"
   },
-  "add_basic_details_product_name_take_photo": "Take front photo",
+  "add_basic_details_product_name_take_photo": "正面写真を撮る",
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
-  "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+  "add_basic_details_product_name_hint": "製品名を入力してください（例：ヌテラ）",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
@@ -2907,23 +2932,23 @@
       }
     }
   },
-  "explanation_section_good_examples": "Good examples",
+  "explanation_section_good_examples": "良い例",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
   },
-  "explanation_section_bad_examples": "Bad examples",
+  "explanation_section_bad_examples": "悪い例",
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "グッドプラクティス：製品名",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
-  "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+  "add_basic_details_product_name_help_info1": "製品名は**パッケージに印刷される主な名称**です。登録商標にすることもできます。",
   "@add_basic_details_product_name_help_info1": {
     "description": "Text explaining how to write the product name"
   },
-  "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+  "add_basic_details_product_name_help_info2": "**注意:** **パッケージに言語が記載されていない場合**は、翻訳を追加しないでください。",
   "@add_basic_details_product_name_help_info2": {
     "description": "Text explaining how to write the product name"
   },
@@ -2931,27 +2956,27 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "トマトケチャップ",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+  "add_basic_details_product_name_help_bad_examples_1_explanation": "名前にブランド名を含めないでください",
   "@add_basic_details_product_name_help_bad_examples_1_explanation": {
     "description": "Explanation for the first bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+  "add_basic_details_product_name_help_bad_examples_1_example": "トマトケチャップ **ハインツ**",
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "®、™、©などの記号は使用しないでください",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+  "add_basic_details_product_name_help_bad_examples_2_example": "ネスクイック**®**",
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
-  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} その他の翻訳} other{{count} その他の翻訳}}",
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
@@ -2963,70 +2988,70 @@
   "brand_name": "ブランド名",
   "brand_names": "ブランド名",
   "add_basic_details_brand_name_error": "ブランド名を入力してください",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_brand_names_hint": "入力ブランド（例：フェレロ）",
+  "add_basic_details_product_brand_help_title": "グッドプラクティス：ブランド",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "**製品のすべてのブランド**を入力します。",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "メインブランド",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "通常、フロントパックに明確に表示されている**メインブランド**を**最初に入力**する必要があります。",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "その他のブランド",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "**大企業が販売する場合**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**アクティメル**は**ダノン**によって販売されています",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "ブランド名を**複数の言語に翻訳**して販売する場合:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**ネイチャーバレー**は**ヴァルネイチャー**と表記されることもあります",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_good_examples_1": "Nutella",
+  "add_basic_details_product_brand_help_good_examples_1": "ヌテラ",
   "@add_basic_details_product_brand_help_good_examples_1": {
     "description": "A 1st good example for the brand name (you can change it if necessary)"
   },
-  "add_basic_details_product_brand_help_good_examples_2": "Oreo, Mondelez",
+  "add_basic_details_product_brand_help_good_examples_2": "オレオ、モンデリーズ",
   "@add_basic_details_product_brand_help_good_examples_2": {
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "数量と重量",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_quantity_hint": "重量と、必要に応じて数量を入力してください（例：4x100g）",
+  "add_basic_details_product_quantity_help_title": "グッドプラクティス：量",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "製品に表示されている値をコピーし、**単位を忘れないでください**。",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230g** または **230 g**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (卵6個分)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n（1箱150g入りの商品3個入り）",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3066,11 +3091,11 @@
       }
     }
   },
-  "confirm_delete_user_list_title": "Delete the list?",
+  "confirm_delete_user_list_title": "リストを削除しますか?",
   "@confirm_delete_user_list_title": {
     "description": "Title when asking about whether to delete the list or not"
   },
-  "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+  "confirm_delete_user_list_message": "リスト「{name}」を削除しようとしています。\n続行してもよろしいですか?",
   "@confirm_delete_user_list_message": {
     "description": "Message when asking about whether to delete the list or not",
     "placeholders": {
@@ -3079,7 +3104,7 @@
       }
     }
   },
-  "confirm_delete_user_list_button": "Yes, I confirm",
+  "confirm_delete_user_list_button": "はい、確認します",
   "@confirm_delete_user_list_button": {
     "description": "Button to delete a list"
   },
@@ -3170,7 +3195,7 @@
   "@share": {
     "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
   },
-  "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+  "share_product_text": "Open Food Factsでこの製品をご覧ください: {url}",
   "@share_product_text": {
     "description": "The content which is send, when sharing a 'food' product",
     "placeholders": {
@@ -3179,7 +3204,7 @@
       }
     }
   },
-  "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+  "share_product_text_beauty": "Open Beauty Factsでこの製品をご覧ください: {url}",
   "@share_product_text_beauty": {
     "description": "The content which is send, when sharing a 'beauty' product",
     "placeholders": {
@@ -3188,7 +3213,7 @@
       }
     }
   },
-  "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+  "share_product_text_pet_food": "Open PetFood Factsでこの製品をご覧ください: {url}",
   "@share_product_text_pet_food": {
     "description": "The content which is send, when sharing a 'pet food' product",
     "placeholders": {
@@ -3197,7 +3222,7 @@
       }
     }
   },
-  "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+  "share_product_text_product": "Open Products Facts でこの製品をご覧ください: {url}",
   "@share_product_text_product": {
     "description": "The content which is send, when sharing a 'products' product",
     "placeholders": {
@@ -3206,7 +3231,7 @@
       }
     }
   },
-  "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+  "share_product_list_text": "Open Food Facts の私の製品リストをご覧ください: {url}",
   "@share_product_list_text": {
     "description": "The content which is send, when sharing a product list",
     "placeholders": {
@@ -3231,7 +3256,7 @@
   "@image_upload_queued": {
     "description": "Message when a photo is queued for upload"
   },
-  "add_price_queued": "The price will be sent to the server as soon as possible.",
+  "add_price_queued": "価格はできるだけ早くサーバーに送信されます。",
   "@add_price_queued": {
     "description": "Message when an added price is queued for the server"
   },
@@ -3253,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "原材料パネルを広げたままにする",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "インターネットに接続されていません",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3287,7 +3307,7 @@
     "description": "Snackbar label after clipboard copy"
   },
   "clipboard_barcode_copied": "バーコード {barcode} がクリップボードにコピーされました！",
-  "open_product_website": "Open this product on the website",
+  "open_product_website": "この商品をウェブサイトで開く",
   "language_picker_label": "あなたの言語",
   "@language_picker_label": {
     "description": "Choose Application Language"
@@ -3296,7 +3316,7 @@
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
-  "currency_picker_label": "Your currency",
+  "currency_picker_label": "あなたの通貨",
   "@currency_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3312,7 +3332,7 @@
   "@no_email_client_available_dialog_title": {
     "description": "Title for the dialog when no email client is installed on the device"
   },
-  "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
+  "no_email_client_available_dialog_content": "mobile@openfoodfacts.org まで手動でメールをお送りください。",
   "@no_email_client_available_dialog_content": {
     "description": "Content for the dialog when no email client is installed on the device"
   },
@@ -3332,15 +3352,15 @@
       }
     }
   },
-  "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+  "scan_header_clear_button_tooltip": "カルーセルからすべての商品を削除します",
   "@scan_header_clear_button_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
   },
-  "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+  "scan_header_compare_button_invalid_state_tooltip": "比較するには少なくとも2つの製品をスキャンしてください",
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+  "scan_header_compare_button_valid_state_tooltip": "クリックしてスキャンした製品を比較してください",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
@@ -3356,15 +3376,15 @@
   "@scan_product_loading_long_request": {
     "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+  "scan_product_loading_unresponsive": "この製品はまだ検索中です。\n検索を再開しますか?",
   "@scan_product_loading_unresponsive": {
     "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
   },
-  "scan_product_loading_restart_button": "Restart search",
+  "scan_product_loading_restart_button": "検索を再開",
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+  "portion_calculator_description": "特定の量の栄養成分表示を計算する",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
@@ -3388,7 +3408,7 @@
       }
     }
   },
-  "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+  "portion_calculator_computation_error": "データが見つかりません。計算を実行できませんでした。",
   "@portion_calculator_computation_error": {
     "description": "Error message to explain that the computation of the portion calculator failed."
   },
@@ -3433,7 +3453,7 @@
   "@user_picture_source_remember": {
     "description": "Checkbox label when select a picture source"
   },
-  "user_picture_source_ask": "Ask each time",
+  "user_picture_source_ask": "毎回尋ねる",
   "@user_picture_source_ask": {
     "description": "Choice of asking the picture source every time"
   },
@@ -3452,19 +3472,19 @@
   "@show_password": {
     "description": "Show hidden password in password field"
   },
-  "owner_field_info_title": "Producer provided values",
+  "owner_field_info_title": "プロデューサー提供の値",
   "@owner_field_info_title": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+  "owner_field_info_message": "このロゴでは、プロデューサーが提供したデータが強調表示されますが、編集できない可能性があります。",
   "@owner_field_info_message": {
     "description": "Title of the 'producer provided' info list-tile"
   },
-  "owner_field_info_close_button": "Close this info",
+  "owner_field_info_close_button": "この情報を閉じる",
   "@owner_field_info_close_button": {
     "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
   },
-  "owner_field_image": "This image is provided by the producer. It may not be editable.",
+  "owner_field_image": "この画像は制作者から提供されたものであり、編集できない可能性があります。",
   "@owner_field_image": {
     "description": "An image is directly provided by the producer. It may be locked and not be editable."
   },
@@ -3694,7 +3714,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+  "download_top_n_products": "あなたの国のトップの {count,plural,  other{{count} 製品}} をダウンロードしてすぐにスキャンしてください",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -3719,7 +3739,7 @@
   "@update_offline_data": {
     "description": "List tile title for the update offline data page"
   },
-  "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+  "update_local_database_sub": "Open Food Factsの最新データでローカル製品データベースを更新します",
   "@update_local_database_sub": {
     "description": "Update the local product database with the latest data from server"
   },
@@ -3777,11 +3797,11 @@
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
-  "language_selector_section_selected": "Selected languages",
+  "language_selector_section_selected": "選択した言語",
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "よく使われる",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3789,25 +3809,25 @@
   "@action_delete_list": {
     "description": "Delete a list action in a menu"
   },
-  "action_change_list": "Change the current list",
+  "action_change_list": "現在のリストを変更する",
   "@action_change_list": {
     "description": "Action to change the current visible list"
   },
-  "product_list_create": "Create",
+  "product_list_create": "作成する",
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
-  "product_list_create_tooltip": "Create a new list",
+  "product_list_create_tooltip": "新しいリストを作成する",
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
-  "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "ニュートリスコア {letter} (新しい計算)",
+  "nutriscore_a": "Nutri-ScoreA",
+  "nutriscore_b": "Nutri-ScoreB",
+  "nutriscore_c": "Nutri-ScoreC",
+  "nutriscore_d": "Nutri-ScoreD",
+  "nutriscore_e": "Nutri-ScoreE",
+  "nutriscore_new_formula": "Nutri-Score {letter} (新しい計算)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3816,11 +3836,11 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "ニュートリスコア（新しい計算）",
+  "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
   "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "ニュートリスコアは適用されません（新しい計算）",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
+  "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "グリーンスコアA",
   "environmental_score_b_new": "グリーンスコアB",
@@ -3830,24 +3850,24 @@
   "environmental_score_unknown_new": "不明なグリーンスコア",
   "environmental_score_not_applicable_new": "グリーンスコアは適用されません",
   "nova_group_generic_new": "超加工食品 - NOVAグループ",
-  "nova_group_1": "NOVA Group 1",
-  "nova_group_2": "NOVA Group 2",
-  "nova_group_3": "NOVA Group 3",
-  "nova_group_4": "NOVA Group 4",
-  "nova_group_unknown": "Unknown NOVA Group",
+  "nova_group_1": "NOVAグループ1",
+  "nova_group_2": "NOVAグループ2",
+  "nova_group_3": "NOVAグループ3",
+  "nova_group_4": "NOVAグループ4",
+  "nova_group_unknown": "不明なNOVAグループ",
   "nutrition_facts": "栄養レベル",
   "faq_title_partners": "NGO のパートナーと後援者",
   "faq_title_vision": "Open Food Facts ビジョン、使命、価値観、プログラム",
   "faq_title_install_beauty": "Open Beauty Facts をインストールして化粧品データベースを作成する",
   "faq_title_install_pet": "Open Pet Food Facts をインストールしてペットフード データベースを作成する",
   "faq_title_install_product": "Open Products Facts をインストールして製品データベースを作成し、オブジェクトの寿命を延ばす",
-  "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+  "faq_nutriscore_nutriscore": "Nutri-Score の新しい計算: 何が新しいのでしょうか?",
   "contact_title_pro_page": "プロ？ Open Food Facts に製品をインポートします",
   "contact_title_pro_email": "プロデューサー連絡先",
   "contact_title_press_page": "プレスページ",
   "contact_title_press_email": "報道関係者向けのお問い合わせ先",
   "contact_title_newsletter": "Subscribe to our newsletter",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "コミュニティカレンダーを購読する",
   "hunger_games_loading_line1": "数秒お待ちください…",
   "hunger_games_loading_line2": "質問をダウンロード中です！",
   "hunger_games_error_label": "ああ！問題が発生した… 、質問を読み込むことができませんでした。",
@@ -3860,7 +3880,7 @@
   "@link_cant_be_opened": {
     "description": "An error may happen if the device doesn't have a browser installed."
   },
-  "knowledge_panel_page_title_no_title": "Details for {productName}",
+  "knowledge_panel_page_title_no_title": "{productName}の詳細",
   "@knowledge_panel_page_title_no_title": {
     "description": "The title of the page when we click on an item in the product page and this page is unnamed",
     "placeholders": {
@@ -3869,7 +3889,7 @@
       }
     }
   },
-  "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+  "knowledge_panel_page_title": "{pageName} の詳細と {productName}",
   "@knowledge_panel_page_title": {
     "description": "The title of the page when we click on an item in the product page",
     "placeholders": {
@@ -3915,9 +3935,9 @@
   "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_title": "新しい Nutri-Score 計算はどこにありますか?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score は、フランス、ドイツ、ベルギー、スペイン、ルクセンブルク、オランダ、スイスの 7 か国で適用されています。",
+  "guide_nutriscore_v2_where_paragraph2": "製造業者は、法令の署名後、遅くとも **2 年** 以内に古い計算を新しい計算に置き換える必要があります**。",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
@@ -3958,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "海水と淡水（粒子、酸性化、富栄養化）",
   "guide_greenscore_lca_arg3_text8": "資源の枯渇。",
   "guide_greenscore_bonuses_penalties_title": "ボーナスとペナルティ",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "カテゴリー内でより優れた製品に報酬を与えるために、**いくつかの基準に基づいてボーナスとペナルティを適用します**。",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**公式ラベル、環境上の利点を保証するラベルまたは認証** (オーガニック、フェアトレード、HVE、Label Rouge、Bleu Blanc Cœur、MSC/ASC) が付いた製品には、**ボーナス** が付与されます。",
   "guide_greenscore_bonuses_penalties_arg2_title": "成分の起源",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "原材料の原産地に基づいて**ボーナス**が付与されます。このボーナスは、**輸送への影響**と、各生産国の**環境政策**を考慮に入れています。",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "パーム油などの、大規模な森林破壊の原因となっている生産など、**生物多様性と生態系に重大な悪影響を与える**成分を含む製品には、**罰則**が科せられます。",
   "guide_greenscore_bonuses_penalties_arg4_title": "パッケージング",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "**ペナルティ**は、**包装の循環性**（リサイクル原材料の使用とリサイクル性）と過剰梱包を考慮して計算されます。",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_intro1": "グリーンスコアを正確に計算するには、**パッケージに必ずしも明記されていない情報** (原産地や各成分の正確な割合など)、または使用可能な形式で入手できることがほとんどない情報 (パッケージのすべてのコンポーネントのリストと、使用されているプラスチックの正確な種類など) が必要です。",
+  "guide_greenscore_transparency_intro2": "**この情報がまだ入手できない場合は平均値が使用されます**が、現在、私たちはこの情報を収集するために皆様の協力を呼びかけています。この情報は、グリーンスコアだけでなく、他の多くの用途にも非常に役立ちます。",
+  "guide_greenscore_transparency_arg1_title": "国民はどのように支援できるでしょうか?",
+  "guide_greenscore_transparency_arg1_text": "すべての市民は、**パッケージ**に関する情報など、製品に存在する情報や製品から推測できる情報を収集し、構造化することに協力できます。「Mission Emballages」は、すべての食品のパッケージの大規模な共同インベントリです（フランス語）。",
   "guide_greenscore_transparency_arg2_title": "メーカーがどのように支援できるか",
   "guide_greenscore_transparency_arg2_text": "メーカーは、当社の生産者向け無料プラットフォームを通じて、直接情報をお送りいただけます。",
   "guide_greenscore_better_product_title": "どちらの製品が地球にとって良いのでしょうか?",
@@ -4009,120 +4029,120 @@
   "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "超処理の問題点",
   "guide_nova_explanations_arg1_title": "食品原料の極端な加工",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "多くは、水素化油やエステル交換油、加水分解タンパク質、大豆タンパク質分離物、マルトデキストリン、転化糖、高果糖コーンシロップなど、**食品成分のさらなる加工から得られます**。",
   "guide_nova_explanations_arg2_title": "純粋な食品安全性を超えた添加物",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "超加工食品に含まれる添加物には、保存料、酸化防止剤、安定剤など、加工食品にも使用されるものが含まれます。超加工食品にのみ含まれる添加物には、**食品の官能特性を模倣または強化するため、あるいは最終製品の不快な側面を隠すため**に使用されるものが含まれます。これらの添加物には、染料などの着色料、色安定剤、香料、風味増強剤、非糖類甘味料、そして炭酸化剤、硬化剤、増量剤、膨張防止剤、消泡剤、固結防止剤、艶出し剤、乳化剤、金属イオン封鎖剤、保湿剤などの加工助剤が含まれます。",
   "guide_nova_explanations_arg3_title": "自宅ではできない処理",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "通常は多くの材料を組み合わせ、最終製品を作るために、**多数の工程が連続して用いられます**（そのため「超加工」と呼ばれます）。これらの工程には、水素化、加水分解、押し出し、成形、揚げるための前処理など、**国内には同等の工程がない**ものもいくつか含まれています。",
   "guide_nova_explanations_arg4_title": "超加工の略奪的かつ経済的側面",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://en.openfoodfacts.org/nova",
+  "guide_nova_explanations_arg4_text": "**超加工の全体的な目的は、ブランド化され、**便利**（耐久性があり、すぐに食べられる）、**魅力的**（非常に美味しい）、そして**高収益**（低コストの原材料）な食品を製造し、他のすべての食品群に取って代わることです。超加工食品は通常、魅力的なパッケージで包装され、集中的に販売されます。",
+  "guide_nova_explanations_arg5_title": "健康被害",
+  "guide_nova_explanations_arg5_text": "2018年以来、NutriNet-Santéの取り組みにより、**超加工食品の摂取とがん、心血管疾患、糖尿病のリスク増加との関連性が初めて明らかにされました**。現在、世界中で90件以上の研究でこれらの知見が確認されています。\n最も強い関連性は、**肥満、心血管疾患による死亡率、うつ症状**に関連しています。小児においては、主に体重と脂質の不均衡に影響が見られます。",
+  "guide_nova_explanations_arg6_title": "各国は制限を推奨",
+  "guide_nova_explanations_arg6_text": "一部の国では、食事のガイドラインや目標に NOVA グループを使用しています。例:\n\n- **🇧🇷ブラジル**の食事ガイドラインでは、**加工食品の消費を制限**し、超加工食品を避けることを推奨しています。\n\n- **🇫🇷フランス**の 2018～2022 年の公衆衛生栄養政策目標は、**グループ 4 の超加工食品の消費を 20% 削減**することを目指しています。",
+  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Open Food Facts へようこそ!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Factsとは何ですか?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts は、世界中の食品に関する**共同**的、**無料**、**オープン**なデータベースです。",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "私たちは、誰もが自分が食べるものに関する情報にアクセスできるべきだと考えています。原材料、アレルゲン、栄養成分表示などのデータを収集することで、**消費者が情報に基づいた選択を行えるように支援**し、食品業界の**透明性の向上**を推進します。",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://en.openfoodfacts.org/openfoodfacts",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_food_facts_features_title": "Open Food Factsの特徴",
+  "guide_open_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
+  "guide_open_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
+  "guide_open_food_facts_tips_arg1_title": "してはいけないこと",
+  "guide_open_food_facts_tips_arg1_text1": "影やまぶしさを避けてください。",
+  "guide_open_food_facts_tips_arg1_text2": "ぼやけたテキストや焦点が合っていないテキストはありません。",
+  "guide_open_food_facts_tips_arg1_text3": "テキストの一部を切り取らないでください。",
+  "guide_open_food_facts_tips_arg1_text4": "雑然とした背景は避けてください。",
+  "guide_open_food_facts_tips_arg2_title": "すべきこと",
+  "guide_open_food_facts_tips_arg2_text1": "良好で均一な照明を使用してください。",
+  "guide_open_food_facts_tips_arg2_text2": "テキストが鮮明で読みやすいことを確認します。",
+  "guide_open_food_facts_tips_arg2_text3": "材料リスト全体をキャプチャします。",
+  "guide_open_food_facts_tips_arg2_text4": "製品を平らな面に置いてください。",
+  "guide_open_food_facts_scores_title": "「食のウィキペディア」の構築にご協力ください",
+  "guide_open_food_facts_scores_arg1_title": "栄養価のスコア",
+  "guide_open_food_facts_scores_arg2_title": "超加工食品を避けるためのスコア",
+  "guide_open_food_facts_scores_arg3_title": "地球のためのスコア",
+  "guide_open_food_facts_share_link": "https://world-ja.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Open Pet Food Facts へようこそ!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Factsとは何ですか?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts は、私たちの使命を愛するペットたちにまで広げます！**猫、犬、その他のペットのためのペットフード製品のデータベース**です。",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "私たちは、ペットの飼い主が動物のニーズに最適な食べ物を選択できるように、**原材料**、**栄養分析**、給餌ガイドラインに関する情報を収集しています。",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "ペットにアレルギーのある成分はありますか？避けるべき化粧品成分のリストをアプリ内で設定できます。",
+  "guide_open_pet_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
+  "guide_open_pet_food_facts_tips_arg1_title": "してはいけないこと",
+  "guide_open_pet_food_facts_tips_arg1_text1": "影やまぶしさを避けてください。",
+  "guide_open_pet_food_facts_tips_arg1_text2": "ぼやけたテキストや焦点が合っていないテキストはありません。",
+  "guide_open_pet_food_facts_tips_arg1_text3": "テキストの一部を切り取らないでください。",
+  "guide_open_pet_food_facts_tips_arg1_text4": "雑然とした背景は避けてください。",
+  "guide_open_pet_food_facts_tips_arg2_title": "すべきこと",
+  "guide_open_pet_food_facts_tips_arg2_text1": "良好で均一な照明を使用してください。",
+  "guide_open_pet_food_facts_tips_arg2_text2": "テキストが鮮明で読みやすいことを確認します。",
+  "guide_open_pet_food_facts_tips_arg2_text3": "材料リスト全体をキャプチャします。",
+  "guide_open_pet_food_facts_tips_arg2_text4": "製品を平らな面に置いてください。",
+  "guide_open_pet_food_facts_scores_title": "スコアリングに関する注意",
+  "guide_open_pet_food_facts_scores_paragraph1": "ペットフードのスコアリングシステムの開発は**現時点では優先事項ではありません**。栄養ニーズは種、年齢、健康状態によって大きく異なるため、その方法論は複雑になります。そのようなスコアを開発できる独立した科学チームはまだ見つかっていません。",
   "guide_open_pet_food_facts_share_link": "https://world-ja.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Open Beauty Facts へようこそ!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Factsとは何ですか?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts は、**化粧品** の共同データベースです。",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "私たちの目標は、**パーソナルケア製品に何が含まれているのか**を理解していただくために、成分リストを解読することです。保湿剤から化粧品まで、化粧品業界の透明性を高めるために、成分、アレルゲン、パッケージに関するデータを収集しています。",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
-  "guide_open_beauty_facts_share_link": "https://jp.openfoodfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_beauty_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "成分にアレルギーがありますか？コメドゲン物質を避けたいですか？物議を醸す成分を避けたいですか？アプリ内で、避けたい化粧品成分のリストを設定できます！",
+  "guide_open_beauty_facts_tips_title": "素晴らしい写真を撮るためのヒント",
+  "guide_open_beauty_facts_tips_arg1_title": "してはいけないこと",
+  "guide_open_beauty_facts_tips_arg1_text1": "影やまぶしさを避けてください。",
+  "guide_open_beauty_facts_tips_arg1_text2": "ぼやけたテキストや焦点が合っていないテキストはありません。",
+  "guide_open_beauty_facts_tips_arg1_text3": "テキストの一部を切り取らないでください。",
+  "guide_open_beauty_facts_tips_arg1_text4": "雑然とした背景は避けてください。",
+  "guide_open_beauty_facts_tips_arg2_title": "すべきこと",
+  "guide_open_beauty_facts_tips_arg2_text1": "良好で均一な照明を使用してください。",
+  "guide_open_beauty_facts_tips_arg2_text2": "テキストが鮮明で読みやすいことを確認します。",
+  "guide_open_beauty_facts_tips_arg2_text3": "材料リスト全体をキャプチャします。",
+  "guide_open_beauty_facts_tips_arg2_text4": "ボトルが湾曲している場合は、必要なだけ写真を撮ってください。",
+  "guide_open_beauty_facts_tips_arg2_text5": "原材料のリストを確認するには、ラベルを剥がす必要があるかもしれません。",
+  "guide_open_beauty_facts_tips_arg2_text6": "製品を平らな面に置いてください。",
+  "guide_open_beauty_facts_scores_title": "スコアリングに関する注意",
+  "guide_open_beauty_facts_scores_paragraph1": "食品とは異なり、化粧品の世界には**Nutri-Score**のような、世界的に認知され、政府が支援する評価システムはありません。成分の効果は個人差が大きく、肌質、アレルギー、個人の悩みによって異なります。",
+  "guide_open_beauty_facts_share_link": "https://world-ja.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Open Pricesへようこそ！",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Open Pricesとは何ですか?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices は、**世界中の商品の価格を収集・共有する**プロジェクトです。これは、研究や分析などに利用できる公開データセットです。Open Prices は、Open Food Facts によって開発・管理されています。",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4130,78 +4150,78 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_how_title": "Open Pricesはどのように機能しますか?",
+  "guide_open_prices_how_paragraph1": "**オープンソースの価格データセットをクラウドソーシングしています**。ユーザーは、このウェブアプリまたは公式のOpen Food Factsモバイルアプリから価格を追加できます。小売業者やサードパーティ製アプリも、APIを使用して価格データに貢献できます。",
+  "guide_open_prices_how_arg1_title": "通路にある値札の写真を集める",
+  "guide_open_prices_how_arg2_title": "領収書の写真を集める",
+  "guide_open_prices_why_title": "Open Food Facts はなぜこれを行っているのでしょうか?",
+  "guide_open_prices_why_paragraph1": "価格情報は、食料システムを理解する上で極めて重要です。食料コストを理解し、より健康的な食生活を促進する上で重要な要素です。価格データを公開することで、研究者、ジャーナリスト、そして一般市民は、**食料価格が地域や時間によってどのように変動するかをより深く理解**しやすくなります。",
+  "guide_open_prices_why_arg1_title": "時間の経過に伴う価格の推移を追跡する",
+  "guide_open_prices_why_arg1_text": "**価格の推移**をご覧ください: シュリンクフレーション、チープフレーション、これらを一緒に追跡できます!",
+  "guide_open_prices_why_arg2_title": "お近くの価格を比較",
+  "guide_open_prices_why_arg2_text": "より多くの価格を入手すれば、**あなたの周囲で最も安い店舗**を見つけることができます。",
+  "guide_open_prices_scrapping_title": "小売業者のウェブサイトから価格をスクレイピングすることを検討しましたか?",
+  "guide_open_prices_scrapping_paragraph1": "法的および技術的な理由により、**小売業者のウェブサイトから価格をスクレイピングすることは、Open Pricesへの貢献方法としては有効とは考えていません**。収集する価格が正確かつ最新のものであることを保証したいと考えており、貢献者からスクレイピングされた価格を受け取ることで、それが可能になるわけではありません。",
+  "guide_open_prices_scrapping_paragraph2": "価格スクレイピングは、Open Prices の将来のバージョンでは検討中のオプションですが、HTML ページに基づいて価格を証明できるように、Open Prices 自体によって実行される予定です。",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "当社の API を使用して価格を提供できます。\n大規模な価格を提供したい場合は、prices@openfoodfacts.org までご連絡ください。",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Open Products Facts へようこそ!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Open Products Facts とは何ですか?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts は、**食品、化粧品、ペットフード以外のバーコード付き製品** に関する大規模なオープン データベースです。",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "**電化製品**から**おもちゃ**、**衣類**から**掃除用品**まで、バーコードがあれば追加できます。このプロジェクトは、日常のあらゆるモノに「モノのインターネット」を構築し、それらに関する情報を誰もがアクセスできるようにすることを目的としています。",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://en.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_open_products_facts_features_text": "Open Products Facts は、物品を維持、**修理**、**リサイクル**したり、新しい所有者に譲渡したりするための循環型ソリューションを提供することで、消費者に**物品の寿命を延ばす**ことを目指しています。",
+  "guide_open_products_facts_features_arg1_title": "一部の製品のカーボンフットプリント",
+  "guide_open_products_facts_features_arg1_text": "フランス環境庁 ADEME による **Impact CO2** では、多くのカテゴリーの **炭素影響** が示されています。製品を正確に分類するようにしてください。",
+  "guide_open_products_facts_features_arg2_title": "多くの製品の修理可能性指数",
+  "guide_open_products_facts_features_arg2_text": "フランスの修復可能性指数が利用可能になり次第、表示します。さらに、**Folksonomy Engineを使って変数の収集を開始できます**。これにより、将来、修復可能性指数が利用できない国でも、私たち自身で再計算できるようになります。",
+  "guide_open_products_facts_features_arg3_title": "製品を寄付/再販する方法を見つける",
+  "guide_open_products_facts_features_arg3_text": "地球資源に優しい中古品として、お探しの商品を手に入れるのに役立つ**サードパーティの循環型サービス**へのリンクを提供しています。\nなお、私たちはこれらのサービスに対して報酬を受け取っておらず、このシステムはフランスの2つのウェブサイトの例としてのみ機能しています。Wikiでより多くのサイトをドキュメント化することで、このシステムの拡張にご協力いただけます。",
+  "guide_open_products_facts_information_title": "どのような情報が役立ちますか?",
+  "guide_open_products_facts_information_text": "幅広い商品を扱うため、**収集するデータは柔軟です**。そのために、**フォークソノミーエンジン**を開発しました。",
+  "guide_open_products_facts_folksonomy_title": "フォークソノミーエンジン",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engineは、関連性の高いプロパティを持つ商品を完成させるためのツールです。検索性と発見性を向上させるだけでなく、将来的に興味深い情報を計算して表示するのに役立ちます。",
+  "guide_open_products_facts_folksonomy_paragraph2": "次のような任意のキーと値を追加できます: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "可能なプロパティが自動的に提案されるので、お気に入りの種類の製品に新しいプロパティを追加して文書化することもできます。",
+  "guide_open_products_facts_share_link": "https://world-ja.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "食べ物の好みをオープンにする",
+  "guide_coming_soon_button_title": "近日公開",
+  "guide_learn_more_subtitle": "タップして詳細をご覧ください",
   "preview_badge": "プレビュー",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
   },
-  "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+  "prices_feedback_form": "この新機能についてのフィードバックをお送りいただくには、ここをクリックしてください。",
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
-  "menu_button_list_actions": "Select an action",
+  "menu_button_list_actions": "アクションを選択",
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
-  "error_loading_photo": "Error loading photo",
+  "error_loading_photo": "写真の読み込みエラー",
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Use as…",
+  "photo_viewer_action_use_picture_as": "…として使用",
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "この写真を…として使用します",
   "@photo_viewer_use_picture_as_tooltip": {
     "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
   },
-  "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+  "photo_viewer_use_picture_as_title": "この画像を… ({language}) として使用します",
   "@photo_viewer_use_picture_as_title": {
     "description": "The title of a dialog to use the current picture as front/ingredients…",
     "placeholders": {
@@ -4210,15 +4230,15 @@
       }
     }
   },
-  "photo_viewer_details_button": "Details",
+  "photo_viewer_details_button": "詳細",
   "@photo_viewer_details_button": {
     "description": "Button to show details of the photo"
   },
-  "photo_viewer_details_button_accessibility_label": "Details of this photo",
+  "photo_viewer_details_button_accessibility_label": "この写真の詳細",
   "@photo_viewer_details_button_accessibility_label": {
     "description": "Accessibility label for the Details button on a photo"
   },
-  "photo_viewer_details_title": "Details of the photo",
+  "photo_viewer_details_title": "写真の詳細",
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
@@ -4226,11 +4246,11 @@
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
-  "photo_viewer_details_size_title": "Size",
+  "photo_viewer_details_size_title": "サイズ",
   "@photo_viewer_details_size_title": {
     "description": "Label for the size of a photo"
   },
-  "photo_viewer_details_size_value": "{width} x {height} pixels",
+  "photo_viewer_details_size_value": "{width} x {height} ピクセル",
   "@photo_viewer_details_size_value": {
     "description": "Value for the size of a photo",
     "placeholders": {
@@ -4242,7 +4262,7 @@
       }
     }
   },
-  "photo_viewer_details_date_title": "Date",
+  "photo_viewer_details_date_title": "日付",
   "@photo_viewer_details_date_title": {
     "description": "Label for the uploaded date of a photo"
   },
@@ -4250,15 +4270,15 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "product_page_compatibility_score": "Compatible",
+  "product_page_compatibility_score": "互換性がある",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
   },
-  "user_lists_action_multi_select": "Multi-select",
+  "user_lists_action_multi_select": "複数選択",
   "@user_lists_action_multi_select": {
     "description": "The button label for multi-selecting products in a user list"
   },
-  "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+  "product_page_compatibility_score_tooltip": "あなたの互換性スコア: {score}%",
   "@product_page_compatibility_score_tooltip": {
     "description": "Message explaining that the score is the compatibility score",
     "placeholders": {
@@ -4275,23 +4295,23 @@
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
-  "product_image_nutrition_accessibility_label": "Nutrition picture",
+  "product_image_nutrition_accessibility_label": "栄養画像",
   "@product_image_nutrition_accessibility_label": {
     "description": "Accessibility label for the image of the nutrition"
   },
-  "product_image_packaging_accessibility_label": "Packaging picture",
+  "product_image_packaging_accessibility_label": "パッケージ写真",
   "@product_image_packaging_accessibility_label": {
     "description": "Accessibility label for the image of the packaging"
   },
-  "product_image_other_accessibility_label": "Other picture",
+  "product_image_other_accessibility_label": "その他の写真",
   "@product_image_other_accessibility_label": {
     "description": "Accessibility label for an image"
   },
-  "product_image_outdated_message": "This picture may be outdated",
+  "product_image_outdated_message": "この写真は古い可能性があります",
   "@product_image_outdated_message": {
     "description": "Small message to indicate that the image may be outdated"
   },
-  "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+  "product_image_outdated_message_accessibility_label": "{type} (この画像は古い可能性があります)",
   "@product_image_outdated_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be outdated",
     "placeholders": {
@@ -4300,7 +4320,7 @@
       }
     }
   },
-  "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+  "product_image_locked_message_accessibility_label": "{type} (この画像はプロデューサーによってロックされている可能性があります)",
   "@product_image_locked_message_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
     "placeholders": {
@@ -4309,11 +4329,11 @@
       }
     }
   },
-  "product_image_error": "Unable to load the image!",
+  "product_image_error": "画像を読み込めません!",
   "@product_image_error": {
     "description": "Small message that will be displayed above the picture (please keep it short)"
   },
-  "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+  "product_image_error_accessibility_label": "{type} を読み込めません (ネットワーク エラーでしょうか?)",
   "@product_image_error_accessibility_label": {
     "description": "Accessibility label for the image on the product page when it fails to load",
     "placeholders": {
@@ -4326,47 +4346,47 @@
   "@product_page_image_no_image_available": {
     "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
   },
-  "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+  "product_page_image_no_image_available_accessibility_label": "この商品の画像はありません",
   "@product_page_image_no_image_available_accessibility_label": {
     "description": "Accessibility label for the image on the product page when there is no image available on the database"
   },
-  "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+  "product_page_action_bar_settings_accessibility_label": "アクションの順序を変更または非表示にする",
   "@product_page_action_bar_settings_accessibility_label": {
     "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
   },
-  "product_page_action_bar_setting_modal_title": "Edit actions",
+  "product_page_action_bar_setting_modal_title": "編集アクション",
   "@product_page_action_bar_setting_modal_title": {
     "description": "Title for the modal allowing to show and reorder actions"
   },
-  "product_page_action_bar_item_move_up": "Move up",
+  "product_page_action_bar_item_move_up": "上に移動",
   "@product_page_action_bar_item_move_up": {
     "description": "Accessibility label to move up an action"
   },
-  "product_page_action_bar_item_move_down": "Move down",
+  "product_page_action_bar_item_move_down": "下に移動",
   "@product_page_action_bar_item_move_down": {
     "description": "Accessibility label to move down an action"
   },
-  "product_page_action_bar_item_enable": "Enable action",
+  "product_page_action_bar_item_enable": "アクションを有効にする",
   "@product_page_action_bar_item_enable": {
     "description": "Accessibility label to enable action (= make it visible)"
   },
-  "product_page_action_bar_item_disable": "Disable action",
+  "product_page_action_bar_item_disable": "アクションを無効にする",
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Uploading your edits…",
+  "product_page_pending_operations_banner_title": "編集内容をアップロードしています…",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+  "product_page_pending_operations_banner_message": "このページに表示されているデータは**まだ変更を反映していません**。\n数秒お待ちください…",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
-  "product_add_a_language": "Add a language",
+  "product_add_a_language": "言語を追加する",
   "@product_add_a_language": {
     "description": "Button to add a language (eg: for photos) to a product"
   },
-  "barcode_accessibility_label": "Barcode {barcode}",
+  "barcode_accessibility_label": "バーコード {barcode}",
   "@barcode_accessibility_label": {
     "description": "Accessibility label for a barcode image",
     "placeholders": {
@@ -4379,68 +4399,68 @@
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
   },
-  "carousel_unsupported_header": "Unsupported barcode!",
+  "carousel_unsupported_header": "サポートされていないバーコードです。",
   "@carousel_unsupported_header": {
     "description": "A label on top of the carousel card when the barcode is not supported by the app"
   },
-  "carousel_unsupported_title": "Ooops!",
-  "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-  "carousel_error_header": "Error!",
+  "carousel_unsupported_title": "おっと！",
+  "carousel_unsupported_text": "スキャンされたバーコードは Open Food Facts ではサポートされていません。",
+  "carousel_error_header": "エラー！",
   "@carousel_error_header": {
     "description": "A label on top of the carousel card when there is an error (mainly network issues)"
   },
-  "carousel_error_title": "It's a bummer!",
-  "carousel_error_text_1": "We couldn't download information on this barcode:",
-  "carousel_error_text_2": "Please check your Internet connection or click this button:",
+  "carousel_error_title": "それは残念だ！",
+  "carousel_error_text_1": "このバーコードに関する情報をダウンロードできませんでした:",
+  "carousel_error_text_2": "インターネット接続を確認するか、このボタンをクリックしてください:",
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_error_button": "再試行",
-  "carousel_unknown_product_header": "Unknown product",
+  "carousel_unknown_product_header": "不明な製品",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+  "carousel_unknown_product_title": "おめでとうございます！\n__珍しい宝石を見つけました！__",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
-  "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+  "carousel_unknown_product_text": "当社の共同データベースには**300 万以上の製品**が含まれていますが、このバーコードは存在しません: ",
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
   "carousel_unknown_product_button": "この製品を追加",
-  "carousel_loading_header": "Loading information...",
+  "carousel_loading_header": "情報を読み込んでいます...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
   },
-  "carousel_loading_title": "You've just scanned a product with the following barcode:",
-  "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+  "carousel_loading_title": "次のバーコードが付いた製品をスキャンしました:",
+  "carousel_loading_text": "**300 万点以上の製品**を収録したデータベースで検索中です。",
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+  "product_type_subtitle_food": "野菜、果物、冷凍食品…",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
-  "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+  "product_type_subtitle_beauty": "化粧品、石鹸、歯磨き粉…",
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Food for dogs, cats…",
+  "product_type_subtitle_pet_food": "犬、猫の食べ物…",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, furniture…",
+  "product_type_subtitle_product": "スマートフォン、家具…",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
-  "photo_field_front": "Product photo",
+  "photo_field_front": "製品写真",
   "photo_field_ingredients": "原材料の画像",
-  "photo_field_nutrition": "Nutrition photo",
+  "photo_field_nutrition": "栄養写真",
   "photo_field_packaging": "パッケージ情報の画像",
-  "photo_already_exists": "This photo already exists",
-  "photo_missing": "This photo is missing",
-  "date": "Date",
+  "photo_already_exists": "この写真は既に存在します",
+  "photo_missing": "この写真がありません",
+  "date": "日付",
   "photo_rotate_left": "左に回転",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
@@ -4449,11 +4469,11 @@
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
-  "photo_undo_action": "Undo the previous action",
+  "photo_undo_action": "前の操作を元に戻す",
   "@photo_undo_action": {
     "description": "Button to undo the previous action on a photo"
   },
-  "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+  "knowledge_panel_world_map_accessibility_label": "{location}の世界地図",
   "@knowledge_panel_world_map_accessibility_label": {
     "description": "Accessibility label for the world map in the knowledge panel",
     "placeholders": {
@@ -4462,11 +4482,11 @@
       }
     }
   },
-  "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+  "open_street_map_contributor_attribution": "OpenStreetMap貢献者",
   "@open_street_map_contributor_attribution": {
     "description": "Attribution for OpenStreetMap contributors"
   },
-  "not_applicable_short": "N/A",
+  "not_applicable_short": "該当なし",
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
@@ -4474,11 +4494,11 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-  "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "この Nutri-Score はパッケージに記載されているものとなぜ違うのですか?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "考えられる理由は2つあります。\n原材料名または栄養成分表示が最新ではありません。\n\nNutri-Score（またはV2）は「新しい計算方法」で提供されています。パッケージに「新しい計算方法」のバナーが付いていることをご確認ください。",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button1": "材料を確認する",
+  "knowledge_panel_nutriscore_banner_incorrect_score_button2": "栄養成分表示を確認する",
+  "url_not_supported": "残念ながら、URLを開くことができません:\n{url}",
   "@url_not_supported": {
     "description": "Error message when the app can't open a URL",
     "placeholders": {
@@ -4487,15 +4507,15 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "輸出",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "輸入",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
-  "product_footer_action_barcode": "View barcode",
+  "product_footer_action_barcode": "バーコードを表示",
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
@@ -4503,19 +4523,19 @@
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
-  "product_footer_action_open_website": "Open website",
+  "product_footer_action_open_website": "ウェブサイトを開く",
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "報告",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
-  "product_footer_action_contributor_guide": "Help",
+  "product_footer_action_contributor_guide": "ヘルプ",
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
-  "product_footer_action_data_quality_tags": "Data quality",
+  "product_footer_action_data_quality_tags": "データ品質",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
@@ -4527,25 +4547,31 @@
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
   },
-  "product_page_tab_prices": "Prices",
+  "product_page_tab_prices": "価格",
   "@product_page_tab_prices": {
     "description": "Label of the prices tab on the product page"
   },
-  "product_page_tab_folksonomy": "Folksonomy",
+  "prices_explanation_card_title": "なぜ価格なのですか?",
+  "prices_explanation_card_line1": "**Open Prices** は、世界中の商品の価格を収集し共有するプロジェクトです🌍。Open Prices は、Open Food Facts によって開発および管理されています。",
+  "explanation_card_learn_more_button": "詳細",
+  "product_page_tab_folksonomy": "フォークソノミー",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_explanation_card_title": "Folksonomy の属性とは何ですか?",
+  "folksonomy_explanation_card_line1": "属性は**キーと値**に基づいています。",
+  "folksonomy_explanation_card_line2": "これらのプロパティは、あらゆる用途のために貢献者によって作成され、ファイルされます。",
+  "folksonomy_action_external_link_title": "外部リンクを開く",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "外部リンクは安全ではない可能性があります。本当にアクセスしてもよろしいですか？",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
   "prices_products_empty_title": "価格はありません",
   "prices_products_empty_explanation": "最初に貢献しましょう！",
-  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "prices_products_list_length_many_pages": "上位 {pageSize} 製品 (合計: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
     "placeholders": {
@@ -4557,31 +4583,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "このアプリを楽しんでいますか?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "もっと良くできる",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "悪くない",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "大好きです！",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "アプリケーションの改善にご協力ください",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "数分お時間がありましたら、**今後のアップデートで改善できるよう**、このフォームにご回答いただけますでしょうか。",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "フォームに回答する",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4589,11 +4615,11 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "新機能：写真から栄養素を自動的に抽出できます！",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "今すぐ抽出",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
@@ -4605,7 +4631,7 @@
   "@nutrition_facts_extract_successful": {
     "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_failed": "画像から栄養素を抽出できませんでした",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4613,15 +4639,15 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "統計",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "価格統計",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
-  "prices_stats_prices_section": "Prices",
+  "prices_stats_prices_section": "価格",
   "@prices_stats_prices_section": {
     "description": "Title for the prices section"
   },
@@ -4693,7 +4719,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "OpenStreetMap",
+  "prices_stats_osm": "オープンストリートマップ",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -4757,19 +4783,19 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "最終更新日",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "統計の読み込み中にエラーが発生しました。",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "質問にお答えします！",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
-  "product_edit_robotoff_proof": "Proof",
+  "product_edit_robotoff_proof": "証拠",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
@@ -4777,7 +4803,7 @@
   "@preferences_card_general": {
     "description": "Title for the general preferences card"
   },
-  "preferences_prices_title": "Prices",
+  "preferences_prices_title": "価格",
   "@preferences_prices_title": {
     "description": "Title for the prices preferences title"
   },
@@ -4965,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "オープンフードファクトのウェブサイト",
+  "preferences_on_off_website_subtitle": "Open Food Factsのウェブサイト",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5074,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "オープンフードファクトを発見",
+  "preferences_faq_discover_off_title": "Open Food Factsを発見",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5086,7 +5112,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Open Pricesを見る",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5098,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "オープンフードファクトNGO",
+  "preferences_faq_off_ngo_title": "Open Food FactsNGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5114,7 +5140,7 @@
   "@preferences_connect_newsletter_subtitle": {
     "description": "Subtitle for newsletter tile"
   },
-  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "preferences_connect_community_calendar_title": "コミュニティカレンダーを購読する",
   "@preferences_connect_community_calendar_title": {
     "description": "Title for community calendar tile"
   },
@@ -5122,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "オープンフードファクトブログ",
+  "preferences_connect_blog_title": "Open Food Factsブログ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5226,7 +5252,7 @@
   "@preferences_contribute_country_subtitle": {
     "description": "Subtitle for improve country tile"
   },
-  "preferences_contribute_data_quality_title": "Data quality",
+  "preferences_contribute_data_quality_title": "データ品質",
   "@preferences_contribute_data_quality_title": {
     "description": "Title for data quality card"
   },
@@ -5254,7 +5280,7 @@
   "@preferences_contributions_all_incomplete_title": {
     "description": "Title for all incomplete products tile"
   },
-  "preferences_my_contributions_prices_title": "Prices",
+  "preferences_my_contributions_prices_title": "価格",
   "@preferences_my_contributions_prices_title": {
     "description": "Title for a container linking to user prices"
   },
@@ -5294,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "オープン価格コミュニティによって追加された最新の価格",
+  "preferences_prices_newest_subtitle": "Open Pricesコミュニティによって追加された最新の価格",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5412,12 +5438,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{total} 件中 {count} 件目",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} 個のアイテム",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} 個のアイテム",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -5522,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "オープンフードファクトラボ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Factsラボ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5557,12 +5607,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "場所の詳細",
   "location_map_details_name": "名前",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "通り",
+  "location_map_details_city": "市",
+  "location_map_details_postcode": "郵便番号",
   "location_map_details_country": "Country",
-  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_coordinates": "座標",
   "location_map_details_osm_id": "OSM ID"
 }
