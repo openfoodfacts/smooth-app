@@ -4052,8 +4052,8 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Co je to Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **kolaborativní**, **bezplatná** a **otevřená** databáze potravinářských produktů z celého světa.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
