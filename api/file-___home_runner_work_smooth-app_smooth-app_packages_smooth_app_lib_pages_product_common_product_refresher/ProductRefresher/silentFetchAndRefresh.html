@@ -91,6 +91,9 @@
         localDatabase,
       ).put(result.product!, language, productType: productType);
       localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+
+      unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
+
       return FetchedProduct.found(result.product!);
     }
     return const FetchedProduct.internetNotFound();
