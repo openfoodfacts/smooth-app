@@ -189,13 +189,7 @@ class ProductRefresher {
         ).put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
 
-        unawaited(
-          BackgroundTaskFolksonomy.serverRefresh(
-            barcode,
-            DaoFolksonomy(localDatabase),
-            localDatabase,
-          ),
-        );
+        unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
 
         return FetchedProduct.found(result.product!);
       }
@@ -259,6 +253,21 @@ class ProductRefresher {
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       return null;
+    }
+  }
+
+  Future<void> _failSafeFolksonomyRefresh(
+    String barcode,
+    LocalDatabase localDatabase,
+  ) async {
+    try {
+      await BackgroundTaskFolksonomy.serverRefresh(
+        barcode,
+        DaoFolksonomy(localDatabase),
+        localDatabase,
+      );
+    } catch (e) {
+      return;
     }
   }
 }
