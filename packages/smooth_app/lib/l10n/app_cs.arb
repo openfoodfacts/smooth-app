@@ -4040,7 +4040,7 @@
   "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Predátorské a finanční aspekty ultraprocessingu",
   "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_title": "Zdravotní riziko",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
@@ -4048,7 +4048,7 @@
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Vítejte na Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4199,7 +4199,7 @@
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://world-cs.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
+  "guide_coming_soon_button_title": "Již brzy",
   "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Náhled",
   "@preview_badge": {
@@ -4791,7 +4791,7 @@
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Při načítání statistik došlo k chybě.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
@@ -5112,15 +5112,15 @@
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Objevte Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Objevte Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Objevte Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5611,12 +5611,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Podrobnosti o poloze",
   "location_map_details_name": "Jméno",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Ulice",
+  "location_map_details_city": "Město",
+  "location_map_details_postcode": "PSČ",
   "location_map_details_country": "Země",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Souřadnice",
+  "location_map_details_osm_id": "ID OSM"
 }
