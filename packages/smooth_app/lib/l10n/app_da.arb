@@ -4135,18 +4135,18 @@
   "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
   "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
   "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Tag så mange billeder som nødvendigt, hvis flasken er buet.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Du skal muligvis fjerne etiketten for at se ingredienslisten.",
   "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
   "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_scores_paragraph1": "I modsætning til fødevarer har kosmetikverdenen **ikke et universelt anerkendt, statsstøttet scoringssystem som Nutri-Score**. Ingrediensernes virkninger kan være meget individuelle og afhænge af hudtype, allergier og personlige bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-da.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Velkommen til Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Hvad er Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et projekt, der har til formål at **indsamle og dele priser på produkter fra hele verden**. Det er et offentligt tilgængeligt datasæt, der kan bruges til forskning, analyse og mere. Open Prices er udviklet og vedligeholdt af Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4154,44 +4154,44 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_how_title": "Hvordan fungerer Open Prices?",
+  "guide_open_prices_how_paragraph1": "**Vi crowdsourcer et open source-datasæt med priser**. Priser kan tilføjes af brugere via denne webapp eller via den officielle Open Food Facts-mobilapp. Detailhandlere eller tredjepartsapps kan også bidrage ved hjælp af vores API.",
+  "guide_open_prices_how_arg1_title": "Saml billeder af prisskilte i butikken",
+  "guide_open_prices_how_arg2_title": "Saml billeder af kvitteringer",
+  "guide_open_prices_why_title": "Hvor indsamler Open Food Facts priser?",
+  "guide_open_prices_why_paragraph1": "Prisinformation er af afgørende betydning for at forstå fødevaresystemer. Det er en nøglefaktor i at forstå prisen på fødevarer og fremme sundere kostvaner. Åbning af prisdata er en måde at gøre det lettere for forskere, journalister og borgere at **få en bedre forståelse af, hvordan fødevarepriser varierer geografisk og over tid**.",
+  "guide_open_prices_why_arg1_title": "Spor prisudviklingen over tid",
+  "guide_open_prices_why_arg1_text": "Se **prisudviklingen**: krympe-inflation, billig-inflation, vi kan spore dem sammen!",
+  "guide_open_prices_why_arg2_title": "Sammenlign priser i nærheden af dig",
+  "guide_open_prices_why_arg2_text": "Efterhånden som vi får flere priser, kan du finde **de billigste butikker i nærheden af dig**.",
+  "guide_open_prices_scrapping_title": "Har du overvejet at scrape priser fra forhandlernes hjemmesider?",
+  "guide_open_prices_scrapping_paragraph1": "Af juridiske og tekniske årsager **anser vi ikke det at indsamle priser fra detailhandleres hjemmesider som en gyldig måde at bidrage til Open Prices**. Vi ønsker at sikre os, at de priser, vi indsamler, er nøjagtige og opdaterede, og det er ikke muligt at modtage indsamlede priser fra bidragydere.",
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "Jeg er forhandler, og jeg vil gerne bidrage med priser. Hvordan kan jeg gøre det?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Velkommen til Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Hvad er Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts er en massiv, åben database for **ethvert produkt med en stregkode, som ikke er fødevarer, kosmetik eller kæledyrsfoder**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Fra **elektronik** til **legetøj** og **tøj** til **rengøringsartikler**, kan det tilføjes, hvis det har en stregkode. Dette projekt har til formål at skabe et \"tingenes internet\" for hverdagsgenstande og gøre information om dem universelt tilgængelig.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_title": "Funktioner i Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts har til formål at give forbrugerne mulighed for at **forlænge levetiden på deres genstande** ved at tilbyde cirkulære løsninger til at vedligeholde, **reparere**, **genbruge** deres genstande eller give dem en ny ejer.",
+  "guide_open_products_facts_features_arg1_title": "CO2-aftryk for nogle produkter",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
   "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
   "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
   "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
   "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_title": "Hvilke oplysninger er nyttige?",
   "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
   "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
@@ -4200,7 +4200,7 @@
   "guide_open_products_facts_share_link": "https://world-da.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_learn_more_subtitle": "Tryk for at lære mere",
   "preview_badge": "Forhåndsvisning",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4565,11 +4565,11 @@
   "folksonomy_explanation_card_title": "Hvad er Folksonomys attributter?",
   "folksonomy_explanation_card_line1": "Attributter er **nøgleværdibaserede**.",
   "folksonomy_explanation_card_line2": "Disse egenskaber oprettes og arkiveres af bidragydere til enhver form for anvendelse.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Åbn eksternt link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Eksterne links kan være usikre. Vil du virkelig besøge dem?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5108,19 +5108,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Opdag Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Opdag Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Opdag Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Opdag Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5611,7 +5611,7 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Placeringsoplysninger",
   "location_map_details_name": "Navn",
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
