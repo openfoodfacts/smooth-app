@@ -400,6 +400,24 @@ class KnowledgePanelsBuilder {
     final bool simplified = true,
   }) {
     if (knowledgePanel.titleElement == null) {
+      if (simplified) {
+        for (final KnowledgePanelElement element
+            in knowledgePanel.elements ?? <KnowledgePanelElement>[]) {
+          if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
+            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
+              element: element,
+              product: product,
+            );
+            if (squarePanels.isNotEmpty) {
+              return KnowledgePanelSquareCard(
+                panels: squarePanels,
+                product: product,
+              );
+            }
+          }
+        }
+      }
+
       return null;
     }
 

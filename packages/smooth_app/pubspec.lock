@@ -583,8 +583,10 @@ packages:
     description:
       name: flutter_custom_tabs_ios
       sha256: "27988bf8f28aaa93643de6d09c372ff3b50f3adad376c172d66d4bc9f48a9db5"
+      sha256: "27988bf8f28aaa93643de6d09c372ff3b50f3adad376c172d66d4bc9f48a9db5"
       url: "https://pub.dev"
     source: hosted
+    version: "2.4.1"
     version: "2.4.1"
   flutter_custom_tabs_platform_interface:
     dependency: transitive

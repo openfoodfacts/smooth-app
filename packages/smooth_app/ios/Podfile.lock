@@ -46,6 +46,7 @@ PODS:
     - Flutter
   - Flutter (1.0.0)
   - flutter_custom_tabs_ios (2.4.1):
+  - flutter_custom_tabs_ios (2.4.1):
     - Flutter
   - flutter_email_sender (0.0.1):
     - Flutter
