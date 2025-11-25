@@ -1150,7 +1150,7 @@ packages:
       path: "../../../openfoodfacts-dart"
       relative: true
     source: path
-    version: "3.27.0"
+    version: "3.28.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1674,14 +1674,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.7"
-  timing:
-    dependency: transitive
-    description:
-      name: timing
-      sha256: "62ee18aca144e4a9f29d212f5a4c6a053be252b895ab14b5821996cff4ed90fe"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   torch_light:
     dependency: transitive
     description:
