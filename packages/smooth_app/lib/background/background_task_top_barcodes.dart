@@ -111,6 +111,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
             language: ProductQuery.getLanguage(),
             country: ProductQuery.getCountry(),
             version: ProductQuery.productQueryVersion,
+            activateKnowledgePanelsSimplified: true,
           ),
           uriHelper: uriProductHelper,
           type: SearchProductsType.background,

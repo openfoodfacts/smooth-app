@@ -97,6 +97,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.symmetric(
         vertical: iconWidget == null ? MEDIUM_SPACE : BALANCED_SPACE,
+        horizontal: LARGE_SPACE,
       ),
       child: Semantics(
         value: _generateSemanticsValue(context),

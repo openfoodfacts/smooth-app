@@ -133,6 +133,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
             language: language,
             country: ProductQuery.getCountry(),
             version: ProductQuery.productQueryVersion,
+            activateKnowledgePanelsSimplified: true,
           ),
           uriHelper: uriProductHelper,
           type: SearchProductsType.background,

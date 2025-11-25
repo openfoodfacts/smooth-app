@@ -13,6 +13,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
     required this.isClickable,
     required this.isTextSelectable,
     required this.position,
+    this.simplified = false,
   });
 
   final KnowledgePanelPanelGroupElement groupElement;
@@ -20,6 +21,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
   final bool isClickable;
   final bool isTextSelectable;
   final int position;
+  final bool simplified;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
               panelId: panelId,
               product: product,
               isClickable: isClickable,
+              simplified: simplified,
             ),
         ],
       ),

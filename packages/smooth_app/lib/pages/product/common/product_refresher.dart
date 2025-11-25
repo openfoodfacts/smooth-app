@@ -81,6 +81,7 @@ class ProductRefresher {
     country: ProductQuery.getCountry(),
     version: ProductQuery.productQueryVersion,
     productTypeFilter: ProductTypeFilter.all,
+    activateKnowledgePanelsSimplified: true,
   );
 
   /// Returns the standard configuration for several barcodes product query.
@@ -96,6 +97,7 @@ class ProductRefresher {
       PageSize(size: barcodes.length),
     ],
     version: ProductQuery.productQueryVersion,
+    activateKnowledgePanelsSimplified: true,
   );
 
   /// Fetches the products from the server and refreshes the local database.
