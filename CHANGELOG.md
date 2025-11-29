@@ -2473,3 +2473,4 @@
 * contributors dialog ([#641](https://www.github.com/openfoodfacts/smooth-app/issues/641)) ([b7b7983](https://www.github.com/openfoodfacts/smooth-app/commit/b7b798342559abfaab6824227fd1aea586023b9c))
 * deprecated share package + analyzer warnings ([#656](https://www.github.com/openfoodfacts/smooth-app/issues/656)) ([61576de](https://www.github.com/openfoodfacts/smooth-app/commit/61576ded7128aa34b8ac5283532cced4872c8226))
 * null crash in new product page with knowledge panels builder ([#675](https://www.github.com/openfoodfacts/smooth-app/issues/675)) ([76222ac](https://www.github.com/openfoodfacts/smooth-app/commit/76222ac7c106873ef233b42c82b823172305837a))
+[blank line added]
