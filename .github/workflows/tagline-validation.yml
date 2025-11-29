@@ -1,0 +1,66 @@
+name: Tagline JSON Validation
+
+on:
+  # Run on a schedule to regularly check tagline JSON validity
+  schedule:
+    - cron: '0 6 * * *'  # Run daily at 6 AM UTC
+  
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to validate (prod, dev, or all)'
+        required: false
+        default: 'prod'
+        type: choice
+        options:
+          - prod
+          - dev
+          - all
+
+  # Run on PRs that modify the validation script
+  pull_request:
+    paths:
+      - '.github/scripts/validate_tagline_json.py'
+      - '.github/workflows/tagline-validation.yml'
+      - 'packages/smooth_app/lib/data_models/news_feed/newsfeed_json.dart'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-tagline:
+    name: Validate Tagline JSON
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      
+      - name: Run tagline JSON validation
+        id: validation
+        run: |
+          ENV="${{ github.event.inputs.environment || 'prod' }}"
+          echo "Validating environment: $ENV"
+          
+          # Run validation and capture output
+          python .github/scripts/validate_tagline_json.py --env "$ENV" > validation_report.md 2>&1 || EXIT_CODE=$?
+          
+          # Output the report
+          cat validation_report.md
+          
+          # Exit with the validation script's exit code
+          exit ${EXIT_CODE:-0}
+      
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tagline-validation-report
+          path: validation_report.md
+          retention-days: 7
