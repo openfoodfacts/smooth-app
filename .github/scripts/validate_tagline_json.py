@@ -33,12 +33,15 @@ import urllib.request
 import urllib.error
 from typing import Dict, List, Optional, Tuple, Any
 
+# Base URL for the tagline JSON files in the assets repository
+ASSETS_BASE_URL = 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main'
+
 # URLs for the tagline JSON files
 TAGLINE_URLS = {
-    'android_prod': 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/main.json',
-    'ios_prod': 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/main.json',
-    'android_dev': 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/dev/tagline/android/main.json',
-    'ios_dev': 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/dev/tagline/ios/main.json',
+    'android_prod': f'{ASSETS_BASE_URL}/prod/tagline/android/main.json',
+    'ios_prod': f'{ASSETS_BASE_URL}/prod/tagline/ios/main.json',
+    'android_dev': f'{ASSETS_BASE_URL}/dev/tagline/android/main.json',
+    'ios_dev': f'{ASSETS_BASE_URL}/dev/tagline/ios/main.json',
 }
 
 # Color hex pattern
@@ -399,6 +402,21 @@ def format_validation_report(source: str, errors: List[ValidationError]) -> str:
     return "\n".join(sections)
 
 
+def format_fetch_error_report(source: str, error: str) -> str:
+    """Format a fetch error as a validation report."""
+    sections = []
+    
+    sections.append("## Tagline JSON Validation Report")
+    sections.append("")
+    sections.append(f"**Source:** `{source}`")
+    sections.append("")
+    sections.append("### ❌ Fetch Failed")
+    sections.append("")
+    sections.append(error)
+    
+    return "\n".join(sections)
+
+
 def main():
     """Main function to run tagline JSON validation."""
     parser = argparse.ArgumentParser(description='Validate tagline JSON files')
@@ -428,7 +446,7 @@ def main():
         data, fetch_error = fetch_json(url)
         
         if fetch_error:
-            all_reports.append(f"## Tagline JSON Validation Report\n\n**Source:** `{name}`\n\n### ❌ Fetch Failed\n\n{fetch_error}")
+            all_reports.append(format_fetch_error_report(name, fetch_error))
             has_errors = True
             continue
         
