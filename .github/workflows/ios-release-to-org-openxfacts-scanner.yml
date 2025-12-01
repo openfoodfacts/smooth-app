@@ -40,7 +40,7 @@ on:
 env:
   JAVA_VERSION: 21
   RUBY_VERSION: 3.2.0
- 
+
 jobs:
   testflight-release:
     name: Build and deploy to TestFlight testers (${{ inputs.APP_IDENTIFIER }})

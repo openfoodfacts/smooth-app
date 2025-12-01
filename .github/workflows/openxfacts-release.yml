@@ -22,7 +22,7 @@ on:
         default: both
 
 env:
- RUBY_VERSION: 3.2.0
+  RUBY_VERSION: 3.2.0
 
 jobs:
   tag-commit:
