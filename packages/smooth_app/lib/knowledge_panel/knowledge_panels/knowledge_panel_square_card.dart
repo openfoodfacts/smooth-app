@@ -25,7 +25,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: square
           ? <Widget>[
-              ...List.generate((panels.length + 1) ~/ 2, (int index) {
+              ...List<Widget>.generate((panels.length + 1) ~/ 2, (int index) {
                 final int firstIndex = index * 2;
                 final int secondIndex = firstIndex + 1;
                 return Column(
@@ -149,19 +149,6 @@ class KnowledgePanelSquareCard extends StatelessWidget {
         color: indicatorColor(evaluation, themeExtension),
       ),
     );
-  }
-
-  String _formatValue(double? value) {
-    if (value == null) {
-      return '';
-    }
-
-    String formatted = value.toString();
-    if (formatted.contains('.')) {
-      formatted = formatted.replaceAll(RegExp(r'0*$'), '');
-      formatted = formatted.replaceAll(RegExp(r'\.$'), '');
-    }
-    return formatted;
   }
 
   Color indicatorColor(
