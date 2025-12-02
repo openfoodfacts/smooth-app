@@ -317,6 +317,22 @@ class KnowledgePanelsBuilder {
         );
 
       case KnowledgePanelElementType.PANEL_GROUP:
+        final List<KnowledgePanel> squarePanels = <KnowledgePanel>[];
+        for (final String panelId in element.panelGroupElement!.panelIds) {
+          final KnowledgePanel? panel =
+              KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+          if (panel != null && (panel.halfWidthOnMobile ?? false)) {
+            squarePanels.add(panel);
+          }
+        }
+
+        if (squarePanels.isNotEmpty) {
+          return KnowledgePanelSquareCard(
+            panels: squarePanels,
+            product: product,
+          );
+        }
+
         return KnowledgePanelGroupCard(
           groupElement: element.panelGroupElement!,
           product: product,
@@ -383,24 +399,6 @@ class KnowledgePanelsBuilder {
     final bool simplified = true,
   }) {
     if (knowledgePanel.titleElement == null) {
-      if (simplified) {
-        for (final KnowledgePanelElement element
-            in knowledgePanel.elements ?? <KnowledgePanelElement>[]) {
-          if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
-            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
-              element: element,
-              product: product,
-            );
-            if (squarePanels.isNotEmpty) {
-              return KnowledgePanelSquareCard(
-                panels: squarePanels,
-                product: product,
-              );
-            }
-          }
-        }
-      }
-
       return null;
     }
 

@@ -25,32 +25,35 @@ class KnowledgePanelSquareCard extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: square
           ? <Widget>[
-              IntrinsicHeight(
-                child: Row(
+              ...List.generate((panels.length + 1) ~/ 2, (int index) {
+                final int firstIndex = index * 2;
+                final int secondIndex = firstIndex + 1;
+                return Column(
                   children: <Widget>[
-                    _buildPanel(context, panels[0], themeExtension),
-                    const VerticalDivider(thickness: 1.0),
-                    if (panels.length > 1)
-                      _buildPanel(context, panels[1], themeExtension)
-                    else
-                      const Spacer(),
+                    if (index > 0) const Divider(thickness: 1.0),
+                    IntrinsicHeight(
+                      child: Row(
+                        children: <Widget>[
+                          _buildPanel(
+                            context,
+                            panels[firstIndex],
+                            themeExtension,
+                          ),
+                          const VerticalDivider(thickness: 1.0),
+                          if (secondIndex < panels.length)
+                            _buildPanel(
+                              context,
+                              panels[secondIndex],
+                              themeExtension,
+                            )
+                          else
+                            const Spacer(),
+                        ],
+                      ),
+                    ),
                   ],
-                ),
-              ),
-              if (panels.length > 2) const Divider(thickness: 1.0),
-              if (panels.length > 2)
-                IntrinsicHeight(
-                  child: Row(
-                    children: <Widget>[
-                      _buildPanel(context, panels[2], themeExtension),
-                      const VerticalDivider(thickness: 1.0),
-                      if (panels.length > 3)
-                        _buildPanel(context, panels[3], themeExtension)
-                      else
-                        const Spacer(),
-                    ],
-                  ),
-                ),
+                );
+              }),
             ]
           : <Widget>[
               const Divider(),
@@ -103,7 +106,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               children: <Widget>[
                 Flexible(
                   child: Text(
-                    panel.titleElement?.name ?? panel.titleElement?.title ?? '',
+                    panel.titleElement?.title ?? '',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -120,7 +123,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                 _buildIndicator(panel.evaluation, themeExtension),
                 const SizedBox(width: MEDIUM_SPACE),
                 Text(
-                  '${_formatValue(panel.titleElement?.value ?? 0)}${panel.titleElement?.type == TitleElementType.PERCENTAGE ? '%' : ''}',
+                  panel.titleElement?.subtitle ?? '',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: indicatorColor(panel.evaluation, themeExtension),
