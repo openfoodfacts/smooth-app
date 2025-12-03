@@ -1,0 +1,159 @@
+name: Google Play release to org.open*facts.scanner (OBF, OPFF, OPF)
+
+on:
+  workflow_call:
+    inputs:
+      VERSION_NAME:
+        required: true
+        type: string
+      VERSION_CODE:
+        required: true
+        type: string
+      # 'PLAY' or 
+      # 'GITHUB' (requires [RELEASE_TAG] for the gh release to push to)
+      RELEASE_TYPE:
+        required: true
+        type: string
+      # 'apk' or 'appbundle'
+      BUILD_TYPE:
+        required: true
+        type: string
+      # The name of the entrypoints in packages/smooth_app/lib/entrypoints/android/
+      # Example for entrypoints/android/main_google_play.dart
+      # Use <main_google_play> here
+      FLAVOR:
+        required: true
+        type: string
+      # 'mlkit' or 'zxing'
+      SCANNER:
+        required: true
+        type: string
+      # 'google_play' or 'uri_store'
+      APP_REVIEW:
+        required: true
+        type: string
+      TAG_NAME:
+        required: false
+        type: string
+      # Package name for the app (e.g., org.openbeautyfacts.scanner, org.openpetfoodfacts.scanner, org.openproductsfacts.scanner)
+      PACKAGE_NAME:
+        required: true
+        type: string
+      # Keystore file to use for signing (e.g., keystore.jks or obf_keystore.jks)
+      # OFF and OPF use keystore.jks, OBF and OPFF use obf_keystore.jks
+      KEYSTORE_FILE:
+        required: true
+        type: string
+    secrets:
+      API_JSON_FILE_DECRYPTKEY:
+        required: true
+      STORE_JKS_DECRYPTKEY:
+        required: true
+      SIGN_STORE_PASSWORD:
+        required: true
+      SIGN_KEY_ALIAS:
+        required: true
+      SIGN_KEY_PASSWORD:
+        required: true
+  
+env:
+  JAVA_VERSION: 21
+  RUBY_VERSION: 3.2.0
+    
+jobs:
+  deploy_android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - run: echo Release type ${{ inputs.RELEASE_TYPE }} + Build type ${{ inputs.BUILD_TYPE }} + Tag name null if not github release ${{ inputs.TAG_NAME }} + Package ${{ inputs.PACKAGE_NAME }}
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5.0.0
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/android/
+
+      - name: Decrypt API JSON file and keystore
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets_multi.sh && ./decrypt_secrets_multi.sh
+        env:
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          KEYSTORE_FILE: ${{ inputs.KEYSTORE_FILE }}
+
+      # Get the flutter version from ./flutter-version.txt
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          #channel: stable
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+      - name: Flutter version    
+        run: flutter --version
+
+      - name: Enable correct scanner dependency
+        run: chmod +x ci/dependencies/scanner/enable_${{ inputs.SCANNER }}_dependency.sh && ci/dependencies/scanner/enable_${{ inputs.SCANNER }}_dependency.sh
+
+      - name: Enable correct app review dependency
+        run: chmod +x ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh && ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh
+
+      - name: Get dependencies
+        run: ci/pub_get.sh
+
+      # We are using the android version code here to have the version codes from iOS and android in sync 
+      # in order for Sentry and other tools to work properly
+      - name: Bump version
+        uses: maierj/fastlane-action@v3.1.0
+        with:
+          lane: setVersion
+          subdirectory: ./packages/smooth_app/android/
+        env:
+          VERSION_NAME: ${{ inputs.VERSION_NAME }}
+          VERSION_CODE: ${{ inputs.VERSION_CODE }}
+
+      - name: Build app
+        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ inputs.BUILD_TYPE }} --release -t lib/entrypoints/android/${{ inputs.FLAVOR }}.dart --target-platform android-arm,android-arm64
+        env:
+         SIGN_STORE_PATH: ./../fastlane/envfiles/${{ inputs.KEYSTORE_FILE }}
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        if: inputs.RELEASE_TYPE == 'GITHUB' && inputs.BUILD_TYPE == 'apk' && inputs.TAG_NAME != ''
+        continue-on-error: true
+        with:
+          file: ./packages/smooth_app/build/app/outputs/flutter-apk/app-release.apk
+          asset_name: ${{ inputs.PACKAGE_NAME }}-${{ inputs.FLAVOR }}-${{ inputs.TAG_NAME }}.apk
+          tag: ${{ inputs.TAG_NAME }}
+          overwrite: true
+
+      - name: Release AAB
+        uses: maierj/fastlane-action@v3.1.0
+        if: inputs.RELEASE_TYPE == 'PLAY' && inputs.BUILD_TYPE == 'appbundle'
+        with:
+          lane: release
+          subdirectory: ./packages/smooth_app/android/
+        env:
+         SIGN_STORE_PATH: ./../fastlane/envfiles/${{ inputs.KEYSTORE_FILE }}
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         PACKAGE_NAME: ${{ inputs.PACKAGE_NAME }}

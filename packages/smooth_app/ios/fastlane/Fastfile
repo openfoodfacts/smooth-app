@@ -54,4 +54,58 @@ platform :ios do
       itc_provider: "ZC9CYWD334"
     )
   end
+
+  desc "Push a new beta build to TestFlight for Open Beauty Facts, Open Pet Food Facts, or Open Products Facts"
+  lane :beta_multi do
+    # Use APP_IDENTIFIER from environment variable
+    APP_IDENTIFIER = ENV["APP_IDENTIFIER"]
+    
+    if APP_IDENTIFIER.nil? || APP_IDENTIFIER.empty?
+      UI.user_error!("APP_IDENTIFIER environment variable is required for beta_multi lane")
+    end
+    
+    puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
+
+    sync_code_signing(
+      type: "appstore", 
+      readonly: is_ci, 
+      clone_branch_directly: false,
+      app_identifier: APP_IDENTIFIER
+    )
+    update_code_signing_settings(
+      path: "Runner.xcodeproj",
+      use_automatic_signing: false,
+      build_configurations: "Release",
+      code_sign_identity: 'iPhone Distribution',
+      profile_name: "match AppStore #{APP_IDENTIFIER}",
+      targets: ["Runner"]
+    )
+  
+    update_project_team(
+      path: "Runner.xcodeproj",
+      teamid: "ZC9CYWD334"
+    )
+    
+    # build your iOS app
+    gym(
+      configuration: "Release",
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      export_method: "app-store",
+      export_options: {
+          provisioningProfiles: {
+              APP_IDENTIFIER => "match AppStore #{APP_IDENTIFIER}", 
+          }
+      }
+    )
+  
+    # Upload to test flight
+    upload_to_testflight(
+      app_identifier: APP_IDENTIFIER,
+      skip_submission: true,
+      skip_waiting_for_build_processing: true,
+      ipa: "./Runner.ipa",
+      itc_provider: "ZC9CYWD334"
+    )
+  end
 end

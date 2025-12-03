@@ -1,0 +1,190 @@
+name: Create releases for Open Beauty Facts, Open Pet Food Facts, and Open Products Facts
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to release'
+        required: true
+        type: choice
+        options:
+          - openbeautyfacts
+          - openpetfoodfacts
+          - openproductsfacts
+        default: openbeautyfacts
+      platforms:
+        description: 'Which platforms to release to'
+        required: true
+        type: choice
+        options:
+          - both
+          - android
+          - ios
+        default: both
+
+env:
+  RUBY_VERSION: 3.2.0
+
+jobs:
+  tag-commit:
+    concurrency: 
+      group: release-${{ inputs.app }}
+      cancel-in-progress: true
+    if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' || github.triggering_actor == 'M123-dev' || github.triggering_actor == 'raphael0202'
+    runs-on: ubuntu-latest
+    outputs:
+      VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
+      VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
+      PACKAGE_NAME: ${{ steps.set_package.outputs.PACKAGE_NAME }}
+      KEYSTORE_FILE: ${{ steps.set_package.outputs.KEYSTORE_FILE }}
+      APP_IDENTIFIER: ${{ steps.set_package.outputs.APP_IDENTIFIER }}
+      USES_OBF_KEY: ${{ steps.set_package.outputs.USES_OBF_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        
+      - name: Set package name and keystore based on app selection
+        id: set_package
+        run: |
+          case "${{ inputs.app }}" in
+            openbeautyfacts)
+              echo "PACKAGE_NAME=org.openbeautyfacts.scanner" >> $GITHUB_OUTPUT
+              echo "KEYSTORE_FILE=obf_keystore.jks" >> $GITHUB_OUTPUT
+              echo "APP_IDENTIFIER=org.openbeautyfacts.scanner" >> $GITHUB_OUTPUT
+              echo "USES_OBF_KEY=true" >> $GITHUB_OUTPUT
+              ;;
+            openpetfoodfacts)
+              echo "PACKAGE_NAME=org.openpetfoodfacts.scanner" >> $GITHUB_OUTPUT
+              echo "KEYSTORE_FILE=obf_keystore.jks" >> $GITHUB_OUTPUT
+              echo "APP_IDENTIFIER=org.openpetfoodfacts.scanner" >> $GITHUB_OUTPUT
+              echo "USES_OBF_KEY=true" >> $GITHUB_OUTPUT
+              ;;
+            openproductsfacts)
+              echo "PACKAGE_NAME=org.openproductsfacts.scanner" >> $GITHUB_OUTPUT
+              echo "KEYSTORE_FILE=keystore.jks" >> $GITHUB_OUTPUT
+              echo "APP_IDENTIFIER=org.openproductsfacts.scanner" >> $GITHUB_OUTPUT
+              echo "USES_OBF_KEY=false" >> $GITHUB_OUTPUT
+              ;;
+          esac
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+          #working-directory: packages/smooth_app/android
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/android/
+      # Get the latest version name from file
+      - name: Set VERSION_NAME env
+        run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
+
+      - name: Decrypt Android API JSON file
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        env:
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
+
+      # We are using the Android version code for iOS as well to have the version codes in sync 
+      # in order for Sentry and other tools to work properly
+      # Outputs env: VERSION_CODE (integer)
+      - name: Get latest VERSION_CODE
+        uses: maierj/fastlane-action@v3.1.0
+        with:
+          lane: getOldVersionCode
+          subdirectory: packages/smooth_app/android
+
+      - name: Version
+        run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+
+      - name: Normalized tag
+        id: normalized_tag
+        run: echo "NORMALIZED_TAG=$(echo "${{ inputs.app }}_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr "." "_")" >> $GITHUB_ENV
+
+      - name: Tag commit
+        uses: rickstaa/action-create-tag@v1
+        continue-on-error: true
+        with:
+          tag: "${{ env.NORMALIZED_TAG }}"
+          message: "${{ inputs.app }} release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+          force_push_tag: true
+
+      - name: Set output
+        id: set_output
+        run: echo "VERSION_CODE=${{ env.VERSION_CODE }}" >> $GITHUB_OUTPUT && echo "VERSION_NAME=${{ env.VERSION_NAME }}" >> $GITHUB_OUTPUT
+
+  # Android release for OBF and OPFF (uses OBF signing key)
+  android-release-obf-key:
+    concurrency: 
+      group: android-release-${{ inputs.app }}
+      cancel-in-progress: true
+    if: (inputs.platforms == 'both' || inputs.platforms == 'android') && needs.tag-commit.outputs.USES_OBF_KEY == 'true'
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openxfacts-scanner.yml@develop
+    needs: tag-commit
+    with:
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME }}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE }}
+      RELEASE_TYPE: 'PLAY'
+      BUILD_TYPE: 'appbundle'
+      FLAVOR: 'main_google_play'
+      SCANNER: 'mlkit'
+      APP_REVIEW: 'google_play'
+      PACKAGE_NAME: ${{ needs.tag-commit.outputs.PACKAGE_NAME }}
+      KEYSTORE_FILE: ${{ needs.tag-commit.outputs.KEYSTORE_FILE }}
+    secrets:
+      API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+      STORE_JKS_DECRYPTKEY: ${{ secrets.OBF_STORE_JKS_DECRYPTKEY }}
+      SIGN_STORE_PASSWORD: ${{ secrets.OBF_SIGN_STORE_PASSWORD }}
+      SIGN_KEY_ALIAS: ${{ secrets.OBF_SIGN_KEY_ALIAS }}
+      SIGN_KEY_PASSWORD: ${{ secrets.OBF_SIGN_KEY_PASSWORD }}
+
+  # Android release for OPF (uses OFF signing key)
+  android-release-off-key:
+    concurrency: 
+      group: android-release-${{ inputs.app }}
+      cancel-in-progress: true
+    if: (inputs.platforms == 'both' || inputs.platforms == 'android') && needs.tag-commit.outputs.USES_OBF_KEY == 'false'
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openxfacts-scanner.yml@develop
+    needs: tag-commit
+    with:
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME }}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE }}
+      RELEASE_TYPE: 'PLAY'
+      BUILD_TYPE: 'appbundle'
+      FLAVOR: 'main_google_play'
+      SCANNER: 'mlkit'
+      APP_REVIEW: 'google_play'
+      PACKAGE_NAME: ${{ needs.tag-commit.outputs.PACKAGE_NAME }}
+      KEYSTORE_FILE: ${{ needs.tag-commit.outputs.KEYSTORE_FILE }}
+    secrets:
+      API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+      STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
+      SIGN_STORE_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
+      SIGN_KEY_ALIAS: ${{ secrets.ALIAS_FOR_SCANNER }}
+      SIGN_KEY_PASSWORD: ${{ secrets.KEY_FOR_SCANNER }}
+
+  iOS-release:
+    concurrency: 
+      group: iOS-release-${{ inputs.app }}
+      cancel-in-progress: true
+    if: inputs.platforms == 'both' || inputs.platforms == 'ios'
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openxfacts-scanner.yml@develop
+    needs: tag-commit
+    with:
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME }}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE }}
+      APP_IDENTIFIER: ${{ needs.tag-commit.outputs.APP_IDENTIFIER }}
+    secrets:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+      FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+      MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+      MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+      MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+      SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+      SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+      AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}

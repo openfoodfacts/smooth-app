@@ -1,0 +1,152 @@
+name: App Store release to org.open*facts.scanner (OBF, OPFF, OPF)
+
+on:
+  workflow_call:
+    inputs:
+      VERSION_NAME:
+        required: true
+        type: string
+      VERSION_CODE:
+        required: true
+        type: string
+      # App identifier (e.g., org.openbeautyfacts.scanner, org.openpetfoodfacts.scanner, org.openproductsfacts.scanner)
+      APP_IDENTIFIER:
+        required: true
+        type: string
+    secrets:
+      SENTRY_AUTH_TOKEN:
+        required: true
+      FASTLANE_USER:
+        required: true
+      FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD:
+        required: true
+      MATCH_GIT_BASIC_AUTHORIZATION: 
+        required: true
+      MATCH_GIT_URL:
+        required: true
+      MATCH_KEYCHAIN_PASSWORD: 
+        required: true
+      MATCH_PASSWORD:
+        required: true
+      PILOT_APPLE_ID:
+        required: true
+      SPACESHIP_CONNECT_API_ISSUER_ID:
+        required: true
+      SPACESHIP_CONNECT_API_KEY_ID:
+        required: true
+      AUTH_KEY_FILE_DECRYPTKEY:
+        required: true
+
+env:
+  JAVA_VERSION: 21
+  RUBY_VERSION: 3.2.0
+
+jobs:
+  testflight-release:
+    name: Build and deploy to TestFlight testers (${{ inputs.APP_IDENTIFIER }})
+    runs-on: macos-26
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v5
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/ios/
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/android/
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5.0.0
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # Get the flutter version from ./flutter-version.txt
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          #channel: stable
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+      - name: Flutter version    
+        run: flutter --version
+
+      - name: Enable MLKit dependency
+        run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
+
+      - name: Enable Apple App Store dependency
+        run: chmod +x ci/dependencies/app_store/enable_apple_app_store_dependency.sh && ci/dependencies/app_store/enable_apple_app_store_dependency.sh
+
+      - name: Get dependencies
+        run: ci/pub_get.sh
+      
+      - name: Bundle install
+        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
+
+      - name: Decrypt iOS AuthKey file
+        run: cd ./packages/smooth_app/ios/fastlane/envfiles && chmod +x decrypt_secrets.sh && ./decrypt_secrets.sh
+        env:
+          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+
+      # We are using the android version code here to have the version codes from iOS and android in sync 
+      # in order for Sentry and other tools to work properly
+      - name: Bump version
+        uses: maierj/fastlane-action@v3.1.0
+        with:
+          lane: setVersion
+          subdirectory: ./packages/smooth_app/android/
+        env:
+          VERSION_NAME: ${{ inputs.VERSION_NAME }}
+          VERSION_CODE: ${{ inputs.VERSION_CODE }}
+
+      - name: Enable Rive dependency
+        run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
+
+      - name: Build app
+        run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm -f Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
+          CI_RELEASE: true
+
+      - name: cat Podfile
+        run: cd ./packages/smooth_app/ios && cat Podfile
+ 
+      - name: Release ipa
+        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta_multi
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
+          APP_IDENTIFIER: ${{ inputs.APP_IDENTIFIER }}
+          CI_RELEASE: true
+
