@@ -32,7 +32,7 @@ jobs:
         PR_NO: ${{ github.event.issue.number }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
         # grab the PR branch
@@ -107,7 +107,7 @@ jobs:
         PR_NO: ${{ github.event.issue.number }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
         # grab the PR branch
@@ -157,7 +157,7 @@ jobs:
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
         # Use the PR HEAD commit SHA, not a mutable branch ref

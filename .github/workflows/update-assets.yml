@@ -18,7 +18,7 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
 
     - name: Upgrade assets
       run: chmod +x ci/update_assets.sh && ci/update_assets.sh
