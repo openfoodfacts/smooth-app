@@ -11,7 +11,11 @@ jobs:
     defaults:
       run:
         shell: bash
-    steps:   
+    steps:
+      - name: Free disk space on runner
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /opt/ghc
+          df -h    
       - name: "Checkout code"
         uses: actions/checkout@v6
 
