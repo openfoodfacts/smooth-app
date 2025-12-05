@@ -2369,7 +2369,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "لم يُعثر على المنتج",
   "prices_barcode_search_none_yet": "لا يوجد منتج حتى الآن",
   "prices_barcode_search_running": "أبحث عن {barcode}",
   "@prices_barcode_search_running": {
