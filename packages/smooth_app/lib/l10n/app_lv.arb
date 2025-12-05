@@ -84,7 +84,7 @@
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Laba spēle",
+  "match_good": "Laba atbilstība",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
@@ -108,7 +108,7 @@
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Laba spēle",
+  "match_short_good": "Laba atbilstība",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
