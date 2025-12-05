@@ -1763,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Ülke",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -3994,7 +3994,7 @@
   "guide_greenscore_transparency_title": "Çevresel etkileri daha iyi ölçmek ve azaltmak için artan şeffaflık ihtiyacı",
   "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
   "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
+  "guide_greenscore_transparency_arg1_title": "Vatandaşlak nasıl yardım edebilir?",
   "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Üreticiler nasıl yardımcı olabilir?",
   "guide_greenscore_transparency_arg2_text": "Üreticiler bilgilerini doğrudan üreticilere özel ücretsiz platformumuz üzerinden bize gönderebilirler.",
@@ -5616,7 +5616,7 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Ülke",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID"
 }
