@@ -3501,6 +3501,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'بدء تحديث جميع المنتجات المخزنة محليًا';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n => 'بدء تنزيل المنتجات الأكثر شعبية';
 
   @override

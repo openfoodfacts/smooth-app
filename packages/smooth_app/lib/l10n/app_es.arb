@@ -1217,7 +1217,7 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, one {}=0{Ningún producto seleccionado} =1{Un producto seleccionado} other{{count} productos seleccionados}}",
+  "multiselect_title": "{count,plural, =0{Ningún producto seleccionado} =1{Un producto seleccionado} other{{count} productos seleccionados}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {

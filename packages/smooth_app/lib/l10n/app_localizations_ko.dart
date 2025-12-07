@@ -3381,6 +3381,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '로컬에 저장된 모든 제품의 새로 고침을 시작합니다.';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n => '가장 인기 있는 상품 다운로드 시작';
 
   @override

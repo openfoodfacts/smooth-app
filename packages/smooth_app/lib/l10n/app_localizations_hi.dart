@@ -3531,6 +3531,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'स्थानीय रूप से संग्रहीत सभी उत्पादों का रिफ्रेश प्रारंभ करना';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'सबसे लोकप्रिय उत्पादों का डाउनलोड शुरू करना';
 

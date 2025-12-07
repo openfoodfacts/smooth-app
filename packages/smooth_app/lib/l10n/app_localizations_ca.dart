@@ -3560,6 +3560,10 @@ class AppLocalizationsCa extends AppLocalizations {
       'Començant l\'actualització de tots els productes emmagatzemats localment';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Començant la descàrrega dels productes més populars';
 

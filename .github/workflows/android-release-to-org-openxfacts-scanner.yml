@@ -1,4 +1,4 @@
-name: Google Play release to org.openfoodfacts.scanner
+name: Google Play release to org.open*facts.scanner (OBF, OPFF, OPF)
 
 on:
   workflow_call:
@@ -35,10 +35,17 @@ on:
       TAG_NAME:
         required: false
         type: string
+      # Package name for the app (e.g., org.openbeautyfacts.scanner, org.openpetfoodfacts.scanner, org.openproductsfacts.scanner)
+      PACKAGE_NAME:
+        required: true
+        type: string
+      # Keystore file to use for signing (e.g., keystore.jks or obf_keystore.jks)
+      # OFF and OPF use keystore.jks, OBF and OPFF use obf_keystore.jks
+      KEYSTORE_FILE:
+        required: true
+        type: string
     secrets:
       API_JSON_FILE_DECRYPTKEY:
-        required: true
-      DECRYPT_GPG_KEYSTORE:
         required: true
       STORE_JKS_DECRYPTKEY:
         required: true
@@ -60,7 +67,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - run: echo Release type ${{ inputs.RELEASE_TYPE }} + Build type ${{ inputs.BUILD_TYPE }} + Tag name null if not github release ${{ inputs.TAG_NAME }}
+      - run: echo Release type ${{ inputs.RELEASE_TYPE }} + Build type ${{ inputs.BUILD_TYPE }} + Tag name null if not github release ${{ inputs.TAG_NAME }} + Package ${{ inputs.PACKAGE_NAME }}
 
       - name: Setup Java JDK
         uses: actions/setup-java@v5.0.0
@@ -78,12 +85,12 @@ jobs:
         run: bundle install
         working-directory: ./packages/smooth_app/android/
 
-      - name: Decrypt API JSON file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+      - name: Decrypt API JSON file and keystore
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets_multi.sh && ./decrypt_secrets_multi.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          KEYSTORE_FILE: ${{ inputs.KEYSTORE_FILE }}
 
       # Get the flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
@@ -123,7 +130,7 @@ jobs:
       - name: Build app
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ inputs.BUILD_TYPE }} --release -t lib/entrypoints/android/${{ inputs.FLAVOR }}.dart --target-platform android-arm,android-arm64
         env:
-         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PATH: ./../fastlane/envfiles/${{ inputs.KEYSTORE_FILE }}
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
@@ -134,7 +141,7 @@ jobs:
         continue-on-error: true
         with:
           file: ./packages/smooth_app/build/app/outputs/flutter-apk/app-release.apk
-          asset_name: openfoodfacts-${{ inputs.FLAVOR }}-${{ inputs.TAG_NAME }}.apk
+          asset_name: ${{ inputs.PACKAGE_NAME }}-${{ inputs.FLAVOR }}-${{ inputs.TAG_NAME }}.apk
           tag: ${{ inputs.TAG_NAME }}
           overwrite: true
 
@@ -145,7 +152,8 @@ jobs:
           lane: release
           subdirectory: ./packages/smooth_app/android/
         env:
-         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PATH: ./../fastlane/envfiles/${{ inputs.KEYSTORE_FILE }}
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         PACKAGE_NAME: ${{ inputs.PACKAGE_NAME }}
