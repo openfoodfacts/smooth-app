@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/barcode_utils.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
@@ -427,7 +428,7 @@ class _SmoothGoRouter {
   static _SmoothGoRouter? _singleton;
   late GoRouter router;
 
-  /// Extract the barcode from a path only if the route have at least 8 digits
+  /// Extract the barcode from a path only if the route have a valid barcode
   /// in the second part (we don't care about extra elements)
   /// Some examples:
   /// - produit/156164894948
@@ -442,8 +443,8 @@ class _SmoothGoRouter {
     if (pathParams.length > 1) {
       final String barcode = pathParams[1];
 
-      // Ensure we only have digits and at least 8 characters
-      if (int.tryParse(barcode) != null && barcode.length >= 8) {
+      // Ensure it's a valid barcode
+      if (barcode.isBarcode) {
         return barcode;
       }
     }
