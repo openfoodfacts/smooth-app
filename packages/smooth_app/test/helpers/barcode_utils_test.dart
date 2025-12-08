@@ -3,10 +3,7 @@ import 'package:smooth_app/helpers/barcode_utils.dart';
 
 void main() {
   group('isBarcode - Traditional numeric barcodes', () {
-    test(
-      'Valid 8-digit barcode',
-      () => expect('12345678'.isBarcode, isTrue),
-    );
+    test('Valid 8-digit barcode', () => expect('12345678'.isBarcode, isTrue));
 
     test(
       'Valid 13-digit barcode (EAN-13)',
@@ -149,18 +146,12 @@ void main() {
   group('isBarcode - GS1 Digital Links', () {
     test(
       'Valid HTTPS Digital Link with GTIN in path',
-      () => expect(
-        'https://example.com/01/12345678901234'.isBarcode,
-        isTrue,
-      ),
+      () => expect('https://example.com/01/12345678901234'.isBarcode, isTrue),
     );
 
     test(
       'Valid HTTP Digital Link with GTIN in path',
-      () => expect(
-        'http://example.com/01/12345678901234'.isBarcode,
-        isTrue,
-      ),
+      () => expect('http://example.com/01/12345678901234'.isBarcode, isTrue),
     );
 
     test(
@@ -181,18 +172,12 @@ void main() {
 
     test(
       'Valid Digital Link with 3-digit AI',
-      () => expect(
-        'https://example.com/310/123456'.isBarcode,
-        isTrue,
-      ),
+      () => expect('https://example.com/310/123456'.isBarcode, isTrue),
     );
 
     test(
       'Valid Digital Link with 4-digit AI',
-      () => expect(
-        'https://example.com/8005/12345'.isBarcode,
-        isTrue,
-      ),
+      () => expect('https://example.com/8005/12345'.isBarcode, isTrue),
     );
 
     test(
@@ -213,26 +198,18 @@ void main() {
 
     test(
       'Invalid Digital Link - AI but no value in path',
-      () => expect(
-        'https://example.com/01/'.isBarcode,
-        isFalse,
-      ),
+      () => expect('https://example.com/01/'.isBarcode, isFalse),
     );
 
     test(
       'Invalid Digital Link - single digit AI',
-      () => expect(
-        'https://example.com/1/12345678901234'.isBarcode,
-        isFalse,
-      ),
+      () => expect('https://example.com/1/12345678901234'.isBarcode, isFalse),
     );
 
     test(
       'Invalid Digital Link - 5-digit AI',
-      () => expect(
-        'https://example.com/12345/12345678901234'.isBarcode,
-        isFalse,
-      ),
+      () =>
+          expect('https://example.com/12345/12345678901234'.isBarcode, isFalse),
     );
 
     test(
@@ -250,15 +227,9 @@ void main() {
   });
 
   group('isBarcode - Edge cases', () {
-    test(
-      'Empty string',
-      () => expect(''.isBarcode, isFalse),
-    );
+    test('Empty string', () => expect(''.isBarcode, isFalse));
 
-    test(
-      'String with only spaces',
-      () => expect('   '.isBarcode, isFalse),
-    );
+    test('String with only spaces', () => expect('   '.isBarcode, isFalse));
 
     test(
       'String with leading spaces (trimmed to valid barcode)',
@@ -270,15 +241,9 @@ void main() {
       () => expect('  ABC  '.isBarcode, isFalse),
     );
 
-    test(
-      'String with newlines',
-      () => expect('12345678\n'.isBarcode, isFalse),
-    );
+    test('String with newlines', () => expect('12345678\n'.isBarcode, isFalse));
 
-    test(
-      'String with tabs',
-      () => expect('12345\t678'.isBarcode, isFalse),
-    );
+    test('String with tabs', () => expect('12345\t678'.isBarcode, isFalse));
 
     test(
       'Mixed format - numeric followed by bracketed',
@@ -295,15 +260,9 @@ void main() {
       () => expect(('1' * 100).isBarcode, isTrue),
     );
 
-    test(
-      'Null-like string value',
-      () => expect('null'.isBarcode, isFalse),
-    );
+    test('Null-like string value', () => expect('null'.isBarcode, isFalse));
 
-    test(
-      'Boolean-like string value',
-      () => expect('true'.isBarcode, isFalse),
-    );
+    test('Boolean-like string value', () => expect('true'.isBarcode, isFalse));
 
     test(
       'Floating point number string',
@@ -338,10 +297,7 @@ void main() {
 
     test(
       'Case sensitivity - HTTPS uppercase',
-      () => expect(
-        'HTTPS://example.com/01/12345678901234'.isBarcode,
-        isFalse,
-      ),
+      () => expect('HTTPS://example.com/01/12345678901234'.isBarcode, isFalse),
     );
   });
 }
