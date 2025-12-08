@@ -10,7 +10,7 @@ bool _containsGs1AIs(String url) {
   // Check path segments for AI patterns (2-4 digits followed by value)
   final List<String> segments = uri.pathSegments;
   for (int i = 0; i < segments.length - 1; i++) {
-    if (aiPattern.hasMatch(segments[i])) {
+    if (aiPattern.hasMatch(segments[i]) && segments[i + 1].isNotEmpty) {
       return true;
     }
   }
