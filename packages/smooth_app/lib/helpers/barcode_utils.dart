@@ -50,7 +50,7 @@ extension BarcodeExtension on String {
     }
 
     // GS1 barcode with FNC1
-    if (query.contains('\x1D') || query.contains('\x241D')) {
+    if (query.contains('\x1D') || query.contains('\u241D')) {
       return true;
     }
 
