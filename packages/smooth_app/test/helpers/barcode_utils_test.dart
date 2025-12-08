@@ -100,7 +100,7 @@ void main() {
     test(
       'Valid complex bracketed AI format',
       () => expect(
-        '(01)04044782317112(17)270101(10)ABC123(21)SERIAL',
+        '(01)04044782317112(17)270101(10)ABC123(21)SERIAL'.isBarcode,
         isTrue,
       ),
     );
@@ -292,7 +292,7 @@ void main() {
 
     test(
       'Very long numeric barcode',
-      () => expect('1' * 100).isBarcode, isTrue),
+      () => expect(('1' * 100).isBarcode, isTrue),
     );
 
     test(
