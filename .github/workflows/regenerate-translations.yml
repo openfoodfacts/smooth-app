@@ -97,7 +97,7 @@ jobs:
       # Create Pull Request if there are changes
       - name: 🔀 Create Pull Request
         if: steps.check-changes.outputs.changes == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: regenerate translation files'
