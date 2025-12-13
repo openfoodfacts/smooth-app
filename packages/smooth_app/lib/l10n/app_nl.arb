@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Meer informatie over open prijzen",
+  "prices_menu_know_more": "Lees meer over Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4078,7 +4078,7 @@
   "guide_open_food_facts_scores_arg1_title": "Een score voor de voedingskwaliteit",
   "guide_open_food_facts_scores_arg2_title": "Een score om ultrabewerkte voedingsmiddelen te vermijden",
   "guide_open_food_facts_scores_arg3_title": "Een score voor de planeet",
-  "guide_open_food_facts_share_link": "https://world-nl.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Welkom bij Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4183,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Kenmerken van Open Products Feiten",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts wil consumenten helpen **de levensduur van voorwerpen te verlengen** door circulaire oplossingen aan te bieden voor het onderhoud, **de reparatie** en **de recycling** van hun voorwerpen, of door ze aan een nieuwe eigenaar te geven.",
   "guide_open_products_facts_features_arg1_title": "Koolstofvoetafdrukken voor sommige producten",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** van de Franse milieuautoriteit ADEME geeft de **koolstofimpact** van vele categorieën weer. Zorg ervoor dat u producten nauwkeurig categoriseert.",
@@ -4198,7 +4198,7 @@
   "guide_open_products_facts_folksonomy_paragraph2": "U kunt alle gewenste sleutels en waarden toevoegen, zoals: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "U krijgt automatische suggesties voor mogelijke eigenschappen en u bent van harte welkom om nieuwe eigenschappen toe te voegen en te documenteren voor uw favoriete soorten producten.",
   "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open voedselvoorkeuren",
+  "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Binnenkort beschikbaar",
   "guide_learn_more_subtitle": "Tik om meer te weten te komen",
   "preview_badge": "Voorbeeld",
