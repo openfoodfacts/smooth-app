@@ -55,7 +55,8 @@ extension BarcodeExtension on String {
     }
 
     // GS1 bracketed AI format like (01)04044782317112(17)270101
-    if (RegExp(r'^(\(\d{2,4}\)[^()]*)+$').hasMatch(query)) {
+    // Require at least one character as the AI value to avoid empty values like (01)(17)...
+    if (RegExp(r'^(\(\d{2,4}\)[^()]+)+$').hasMatch(query)) {
       return true;
     }
 
