@@ -48,12 +48,12 @@ void main() {
 
   group('isBarcode - GS1 barcodes with FNC1 characters', () {
     test(
-      'Valid GS1 barcode with \\x1D FNC1 character',
+      r'Valid GS1 barcode with \x1D FNC1 character',
       () => expect('01123456789012\x1D17270101'.isBarcode, isTrue),
     );
 
     test(
-      'Valid GS1 barcode with \\u241D FNC1 character',
+      r'Valid GS1 barcode with \u241D FNC1 character',
       () => expect('01123456789012\u241D17270101'.isBarcode, isTrue),
     );
 
