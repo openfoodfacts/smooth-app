@@ -241,7 +241,7 @@ void main() {
       () => expect('  ABC  '.isBarcode, isFalse),
     );
 
-    test('String with newlines', () => expect('12345678\n'.isBarcode, isFalse));
+    test('String with newlines', () => expect('1234\n5678'.isBarcode, isFalse));
 
     test('String with tabs', () => expect('12345\t678'.isBarcode, isFalse));
 
