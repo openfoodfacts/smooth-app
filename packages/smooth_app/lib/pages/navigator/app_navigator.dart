@@ -534,23 +534,23 @@ class AppRoutes {
     BackButtonType? backButtonType,
     ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
-      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/${Uri.encodeComponent(barcode)}'
       '?heroAnimation=$useHeroAnimation'
-      '&heroTag=$heroTag'
-      '&backButtonType=${backButtonType?.name}'
-      '&transition=${transition?.name}';
+      '&heroTag=${Uri.encodeQueryComponent(heroTag ?? '')}'
+      '&backButtonType=${Uri.encodeQueryComponent(backButtonType?.name ?? '')}'
+      '&transition=${Uri.encodeQueryComponent(transition?.name ?? '')}';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
-      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode?edit=$edit';
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/${Uri.encodeComponent(barcode)}?edit=$edit';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/${Uri.encodeComponent(barcode)}';
 
   // Product creator or "add product" feature
   static String PRODUCT_EDITOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/${Uri.encodeComponent(barcode)}';
 
   // App preferences
   static String get FOOD_PREFERENCES =>
@@ -559,7 +559,8 @@ class AppRoutes {
   // Search view
   static String SEARCH({
     ProductPageTransition? transition = ProductPageTransition.standard,
-  }) => '/${_InternalAppRoutes.SEARCH_PAGE}?transition=${transition?.name}';
+  }) =>
+      '/${_InternalAppRoutes.SEARCH_PAGE}?transition=${Uri.encodeQueryComponent(transition?.name ?? '')}}';
 
   // Guide for NutriScore V2
   static String get GUIDE_NUTRISCORE_V2 =>
@@ -601,7 +602,7 @@ class AppRoutes {
 
   // Open an external link in a WebView
   static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
-      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${_encodePath(path)}';
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=${Uri.encodeQueryComponent(pageTitle ?? '')}&path=${_encodePath(path)}';
 }
 
 String _encodePath(String path) => base64Encode(utf8.encode(path));

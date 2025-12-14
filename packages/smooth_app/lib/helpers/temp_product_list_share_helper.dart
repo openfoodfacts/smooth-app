@@ -9,9 +9,10 @@ Uri shareProductList(
   final String barcodesString = barcodes.join(',');
 
   return UriHelper.replaceSubdomain(
-    ProductQuery.getUriProductHelper(
-      productType: productType,
-    ).getUri(path: 'products/$barcodesString', addUserAgentParameters: false),
+    ProductQuery.getUriProductHelper(productType: productType).getUri(
+      path: 'products/${Uri.encodeComponent(barcodesString)}',
+      addUserAgentParameters: false,
+    ),
     language: OpenFoodAPIConfiguration.globalLanguages?.first,
   );
 }
