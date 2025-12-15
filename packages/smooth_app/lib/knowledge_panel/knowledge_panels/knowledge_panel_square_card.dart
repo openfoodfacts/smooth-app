@@ -122,27 +122,21 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: SMALL_SPACE),
-            Expanded(
-              child: Center(
-                child: Row(
-                  children: <Widget>[
-                    _buildIndicator(panel.evaluation, themeExtension),
-                    const SizedBox(width: MEDIUM_SPACE),
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: indicatorColor(
-                            panel.evaluation,
-                            themeExtension,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+            Row(
+              children: <Widget>[
+                _buildIndicator(panel.evaluation, themeExtension),
+                const SizedBox(width: MEDIUM_SPACE),
+                Text(
+                  panel.titleElement?.valueString ??
+                      (panel.titleElement?.value != null
+                          ? '${panel.titleElement?.value}'
+                          : ''),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: indicatorColor(panel.evaluation, themeExtension),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
