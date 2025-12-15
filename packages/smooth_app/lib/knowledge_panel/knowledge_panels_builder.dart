@@ -41,7 +41,7 @@ class KnowledgePanelsBuilder {
     if (rootPanel != null) {
       children.add(
         KnowledgePanelTitle(
-          title: rootPanel.titleElement!.title,
+          title: rootPanel.titleElement!.title ?? '',
           topics: rootPanel.topics,
         ),
       );
@@ -406,7 +406,7 @@ class KnowledgePanelsBuilder {
       case TitleElementType.GRADE:
         return simplified
             ? NewKnowledgePanelTitleCard(
-                title: knowledgePanel.titleElement!.title,
+                title: knowledgePanel.titleElement?.title ?? '',
                 subtitle: knowledgePanel.titleElement!.subtitle,
                 iconUrl: knowledgePanel.titleElement!.iconUrl,
               )
@@ -444,7 +444,7 @@ class KnowledgePanelsBuilder {
                 ).add(padding ?? EdgeInsets.zero),
           child: simplified && knowledgePanel.titleElement!.iconUrl != null
               ? NewKnowledgePanelTitleCard(
-                  title: knowledgePanel.titleElement!.title,
+                  title: knowledgePanel.titleElement?.title ?? '',
                   subtitle: knowledgePanel.titleElement!.subtitle,
                   iconUrl: knowledgePanel.titleElement!.iconUrl,
                 )

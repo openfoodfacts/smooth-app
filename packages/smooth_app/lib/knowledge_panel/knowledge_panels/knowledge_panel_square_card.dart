@@ -123,7 +123,10 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                 _buildIndicator(panel.evaluation, themeExtension),
                 const SizedBox(width: MEDIUM_SPACE),
                 Text(
-                  panel.titleElement?.subtitle ?? '',
+                  panel.titleElement?.valueString ??
+                      (panel.titleElement?.value != null
+                          ? '${panel.titleElement?.value}'
+                          : ''),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: indicatorColor(panel.evaluation, themeExtension),
