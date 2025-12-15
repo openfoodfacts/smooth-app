@@ -106,7 +106,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               children: <Widget>[
                 Flexible(
                   child: Text(
-                    panel.titleElement?.title ?? '',
+                    panel.titleElement?.name ?? '',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -122,14 +122,15 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               children: <Widget>[
                 _buildIndicator(panel.evaluation, themeExtension),
                 const SizedBox(width: MEDIUM_SPACE),
-                Text(
-                  panel.titleElement?.valueString ??
-                      (panel.titleElement?.value != null
-                          ? '${panel.titleElement?.value}'
-                          : ''),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: indicatorColor(panel.evaluation, themeExtension),
+                Flexible(
+                  child: Text(
+                    panel.titleElement?.valueString ??
+                        panel.titleElement?.value?.toString() ??
+                        '',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: indicatorColor(panel.evaluation, themeExtension),
+                    ),
                   ),
                 ),
               ],

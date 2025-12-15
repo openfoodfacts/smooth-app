@@ -13,6 +13,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_tabl
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/new_knowledge_panel_title_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
@@ -398,35 +399,22 @@ class KnowledgePanelsBuilder {
     final bool simplified = true,
   }) {
     if (knowledgePanel.titleElement == null) {
-      if (simplified) {
-        for (final KnowledgePanelElement element
-            in knowledgePanel.elements ?? <KnowledgePanelElement>[]) {
-          if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
-            final List<KnowledgePanel> squarePanels = lookForSquarePanels(
-              element: element,
-              product: product,
-            );
-            if (squarePanels.isNotEmpty) {
-              return KnowledgePanelSquareCard(
-                panels: squarePanels,
-                product: product,
-              );
-            }
-          }
-        }
-      }
-
       return null;
     }
 
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return ScoreCard.titleElement(
-          titleElement: knowledgePanel.titleElement!,
-          isClickable: isClickable,
-          margin: margin,
-        );
-
+        return simplified
+            ? NewKnowledgePanelTitleCard(
+                title: knowledgePanel.titleElement?.title ?? '',
+                subtitle: knowledgePanel.titleElement!.subtitle,
+                iconUrl: knowledgePanel.titleElement!.iconUrl,
+              )
+            : ScoreCard.titleElement(
+                titleElement: knowledgePanel.titleElement!,
+                isClickable: isClickable,
+                margin: margin,
+              );
       case null:
       case TitleElementType.PERCENTAGE:
       case TitleElementType.UNKNOWN:
@@ -449,16 +437,22 @@ class KnowledgePanelsBuilder {
         }
 
         return Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-            end: BALANCED_SPACE,
-          ).add(padding ?? EdgeInsets.zero),
-          child: KnowledgePanelTitleCard(
-            knowledgePanelTitleElement: knowledgePanel.titleElement!,
-            evaluation: ignoreEvaluation ? null : knowledgePanel.evaluation,
-            textStyleOverride: textStyleOverride,
-            isClickable: isClickable,
-          ),
+          padding: simplified
+              ? EdgeInsets.zero
+              : const EdgeInsetsDirectional.symmetric(
+                  horizontal: SMALL_SPACE,
+                ).add(padding ?? EdgeInsets.zero),
+          child: simplified && knowledgePanel.titleElement!.iconUrl != null
+              ? NewKnowledgePanelTitleCard(
+                  title: knowledgePanel.titleElement?.title ?? '',
+                  subtitle: knowledgePanel.titleElement!.subtitle,
+                  iconUrl: knowledgePanel.titleElement!.iconUrl,
+                )
+              : KnowledgePanelTitleCard(
+                  knowledgePanelTitleElement: knowledgePanel.titleElement!,
+                  evaluation: knowledgePanel.evaluation,
+                  isClickable: isClickable,
+                ),
         );
     }
   }
