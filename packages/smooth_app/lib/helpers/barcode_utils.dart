@@ -1,32 +1,32 @@
+final RegExp _aiPattern = RegExp(r'^\d{2,4}$');
+final RegExp _numericBarcodeRegExp = RegExp(r'^\d{8,}$');
+final RegExp _gs1BracketedRegExp = RegExp(r'^(\(\d{2,4}\)[^()]+)+$');
+
 /// Checks if a URL contains GS1 Application Identifiers
-bool _containsGs1AIs(String url) {
+/// A reference list of AIs can be found at https://ref.gs1.org/ai/
+bool _containsGs1ApplicationIdentifiers(String url) {
   final Uri? uri = Uri.tryParse(url);
   if (uri == null) {
     return false;
   }
 
-  final RegExp aiPattern = RegExp(r'^\d{2,4}$');
-
   // Check path segments for AI patterns (2-4 digits followed by value)
   final List<String> segments = uri.pathSegments;
   for (int i = 0; i < segments.length - 1; i++) {
-    if (aiPattern.hasMatch(segments[i]) && segments[i + 1].isNotEmpty) {
+    if (_aiPattern.hasMatch(segments[i]) && segments[i + 1].isNotEmpty) {
       return true;
     }
   }
 
   // Check query parameters for AI patterns
   for (final String key in uri.queryParameters.keys) {
-    if (aiPattern.hasMatch(key)) {
+    if (_aiPattern.hasMatch(key)) {
       return true;
     }
   }
 
   return false;
 }
-
-final RegExp _numericBarcodeRegExp = RegExp(r'^\d{8,}$');
-final RegExp _gs1BracketedRegExp = RegExp(r'^(\(\d{2,4}\)[^()]+)+$');
 
 /// Extension on String to check if it represents a barcode
 ///
@@ -63,7 +63,7 @@ extension BarcodeExtension on String {
 
     // GS1 Digital Link (URLs with GS1 AIs)
     if ((query.startsWith('http://') || query.startsWith('https://')) &&
-        _containsGs1AIs(query)) {
+        _containsGs1ApplicationIdentifiers(query)) {
       return true;
     }
 
