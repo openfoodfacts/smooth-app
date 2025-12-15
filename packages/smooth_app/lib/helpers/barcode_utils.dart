@@ -25,6 +25,9 @@ bool _containsGs1AIs(String url) {
   return false;
 }
 
+final RegExp _numericBarcodeRegExp = RegExp(r'^\d{8,}$');
+final RegExp _gs1BracketedRegExp = RegExp(r'^(\(\d{2,4}\)[^()]+)+$');
+
 /// Extension on String to check if it represents a barcode
 ///
 /// GS1 support can be replaced with `gs1_barcode_parser`
@@ -43,9 +46,13 @@ extension BarcodeExtension on String {
       return false;
     }
 
-    // GS1 Digital Link (URLs with GS1 AIs)
-    if ((query.startsWith('http://') || query.startsWith('https://')) &&
-        _containsGs1AIs(query)) {
+    // Traditional numeric barcode
+    if (_numericBarcodeRegExp.hasMatch(query)) {
+      return true;
+    }
+
+    // GS1 bracketed AI format like (01)04044782317112(17)270101
+    if (_gs1BracketedRegExp.hasMatch(query)) {
       return true;
     }
 
@@ -54,14 +61,9 @@ extension BarcodeExtension on String {
       return true;
     }
 
-    // GS1 bracketed AI format like (01)04044782317112(17)270101
-    // Require at least one character as the AI value to avoid empty values like (01)(17)...
-    if (RegExp(r'^(\(\d{2,4}\)[^()]+)+$').hasMatch(query)) {
-      return true;
-    }
-
-    // Traditional numeric barcode
-    if (RegExp(r'^\d{8,}$').hasMatch(query)) {
+    // GS1 Digital Link (URLs with GS1 AIs)
+    if ((query.startsWith('http://') || query.startsWith('https://')) &&
+        _containsGs1AIs(query)) {
       return true;
     }
 
