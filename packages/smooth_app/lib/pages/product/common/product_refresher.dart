@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -184,6 +188,9 @@ class ProductRefresher {
           localDatabase,
         ).put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+
+        unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
+
         return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
@@ -237,6 +244,8 @@ class ProductRefresher {
         searchResult.products!,
       );
 
+      // TODO(darshanhtailor): Refresh folksonomies for all products once a multi-barcode endpoint is implemented.
+
       return searchResult.products!
           .where((Product p) => p.barcode != null && p.barcode!.isNotEmpty)
           .map((Product p) => p.barcode!)
@@ -244,6 +253,21 @@ class ProductRefresher {
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       return null;
+    }
+  }
+
+  Future<void> _failSafeFolksonomyRefresh(
+    String barcode,
+    LocalDatabase localDatabase,
+  ) async {
+    try {
+      await BackgroundTaskFolksonomy.serverRefresh(
+        barcode,
+        DaoFolksonomy(localDatabase),
+        localDatabase,
+      );
+    } catch (e) {
+      return;
     }
   }
 }

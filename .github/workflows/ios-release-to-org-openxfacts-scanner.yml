@@ -1,4 +1,4 @@
-name: App Store release to org.openfoodfacts.scanner
+name: App Store release to org.open*facts.scanner (OBF, OPFF, OPF)
 
 on:
   workflow_call:
@@ -7,6 +7,10 @@ on:
         required: true
         type: string
       VERSION_CODE:
+        required: true
+        type: string
+      # App identifier (e.g., org.openbeautyfacts.scanner, org.openpetfoodfacts.scanner, org.openproductsfacts.scanner)
+      APP_IDENTIFIER:
         required: true
         type: string
     secrets:
@@ -36,10 +40,10 @@ on:
 env:
   JAVA_VERSION: 21
   RUBY_VERSION: 3.2.0
- 
+
 jobs:
   testflight-release:
-    name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
+    name: Build and deploy to TestFlight testers (${{ inputs.APP_IDENTIFIER }})
     runs-on: macos-26
     steps:
       - name: Checkout sources
@@ -129,7 +133,7 @@ jobs:
         run: cd ./packages/smooth_app/ios && cat Podfile
  
       - name: Release ipa
-        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
+        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta_multi
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -143,5 +147,6 @@ jobs:
           SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
+          APP_IDENTIFIER: ${{ inputs.APP_IDENTIFIER }}
           CI_RELEASE: true
 
