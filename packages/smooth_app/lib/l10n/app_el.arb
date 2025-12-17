@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Ακρίβεια, πληρότητα και περιεκτικότητα των πληροφοριών και δεδομένων",
   "@licenses": {},
   "looking_for": "Ψάχνουμε για",
   "@looking_for": {
@@ -310,7 +310,7 @@
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "Χρηστες",
+  "contributors_dialog_title": "Συνεισφέροντες",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
@@ -4167,7 +4167,7 @@
   "guide_open_prices_scrapping_title": "Σκεφτήκατε να αντλήσετε τιμές από τους ιστότοπους των λιανοπωλητών;",
   "guide_open_prices_scrapping_paragraph1": "Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στις Ανοιχτές Τιμές**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.",
   "guide_open_prices_scrapping_paragraph2": "Η συλλογή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Είμαι λιανοπωλητής και θέλω να συνεισφέρω στις τιμές. Πώς μπορώ να το κάνω αυτό;",
   "guide_open_prices_retailers_paragraph1": "Μπορείτε να συνεισφέρετε τιμές χρησιμοποιώντας το API μας.\nΕάν θέλετε να συνεισφέρετε τιμές σε κλίμακα, επικοινωνήστε μαζί μας στη διεύθυνση prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Καλώς ορίσατε στο Open Products Facts!",
@@ -4667,7 +4667,7 @@
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
-  "prices_stats_contributors_section": "Χρηστες",
+  "prices_stats_contributors_section": "Συνεισφέροντες",
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
