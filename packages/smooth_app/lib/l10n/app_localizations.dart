@@ -3612,16 +3612,28 @@ abstract class AppLocalizations {
   /// **'Add or refresh photos'**
   String get edit_product_form_item_photos_subtitle;
 
+  /// Product edition - Edit Everything - Title
+  ///
+  /// In en, this message translates to:
+  /// **'Edit everything'**
+  String get edit_product_form_item_edit_everything_title;
+
+  /// Product edition - Edit Everything - Subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Labels, stores, origins, and more'**
+  String get edit_product_form_item_edit_everything_subtitle;
+
   /// Product edition - Labels - Title
   ///
   /// In en, this message translates to:
-  /// **'Labels & Certifications'**
+  /// **'Labels'**
   String get edit_product_form_item_labels_title;
 
   /// Product edition - Labels - SubTitle
   ///
   /// In en, this message translates to:
-  /// **'Environmental, Quality labels…'**
+  /// **'Organic, Fair Trade…'**
   String get edit_product_form_item_labels_subtitle;
 
   /// Product edition - Labels - input textfield hint

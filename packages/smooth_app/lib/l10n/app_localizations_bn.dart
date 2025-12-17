@@ -1949,6 +1949,13 @@ class AppLocalizationsBn extends AppLocalizations {
       'ফটো যোগ করুন বা রিফ্রেশ করুন';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'লেবেল এবং সার্টিফিকেশন';
 
   @override

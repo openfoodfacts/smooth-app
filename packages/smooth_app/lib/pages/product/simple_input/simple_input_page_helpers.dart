@@ -412,6 +412,283 @@ class SimpleInputSuggestionsLoaded extends SimpleInputSuggestionsState {
   final List<String> suggestions;
 }
 
+/// Implementation for "Product Name" as a single-value helper.
+class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
+  @override
+  bool get reorderable => false;
+
+  @override
+  bool get editable => true;
+
+  @override
+  List<String> initTerms(final Product product) {
+    final String? localized =
+        product.productNameInLanguages?[getLanguage()];
+    final String? fallback = product.productName;
+    final String? initial =
+        MultilingualHelper.getCleanText(localized ?? fallback);
+    if (initial == null || initial.isEmpty) {
+      return <String>[];
+    }
+    return <String>[initial];
+  }
+
+  @override
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final String term = MultilingualHelper.getCleanText(controller.text);
+    if (term.isEmpty) {
+      return false;
+    }
+    if (terms.length == 1 && terms.first == term) {
+      return false;
+    }
+    replaceItems(<String>[term]);
+    if (clearController) {
+      controller.text = '';
+    }
+    return true;
+  }
+
+  @override
+  void changeProduct(final Product changedProduct) {
+    if (terms.isEmpty) {
+      return;
+    }
+    changedProduct.productNameInLanguages =
+        <OpenFoodFactsLanguage, String>{getLanguage(): terms.first};
+  }
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_names;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_names;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_product_name_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.product_names;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.product_names;
+
+  @override
+  TextCapitalization? getTextCapitalization() =>
+      TextCapitalization.sentences;
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  Widget getIcon() => const icons.Milk.happy();
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.basicDetails;
+
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
+      AnalyticsEditEvents.basicDetails;
+
+  @override
+  InsightType? get robotoffInsightType => null;
+}
+
+/// Implementation for "Quantity" as a single-value helper.
+class SimpleInputPageQuantityHelper extends AbstractSimpleInputPageHelper {
+  @override
+  bool get reorderable => false;
+
+  @override
+  bool get editable => true;
+
+  @override
+  List<String> initTerms(final Product product) {
+    final String text = MultilingualHelper.getCleanText(product.quantity);
+    if (text.isEmpty) {
+      return <String>[];
+    }
+    return <String>[text];
+  }
+
+  @override
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final String term = MultilingualHelper.getCleanText(controller.text);
+    if (term.isEmpty) {
+      return false;
+    }
+    if (terms.length == 1 && terms.first == term) {
+      return false;
+    }
+    replaceItems(<String>[term]);
+    if (clearController) {
+      controller.text = '';
+    }
+    return true;
+  }
+
+  @override
+  void changeProduct(final Product changedProduct) {
+    changedProduct.quantity = terms.isEmpty ? null : terms.first;
+  }
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.quantity;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.quantity;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_quantity_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.quantity;
+
+  @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_product_quantity_help_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ExplanationBodyInfo(
+          text: appLocalizations.add_basic_details_product_quantity_help_info1,
+          icon: false,
+        ),
+        ExplanationGoodExamplesContainer(
+          items: <String>[
+            appLocalizations
+                .add_basic_details_product_quantity_help_good_examples_1,
+            appLocalizations
+                .add_basic_details_product_quantity_help_good_examples_2,
+            appLocalizations
+                .add_basic_details_product_quantity_help_good_examples_3,
+          ],
+        ),
+      ],
+    );
+  };
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.quantity;
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  Widget getIcon() => const icons.Scale.alt();
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.basicDetails;
+
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
+      AnalyticsEditEvents.basicDetails;
+
+  @override
+  InsightType? get robotoffInsightType => null;
+}
+
+/// Implementation for "Website" as a single-value helper.
+class SimpleInputPageWebsiteHelper extends AbstractSimpleInputPageHelper {
+  @override
+  bool get reorderable => false;
+
+  @override
+  bool get editable => true;
+
+  @override
+  List<String> initTerms(final Product product) {
+    final String text = MultilingualHelper.getCleanText(product.website);
+    if (text.isEmpty) {
+      return <String>[];
+    }
+    return <String>[text];
+  }
+
+  @override
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final String term = MultilingualHelper.getCleanText(controller.text);
+    if (term.isEmpty) {
+      return false;
+    }
+    if (terms.length == 1 && terms.first == term) {
+      return false;
+    }
+    replaceItems(<String>[term]);
+    if (clearController) {
+      controller.text = '';
+    }
+    return true;
+  }
+
+  @override
+  void changeProduct(final Product changedProduct) {
+    changedProduct.website = terms.isEmpty ? null : terms.first;
+  }
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_field_website_title;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_field_website_title;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+    appLocalizations.product_field_website_title;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.product_field_website_title;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.product_field_website_title;
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  Widget getIcon() => const Icon(Icons.link);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.otherDetails;
+
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
+      AnalyticsEditEvents.otherDetails;
+
+  @override
+  InsightType? get robotoffInsightType => null;
+}
+
 /// Implementation for "Brands" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
   @override

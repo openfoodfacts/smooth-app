@@ -1911,6 +1911,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get edit_product_form_item_photos_subtitle => 'إضافة أو تحديث الصور';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'التسميات وشهادات الاعتماد';
 
   @override

@@ -1659,11 +1659,19 @@
   "@edit_product_form_item_photos_subtitle": {
     "description": "Product edition - Photos - SubTitle"
   },
-  "edit_product_form_item_labels_title": "Labels & Certifications",
+  "edit_product_form_item_edit_everything_title": "Edit everything",
+  "@edit_product_form_item_edit_everything_title": {
+    "description": "Product edition - Edit Everything - Title"
+  },
+  "edit_product_form_item_edit_everything_subtitle": "Labels, stores, origins, and more",
+  "@edit_product_form_item_edit_everything_subtitle": {
+    "description": "Product edition - Edit Everything - Subtitle"
+  },
+  "edit_product_form_item_labels_title": "Labels",
   "@edit_product_form_item_labels_title": {
     "description": "Product edition - Labels - Title"
   },
-  "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+  "edit_product_form_item_labels_subtitle": "Organic, Fair Trade…",
   "@edit_product_form_item_labels_subtitle": {
     "description": "Product edition - Labels - SubTitle"
   },

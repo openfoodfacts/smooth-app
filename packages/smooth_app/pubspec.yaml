@@ -118,6 +118,7 @@ dev_dependencies:
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
   flutter_lints: 6.0.0
+  build_runner: ^2.10.4
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 

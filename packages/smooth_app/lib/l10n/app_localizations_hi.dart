@@ -1930,6 +1930,13 @@ class AppLocalizationsHi extends AppLocalizations {
       'फ़ोटो जोड़ें या रीफ़्रेश करें';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'लेबल और प्रमाणन';
 
   @override

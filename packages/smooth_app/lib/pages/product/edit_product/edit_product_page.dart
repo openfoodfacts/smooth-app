@@ -130,6 +130,13 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 },
               ),
               _getMultipleListTileItem(<AbstractSimpleInputPageHelper>[
+                // Basic details
+                SimpleInputPageProductNameHelper(),
+                SimpleInputPageBrandsHelper(),
+                SimpleInputPageQuantityHelper(),
+                // Additional details
+                SimpleInputPageWebsiteHelper(),
+                // Existing power edit sections
                 SimpleInputPageLabelHelper(),
                 SimpleInputPageStoreHelper(),
                 SimpleInputPageOriginHelper(),
@@ -286,13 +293,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     final List<AbstractSimpleInputPageHelper> helpers,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<String> titles = <String>[];
-    for (final AbstractSimpleInputPageHelper element in helpers) {
-      titles.add(element.getTitle(appLocalizations));
-    }
     return _ListTitleItem(
       leading: const icons.Shapes(),
-      title: titles.join(', '),
+      title: appLocalizations.edit_product_form_item_edit_everything_title,
+      subtitle: appLocalizations.edit_product_form_item_edit_everything_subtitle,
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(
           context,

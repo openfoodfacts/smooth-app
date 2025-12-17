@@ -1936,6 +1936,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Fotoğraf ekle veya yenile';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'Etiketler ve Sertifikalar';
 
   @override

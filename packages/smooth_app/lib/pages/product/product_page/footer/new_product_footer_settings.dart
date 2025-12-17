@@ -315,6 +315,7 @@ class _ProductActionBarModalItemEditorState
     return switch (widget.entry.action) {
       ProductFooterActionBar.addPrice => icons.AddPrice(off.Currency.USD),
       ProductFooterActionBar.edit => const icons.Edit(),
+      ProductFooterActionBar.editEverything => const icons.Shapes(),
       ProductFooterActionBar.compare => const icons.Compare(),
       ProductFooterActionBar.addToList => const icons.AddToList.symbol(),
       ProductFooterActionBar.share => icons.Share(),
@@ -334,6 +335,8 @@ class _ProductActionBarModalItemEditorState
     return switch (widget.entry.action) {
       ProductFooterActionBar.addPrice => appLocalizations.prices_add_a_price,
       ProductFooterActionBar.edit => appLocalizations.edit_product_label_short,
+      ProductFooterActionBar.editEverything =>
+        appLocalizations.edit_product_form_item_edit_everything_title,
       ProductFooterActionBar.compare =>
         appLocalizations.product_search_same_category_short,
       ProductFooterActionBar.addToList =>

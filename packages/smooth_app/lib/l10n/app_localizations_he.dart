@@ -1909,6 +1909,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get edit_product_form_item_photos_subtitle => 'הוספה או רענון תמונות';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'תוויות ואישורים';
 
   @override

@@ -1955,6 +1955,13 @@ class AppLocalizationsPl extends AppLocalizations {
       'Dodaj lub odśwież zdjęcia';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'Etykiety i certyfikaty';
 
   @override

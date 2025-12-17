@@ -1832,6 +1832,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get edit_product_form_item_photos_subtitle => '添加或更新照片';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => '標籤和認證';
 
   @override

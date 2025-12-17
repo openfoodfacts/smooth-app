@@ -1959,6 +1959,13 @@ class AppLocalizationsBg extends AppLocalizations {
       'Добави или опресни снимки';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => 'Етикети и сертификати';
 
   @override

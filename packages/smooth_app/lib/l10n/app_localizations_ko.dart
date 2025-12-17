@@ -1855,6 +1855,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get edit_product_form_item_photos_subtitle => '사진을 추가하거나 변경';
 
   @override
+  String get edit_product_form_item_edit_everything_title => 'Edit everything';
+
+  @override
+  String get edit_product_form_item_edit_everything_subtitle =>
+      'Labels, stores, origins, and more';
+
+  @override
   String get edit_product_form_item_labels_title => '라벨 및 인증';
 
   @override
