@@ -317,20 +317,22 @@ class KnowledgePanelsBuilder {
         );
 
       case KnowledgePanelElementType.PANEL_GROUP:
-        final List<KnowledgePanel> squarePanels = <KnowledgePanel>[];
-        for (final String panelId in element.panelGroupElement!.panelIds) {
-          final KnowledgePanel? panel =
-              KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
-          if (panel != null && (panel.halfWidthOnMobile ?? false)) {
-            squarePanels.add(panel);
+        if (simplified) {
+          final List<KnowledgePanel> squarePanels = <KnowledgePanel>[];
+          for (final String panelId in element.panelGroupElement!.panelIds) {
+            final KnowledgePanel? panel =
+                KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+            if (panel != null && (panel.halfWidthOnMobile ?? false)) {
+              squarePanels.add(panel);
+            }
           }
-        }
 
-        if (squarePanels.isNotEmpty) {
-          return KnowledgePanelSquareCard(
-            panels: squarePanels,
-            product: product,
-          );
+          if (squarePanels.isNotEmpty) {
+            return KnowledgePanelSquareCard(
+              panels: squarePanels,
+              product: product,
+            );
+          }
         }
 
         return KnowledgePanelGroupCard(

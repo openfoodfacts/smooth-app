@@ -56,9 +56,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         );
         backgroundIconColor = colorFromEvaluation;
 
-        iconColor = colorFromEvaluation != null
-            ? theme.primaryLight
-            : theme.primaryDark;
+        iconColor = colorFromEvaluation ?? theme.primaryDark;
 
         textColor =
             colorFromEvaluation ??
@@ -123,7 +121,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       SizedBox(
                         width: constraints.maxWidth,
                         child: Text(
-                          knowledgePanelTitleElement.title ?? '',
+                          knowledgePanelTitleElement.title ??
+                              knowledgePanelTitleElement.name ??
+                              '',
                           style:
                               textStyleOverride ??
                               TextStyle(
