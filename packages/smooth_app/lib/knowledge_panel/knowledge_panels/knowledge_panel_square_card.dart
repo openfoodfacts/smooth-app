@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelSquareCard extends StatelessWidget {
   const KnowledgePanelSquareCard({
@@ -92,81 +90,62 @@ class KnowledgePanelSquareCard extends StatelessWidget {
     KnowledgePanel panel,
     SmoothColorsThemeExtension themeExtension,
   ) {
-    print(panel.toData());
-    final String? panelId = panel.elements?.first.panelElement?.panelId;
-    print(panelId);
+    final String title =
+        panel.titleElement?.valueString ??
+        panel.titleElement?.value?.toString() ??
+        '';
 
     return Expanded(
-      child: GestureDetector(
-        onTap: panelId != null
-            ? () async => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => SmoothBrightnessOverride(
-                    brightness: SmoothBrightnessOverride.of(
-                      context,
-                    )?.brightness,
-                    child: KnowledgePanelPage(
-                      panelId: panelId,
-                      product: product,
-                    ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: VERY_LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              spacing: SMALL_SPACE,
+              children: <Widget>[
+                Flexible(
+                  child: Text(
+                    panel.titleElement?.name ?? '',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-              )
-            : null,
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: VERY_LARGE_SPACE,
-            vertical: MEDIUM_SPACE,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                spacing: SMALL_SPACE,
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      panel.titleElement?.name ?? '',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Icon(
-                    ConstantIcons.forwardIcon,
-                    color: themeExtension.primaryTone,
-                    size: 16.0,
-                  ),
-                ],
-              ),
-              const SizedBox(height: SMALL_SPACE),
-              Expanded(
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      _buildIndicator(panel.evaluation, themeExtension),
-                      const SizedBox(width: MEDIUM_SPACE),
-                      Flexible(
-                        child: Text(
-                          panel.titleElement?.valueString ??
-                              panel.titleElement?.value?.toString() ??
-                              '',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: indicatorColor(
-                              panel.evaluation,
-                              themeExtension,
-                            ),
+                Icon(
+                  ConstantIcons.forwardIcon,
+                  color: themeExtension.primaryTone,
+                  size: 16.0,
+                ),
+              ],
+            ),
+            const SizedBox(height: SMALL_SPACE),
+            Expanded(
+              child: Center(
+                child: Row(
+                  children: <Widget>[
+                    _buildIndicator(panel.evaluation, themeExtension),
+                    const SizedBox(width: MEDIUM_SPACE),
+                    Flexible(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: indicatorColor(
+                            panel.evaluation,
+                            themeExtension,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
