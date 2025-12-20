@@ -1763,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "国家/地区",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5616,7 +5616,7 @@
   "location_map_details_street": "街道",
   "location_map_details_city": "城市",
   "location_map_details_postcode": "邮政编码",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "国家/地区",
   "location_map_details_coordinates": "坐标",
   "location_map_details_osm_id": "OSM ID"
 }
