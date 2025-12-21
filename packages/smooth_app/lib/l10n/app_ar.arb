@@ -472,7 +472,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "مجتمع",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2311,7 +2311,7 @@
   "prices_website_button": "افتح على موقع الأسعار المفتوحة",
   "prices_bulk_proof_upload_select": "أضف علامات الأسعار مباشرة من المعرض",
   "prices_bulk_proof_upload_warning": "بمجرد تحديد الصور، لن تتمكن من تحريرها!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "سيقوم الذكاء الاصطناعي بتشغيل بياناتك لاستخراج الأسعار.",
   "prices_bulk_proof_upload_community_switch": "السماح للمجتمع بالتحقق من الأسعار المستخرجة بواسطة الذكاء الاصطناعي.",
   "prices_bulk_proof_upload_subtitle": "علامات أسعار متعددة",
   "prices_bulk_proof_upload_title": "تحميل الدليل الشامل",
@@ -2386,7 +2386,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "سعر الوحدة",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2779,11 +2779,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "مساعد مساهمة الأسعار",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "مساعد التحقق من الأسعار",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "التحديات",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4150,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "يوجد حاليًا عدد قليل من الشركات التي تمتلك قواعد بيانات ضخمة لأسعار المنتجات على مستوى الباركود. هذه الأسعار ليست متاحة مجانًا، بل تُباع بأسعار مرتفعة لجهات خاصة وباحثين ومنظمات أخرى قادرة على تحمل تكلفتها.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4167,7 +4167,7 @@
   "guide_open_prices_scrapping_title": "هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟",
   "guide_open_prices_scrapping_paragraph1": "لأسباب قانونية وفنية، **لا نعتبر جمع الأسعار من مواقع تجار التجزئة طريقةً صالحةً للمساهمة في \"الأسعار المفتوحة\". نحرص على دقة الأسعار التي نجمعها وتحديثها، وتلقينا أسعارًا من المساهمين لا يسمح لنا بذلك.",
   "guide_open_prices_scrapping_paragraph2": "يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "أنا بائع تجزئة وأرغب في المساهمة في تحديد الأسعار. كيف يمكنني فعل ذلك؟",
   "guide_open_prices_retailers_paragraph1": "يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "مرحباً بكم في حقائق المنتجات المفتوحة!",
@@ -4639,7 +4639,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Discount",
+  "prices_discount": "تخفيض",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4659,11 +4659,11 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locations",
+  "prices_stats_locations_section": "المواقع",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "البراهين",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4671,7 +4671,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "التجارب",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4683,19 +4683,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "مع رمز شريطي",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "مع فئة",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "مع خصم",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "مجتمع",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4703,7 +4703,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "With a price",
+  "prices_stats_with_price": "بثمن",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4727,7 +4727,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "متصل",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4743,31 +4743,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "طلب بموجب اللائحة العامة لحماية البيانات",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "متجر الاستيراد",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "التحديات",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "الأسعار مرتبطة ببطاقة السعر",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "العملات",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "سنين",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "الأسعار والإثباتات لكل مصدر",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4775,7 +4775,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "تطبيق الهاتف المحمول",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4875,7 +4875,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "تمت إضافة الأسعار",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4979,7 +4979,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "أضف الأسعار",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5502,7 +5502,7 @@
       }
     }
   },
-  "proof_count": "{count} proofs",
+  "proof_count": "{count} إثباتات",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5526,7 +5526,7 @@
       }
     }
   },
-  "contributors_count": "{count} contributors",
+  "contributors_count": "{count} المساهمون",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
