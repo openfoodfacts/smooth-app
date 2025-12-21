@@ -37,12 +37,12 @@ dependencies:
   photo_view: 0.15.0
   uuid: 4.5.2
   provider: 6.1.5
-  sentry_flutter: 9.8.0
+  sentry_flutter: 9.9.0
   sqflite: 2.4.2
   sqflite_common_ffi: 2.3.6
   url_launcher: 6.3.2
   visibility_detector: 0.4.0+2
-  app_settings: 6.1.1
+  app_settings: 7.0.0
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
@@ -62,9 +62,9 @@ dependencies:
   shimmer: 3.0.0
   rive: 0.14.0-dev.14
   webview_flutter: 4.13.0
-  webview_flutter_android: 4.10.6
+  webview_flutter_android: 4.10.11
   webview_flutter_wkwebview: 3.23.5
-  flutter_custom_tabs: 2.4.0
+  flutter_custom_tabs: 2.4.1
   flutter_image_compress: 2.4.0
   connectivity_plus: 7.0.0
   dart_ping: 9.0.1
@@ -73,7 +73,7 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
-  file_picker: 10.3.7
+  file_picker: 10.3.8
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 
