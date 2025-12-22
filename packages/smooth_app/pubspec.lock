@@ -185,10 +185,10 @@ packages:
     dependency: transitive
     description:
       name: build
-      sha256: "6439a9c71a4e6eca8d9490c1b380a25b02675aa688137dfbe66d2062884a23ac"
+      sha256: c1668065e9ba04752570ad7e038288559d1e2ca5c6d0131c0f5f55e39e777413
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "4.0.3"
   build_config:
     dependency: transitive
     description:
@@ -205,30 +205,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.4"
-  build_resolvers:
-    dependency: transitive
-    description:
-      name: build_resolvers
-      sha256: "2b21a125d66a86b9511cc3fb6c668c42e9a1185083922bf60e46d483a81a9712"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.2"
   build_runner:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: build_runner
-      sha256: fd3c09f4bbff7fa6e8d8ef688a0b2e8a6384e6483a25af0dac75fef362bcfe6f
+      sha256: "110c56ef29b5eb367b4d17fc79375fa8c18a6cd7acd92c05bb3986c17a079057"
       url: "https://pub.dev"
     source: hosted
-    version: "2.7.0"
-  build_runner_core:
-    dependency: transitive
-    description:
-      name: build_runner_core
-      sha256: ab27e46c8aa233e610cf6084ee6d8a22c6f873a0a9929241d8855b7a72978ae7
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.3.0"
+    version: "2.10.4"
   built_collection:
     dependency: transitive
     description:
@@ -822,14 +806,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.17.0"
-  frontend_server_client:
-    dependency: transitive
-    description:
-      name: frontend_server_client
-      sha256: f64a0333a82f30b0cca061bc3d143813a486dc086b574bfb233b7c1372427694
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -1639,10 +1615,10 @@ packages:
     dependency: transitive
     description:
       name: source_gen
-      sha256: "7b19d6ba131c6eb98bfcbf8d56c1a7002eba438af2e7ae6f8398b2b0f4f381e3"
+      sha256: "07b277b67e0096c45196cbddddf2d8c6ffc49342e88bf31d460ce04605ddac75"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "4.1.1"
   source_span:
     dependency: transitive
     description:
@@ -1771,14 +1747,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.7"
-  timing:
-    dependency: transitive
-    description:
-      name: timing
-      sha256: "62ee18aca144e4a9f29d212f5a4c6a053be252b895ab14b5821996cff4ed90fe"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   torch_light:
     dependency: transitive
     description:

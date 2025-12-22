@@ -105,6 +105,7 @@ enum ProductFooterActionBar {
   static List<ProductFooterActionBar> defaultOrder() =>
       const <ProductFooterActionBar>[
         edit,
+        editEverything,
         addPrice,
         compare,
         addToList,
