@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/barcode_utils.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -50,7 +51,7 @@ class SearchProductHelper extends SearchHelper {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     addQuery(localDatabase, query);
 
-    if (int.tryParse(query) != null) {
+    if (query.isBarcode) {
       _onSubmittedBarcode(
         query,
         context,

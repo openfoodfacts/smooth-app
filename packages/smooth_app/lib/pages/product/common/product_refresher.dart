@@ -189,7 +189,12 @@ class ProductRefresher {
         ).put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
 
-        unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
+        unawaited(
+          _failSafeFolksonomyRefresh(
+            result.product!.barcode ?? barcode,
+            localDatabase,
+          ),
+        );
 
         return FetchedProduct.found(result.product!);
       }
