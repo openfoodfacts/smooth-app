@@ -67,7 +67,14 @@
   final List&lt;String&gt; barcodes,
   final ProductType productType,
 ) {
-  final String barcodesString = barcodes.join(&#39;,&#39;);
+  final StringBuffer barcodesString = StringBuffer();
+  for (final String barcode in barcodes) {
+    if (barcodesString.isNotEmpty) {
+      barcodesString.write(&#39;+&#39;);
+    }
+
+    barcodesString.write(Uri.encodeComponent(barcode));
+  }
 
   return UriHelper.replaceSubdomain(
     ProductQuery.getUriProductHelper(

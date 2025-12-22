@@ -65,7 +65,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String PRODUCT_CREATOR(String barcode) =&gt;
-    &#39;&#47;${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}&#47;$barcode&#39;;</code></pre>
+    &#39;&#47;${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}&#47;${Uri.encodeComponent(barcode)}&#39;;</code></pre>
 </section>
 
 

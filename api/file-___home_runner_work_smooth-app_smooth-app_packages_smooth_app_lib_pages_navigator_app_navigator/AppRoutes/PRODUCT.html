@@ -75,11 +75,11 @@
   BackButtonType? backButtonType,
   ProductPageTransition? transition = ProductPageTransition.standard,
 }) =&gt;
-    &#39;&#47;${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}&#47;$barcode&#39;
+    &#39;&#47;${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}&#47;${Uri.encodeComponent(barcode)}&#39;
     &#39;?heroAnimation=$useHeroAnimation&#39;
-    &#39;&amp;heroTag=$heroTag&#39;
-    &#39;&amp;backButtonType=${backButtonType?.name}&#39;
-    &#39;&amp;transition=${transition?.name}&#39;;</code></pre>
+    &#39;&amp;heroTag=${Uri.encodeQueryComponent(heroTag ?? &#39;&#39;)}&#39;
+    &#39;&amp;backButtonType=${Uri.encodeQueryComponent(backButtonType?.name ?? &#39;&#39;)}&#39;
+    &#39;&amp;transition=${Uri.encodeQueryComponent(transition?.name ?? &#39;&#39;)}&#39;;</code></pre>
 </section>
 
 

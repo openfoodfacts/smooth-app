@@ -66,7 +66,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String PRODUCT_LOADER(String barcode, {bool edit = false}) =&gt;
-    &#39;&#47;${_InternalAppRoutes.PRODUCT_LOADER_PAGE}&#47;$barcode?edit=$edit&#39;;</code></pre>
+    &#39;&#47;${_InternalAppRoutes.PRODUCT_LOADER_PAGE}&#47;${Uri.encodeComponent(barcode)}?edit=$edit&#39;;</code></pre>
 </section>
 
 
