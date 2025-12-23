@@ -94,6 +94,7 @@ Future&lt;String?&gt; asyncLoad() async {
             &#39;&amp;limit=100&#39;
             &#39;${_getAdditionalParameters()}&#39;,
       ),
+      headers: &lt;String, String&gt;{&#39;User-Agent&#39;: &#39;OpenFoodFacts&#47;MobileApp&#39;},
     );
     if (response.statusCode != 200) {
       return &#39;Could not retrieve locations&#39;;
