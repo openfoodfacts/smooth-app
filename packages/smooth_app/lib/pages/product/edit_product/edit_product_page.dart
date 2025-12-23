@@ -296,7 +296,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     return _ListTitleItem(
       leading: const icons.Shapes(),
       title: appLocalizations.edit_product_form_item_edit_everything_title,
-      subtitle: appLocalizations.edit_product_form_item_edit_everything_subtitle,
+      subtitle:
+          appLocalizations.edit_product_form_item_edit_everything_subtitle,
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(
           context,

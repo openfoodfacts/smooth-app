@@ -173,8 +173,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
 
       final BackgroundTaskDetailsStamp stamp = helper.getStamp();
-      final Product targetProduct = changedProducts[stamp] ??
-          Product(barcode: widget.product.barcode);
+      final Product targetProduct =
+          changedProducts[stamp] ?? Product(barcode: widget.product.barcode);
       if (helper.getChangedProduct(targetProduct)) {
         changedProducts[stamp] = targetProduct;
       }

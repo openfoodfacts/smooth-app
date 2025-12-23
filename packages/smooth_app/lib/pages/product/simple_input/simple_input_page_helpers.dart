@@ -422,11 +422,11 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
 
   @override
   List<String> initTerms(final Product product) {
-    final String? localized =
-        product.productNameInLanguages?[getLanguage()];
+    final String? localized = product.productNameInLanguages?[getLanguage()];
     final String? fallback = product.productName;
-    final String? initial =
-        MultilingualHelper.getCleanText(localized ?? fallback);
+    final String? initial = MultilingualHelper.getCleanText(
+      localized ?? fallback,
+    );
     if (initial == null || initial.isEmpty) {
       return <String>[];
     }
@@ -457,8 +457,9 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
     if (terms.isEmpty) {
       return;
     }
-    changedProduct.productNameInLanguages =
-        <OpenFoodFactsLanguage, String>{getLanguage(): terms.first};
+    changedProduct.productNameInLanguages = <OpenFoodFactsLanguage, String>{
+      getLanguage(): terms.first,
+    };
   }
 
   @override
@@ -482,8 +483,7 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.product_names;
 
   @override
-  TextCapitalization? getTextCapitalization() =>
-      TextCapitalization.sentences;
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
   TagType? getTagType() => null;
@@ -661,7 +661,7 @@ class SimpleInputPageWebsiteHelper extends AbstractSimpleInputPageHelper {
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
-    appLocalizations.product_field_website_title;
+      appLocalizations.product_field_website_title;
 
   @override
   String getAddTooltip(AppLocalizations appLocalizations) =>
