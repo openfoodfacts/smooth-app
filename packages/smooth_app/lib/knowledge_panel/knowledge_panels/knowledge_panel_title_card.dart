@@ -122,7 +122,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       SizedBox(
                         width: constraints.maxWidth,
                         child: Text(
-                          knowledgePanelTitleElement.title,
+                          knowledgePanelTitleElement.title ?? '',
                           style:
                               textStyleOverride ??
                               TextStyle(

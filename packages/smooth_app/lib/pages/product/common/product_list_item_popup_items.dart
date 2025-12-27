@@ -68,6 +68,8 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
   }) async {
     final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
       context,
+      // TODO(monsieurtanuki): implement for other types
+      ProductType.food,
     );
     if (context.mounted) {
       if (cache == null) {
