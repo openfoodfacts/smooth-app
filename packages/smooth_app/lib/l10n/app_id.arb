@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Nama pengguna: Terlihat publik",
   "sign_up_page_username_error_empty": "Silakan masukkan nama pengguna Anda",
   "sign_up_page_username_error_invalid": "Silakan masukkan nama pengguna yang sah",
-  "sign_up_page_username_description": "Username tidak boleh berisi spasi, huruf besar atau karakter khusus.",
+  "sign_up_page_username_description": "Nama pengguna tidak boleh mengandung spasi, huruf kapital, atau karakter khusus.",
   "sign_up_page_username_length_invalid": "Nama pengguna tidak dapat melebihi {value} karakter",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Kontribusikanlah keterampilan Anda pada Open Food Facts. Bergabunglah ke kumpulan keterampilan!",
   "contribute_share_header": "Bagikan OpenFoodFacts dengan teman-teman anda",
   "@contribute_share_header": {},
-  "contribute_share_content": "Saya ingin memberi tahu kamu tentang aplikasi yang saya gunakan, OpenFoodFacts, yang memungkinkan kamu untuk mengetahui dampak kesehatan dan lingkungan dari makananmu, secara personal. Aplikasi ini bekerja dengan memindai barcode pada kemasan. Aplikasi ini gratis, tidak perlu pendaftaran, dan kamu bahkan bisa membantu menambah jumlah produk yang diuraikan. Ini tautan untuk mendapatkannya di hpmu: https://openfoodfacts.app",
+  "contribute_share_content": "Saya ingin memberi tahu Anda tentang aplikasi yang saya gunakan, Open Food Facts, yang memungkinkan Anda mendapatkan informasi tentang dampak kesehatan dan lingkungan dari makanan Anda, secara personal. Aplikasi ini bekerja dengan memindai kode batang pada kemasan. Yang terpenting, aplikasi ini gratis, tidak memerlukan pendaftaran, dan Anda bahkan dapat membantu meningkatkan jumlah produk yang informasinya diuraikan. Berikut tautan untuk mengunduhnya ke ponsel Anda: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Semua",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pencarian kategori)",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratorium Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
