@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
   "sign_up_page_username_error_empty": "Indtast et brugernavn",
   "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
-  "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, majuskler eller specialtegn.",
+  "sign_up_page_username_description": "Brugernavnet må ikke indeholde mellemrum, store bogstaver eller specialtegn.",
   "sign_up_page_username_length_invalid": "Brugernavn må ikke overstige {value} tegn",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Bidrage dine færdigheder til Open Food Facts. Deltag i dygtighedspuljen!",
   "contribute_share_header": "Del Open Food Facts med dine venner",
   "@contribute_share_header": {},
-  "contribute_share_content": "Jeg vil gerne lige fortælle om den app, jeg har brugt, Open Food Facts, der giver mulighed for at få viden om madens sundheds- og miljøpåvirkninger på en herlig nem måde. Den fungerer ved at skanne emballagestregkoder. Den er desuden gratis, kræver ingen registrering, og man kan endda hjælpe med at øge antallet af dechifrerede produkter. Her er linket til at få den på mobilen: https://openfoodfacts.app",
+  "contribute_share_content": "Jeg ville gerne fortælle jer om den app, jeg har brugt, Open Food Facts, som giver dig mulighed for at få oplysninger om din mads sundheds- og miljømæssige påvirkning på en personlig måde. Den fungerer ved at scanne stregkoderne på emballagen. Endelig er den gratis, kræver ikke registrering, og du kan endda hjælpe med at øge antallet af produkter, der dechifreres. Her er linket til at hente den til din telefon: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alle",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisøgning)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Opdag åbne fødevarefakta",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Åbne fødevarefakta-laboratorier",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
