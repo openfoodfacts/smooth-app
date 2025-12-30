@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencek",
   "@licenses": {},
   "looking_for": "Keresés",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Felhasználónév: Nyilvánosan látható",
   "sign_up_page_username_error_empty": "Adjon meg egy felhasználónevet",
   "sign_up_page_username_error_invalid": "Adjon meg egy érvényes felhasználónevet",
-  "sign_up_page_username_description": "A felhasználónév nem tartalmazhat szóközt, nagybetűket vagy speciális karaktereket.",
+  "sign_up_page_username_description": "A felhasználónév nem tartalmazhat szóközöket, nagybetűket vagy speciális karaktereket.",
   "sign_up_page_username_length_invalid": "A felhasználónév nem lehet {value} karakternél hosszabb",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Járuljon hozzá készségeivel az Open Food Factshez. Csatlakozzon a képességtárhoz!",
   "contribute_share_header": "Ossza meg barátaival az OpenFoodFacts-et",
   "@contribute_share_header": {},
-  "contribute_share_content": "Szerettem volna, ha tudsz az általam használt Open Food Facts nevű alkalmazásról, amely lehetővé teszi, hogy személyre szabott módon megismerd az ételek egészségügyi és környezeti hatásait. A csomagoláson található vonalkódok beolvasásával működik. Nem utolsó sorban ingyenes, nem igényel regisztrációt, és még segíthetsz is növelni a benne lévő termékek számát. Erről a linkről töltheted le a telefonodra: https://openfoodfacts.app",
+  "contribute_share_content": "Szeretnék tájékoztatni az Open Food Facts nevű alkalmazásról, amit használok, és amely lehetővé teszi, hogy személyre szabott módon tájékozódj az élelmiszerek egészségügyi és környezeti hatásairól. A csomagoláson található vonalkódok beolvasásával működik. Végül ingyenes, nem igényel regisztrációt, és még a megfejtett termékek számának növelésében is segíthetsz. Itt a link, hogy letöltsd a telefonodra: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Összes",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategória keresés)",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Nyílt Élelmiszerinformációs Laboratóriumok",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
