@@ -2677,7 +2677,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -3263,6 +3263,10 @@
   "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
+  },
+  "background_task_title_folksonomy": "စက်တွင်းသိမ်းဆည်းထားသော folksonomy အပ်ဒိတ်များအတွက် ဆာဗာလုပ်ဆောင်ချက်များကို စတင်လုပ်ဆောင်နေပါသည်။",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
@@ -5372,7 +5376,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

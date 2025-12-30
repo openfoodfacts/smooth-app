@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Початок виконання дій сервера для оновлень folksonomy, що зберігаються локально.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Початок завантаження найпопулярніших продуктів",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3964,7 +3968,7 @@
   "guide_greenscore_lca_arg2_title": "6 етапів виробництва",
   "guide_greenscore_lca_arg2_agriculture": "Сільське господарство",
   "guide_greenscore_lca_arg2_processing": "Обробляється",
-  "guide_greenscore_lca_arg2_packaging": "Упаковка",
+  "guide_greenscore_lca_arg2_packaging": "Пакування",
   "guide_greenscore_lca_arg2_transportation": "Транспортування",
   "guide_greenscore_lca_arg2_distribution": "Поширення",
   "guide_greenscore_lca_arg2_consumption": "Споживання",
@@ -3985,7 +3989,7 @@
   "guide_greenscore_bonuses_penalties_arg2_text": "**Бонус** надається залежно від походження інгредієнтів. Цей бонус враховує **вплив на транспортування**, а також **екологічну політику** країни кожного виробника.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Види, які знаходяться під загрозою зникнення",
   "guide_greenscore_bonuses_penalties_arg3_text": "**Штраф** накладається на продукти, що містять інгредієнти, які мають значний **негативний вплив на біорізноманіття та екосистеми**, такі як пальмова олія, виробництво якої є причиною масового вирубування лісів.",
-  "guide_greenscore_bonuses_penalties_arg4_title": "Упаковка",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Пакування",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Штраф** розраховується з урахуванням **циклічності пакування** (використання переробленої сировини та можливість вторинної переробки) та перепакування.",
   "guide_greenscore_transparency_title": "Зростання потреби в прозорості для кращого вимірювання та зменшення впливу на навколишнє середовище",
   "guide_greenscore_transparency_intro1": "Для точного розрахунку Green-Score необхідно мати **інформацію, яка не обов'язково вказана на упаковці** (таку як походження та точний відсоток кожного інгредієнта) або яка рідко доступна у придатній для використання формі (таку як перелік усіх компонентів упаковки з точним зазначенням типів використаних пластиків).",
@@ -5124,7 +5128,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "Громадська організація «Факти про відкриту їжу»",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Блог «Факти про відкриту їжу»",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },

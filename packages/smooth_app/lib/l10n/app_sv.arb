@@ -422,7 +422,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "Bli en aktör för livsmedelstransparens",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -1763,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Land",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2311,7 +2311,7 @@
   "prices_website_button": "Öppna på webbplatsen för öppna priser",
   "prices_bulk_proof_upload_select": "Lägg till prislappar direkt från galleriet",
   "prices_bulk_proof_upload_warning": "När du väl har valt bilder kan du inte redigera dem!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "AI kommer att använda dina bevis för att extrahera priser.",
   "prices_bulk_proof_upload_community_switch": "Tillåt communityn att validera priser som extraherats av AI.",
   "prices_bulk_proof_upload_subtitle": "Flera prislappar",
   "prices_bulk_proof_upload_title": "Massuppladdning av bevis",
@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Läs mer om öppna priser",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2779,7 +2779,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Prisbidragsassistent",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Prisvalideringsassistent",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -3263,6 +3263,10 @@
   "background_task_title_full_refresh": "Startar uppdateringen av alla lokalt lagrade produkter",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
+  },
+  "background_task_title_folksonomy": "Börjar utföra serveråtgärderna för folksonomy-uppdateringar som lagras lokalt",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "Startar nedladdningen av de mest populära produkterna",
   "@background_task_title_top_n": {
@@ -3910,7 +3914,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Vad är Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score är en logotyp som syftar till att informera dig om **näringskvaliteten på livsmedel**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3987,7 +3991,7 @@
   "guide_greenscore_bonuses_penalties_arg3_text": "Produkter som innehåller ingredienser som har betydande negativa effekter på biologisk mångfald och ekosystem, såsom palmolja, vars produktion orsakar massiv avskogning, bestraffas.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Förpackning",
   "guide_greenscore_bonuses_penalties_arg4_text": "En **straffavgift** beräknas för att ta hänsyn till **förpackningens cirkularitet** (användning av återvunnet råmaterial och återvinningsbarhet) och överförpackning.",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "Ett ökat behov av transparens för att bättre mäta och minska miljöpåverkan",
   "guide_greenscore_transparency_intro1": "För att korrekt beräkna Green-Score är det nödvändigt att ha **information som inte nödvändigtvis anges på förpackningen** (såsom ursprung och exakt procentandel av varje ingrediens) eller som sällan är tillgänglig i användbar form (såsom en lista över alla komponenter i förpackningen med exakt vilka typer av plast som används).",
   "guide_greenscore_transparency_intro2": "**Medelvärden används när denna information ännu inte är tillgänglig**, men vi uppmanar nu alla att hjälpa oss att samla in denna information som kommer att vara mycket användbar för Green-Score men även för många andra användningsområden.",
   "guide_greenscore_transparency_arg1_title": "Hur kan medborgare hjälpa till?",
@@ -4048,7 +4052,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Vad är öppna matfakta?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts är en **samarbetsbaserad**, **gratis** och **öppen** databas med livsmedelsprodukter från hela världen.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4137,20 +4141,20 @@
   "guide_open_beauty_facts_scores_title": "En anmärkning om poängsättning",
   "guide_open_beauty_facts_scores_paragraph1": "Till skillnad från livsmedelsprodukter har kosmetikaindustrin **inte ett universellt erkänt, statligt stödt poängsystem som Nutri-Score**. Ingrediensernas effekter kan vara mycket personliga och bero på hudtyp, allergier och individuella behov.",
   "guide_open_beauty_facts_share_link": "https://world-sv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Välkommen till Öppna Priser!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Vad är öppningspriser?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices är ett projekt för att **samla in och dela priser på produkter runt om i världen**. Det är en offentligt tillgänglig datauppsättning som kan användas för forskning, analys och mer. Open Prices utvecklas och underhålls av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Det finns för närvarande få företag som äger stora databaser med produktpriser på streckkodsnivå. Dessa priser är inte fritt tillgängliga, utan säljs till ett högt pris till privata aktörer, forskare och andra organisationer som har råd med dem.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Hur fungerar öppna priser?",
   "guide_open_prices_how_paragraph1": "**Vi crowdsourcar en öppen källkodsdatauppsättning med priser**. Priser kan läggas till av användare via den här webbappen eller via den officiella mobilappen Open Food Facts. Återförsäljare eller tredjepartsappar kan också bidra genom att använda vårt API.",
   "guide_open_prices_how_arg1_title": "Samla foton på prislappar i gångarna",
   "guide_open_prices_how_arg2_title": "Samla foton på kvitton",
@@ -4161,16 +4165,16 @@
   "guide_open_prices_why_arg2_title": "Jämför priser nära dig",
   "guide_open_prices_why_arg2_text": "Allt eftersom vi får fler priser kan du hitta **de billigaste butikerna i närheten**.",
   "guide_open_prices_scrapping_title": "Har du funderat på att hämta priser från återförsäljarnas webbplatser?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Av juridiska och tekniska skäl **anser vi inte att det är ett giltigt sätt att bidra till öppna priser att hämta priser från återförsäljares webbplatser.** Vi vill se till att de priser vi samlar in är korrekta och aktuella, och att ta emot hämtade priser från bidragsgivare tillåter oss inte att göra det.",
   "guide_open_prices_scrapping_paragraph2": "Prisskrapning är ett övervägt alternativ i en framtida version av Open Prices, men det skulle göras av Open Prices själva så att vi kan ha ett bevis på priset baserat på HTML-sidan.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Jag är en återförsäljare och jag vill bidra med priser. Hur kan jag göra det?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser genom att använda vårt API.\nOm du vill bidra med priser i stor skala, vänligen kontakta oss på prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Välkommen till fakta om öppna produkter!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Vad är fakta om öppna produkter?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts är en massiv, öppen databas för **alla produkter med streckkod, som inte är livsmedel, kosmetika eller djurfoder**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Funktioner i öppna produktfakta",
   "guide_open_products_facts_features_text": "Open Products Facts syftar till att ge konsumenter möjlighet att **förlänga livslängden på föremål** genom att tillhandahålla cirkulära lösningar för att underhålla, **reparera**, **återvinna** sina föremål eller ge dem en ny ägare.",
   "guide_open_products_facts_features_arg1_title": "Koldioxidavtryck för vissa produkter",
   "guide_open_products_facts_features_arg1_text": "**CO2-påverkan** från den franska miljömyndigheten ADEME tillhandahåller **koldioxidpåverkan** för många kategorier, se till att kategorisera produkterna exakt.",
@@ -4739,11 +4743,11 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "GDPR-begäran",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Butiksimport",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
@@ -4923,7 +4927,7 @@
   "@preferences_terms_of_use": {
     "description": "Title for the terms of use tile "
   },
-  "preferences_legal_mentions": "Legal mentions",
+  "preferences_legal_mentions": "Juridiska omnämnanden",
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
@@ -5612,7 +5616,7 @@
   "location_map_details_street": "Gata",
   "location_map_details_city": "Stad",
   "location_map_details_postcode": "Postnummer",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinater",
   "location_map_details_osm_id": "OSM-ID"
 }

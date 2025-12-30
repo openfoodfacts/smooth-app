@@ -1763,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "国家/地区",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "开始执行本地存储的民间分类更新的服务器操作",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "开始下载最受欢迎的产品",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3942,7 +3946,7 @@
   "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "绿色评分",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4170,7 +4174,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "什么是开放产品信息？",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts 是一个庞大的开放数据库，其中包含**任何带有条形码的产品，但不包括食品、化妆品或宠物食品**。",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "开放产品事实的特点",
   "guide_open_products_facts_features_text": "Open Products Facts 旨在通过提供循环解决方案，帮助消费者**延长物品的使用寿命**，从而维护、**修理**、**回收**物品或将其转赠给新的主人。",
   "guide_open_products_facts_features_arg1_title": "某些产品的碳足迹",
   "guide_open_products_facts_features_arg1_text": "法国环境管理署 ADEME 发布的 **Impact CO2** 提供了许多类别的 **碳排放影响**，请务必对产品进行准确分类。",
@@ -5572,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts实验室",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5612,7 +5616,7 @@
   "location_map_details_street": "街道",
   "location_map_details_city": "城市",
   "location_map_details_postcode": "邮政编码",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "国家/地区",
   "location_map_details_coordinates": "坐标",
   "location_map_details_osm_id": "OSM ID"
 }
