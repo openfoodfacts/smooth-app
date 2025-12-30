@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "ലൈസൻസുകൾ",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
   "sign_up_page_username_error_invalid": "Please enter a valid username",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+  "sign_up_page_username_description": "ഉപയോക്തൃനാമത്തിൽ സ്‌പെയ്‌സുകളോ വലിയക്ഷരങ്ങളോ പ്രത്യേക പ്രതീകങ്ങളോ അടങ്ങിയിരിക്കരുത്.",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "ഞാൻ ഉപയോഗിച്ചുവരുന്ന ഓപ്പൺ ഫുഡ് ഫാക്ട്സ് എന്ന ആപ്പിനെക്കുറിച്ച് നിങ്ങളെ അറിയിക്കാൻ ഞാൻ ആഗ്രഹിക്കുന്നു. ഭക്ഷണത്തിന്റെ ആരോഗ്യപരവും പാരിസ്ഥിതികവുമായ ആഘാതങ്ങൾ വ്യക്തിഗതമാക്കിയ രീതിയിൽ അറിയാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു. പാക്കേജിംഗിലെ ബാർകോഡുകൾ സ്കാൻ ചെയ്താണ് ഇത് പ്രവർത്തിക്കുന്നത്. ഒടുവിൽ ഇത് സൗജന്യമാണ്, രജിസ്ട്രേഷൻ ആവശ്യമില്ല, കൂടാതെ ഡീക്രിപ്റ്റ് ചെയ്ത ഉൽപ്പന്നങ്ങളുടെ എണ്ണം വർദ്ധിപ്പിക്കാൻ പോലും നിങ്ങൾക്ക് സഹായിക്കാനാകും. നിങ്ങളുടെ ഫോണിലേക്ക് ഇത് ലഭിക്കുന്നതിനുള്ള ലിങ്ക് ഇതാ: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ലാബുകൾ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
