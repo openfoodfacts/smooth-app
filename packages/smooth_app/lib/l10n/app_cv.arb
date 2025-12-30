@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Вырӑнта упранакан folksonomy ҫӗнетӗвӗсем валли сервер ӗҫӗсене пурнӑҫлама пуҫласси",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4991,7 +4995,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
+  "preferences_on_off_website_subtitle": "Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5124,7 +5128,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

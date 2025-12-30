@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Mahalliy ravishda saqlangan folksonomiya yangilanishlari uchun server amallarini bajarishni boshlash",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -5124,7 +5128,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "Ochiq oziq-ovqat faktlari nodavlat tashkiloti",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Ochiq oziq-ovqat faktlari blogi",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Ochiq oziq-ovqat faktlarini tilingizga olib keling",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

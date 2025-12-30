@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "最も人気のある製品のダウンロードを開始します",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3837,8 +3841,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "不明な栄養スコア",
+  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
   "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
   "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
   "environmental_score_generic_new": "Green-Score",
@@ -4088,7 +4092,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "オープンペットフードファクトの特徴",
   "guide_open_pet_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "ペットにアレルギーのある成分はありますか？避けるべき化粧品成分のリストをアプリ内で設定できます。",
   "guide_open_pet_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4118,7 +4122,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "オープンビューティーファクトの特徴",
   "guide_open_beauty_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_beauty_facts_features_arg1_paragraph1": "成分にアレルギーがありますか？コメドゲン物質を避けたいですか？物議を醸す成分を避けたいですか？アプリ内で、避けたい化粧品成分のリストを設定できます！",
   "guide_open_beauty_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "オープンプロダクトの特徴",
   "guide_open_products_facts_features_text": "Open Products Facts は、物品を維持、**修理**、**リサイクル**したり、新しい所有者に譲渡したりするための循環型ソリューションを提供することで、消費者に**物品の寿命を延ばす**ことを目指しています。",
   "guide_open_products_facts_features_arg1_title": "一部の製品のカーボンフットプリント",
   "guide_open_products_facts_features_arg1_text": "フランス環境庁 ADEME による **Impact CO2** では、多くのカテゴリーの **炭素影響** が示されています。製品を正確に分類するようにしてください。",
@@ -5572,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Factsラボ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -2677,7 +2677,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Servidor ruwaykunata ruwayta qallariy folksonomy musuqyachiykunapaq kitipi waqaychasqa",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3842,12 +3846,12 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Verde-Puntuación A",
-  "environmental_score_b_new": "Verde-Puntuación B",
-  "environmental_score_c_new": "Verde-Puntuación C",
-  "environmental_score_d_new": "Verde-Puntuación D",
-  "environmental_score_e_new": "Verde-Puntuación E",
-  "environmental_score_unknown_new": "Mana riqsisqa Verde-Puntuación",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Mana riqsisqa Green-Score",
   "environmental_score_not_applicable_new": "Green-Score nisqa mana ruwanapaqchu",
   "nova_group_generic_new": "Ultra-procesado mikhuykuna - NOVA qutukuna",
   "nova_group_1": "NOVA Group 1",
@@ -3955,7 +3959,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Chay Verde-Puntuación nisqa logotipokuna",
+  "guide_greenscore_logos_caption": "Chay Green-Score nisqa logotipokuna",
   "guide_greenscore_lca_title": "Ukhun: Kawsay muyu chaninchay (LCA) .",
   "guide_greenscore_lca_arg1_title": "Mikhuy categoría nisqakunamanta cientifico chaninchay",
   "guide_greenscore_lca_arg1_text1": "Sapa ruru categoría nisqapaqmi, **benchmark** nisqa yupayta churakun Agribalyse pachamamamanta willakuypa willakuyninkunawan (ADEMEwan INRAEwan ruwasqa).",
@@ -4000,9 +4004,9 @@
   "guide_greenscore_better_product_arg2_title": "¡Qanqa atiyniyoqmi kanki!",
   "guide_greenscore_better_product_arg2_text": "Allin willakuyqa kaymi quwanchik huk atiyniyuq ñanta tikrayta paqarichinapaq.\n**Sapa watanmi 1.000 mikhunata hina mikhunchis**. Chayqa 1.000 oportunidadkuna **akllanapaq aswan allin hamuq pachata kay planetapaq**!",
   "guide_greenscore_better_product_arg3_title": "Yanapakunmi responsable kanapaq hinaspa tanteanapaq",
-  "guide_greenscore_better_product_arg3_text": "Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Verde-Puntuación nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.",
+  "guide_greenscore_better_product_arg3_text": "Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Green-Score nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.",
   "guide_greenscore_better_product_arg4_title": "Transparencia nisqa",
-  "guide_greenscore_better_product_arg4_text": "Mana propiedad etiquetakuna hinachu, Verde-Puntuación yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.",
+  "guide_greenscore_better_product_arg4_text": "Mana propiedad etiquetakuna hinachu, Green-Score yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4552,7 +4556,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "¿Imaraykutaq preciokuna?",
-  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
+  "prices_explanation_card_line1": "**Precios Abiertos** nisqaqa huk proyectom, pachantinpi rurukunapa chaninkunata huñunapaq hinaspa rakinapaq 🌍. Kichasqa Precios nisqakunaqa Kichasqa Mikhuy Chiqapkuna nisqawanmi ruwasqa hinaspa waqaychasqa.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4927,7 +4931,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.",
+  "preferences_legal_header": "Kichasqa Mikhuy Chiqap willakuykunaqa mikhuy rurukunap willay tantana wasim **llapa runap rurasqan, llapa runapaq**.\nAswan allin mikhuy akllanapaq llamk'achiy atikunki, chaymanta **kichasqa willay** kasqanrayku, pipas **imapaqpas wakmanta llamk'achiyta atin**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4991,7 +4995,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
+  "preferences_on_off_website_subtitle": "Kichasqa Mikhuy Chiqap web nisqapi",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5124,7 +5128,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "Kichasqa Mikhuymanta Chiqap ONG nisqa",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Kichasqa Mikhuy Chiqap blog nisqa",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5320,7 +5324,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "Kichasqa Chanikuna ayllumanta yapasqa qhipa chaninkuna",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5372,7 +5376,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Kichasqa Mikhuy Chiqap yanapakuykunata yanapanapaq sasan ñankuna",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Kichasqa Mikhuy Chiqap willakuykunata simiykiman apamuy",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

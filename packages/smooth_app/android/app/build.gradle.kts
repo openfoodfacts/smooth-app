@@ -8,10 +8,9 @@ plugins {
 }
 
 android {
-    ndkVersion = "28.1.13356709"
-
     namespace = "org.openfoodfacts.app"
     compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

@@ -1683,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Нутри-Скор, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Научете повече за отворените цени",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Започване на изпълнението на действията на сървъра за актуализации на folksonomy, съхранявани локално",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Започва изтеглянето на най-популярните продукти",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3837,7 +3841,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ново изчисление)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "Неизвестен хранителен резултат",
   "nutriscore_unknown_new_formula": "Неизвестен Nutri-Score (ново изчисление)",
   "nutriscore_not_applicable": "Nutri-Score не е приложим",
   "nutriscore_not_applicable_new_formula": "Nutri-Score не е приложим (ново изчисление)",
@@ -3850,10 +3854,10 @@
   "environmental_score_unknown_new": "Неизвестен зелен резултат",
   "environmental_score_not_applicable_new": "Зеленият резултат не е приложим",
   "nova_group_generic_new": "Ултрапреработени храни - NOVA groups",
-  "nova_group_1": "NOVA Group 1",
-  "nova_group_2": "NOVA Group 2",
-  "nova_group_3": "NOVA Group 3",
-  "nova_group_4": "NOVA Group 4",
+  "nova_group_1": "NOVA Груп 1",
+  "nova_group_2": "NOVA Груп 2",
+  "nova_group_3": "NOVA Груп 3",
+  "nova_group_4": "NOVA Груп 4",
   "nova_group_unknown": "Неизвестна група NOVA",
   "nutrition_facts": "Нива на хранителни вещества",
   "faq_title_partners": "Партньори и меценати на НПО",
@@ -4012,7 +4016,7 @@
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "Класификацията NOVA позволява категоризирането на храните в **4 групи** въз основа на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).",
+  "guide_nova_what_is_nova_paragraph2": "Класификацията NOVA позволява категоризирането на храните в **4 групи** въз осNOVA на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4079,7 +4083,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Какво представляват фактите за храната за домашни любимци в Open Pet Food?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts разширява мисията ни към нашите пухкави приятели! Това е **база данни с храни за домашни любимци за котки, кучета и други домашни любимци**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4109,7 +4113,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Какво представляват откритите факти за красотата?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts е съвместна база данни за **козметични продукти**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4141,7 +4145,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Какво представляват отворените цени?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices е проект за **събиране и споделяне на цени на продукти по целия свят**. Това е публично достъпен набор от данни, който може да се използва за изследвания, анализи и други. Open Prices е разработен и поддържан от Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4150,7 +4154,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Как работят отворените цени?",
   "guide_open_prices_how_paragraph1": "**Ние използваме краудсорсинг за събиране на данни с отворен код за цени**. Цените могат да бъдат добавяни от потребителите чрез това уеб приложение или чрез официалното мобилно приложение Open Food Facts. Търговците на дребно или приложения на трети страни също могат да допринесат, като използват нашия API.",
   "guide_open_prices_how_arg1_title": "Събирайте снимки на етикети с цени по пътеките",
   "guide_open_prices_how_arg2_title": "Събирайте снимки на касови бележки",
@@ -4170,7 +4174,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Какво представляват фактите за отворените продукти?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts е огромна, отворена база данни за **всеки продукт с баркод, който не е храна, козметика или храна за домашни любимци**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Характеристики на отворените продукти Факти",
   "guide_open_products_facts_features_text": "„Open Products Facts“ има за цел да предостави на потребителите възможност за **удължаване на живота на предметите**, като им предоставя кръгови решения за поддръжка, **ремонт**, **рециклиране** на предметите или за даване на нов собственик.",
   "guide_open_products_facts_features_arg1_title": "Въглероден отпечатък за някои продукти",
   "guide_open_products_facts_features_arg1_text": "**Въздействие на CO2** от френската агенция по околна среда ADEME предоставя **въглеродното въздействие** на много категории, уверете се, че категоризирате продуктите точно.",
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Внесете фактите за отворените храни на вашия език",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

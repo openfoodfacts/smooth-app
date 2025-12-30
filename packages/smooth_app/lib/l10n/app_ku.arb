@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Dest bi pêkanîna çalakiyên serverê ji bo nûvekirinên folksonomy yên ku li herêmê hatine hilanîn dike",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -5124,7 +5128,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5320,7 +5324,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
