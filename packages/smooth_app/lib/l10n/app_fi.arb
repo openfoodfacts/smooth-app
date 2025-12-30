@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Käyttäjänimi: julkinen",
   "sign_up_page_username_error_empty": "Syötä käyttäjänimi",
   "sign_up_page_username_error_invalid": "Syötä kelvollinen käyttäjänimi",
-  "sign_up_page_username_description": "Käyttäjänimi ei voi sisältää välilyöntejä, suuraakkosia tai erikoismerkkejä.",
+  "sign_up_page_username_description": "Käyttäjätunnus ei saa sisältää välilyöntejä, isoja merkkejä tai erikoismerkkejä.",
   "sign_up_page_username_length_invalid": "Käyttäjänimi ei voi olla yli {value} merkkiä pitkä",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Edistä taitojasi Open Food Factsissa. Liity osaamispooliin!",
   "contribute_share_header": "Jaa Open Food Facts ystäviesi kanssa",
   "@contribute_share_header": {},
-  "contribute_share_content": "Halusin kertoa sinulle käyttämästäni Open Food Facts -sovelluksesta, jonka avulla saat henkilökohtaisesti selville ruokasi terveys- ja ympäristövaikutukset. Se toimii skannaamalla pakkauksessa olevat viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisteröintiä, ja voit jopa auttaa lisäämään purettujen tuotteiden määrää. Tässä linkki, josta saat sen puhelimeesi: https://openfoodfacts.app",
+  "contribute_share_content": "Halusin kertoa käyttämästäni Open Food Facts -sovelluksesta, jonka avulla voit saada tietoa ruoan terveys- ja ympäristövaikutuksista yksilöllisellä tavalla. Se toimii skannaamalla pakkauksen viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisteröitymistä, ja voit jopa auttaa lisäämään tulkittujen tuotteiden määrää. Tässä on linkki sen lataamiseen puhelimeesi: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Kaikki",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(luokkahaku)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Tutustu avoimiin ruokatietoihin",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Avoimet ruokatietolaboratoriot",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
