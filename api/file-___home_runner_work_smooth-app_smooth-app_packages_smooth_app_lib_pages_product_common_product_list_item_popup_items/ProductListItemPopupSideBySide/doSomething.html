@@ -85,6 +85,8 @@ Future&lt;bool&gt; doSomething({
 }) async {
   final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
     context,
+    &#47;&#47; TODO(monsieurtanuki): implement for other types
+    ProductType.food,
   );
   if (context.mounted) {
     if (cache == null) {

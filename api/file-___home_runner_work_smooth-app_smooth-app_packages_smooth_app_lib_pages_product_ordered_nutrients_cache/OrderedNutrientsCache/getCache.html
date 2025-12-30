@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache-class.html">OrderedNutrientsCache</a>?</span>&gt;</span></span>
-<span class="name ">getCache</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getCache-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+<span class="name ">getCache</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getCache-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="getCache-param-productType"><span class="type-annotation">dynamic</span> <span class="parameter-name">productType</span></span></li>
 </ol>)
 
       
@@ -69,8 +70,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;OrderedNutrientsCache?&gt; getCache(
   final BuildContext context,
+  final ProductType? productType,
 ) async {
-  final OrderedNutrientsCache cache = OrderedNutrientsCache._();
+  final OrderedNutrientsCache cache = OrderedNutrientsCache._(productType);
   final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   &#47;&#47; quickest
   cache._orderedNutrients = await cache._getStaticVersion();

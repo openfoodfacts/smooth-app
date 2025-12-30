@@ -67,7 +67,7 @@
   this.margin,
 }) : type = ScoreCardType.title,
      iconUrl = titleElement.iconUrl,
-     description = titleElement.title,
+     description = titleElement.title ?? &#39;&#39;,
      cardEvaluation = getCardEvaluationFromKnowledgePanelTitleElement(
        titleElement,
      );</code></pre>
