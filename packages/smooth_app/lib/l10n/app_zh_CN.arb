@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "为 Open Food Facts 贡献你的技能。加入技能库！",
   "contribute_share_header": "与朋友分享 Open Food Facts",
   "@contribute_share_header": {},
-  "contribute_share_content": "我想介绍一下我一直在用的一款应用——Open Food Facts，它能让你以个性化的方式了解食物对健康和环境的影响。它的工作原理是扫描包装上的条形码。它完全免费，无需注册，你甚至可以帮助增加了解产品的数量。以下是手机应用下载链接：https://openfoodfacts.app",
+  "contribute_share_content": "我想向你推荐一款我最近在使用的应用程序——Open Food Facts。它能以个性化的方式为你提供食物的健康和环境影响信息。它的工作原理是扫描包装上的条形码。最重要的是，它是免费的，无需注册，你甚至可以帮助增加已解读的产品数量。点击以下链接即可下载到你的手机：https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "全部",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(类别搜索)",
@@ -5120,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "了解开放产品信息",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts实验室",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
