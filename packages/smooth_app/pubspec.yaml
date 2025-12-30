@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ^3.9.2
+  sdk: ^3.10.4
 
 dependencies:
   flutter:
@@ -25,7 +25,7 @@ dependencies:
   flutter_secure_storage: 9.2.4
   hive: 2.2.3
   hive_flutter: 1.1.0
-  http: 1.5.0
+  http: 1.6.0
   http_parser: 4.1.2
   image_picker: 1.2.1
   l10n_countries: 1.3.1
@@ -36,10 +36,10 @@ dependencies:
   permission_handler: 12.0.1
   photo_view: 0.15.0
   uuid: 4.5.2
-  provider: 6.1.5
-  sentry_flutter: 9.9.0
+  provider: 6.1.5+1
+  sentry_flutter: 9.9.1
   sqflite: 2.4.2
-  sqflite_common_ffi: 2.3.6
+  sqflite_common_ffi: 2.4.0+1
   url_launcher: 6.3.2
   visibility_detector: 0.4.0+2
   app_settings: 7.0.0
@@ -49,9 +49,9 @@ dependencies:
   audioplayers: 6.5.1
   flutter_email_sender: 8.0.0
   flutter_native_splash: 2.4.7
-  image: 4.6.0
+  image: 4.7.2
   auto_size_text: 3.0.0
-  crop_image: 1.0.16
+  crop_image: 1.0.17
   shared_preferences: 2.5.4
   intl: 0.20.2
   collection: 1.19.1
@@ -60,7 +60,7 @@ dependencies:
   share_plus: 12.0.1
   fimber: 0.7.0
   shimmer: 3.0.0
-  rive: 0.14.0-dev.14
+  rive: 0.14.0
   webview_flutter: 4.13.0
   webview_flutter_android: 4.10.11
   webview_flutter_wkwebview: 3.23.5
@@ -104,8 +104,6 @@ dependencies:
 
 
   openfoodfacts: 3.28.0
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
 
 dev_dependencies:
   integration_test:

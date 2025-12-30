@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'dart:ui';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,8 @@ class _ScanPageState extends State<ScanPage> {
                     );
                   }
 
-                  SemanticsService.announce(
+                  SemanticsService.sendAnnouncement(
+                    PlatformDispatcher.instance.implicitView!,
                     appLocalizations.scan_announce_new_barcode(barcode),
                     direction,
                     assertiveness: Assertiveness.assertive,
