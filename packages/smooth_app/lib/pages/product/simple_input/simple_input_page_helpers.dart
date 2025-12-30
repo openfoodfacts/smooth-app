@@ -291,6 +291,26 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     }
   }
 
+  /// Utility for single-value helpers to add from controller.
+  @protected
+  bool addSingleValueFromController(
+    TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final String term = MultilingualHelper.getCleanText(controller.text);
+    if (term.isEmpty) {
+      return false;
+    }
+    if (terms.length == 1 && terms.first == term) {
+      return false;
+    }
+    replaceItems(<String>[term]);
+    if (clearController) {
+      controller.text = '';
+    }
+    return true;
+  }
+
   void restoreItemsBeforeLastAddition() {
     if (_itemsBeforeLastAddition == null) {
       return;
@@ -435,31 +455,23 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
 
   @override
   bool addItemsFromController(
-    final TextEditingController controller, {
+    TextEditingController controller, {
     bool clearController = true,
-  }) {
-    final String term = MultilingualHelper.getCleanText(controller.text);
-    if (term.isEmpty) {
-      return false;
-    }
-    if (terms.length == 1 && terms.first == term) {
-      return false;
-    }
-    replaceItems(<String>[term]);
-    if (clearController) {
-      controller.text = '';
-    }
-    return true;
-  }
+  }) => addSingleValueFromController(controller, clearController: clearController);
 
   @override
   void changeProduct(final Product changedProduct) {
+    // If terms is empty, clear the product name for this language
     if (terms.isEmpty) {
+      changedProduct.productNameInLanguages?.remove(getLanguage());
+      // Optionally, if the map is now empty, set to null
+      if (changedProduct.productNameInLanguages != null && changedProduct.productNameInLanguages!.isEmpty) {
+        changedProduct.productNameInLanguages = null;
+      }
       return;
     }
-    changedProduct.productNameInLanguages = <OpenFoodFactsLanguage, String>{
-      getLanguage(): terms.first,
-    };
+    changedProduct.productNameInLanguages ??= <OpenFoodFactsLanguage, String>{};
+    changedProduct.productNameInLanguages![getLanguage()] = terms.first;
   }
 
   @override
@@ -522,22 +534,9 @@ class SimpleInputPageQuantityHelper extends AbstractSimpleInputPageHelper {
 
   @override
   bool addItemsFromController(
-    final TextEditingController controller, {
+    TextEditingController controller, {
     bool clearController = true,
-  }) {
-    final String term = MultilingualHelper.getCleanText(controller.text);
-    if (term.isEmpty) {
-      return false;
-    }
-    if (terms.length == 1 && terms.first == term) {
-      return false;
-    }
-    replaceItems(<String>[term]);
-    if (clearController) {
-      controller.text = '';
-    }
-    return true;
-  }
+  }) => addSingleValueFromController(controller, clearController: clearController);
 
   @override
   void changeProduct(final Product changedProduct) {
@@ -629,22 +628,9 @@ class SimpleInputPageWebsiteHelper extends AbstractSimpleInputPageHelper {
 
   @override
   bool addItemsFromController(
-    final TextEditingController controller, {
+    TextEditingController controller, {
     bool clearController = true,
-  }) {
-    final String term = MultilingualHelper.getCleanText(controller.text);
-    if (term.isEmpty) {
-      return false;
-    }
-    if (terms.length == 1 && terms.first == term) {
-      return false;
-    }
-    replaceItems(<String>[term]);
-    if (clearController) {
-      controller.text = '';
-    }
-    return true;
-  }
+  }) => addSingleValueFromController(controller, clearController: clearController);
 
   @override
   void changeProduct(final Product changedProduct) {
