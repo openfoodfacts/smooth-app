@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Přispějte svými dovednostmi do Open Food Facts. Připojte se k fondu dovedností!",
   "contribute_share_header": "Sdílejte Open Food Facts se svými přáteli",
   "@contribute_share_header": {},
-  "contribute_share_content": "Chtěl jsem vám dát vědět o aplikaci, kterou používám, Open Food Facts, která vám umožňuje personalizovaným způsobem získat informace o dopadech vašeho jídla na zdraví a životní prostředí. Funguje naskenováním čárových kódů na obalu. Konečně je to zdarma, nevyžaduje registraci a dokonce můžete pomoci zvýšit počet dešifrovaných produktů. Zde je odkaz, jak jej získat pro váš telefon: https://openfoodfacts.app",
+  "contribute_share_content": "Chtěl jsem vám dát vědět o aplikaci, kterou používám, Open Food Facts. Ta vám umožňuje personalizovaným způsobem zjistit, jak vaše potraviny ovlivňují zdraví a životní prostředí. Funguje na principu skenování čárových kódů na obalech. Je zdarma, nevyžaduje registraci a dokonce můžete pomoci zvýšit počet dešifrovaných produktů. Zde je odkaz, kde si ji můžete stáhnout do telefonu: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Vše",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(hledání kategorií)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Objevte fakta o jídle na Open Food",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otevřené laboratoře faktů o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
