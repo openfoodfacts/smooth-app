@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencie",
   "@licenses": {},
   "looking_for": "Hľadám",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Používateľské meno: verejne viditeľné",
   "sign_up_page_username_error_empty": "Prosím, zadajte používateľské meno",
   "sign_up_page_username_error_invalid": "Zadajte platné používateľské meno",
-  "sign_up_page_username_description": "Používateľské meno nemôže obsahovať medzery, veľké písmená ani špeciálne znaky.",
+  "sign_up_page_username_description": "Používateľské meno nesmie obsahovať medzery, veľké písmená ani špeciálne znaky.",
   "sign_up_page_username_length_invalid": "Používateľské meno nemôže presiahnuť {value} znakov",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Prispejte svojimi schopnosťami do Open Food Facts. Pridajte sa k tímu zručných!",
   "contribute_share_header": "Zdieľajte Open Food Facts so svojimi priateľmi",
   "@contribute_share_header": {},
-  "contribute_share_content": "Rád by som vám dal vedieť o aplikácii Open Food Facts, ktorú používam. Umožňuje personalizovaným spôsobom získať informácie o vplyve vášho jedla na zdravie a životné prostredie. Funguje tak, že naskenujete čiarové kódy na obale. Je zdarma, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet rozpoznateľných produktov v ich databáze. Tu je odkaz na jeho získanie pre váš telefón: https://openfoodfacts.app",
+  "contribute_share_content": "Chcel by som vám dať vedieť o aplikácii, ktorú používam, Open Food Facts. Táto aplikácia vám umožňuje získať personalizované informácie o vplyve vašich potravín na zdravie a životné prostredie. Funguje na princípe skenovania čiarových kódov na obale. Je bezplatná, nevyžaduje registráciu a dokonca môžete pomôcť zvýšiť počet dešifrovaných produktov. Tu je odkaz na jej stiahnutie do telefónu: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Všetky",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(vyhľadávanie podľa kategórií)",
@@ -5104,23 +5104,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Objavte fakty o otvorenej kráse",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Objavte fakty o krmive pre domáce zvieratá na Open Pet Food",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Objavte otvorené ceny",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Objavte fakty o otvorených produktoch",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
