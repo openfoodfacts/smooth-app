@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Open Food Facts'e becerilerinizle katkıda bulunun. Beceri havuzuna katılın!",
   "contribute_share_header": "Open Food Facts'ı arkadaşlarınızla paylaşın",
   "@contribute_share_header": {},
-  "contribute_share_content": "Kullanmakta olduğum uygulama olan Open Food Facts hakkında bilgi vermek istedim. Ambalaj üzerindeki barkodları okutarak çalışır. Ücretsizdir, kayıt gerektirmez ve şifresi çözülen ürün sayısını artırmaya yardımcı olabilirsiniz. İşte telefonunuza indirmek için bağlantı: https://openfoodfacts.app",
+  "contribute_share_content": "Size, gıdalarınızın sağlık ve çevre üzerindeki etkilerini kişiselleştirilmiş bir şekilde öğrenmenizi sağlayan Open Food Facts adlı uygulamayı tanıtmak istedim. Uygulama, ambalajlardaki barkodları tarayarak çalışıyor. Üstelik ücretsiz, kayıt gerektirmiyor ve hatta çözümlenen ürün sayısını artırmaya yardımcı olabilirsiniz. Telefonunuza indirmek için link burada: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Hepsi",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategori arama)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Açık Gıda Gerçeklerini Keşfedin",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Açık Gıda Bilgileri Laboratuvarları",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
