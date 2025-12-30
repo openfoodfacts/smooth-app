@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "اسم المستخدم: مرئي للعامة",
   "sign_up_page_username_error_empty": "برجاء إدخال اسم المستخدم",
   "sign_up_page_username_error_invalid": "برجاء إدخال اسم مستخدم صحيح",
-  "sign_up_page_username_description": "لا يمكن أن يحتوي اسم المستخدم على مسافات أو أحرف كبيرة أو أحرف خاصة.",
+  "sign_up_page_username_description": "لا يمكن أن يحتوي اسم المستخدم على مسافات أو أحرف كبيرة أو رموز خاصة.",
   "sign_up_page_username_length_invalid": "لا يمكن أن يتجاوز اسم المستخدم {value} حرفًا",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "ساهم بمهاراتك في \"Open Food Facts\". انضم إلى فريقنا!",
   "contribute_share_header": "شارك حقائق الطعام المفتوحة مع أصدقائك",
   "@contribute_share_header": {},
-  "contribute_share_content": "أردتُ أن أخبركم عن تطبيق Open Food Facts الذي أستخدمه، والذي يُمكّنكم من معرفة الآثار الصحية والبيئية لغذائكم، بطريقة شخصية. يعمل التطبيق عن طريق مسح الباركود الموجود على العبوة. وأخيرًا، التطبيق مجاني ولا يتطلب تسجيلًا، ويُمكنكم حتى من زيادة عدد المنتجات التي تُفك رموزها. إليكم رابط تحميله على هاتفكم: https://openfoodfacts.app",
+  "contribute_share_content": "أردتُ أن أُعرّفكم بتطبيق Open Food Facts الذي أستخدمه، والذي يُتيح لكم معرفة التأثيرات الصحية والبيئية لأطعمتكم بطريقة مُخصصة. يعمل التطبيق عن طريق مسح الرموز الشريطية الموجودة على العبوة. والأهم من ذلك، أنه مجاني ولا يتطلب التسجيل، ويمكنكم حتى المساهمة في زيادة عدد المنتجات التي يتم فك رموزها. إليكم رابط تحميله على هواتفكم: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "الكل",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(بحث عن فئة)",
@@ -5108,19 +5108,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "اكتشف الأسعار المفتوحة",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "اكتشف حقائق المنتجات المفتوحة",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
