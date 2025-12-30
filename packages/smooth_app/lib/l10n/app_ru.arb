@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Поделитесь своими навыками с Open Food Facts. Присоединяйтесь к пулу навыков!",
   "contribute_share_header": "Поделитесь Open Food Facts с друзьями",
   "@contribute_share_header": {},
-  "contribute_share_content": "Хочу рассказать вам о приложении Open Food Facts, которое позволяет получать информацию и персональные рекомендации о влиянии еды на здоровье и окружающую среду. Приложение работает путём сканирования штрихкодов. Приложение бесплатное, не требует регистрации, и вы можете добавить недостающую информацию! Ссылка для установки: https://openfoodfacts.app",
+  "contribute_share_content": "Я хотела рассказать вам о приложении, которым я пользуюсь, Open Food Facts, которое позволяет получать персонализированную информацию о влиянии продуктов питания на здоровье и окружающую среду. Оно работает путем сканирования штрих-кодов на упаковке. Наконец, оно бесплатное, не требует регистрации, и вы даже можете помочь увеличить количество продуктов, для которых расшифрованы эти коды. Вот ссылка, чтобы скачать его на свой телефон: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Все",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(поиск по категории)",
@@ -5104,15 +5104,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Откройте для себя факты об открытых продуктах питания",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Откройте для себя Open Beauty Factsе",
+  "preferences_faq_discover_obf_title": "Откройте для себя открытые факты о красоте",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Откройте для себя факты о кормах для домашних животных",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Откройте для себя факты об открытых продуктах",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Открытые лаборатории фактов о продуктах питания",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
