@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todo",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(búsqueda de categorías)",
@@ -1080,7 +1080,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
+  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la puntuación Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -3846,11 +3846,11 @@
   "nutriscore_not_applicable": "No es posible aplicar el Nutri-Score",
   "nutriscore_not_applicable_new_formula": "El Nutri-Score no es aplicable (Nuevo cálculo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "Puntuación verde A",
+  "environmental_score_b_new": "Puntuación verde B",
+  "environmental_score_c_new": "Puntuación verde C",
+  "environmental_score_d_new": "Puntuación verde D",
+  "environmental_score_e_new": "Puntuación verde E",
   "environmental_score_unknown_new": "Green-Score desconocida",
   "environmental_score_not_applicable_new": "El Green-Score no es aplicable",
   "nova_group_generic_new": "Alimentos ultraprocesados - Grupos NOVA",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratorios abiertos de datos alimentarios",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
