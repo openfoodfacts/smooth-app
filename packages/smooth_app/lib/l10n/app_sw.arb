@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Leseni",
   "@licenses": {},
   "looking_for": "Kutafuta",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Jina la mtumiaji: Inaonekana hadharani",
   "sign_up_page_username_error_empty": "Tafadhali weka jina la mtumiaji",
   "sign_up_page_username_error_invalid": "Tafadhali weka jina la mtumiaji halali",
-  "sign_up_page_username_description": "Jina la mtumiaji haliwezi kuwa na nafasi, kofia au herufi maalum.",
+  "sign_up_page_username_description": "Jina la mtumiaji haliwezi kuwa na nafasi, herufi kubwa au herufi maalum.",
   "sign_up_page_username_length_invalid": "Jina la mtumiaji haliwezi kuzidi vibambo {value}",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Changia ujuzi wako kwa Fungua Ukweli wa Chakula. Jiunge na bwawa la ujuzi!",
   "contribute_share_header": "Shiriki Ukweli wa Chakula cha Open na marafiki zako",
   "@contribute_share_header": {},
-  "contribute_share_content": "Nilitaka kukujulisha kuhusu programu ambayo nimekuwa nikitumia, Ukweli wa Chakula cha Open, ambayo hukuruhusu kupata athari za kiafya na mazingira za chakula chako, kwa njia iliyobinafsishwa. Inafanya kazi kwa kuchanganua misimbopau kwenye kifurushi. Hatimaye ni bure, hauhitaji usajili, na unaweza hata kusaidia kuongeza idadi ya bidhaa decyphered. Hiki hapa ni kiungo cha kuipata kwa simu yako: https://openfoodfacts.app",
+  "contribute_share_content": "Nilitaka kukujulisha kuhusu programu ambayo nimekuwa nikitumia, Open Food Facts, ambayo hukuruhusu kupata athari za kiafya na kimazingira za chakula chako, kwa njia iliyobinafsishwa. Inafanya kazi kwa kuchanganua misimbopau kwenye kifungashio. Hatimaye ni bure, haihitaji usajili, na unaweza hata kusaidia kuongeza idadi ya bidhaa zilizotafutwa. Hapa kuna kiungo cha kuipata kwa simu yako: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(tafuta kategoria)",
@@ -5104,23 +5104,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Gundua Ukweli wa Chakula cha Wazi",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Gundua Ukweli Wazi wa Urembo",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Gundua Ukweli Wazi wa Chakula Kipenzi",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Gundua Bei Zilizofunguliwa",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Gundua Ukweli wa Bidhaa Huria",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Fungua Maabara ya Ukweli wa Chakula",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
