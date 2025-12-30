@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Bidra med dina färdigheter till Open Food Facts. Gå med i kunskapspoolen!",
   "contribute_share_header": "Dela Open Food Facts med dina vänner",
   "@contribute_share_header": {},
-  "contribute_share_content": "Jag ville tipsa er om appen jag använder, Open Food Facts, som låter er få information om er mats hälso- och miljöpåverkan på ett personligt sätt. Den fungerar genom att skanna streckkoderna på förpackningen. Den är dessutom gratis, kräver ingen registrering och ni kan till och med bidra till att öka antalet dechiffrerade produkter. Här är länken för att ladda ner den till er telefon: https://openfoodfacts.app",
+  "contribute_share_content": "Jag ville tipsa er om appen jag använder, Open Food Facts, som låter er få information om er mats hälso- och miljöpåverkan på ett personligt sätt. Den fungerar genom att skanna streckkoderna på förpackningen. Den är dessutom gratis, kräver ingen registrering och ni kan till och med bidra till att öka antalet produkter som dechiffreras. Här är länken för att ladda ner den till er telefon: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alla",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisökning)",
@@ -5104,23 +5104,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Upptäck öppna matfakta",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Upptäck fakta om öppna skönhetsföremål",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Upptäck öppna fakta om husdjursmat",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Upptäck öppna priser",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Upptäck fakta om öppna produkter",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Öppna matfaktalabb",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
