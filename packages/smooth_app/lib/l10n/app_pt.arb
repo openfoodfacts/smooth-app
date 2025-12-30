@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Nome de utilizador: público",
   "sign_up_page_username_error_empty": "Por favor introduza um nome de utilizador",
   "sign_up_page_username_error_invalid": "Por favor introduza um nome de utilizador válido",
-  "sign_up_page_username_description": "O nome de utilizador não pode conter espaços, maiúsculas ou caracteres especiais.",
+  "sign_up_page_username_description": "O nome de utilizador não pode conter espaços, letras maiúsculas ou caracteres especiais.",
   "sign_up_page_username_length_invalid": "O nome de utilizador não pode exceder {value} caracteres",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribua com as suas competências para o Open Food Facts. Junte-se ao conjunto de competências!",
   "contribute_share_header": "Partilhe o Open Food Facts com os amigos",
   "@contribute_share_header": {},
-  "contribute_share_content": "Queria dar-te a conhecer a aplicação que tenho utilizado, o Open Food Facts, que permite conhecer os impactos dos alimentos na saúde e no ambiente, de forma personalizada. Funciona através da leitura dos códigos de barras das embalagens. É gratuita, não requer registo e pode até ajudar a aumentar o número de produtos decifrados. Aqui está o link para a obter: https://openfoodfacts.app",
+  "contribute_share_content": "Queria partilhar convosco a aplicação que tenho utilizado, o Open Food Facts, que permite obter informação personalizada sobre os impactos nutricionais e ambientais dos alimentos. Funciona digitalizando os códigos de barras das embalagens. O melhor de tudo é que é gratuito, não requer registo e ainda pode ajudar a aumentar o número de produtos com informação nutricional decifrada. Aqui fica o link para descarregar para o seu telemóvel: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todos",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pesquisa de categoria)",
@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Saiba mais sobre os Open Prices",
+  "prices_menu_know_more": "Saiba mais sobre os Preços Abertos",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3846,12 +3846,12 @@
   "nutriscore_not_applicable": "Nutri-Score não aplicável",
   "nutriscore_not_applicable_new_formula": "O Nutri-Score não é aplicável (novo cálculo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green-Score Desconhecida",
+  "environmental_score_a_new": "Pontuação Verde A",
+  "environmental_score_b_new": "Pontuação Verde B",
+  "environmental_score_c_new": "Pontuação Verde C",
+  "environmental_score_d_new": "Pontuação Verde D",
+  "environmental_score_e_new": "Pontuação Verde E",
+  "environmental_score_unknown_new": "Pontuação Verde Desconhecida",
   "environmental_score_not_applicable_new": "O Green-Score não é aplicável",
   "nova_group_generic_new": "Alimentos ultraprocessados - Grupos NOVA",
   "nova_group_1": "NOVA Grupo 1",
@@ -4145,7 +4145,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "O que são Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "O que são preços abertos?",
   "guide_open_prices_what_is_open_prices_paragraph1": "O Open Prices é um projeto para **recolher e partilhar preços de produtos em todo o mundo**. Trata-se de um conjunto de dados público que pode ser utilizado para pesquisa, análise e muito mais. O Open Prices é desenvolvido e mantido pela Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -5104,23 +5104,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Descubra factos sobre os alimentos abertos",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Descubra factos sobre a beleza sem censura",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Descubra informações sobre alimentos para animais de estimação da Open Pet Food.",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Descubra os Open Prices",
+  "preferences_faq_discover_op_title": "Descubra os preços abertos",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Descubra informações sobre os produtos abertos",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratórios Abertos de Informação Alimentar",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
