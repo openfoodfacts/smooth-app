@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "लाइसेंस",
   "@licenses": {},
   "looking_for": "ढूंढ रहे हैं",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "उपयोगकर्ता नाम: सार्वजनिक रूप से दृश्यमान",
   "sign_up_page_username_error_empty": "कृपया उपयोगकर्ता नाम दर्ज करें",
   "sign_up_page_username_error_invalid": "एक मान्य उपयोगकर्ता का नाम दर्ज करें",
-  "sign_up_page_username_description": "उपयोगकर्ता नाम में रिक्त स्थान, कैप्स या विशेष वर्ण नहीं हो सकते।",
+  "sign_up_page_username_description": "उपयोगकर्ता नाम में रिक्त स्थान, बड़े अक्षर या विशेष वर्ण नहीं हो सकते।",
   "sign_up_page_username_length_invalid": "उपयोगकर्ता नाम {value} वर्णों से अधिक नहीं हो सकता",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "ओपन फ़ूड फ़ैक्ट्स में अपने कौशल का योगदान दें। कौशल पूल में शामिल हों!",
   "contribute_share_header": "अपने दोस्तों के साथ खुले भोजन के तथ्य साझा करें",
   "@contribute_share_header": {},
-  "contribute_share_content": "मैं आपको उस ऐप के बारे में बताना चाहता हूँ जिसका मैं इस्तेमाल करता हूँ, \"ओपन फ़ूड फैक्ट्स\", जो आपको अपने खाने के स्वास्थ्य और पर्यावरण पर पड़ने वाले प्रभावों को व्यक्तिगत रूप से जानने की सुविधा देता है। यह पैकेजिंग पर दिए गए बारकोड को स्कैन करके काम करता है। यह मुफ़्त है, इसके लिए पंजीकरण की आवश्यकता नहीं है, और आप डिक्रिप्ट किए गए उत्पादों की संख्या बढ़ाने में भी मदद कर सकते हैं। इसे अपने फ़ोन पर डाउनलोड करने के लिए यह लिंक है: https://openfoodfacts.app",
+  "contribute_share_content": "मैं आपको उस ऐप के बारे में बताना चाहता हूँ जिसका मैं इस्तेमाल कर रहा हूँ, ओपन फ़ूड फ़ैक्ट्स। यह ऐप आपको अपने भोजन के स्वास्थ्य और पर्यावरणीय प्रभावों की जानकारी व्यक्तिगत रूप से प्राप्त करने की सुविधा देता है। यह पैकेजिंग पर मौजूद बारकोड को स्कैन करके काम करता है। यह मुफ़्त है, इसके लिए पंजीकरण की आवश्यकता नहीं है, और आप अधिक से अधिक उत्पादों के बारे में जानकारी प्राप्त करने में भी योगदान दे सकते हैं। इसे अपने फ़ोन पर डाउनलोड करने के लिए यह लिंक देखें: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "सभी",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(श्रेणी खोज)",
@@ -5104,15 +5104,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "खुले भोजन के बारे में तथ्य जानें",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "खुले सौंदर्य तथ्यों की खोज करें",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "खुले पालतू भोजन के बारे में तथ्य जानें",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "ओपन प्रोडक्ट्स के तथ्य जानें",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "ओपन फ़ूड फैक्ट्स लैब्स",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
