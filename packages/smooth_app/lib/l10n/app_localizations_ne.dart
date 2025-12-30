@@ -3518,7 +3518,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'स्थानीय रूपमा भण्डारण गरिएका लोकगीत अद्यावधिकहरूको लागि सर्भर कार्यहरू गर्न सुरु गर्दै';
 
   @override
   String get background_task_title_top_n =>
@@ -5304,7 +5304,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**ओपन प्राइस** विश्वभरका उत्पादनहरूको मूल्य सङ्कलन र साझेदारी गर्ने परियोजना हो 🌍। ओपन प्राइस ओपन फूड फ्याक्ट्सद्वारा विकसित र मर्मत गरिएको हो।';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5581,7 +5581,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'सेटिङ खोज्नुहोस् (जस्तै न्यूट्री-स्कोर)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5612,7 +5612,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'ओपन फूड फ्याक्ट्स भनेको **सबैले बनाएको, सबैका लागि** खाद्य उत्पादनहरूको डाटाबेस हो।\nतपाईं यसलाई राम्रो खाना छनौट गर्न प्रयोग गर्न सक्नुहुन्छ, र यो **खुला डाटा** भएकोले, जो कोहीले पनि **कुनै पनि उद्देश्यका लागि पुन: प्रयोग गर्न सक्छन्**।';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5663,7 +5663,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'ओपन फूड फ्याक्ट्स वेबसाइटमा';
 
   @override
   String get preferences_manage_account_title =>
@@ -5750,7 +5750,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'न्यूट्री-स्कोर कसरी गणना गरिन्छ पत्ता लगाउनुहोस्';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5780,7 +5780,7 @@ class AppLocalizationsNe extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - बारम्बार सोधिने प्रश्नहरू';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'द ओपन फूड फ्याक्ट्स एनजीओ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5917,7 +5917,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ओपन फूड फ्याक्ट्समा मैले थपेका नयाँ उत्पादनहरू';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5943,7 +5943,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'तपाईंको देशमा न्यूट्री-स्कोर र ग्रीन-स्कोर गणना गर्न मद्दत गर्नुहोस्';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5965,7 +5965,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'खुला मूल्य समुदायद्वारा थपिएका नवीनतम मूल्यहरू';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6014,7 +6014,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'खानाको तथ्यहरू खोल्न मद्दत गर्ने सरल तरिकाहरू';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6130,7 +6130,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'आफ्नो भाषामा खुला खानाका तथ्यहरू ल्याउनुहोस्';
 
   @override
   String get preferences_contribute_enroll_alpha =>

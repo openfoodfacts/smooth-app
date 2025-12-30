@@ -1368,7 +1368,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
+      'Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -3516,7 +3516,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Paikallisesti tallennetuille folksonomy-päivityksille suoritetaan palvelintoimintoja.';
 
   @override
   String get background_task_title_top_n =>
@@ -6127,7 +6127,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tuo avoimet ruokatiedot omalle kielellesi';
 
   @override
   String get preferences_contribute_enroll_alpha =>

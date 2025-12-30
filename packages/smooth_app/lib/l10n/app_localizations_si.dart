@@ -3524,7 +3524,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'දේශීයව ගබඩා කර ඇති ජන විද්‍යාව යාවත්කාලීන කිරීම් සඳහා සේවාදායක ක්‍රියා සිදු කිරීමට පටන් ගැනීම';
 
   @override
   String get background_task_title_top_n =>
@@ -6124,7 +6124,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts රසායනාගාර';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

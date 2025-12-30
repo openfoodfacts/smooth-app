@@ -3520,7 +3520,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Yerli olaraq saxlanılan folksonomiya yeniləmələri üçün server hərəkətlərini yerinə yetirməyə başlayır';
 
   @override
   String get background_task_title_top_n =>
@@ -5780,7 +5780,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Tez-tez verilən suallar';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Açıq Qida Faktları QHT';
 
   @override
   String get preferences_about_information_title => 'Məlumat';
@@ -5802,7 +5802,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Virtual tədbirlərimizdən birində iştirak etməklə siz də iştirak edin';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Açıq Qida Faktları bloqu';
 
   @override
   String get preferences_connect_blog_subtitle => 'Ən son xəbərləri əldə edin';
@@ -6130,7 +6130,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Açıq Qida Faktlarını dilinizə gətirin';
 
   @override
   String get preferences_contribute_enroll_alpha =>

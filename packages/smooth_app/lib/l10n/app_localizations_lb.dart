@@ -3522,7 +3522,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ufänken vun den Serveraktiounen fir lokal gespäichert Folksonomy-Updates';
 
   @override
   String get background_task_title_top_n =>

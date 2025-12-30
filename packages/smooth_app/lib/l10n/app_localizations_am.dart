@@ -3515,7 +3515,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'በአገር ውስጥ ለተከማቹ የ folksonomy ዝመናዎች የአገልጋይ እርምጃዎችን ማከናወን በመጀመር ላይ';
 
   @override
   String get background_task_title_top_n =>
@@ -6081,7 +6081,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts ቤተሙከራዎችን ይክፈቱ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
