@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "全部",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(类别搜索)",
@@ -5120,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "了解开放产品信息",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts实验室",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
