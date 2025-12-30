@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "බලපත්‍ර",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
   "sign_up_page_username_error_invalid": "Please enter a valid username",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+  "sign_up_page_username_description": "පරිශීලක නාමයේ හිස්තැන්, කැපිටල් අකුරු හෝ විශේෂ අක්ෂර අඩංගු විය නොහැක.",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "මම භාවිතා කරන යෙදුම ගැන ඔබට දැනුම් දීමට මට අවශ්‍ය විය, එය ඔබේ ආහාරවල සෞඛ්‍ය සහ පාරිසරික බලපෑම් පුද්ගලාරෝපිත ආකාරයකින් ලබා ගැනීමට ඔබට ඉඩ සලසයි. එය ඇසුරුම්වල ඇති තීරු කේත පරිලෝකනය කිරීමෙන් ක්‍රියා කරයි. අවසාන වශයෙන් එය නොමිලේ, ලියාපදිංචිය අවශ්‍ය නොවේ, සහ විකේතනය කරන ලද නිෂ්පාදන ගණන වැඩි කිරීමට පවා ඔබට උදව් කළ හැකිය. එය ඔබගේ දුරකථනයට ලබා ගැනීමට සබැඳිය මෙන්න: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts රසායනාගාර",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
