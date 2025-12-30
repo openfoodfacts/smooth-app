@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/barcode_utils.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -13,16 +13,12 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
-import 'package:smooth_app/pages/product/product_type_extensions.dart';
+import 'package:smooth_app/pages/search/product_type_search_selector.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
 
 /// Search helper dedicated to product search.
 class SearchProductHelper extends SearchHelper {
-  SearchProductHelper() {
-    _productType = UserPreferences.getUserPreferencesSync().latestProductType;
-  }
-
-  late ProductType _productType;
+  SearchProductHelper();
 
   @override
   String get historyKey => DaoStringList.keySearchProductHistory;
@@ -32,10 +28,11 @@ class SearchProductHelper extends SearchHelper {
       appLocalizations.search;
 
   @override
-  Widget? getAdditionalFilter() =>
-      UserPreferences.getUserPreferencesSync().searchProductTypeFilterVisible
-      ? _ProductTypeFilter(this)
-      : null;
+  String getHelpText(final AppLocalizations appLocalizations) =>
+      appLocalizations.search_product_help;
+
+  @override
+  Widget? getLeadingWidget(_) => const ProductTypeSearchSelector();
 
   @override
   void search(
@@ -54,7 +51,7 @@ class SearchProductHelper extends SearchHelper {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     addQuery(localDatabase, query);
 
-    if (int.tryParse(query) != null) {
+    if (query.isBarcode) {
       _onSubmittedBarcode(
         query,
         context,
@@ -120,48 +117,11 @@ class SearchProductHelper extends SearchHelper {
           productQuery: KeywordsProductQuery(
             value,
             productType:
-                UserPreferences.getUserPreferencesSync()
-                    .searchProductTypeFilterVisible
-                ? _productType
-                : ProductType.food,
+                UserPreferences.getUserPreferencesSync().latestProductType,
           ),
           context: context,
           editableAppBarTitle: false,
         ),
-      ),
-    );
-  }
-}
-
-class _ProductTypeFilter extends StatefulWidget {
-  const _ProductTypeFilter(this.searchProductHelper);
-
-  final SearchProductHelper searchProductHelper;
-
-  @override
-  State<_ProductTypeFilter> createState() => _ProductTypeFilterState();
-}
-
-class _ProductTypeFilterState extends State<_ProductTypeFilter> {
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<ButtonSegment<ProductType>> segments =
-        <ButtonSegment<ProductType>>[];
-    for (final ProductType productType in ProductType.values) {
-      segments.add(
-        ButtonSegment<ProductType>(
-          value: productType,
-          label: Text(productType.getLabel(appLocalizations)),
-        ),
-      );
-    }
-    return SegmentedButton<ProductType>(
-      segments: segments,
-      selected: <ProductType>{widget.searchProductHelper._productType},
-      onSelectionChanged: (Set<ProductType> newSelection) => setState(
-        () => UserPreferences.getUserPreferencesSync().latestProductType =
-            widget.searchProductHelper._productType = newSelection.first,
       ),
     );
   }

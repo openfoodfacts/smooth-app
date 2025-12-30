@@ -632,7 +632,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get search => 'Ara';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Arama filtresi';
+
+  @override
+  String get search_history => 'Arama geçmişi';
+
+  @override
   String get search_store => 'Bir mağaza arayın';
+
+  @override
+  String get search_store_help => 'İpucu: Şehri veya ülkeyi ekleyin';
 
   @override
   String get tap_for_more => 'Daha fazla bilgi görmek için dokunun…';
@@ -1709,6 +1721,9 @@ class AppLocalizationsTr extends AppLocalizations {
     );
     return '$_temp0 yenileme tamamlandı';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Yan yana karşılaştırın';
 
   @override
   String get loading_dialog_default_title => 'Veri indiriliyor';
@@ -3020,6 +3035,9 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu aramayı yeniden kullan ve düzenle';
 
   @override
+  String get search_history_item_remove_tooltip => 'Kaldır';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Tüm $totalSize ürünleri indirdiniz.';
   }
@@ -3520,6 +3538,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yerel olarak depolanan tüm ürünlerin yenilenmesinin başlatılması';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'En popüler ürünlerin indirilmesinin başlatılması';
 
@@ -3537,14 +3559,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Malzemeler panelini genişletilmiş tutun';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Aramada bir filtre göster';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Arama sitesini seçin: Open Food Facts, Open Beauty Facts, Açık Open Pet Food Facts veya Open Products Facts';
 
   @override
   String get no_internet_connection => 'İnternet bağlantısı yok';
@@ -5678,7 +5692,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Açık Gıda Bilgileri web sitesinde';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Hesabımı yönet';
@@ -5773,8 +5787,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Projeyi keşfedin';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Açık Gıda Gerçeklerini Keşfedin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5794,7 +5807,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get preferences_faq_faq_title => 'SSS - Sıkça Sorulan Sorular';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Açık Gıda Gerçekleri STK\'sı';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Bilgi';
@@ -5816,7 +5829,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sanal etkinliklerimizden birine katılarak dahil olun';
 
   @override
-  String get preferences_connect_blog_title => 'Açık Gıda Gerçekleri blogu';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5932,7 +5945,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Açık Gıda Bilgilerine eklediğim yeni ürünler';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6137,14 +6150,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Açık Gıda Bilgileri Laboratuvarları';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Hesap';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Açık Gıda Gerçeklerini kendi dilinize getirin';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

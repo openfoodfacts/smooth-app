@@ -635,7 +635,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get search => 'Пошук';
 
   @override
+  String get search_product_help => 'Пошук товару,\nбренду або штрих-коду';
+
+  @override
+  String get search_filter => 'Фільтр пошуку';
+
+  @override
+  String get search_history => 'Історія пошуку';
+
+  @override
   String get search_store => 'Пошук магазину';
+
+  @override
+  String get search_store_help => 'Підказка: додайте місто або країну';
 
   @override
   String get tap_for_more => 'Натисніть, щоб побачити більше…';
@@ -1715,6 +1727,9 @@ class AppLocalizationsUk extends AppLocalizations {
     );
     return '$_temp0 завершило оновлення';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Порівняти пліч-о-пліч';
 
   @override
   String get loading_dialog_default_title => 'Завантаження даних';
@@ -3035,6 +3050,9 @@ class AppLocalizationsUk extends AppLocalizations {
       'Повторно використовуйте та редагуйте цей пошук';
 
   @override
+  String get search_history_item_remove_tooltip => 'Видалити';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Всі $totalSize продукти завантажено.';
   }
@@ -3542,6 +3560,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Запуск оновлення всіх продуктів, які зберігаються локальна';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Початок завантаження найпопулярніших продуктів';
 
@@ -3559,14 +3581,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Тримайте панель інгредієнтів розгорнутою';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показати фільтр у пошуку';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Виберіть пошуковий сайт: Open Food Facts, Open Beauty Facts, Open Pet Food Facts або Open Products Facts';
 
   @override
   String get no_internet_connection => 'Відсутнє підключення до Інтернету';
@@ -5810,8 +5824,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відкрийте для себе проєкт';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Відкрийте для себе факти про відкриту їжу';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -5833,8 +5846,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Часті запитання';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Громадська організація «Факти про відкриту їжу»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Інформація';
@@ -5856,7 +5868,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Долучайтеся, відвідавши один із наших віртуальних заходів';
 
   @override
-  String get preferences_connect_blog_title => 'Блог «Факти про відкриту їжу»';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6177,7 +6189,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Відкриті лабораторії фактів про їжу';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Обліковий запис';

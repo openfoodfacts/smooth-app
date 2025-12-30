@@ -640,7 +640,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get search => 'Αναζήτηση';
 
   @override
+  String get search_product_help =>
+      'Αναζήτηση προϊόντος,\nμάρκας ή γραμμωτού κώδικα';
+
+  @override
+  String get search_filter => 'Φίλτρο αναζήτησης';
+
+  @override
+  String get search_history => 'Ιστορικό αναζήτησης';
+
+  @override
   String get search_store => 'Αναζήτηση για κατάστημα';
+
+  @override
+  String get search_store_help => 'Υπόδειξη: προσθέστε την πόλη ή τη χώρα';
 
   @override
   String get tap_for_more => 'Πατήστε για να δείτε περισσότερες πληροφορίες…';
@@ -1737,6 +1750,9 @@ class AppLocalizationsEl extends AppLocalizations {
     );
     return 'Η ανανέωση $_temp0 ολοκληρώθηκε';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Σύγκριση δίπλα-δίπλα';
 
   @override
   String get loading_dialog_default_title => 'Λήψη δεδομένων';
@@ -3069,6 +3085,9 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης';
 
   @override
+  String get search_history_item_remove_tooltip => 'Αφαίρεση';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Έχετε κατεβάσει και τα $totalSize προϊόντα.';
   }
@@ -3579,6 +3598,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Έναρξη ανανέωσης όλων των προϊόντων που είναι αποθηκευμένα τοπικά';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Έναρξη λήψης των πιο δημοφιλών προϊόντων';
 
@@ -3595,14 +3618,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Διατήρηση πίνακα συστατικών εκτεταμένο';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Εμφάνιση φίλτρου στην αναζήτηση';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Products Facts';
 
   @override
   String get no_internet_connection => 'Χωρίς σύνδεση στο διαδίκτυο';
@@ -5858,8 +5873,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Ανακαλύψτε το έργο';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6221,14 +6235,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Λογαριασμός';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Φέρτε τα Ανοιχτά Γεγονότα για τα Τρόφιμα στη γλώσσα σας';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -49,6 +49,7 @@ class ScanProductCardLoading extends StatelessWidget {
                   artboard: 'Loading',
                   alignment: Alignment.topCenter,
                   fit: Fit.fitHeight,
+                  autoBinding: false,
                 ),
               ),
             ),

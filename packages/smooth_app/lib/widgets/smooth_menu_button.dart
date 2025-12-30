@@ -31,7 +31,7 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: widget.buttonIcon ?? Icon(Icons.adaptive.more),
+      icon: widget.buttonIcon ?? const Icon(Icons.more_vert_rounded),
       tooltip:
           widget.buttonLabel ??
           MaterialLocalizations.of(context).showMenuTooltip,

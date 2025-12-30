@@ -629,7 +629,19 @@ class AppLocalizationsCv extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Тавар,\nбренд е штрих-код шырӑр';
+
+  @override
+  String get search_filter => 'Шырав фильтрӗ';
+
+  @override
+  String get search_history => 'Шырав историйӗ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Сӗнӳ: хула е ҫӗршыв хушӑр';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsCv extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Юнашар танлаштарӑр';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3001,6 +3016,9 @@ class AppLocalizationsCv extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3498,6 +3516,10 @@ class AppLocalizationsCv extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3513,14 +3535,6 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5649,7 +5663,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Манӑн аккаунта тытса пырӑр';
@@ -5747,8 +5761,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Уҫӑ апат-ҫимӗҫ ҫинчен калакан фактсене уҫӑр';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5768,7 +5781,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - час-часах ыйтакан ыйтусем';
 
   @override
-  String get preferences_faq_off_ngo_title => '«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5790,7 +5803,7 @@ class AppLocalizationsCv extends AppLocalizations {
       'Пирӗн виртуаллӑ мероприятисенчен пӗрне хутшӑнса хутшӑнӑр';
 
   @override
-  String get preferences_connect_blog_title => 'Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6108,14 +6121,14 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Уҫӑ апат-ҫимӗҫ факчӗсен лабораторийӗ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

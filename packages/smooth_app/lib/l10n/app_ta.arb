@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "ஒரு தயாரிப்பைத் தேடுங்கள்,\nஒரு பிராண்ட் அல்லது பார்கோடைத் தேடுங்கள்",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "தேடல் வடிகட்டி",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "தேடல் வரலாறு",
   "search_store": "ஒரு கடையைத் தேடுங்கள்",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "குறிப்பு: நகரம் அல்லது நாட்டைச் சேர்க்கவும்.",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -690,7 +703,7 @@
   "nutritional_facts_input_button_label": "Fill nutrition facts",
   "nutritional_facts_added": "Nutrition facts added",
   "categories_added": "Categories added",
-  "new_product_title_nutriscore": "நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "உணவு வகை மற்றும் ஊட்டச்சத்து மதிப்புகளை நிரப்புவதன் மூலம் அதைப் பெறுங்கள்",
   "new_product_title_environmental_score": "Compute the Green Score",
   "new_product_subtitle_environmental_score": "Get it by filling at least a category",
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "அருகருகே ஒப்பிடுக",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "தேடலில் வடிப்பானைக் காட்டு",
-  "search_product_filter_visibility_subtitle": "தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3825,18 +3838,18 @@
   },
   "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
   "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "தெரியாத நியூட்ரி ஸ்கோர் (புதிய கணக்கீடு)",
+  "nutriscore_unknown_new_formula": "தெரியாத Nutri-Score (புதிய கணக்கீடு)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)",
-  "environmental_score_generic_new": "பச்சை-ஸ்கோர்",
-  "environmental_score_a_new": "பச்சை-மதிப்பெண் A",
-  "environmental_score_b_new": "பச்சை-மதிப்பெண் B",
-  "environmental_score_c_new": "பச்சை-ஸ்கோர் C",
-  "environmental_score_d_new": "பச்சை-மதிப்பெண் D",
-  "environmental_score_e_new": "பச்சை-மதிப்பெண் E",
-  "environmental_score_unknown_new": "தெரியாத பச்சை மதிப்பெண்",
-  "environmental_score_not_applicable_new": "பச்சை மதிப்பெண் பொருந்தாது.",
-  "nova_group_generic_new": "மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score பொருந்தாது (புதிய கணக்கீடு)",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "தெரியாத Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score பொருந்தாது.",
+  "nova_group_generic_new": "மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - NOVA குழுக்கள்",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -3929,12 +3942,12 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "பச்சை-ஸ்கோர்",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "கிரீன் ஸ்கோர் என்றால் என்ன?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "கிரீன்-ஸ்கோர் என்பது **உணவின் சுற்றுச்சூழல் தாக்கம்** பற்றி உங்களுக்குத் தெரிவிப்பதை நோக்கமாகக் கொண்ட ஒரு லோகோ ஆகும்.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score என்பது **உணவின் சுற்றுச்சூழல் தாக்கம்** பற்றி உங்களுக்குத் தெரிவிப்பதை நோக்கமாகக் கொண்ட ஒரு லோகோ ஆகும்.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3942,7 +3955,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "கிரீன்-ஸ்கோர் லோகோக்கள்",
+  "guide_greenscore_logos_caption": "Green-Score லோகோக்கள்",
   "guide_greenscore_lca_title": "அடிப்படை: வாழ்க்கைச் சுழற்சி மதிப்பீடு (LCA)",
   "guide_greenscore_lca_arg1_title": "உணவு வகைகளின் அறிவியல் மதிப்பீடு",
   "guide_greenscore_lca_arg1_text1": "ஒவ்வொரு தயாரிப்பு வகைக்கும், Agribalyse சுற்றுச்சூழல் தரவுத்தளத்திலிருந்து (ADEME மற்றும் INRAE ஆல் வடிவமைக்கப்பட்டது) தரவைப் பயன்படுத்தி ஒரு **பெஞ்ச்மார்க்** மதிப்பெண் நிறுவப்படுகிறது.",
@@ -3987,9 +4000,9 @@
   "guide_greenscore_better_product_arg2_title": "உங்களிடம் சக்தி இருக்கிறது!",
   "guide_greenscore_better_product_arg2_text": "நல்ல செய்தி என்னவென்றால், இது மாற்றத்தை உருவாக்க ஒரு சக்திவாய்ந்த வழியை நமக்கு வழங்குகிறது.\n**நாம் ஒவ்வொருவரும் ஒவ்வொரு வருடமும் சுமார் 1,000 உணவுகளை சாப்பிடுகிறோம்**. அது **இந்த கிரகத்திற்கு சிறந்த எதிர்காலத்தைத் தேர்ந்தெடுப்பதற்கான** 1,000 வாய்ப்புகள்!",
   "guide_greenscore_better_product_arg3_title": "பொறுப்பாக இருந்து முடிவெடுக்க உதவுகிறது.",
-  "guide_greenscore_better_product_arg3_text": "நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. கிரீன்-ஸ்கோர் அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.",
+  "guide_greenscore_better_product_arg3_text": "நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. Green-Score அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.",
   "guide_greenscore_better_product_arg4_title": "வெளிப்படைத்தன்மை",
-  "guide_greenscore_better_product_arg4_text": "தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.",
+  "guide_greenscore_better_product_arg4_text": "தனியுரிம லேபிள்களைப் போலன்றி, Green-Score கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4003,7 +4016,7 @@
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "நோவா லோகோக்கள்",
+  "guide_nova_logos_caption": "NOVA லோகோக்கள்",
   "guide_nova_groups_title": "4 NOVA குழுக்கள்",
   "guide_nova_groups_intro": "4 NOVA குழுக்கள் உள்ளன, அவற்றில் சிக்கலானது குழு 4 - அல்ட்ரா-பதப்படுத்தப்பட்ட உணவுகள்.",
   "guide_nova_groups_arg1_title": "குறைந்தபட்சமாக பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள்",
@@ -4152,7 +4165,7 @@
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "நான் ஒரு சில்லறை விற்பனையாளர், விலைகளைப் பங்களிக்க விரும்புகிறேன். அதை நான் எப்படி செய்வது?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about பற்றி",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4481,8 +4494,8 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "இந்த நியூட்ரி-ஸ்கோர் தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "இந்த Nutri-Score தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "பொருட்களைச் சரிபார்க்கவும்",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "ஊட்டச்சத்து உண்மைகளைச் சரிபார்க்கவும்",
   "url_not_supported": "துரதிருஷ்டவசமாக, எங்களால் URL ஐ திறக்க முடியவில்லை:\n{url}",
@@ -4539,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ஏன் விலைகள்?",
-  "prices_explanation_card_line1": "**திறந்த விலைகள்** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. திறந்த விலைகள் Open Food Facts உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.",
+  "prices_explanation_card_line1": "**Open Prices** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. Open Prices Open Food Facts உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.",
   "explanation_card_learn_more_button": "மேலும்அறிய",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4878,7 +4891,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. நியூட்ரி-ஸ்கோர்)",
+  "preferences_app_bar_search_hint": "ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4914,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ஓபன் ஃபுட் ஃபேக்ட்ஸ் என்பது அனைவராலும், அனைவருக்கும்** உருவாக்கப்பட்ட உணவுப் பொருட்களின் தரவுத்தளமாகும்.\nசிறந்த உணவுத் தேர்வுகளைச் செய்ய நீங்கள் இதைப் பயன்படுத்தலாம், மேலும் இது **திறந்த தரவு** என்பதால், யார் வேண்டுமானாலும் எந்த நோக்கத்திற்காகவும் இதை மீண்டும் பயன்படுத்தலாம்**.",
+  "preferences_legal_header": "Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4974,11 +4987,11 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்",
+  "tips_discover_nutriscore": "Discover the new Nutri-Score",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்",
+  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5075,7 +5088,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "நியூட்ரி-ஸ்கோர் எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5283,7 +5296,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "உங்கள் நாட்டில் நியூட்ரி-ஸ்கோர் & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.",
+  "preferences_contributions_categorize_subtitle": "உங்கள் நாட்டில் Nutri-Score & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5307,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்",
+  "preferences_prices_newest_subtitle": "Open Prices சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },

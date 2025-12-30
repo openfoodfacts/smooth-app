@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtro de pesquisa",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Histórico de pesquisa",
   "search_store": "Procurar uma loja",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Dica: adicione a cidade ou o país",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Toque para mais informação…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Compare lado a lado",
   "loading_dialog_default_title": "A descarregar os dados",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2630,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Saiba mais sobre preços abertos",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2670,6 +2684,10 @@
   "search_history_item_edit_tooltip": "Reproduzir e editar esta pesquisa",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Eliminar",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Descarregou todos os {totalSize} produtos.",
   "@product_search_no_more_results": {
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Manter o painel de ingredientes expandido",
-  "search_product_filter_visibility_title": "Mostrar um filtro na pesquisa",
-  "search_product_filter_visibility_subtitle": "Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Sem ligação à Internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -4122,7 +4135,7 @@
   "guide_open_beauty_facts_tips_arg2_text5": "Pode ser necessário remover o rótulo para ver a lista de ingredientes.",
   "guide_open_beauty_facts_tips_arg2_text6": "Mantenha o produto sobre uma superfície plana.",
   "guide_open_beauty_facts_scores_title": "Uma observação sobre a pontuação",
-  "guide_open_beauty_facts_scores_paragraph1": "Diferente dos produtos alimentícios, o mundo dos cosméticos **não possui um sistema de pontuação reconhecido e respaldado por governos, como a Pontuação de Nutrição. Os efeitos dos ingredientes podem ser altamente pessoais e depender do tom de pele, alergias e preocupações individuais.",
+  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bem-vindo ao Open Prices!",
   "@guide_open_prices_title": {
@@ -5087,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Descubra fatos sobre alimentos abertos",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratórios Abertos de Informações Alimentares",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -634,7 +634,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get search => 'Cari';
 
   @override
+  String get search_product_help => 'Cari produk,\nmerek atau kode batang';
+
+  @override
+  String get search_filter => 'Filter pencarian';
+
+  @override
+  String get search_history => 'Riwayat pencarian';
+
+  @override
   String get search_store => 'Cari toko';
+
+  @override
+  String get search_store_help => 'Petunjuk: tambahkan kota atau negara';
 
   @override
   String get tap_for_more => 'Ketuk untuk lihat info selengkapnya…';
@@ -1715,6 +1727,9 @@ class AppLocalizationsId extends AppLocalizations {
     );
     return 'Pembaruan $_temp0 selesai';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Bandingkan berdampingan';
 
   @override
   String get loading_dialog_default_title => 'Mengunduh data';
@@ -3027,6 +3042,9 @@ class AppLocalizationsId extends AppLocalizations {
       'Gunakan kembali dan sunting pencarian ini';
 
   @override
+  String get search_history_item_remove_tooltip => 'Hapus';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Anda telah mengunduh semua produk $totalSize.';
   }
@@ -3529,6 +3547,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Memulai penyegaran semua produk yang disimpan secara lokal';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Memulai pengunduhan produk paling populer';
 
@@ -3544,14 +3566,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Pertahankan panel bahan yang diperluas';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Tampilkan filter dalam pencarian';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Pilih situs pencarian: Open Food Facts, Open Beauty Facts, Open Pet Food Facts, atau Open Products Facts';
 
   @override
   String get no_internet_connection => 'Tidak ada sambungan Internet';

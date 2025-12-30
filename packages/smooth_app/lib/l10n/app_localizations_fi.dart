@@ -632,7 +632,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get search => 'Etsi';
 
   @override
+  String get search_product_help =>
+      'Hae tuotetta,\ntuotemerkkiä tai viivakoodia';
+
+  @override
+  String get search_filter => 'Hakusuodatin';
+
+  @override
+  String get search_history => 'Hakuhistoria';
+
+  @override
   String get search_store => 'Hae myymälää';
+
+  @override
+  String get search_store_help => 'Vihje: lisää kaupunki tai maa';
 
   @override
   String get tap_for_more => 'Napauta nähdäksesi lisätietoja…';
@@ -1355,7 +1368,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1696,6 +1709,9 @@ class AppLocalizationsFi extends AppLocalizations {
     );
     return '$_temp0 päivitys onnistui';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Vertaile rinnakkain';
 
   @override
   String get loading_dialog_default_title => 'Ladataan tietoja';
@@ -3005,6 +3021,9 @@ class AppLocalizationsFi extends AppLocalizations {
       'Käytä ja muokkaa tätä hakua uudelleen';
 
   @override
+  String get search_history_item_remove_tooltip => 'Poista';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Olet ladannut kaikki $totalSize tuotetta.';
   }
@@ -3496,6 +3515,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Aloitetaan kaikkien paikallisesti tallennettujen tuotteiden päivitys';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Aloitetaan suosituimpien tuotteiden lataus';
 
@@ -3511,13 +3534,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Pidä ainesosat laajennettuna';
-
-  @override
-  String get search_product_filter_visibility_title => 'Näytä suodatin haussa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ei Internet-yhteyttä';
@@ -5743,8 +5759,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Tutustu hankkeeseen';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Tutustu avoimiin ruokatietoihin';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6105,14 +6120,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Avoimet ruokatietolaboratoriot';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Tili';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tuo avoimet ruokatiedot omalle kielellesi';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

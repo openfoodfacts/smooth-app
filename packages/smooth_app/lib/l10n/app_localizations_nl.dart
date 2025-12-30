@@ -631,7 +631,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get search => 'Zoeken';
 
   @override
+  String get search_product_help =>
+      'Zoek een product,\neen merk of een streepjescode';
+
+  @override
+  String get search_filter => 'Zoekfilter';
+
+  @override
+  String get search_history => 'Zoekgeschiedenis';
+
+  @override
   String get search_store => 'Zoeken naar een winkel';
+
+  @override
+  String get search_store_help => 'Tip: voeg de stad of het land toe';
 
   @override
   String get tap_for_more => 'Tik om meer info te zien…';
@@ -1710,6 +1723,9 @@ class AppLocalizationsNl extends AppLocalizations {
     );
     return '$_temp0 vernieuwing voltooid';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Vergelijk naast elkaar';
 
   @override
   String get loading_dialog_default_title => 'Gegevens worden gedownload...';
@@ -3037,6 +3053,9 @@ class AppLocalizationsNl extends AppLocalizations {
       'Hergebruik en bewerk deze zoekopdracht';
 
   @override
+  String get search_history_item_remove_tooltip => 'Verwijderen';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Je hebt alle $totalSize producten gedownload.';
   }
@@ -3541,6 +3560,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het vernieuwen starten van alle producten die lokaal zijn opgeslagen';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Het downloaden van de meest populaire producten starten';
 
@@ -3557,14 +3580,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Houd het ingrediëntenpaneel uitgevouwen';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Filter weergeven in de zoekopdracht';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecteer de zoeksite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts of Open Products Facts';
 
   @override
   String get no_internet_connection => 'Geen internetverbinding';
@@ -4610,7 +4625,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world-nl.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
   String get guide_open_food_facts_title => 'Welkom bij Open Food Facts!';
@@ -4948,11 +4963,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Welkom bij Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Wat is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5020,7 +5035,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://world-nl.openproductsfacts.org/ontdekken';
+      'https://world-nl.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5369,11 +5384,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Externe link openen';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Externe links kunnen onveilig zijn. Wilt u deze echt bezoeken?';
 
   @override
   String get prices_products_empty_title => 'Geen prijs beschikbaar';

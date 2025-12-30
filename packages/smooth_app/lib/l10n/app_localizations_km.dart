@@ -629,7 +629,19 @@ class AppLocalizationsKm extends AppLocalizations {
   String get search => 'ស្វែងរក';
 
   @override
+  String get search_product_help => 'ស្វែងរកផលិតផល\nម៉ាក ឬបាកូដ';
+
+  @override
+  String get search_filter => 'ស្វែងរកតម្រង';
+
+  @override
+  String get search_history => 'ប្រវត្តិស្វែងរក';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ព័ត៌មានជំនួយ៖ បន្ថែមទីក្រុង ឬប្រទេស';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsKm extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'ប្រៀបធៀបដោយចំហៀង';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2995,10 +3010,13 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'ប្តូររវាង price.openfoodfacts.org (PROD) និង test env';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3498,6 +3516,10 @@ class AppLocalizationsKm extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3513,14 +3535,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5733,7 +5747,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ស្វែងយល់ពីរបៀបដែលពិន្ទុ Nutri ត្រូវបានគណនា';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5743,8 +5757,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ស្វែងយល់ការពិតអំពីអាហារបើកចំហ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5995,7 +6008,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'វិធីសាមញ្ញដើម្បីជួយបើកការពិតអំពីអាហារ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6103,14 +6116,14 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'បើកមន្ទីរពិសោធន៍ការពិតអាហារ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'នាំយកការពិតអាហារបើកចំហទៅកាន់ភាសារបស់អ្នក។';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

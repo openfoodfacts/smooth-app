@@ -49,7 +49,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get exit_label => 'Izeja';
 
   @override
-  String get previous_label => 'Previous';
+  String get previous_label => 'Iepriekšējais';
 
   @override
   String get go_back_to_top => 'Atgriezties augšpusē';
@@ -638,7 +638,19 @@ class AppLocalizationsLv extends AppLocalizations {
   String get search => 'Meklēt';
 
   @override
+  String get search_product_help => 'Meklēt produktu,\nzīmolu vai svītrkodu';
+
+  @override
+  String get search_filter => 'Meklēšanas filtrs';
+
+  @override
+  String get search_history => 'Meklēšanas vēsture';
+
+  @override
   String get search_store => 'Meklēt veikalu';
+
+  @override
+  String get search_store_help => 'Padoms: pievienojiet pilsētu vai valsti';
 
   @override
   String get tap_for_more => 'Pieskarieties, lai skatītu vairāk informācijas…';
@@ -1726,6 +1738,9 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get product_list_compare_side_by_side => 'Salīdzināt blakus';
+
+  @override
   String get loading_dialog_default_title => 'Datu lejupielāde';
 
   @override
@@ -2104,7 +2119,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get edit_product_form_item_traces_title => 'Traces';
 
   @override
-  String get edit_product_form_item_traces_hint => 'trace';
+  String get edit_product_form_item_traces_hint => 'pēdas';
 
   @override
   String get edit_product_form_item_traces_type =>
@@ -2526,7 +2541,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get dev_preferences_news_custom_url_empty_value => 'Nav iestatīts';
 
   @override
-  String get dev_preferences_news_provider_status_title => 'Status';
+  String get dev_preferences_news_provider_status_title => 'Statuss';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
@@ -2543,7 +2558,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get product_type_label_pet_food => 'Mājdzīvnieku barība';
 
   @override
-  String get product_type_label_product => 'Other';
+  String get product_type_label_product => 'Citi';
 
   @override
   String get product_type_selection_title => 'Produkta veids';
@@ -2657,7 +2672,7 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => 'Product not found';
+  String get prices_barcode_search_not_found => 'Produkts nav atrasts';
 
   @override
   String get prices_barcode_search_none_yet => 'Vēl nav neviena produkta';
@@ -2686,7 +2701,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_per_unit_short => ' / vienība';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obligāti';
 
   @override
   String get prices_category_optional => 'Pēc izvēles';
@@ -2999,7 +3014,7 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Uzziniet vairāk par atvērtajām cenām';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Pabeigts';
@@ -3045,6 +3060,9 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get search_history_item_edit_tooltip =>
       'Atkārtoti izmantot un rediģēt šo meklēšanu';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Noņemt';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3553,6 +3571,10 @@ class AppLocalizationsLv extends AppLocalizations {
       'Tiek sākta visu lokāli saglabāto produktu atsvaidzināšana';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Sākam populārāko produktu lejupielādi';
 
@@ -3569,13 +3591,6 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Saglabājiet sastāvdaļu paneli izvērstu';
-
-  @override
-  String get search_product_filter_visibility_title => 'Rādīt filtru meklēšanā';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Atlasiet meklēšanas vietni: Atvērt pārtikas faktus, Atvērt skaistumkopšanas faktus, Atvērt mājdzīvnieku barības faktus vai Atvērt produktu faktus';
 
   @override
   String get no_internet_connection => 'Nav interneta savienojuma';
@@ -4089,7 +4104,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (jauns aprēķins)';
 
   @override
-  String get nutriscore_unknown => 'Nezināms uztura rādītājs';
+  String get nutriscore_unknown => 'Nezināms Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
@@ -4103,7 +4118,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Nutri-Score nav piemērojams (jauns aprēķins)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'Zaļais rādītājs';
 
   @override
   String get environmental_score_a_new => 'Zaļais vērtējums A';
@@ -4154,7 +4169,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'Atvērto pārtikas faktu vīzija, misija, vērtības un programmas';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
@@ -4186,7 +4201,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get contact_title_press_email => 'Preses kontaktinformācija';
 
   @override
-  String get contact_title_newsletter => 'Subscribe to our newsletter';
+  String get contact_title_newsletter => 'Abonējiet mūsu jaunumus';
 
   @override
   String get contact_title_calendar => 'Abonējiet mūsu kopienas kalendāru';
@@ -4234,7 +4249,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'What is the Nutri-Score?';
+      'Kas ir Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4334,7 +4349,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => 'Zaļais rādītājs';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4374,22 +4389,22 @@ class AppLocalizationsLv extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6 ražošanas soļi';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Lauksaimniecība';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Apstrāde';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => 'Iepakojums';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Transports';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Izplatīšana';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Patēriņš';
 
   @override
   String get guide_greenscore_lca_arg3_title => '14 ietekmes uz vidi rādītāji';
@@ -4632,7 +4647,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Kas ir Atklātie pārtikas fakti?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4644,7 +4659,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Atvērto pārtikas faktu iezīmes';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4717,7 +4732,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Kas ir atklātie mājdzīvnieku barības fakti?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4729,7 +4744,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Atvērtā mājdzīvnieku barības faktu sadaļas iezīmes';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4799,7 +4814,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Kas ir Atklātie skaistumkopšanas fakti?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4811,7 +4826,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Atvērto skaistumkopšanas faktu iezīmes';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4884,11 +4899,11 @@ class AppLocalizationsLv extends AppLocalizations {
       'https://world-lv.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Laipni lūdzam Atvērtajās cenās!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Kas ir atvērtās cenas?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4899,7 +4914,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Kā darbojas Atvērtās cenas?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4941,7 +4956,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Juridisku un tehnisku iemeslu dēļ **cenu iegūšanu no mazumtirgotāju tīmekļa vietnēm mēs neuzskatām par derīgu veidu, kā piedalīties atvērto cenu apkopošanā**. Mēs vēlamies pārliecināties, ka mūsu apkopotās cenas ir precīzas un aktuālas, un iegūto cenu saņemšana no līdzstrādniekiem mums to neļauj.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -4965,7 +4980,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Kas ir atklātie produktu fakti?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4977,7 +4992,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Atvērto produktu faktu iezīmes';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5107,11 +5122,11 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
-  String get product_image_front_accessibility_label => 'Front picture';
+  String get product_image_front_accessibility_label => 'Priekšējais attēls';
 
   @override
   String get product_image_ingredients_accessibility_label =>
-      'Ingredients picture';
+      'Sastāvdaļu attēls';
 
   @override
   String get product_image_nutrition_accessibility_label => 'Uztura attēls';
@@ -5275,10 +5290,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get date => 'Datums';
 
   @override
-  String get photo_rotate_left => 'Rotate left';
+  String get photo_rotate_left => 'Pagriezt pa kreisi';
 
   @override
-  String get photo_rotate_right => 'Rotate right';
+  String get photo_rotate_right => 'Pagriezt pa labi';
 
   @override
   String get photo_undo_action => 'Atsaukt iepriekšējo darbību';
@@ -5470,7 +5485,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_misc_section => 'Dažādi';
 
   @override
-  String get prices_stats_total => 'Total';
+  String get prices_stats_total => 'Kopā';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5485,7 +5500,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'Consumption';
+  String get prices_stats_consumption => 'Patēriņš';
 
   @override
   String get prices_stats_with_price => 'With a price';
@@ -5494,7 +5509,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_food => 'Ēdiens';
 
   @override
-  String get prices_stats_beauty => 'Beauty';
+  String get prices_stats_beauty => 'Skaistums';
 
   @override
   String get prices_stats_products => 'Produkti';
@@ -5548,7 +5563,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'Other';
+  String get prices_stats_other => 'Citi';
 
   @override
   String get prices_stats_last_updated => 'Pēdējoreiz atjaunināts';
@@ -5620,7 +5635,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Paldies, ka esat viens no mūsu biedriem!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => 'Modificēti produkti';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
@@ -5717,7 +5732,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Atvērto pārtikas faktu tīmekļa vietnē';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Pārvaldīt manu kontu';
@@ -5813,23 +5828,21 @@ class AppLocalizationsLv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Atklājiet projektu';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Atklājiet atklātos faktus par pārtiku';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Atklājiet atklātus skaistumkopšanas faktus';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Atklājiet faktus par mājdzīvnieku barību';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Atklājiet atvērtās cenas';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Atklājiet atklātos produktu faktus';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'BUJ — bieži uzdotie jautājumi';
@@ -5857,7 +5870,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Iesaistieties, apmeklējot kādu no mūsu virtuālajiem pasākumiem';
 
   @override
-  String get preferences_connect_blog_title => 'Atvērto pārtikas faktu emuārs';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6177,14 +6190,14 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Atvērtās pārtikas faktu laboratorijas';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konts';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Atvērtie pārtikas fakti jūsu valodā';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

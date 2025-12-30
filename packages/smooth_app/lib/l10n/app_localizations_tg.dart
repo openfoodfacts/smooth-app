@@ -629,7 +629,19 @@ class AppLocalizationsTg extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Ҷустуҷӯи маҳсулот,\nбренд ё штрих-код';
+
+  @override
+  String get search_filter => 'Филтри ҷустуҷӯ';
+
+  @override
+  String get search_history => 'Таърихи ҷустуҷӯ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Маслиҳат: шаҳр ё кишварро илова кунед';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,10 @@ class AppLocalizationsTg extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Паҳлӯ ба паҳлӯ муқоиса кунед';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3004,6 +3020,9 @@ class AppLocalizationsTg extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3501,6 +3520,10 @@ class AppLocalizationsTg extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3516,14 +3539,6 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4480,7 +4495,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get guide_nova_logos_caption => 'Логотипҳои NOVA';
 
   @override
-  String get guide_nova_groups_title => '4 гурӯҳи НОВА';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5602,7 +5617,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Facts Open Food - махзани маҳсулоти хӯрокворӣ **аз ҷониби ҳама, барои ҳама** сохта шудааст.\nШумо метавонед онро барои интихоби беҳтари ғизо истифода баред ва азбаски он **маълумоти кушода** аст, ҳар кас метавонад онро **бо ҳар мақсад** дубора истифода барад.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5653,7 +5668,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Дар вебсайти Open Facts Food';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Ҳисоби маро идора кунед';
@@ -5748,8 +5763,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Далелҳои ғизои кушодро кашф кунед';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5769,8 +5783,7 @@ class AppLocalizationsTg extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Саволҳои зуд-зуд додашаванда';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Ташкилоти ҷамъиятии \"Фактҳои озуқавории кушод\"';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5792,7 +5805,7 @@ class AppLocalizationsTg extends AppLocalizations {
       'Бо иштирок дар яке аз чорабиниҳои виртуалии мо иштирок кунед';
 
   @override
-  String get preferences_connect_blog_title => 'Блоги Open Facts Food';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5907,7 +5920,7 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Маҳсулоти наве, ки ман ба Facts Open Food илова кардам';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6113,14 +6126,14 @@ class AppLocalizationsTg extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Лабораторияҳои далелҳои ғизоро кушоед';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Далелҳои озуқавории кушодро ба забони худ биёред';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

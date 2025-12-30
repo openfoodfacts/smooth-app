@@ -629,7 +629,19 @@ class AppLocalizationsSr extends AppLocalizations {
   String get search => 'Pretraživanje';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Search filter';
+
+  @override
+  String get search_history => 'Search history';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Hint: add the city or the country';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsSr extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare side by side';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3003,6 +3018,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3500,6 +3518,10 @@ class AppLocalizationsSr extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3515,14 +3537,6 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4050,10 +4064,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Зелена оцена А';
+  String get environmental_score_a_new => 'Green-Score А';
 
   @override
-  String get environmental_score_b_new => 'Зелена оцена Б';
+  String get environmental_score_b_new => 'Green-Score Б';
 
   @override
   String get environmental_score_c_new => 'Зелена оцена C';
@@ -4062,17 +4076,17 @@ class AppLocalizationsSr extends AppLocalizations {
   String get environmental_score_d_new => 'Зелена оцена D';
 
   @override
-  String get environmental_score_e_new => 'Зелена оцена Е';
+  String get environmental_score_e_new => 'Green-Score Е';
 
   @override
-  String get environmental_score_unknown_new => 'Непознат зелени резултат';
+  String get environmental_score_unknown_new => 'Green-Score';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Зелени резултат се не примењује';
+      'Green-Score се не примењује';
 
   @override
-  String get nova_group_generic_new => 'Ултра-прерађена храна - НОВА групе';
+  String get nova_group_generic_new => 'Ултра-прерађена храна - NOVA групе';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4284,7 +4298,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'Зелени резултат је лого који има за циљ да вас информише о **утицају хране на животну средину**.';
+      'Green-Score је лого који има за циљ да вас информише о **утицају хране на животну средину**.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
@@ -4453,7 +4467,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Зелени резултат је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.';
+      'Избор одрживе хране може деловати сложено. Етикете су збуњујуће, а информације често недостају. Green-Score је креиран да би то поједноставио, дајући вам **јасну**, **научно засновану** и **транспарентну** еколошку оцену за прехрамбене производе, баш тамо где вам је потребна: док купујете.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'Транспарентност';
@@ -4477,14 +4491,14 @@ class AppLocalizationsSr extends AppLocalizations {
       'NOVA класификација омогућава категоризацију хране у **4 групе** на основу њиховог **степена индустријске обраде** (минимално прерађена или непрерађена храна, кулинарски састојци, прерађена храна, ултра-прерађена храна).';
 
   @override
-  String get guide_nova_logos_caption => 'НОВА логотипи';
+  String get guide_nova_logos_caption => 'NOVA логотипи';
 
   @override
   String get guide_nova_groups_title => '4 NOVA групе';
 
   @override
   String get guide_nova_groups_intro =>
-      'Постоје 4 НОВА групе, а проблематична је Група 4 - Ултра-прерађена храна.';
+      'Постоје 4 NOVA групе, а проблематична је Група 4 - Ултра-прерађена храна.';
 
   @override
   String get guide_nova_groups_arg1_title =>
@@ -5650,7 +5664,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_tips => 'Савети';
 
   @override
-  String get tips_discover_nutriscore => 'Откријте нови Нутри-Скор';
+  String get tips_discover_nutriscore => 'Откријте нови Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5739,7 +5753,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Откријте како се израчунава Нутри-Скор';
+      'Откријте како се израчунава Nutri-Score';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5749,8 +5763,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Откријте чињенице о отвореној храни';
+  String get preferences_faq_discover_off_title => 'Откријте Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5770,7 +5783,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_faq_title => 'ЧПП - Често постављана питања';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Informacija';
@@ -5792,8 +5805,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Укључите се тако што ћете присуствовати једном од наших виртуелних догађаја';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Блог „Чињенице о отвореној храни“';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6112,14 +6124,14 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Отворене лабораторије за чињенице о храни';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Донесите чињенице о отвореној храни на свој језик';
+      'Донесите Open Food Facts на свој језик';
 
   @override
   String get preferences_contribute_enroll_alpha =>

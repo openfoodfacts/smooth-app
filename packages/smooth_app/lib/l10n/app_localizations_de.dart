@@ -498,7 +498,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -641,7 +641,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get search => 'Suchen';
 
   @override
+  String get search_product_help =>
+      'Suche ein Produkt,\neine Marke oder einen Barcode';
+
+  @override
+  String get search_filter => 'Suchfilter';
+
+  @override
+  String get search_history => 'Suchverlauf';
+
+  @override
   String get search_store => 'Nach einem Store suchen';
+
+  @override
+  String get search_store_help =>
+      'Hinweis: Fügen Sie die Stadt oder das Land hinzu.';
 
   @override
   String get tap_for_more => 'Antippen, um weitere Infos anzuzeigen …';
@@ -1727,6 +1741,10 @@ class AppLocalizationsDe extends AppLocalizations {
     );
     return '$_temp0 vollständig aktualisieren';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Vergleichen Sie nebeneinander';
 
   @override
   String get loading_dialog_default_title => 'Daten werden heruntergeladen';
@@ -3010,7 +3028,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Erfahren Sie mehr über offene Preise';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Fertig';
@@ -3056,6 +3074,9 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get search_history_item_edit_tooltip =>
       'Diese Suche wiederverwenden und bearbeiten';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Entfernen';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3570,6 +3591,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Aktualisierung aller lokal gespeicherten Produkte wird gestartet';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Herunterladen der beliebtesten Produkte wird gestartet';
 
@@ -3584,14 +3609,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Zutatenliste geöffnet lassen';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Einen Filter in der Suche anzeigen';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Wählen Sie eine zu durchsuchende Seite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts oder Open Products Facts';
 
   @override
   String get no_internet_connection => 'Keine Internetverbindung';
@@ -4669,7 +4686,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Merkmale offener Lebensmittelfakten';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4755,7 +4772,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Merkmale von offenen Tierfutter-Fakten';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4837,7 +4854,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Merkmale offener Schönheitsfakten';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4914,7 +4931,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Was sind offene Preise?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -5004,7 +5021,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Merkmale offener Produkte – Fakten';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5853,19 +5870,18 @@ class AppLocalizationsDe extends AppLocalizations {
       'Entdecken Sie Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Entdecke die Fakten zur offenen Schönheit';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Entdecken Sie Fakten zu offenem Tierfutter';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Offene Preise entdecken';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Entdecken Sie Fakten zu offenen Produkten';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Häufig gestellte Fragen';
@@ -6217,7 +6233,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Offene Food Facts Labs';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';

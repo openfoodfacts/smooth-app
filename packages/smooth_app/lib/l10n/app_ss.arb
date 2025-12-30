@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Sesha umkhicito,\nluphawu noma ibhakhodi",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Luphenyo lwekuphenya",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Umlandvo wekuphenya",
   "search_store": "Search for a store",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Lusito: faka lidolobha noma live",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Catsanisa eceleni",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2663,13 +2677,17 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env",
+  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
   "search_history_item_edit_tooltip": "Reuse and edit this search",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3829,13 +3842,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Liphuzu leliluhlata A",
-  "environmental_score_b_new": "Sikolo lesiluhlata B",
-  "environmental_score_c_new": "Sikolo lesiluhlata C",
-  "environmental_score_d_new": "Liphuzu leliluhlata D",
-  "environmental_score_e_new": "Liphuzu leliluhlata E",
-  "environmental_score_unknown_new": "Sikolo-lesiluhlata lesingatiwa",
-  "environmental_score_not_applicable_new": "Liphuzu leliluhlata alisebenti",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score lesingatiwa",
+  "environmental_score_not_applicable_new": "Green-Score alisebenti",
   "nova_group_generic_new": "Kudla lokucubunguliwe kakhulu - emacembu e-NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3942,7 +3955,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Timphawu Temaphuzu Laluhlata",
+  "guide_greenscore_logos_caption": "Green-Score",
   "guide_greenscore_lca_title": "Umgogodla: Kuhlolwa kwemjikeleto wemphilo (LCA)",
   "guide_greenscore_lca_arg1_title": "Kuhlolwa kwesayensi kwetigaba tekudla",
   "guide_greenscore_lca_arg1_text1": "Kulesigaba ngasinye semkhicito, **silinganiso** sikolo sisungulwa kusetjentiswa idatha levela ku-database yemvelo ye-Agribalyse (leyakhiwe yi-ADEME ne-INRAE).",
@@ -4152,7 +4165,7 @@
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://intsengo.emaciniso ekudla lavulekile.org/mayelana",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4914,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Emaciniso Ekudla Lavulekile yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.",
+  "preferences_legal_header": "Open Food Facts yi-database yemikhicito yekudla **yentiwe nguwo wonkhe umuntfu, yawo wonkhe umuntfu**.\nUngayisebentisa kwenta kukhetsa kudla lokuncono, futsi njengobe **idatha levulekile**, noma ngubani angaphindze **ayisebentise nganoma nguyiphi injongo**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4978,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .",
+  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5087,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Tfola Emaciniso Ekudla Lavulekile",
+  "preferences_faq_discover_off_title": "Tfola Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5111,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "I-NGO yeMaciniso Ekudla Lokuvulekile",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Ibhulogi Yemaciniso Ekudla Lokuvulekile",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5359,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Tindlela letilula tekusita Vula Emaciniso Ekudla .",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Vula Emalabs Emaciniso Ekudla",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5567,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Letsa Emaciniso Ekudla Lavulekile elulwimini lwakho",
+  "preferences_contribute_translate_header": "Letsa Open Food Facts elulwimini lwakho",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

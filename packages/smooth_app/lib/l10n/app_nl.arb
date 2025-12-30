@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Zoek een product,\neen merk of een streepjescode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Zoekfilter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Zoekgeschiedenis",
   "search_store": "Zoeken naar een winkel",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Tip: voeg de stad of het land toe",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tik om meer info te zien…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Vergelijk naast elkaar",
   "loading_dialog_default_title": "Gegevens worden gedownload...",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Verwijderen",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Je hebt alle {totalSize} producten gedownload.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Houd het ingrediëntenpaneel uitgevouwen",
-  "search_product_filter_visibility_title": "Filter weergeven in de zoekopdracht",
-  "search_product_filter_visibility_subtitle": "Selecteer de zoeksite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts of Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Geen internetverbinding",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -4027,7 +4040,7 @@
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://world-nl.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4153,11 +4166,11 @@
   "guide_open_prices_retailers_title": "Ik ben een detailhandelaar en ik wil prijzen bijdragen. Hoe kan ik dat doen?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Welkom bij Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Wat is Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4180,7 +4193,7 @@
   "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
   "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
-  "guide_open_products_facts_share_link": "https://world-nl.openproductsfacts.org/ontdekken",
+  "guide_open_products_facts_share_link": "https://world-nl.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
   "guide_coming_soon_button_title": "Binnenkort beschikbaar",
   "guide_learn_more_subtitle": "Tik om meer te weten te komen",
@@ -4548,11 +4561,11 @@
   "folksonomy_explanation_card_title": "Wat zijn Folksonomy-attributen?",
   "folksonomy_explanation_card_line1": "Attributen zijn **sleutel-waarde** gebaseerd.",
   "folksonomy_explanation_card_line2": "Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Externe link openen",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Externe links kunnen onveilig zijn. Wilt u deze echt bezoeken?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },

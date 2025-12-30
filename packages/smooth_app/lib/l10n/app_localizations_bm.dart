@@ -629,7 +629,19 @@ class AppLocalizationsBm extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Fɛn dɔ ɲini,\nmarka walima barɔdi';
+
+  @override
+  String get search_filter => 'Ɲini filɛri';
+
+  @override
+  String get search_history => 'Ɲini tariku';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Ladilikan: dugu walima jamana fara a kan';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,10 @@ class AppLocalizationsBm extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Aw bɛ ɲɔgɔn sanga ɲɔgɔn ma kɛrɛfɛ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3005,6 +3021,9 @@ class AppLocalizationsBm extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3502,6 +3521,10 @@ class AppLocalizationsBm extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3517,14 +3540,6 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5755,7 +5770,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Dumuni Dabɔlenw Tiɲɛw Sɔrɔ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5776,7 +5791,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'FAQ - Ɲininkali minnu bɛ kɛ tuma caman na';
 
   @override
-  String get preferences_faq_off_ngo_title => 'ONG min bɛ dumuni dafalenw kofɔ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5798,7 +5813,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la';
 
   @override
-  String get preferences_connect_blog_title => 'Dumuni dafalenw ka bulɔgu';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6117,14 +6132,14 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Dumunifɛnw tiɲɛni laboratuwaraw da wuli';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Aw ka na ni Dumuni Dabɔlenw Tiɲɛw ye aw ka kan na';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

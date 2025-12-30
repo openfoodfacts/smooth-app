@@ -624,7 +624,19 @@ class AppLocalizationsTh extends AppLocalizations {
   String get search => 'ค้นหา';
 
   @override
+  String get search_product_help => 'ค้นหาผลิตภัณฑ์\nยี่ห้อหรือบาร์โค้ด';
+
+  @override
+  String get search_filter => 'ตัวกรองการค้นหา';
+
+  @override
+  String get search_history => 'ประวัติการค้นหา';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'คำใบ้: เพิ่มเมืองหรือประเทศ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1691,6 +1703,9 @@ class AppLocalizationsTh extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'เปรียบเทียบแบบเคียงข้างกัน';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2995,6 +3010,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3492,6 +3510,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3507,14 +3529,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4042,26 +4056,26 @@ class AppLocalizationsTh extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'กรีนสกอร์ เอ';
+  String get environmental_score_a_new => 'Green-Score เอ';
 
   @override
-  String get environmental_score_b_new => 'กรีนสกอร์ บี';
+  String get environmental_score_b_new => 'Green-Score บี';
 
   @override
-  String get environmental_score_c_new => 'กรีนสกอร์ ซี';
+  String get environmental_score_c_new => 'Green-Score ซี';
 
   @override
-  String get environmental_score_d_new => 'กรีนสกอร์ ดี';
+  String get environmental_score_d_new => 'Green-Score ดี';
 
   @override
-  String get environmental_score_e_new => 'กรีนสกอร์ อี';
+  String get environmental_score_e_new => 'Green-Score อี';
 
   @override
-  String get environmental_score_unknown_new => 'กรีนสกอร์ที่ไม่รู้จัก';
+  String get environmental_score_unknown_new => 'Green-Scoreที่ไม่รู้จัก';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'คะแนนสีเขียวไม่สามารถใช้งานได้';
+      'Green-Scoreไม่สามารถใช้งานได้';
 
   @override
   String get nova_group_generic_new => 'อาหารแปรรูปขั้นสูง - กลุ่ม NOVA';
@@ -4558,7 +4572,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
-  String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
+  String get guide_nova_share_link => 'https://world.openfoodfacts.org/โนวา';
 
   @override
   String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
@@ -5734,8 +5748,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'ค้นพบโครงการ';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ค้นพบข้อเท็จจริงเกี่ยวกับ Open Food';
+  String get preferences_faq_discover_off_title => 'ค้นพบOpen Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6090,8 +6103,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'เปิดข้อมูลอาหารในห้องปฏิบัติการ';
+  String get preferences_page_open_food_facts_labs_title => 'Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Account';

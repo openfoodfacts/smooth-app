@@ -629,7 +629,19 @@ class AppLocalizationsTs extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'Secha xitirhisiwa,\nbrand kumbe barcode';
+
+  @override
+  String get search_filter => 'Xisefo xo lavisisa';
+
+  @override
+  String get search_history => 'Matimu ya ku lavisisa';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Xitsundzuxo: engetela doroba kumbe tiko';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1696,6 +1708,9 @@ class AppLocalizationsTs extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Fanisa hi tlhelo rin’we';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3005,6 +3020,9 @@ class AppLocalizationsTs extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3502,6 +3520,10 @@ class AppLocalizationsTs extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3517,14 +3539,6 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4052,19 +4066,19 @@ class AppLocalizationsTs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Rihlaza-Xikoro A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Rihlaza-Xikoro B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Xikoro xa Rihlaza C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Rihlaza-Xikoro D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Rihlaza-Xikoro E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
   String get environmental_score_unknown_new => 'Green-Score leyi nga tiviwiki';
@@ -5757,8 +5771,7 @@ class AppLocalizationsTs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Kuma Tinhla Ta Swakudya Leti Pfulekeke';
+  String get preferences_faq_discover_off_title => 'Kuma Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5779,8 +5792,7 @@ class AppLocalizationsTs extends AppLocalizations {
       'FAQ - Swivutiso leswi talaka ku vutisiwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'NGO ya Tinhla ta Swakudya leti Pfulekeke';
+  String get preferences_faq_off_ngo_title => 'NGO ya Open Food Facts';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5802,8 +5814,7 @@ class AppLocalizationsTs extends AppLocalizations {
       'Nghenela hi ku va kona eka xin’wana xa swiendlakalo swa hina swa xiviri';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Blog ya Tinhla ta Swakudya leti Pfulekeke';
+  String get preferences_connect_blog_title => 'Blog ya Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5969,7 +5980,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Minxavo ya sweswinyana leyi engeteriweke hi vaaki va Minxavo leyi Pfulekeke';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6020,7 +6031,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Tindlela to olova to pfuna ku Pfula Tinhla ta Swakudya';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6128,14 +6139,14 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula Tilab ta Tinhla ta Swakudya';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tisa Tinhla ta Swakudya leti Pfulekeke eka ririmi ra wena';
+      'Tisa Open Food Facts eka ririmi ra wena';
 
   @override
   String get preferences_contribute_enroll_alpha =>

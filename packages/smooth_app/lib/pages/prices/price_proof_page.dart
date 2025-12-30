@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -31,6 +33,7 @@ class PriceProofPage extends StatefulWidget {
 
 class _PriceProofPageState extends State<PriceProofPage> {
   List<Price>? _existingPrices;
+  bool _imageLoaded = false;
 
   @override
   void initState() {
@@ -49,6 +52,8 @@ class _PriceProofPageState extends State<PriceProofPage> {
       title = appLocalizations.search_proof_title(widget.proof.owner);
     }
 
+    final String url = _getUrl(false);
+
     final DateFormat dateFormat = DateFormat.yMd(
       ProductQuery.getLocaleString(),
     ).add_Hms();
@@ -66,7 +71,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
           IconButton(
             tooltip: appLocalizations.prices_website_button,
             icon: const icons.ExternalLink(size: 20.0),
-            onPressed: () async => LaunchUrlHelper.launchURL(_getUrl(true)),
+            onPressed: () async => LaunchUrlHelper.launchURL(url),
           ),
         ],
       ),
@@ -77,7 +82,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
             child: SmoothInteractiveViewer(
               child: Center(
                 child: Image.network(
-                  _getUrl(false),
+                  url,
                   fit: BoxFit.cover,
                   loadingBuilder:
                       (
@@ -85,20 +90,32 @@ class _PriceProofPageState extends State<PriceProofPage> {
                         Widget child,
                         ImageChunkEvent? loadingProgress,
                       ) {
-                        if (loadingProgress == null) {
+                        if (loadingProgress == null ||
+                            loadingProgress.cumulativeBytesLoaded ==
+                                loadingProgress.expectedTotalBytes) {
+                          if (!_imageLoaded) {
+                            onNextFrame(
+                              () => setState(() => _imageLoaded = true),
+                            );
+                          }
+
                           return child;
                         }
-                        return Center(
-                          child: SizedBox(
-                            width: double.maxFinite,
-                            height: double.maxFinite,
-                            child: Image.network(
-                              _getUrl(true),
-                              fit: BoxFit.contain,
-                            ),
-                          ),
+                        return const Center(
+                          child: CircularProgressIndicator.adaptive(),
                         );
                       },
+                  errorBuilder:
+                      (
+                        BuildContext context,
+                        Object error,
+                        StackTrace? stackTrace,
+                      ) => Center(
+                        child: PictureNotFound(
+                          backgroundColor: Colors.grey[800],
+                          style: PictureNotFoundStyle.sad,
+                        ),
+                      ),
                 ),
               ),
             ),
@@ -117,9 +134,12 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     child: _PriceProofCounter(count: widget.proof.priceCount),
                   ),
                   const Spacer(),
-                  const _PriceProofChildContainer(
-                    child: PinchToZoomExplainer(
-                      backgroundColor: Colors.transparent,
+                  Offstage(
+                    offstage: !_imageLoaded,
+                    child: const _PriceProofChildContainer(
+                      child: PinchToZoomExplainer(
+                        backgroundColor: Colors.transparent,
+                      ),
                     ),
                   ),
                 ],

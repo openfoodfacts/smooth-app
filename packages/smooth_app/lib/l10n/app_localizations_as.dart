@@ -629,7 +629,20 @@ class AppLocalizationsAs extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'এটা পণ্য,\nএটা ব্ৰেণ্ড বা এটা বাৰক\'ড সন্ধান কৰক';
+
+  @override
+  String get search_filter => 'সন্ধান ফিল্টাৰ';
+
+  @override
+  String get search_history => 'সন্ধানৰ ইতিহাস';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ইংগিত: চহৰ বা দেশ যোগ কৰক';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1708,9 @@ class AppLocalizationsAs extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'কাষে কাষে তুলনা কৰক';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3001,6 +3017,9 @@ class AppLocalizationsAs extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3498,6 +3517,10 @@ class AppLocalizationsAs extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3513,14 +3536,6 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5644,7 +5659,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_tips => 'কিটিপসমূহ';
 
   @override
-  String get tips_discover_nutriscore => 'নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5732,7 +5747,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'নিউট্ৰি-স্ক’ৰ কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5742,8 +5757,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'মুকলি খাদ্যৰ তথ্য আৱিষ্কাৰ কৰক';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6106,7 +6120,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'আপোনাৰ ভাষালৈ মুকলি খাদ্যৰ তথ্য আনিব';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

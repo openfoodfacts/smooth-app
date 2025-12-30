@@ -639,7 +639,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get search => 'Поиск';
 
   @override
+  String get search_product_help => 'Поиск продукта,\nбренда или штрихкода';
+
+  @override
+  String get search_filter => 'Фильтр поиска';
+
+  @override
+  String get search_history => 'История поиска';
+
+  @override
   String get search_store => 'Поиск магазина';
+
+  @override
+  String get search_store_help => 'Подсказка: добавьте город или страну.';
 
   @override
   String get tap_for_more => 'Нажмите для просмотра…';
@@ -1733,6 +1745,9 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0 обновление завершено';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Сравните бок о бок';
 
   @override
   String get loading_dialog_default_title => 'Загрузка данных';
@@ -3030,7 +3045,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Узнайте больше об открытых ценах';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -3069,11 +3084,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
       'Повторно используйте и редактируйте этот поиск';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Удалить';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3584,6 +3602,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Начинаем обновление всех локально хранящихся продуктов.';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Начинаем загрузку самых популярных продуктов';
 
@@ -3600,14 +3622,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Оставить панель ингредиентов развернутой';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Показать фильтр в поиске';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Выберите сайт поиска: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts';
 
   @override
   String get no_internet_connection => 'Нет подключения к интернету';
@@ -4934,7 +4948,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Что такое открытые цены?';
+      'Что такое Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4945,7 +4959,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'В настоящее время лишь немногие компании владеют большими базами данных цен на продукты на уровне штрих-кодов. Эти цены не находятся в свободном доступе, а продаются по высокой цене частным лицам, исследователям и другим организациям, которые могут себе их позволить.';
 
   @override
-  String get guide_open_prices_how_title => 'Как работают цены открытия?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5865,29 +5879,27 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте для себя проект';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Откройте для себя факты об открытых продуктах питания';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Откройте для себя открытые факты о красоте';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Откройте для себя факты о кормах для домашних животных';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Откройте открытые цены';
+  String get preferences_faq_discover_op_title => 'Откройте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Откройте для себя факты об открытых продуктах';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НПО «Открытые факты о еде»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Информация';
@@ -6229,7 +6241,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Открытые лаборатории фактов о продуктах питания';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Учётная запись';

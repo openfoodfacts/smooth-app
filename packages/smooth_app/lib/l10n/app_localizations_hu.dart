@@ -639,7 +639,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get search => 'Keresés';
 
   @override
+  String get search_product_help =>
+      'Keressen egy terméket,\negy márkát vagy vonalkódot';
+
+  @override
+  String get search_filter => 'Keresési szűrő';
+
+  @override
+  String get search_history => 'Keresési előzmények';
+
+  @override
   String get search_store => 'Üzlet keresése';
+
+  @override
+  String get search_store_help => 'Tipp: add meg a várost vagy az országot';
 
   @override
   String get tap_for_more => 'Koppintson a további információkért…';
@@ -894,7 +907,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -1711,6 +1724,10 @@ class AppLocalizationsHu extends AppLocalizations {
     );
     return '$_temp0 frissítése befejeződött';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Hasonlítsa össze egymás mellett';
 
   @override
   String get loading_dialog_default_title => 'Adatok letöltése';
@@ -3035,6 +3052,9 @@ class AppLocalizationsHu extends AppLocalizations {
       'Használja újra és szerkessze ezt a keresést';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eltávolítás';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Letöltötte mind a(z) $totalSize terméket.';
   }
@@ -3535,6 +3555,10 @@ class AppLocalizationsHu extends AppLocalizations {
       'Az összes helyben tárolt termék frissítésének megkezdése';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'A legnépszerűbb termékek letöltésének megkezdése';
 
@@ -3550,14 +3574,6 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Nyitva tartja az összetevők paneljét';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Szűrő megjelenítése a keresőben';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Keresőoldal kiválasztása: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vagy Open Products Facts';
 
   @override
   String get no_internet_connection => 'Nincs internetkapcsolat';
@@ -6160,14 +6176,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Nyílt Élelmiszerinformációs Laboratóriumok';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Fiók';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Hozd el a Nyílt Élelmiszerinformációkat a saját nyelvedre';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

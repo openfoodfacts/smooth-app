@@ -632,7 +632,20 @@ class AppLocalizationsNb extends AppLocalizations {
   String get search => 'Søk';
 
   @override
+  String get search_product_help =>
+      'Søk etter et produkt,\net merke eller en strekkode';
+
+  @override
+  String get search_filter => 'Søk i filter';
+
+  @override
+  String get search_history => 'Søk historikk';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Tips: legg til byen eller landet';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1703,6 +1716,9 @@ class AppLocalizationsNb extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Sammenlign side ved side';
 
   @override
   String get loading_dialog_default_title => 'Laster ned data';
@@ -3014,6 +3030,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Du har lastet ned $totalSize produkter.';
   }
@@ -3514,6 +3533,10 @@ class AppLocalizationsNb extends AppLocalizations {
       'Starter oppdateringen av alle produktene som er lagret lokalt';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starter nedlastingen av de mest populære produktene';
 
@@ -3529,14 +3552,6 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Hold ingredienspanelet utvidet';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'Ingen internettforbindelse';
@@ -5586,7 +5601,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Søk etter innstillinger (f.eks. nøtt-resultat)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>

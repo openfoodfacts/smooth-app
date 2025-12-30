@@ -629,7 +629,19 @@ class AppLocalizationsHy extends AppLocalizations {
   String get search => 'Որոնել';
 
   @override
+  String get search_product_help => 'Որոնել ապրանք,\nապրանքանիշ կամ շտրիխ կոդ';
+
+  @override
+  String get search_filter => 'Որոնման ֆիլտր';
+
+  @override
+  String get search_history => 'Որոնման պատմություն';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Հուշում՝ ավելացրեք քաղաքը կամ երկիրը';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsHy extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Համեմատեք կողք կողքի';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3001,6 +3016,9 @@ class AppLocalizationsHy extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3498,6 +3516,10 @@ class AppLocalizationsHy extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3513,14 +3535,6 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5604,7 +5618,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Բաց սննդի փաստերը սննդամթերքի տվյալների շտեմարան է, **ստեղծված բոլորի կողմից, բոլորի համար**:\nԴուք կարող եք օգտագործել այն՝ սննդի ավելի լավ ընտրություն կատարելու համար, և քանի որ դա **բաց տվյալ** է, յուրաքանչյուրը կարող է **վերաօգտագործել այն ցանկացած նպատակով**:';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5654,7 +5668,8 @@ class AppLocalizationsHy extends AppLocalizations {
   String get tips_discover_nutriscore => 'Բացահայտեք նոր Nutri-Score-ը';
 
   @override
-  String get preferences_on_off_website_subtitle => 'Բաց սննդի փաստերի կայքում';
+  String get preferences_on_off_website_subtitle =>
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Կառավարել իմ հաշիվը';
@@ -5751,8 +5766,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Բացահայտեք բաց սննդի մասին փաստեր';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5773,7 +5787,7 @@ class AppLocalizationsHy extends AppLocalizations {
       'Հաճախակի տրվող հարցեր - Հաճախակի տրվող հարցեր';
 
   @override
-  String get preferences_faq_off_ngo_title => '«Բաց սննդի փաստեր» ՀԿ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Տեղեկատվություն';
@@ -5795,7 +5809,7 @@ class AppLocalizationsHy extends AppLocalizations {
       'Մասնակցեք մեր վիրտուալ միջոցառումներից մեկին';
 
   @override
-  String get preferences_connect_blog_title => 'Բաց սննդի փաստերի բլոգ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5911,7 +5925,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Բաց սննդի փաստերին ավելացված նոր ապրանքներ';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6112,14 +6126,14 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Բաց սննդի փաստերի լաբորատորիաներ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Բաց սննդի փաստերը բերեք ձեր լեզվով';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

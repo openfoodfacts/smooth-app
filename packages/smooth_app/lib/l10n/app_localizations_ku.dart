@@ -629,7 +629,20 @@ class AppLocalizationsKu extends AppLocalizations {
   String get search => 'Lêgerîn';
 
   @override
+  String get search_product_help =>
+      'Li berhemekê,\nli marqeyek an jî li barkodek bigere';
+
+  @override
+  String get search_filter => 'Fîltera lêgerînê';
+
+  @override
+  String get search_history => 'Dîroka lêgerînê';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'Şîret: bajar an welat lê zêde bike';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1708,10 @@ class AppLocalizationsKu extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'Berawirdkirina kêlek bi kêlek';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3005,6 +3022,9 @@ class AppLocalizationsKu extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3502,6 +3522,10 @@ class AppLocalizationsKu extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3517,14 +3541,6 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5770,8 +5786,7 @@ class AppLocalizationsKu extends AppLocalizations {
       'Pirsên Pir tên Pirsîn - Pirsên Pir tên Pirsîn';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Agahî';
@@ -5958,7 +5973,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6114,7 +6129,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratuarên Agahiyên Xwarinê yên Vekirî';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

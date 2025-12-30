@@ -638,7 +638,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get search => 'Vyhľadať';
 
   @override
+  String get search_product_help =>
+      'Vyhľadajte produkt,\nznačku alebo čiarový kód';
+
+  @override
+  String get search_filter => 'Vyhľadávací filter';
+
+  @override
+  String get search_history => 'História vyhľadávania';
+
+  @override
   String get search_store => 'Vyhľadajte obchod';
+
+  @override
+  String get search_store_help => 'Tip: pridajte mesto alebo krajinu';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte ďalšie informácie…';
@@ -1715,6 +1728,9 @@ class AppLocalizationsSk extends AppLocalizations {
     );
     return '$_temp0 obnova dokončená';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Porovnajte vedľa seba';
 
   @override
   String get loading_dialog_default_title => 'Sťahovanie údajov';
@@ -3029,6 +3045,9 @@ class AppLocalizationsSk extends AppLocalizations {
       'Opätovne použite a upravte toto vyhľadávanie';
 
   @override
+  String get search_history_item_remove_tooltip => 'Odstrániť';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stiahli ste si všetky $totalSize produkty.';
   }
@@ -3532,6 +3551,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Spustenie obnovy všetkých lokálne uložených produktov';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Spustenie sťahovania najpopulárnejších produktov';
 
@@ -3547,14 +3570,6 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Rozbaľovať tabuľku zložiek';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Zobraziť filter vo vyhľadávaní';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vyberte zdroj vyhľadávania: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts';
 
   @override
   String get no_internet_connection => 'Žiadne pripojenie na internet';
@@ -4146,7 +4161,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get faq_title_install_product =>
-      'Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
@@ -5788,8 +5803,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Objavte projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objavte fakty o otvorenom jedle';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5833,7 +5847,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Zapojte sa účasťou na jednom z našich virtuálnych podujatí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otvorené fakty o jedle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6154,14 +6168,14 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otvorené laboratóriá faktov o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prineste fakty o otvorených potravinách do svojho jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

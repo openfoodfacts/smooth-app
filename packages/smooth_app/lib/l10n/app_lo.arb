@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "ຊອກຫາຜະລິດຕະພັນ,\nຍີ່ຫໍ້ ຫຼື ບາໂຄດ",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "ຄົ້ນຫາຕົວກອງ",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "ປະຫວັດການຄົ້ນຫາ",
   "search_store": "Search for a store",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "ຄໍາແນະນໍາ: ເພີ່ມເມືອງຫຼືປະເທດ",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "ປຽບທຽບຂ້າງຄຽງ",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -5087,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "ຄົ້ນພົບຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດ",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5111,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ເປີດຫ້ອງທົດລອງຄວາມຈິງດ້ານອາຫານ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5567,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

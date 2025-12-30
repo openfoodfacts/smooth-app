@@ -640,7 +640,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get search => 'Procurar';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Filtro de pesquisa';
+
+  @override
+  String get search_history => 'Histórico de pesquisa';
+
+  @override
   String get search_store => 'Procurar uma loja';
+
+  @override
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';
@@ -1725,6 +1737,9 @@ class AppLocalizationsPt extends AppLocalizations {
     );
     return 'Atualização de $_temp0 terminada';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare lado a lado';
 
   @override
   String get loading_dialog_default_title => 'A descarregar os dados';
@@ -3058,6 +3073,9 @@ class AppLocalizationsPt extends AppLocalizations {
       'Reproduzir e editar esta pesquisa';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Descarregou todos os $totalSize produtos.';
   }
@@ -3565,6 +3583,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'A iniciar a atualização de todos os produtos armazenados localmente';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Iniciar o descarregamento dos produtos mais populares';
 
@@ -3582,14 +3604,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Manter o painel de ingredientes expandido';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostrar um filtro na pesquisa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Sem ligação à Internet';
@@ -5840,8 +5854,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubra o projeto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra factos sobre os alimentos abertos';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6203,7 +6216,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratórios Abertos de Informação Alimentar';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Conta';
@@ -6893,7 +6906,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get search => 'Procurar';
 
   @override
+  String get search_product_help => 'Search a product,\na brand or a barcode';
+
+  @override
+  String get search_filter => 'Filtro de pesquisa';
+
+  @override
+  String get search_history => 'Histórico de pesquisa';
+
+  @override
   String get search_store => 'Procurar uma loja';
+
+  @override
+  String get search_store_help => 'Dica: adicione a cidade ou o país';
 
   @override
   String get tap_for_more => 'Toque para mais informação…';
@@ -7978,6 +8003,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
     );
     return 'Atualização de $_temp0 terminada';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Compare lado a lado';
 
   @override
   String get loading_dialog_default_title => 'A descarregar os dados';
@@ -9262,7 +9290,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get prices_menu_know_more => 'Saiba mais sobre preços abertos';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Concluído';
@@ -9308,6 +9336,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get search_history_item_edit_tooltip =>
       'Reproduzir e editar esta pesquisa';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -9833,14 +9864,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get expand_ingredients_body =>
       'Manter o painel de ingredientes expandido';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostrar um filtro na pesquisa';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Selecione o site de busca: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts';
 
   @override
   String get no_internet_connection => 'Sem ligação à Internet';
@@ -11153,7 +11176,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Diferente dos produtos alimentícios, o mundo dos cosméticos **não possui um sistema de pontuação reconhecido e respaldado por governos, como a Pontuação de Nutrição. Os efeitos dos ingredientes podem ser altamente pessoais e depender do tom de pele, alergias e preocupações individuais.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -12097,8 +12120,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get preferences_faq_discover_project_title => 'Descubra o projeto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra fatos sobre alimentos abertos';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -12461,7 +12483,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratórios Abertos de Informações Alimentares';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Conta';

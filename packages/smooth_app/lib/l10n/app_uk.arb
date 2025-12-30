@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Пошук товару,\nбренду або штрих-коду",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Фільтр пошуку",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Історія пошуку",
   "search_store": "Пошук магазину",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Підказка: додайте місто або країну",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Натисніть, щоб побачити більше…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Порівняти пліч-о-пліч",
   "loading_dialog_default_title": "Завантаження даних",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Видалити",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Всі {totalSize} продукти завантажено.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Тримайте панель інгредієнтів розгорнутою",
-  "search_product_filter_visibility_title": "Показати фільтр у пошуку",
-  "search_product_filter_visibility_subtitle": "Виберіть пошуковий сайт: Open Food Facts, Open Beauty Facts, Open Pet Food Facts або Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Відсутнє підключення до Інтернету",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -5087,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Відкрийте для себе факти про відкриту їжу",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5111,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Громадська організація «Факти про відкриту їжу»",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Блог «Факти про відкриту їжу»",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Відкриті лабораторії фактів про їжу",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -5,6 +5,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductPageTable extends StatelessWidget {
   const ProductPageTable({
@@ -35,7 +36,11 @@ class ProductPageTable extends StatelessWidget {
       border: TableBorder.all(color: theme.primaryMedium),
       children: <TableRow>[
         TableRow(
-          decoration: BoxDecoration(color: theme.primaryLight),
+          decoration: BoxDecoration(
+            color: context.lightTheme()
+                ? theme.primaryLight
+                : theme.primaryUltraBlack,
+          ),
           children: columns
               .map((Widget widget) => _ProductPageTableHeader(child: widget))
               .toList(growable: false),

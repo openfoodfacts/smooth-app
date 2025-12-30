@@ -635,7 +635,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get search => 'Vyhledat';
 
   @override
+  String get search_product_help =>
+      'Vyhledejte produkt,\nznačku nebo čárový kód';
+
+  @override
+  String get search_filter => 'Vyhledávací filtr';
+
+  @override
+  String get search_history => 'Historie vyhledávání';
+
+  @override
   String get search_store => 'Vyhledat obchod';
+
+  @override
+  String get search_store_help => 'Nápověda: přidejte město nebo zemi';
 
   @override
   String get tap_for_more => 'Klepnutím zobrazíte více informací…';
@@ -1368,7 +1381,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
+      'Nutri-Score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1716,6 +1729,9 @@ class AppLocalizationsCs extends AppLocalizations {
     );
     return 'Aktualizace $_temp0 dokončena';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Porovnejte vedle sebe';
 
   @override
   String get loading_dialog_default_title => 'Stahování dat';
@@ -3022,6 +3038,9 @@ class AppLocalizationsCs extends AppLocalizations {
       'Znovu použijte a upravte toto vyhledávání';
 
   @override
+  String get search_history_item_remove_tooltip => 'Odstranit';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Stáhli jste všech $totalSize produktů.';
   }
@@ -3520,6 +3539,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Spouštění aktualizace všech lokálně uložených produktů';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Zahájení stahování nejoblíbenějších produktů';
 
@@ -3535,14 +3558,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Nechte panel ingrediencí rozbalený';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Zobrazit filtr ve vyhledávání';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Vyberte vyhledávací stránku: Open Food Facts, Open Beauty Facts, Open Pet Food Facts nebo Open Products Facts';
 
   @override
   String get no_internet_connection => 'Žádné připojení k Internetu';
@@ -5772,8 +5787,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zjistěte více o projektu';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objevte fakta o jídle na Open Food';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5817,7 +5831,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zapojte se účastí na jedné z našich virtuálních akcí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otevřená fakta o jídle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6136,14 +6150,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otevřené laboratoře faktů o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Přineste fakta o otevřeném jídle do svého jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

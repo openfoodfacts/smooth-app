@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Search a product,\na brand or a barcode",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "검색 필터",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "검색 기록",
   "search_store": "매장 검색",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "힌트: 도시나 국가를 추가하세요",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "자세한 내용을 보려면 탭하세요…",
   "@Product": {},
@@ -1059,11 +1072,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "영양 성분을 추가하여 영양 점수 계산",
+  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "영양 성분을 추가하여 영양 점수 계산",
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "나란히 비교해보세요",
   "loading_dialog_default_title": "데이터 다운로드 중",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1669,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "뉴트리스코어, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2630,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "오픈 가격에 대해 자세히 알아보세요",
+  "prices_menu_know_more": "Open Prices에 대해 자세히 알아보세요",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2670,6 +2684,10 @@
   "search_history_item_edit_tooltip": "이 검색을 재사용하고 편집하세요",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "제거",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "{totalSize} 개 제품을 모두 다운로드했습니다.",
   "@product_search_no_more_results": {
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "재료 패널을 확장한 채로 유지",
-  "search_product_filter_visibility_title": "검색에 필터 표시",
-  "search_product_filter_visibility_subtitle": "검색 사이트 선택: 공개 식품 정보, 공개 미용 정보, 공개 반려동물 식품 정보 또는 공개 제품 정보",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "인터넷 연결 없음",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3809,11 +3822,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "뉴트리스코어 A",
-  "nutriscore_b": "뉴트리스코어 B",
-  "nutriscore_c": "뉴트리스코어 C",
-  "nutriscore_d": "뉴트리스코어 D",
-  "nutriscore_e": "뉴트리스코어 E",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (새로운 계산)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3824,7 +3837,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score(새로운 계산)",
-  "nutriscore_unknown": "알 수 없는 영양 점수",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "알 수 없는 Nutri-Score(새로운 계산)",
   "nutriscore_not_applicable": "Nutri-Score가 적용되지 않습니다",
   "nutriscore_not_applicable_new_formula": "Nutri-Score가 적용되지 않습니다. (새로운 계산)",
@@ -3837,10 +3850,10 @@
   "environmental_score_unknown_new": "알 수 없는 그린 스코어",
   "environmental_score_not_applicable_new": "Green-Score는 적용되지 않습니다",
   "nova_group_generic_new": "초가공식품 - NOVA 그룹",
-  "nova_group_1": "노바 그룹 1",
-  "nova_group_2": "노바 그룹 2",
-  "nova_group_3": "노바 그룹 3",
-  "nova_group_4": "노바 그룹 4",
+  "nova_group_1": "NOVA 그룹 1",
+  "nova_group_2": "NOVA 그룹 2",
+  "nova_group_3": "NOVA 그룹 3",
+  "nova_group_4": "NOVA 그룹 4",
   "nova_group_unknown": "알 수 없는 NOVA 그룹",
   "nutrition_facts": "영양소 수준",
   "faq_title_partners": "NGO의 파트너 및 후원자",
@@ -4035,8 +4048,8 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "오픈푸드팩트란 무엇인가요?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "오픈 푸드 팩츠는 전 세계 식품 제품에 대한 **협업적**, **무료**, **개방형** 데이터베이스입니다.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4044,7 +4057,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "오픈푸드팩트의 특징",
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_food_facts_tips_title": "멋진 사진을 찍기 위한 팁",
   "guide_open_food_facts_tips_arg1_title": "하지 말아야 할 것",
@@ -4066,7 +4079,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "오픈 펫 푸드 팩트란 무엇인가요?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts는 우리의 소중한 반려동물에게까지 그 사명을 확장합니다! **고양이, 강아지, 그리고 다른 반려동물들을 위한 반려동물 사료 데이터베이스**입니다.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4075,7 +4088,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "오픈 펫푸드 팩트의 특징",
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "반려동물이 특정 성분에 알레르기가 있나요? 앱에서 바로 피해야 할 화장품 성분 목록을 설정할 수 있습니다!",
   "guide_open_pet_food_facts_tips_title": "멋진 사진을 찍기 위한 팁",
@@ -4096,8 +4109,8 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "오픈 뷰티 팩트란 무엇인가요?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "오픈 뷰티 팩츠는 **화장품**에 대한 협업 데이터베이스입니다.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4105,7 +4118,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "오픈 뷰티 팩트의 특징",
+  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_beauty_facts_features_arg1_paragraph1": "특정 성분에 알레르기가 있으신가요? 코메도 유발 성분을 피하고 싶으신가요? 논란의 여지가 있는 성분을 피하고 싶으신가요? 앱에서 바로 피해야 할 화장품 성분 목록을 설정할 수 있습니다!",
   "guide_open_beauty_facts_tips_title": "멋진 사진을 찍기 위한 팁",
@@ -4124,11 +4137,11 @@
   "guide_open_beauty_facts_scores_title": "점수에 대한 참고 사항",
   "guide_open_beauty_facts_scores_paragraph1": "식품과 달리 화장품에는 **뉴트리스코어(Nutri-Score)**처럼 보편적으로 인정받고 정부에서 지원하는 점수 체계가 없습니다.** 성분의 효과는 매우 개인적이며 피부 타입, 알레르기, 그리고 개인의 고민에 따라 달라질 수 있습니다.",
   "guide_open_beauty_facts_share_link": "https://world-ko.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "오픈 프라이스에 오신 것을 환영합니다!",
+  "guide_open_prices_title": "Open Prices에 오신 것을 환영합니다!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "오픈 프라이스란 무엇인가요?",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices란 무엇인가요?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices는 **전 세계 제품 가격을 수집하고 공유하는** 프로젝트입니다. 연구, 분석 등에 활용할 수 있는 공개 데이터 세트입니다. Open Prices는 Open Food Facts에서 개발 및 관리합니다.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4137,7 +4150,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "오픈 프라이스는 어떻게 작동하나요?",
+  "guide_open_prices_how_title": "Open Prices는 어떻게 작동하나요?",
   "guide_open_prices_how_paragraph1": "**저희는 오픈소스 가격 데이터 세트를 크라우드소싱하고 있습니다**. 사용자는 이 웹앱이나 공식 Open Food Facts 모바일 앱을 통해 가격을 추가할 수 있습니다. 소매업체나 타사 앱도 저희 API를 사용하여 가격을 추가할 수 있습니다.",
   "guide_open_prices_how_arg1_title": "통로에 있는 가격표 사진을 수집하세요",
   "guide_open_prices_how_arg2_title": "영수증 사진 수집",
@@ -4148,7 +4161,7 @@
   "guide_open_prices_why_arg2_title": "가까운 곳의 가격을 비교하세요",
   "guide_open_prices_why_arg2_text": "가격이 더 많이 올라감에 따라, **주변에서 가장 저렴한 매장**을 찾으실 수 있습니다.",
   "guide_open_prices_scrapping_title": "소매업체 웹사이트에서 가격을 스크래핑하는 것을 고려해 보셨나요?",
-  "guide_open_prices_scrapping_paragraph1": "법적 및 기술적 이유로, **소매업체 웹사이트에서 가격을 스크래핑하는 것은 오픈 프라이스에 기여하는 유효한 방법으로 간주하지 않습니다**. 수집하는 가격이 정확하고 최신인지 확인해야 하며, 기여자들로부터 스크래핑된 가격을 받는 것만으로는 이를 보장할 수 없습니다.",
+  "guide_open_prices_scrapping_paragraph1": "법적 및 기술적 이유로, **소매업체 웹사이트에서 가격을 스크래핑하는 것은 Open Prices에 기여하는 유효한 방법으로 간주하지 않습니다**. 수집하는 가격이 정확하고 최신인지 확인해야 하며, 기여자들로부터 스크래핑된 가격을 받는 것만으로는 이를 보장할 수 없습니다.",
   "guide_open_prices_scrapping_paragraph2": "Open Prices의 향후 버전에서는 가격 스크래핑을 고려한 옵션이지만, HTML 페이지를 기반으로 가격 증명을 얻을 수 있도록 Open Prices에서 직접 수행할 것입니다.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "API를 사용하여 가격을 제공할 수 있습니다.\n대규모로 가격을 제공하고 싶으시다면 prices@openfoodfacts.org로 연락해 주세요.",
@@ -4157,8 +4170,8 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "오픈 프로덕츠 팩트란 무엇인가요?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "오픈 프로덕츠 팩츠는 **식품, 화장품, 애완동물 사료가 아닌 바코드가 있는 모든 제품**을 위한 대규모 오픈 데이터베이스입니다.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4166,8 +4179,8 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "오픈 제품 정보의 특징",
-  "guide_open_products_facts_features_text": "오픈 프로덕츠 팩츠는 소비자에게 물건을 유지 관리, **수리**, **재활용**하거나 새로운 소유자에게 돌려주는 순환 솔루션을 제공함으로써 **사물의 수명을 연장**하는 것을 목표로 합니다.",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
   "guide_open_products_facts_features_arg1_title": "일부 제품의 탄소 발자국",
   "guide_open_products_facts_features_arg1_text": "프랑스 환경청 ADEME의 **CO2 영향**은 다양한 범주의 **탄소 영향**을 제공하므로, 제품을 정확하게 분류해야 합니다.",
   "guide_open_products_facts_features_arg2_title": "다양한 제품의 수리가능성 지수",
@@ -4539,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "왜 가격인가?",
-  "prices_explanation_card_line1": "**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 오픈 푸드 팩츠에서 개발 및 관리합니다.",
+  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
   "explanation_card_learn_more_button": "더보기",
   "product_page_tab_folksonomy": "포크소노미",
   "@product_page_tab_folksonomy": {
@@ -4914,7 +4927,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.",
+  "preferences_legal_header": "Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5087,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "공개 식품 정보를 알아보세요",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "공개된 뷰티 정보를 확인하세요",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "공개된 반려동물 사료 정보를 확인하세요",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "공개 가격 알아보기",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "오픈 제품 정보를 확인하세요",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5111,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "오픈 푸드 팩츠 NGO",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "오픈 푸드 팩츠 블로그",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5307,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Open Price 커뮤니티에서 추가한 최신 가격",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "오픈 푸드 팩츠 랩스",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5567,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "공개 식품 정보를 귀하의 언어로 제공하세요",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

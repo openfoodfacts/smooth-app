@@ -629,7 +629,19 @@ class AppLocalizationsSd extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'هڪ پراڊڪٽ،\nهڪ برانڊ يا بارڪوڊ ڳوليو';
+
+  @override
+  String get search_filter => 'فلٽر ڳوليو';
+
+  @override
+  String get search_history => 'ڳولا جي تاريخ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'اشارو: شهر يا ملڪ شامل ڪريو';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsSd extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'هڪٻئي سان مقابلو ڪريو';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3000,6 +3015,9 @@ class AppLocalizationsSd extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3497,6 +3515,10 @@ class AppLocalizationsSd extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3512,14 +3534,6 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4068,7 +4082,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'گرين اسڪور لاڳو ناهي';
 
   @override
-  String get nova_group_generic_new => 'الٽرا پروسيس ٿيل کاڌو - نووا گروپس';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4474,7 +4488,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA لوگو';
 
   @override
-  String get guide_nova_groups_title => '4 نووا گروپ';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5287,7 +5301,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. Open Prices اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5593,7 +5607,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'اوپن فوڊ فيڪٽس هڪ کاڌي جي شين جو ڊيٽابيس آهي **هر ڪنهن پاران، هر ڪنهن لاءِ ٺاهيو ويو آهي**.\nتوهان ان کي بهتر کاڌي جي چونڊ ڪرڻ لاءِ استعمال ڪري سگهو ٿا، ۽ جيئن ته اهو **کليل ڊيٽا** آهي، ڪو به ان کي **ڪنهن به مقصد لاءِ ٻيهر استعمال ڪري سگهي ٿو**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5644,7 +5658,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'اوپن فوڊ فيڪٽس ويب سائيٽ تي';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'منهنجو اڪائونٽ منظم ڪريو';
@@ -5727,7 +5741,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'دريافت ڪريو ته نيوٽري-اسڪور ڪيئن ڳڻيو ويندو آهي';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5737,8 +5751,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'دريافت ڪريو Open Food حقيقتون';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5758,7 +5771,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوال - اڪثر پڇيا ويندڙ سوال';
 
   @override
-  String get preferences_faq_off_ngo_title => 'دي اوپن فوڊ فيڪٽس اين جي او';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5780,7 +5793,7 @@ class AppLocalizationsSd extends AppLocalizations {
       'اسان جي ورچوئل تقريب ۾ شرڪت ڪندي شامل ٿيو';
 
   @override
-  String get preferences_connect_blog_title => 'اوپن فوڊ فيڪٽس بلاگ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5895,7 +5908,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'اوپن فوڊ فيڪٽس ۾ مون نوان پراڊڪٽس شامل ڪيا آهن.';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5921,7 +5934,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'پنهنجي ملڪ ۾ نيوٽري-اسڪور ۽ گرين-اسڪور جي ڳڻپ ۾ مدد ڪريو.';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'منهنجي ڏنل قيمتون';
@@ -5989,7 +6002,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'کاڌي جي حقيقتن کي کولڻ ۾ مدد ڪرڻ جا آسان طريقا';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6095,14 +6108,14 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'فوڊ فيڪٽس ليبز کوليو';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'پنهنجي ٻولي ۾ کليل کاڌي جا حقيقت آڻيو';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

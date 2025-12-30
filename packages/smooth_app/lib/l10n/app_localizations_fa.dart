@@ -629,7 +629,19 @@ class AppLocalizationsFa extends AppLocalizations {
   String get search => 'جستجو';
 
   @override
+  String get search_product_help => 'جستجوی یک محصول،\nیک برند یا یک بارکد';
+
+  @override
+  String get search_filter => 'فیلتر جستجو';
+
+  @override
+  String get search_history => 'سابقه جستجو';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'راهنمایی: شهر یا کشور را اضافه کنید';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsFa extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'مقایسه در کنار هم';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3001,6 +3016,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3498,6 +3516,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3513,14 +3535,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5593,7 +5607,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'اطلاعات عمومی غذا یک پایگاه داده محصولات غذایی است **که توسط همه و برای همه ساخته شده است**.\nشما می‌توانید از آن برای انتخاب‌های غذایی بهتر استفاده کنید و از آنجایی که **داده‌های باز** است، هر کسی می‌تواند **از آن برای هر هدفی دوباره استفاده کند**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5640,11 +5654,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_tips => 'نکات';
 
   @override
-  String get tips_discover_nutriscore => 'با نوتری-اسکور جدید آشنا شوید';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'در وب‌سایت حقایق غذایی آزاد';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'مدیریت حساب من';
@@ -5737,8 +5751,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'حقایق غذایی آزاد را کشف کنید';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5758,8 +5771,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوالات متداول - سوالات متداول';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'سازمان مردم نهاد حقایق غذایی آزاد';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'اطلاعات';
@@ -5781,7 +5793,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'با شرکت در یکی از رویدادهای مجازی ما، مشارکت کنید';
 
   @override
-  String get preferences_connect_blog_title => 'وبلاگ حقایق غذای آزاد';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5922,7 +5934,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'به محاسبه امتیاز تغذیه‌ای و امتیاز سبز در کشور خود کمک کنید';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6099,14 +6111,14 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'آزمایشگاه‌های حقایق غذایی آزاد';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'حقایق غذایی آزاد را به زبان خود بیاورید';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

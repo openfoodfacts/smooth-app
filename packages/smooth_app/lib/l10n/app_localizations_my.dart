@@ -629,7 +629,21 @@ class AppLocalizationsMy extends AppLocalizations {
   String get search => 'ရွာေဖြမည္';
 
   @override
+  String get search_product_help =>
+      'ထုတ်ကုန်တစ်ခု၊\nအမှတ်တံဆိပ်တစ်ခု သို့မဟုတ် ဘားကုဒ်တစ်ခုကို ရှာဖွေပါ။';
+
+  @override
+  String get search_filter => 'စစ်ထုတ်မှုကို ရှာဖွေပါ။';
+
+  @override
+  String get search_history => 'ရှာဖွေမှုမှတ်တမ်း';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help =>
+      'အရိပ်အမြွက်- မြို့ သို့မဟုတ် နိုင်ငံကို ထည့်ပါ။';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1709,9 @@ class AppLocalizationsMy extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'ဘေးချင်းယှဉ်';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3003,10 +3020,13 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+
+  @override
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
@@ -3506,6 +3526,10 @@ class AppLocalizationsMy extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3521,14 +3545,6 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -6021,7 +6037,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6130,7 +6146,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Food Facts Labs ကိုဖွင့်ပါ။';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

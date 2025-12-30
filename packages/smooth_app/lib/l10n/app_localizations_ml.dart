@@ -629,7 +629,20 @@ class AppLocalizationsMl extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'ഒരു ഉൽപ്പന്നം,\nഒരു ബ്രാൻഡ് അല്ലെങ്കിൽ ബാർകോഡ് എന്നിവ തിരയുക';
+
+  @override
+  String get search_filter => 'തിരയൽ ഫിൽട്ടർ';
+
+  @override
+  String get search_history => 'തിരയൽ ചരിത്രം';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'സൂചന: നഗരമോ രാജ്യമോ ചേർക്കുക';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1708,10 @@ class AppLocalizationsMl extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'വശങ്ങളിലായി താരതമ്യം ചെയ്യുക';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3002,6 +3019,9 @@ class AppLocalizationsMl extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3499,6 +3519,10 @@ class AppLocalizationsMl extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3514,14 +3538,6 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4049,29 +4065,29 @@ class AppLocalizationsMl extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'ഗ്രീൻ-സ്കോർ എ';
+  String get environmental_score_a_new => 'Green-Score എ';
 
   @override
-  String get environmental_score_b_new => 'ഗ്രീൻ-സ്കോർ ബി';
+  String get environmental_score_b_new => 'Green-Score ബി';
 
   @override
-  String get environmental_score_c_new => 'ഗ്രീൻ-സ്കോർ സി';
+  String get environmental_score_c_new => 'Green-Score സി';
 
   @override
-  String get environmental_score_d_new => 'ഗ്രീൻ-സ്കോർ ഡി';
+  String get environmental_score_d_new => 'Green-Score ഡി';
 
   @override
-  String get environmental_score_e_new => 'ഗ്രീൻ-സ്കോർ ഇ';
+  String get environmental_score_e_new => 'Green-Score ഇ';
 
   @override
-  String get environmental_score_unknown_new => 'അജ്ഞാതമായ ഗ്രീൻ-സ്കോർ';
+  String get environmental_score_unknown_new => 'അജ്ഞാതമായ Green-Score';
 
   @override
-  String get environmental_score_not_applicable_new => 'ഗ്രീൻ-സ്കോർ ബാധകമല്ല.';
+  String get environmental_score_not_applicable_new => 'Green-Score ബാധകമല്ല.';
 
   @override
   String get nova_group_generic_new =>
-      'അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ - നോവ ഗ്രൂപ്പുകൾ';
+      'അൾട്രാ-പ്രോസസ്ഡ് ഭക്ഷണങ്ങൾ - NOVA ഗ്രൂപ്പുകൾ';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4283,14 +4299,14 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      '**ഭക്ഷണത്തിന്റെ പാരിസ്ഥിതിക ആഘാതം** നിങ്ങളെ അറിയിക്കാൻ ലക്ഷ്യമിട്ടുള്ള ഒരു ലോഗോയാണ് ഗ്രീൻ-സ്കോർ.';
+      '**ഭക്ഷണത്തിന്റെ പാരിസ്ഥിതിക ആഘാതം** നിങ്ങളെ അറിയിക്കാൻ ലക്ഷ്യമിട്ടുള്ള ഒരു ലോഗോയാണ് Green-Score.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
       'ഏറ്റവും കുറഞ്ഞ സ്വാധീനമുള്ള** ഉൽപ്പന്നങ്ങൾക്ക് കടും പച്ച (**A+**) മുതൽ **ഏറ്റവും സ്വാധീനമുള്ള** ഉൽപ്പന്നങ്ങൾക്ക് കടും ചുവപ്പ് (**F**) വരെ വർണ്ണ കോഡ് വ്യത്യാസപ്പെടുന്നു.';
 
   @override
-  String get guide_greenscore_logos_caption => 'ഗ്രീൻ-സ്കോർ ലോഗോകൾ';
+  String get guide_greenscore_logos_caption => 'Green-Score ലോഗോകൾ';
 
   @override
   String get guide_greenscore_lca_title => 'കാതൽ: ജീവിതചക്ര വിലയിരുത്തൽ (LCA)';
@@ -4453,14 +4469,14 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'സുസ്ഥിര ഭക്ഷണം തിരഞ്ഞെടുക്കുന്നത് സങ്കീർണ്ണമായി തോന്നാം. ലേബലുകൾ ആശയക്കുഴപ്പമുണ്ടാക്കുന്നതും പലപ്പോഴും വിവരങ്ങൾ കാണാത്തതുമാണ്. നിങ്ങൾക്ക് ആവശ്യമുള്ളിടത്ത്: ഷോപ്പിംഗ് നടത്തുമ്പോൾ തന്നെ, ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്ക് **വ്യക്തമായ**, **ശാസ്ത്രാധിഷ്ഠിത**, **സുതാര്യമായ** പാരിസ്ഥിതിക റേറ്റിംഗ് നൽകിക്കൊണ്ട്, കാര്യങ്ങൾ ലളിതമാക്കുന്നതിനാണ് ഗ്രീൻ-സ്കോർ സൃഷ്ടിച്ചിരിക്കുന്നത്.';
+      'സുസ്ഥിര ഭക്ഷണം തിരഞ്ഞെടുക്കുന്നത് സങ്കീർണ്ണമായി തോന്നാം. ലേബലുകൾ ആശയക്കുഴപ്പമുണ്ടാക്കുന്നതും പലപ്പോഴും വിവരങ്ങൾ കാണാത്തതുമാണ്. നിങ്ങൾക്ക് ആവശ്യമുള്ളിടത്ത്: ഷോപ്പിംഗ് നടത്തുമ്പോൾ തന്നെ, ഭക്ഷ്യ ഉൽപ്പന്നങ്ങൾക്ക് **വ്യക്തമായ**, **ശാസ്ത്രാധിഷ്ഠിത**, **സുതാര്യമായ** പാരിസ്ഥിതിക റേറ്റിംഗ് നൽകിക്കൊണ്ട്, കാര്യങ്ങൾ ലളിതമാക്കുന്നതിനാണ് Green-Score സൃഷ്ടിച്ചിരിക്കുന്നത്.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'സുതാര്യത';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'പ്രൊപ്രൈറ്ററി ലേബലുകളിൽ നിന്ന് വ്യത്യസ്തമായി, ഗ്രീൻ-സ്കോർ കണക്കുകൂട്ടൽ **പൂർണ്ണമായും തുറന്നിരിക്കുന്നു** കൂടാതെ ആർക്കും **പരിശോധിക്കാൻ കഴിയും**.';
+      'പ്രൊപ്രൈറ്ററി ലേബലുകളിൽ നിന്ന് വ്യത്യസ്തമായി, Green-Score കണക്കുകൂട്ടൽ **പൂർണ്ണമായും തുറന്നിരിക്കുന്നു** കൂടാതെ ആർക്കും **പരിശോധിക്കാൻ കഴിയും**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -4477,7 +4493,7 @@ class AppLocalizationsMl extends AppLocalizations {
       '**വ്യാവസായിക സംസ്കരണത്തിന്റെ അളവ്** (കുറഞ്ഞ സംസ്കരിച്ചതോ സംസ്കരിക്കാത്തതോ ആയ ഭക്ഷണങ്ങൾ, പാചക ചേരുവകൾ, സംസ്കരിച്ച ഭക്ഷണങ്ങൾ, അൾട്രാ-പ്രോസസ് ചെയ്ത ഭക്ഷണങ്ങൾ) അടിസ്ഥാനമാക്കി ഭക്ഷണങ്ങളെ **4 ഗ്രൂപ്പുകളായി** തരംതിരിക്കാൻ NOVA വർഗ്ഗീകരണം അനുവദിക്കുന്നു.';
 
   @override
-  String get guide_nova_logos_caption => 'നോവ ലോഗോകൾ';
+  String get guide_nova_logos_caption => 'NOVA ലോഗോകൾ';
 
   @override
   String get guide_nova_groups_title => '4 NOVA ഗ്രൂപ്പുകൾ';
@@ -5294,7 +5310,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**ഓപ്പൺ പ്രൈസസ്** എന്നത് ലോകമെമ്പാടുമുള്ള ഉൽപ്പന്നങ്ങളുടെ വിലകൾ ശേഖരിച്ച് പങ്കിടുന്നതിനുള്ള ഒരു പ്രോജക്റ്റാണ് 🌍. ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സ് ആണ് ഓപ്പൺ പ്രൈസസ് വികസിപ്പിക്കുകയും പരിപാലിക്കുകയും ചെയ്യുന്നത്.';
+      '**Open Prices** എന്നത് ലോകമെമ്പാടുമുള്ള ഉൽപ്പന്നങ്ങളുടെ വിലകൾ ശേഖരിച്ച് പങ്കിടുന്നതിനുള്ള ഒരു പ്രോജക്റ്റാണ് 🌍. Open Food Facts ആണ് Open Prices വികസിപ്പിക്കുകയും പരിപാലിക്കുകയും ചെയ്യുന്നത്.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5574,7 +5590,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'ഒരു ക്രമീകരണത്തിനായി തിരയുക (ഉദാ. ന്യൂട്രി-സ്കോർ)';
+      'ഒരു ക്രമീകരണത്തിനായി തിരയുക (ഉദാ. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5652,11 +5668,11 @@ class AppLocalizationsMl extends AppLocalizations {
   String get preferences_tips => 'നുറുങ്ങുകൾ';
 
   @override
-  String get tips_discover_nutriscore => 'പുതിയ ന്യൂട്രി-സ്കോർ കണ്ടെത്തൂ';
+  String get tips_discover_nutriscore => 'പുതിയ Nutri-Score കണ്ടെത്തൂ';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സ് വെബ്സൈറ്റിൽ';
+      'Open Food Facts വെബ്സൈറ്റിൽ';
 
   @override
   String get preferences_manage_account_title =>
@@ -5743,7 +5759,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ന്യൂട്രി-സ്കോർ എങ്ങനെ കണക്കാക്കുന്നുവെന്ന് കണ്ടെത്തുക';
+      'Nutri-Score എങ്ങനെ കണക്കാക്കുന്നുവെന്ന് കണ്ടെത്തുക';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5753,8 +5769,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ഓപ്പൺ ഫുഡ് വസ്തുതകൾ കണ്ടെത്തുക';
+  String get preferences_faq_discover_off_title => 'Open Food Facts കണ്ടെത്തുക';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5910,7 +5925,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5936,7 +5951,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'നിങ്ങളുടെ രാജ്യത്തെ ന്യൂട്രി-സ്കോറും ഗ്രീൻ-സ്കോറും കണക്കാക്കാൻ സഹായിക്കുക.';
+      'നിങ്ങളുടെ രാജ്യത്തെ Nutri-Score Green-Score കണക്കാക്കാൻ സഹായിക്കുക.';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5958,7 +5973,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6007,7 +6022,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6123,7 +6138,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'ഓപ്പൺ ഫുഡ് വസ്തുതകൾ നിങ്ങളുടെ ഭാഷയിലേക്ക് കൊണ്ടുവരിക';
+      'Open Food Facts നിങ്ങളുടെ ഭാഷയിലേക്ക് കൊണ്ടുവരിക';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -648,7 +648,20 @@ class AppLocalizationsEs extends AppLocalizations {
   String get search => 'Buscar';
 
   @override
+  String get search_product_help =>
+      'Buscar un producto,\nuna marca o un código de barras';
+
+  @override
+  String get search_filter => 'Filtro de búsqueda';
+
+  @override
+  String get search_history => 'Historial de búsqueda';
+
+  @override
   String get search_store => 'Buscar una tienda';
+
+  @override
+  String get search_store_help => 'Sugerencia: añade la ciudad o el país.';
 
   @override
   String get tap_for_more => 'Pulsa para ver más información…';
@@ -1729,6 +1742,9 @@ class AppLocalizationsEs extends AppLocalizations {
     );
     return 'Actualización completa de $_temp0.';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'Comparar lado a lado';
 
   @override
   String get loading_dialog_default_title => 'Descargando datos';
@@ -3057,6 +3073,9 @@ class AppLocalizationsEs extends AppLocalizations {
       'Reutilizar y editar esta búsqueda';
 
   @override
+  String get search_history_item_remove_tooltip => 'Eliminar';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'Has descargado todos los $totalSize productos.';
   }
@@ -3567,6 +3586,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Iniciando la actualización de todos los productos almacenados localmente';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Iniciando la descarga de los productos más populares';
 
@@ -3584,14 +3607,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get expand_ingredients_body =>
       'Mantener expandido el panel de ingredientes';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Mostrar un filtro en la búsqueda';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Seleccione el sitio de búsqueda: Open Food Facts, Open Beauty Facts, Open Pet Food Facts o Open Products Facts';
 
   @override
   String get no_internet_connection => 'No hay conexión a internet';
@@ -4923,7 +4938,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      '¿Qué son los precios abiertos?';
+      '¿Qué es Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -5001,7 +5016,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      '¿Qué son los datos de productos abiertos?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5013,7 +5028,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Características de los productos abiertos';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5857,24 +5872,21 @@ class AppLocalizationsEs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubre el proyecto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra datos alimentarios abiertos';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Descubre datos sobre belleza abierta';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Descubre datos sobre alimentos para mascotas abiertos';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title =>
-      'Descubra los precios abiertos';
+  String get preferences_faq_discover_op_title => 'Descubra Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Descubra datos sobre productos abiertos';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Preguntas frecuentes';
@@ -5902,8 +5914,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Participe asistiendo a uno de nuestros eventos virtuales';
 
   @override
-  String get preferences_connect_blog_title =>
-      'El blog de datos alimentarios abiertos';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6226,7 +6237,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorios abiertos de datos alimentarios';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Cuenta';

@@ -629,7 +629,21 @@ class AppLocalizationsTa extends AppLocalizations {
   String get search => 'தேடுக';
 
   @override
+  String get search_product_help =>
+      'ஒரு தயாரிப்பைத் தேடுங்கள்,\nஒரு பிராண்ட் அல்லது பார்கோடைத் தேடுங்கள்';
+
+  @override
+  String get search_filter => 'தேடல் வடிகட்டி';
+
+  @override
+  String get search_history => 'தேடல் வரலாறு';
+
+  @override
   String get search_store => 'ஒரு கடையைத் தேடுங்கள்';
+
+  @override
+  String get search_store_help =>
+      'குறிப்பு: நகரம் அல்லது நாட்டைச் சேர்க்கவும்.';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -848,7 +862,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1698,6 +1712,9 @@ class AppLocalizationsTa extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'அருகருகே ஒப்பிடுக';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3012,6 +3029,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3512,6 +3532,10 @@ class AppLocalizationsTa extends AppLocalizations {
       'உள்நாட்டில் சேமிக்கப்பட்ட அனைத்து தயாரிப்புகளையும் புதுப்பிக்கத் தொடங்குகிறது';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'மிகவும் பிரபலமான தயாரிப்புகளின் பதிவிறக்கத்தைத் தொடங்குகிறது';
 
@@ -3527,14 +3551,6 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'தேடலில் வடிப்பானைக் காட்டு';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'தேடல் தளத்தைத் தேர்ந்தெடுக்கவும்: Open Food Facts, திறந்த அழகு உண்மைகள், திறந்த விலங்கு உணவு உண்மைகள் அல்லது திறந்த தயாரிப்புகள் உண்மைகள்';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4052,43 +4068,43 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'தெரியாத நியூட்ரி ஸ்கோர் (புதிய கணக்கீடு)';
+      'தெரியாத Nutri-Score (புதிய கணக்கீடு)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'நியூட்ரி-ஸ்கோர் பொருந்தாது (புதிய கணக்கீடு)';
+      'Nutri-Score பொருந்தாது (புதிய கணக்கீடு)';
 
   @override
-  String get environmental_score_generic_new => 'பச்சை-ஸ்கோர்';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'பச்சை-மதிப்பெண் A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'பச்சை-மதிப்பெண் B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'பச்சை-ஸ்கோர் C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'பச்சை-மதிப்பெண் D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'பச்சை-மதிப்பெண் E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'தெரியாத பச்சை மதிப்பெண்';
+  String get environmental_score_unknown_new => 'தெரியாத Green-Score';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'பச்சை மதிப்பெண் பொருந்தாது.';
+      'Green-Score பொருந்தாது.';
 
   @override
   String get nova_group_generic_new =>
-      'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - நோவா குழுக்கள்';
+      'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - NOVA குழுக்கள்';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4292,7 +4308,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'பச்சை-ஸ்கோர்';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4300,14 +4316,14 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'கிரீன்-ஸ்கோர் என்பது **உணவின் சுற்றுச்சூழல் தாக்கம்** பற்றி உங்களுக்குத் தெரிவிப்பதை நோக்கமாகக் கொண்ட ஒரு லோகோ ஆகும்.';
+      'Green-Score என்பது **உணவின் சுற்றுச்சூழல் தாக்கம்** பற்றி உங்களுக்குத் தெரிவிப்பதை நோக்கமாகக் கொண்ட ஒரு லோகோ ஆகும்.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
       '**குறைந்த தாக்கத்தை ஏற்படுத்தும்** தயாரிப்புகளுக்கு வண்ணக் குறியீடு அடர் பச்சை (**A+**) இலிருந்து **மிகவும் தாக்கத்தை ஏற்படுத்தும்** தயாரிப்புகளுக்கு அடர் சிவப்பு (**F**) வரை மாறுபடும்.';
 
   @override
-  String get guide_greenscore_logos_caption => 'கிரீன்-ஸ்கோர் லோகோக்கள்';
+  String get guide_greenscore_logos_caption => 'Green-Score லோகோக்கள்';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4470,14 +4486,14 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. கிரீன்-ஸ்கோர் அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.';
+      'நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. Green-Score அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'வெளிப்படைத்தன்மை';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'தனியுரிம லேபிள்களைப் போலன்றி, கிரீன்-ஸ்கோர் கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.';
+      'தனியுரிம லேபிள்களைப் போலன்றி, Green-Score கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -4494,7 +4510,7 @@ class AppLocalizationsTa extends AppLocalizations {
       '**தொழில்துறை செயலாக்கத்தின்** (குறைந்தபட்ச பதப்படுத்தப்பட்ட அல்லது பதப்படுத்தப்படாத உணவுகள், சமையல் பொருட்கள், பதப்படுத்தப்பட்ட உணவுகள், தீவிர பதப்படுத்தப்பட்ட உணவுகள்) அடிப்படையில் உணவுகளை **4 குழுக்களாக** வகைப்படுத்த NOVA வகைப்பாடு அனுமதிக்கிறது.';
 
   @override
-  String get guide_nova_logos_caption => 'நோவா லோகோக்கள்';
+  String get guide_nova_logos_caption => 'NOVA லோகோக்கள்';
 
   @override
   String get guide_nova_groups_title => '4 NOVA குழுக்கள்';
@@ -4912,7 +4928,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://prices.openfoodfacts.org/about பற்றி';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5254,11 +5270,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'இந்த நியூட்ரி-ஸ்கோர் தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?';
+      'இந்த Nutri-Score தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
@@ -5311,7 +5327,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**திறந்த விலைகள்** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. திறந்த விலைகள் Open Food Facts உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.';
+      '**Open Prices** என்பது உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும் ஒரு திட்டமாகும் 🌍. Open Prices Open Food Facts உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.';
 
   @override
   String get explanation_card_learn_more_button => 'மேலும்அறிய';
@@ -5593,7 +5609,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. நியூட்ரி-ஸ்கோர்)';
+      'ஒரு அமைப்பைத் தேடுங்கள் (எ.கா. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5624,7 +5640,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் என்பது அனைவராலும், அனைவருக்கும்** உருவாக்கப்பட்ட உணவுப் பொருட்களின் தரவுத்தளமாகும்.\nசிறந்த உணவுத் தேர்வுகளைச் செய்ய நீங்கள் இதைப் பயன்படுத்தலாம், மேலும் இது **திறந்த தரவு** என்பதால், யார் வேண்டுமானாலும் எந்த நோக்கத்திற்காகவும் இதை மீண்டும் பயன்படுத்தலாம்**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5671,11 +5687,11 @@ class AppLocalizationsTa extends AppLocalizations {
   String get preferences_tips => 'குறிப்புகள்';
 
   @override
-  String get tips_discover_nutriscore => 'புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'ஓபன் ஃபுட் ஃபேக்ட்ஸ் வலைத்தளத்தில்';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'எனது கணக்கை நிர்வகிக்கவும்';
@@ -5761,7 +5777,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'நியூட்ரி-ஸ்கோர் எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.';
+      'Nutri-Score எவ்வாறு கணக்கிடப்படுகிறது என்பதைக் கண்டறியவும்.';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5958,7 +5974,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'உங்கள் நாட்டில் நியூட்ரி-ஸ்கோர் & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.';
+      'உங்கள் நாட்டில் Nutri-Score & கிரீன்-ஸ்கோரைக் கணக்கிட உதவுங்கள்.';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5981,7 +5997,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'திறந்த விலைகள் சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்';
+      'Open Prices சமூகத்தால் சேர்க்கப்பட்ட சமீபத்திய விலைகள்';
 
   @override
   String get preferences_prices_top_contributors_title =>

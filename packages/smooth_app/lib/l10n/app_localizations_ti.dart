@@ -629,7 +629,19 @@ class AppLocalizationsTi extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help => 'ፍርያት ድለዩ፣\nምልክት ንግዲ ወይ ባርኮድ';
+
+  @override
+  String get search_filter => 'ናይ ምድላይ መጽረዪ';
+
+  @override
+  String get search_history => 'ታሪኽ ምድላይ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ምኽሪ፡ ከተማ ወይ ሃገር ወስኸሉ።';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1707,9 @@ class AppLocalizationsTi extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'ጎኒ ንጎኒ ኣነጻጽር';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -2998,6 +3013,9 @@ class AppLocalizationsTi extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3495,6 +3513,10 @@ class AppLocalizationsTi extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3510,14 +3532,6 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4066,7 +4080,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'ግሪን-ስኮር ተግባራዊ ኣይኮነን።';
 
   @override
-  String get nova_group_generic_new => 'ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት ኖቫ';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4466,14 +4480,14 @@ class AppLocalizationsTi extends AppLocalizations {
       'ምደባ NOVA ንመግብታት ብመሰረት **ደረጃ ኢንዱስትርያዊ መስርሖም** (ብውሑድ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት፣ ቀመማት ምግቢ፣ ዝተመስርሑ መግብታት፣ ኣዝዮም ዝተመስርሑ መግብታት) መሰረት ብምግባር ኣብ **4 ጉጅለታት** ክምደቡ የኽእል።';
 
   @override
-  String get guide_nova_logos_caption => 'እቶም ናይ ኖቫ ኣርማታት';
+  String get guide_nova_logos_caption => 'The NOVA logos';
 
   @override
-  String get guide_nova_groups_title => 'እተን 4 ጉጅለታት ኖቫ';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
-      '4 ጉጅለታት ኖቫ ኣለዋ፡ እቲ ጸገም ዘለዎ ጉጅለ 4 - Ultra-processed foods እዩ።';
+      'There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.';
 
   @override
   String get guide_nova_groups_arg1_title => 'ብውሑድ ደረጃ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት';
@@ -5551,7 +5565,8 @@ class AppLocalizationsTi extends AppLocalizations {
   }
 
   @override
-  String get preferences_app_bar_search_hint => 'ንሓደ ቅጥዒ ድለዩ (ንኣብነት ኒውትሪ-ስኮር)';
+  String get preferences_app_bar_search_hint =>
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji => 'ተበጻሕነት: ኢሞጂ ኣርእዩ';
@@ -5625,10 +5640,11 @@ class AppLocalizationsTi extends AppLocalizations {
   String get preferences_tips => 'መቑሽሽ';
 
   @override
-  String get tips_discover_nutriscore => 'ሓድሽ ኒውትሪ-ስኮር ርኸብዎ።';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
-  String get preferences_on_off_website_subtitle => 'ኣብ መርበብ ሓበሬታ ክፉት ሓቅታት መግቢ';
+  String get preferences_on_off_website_subtitle =>
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'ኣካውንተይ ኣመሓድር';
@@ -5709,7 +5725,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ኒውትሪ-ስኮር ብኸመይ ከም ዝስላዕ ርኸቡ።';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5719,7 +5735,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'ክፉት ሓቅታት መግቢ ርኸቡ።';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5739,7 +5755,7 @@ class AppLocalizationsTi extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - ብተደጋጋሚ ዝሕተቱ ሕቶታት';
 
   @override
-  String get preferences_faq_off_ngo_title => 'እቲ ክፉት ሓቅታት መግቢ ዘይመንግስታዊ ትካል';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5761,7 +5777,7 @@ class AppLocalizationsTi extends AppLocalizations {
       'ኣብ ሓደ ካብቲ ቨርቹዋል መደባትና ብምስታፍ ተሳተፉ';
 
   @override
-  String get preferences_connect_blog_title => 'ብሎግ ክፉት ሓቅታት መግቢ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle => 'እዋናዊ ዜናታት ርኸቡ፣ ከምቲ ዘጋጥም';
@@ -5957,7 +5973,7 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ቀለልቲ መገድታት ንኽፉት ሓቅታት መግቢ ንምሕጋዝ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6062,14 +6078,14 @@ class AppLocalizationsTi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ክፉት ናይ መግቢ ሓቅታት ቤተ ፈተነታት';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ክፉት ሓቅታት መግቢ ናብ ቋንቋኹም ኣምጽኡ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

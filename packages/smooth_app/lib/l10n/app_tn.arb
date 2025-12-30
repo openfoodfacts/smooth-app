@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Batla kumo,\nletshwaokgwebo kgotsa khoutu ya dibara",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Setlhotlhi sa patlo",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Motlhala wa patlo",
   "search_store": "Search for a store",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Tlhagiso: tsenya toropo kgotsa naga",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Tap to see more info…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Bapisa ka go bapile",
   "loading_dialog_default_title": "Downloading data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Remove",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Keep the ingredients panel expanded",
-  "search_product_filter_visibility_title": "Show a filter in the search",
-  "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "No internet connection",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3829,13 +3842,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Maduo a Botala A",
-  "environmental_score_b_new": "Maduo a Botala B",
-  "environmental_score_c_new": "Maduo a Botala C",
-  "environmental_score_d_new": "Maduo a Botala D",
-  "environmental_score_e_new": "Maduo a Botala E",
-  "environmental_score_unknown_new": "Maduo a a Tala a a sa Itsiweng",
-  "environmental_score_not_applicable_new": "Maduo a Botala ga a dire",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score a a sa Itsiweng",
+  "environmental_score_not_applicable_new": "Green-Score ga a dire",
   "nova_group_generic_new": "Dijo tse di fetotsweng thata - ditlhopha tsa NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -3942,7 +3955,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Matshwao a Maduo a Botala",
+  "guide_greenscore_logos_caption": "Matshwao a Green-Score",
   "guide_greenscore_lca_title": "Moko: Tshekatsheko ya modikologo wa botshelo (LCA)",
   "guide_greenscore_lca_arg1_title": "Tshekatsheko ya saense ya ditlhopha tsa dijo",
   "guide_greenscore_lca_arg1_text1": "Mo setlhopheng sengwe le sengwe sa setlhagiswa, go tlhomiwa maduo a **benchmark** go dirisiwa tshedimosetso go tswa mo polokelotshedimosetsong ya tikologo ya Agribalyse (e e tlhamilweng ke ADEME le INRAE).",
@@ -4539,7 +4552,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Goreng ditlhwatlhwa?",
-  "prices_explanation_card_line1": "**Open Prices** ke porojeke ya go kokoanya le go abelana ditlhwatlhwa tsa dikumo lefatshe ka bophara 🌍. Ditheko tse Bulehileng di ntshetswa pele le ho bolokwa ke Dintlha tsa Dijo tse Bulehileng.",
+  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4978,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Mo webosaeteng ya Dintlha tsa Dijo tse di Buletsweng",
+  "preferences_on_off_website_subtitle": "Mo webosaeteng ya Open Food Facts",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5075,7 +5088,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "Bona gore Maduo a Nutri a balelwa jang",
+  "preferences_faq_nutriscore_subtitle": "Bona gore Nutri-Score a balelwa jang",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5087,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Ribolola Dintlha tsa Dijo tse di Buletsweng",
+  "preferences_faq_discover_off_title": "Ribolola Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5111,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "NGO ya Dintlha tsa Dijo tse di Buletsweng",
+  "preferences_faq_off_ngo_title": "NGO ya Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5135,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blogo ya Dintlha tsa Dijo tse di Buletsweng",
+  "preferences_connect_blog_title": "Blogo ya Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5255,7 +5268,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "Dikumo tse disha tse ke di tsentseng mo Dintlhang tsa Dijo tse di Buletsweng",
+  "preferences_contributions_new_products_subtitle": "New products I added to Open Food Facts",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5283,7 +5296,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "Thusa go balelela Maduo a Dikotla le Maduo a Botala mo nageng ya gaeno",
+  "preferences_contributions_categorize_subtitle": "Help compute the Nutri-Score & Green-Score in your country",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5307,7 +5320,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Ditlhwatlhwa tsa bosheng tse di tsentsweng ke baagi ba Ditlhwatlhwa tse di Buletsweng",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5359,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Ditsela tse di bonolo tsa go thusa go Bula Dintlha tsa Dijo",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5559,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Bula Dilaboratori tsa Dintlha tsa Dijo",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5567,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Tlisa Dintlha tsa Dijo tse di Bulegileng mo puong ya gago",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

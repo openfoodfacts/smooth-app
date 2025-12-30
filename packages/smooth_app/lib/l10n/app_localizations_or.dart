@@ -632,7 +632,20 @@ class AppLocalizationsOr extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'ଏକ ଉତ୍ପାଦ,\nଏକ ବ୍ରାଣ୍ଡ କିମ୍ବା ଏକ ବାରକୋଡ୍ ଖୋଜନ୍ତୁ';
+
+  @override
+  String get search_filter => 'ଖୋଜ ଫିଲ୍ଟର୍';
+
+  @override
+  String get search_history => 'ସନ୍ଧାନ ଇତିହାସ';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ସୂଚନା: ସହର କିମ୍ବା ଦେଶ ଯୋଡନ୍ତୁ';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1698,6 +1711,9 @@ class AppLocalizationsOr extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side => 'ପାଖାପାଖି ତୁଳନା କରନ୍ତୁ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3007,6 +3023,9 @@ class AppLocalizationsOr extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3504,6 +3523,10 @@ class AppLocalizationsOr extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3519,14 +3542,6 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -5298,7 +5313,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**ଓପନ୍ ପ୍ରାଇସେସ୍** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। ଓପନ୍ ପ୍ରାଇସେସ୍ Open Food Facts ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'ଅଧିକ ଜାଣନ୍ତୁ';
@@ -5575,7 +5590,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'ଏକ ସେଟିଂ ଖୋଜନ୍ତୁ (ଯଥା ନ୍ୟୁଟ୍ରି-ସ୍କୋର)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5653,7 +5668,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get preferences_tips => 'ପରାମର୍ଶ';
 
   @override
-  String get tips_discover_nutriscore => 'ନୂଆ ନ୍ୟୁଟ୍ରି-ସ୍କୋର ଆବିଷ୍କାର କରନ୍ତୁ';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle => 'Open Food Facts ୱେବସାଇଟରେ';
@@ -5741,7 +5756,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ନ୍ୟୁଟ୍ରି-ସ୍କୋର କିପରି ଗଣନା କରାଯାଏ ତାହା ଜାଣନ୍ତୁ';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5935,7 +5950,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'ଆପଣଙ୍କ ଦେଶରେ ନ୍ୟୁଟ୍ରି-ସ୍କୋର୍ ଏବଂ ଗ୍ରୀନ୍-ସ୍କୋର୍ ଗଣନା କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'ମୁଁ ଦେଇଥିବା ମୂଲ୍ୟ';
@@ -6005,7 +6020,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ଖାଦ୍ୟ ତଥ୍ୟ ଖୋଲିବାରେ ସାହାଯ୍ୟ କରିବାର ସରଳ ଉପାୟ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6114,7 +6129,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ଖାଦ୍ୟ ତଥ୍ୟ ଲ୍ୟାବ ଖୋଲନ୍ତୁ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

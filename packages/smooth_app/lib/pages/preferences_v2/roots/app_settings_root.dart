@@ -76,7 +76,6 @@ class AppSettingsRoot extends PreferencesRoot {
             userPreferences,
             iconColor,
           ),
-          _buildSearchFilterTile(appLocalizations, userPreferences),
         ],
       ),
       PreferenceCard(
@@ -236,20 +235,6 @@ class AppSettingsRoot extends PreferencesRoot {
         ),
         value,
       ),
-    );
-  }
-
-  TogglePreferenceTile _buildSearchFilterTile(
-    AppLocalizations appLocalizations,
-    UserPreferences userPreferences,
-  ) {
-    return TogglePreferenceTile(
-      leading: const icons.Sort(),
-      title: appLocalizations.search_product_filter_visibility_title,
-      subtitleText: appLocalizations.search_product_filter_visibility_subtitle,
-      state: userPreferences.searchProductTypeFilterVisible,
-      onToggle: (final bool visible) async =>
-          userPreferences.setSearchProductTypeFilter(visible),
     );
   }
 

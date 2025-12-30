@@ -629,7 +629,20 @@ class AppLocalizationsSi extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get search_product_help =>
+      'නිෂ්පාදනයක්,\nවෙළඳ නාමයක් හෝ තීරු කේතයක් සොයන්න';
+
+  @override
+  String get search_filter => 'සෙවුම් පෙරහන';
+
+  @override
+  String get search_history => 'සෙවුම් ඉතිහාසය';
+
+  @override
   String get search_store => 'Search for a store';
+
+  @override
+  String get search_store_help => 'ඉඟිය: නගරය හෝ රට එක් කරන්න';
 
   @override
   String get tap_for_more => 'Tap to see more info…';
@@ -1695,6 +1708,10 @@ class AppLocalizationsSi extends AppLocalizations {
     );
     return '$_temp0 refresh complete';
   }
+
+  @override
+  String get product_list_compare_side_by_side =>
+      'පැත්තෙන් පැත්තෙන් සංසන්දනය කරන්න';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3006,6 +3023,9 @@ class AppLocalizationsSi extends AppLocalizations {
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
+  String get search_history_item_remove_tooltip => 'Remove';
+
+  @override
   String product_search_no_more_results(int totalSize) {
     return 'You\'ve downloaded all the $totalSize products.';
   }
@@ -3503,6 +3523,10 @@ class AppLocalizationsSi extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -3518,14 +3542,6 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get expand_ingredients_body => 'Keep the ingredients panel expanded';
-
-  @override
-  String get search_product_filter_visibility_title =>
-      'Show a filter in the search';
-
-  @override
-  String get search_product_filter_visibility_subtitle =>
-      'Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts';
 
   @override
   String get no_internet_connection => 'No internet connection';
@@ -4053,25 +4069,25 @@ class AppLocalizationsSi extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'හරිත-ලකුණු A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'හරිත-ලකුණු B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'හරිත-ලකුණු C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'හරිත-ලකුණු D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'හරිත-ලකුණු E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'නොදන්නා හරිත-ලකුණු';
+  String get environmental_score_unknown_new => 'නොදන්නා Green-Score';
 
   @override
-  String get environmental_score_not_applicable_new => 'හරිත-ලකුණු අදාළ නොවේ.';
+  String get environmental_score_not_applicable_new => 'Green-Score අදාළ නොවේ.';
 
   @override
   String get nova_group_generic_new => 'අතිශයින් සැකසූ ආහාර - NOVA කණ්ඩායම්';
@@ -4286,14 +4302,14 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph1 =>
-      'හරිත ලකුණු යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.';
+      'Green-Score යනු ආහාරවල **පාරිසරික බලපෑම** පිළිබඳව ඔබව දැනුවත් කිරීම අරමුණු කරගත් ලාංඡනයකි.';
 
   @override
   String get guide_greenscore_what_is_greenscore_paragraph2 =>
       '**අවම බලපෑම් සහිත** නිෂ්පාදන සඳහා වර්ණ කේතය තද කොළ (**A+**) සිට **වඩාත්ම බලපෑම් සහිත** නිෂ්පාදන සඳහා තද රතු (**F**) දක්වා වෙනස් වේ.';
 
   @override
-  String get guide_greenscore_logos_caption => 'හරිත ලකුණු ලාංඡන';
+  String get guide_greenscore_logos_caption => 'Green-Score ලාංඡන';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4454,14 +4470,14 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. හරිත-ලකුණු නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.';
+      'තිරසාර ආහාර තෝරා ගැනීම සංකීර්ණ බවක් දැනිය හැකිය. ලේබල් ව්‍යාකූල වන අතර තොරතුරු බොහෝ විට අතුරුදහන් වේ. Green-Score නිර්මාණය කර ඇත්තේ එය සරල කිරීම සඳහා වන අතර, ඔබට අවශ්‍ය තැනම ආහාර නිෂ්පාදන සඳහා **පැහැදිලි**, **විද්‍යාව පදනම් කරගත්** සහ **විනිවිද පෙනෙන** පාරිසරික ශ්‍රේණිගත කිරීමක් ලබා දෙයි: ඔබ සාප්පු සවාරි යන අතරතුර.';
 
   @override
   String get guide_greenscore_better_product_arg4_title => 'විනිවිදභාවය';
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'හිමිකාර ලේබල මෙන් නොව, හරිත ලකුණු ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
+      'හිමිකාර ලේබල මෙන් නොව, Green-Score ගණනය කිරීම **සම්පූර්ණයෙන්ම විවෘතයි** සහ ඕනෑම කෙනෙකුට **සත්‍යාපනය කළ හැක**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -5999,7 +6015,7 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ආහාර කරුණු විවෘත කිරීමට උදව් කිරීමට සරල ක්‍රම';
+      'Open Food Facts කිරීමට උදව් කිරීමට සරල ක්‍රම';
 
   @override
   String get preferences_page_faq_subtitle =>

@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -513,9 +513,22 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Rechercher un produit,\nune marque ou un code-barres",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filtre de recherche",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Historique de recherche",
   "search_store": "Rechercher un magasin",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Conseil : ajoutez la ville ou le pays",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Appuyez pour plus d'informations…",
   "@Product": {},
@@ -1406,6 +1419,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Comparer côte à côte",
   "loading_dialog_default_title": "Téléchargement des données",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -2671,6 +2685,10 @@
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
   },
+  "search_history_item_remove_tooltip": "Retirer",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
+  },
   "product_search_no_more_results": "Vous avez téléchargé les {totalSize} produits.",
   "@product_search_no_more_results": {
     "description": "Product search list - No more results available",
@@ -3260,11 +3278,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Garder le panneau des ingrédients étendu",
-  "search_product_filter_visibility_title": "Afficher un filtre dans la recherche",
-  "search_product_filter_visibility_subtitle": "Sélectionner le site : Open Food Facts, Open Beauty Facts, Open Pet Food Facts ou Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Pas de connexion internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -5359,7 +5372,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5567,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
