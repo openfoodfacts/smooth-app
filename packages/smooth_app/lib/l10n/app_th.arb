@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "ใบอนุญาต",
   "@licenses": {},
   "looking_for": "กำลังหา",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "ชื่อผู้ใช้: เปิดเผยต่อสาธารณะ",
   "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
   "sign_up_page_username_error_invalid": "ชื่อไม่ถูกต้อง",
-  "sign_up_page_username_description": "ชื่อผู้ใช้ต้องไม่มีช่องว่าง ตัวพิมพ์ใหญ่ หรือตัวอักษรพิเศษ",
+  "sign_up_page_username_description": "ชื่อผู้ใช้ต้องไม่มีช่องว่าง ตัวพิมพ์ใหญ่ หรืออักขระพิเศษ",
   "sign_up_page_username_length_invalid": "ชื่อผู้ใช้ต้องไม่เกิน {value} ตัวอักษร",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "ฉันอยากแนะนำแอปที่ฉันใช้ ชื่อว่า Open Food Facts ซึ่งช่วยให้คุณได้รับข้อมูลเกี่ยวกับผลกระทบต่อสุขภาพและสิ่งแวดล้อมของอาหารที่คุณรับประทาน ในแบบเฉพาะบุคคล แอปนี้ทำงานโดยการสแกนบาร์โค้ดบนบรรจุภัณฑ์ ที่สำคัญคือใช้งานฟรี ไม่ต้องลงทะเบียน และคุณยังสามารถช่วยเพิ่มจำนวนผลิตภัณฑ์ที่ได้รับการถอดรหัสได้อีกด้วย นี่คือลิงก์สำหรับดาวน์โหลดแอปไปยังโทรศัพท์ของคุณ: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "ทั้งหมด",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(ค้นหาหมวดหมู่)",
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
