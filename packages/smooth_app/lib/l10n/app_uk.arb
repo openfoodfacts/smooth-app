@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Ім'я користувача: Публічно видиме",
   "sign_up_page_username_error_empty": "Будь ласка, введіть ім'я користувача",
   "sign_up_page_username_error_invalid": "Будь ласка, введіть коректне ім'я",
-  "sign_up_page_username_description": "Ім'я користувача не може містити пробіли, великі та спеціальні символи.",
+  "sign_up_page_username_description": "Ім'я користувача не може містити пробіли, великі літери або спеціальні символи.",
   "sign_up_page_username_length_invalid": "Ім'я користувача не може перевищувати {value} символів",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Долучайте свої навички до Open Food Facts. Приєднуйтесь до групи навичок!",
   "contribute_share_header": "Діліться Open Food Facts зі своїми друзями",
   "@contribute_share_header": {},
-  "contribute_share_content": "Я хотів би розповісти вам про додаток, яким я користуюся, Open Food Facts, і який дозволяє вам отримувати інформацію про вплив продуктів харчування на здоров'я та навколишнє середовище в персоналізованому режимі. Він працює шляхом сканування штрих-кодів на упаковці. Зрештою, це безкоштовно, не вимагає реєстрації, і ви навіть можете допомогти збільшити кількість розшифрованих продуктів. Ось посилання, за яким ви можете завантажити його на свій телефон: https://openfoodfacts.app",
+  "contribute_share_content": "Я хотів би розповісти вам про додаток, яким я користуюся, Open Food Facts, який дозволяє вам отримувати персоналізовану інформацію про вплив вашої їжі на здоров'я та навколишнє середовище. Він працює шляхом сканування штрих-кодів на упаковці. Зрештою, він безкоштовний, не потребує реєстрації, і ви навіть можете допомогти збільшити кількість розшифрованих продуктів. Ось посилання, щоб завантажити його на свій телефон: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Усі",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(пошук за категорією)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Відкрийте для себе факти про відкриту їжу",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Відкриті лабораторії фактів про їжу",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
