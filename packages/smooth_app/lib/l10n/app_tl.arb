@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Mga lisensya",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
   "sign_up_page_username_error_invalid": "Please enter a valid username",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+  "sign_up_page_username_description": "Hindi maaaring maglaman ng mga espasyo, malalaking titik, o mga espesyal na karakter ang username.",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "Gusto kong ipaalam sa inyo ang tungkol sa app na ginagamit ko, ang Open Food Facts, na nagbibigay-daan sa inyong makuha ang mga epekto ng inyong pagkain sa kalusugan at kapaligiran, sa isang personalized na paraan. Gumagana ito sa pamamagitan ng pag-scan ng mga barcode sa packaging. Panghuli, libre ito, hindi nangangailangan ng pagrehistro, at makakatulong ka pa sa pagpaparami ng bilang ng mga produktong na-decode. Narito ang link para makuha ito sa inyong telepono: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
