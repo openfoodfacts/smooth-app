@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
   "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
   "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
-  "sign_up_page_username_description": "Le nom d'utilisateur ne peut pas contenir d'espaces, de majuscules ou de caractères spéciaux.",
+  "sign_up_page_username_description": "Le nom d'utilisateur ne peut contenir ni espaces, ni majuscules, ni caractères spéciaux.",
   "sign_up_page_username_length_invalid": "Le nom d'utilisateur ne peut pas dépasser {value} caractères",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribuez à Open Food Facts. Rejoignez la réserve de compétences !",
   "contribute_share_header": "Partagez Open Food Facts à vos amis",
   "@contribute_share_header": {},
-  "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
+  "contribute_share_content": "Je voulais vous parler de l'application que j'utilise, Open Food Facts, qui permet d'obtenir des informations personnalisées sur l'impact sanitaire et environnemental de vos aliments. Elle fonctionne en scannant les codes-barres sur les emballages. Enfin, elle est gratuite, sans inscription, et vous pouvez même contribuer à enrichir l'offre de produits répertoriés. Voici le lien pour la télécharger sur votre téléphone : https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Tout",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(recherche par catégorie)",
