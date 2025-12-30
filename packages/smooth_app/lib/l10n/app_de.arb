@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Erfahren Sie mehr über offene Preise",
+  "prices_menu_know_more": "Erfahren Sie mehr über Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4061,7 +4061,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Merkmale offener Lebensmittelfakten",
+  "guide_open_food_facts_features_title": "Merkmale von Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
   "guide_open_food_facts_tips_title": "Tipps für tolle Fotos",
   "guide_open_food_facts_tips_arg1_title": "Was man nicht tun sollte",
@@ -4092,7 +4092,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Merkmale von offenen Tierfutter-Fakten",
+  "guide_open_pet_food_facts_features_title": "Merkmale von Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Ist Ihr Haustier gegen bestimmte Inhaltsstoffe allergisch? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
   "guide_open_pet_food_facts_tips_title": "Tipps für tolle Fotos",
@@ -4122,7 +4122,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Merkmale offener Schönheitsfakten",
+  "guide_open_beauty_facts_features_title": "Merkmale von Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Sind Sie gegen bestimmte Inhaltsstoffe allergisch? Möchten Sie komedogene Substanzen vermeiden? Wollen Sie umstrittene Inhaltsstoffe meiden? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
   "guide_open_beauty_facts_tips_title": "Tipps für tolle Fotos",
@@ -4145,7 +4145,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Was sind offene Preise?",
+  "guide_open_prices_what_is_open_prices_title": "Was sind Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices ist ein Projekt zur **Erfassung und Weitergabe von Produktpreisen weltweit**. Es handelt sich um einen öffentlich zugänglichen Datensatz, der für Forschung, Analysen und mehr genutzt werden kann. Open Prices wird von Open Food Facts entwickelt und gepflegt.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4183,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Merkmale offener Produkte – Fakten",
+  "guide_open_products_facts_features_title": "Merkmale von Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts hat sich zum Ziel gesetzt, Verbrauchern die Möglichkeit zu geben, die Lebensdauer von Gegenständen zu verlängern, indem Kreislauflösungen zur Instandhaltung, Reparatur, zum Recycling oder zur Weitergabe an einen neuen Besitzer angeboten werden.",
   "guide_open_products_facts_features_arg1_title": "CO2-Fußabdruck für einige Produkte",
   "guide_open_products_facts_features_arg1_text": "Die **CO2-Auswirkungen** der französischen Umweltbehörde ADEME geben die **Kohlenstoffbilanz** vieler Kategorien an. Achten Sie darauf, die Produkte genau zu kategorisieren.",
@@ -5108,19 +5108,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Entdecke die Fakten zur offenen Schönheit",
+  "preferences_faq_discover_obf_title": "Entdecke Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Entdecken Sie Fakten zu offenem Tierfutter",
+  "preferences_faq_discover_opff_title": "Entdecken Sie Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Offene Preise entdecken",
+  "preferences_faq_discover_op_title": "Open Prices entdecken",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Entdecken Sie Fakten zu offenen Produkten",
+  "preferences_faq_discover_opf_title": "Entdecken Sie Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Offene Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

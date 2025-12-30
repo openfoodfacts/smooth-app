@@ -3846,12 +3846,12 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Verde-Puntuación A",
-  "environmental_score_b_new": "Verde-Puntuación B",
-  "environmental_score_c_new": "Verde-Puntuación C",
-  "environmental_score_d_new": "Verde-Puntuación D",
-  "environmental_score_e_new": "Verde-Puntuación E",
-  "environmental_score_unknown_new": "Mana riqsisqa Verde-Puntuación",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Mana riqsisqa Green-Score",
   "environmental_score_not_applicable_new": "Green-Score nisqa mana ruwanapaqchu",
   "nova_group_generic_new": "Ultra-procesado mikhuykuna - NOVA qutukuna",
   "nova_group_1": "NOVA Group 1",
@@ -3959,7 +3959,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Chay Verde-Puntuación nisqa logotipokuna",
+  "guide_greenscore_logos_caption": "Chay Green-Score nisqa logotipokuna",
   "guide_greenscore_lca_title": "Ukhun: Kawsay muyu chaninchay (LCA) .",
   "guide_greenscore_lca_arg1_title": "Mikhuy categoría nisqakunamanta cientifico chaninchay",
   "guide_greenscore_lca_arg1_text1": "Sapa ruru categoría nisqapaqmi, **benchmark** nisqa yupayta churakun Agribalyse pachamamamanta willakuypa willakuyninkunawan (ADEMEwan INRAEwan ruwasqa).",
@@ -4004,9 +4004,9 @@
   "guide_greenscore_better_product_arg2_title": "¡Qanqa atiyniyoqmi kanki!",
   "guide_greenscore_better_product_arg2_text": "Allin willakuyqa kaymi quwanchik huk atiyniyuq ñanta tikrayta paqarichinapaq.\n**Sapa watanmi 1.000 mikhunata hina mikhunchis**. Chayqa 1.000 oportunidadkuna **akllanapaq aswan allin hamuq pachata kay planetapaq**!",
   "guide_greenscore_better_product_arg3_title": "Yanapakunmi responsable kanapaq hinaspa tanteanapaq",
-  "guide_greenscore_better_product_arg3_text": "Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Verde-Puntuación nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.",
+  "guide_greenscore_better_product_arg3_text": "Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Green-Score nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.",
   "guide_greenscore_better_product_arg4_title": "Transparencia nisqa",
-  "guide_greenscore_better_product_arg4_text": "Mana propiedad etiquetakuna hinachu, Verde-Puntuación yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.",
+  "guide_greenscore_better_product_arg4_text": "Mana propiedad etiquetakuna hinachu, Green-Score yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Kichasqa Mikhuy Chiqap Kaqkunata tariy",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Mikhuymanta Chiqap Laboratorios kichasqa",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
