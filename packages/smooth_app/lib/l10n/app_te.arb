@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "లైసెన్స్‌లు",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
   "sign_up_page_username_error_invalid": "Please enter a valid username",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+  "sign_up_page_username_description": "యూజర్ పేరులో ఖాళీలు, పెద్ద అక్షరాలు లేదా ప్రత్యేక అక్షరాలు ఉండకూడదు.",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "నేను ఉపయోగిస్తున్న ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అనే యాప్ గురించి మీకు తెలియజేయాలనుకుంటున్నాను, ఇది మీ ఆహారం యొక్క ఆరోగ్యం మరియు పర్యావరణ ప్రభావాలను వ్యక్తిగతీకరించిన విధంగా పొందడానికి మిమ్మల్ని అనుమతిస్తుంది. ఇది ప్యాకేజింగ్‌లోని బార్‌కోడ్‌లను స్కాన్ చేయడం ద్వారా పనిచేస్తుంది. చివరగా ఇది ఉచితం, రిజిస్ట్రేషన్ అవసరం లేదు మరియు మీరు డీక్రిప్ట్ చేయబడిన ఉత్పత్తుల సంఖ్యను పెంచడంలో కూడా సహాయపడవచ్చు. మీ ఫోన్ కోసం దీన్ని పొందడానికి లింక్ ఇక్కడ ఉంది: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "ఓపెన్ ఫుడ్ వాస్తవాలను కనుగొనండి",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts ల్యాబ్స్",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
