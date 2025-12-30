@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "अनुज्ञापत्राणि",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
   "sign_up_page_username_error_invalid": "Please enter a valid username",
-  "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+  "sign_up_page_username_description": "उपयोक्तृनाम्नि रिक्तस्थानानि, टोप्याः, विशेषवर्णाः वा न भवितुं शक्नुवन्ति ।",
   "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Share Open Food Facts with your friends",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "अहं भवन्तं ज्ञापयितुम् इच्छामि यत् अहं यत् एप् उपयुज्यमानः आसम्, Open Food Facts इति, यत् भवान् स्वस्य भोजनस्य स्वास्थ्यं पर्यावरणीयं च प्रभावं प्राप्तुं शक्नोति, व्यक्तिगतरूपेण। पॅकेजिंग् इत्यत्र बारकोड् स्कैन् कृत्वा कार्यं करोति । अन्ते इदं निःशुल्कम् अस्ति, पञ्जीकरणस्य आवश्यकता नास्ति, अपि च भवान् व्याख्याकृतानां उत्पादानाम् संख्यां वर्धयितुं अपि साहाय्यं कर्तुं शक्नोति । अत्र भवतः दूरभाषस्य कृते प्राप्तुं लिङ्क् अस्ति: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -5104,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
