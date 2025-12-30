@@ -442,12 +442,12 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
 
   @override
   List<String> initTerms(final Product product) {
-    final String? localized = product.productNameInLanguages?[getLanguage()];
-    final String? fallback = product.productName;
-    final String? initial = MultilingualHelper.getCleanText(
-      localized ?? fallback,
+    final String localized = product.productNameInLanguages?[getLanguage()] ?? '';
+    final String fallback = product.productName ?? '';
+    final String initial = MultilingualHelper.getCleanText(
+      localized.isNotEmpty ? localized : fallback,
     );
-    if (initial == null || initial.isEmpty) {
+    if (initial.isEmpty) {
       return <String>[];
     }
     return <String>[initial];
