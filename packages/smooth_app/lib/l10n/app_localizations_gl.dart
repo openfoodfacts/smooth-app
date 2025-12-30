@@ -1710,7 +1710,7 @@ class AppLocalizationsGl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Comparar lado a lado';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3519,6 +3519,10 @@ class AppLocalizationsGl extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5768,8 +5772,7 @@ class AppLocalizationsGl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubre o proxecto';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descubra datos sobre comida aberta';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5954,7 +5957,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Axuda a calcular a puntuación Nutri e a puntuación Green no teu país';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'Prezos que aportei';
@@ -6133,7 +6136,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorios abertos de información sobre alimentos';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

@@ -48,23 +48,25 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
       }
     });
 
-    _controller.setNavigationDelegate(
-      NavigationDelegate(
-        onProgress: (int progress) async {
-          if (progress < 100) {
-            _pageTitle = AppLocalizations.of(context).loading;
-          } else {
+    _controller
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) async {
+            if (progress < 100) {
+              _pageTitle = AppLocalizations.of(context).loading;
+            } else {
+              _pageTitle = await _controller.getTitle();
+            }
+            _progress = progress;
+            setState(() {});
+          },
+          onPageFinished: (String url) async {
             _pageTitle = await _controller.getTitle();
-          }
-          _progress = progress;
-          setState(() {});
-        },
-        onPageFinished: (String url) async {
-          _pageTitle = await _controller.getTitle();
-          setState(() {});
-        },
-      ),
-    );
+            setState(() {});
+          },
+        ),
+      );
 
     Future.wait(<Future<void>>[
       _setUserAgent(),

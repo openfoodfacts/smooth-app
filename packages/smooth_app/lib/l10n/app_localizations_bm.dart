@@ -1709,7 +1709,8 @@ class AppLocalizationsBm extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Aw bɛ ɲɔgɔn sanga ɲɔgɔn ma kɛrɛfɛ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3518,6 +3519,10 @@ class AppLocalizationsBm extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5765,7 +5770,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Dumuni Dabɔlenw Tiɲɛw Sɔrɔ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5786,7 +5791,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'FAQ - Ɲininkali minnu bɛ kɛ tuma caman na';
 
   @override
-  String get preferences_faq_off_ngo_title => 'ONG min bɛ dumuni dafalenw kofɔ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5808,7 +5813,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la';
 
   @override
-  String get preferences_connect_blog_title => 'Dumuni dafalenw ka bulɔgu';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6127,14 +6132,14 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Dumunifɛnw tiɲɛni laboratuwaraw da wuli';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Aw ka na ni Dumuni Dabɔlenw Tiɲɛw ye aw ka kan na';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

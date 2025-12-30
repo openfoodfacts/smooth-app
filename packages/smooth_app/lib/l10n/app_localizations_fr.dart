@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Aidez-nous à améliorer Open Food Facts dans votre pays';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -1750,7 +1750,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Comparer côte à côte';
 
   @override
   String get loading_dialog_default_title => 'Téléchargement des données';
@@ -3600,6 +3600,10 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Démarrage de la mise à jour de tous les produits stockés localement';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -6137,7 +6141,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Des moyens simples pour aider Open Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6252,7 +6256,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Traduire Open Food Facts dans votre langue';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -1725,7 +1725,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Vergelijk naast elkaar';
 
   @override
   String get loading_dialog_default_title => 'Gegevens worden gedownload...';
@@ -3560,6 +3560,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het vernieuwen starten van alle producten die lokaal zijn opgeslagen';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Het downloaden van de meest populaire producten starten';
 
@@ -4789,7 +4793,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-nl.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welkom bij Open Beauty Facts!';
@@ -4878,7 +4882,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-nl.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welkom bij Open Prices!';
@@ -4959,11 +4963,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Welkom bij Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Wat is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5031,7 +5035,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://world-en.openproductsfacts.org/discover';
+      'https://world-nl.openproductsfacts.org/discover';
 
   @override
   String get guide_open_preferences_button_title => 'Open food preferences';
@@ -5380,11 +5384,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Externe link openen';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Externe links kunnen onveilig zijn. Wilt u deze echt bezoeken?';
 
   @override
   String get prices_products_empty_title => 'Geen prijs beschikbaar';

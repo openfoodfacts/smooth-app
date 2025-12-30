@@ -1381,7 +1381,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Nutri-score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
+      'Nutri-Score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1731,7 +1731,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Porovnejte vedle sebe';
 
   @override
   String get loading_dialog_default_title => 'Stahování dat';
@@ -3537,6 +3537,10 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Spouštění aktualizace všech lokálně uložených produktů';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5783,8 +5787,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zjistěte více o projektu';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objevte fakta o jídle na Open Food';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5828,7 +5831,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zapojte se účastí na jedné z našich virtuálních akcí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otevřená fakta o jídle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6147,14 +6150,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otevřené laboratoře faktů o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Přineste fakta o otevřeném jídle do svého jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

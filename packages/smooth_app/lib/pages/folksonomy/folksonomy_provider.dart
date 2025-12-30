@@ -3,22 +3,24 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/folksonomy/folksonomy_manager.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_operation.dart';
 
 class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
-  FolksonomyProvider(this.barcode, LocalDatabase localDatabase)
-    : _daoFolksonomy = DaoFolksonomy(localDatabase),
-      _folksonomyManager = FolksonomyManager(localDatabase),
+  FolksonomyProvider(this.barcode, this._localDatabase)
+    : _daoFolksonomy = DaoFolksonomy(_localDatabase),
+      _daoTransientFolksonomy = DaoTransientFolksonomy(_localDatabase),
       super(const FolksonomyStateLoading()) {
-    unawaited(_init());
+    unawaited(fetchProductTags());
   }
 
   final String barcode;
+  final LocalDatabase _localDatabase;
   final DaoFolksonomy _daoFolksonomy;
-  final FolksonomyManager _folksonomyManager;
+  final DaoTransientFolksonomy _daoTransientFolksonomy;
   final List<ProductTag> _tags = <ProductTag>[];
 
   // Display tags from local database first (to see it offline), then update from API.
@@ -30,7 +32,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     unawaited(_refreshDisplayableTags());
 
     try {
-      await _folksonomyManager.serverRefresh(barcode);
+      await BackgroundTaskFolksonomy.serverRefresh(
+        barcode,
+        _daoFolksonomy,
+        _localDatabase,
+      );
     } catch (e) {
       if (_tags.isEmpty) {
         value = FolksonomyStateError(error: e);
@@ -40,7 +46,21 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> addTag(String key, String value) async {
     try {
-      await _folksonomyManager.addTag(barcode, key, value);
+      final ProductTag newProductTag = ProductTag(
+        barcode: barcode,
+        key: key,
+        value: value,
+        owner: '',
+        version: 1,
+        editor: '',
+        lastEdit: DateTime.now(),
+        comment: '',
+      );
+
+      await _addOperation(
+        barcode,
+        FolksonomyOperation(type: FolksonomyAction.add, tag: newProductTag),
+      );
       unawaited(_refreshDisplayableTags());
     } catch (e) {
       this.value = FolksonomyStateError(
@@ -53,11 +73,20 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> editTag(String key, String newValue) async {
     try {
-      await _folksonomyManager.editTag(
+      final ProductTag editedProductTag = ProductTag(
+        barcode: barcode,
+        key: key,
+        value: newValue,
+        owner: '',
+        version: _getCurrentTagVersion(key) + 1,
+        editor: '',
+        lastEdit: DateTime.now(),
+        comment: '',
+      );
+
+      await _addOperation(
         barcode,
-        key,
-        newValue,
-        _getCurrentTagVersion(key) + 1,
+        FolksonomyOperation(type: FolksonomyAction.edit, tag: editedProductTag),
       );
       unawaited(_refreshDisplayableTags());
     } catch (e) {
@@ -71,10 +100,20 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   Future<void> deleteTag(String key) async {
     try {
-      await _folksonomyManager.deleteTag(
+      final ProductTag tagToDelete = ProductTag(
+        barcode: barcode,
+        key: key,
+        value: '',
+        owner: '',
+        version: _getCurrentTagVersion(key),
+        editor: '',
+        lastEdit: DateTime.now(),
+        comment: '',
+      );
+
+      await _addOperation(
         barcode,
-        key,
-        _getCurrentTagVersion(key),
+        FolksonomyOperation(type: FolksonomyAction.remove, tag: tagToDelete),
       );
       unawaited(_refreshDisplayableTags());
     } catch (e) {
@@ -110,19 +149,11 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
     toSort.sort((ProductTag a, ProductTag b) => a.key.compareTo(b.key));
   }
 
-  Future<void> _init() async {
-    await fetchProductTags();
-    unawaited(
-      _folksonomyManager.serverPerformActions(barcode),
-    ); // TODO(darshanhtailor): Do we refresh for all barcodes here?
-  }
-
   Future<void> _refreshDisplayableTags() async {
     final List<ProductTag> localTags =
         await _daoFolksonomy.get(barcode) ?? <ProductTag>[];
     final List<FolksonomyOperation> pendingOperations =
-        _folksonomyManager.getPendingOperations(barcode) ??
-        <FolksonomyOperation>[];
+        _getPendingOperations(barcode) ?? <FolksonomyOperation>[];
 
     for (final FolksonomyOperation operation in pendingOperations) {
       final FolksonomyAction type = operation.type;
@@ -157,6 +188,21 @@ class FolksonomyProvider extends ValueNotifier<FolksonomyState> {
 
   int _getCurrentTagVersion(String key) =>
       _tags.firstWhere((ProductTag tag) => tag.key == key).version;
+
+  Future<void> _addOperation(
+    String barcode,
+    FolksonomyOperation operation,
+  ) async {
+    await _daoTransientFolksonomy.put(barcode, <FolksonomyOperation>[
+      ..._getPendingOperations(barcode) ?? <FolksonomyOperation>[],
+      operation,
+    ]);
+
+    await BackgroundTaskFolksonomy.addTask(barcode, _localDatabase);
+  }
+
+  List<FolksonomyOperation>? _getPendingOperations(final String barcode) =>
+      _daoTransientFolksonomy.get(barcode);
 }
 
 sealed class FolksonomyState {

@@ -55,6 +55,7 @@ class LocationListPhotonSupplier extends LocationListSupplier {
               '&limit=100'
               '${_getAdditionalParameters()}',
         ),
+        headers: <String, String>{'User-Agent': 'OpenFoodFacts/MobileApp'},
       );
       if (response.statusCode != 200) {
         return 'Could not retrieve locations';

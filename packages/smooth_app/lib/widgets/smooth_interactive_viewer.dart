@@ -70,8 +70,8 @@ class _SmoothInteractiveViewerState extends State<SmoothInteractiveViewer>
       // Zoom x2
       final Offset position = _doubleTapDetails.localPosition;
       matrix = Matrix4.identity()
-        ..translateByDouble(-position.dx, -position.dy, 0.0, 0.0)
-        ..scaleAdjoint(2.0);
+        ..translateByDouble(-position.dx, -position.dy, 0.0, 1.0)
+        ..scaleByDouble(2.0, 2.0, 2.0, 1.0);
       _animationController.duration = SmoothAnimationsDuration.short;
     }
 

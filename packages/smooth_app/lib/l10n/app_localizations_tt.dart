@@ -1709,7 +1709,7 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Янәшә чагыштырыгыз';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3516,6 +3516,10 @@ class AppLocalizationsTt extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -4487,7 +4491,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA логотиплары';
 
   @override
-  String get guide_nova_groups_title => '4 НОВА төркеме';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5299,7 +5303,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '** Open Prices ** - бөтен дөнья буенча продуктларның бәяләрен җыю һәм бүлешү проекты 🌍. Open Prices ачык азык фактлары белән эшләнә һәм саклана.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5655,7 +5659,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Ачык азык фактлары сайтында';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Минем хисап белән идарә итү';
@@ -5751,7 +5755,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Ачык ризык фактларын ачу';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5772,8 +5776,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Сораулар - Еш бирелә торган сораулар';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Ачык азык фактлары иҗтимагый оешмасы';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Мәгълүмат';
@@ -5795,7 +5798,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Виртуаль вакыйгаларның берсендә катнашып катнашыгыз';
 
   @override
-  String get preferences_connect_blog_title => 'Ачык азык фактлары блогы';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle => 'Соңгы яңалыкларны алыгыз';
@@ -5910,7 +5913,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Ачык азык фактларына мин яңа продуктлар өстәдем';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6005,7 +6008,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ачык азык фактларына булышуның гади ысуллары';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6112,14 +6115,14 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Азык-төлек фактлары лабораториясе';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ачык ризык фактларын телегезгә китерегез';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

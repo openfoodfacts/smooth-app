@@ -1710,7 +1710,8 @@ class AppLocalizationsSi extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'පැත්තෙන් පැත්තෙන් සංසන්දනය කරන්න';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3520,6 +3521,10 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>

@@ -1710,7 +1710,7 @@ class AppLocalizationsNn extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Sammenlign side om side';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3518,6 +3518,10 @@ class AppLocalizationsNn extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -5303,7 +5307,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Åpne priser** er et prosjekt for å samle inn og dele priser på produkter over hele verden 🌍. Åpne priser er utviklet og vedlikeholdt av Open Food Facts.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5757,7 +5761,7 @@ class AppLocalizationsNn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Oppdag åpne matfakta';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6009,7 +6013,7 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Enkle måter å hjelpe på Åpne matfakta';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6117,14 +6121,14 @@ class AppLocalizationsNn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Åpne matfakta-laboratorier';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Få åpne matfakta på språket ditt';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

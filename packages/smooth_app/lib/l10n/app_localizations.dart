@@ -561,7 +561,7 @@ abstract class AppLocalizations {
   /// Label for product page regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_may_not;
 
   /// Label for product page regarding product compatibility with the user preferences: does not match
@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// Short label for product list view regarding product compatibility with the user preferences: may not match
   ///
   /// In en, this message translates to:
-  /// **'May not match'**
+  /// **'May not match\n'**
   String get match_short_may_not;
 
   /// Short label for product list view regarding product compatibility with the user preferences: does not match
@@ -6145,6 +6145,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starting the refresh of all the products locally stored'**
   String get background_task_title_full_refresh;
+
+  /// Snackbar message when server action for folksonomy updates is started
+  ///
+  /// In en, this message translates to:
+  /// **'Starting to perform the server actions for folksonomy updates stored locally'**
+  String get background_task_title_folksonomy;
 
   /// Snackbar message when a download of the most popular products is started
   ///

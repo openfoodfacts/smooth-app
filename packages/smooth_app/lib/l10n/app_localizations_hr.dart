@@ -1710,7 +1710,8 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side =>
+      'Usporedite jedno pored drugog';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3518,6 +3519,10 @@ class AppLocalizationsHr extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5759,8 +5764,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Otkrijte činjenice o otvorenoj hrani';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5804,8 +5808,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Uključite se posjetom jednom od naših virtualnih događaja';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Blog Otvorene činjenice o hrani';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6125,14 +6128,14 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otvoreni laboratoriji za informacije o hrani';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prenesite činjenice o otvorenoj hrani na svoj jezik';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

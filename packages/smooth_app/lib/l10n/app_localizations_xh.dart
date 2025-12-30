@@ -1710,7 +1710,7 @@ class AppLocalizationsXh extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Thelekisa icala ngecala';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3519,6 +3519,10 @@ class AppLocalizationsXh extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5618,7 +5622,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Vula Iinyaniso zoKutya yidatha yemveliso yokutya ** eyenziwe ngumntu wonke, kumntu wonke **.\nUnokuyisebenzisa ukwenza ukhetho olungcono lokutya, kwaye njengoko i-*idatha evulekileyo **, nabani na unako ** ukuphinda ayisebenzise nayiphi na injongo **.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5766,8 +5770,7 @@ class AppLocalizationsXh extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Fumanisa iinyani ezivulekileyo zokutya';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5809,8 +5812,7 @@ class AppLocalizationsXh extends AppLocalizations {
       'Zibandakanye ngokuzimasa omnye wemisitho yethu ebonakalayo';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ibhlog yeeNkcukacha zoKutya ezivulekileyo';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5974,7 +5976,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Amaxabiso akutshanje ongezwe luluntu lwamaxabiso avulekileyo';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6130,14 +6132,14 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula iiLebhu zoKutya iiFayile';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Yiza neenyaniso ezivulekileyo zokutya kulwimi lwakho';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -1718,7 +1718,7 @@ class AppLocalizationsNb extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Sammenlign side ved side';
 
   @override
   String get loading_dialog_default_title => 'Laster ned data';
@@ -3531,6 +3531,10 @@ class AppLocalizationsNb extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starter oppdateringen av alle produktene som er lagret lokalt';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5597,7 +5601,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Søk etter innstillinger (f.eks. nøtt-resultat)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>

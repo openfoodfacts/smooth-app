@@ -1710,7 +1710,7 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Afiwe ẹgbẹ nipa ẹgbẹ';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3517,6 +3517,10 @@ class AppLocalizationsYo extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -5302,7 +5306,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '** Open Prices *** jẹ iṣẹ akanṣe kan lati gba ati pin awọn idiyele ti awọn ọja ni ayika agbaye 🌍. Awọn idiyele Ṣii jẹ idagbasoke ati itọju nipasẹ Awọn Otitọ Ounjẹ Ṣii.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5608,7 +5612,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Ṣii Awọn Otitọ Ounjẹ jẹ aaye data awọn ọja ounjẹ ** ti gbogbo eniyan ṣe, fun gbogbo eniyan ***.\nO le lo lati ṣe awọn yiyan ounjẹ to dara julọ, ati pe bi o ti jẹ ** data ṣiṣi **, ẹnikẹni le **tun-lo fun idi eyikeyi ***.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5659,7 +5663,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Lori oju opo wẹẹbu Awọn Otitọ Ounjẹ Ṣii';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Ṣakoso akọọlẹ mi';
@@ -5908,7 +5912,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Awọn ọja titun Mo ṣafikun si Awọn Otitọ Ounjẹ Ṣii';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5957,7 +5961,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Awọn idiyele tuntun ti a ṣafikun nipasẹ agbegbe Awọn idiyele Ṣii';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6004,7 +6008,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Awọn ọna ti o rọrun lati ṣe iranlọwọ Ṣii Awọn Otitọ Ounjẹ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6111,14 +6115,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Ṣii Food Facts Labs';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Mu Awọn Otitọ Ounjẹ Ṣii wá si ede rẹ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>

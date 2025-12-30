@@ -1710,7 +1710,7 @@ class AppLocalizationsLb extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Säit fir Säit vergläichen';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3519,6 +3519,10 @@ class AppLocalizationsLb extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5764,7 +5768,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Entdeckt d\'Projet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Entdeckt Open Food Fakten';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';

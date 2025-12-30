@@ -3518,6 +3518,10 @@ class AppLocalizationsSr extends AppLocalizations {
       'Starting the refresh of all the products locally stored';
 
   @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
+
+  @override
   String get background_task_title_top_n =>
       'Starting the download of the most popular products';
 
@@ -5779,7 +5783,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_faq_title => 'ЧПП - Често постављана питања';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Informacija';
@@ -5801,8 +5805,7 @@ class AppLocalizationsSr extends AppLocalizations {
       'Укључите се тако што ћете присуствовати једном од наших виртуелних догађаја';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Блог „Чињенице о отвореној храни“';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6121,7 +6124,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Отворене лабораторије за чињенице о храни';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

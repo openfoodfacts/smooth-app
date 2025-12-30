@@ -1709,7 +1709,7 @@ class AppLocalizationsSo extends AppLocalizations {
   }
 
   @override
-  String get product_list_compare_side_by_side => 'Compare side by side';
+  String get product_list_compare_side_by_side => 'Is barbar dhig dhinac';
 
   @override
   String get loading_dialog_default_title => 'Downloading data';
@@ -3516,6 +3516,10 @@ class AppLocalizationsSo extends AppLocalizations {
   @override
   String get background_task_title_full_refresh =>
       'Starting the refresh of all the products locally stored';
+
+  @override
+  String get background_task_title_folksonomy =>
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -6020,7 +6024,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6128,14 +6132,14 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Fur shaybaadhka Xaqiiqooyinka Cuntada';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Keen Xaqiiqo Cunno Furan luqadaada';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
