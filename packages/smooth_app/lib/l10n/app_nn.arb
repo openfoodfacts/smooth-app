@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Lisenser",
   "@licenses": {},
   "looking_for": "Leter etter",
   "@looking_for": {
@@ -398,7 +398,7 @@
   "contribute_join_skill_pool": "Bidra med ferdighetene dine til Open Food Facts. Bli med i ferdighetspoolen!",
   "contribute_share_header": "Del Åpne matfakta med vennene dine",
   "@contribute_share_header": {},
-  "contribute_share_content": "Jeg ville fortelle deg om appen jeg har brukt, Open Food Facts, som lar deg få informasjon om helse- og miljøpåvirkningen av maten din på en personlig måte. Den fungerer ved å skanne strekkodene på emballasjen. Den er gratis, krever ikke registrering, og du kan til og med bidra til å øke antallet produkter som dekrypteres. Her er lenken for å laste den ned til telefonen din: https://openfoodfacts.app",
+  "contribute_share_content": "Jeg ville fortelle deg om appen jeg har brukt, Open Food Facts, som lar deg få informasjon om helse- og miljøpåvirkningen av maten din på en personlig måte. Den fungerer ved å skanne strekkodene på emballasjen. Den er gratis, krever ikke registrering, og du kan til og med bidra til å øke antallet produkter som blir dechiffrert. Her er lenken for å laste den ned til telefonen din: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisøk)",
@@ -5104,23 +5104,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Oppdag åpne matfakta",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Oppdag fakta om åpne skjønnhetssaker",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Oppdag fakta om åpen kjæledyrmat",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Oppdag åpne priser",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Oppdag fakta om åpne produkter",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Åpne matfakta-laboratorier",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
