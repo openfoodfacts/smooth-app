@@ -246,7 +246,7 @@
   "sign_up_page_username_hint": "Потребителско име: публично видимо",
   "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
   "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
-  "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци.",
+  "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни букви или специални символи.",
   "sign_up_page_username_length_invalid": "Потребителското име не може да надвишава {value} знака",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Всички",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(търсене по категории)",
@@ -3854,10 +3854,10 @@
   "environmental_score_unknown_new": "Неизвестен зелен резултат",
   "environmental_score_not_applicable_new": "Зеленият резултат не е приложим",
   "nova_group_generic_new": "Ултрапреработени храни - NOVA groups",
-  "nova_group_1": "NOVA Груп 1",
-  "nova_group_2": "NOVA Груп 2",
-  "nova_group_3": "NOVA Груп 3",
-  "nova_group_4": "NOVA Груп 4",
+  "nova_group_1": "НОВА Груп 1",
+  "nova_group_2": "НОВА Груп 2",
+  "nova_group_3": "НОВА Груп 3",
+  "nova_group_4": "НОВА Груп 4",
   "nova_group_unknown": "Неизвестна група NOVA",
   "nutrition_facts": "Нива на хранителни вещества",
   "faq_title_partners": "Партньори и меценати на НПО",
@@ -4016,7 +4016,7 @@
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "Класификацията NOVA позволява категоризирането на храните в **4 групи** въз осNOVA на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).",
+  "guide_nova_what_is_nova_paragraph2": "Класификацията NOVA позволява категоризирането на храните в **4 групи** въз основа на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -5104,15 +5104,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Открийте фактите за отворената храна",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Открийте открити факти за красотата",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Открийте фактите за храната за домашни любимци на Open",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Открийте фактите за отворените продукти",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5576,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
