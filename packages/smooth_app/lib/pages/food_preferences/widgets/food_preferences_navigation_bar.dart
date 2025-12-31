@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 class FoodPreferencesNavigationBar extends StatelessWidget {
   const FoodPreferencesNavigationBar({

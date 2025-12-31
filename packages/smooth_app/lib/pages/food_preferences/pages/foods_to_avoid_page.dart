@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/food_preferences_controller.dart';
+import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_attribute_list_page.dart';
 
 /// Page for selecting foods the user prefers to avoid.
 class FoodsToAvoidPage extends StatelessWidget {
@@ -7,24 +10,19 @@ class FoodsToAvoidPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: VERY_LARGE_SPACE,
-        vertical: VERY_LARGE_SPACE,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Ce que je préfère éviter',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: LARGE_SPACE),
-          Text(
-            'Sélectionnez les aliments que vous préférez éviter sans que ce soit une interdiction stricte.',
-          ),
-          // TODO: Add foods to avoid selection options
-        ],
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return FoodPreferencesAttributeListPage(
+      pageType: FoodPreferencesPageType.foodsToAvoid,
+      headerWidget: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: Text(
+          appLocalizations.food_preferences_page_description_foods_to_avoid,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
     );
   }

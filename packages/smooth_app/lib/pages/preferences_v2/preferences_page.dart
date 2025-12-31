@@ -13,7 +13,6 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';

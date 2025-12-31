@@ -91,6 +91,26 @@
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't consume.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
   "error": "Something went wrong",
   "@error": {},
   "error_occurred": "An error occurred",
