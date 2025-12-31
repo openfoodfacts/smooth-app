@@ -66,6 +66,12 @@
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
+  "food_preferences_page_title_introduction": "Personnalisez l'application",
+  "food_preferences_page_title_diets": "Régimes alimentaires",
+  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_unwanted_foods": "Ce que je ne mange pas",
+  "food_preferences_page_title_foods_to_avoid": "Ce que je préfère éviter",
+  "food_preferences_page_title_environment": "Préférence en matière d'environnement",
   "error": "Une erreur s'est produite",
   "@error": {},
   "error_occurred": "Une erreur s’est produite",
