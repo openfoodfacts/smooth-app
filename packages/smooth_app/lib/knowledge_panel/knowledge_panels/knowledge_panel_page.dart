@@ -163,7 +163,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       upToDateProduct,
       widget.panelId,
     );
-    if (panel?.titleElement?.title.isNotEmpty == true) {
+    if (panel?.titleElement?.title?.isNotEmpty == true) {
       return (panel?.titleElement?.title)!;
     }
     return '';

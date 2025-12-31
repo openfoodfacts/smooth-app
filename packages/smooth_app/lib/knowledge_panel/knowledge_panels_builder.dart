@@ -38,7 +38,7 @@ class KnowledgePanelsBuilder {
     if (rootPanel != null) {
       children.add(
         KnowledgePanelTitle(
-          title: rootPanel.titleElement!.title,
+          title: rootPanel.titleElement!.title ?? '',
           topics: rootPanel.topics,
         ),
       );
