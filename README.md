@@ -34,14 +34,14 @@
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
 - [Weekly Agenda](https://docs.google.com/document/d/1MGQqMV7M4JTjFcRsiRvMZ8bnmd9vJWdSyRR3wJHUBMk/edit): please add the Agenda items as early as you can. Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible, leading to argumented decisions.
 - The meeting will handle Agenda items first, and if time permits, collaborative bug triage.
-- We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
+- We strive to timebox the core of the meeting (decision-making) to 30 minutes, with an optional free discussion/live debugging afterwards.
 - We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
 
 ## Current Release
 - https://github.com/openfoodfacts/smooth-app/releases
-- Latest commit deployed to Apple App Store: Released on May 15th, 2025 as Version 4.20.0
-- Latest commit deployed to PlayStore: May 15th, 2025 as Version 4.20.0
-- Latest commit deployed to F-Droid: March 10th, 2025 as Version 4.19.0
+- Latest commit deployed to Apple App Store: Released on November 14th, 2025 as Version 4.22.0
+- Latest commit deployed to Google Play Store: November 13th, 2025 as Version 4.22.0
+- Latest commit deployed to F-Droid: November 15th, 2025 as Version 4.22.3
 
 ## 📚 Code documentation
 - [Code documentation on GitHub pages](https://openfoodfacts.github.io/smooth-app/).
@@ -49,7 +49,7 @@
 ## 🎨 Design & User interface
 - We strive to thoughfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
-- [![Sketch](https://img.shields.io/badge/Sketch-%23F24E1E.svg?logo=sketch&logoColor=white) Recent Sketch mockups by @g123k](https://www.sketch.com/s/11375b6d-9c02-4920-846d-a2b1376600b9/p/95D14BAF-AD1E-449F-9AB7-27E328773827/canvas)
+- [![Sketch](https://img.shields.io/badge/Sketch-%23F24E1E.svg?logo=sketch&logoColor=white) Recent Sketch mockups by @g123k](https://www.sketch.com/s/11375b6d-9c02-4920-846d-a2b1376600b9)
 - Are you a designer ? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
 
 <details><summary><h2>Features of the app</h2></summary>
@@ -77,14 +77,14 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 ## 🚀 How to run the project
 - Make sure you have installed Flutter and all the requirements
   - [Official Flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter: **3.35**.
+- Currently, the app uses the following version of Flutter: **3.38**.
  - **Setting Up Your Environment with FVM**
    - To manage Flutter versions easily, download and install **FVM (Flutter Version Management)**:
      - Install FVM by following the [official FVM installation guide](https://fvm.app/documentation/getting-started/installation).
      - Once FVM is installed, run the following commands to set Flutter to version 3.35.1:
        ```bash
-       fvm install 3.35.1
-       fvm use 3.35.1
+       fvm install 3.38.5
+       fvm use 3.38.5
        ```
      - Verify the Flutter version with:
        ```bash
