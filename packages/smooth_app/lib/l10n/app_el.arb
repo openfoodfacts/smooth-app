@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Πληροφορίες συσκευασίας",
+  "packaging_information": "Οδηγίες ανακύκλωσης",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Φωτογραφία πληροφοριών συσκευασίας",
+  "packaging_information_photo": "Φωτογραφία οδηγιών ανακύκλωσης",
   "@packaging_information_photo": {},
   "missing_product": "Βρήκατε ένα νέο προϊόν!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Φωτογραφία Μπροστινής Συσκευασίας",
   "ingredients_photo_title": "Φωτογραφία Συστατικών",
   "nutritional_facts_photo_title": "Φωτογραφία Διατροφικών Στοιχείων",
-  "recycling_photo_title": "Φωτογραφία Ανακύκλωσης",
+  "recycling_photo_title": "Οδηγίες ανακύκλωσης Φωτογραφία",
   "take_photo_title": "Τραβήξτε μια φωτογραφία",
   "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
   "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Φωτογραφία προϊόντος",
   "photo_field_ingredients": "Φωτογραφία συστατικών",
   "photo_field_nutrition": "Φωτογραφία διατροφής",
-  "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
+  "photo_field_packaging": "Φωτογραφία οδηγιών ανακύκλωσης",
   "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
   "photo_missing": "Αυτή η φωτογραφία λείπει",
   "date": "Ημερομηνία",
