@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Maelezo ya ufungaji",
+  "packaging_information": "Maagizo ya kuchakata tena",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Picha ya habari ya ufungaji",
+  "packaging_information_photo": "Maagizo ya kuchakata picha",
   "@packaging_information_photo": {},
   "missing_product": "Umepata bidhaa mpya!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Picha ya Ufungaji wa Mbele",
   "ingredients_photo_title": "Picha ya viungo",
   "nutritional_facts_photo_title": "Picha ya Ukweli wa Lishe",
-  "recycling_photo_title": "Usafishaji Picha",
+  "recycling_photo_title": "Maagizo ya kuchakata tena Picha",
   "take_photo_title": "Piga picha",
   "take_more_photo_title": "Piga picha zaidi",
   "front_photo_uploaded": "Picha ya mbele imepakiwa",
@@ -1280,7 +1280,7 @@
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+  "contact_form_body_android": "Mfumo wa Uendeshaji: Android (SDK Int: {sdkInt} / Toleo: {release})\nMfano: {model}\nBidhaa: {product}\nKifaa: {device}\nChapa:{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Picha ya bidhaa",
   "photo_field_ingredients": "Picha ya viungo",
   "photo_field_nutrition": "Picha ya lishe",
-  "photo_field_packaging": "Picha ya habari ya ufungaji",
+  "photo_field_packaging": "Maagizo ya kuchakata picha",
   "photo_already_exists": "Picha hii tayari ipo",
   "photo_missing": "Picha hii haipo",
   "date": "Tarehe",
