@@ -1147,10 +1147,11 @@ packages:
   openfoodfacts:
     dependency: "direct main"
     description:
-      path: "../../../openfoodfacts-dart"
-      relative: true
-    source: path
-    version: "3.28.0"
+      name: openfoodfacts
+      sha256: "546110801e10314d703120e9fe09872dd49cfc92652d74c9253aee59ee90962a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.29.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
