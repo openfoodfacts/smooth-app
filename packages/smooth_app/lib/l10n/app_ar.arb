@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "معلومات التعبِئة",
+  "packaging_information": "تعليمات إعادة التدوير",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "صورة معلومات التعبِئة",
+  "packaging_information_photo": "صورة تعليمات إعادة التدوير",
   "@packaging_information_photo": {},
   "missing_product": "لقد وجدت منتجا جديدا!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "صورة التغليف الأمامية",
   "ingredients_photo_title": "صورة المكونات",
   "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
-  "recycling_photo_title": "إعادة تدوير الصور",
+  "recycling_photo_title": "تعليمات إعادة التدوير (صورة)",
   "take_photo_title": "التقاط صورة",
   "take_more_photo_title": "التقط المزيد من الصور",
   "front_photo_uploaded": "تم تحميل الصورة الأمامية",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "صورة المنتج",
   "photo_field_ingredients": "صورة المكونات",
   "photo_field_nutrition": "صورة التغذية",
-  "photo_field_packaging": "صورة معلومات التعبِئة",
+  "photo_field_packaging": "صورة تعليمات إعادة التدوير",
   "photo_already_exists": "هذه الصورة موجودة بالفعل",
   "photo_missing": "هذه الصورة مفقودة",
   "date": "تاريخ",
