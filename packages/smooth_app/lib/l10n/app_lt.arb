@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informacija apie pakuotę",
+  "packaging_information": "Perdirbimo instrukcijos",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informacijos apie pakuotę nuotrauka",
+  "packaging_information_photo": "Perdirbimo instrukcijos nuotrauka",
   "@packaging_information_photo": {},
   "missing_product": "Radote naują produktą!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Priekinės pakuotės nuotrauka",
   "ingredients_photo_title": "Sudėties Nuotrauka",
   "nutritional_facts_photo_title": "Maistingumo duomenų nuotrauka",
-  "recycling_photo_title": "Perdirbimo Nuotrauka",
+  "recycling_photo_title": "Perdirbimo instrukcijos Nuotrauka",
   "take_photo_title": "Fotografuoti",
   "take_more_photo_title": "Nufotografuokite daugiau",
   "front_photo_uploaded": "Priekinė nuotrauka įkelta",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Produkto nuotrauka",
   "photo_field_ingredients": "Sudėties nuotrauka",
   "photo_field_nutrition": "Mitybos nuotrauka",
-  "photo_field_packaging": "Informacijos apie pakuotę nuotrauka",
+  "photo_field_packaging": "Perdirbimo instrukcijos nuotrauka",
   "photo_already_exists": "Ši nuotrauka jau yra",
   "photo_missing": "Šios nuotraukos trūksta",
   "date": "Data",
