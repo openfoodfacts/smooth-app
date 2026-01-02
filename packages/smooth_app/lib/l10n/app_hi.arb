@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "पैकेजिंग जानकारी",
+  "packaging_information": "पुनर्चक्रण निर्देश",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "पैकेजिंग जानकारी फोटो",
+  "packaging_information_photo": "रीसाइक्लिंग निर्देश फोटो",
   "@packaging_information_photo": {},
   "missing_product": "आपको एक नया उत्पाद मिला!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "सामने की पैकेजिंग फोटो",
   "ingredients_photo_title": "सामग्री फोटो",
   "nutritional_facts_photo_title": "पोषण तथ्य फोटो",
-  "recycling_photo_title": "रीसाइक्लिंग फोटो",
+  "recycling_photo_title": "पुनर्चक्रण संबंधी निर्देश (फोटो)",
   "take_photo_title": "एक तस्वीर ले लो",
   "take_more_photo_title": "और तस्वीरें लें",
   "front_photo_uploaded": "सामने की तस्वीर अपलोड की गई",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "उत्पाद फोटो",
   "photo_field_ingredients": "सामग्री की तस्वीर",
   "photo_field_nutrition": "पोषण फोटो",
-  "photo_field_packaging": "पैकेजिंग जानकारी फोटो",
+  "photo_field_packaging": "रीसाइक्लिंग निर्देश फोटो",
   "photo_already_exists": "यह फ़ोटो पहले से मौजूद है",
   "photo_missing": "यह फ़ोटो गायब है",
   "date": "तारीख",
