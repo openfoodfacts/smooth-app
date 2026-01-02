@@ -615,7 +615,7 @@ abstract class AppLocalizations {
   /// No description provided for @licenses.
   ///
   /// In en, this message translates to:
-  /// **'Licences'**
+  /// **'Licenses'**
   String get licenses;
 
   /// Looking for: BARCODE
@@ -885,7 +885,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_username_description.
   ///
   /// In en, this message translates to:
-  /// **'Username cannot contains spaces, caps or special characters.'**
+  /// **'Username cannot contain spaces, caps or special characters.'**
   String get sign_up_page_username_description;
 
   /// No description provided for @sign_up_page_username_length_invalid.
@@ -1239,7 +1239,7 @@ abstract class AppLocalizations {
   /// Content that will be shared, don't forget to include the URL
   ///
   /// In en, this message translates to:
-  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
+  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products deciphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
   String get contribute_share_content;
 
   /// Label for option to contribute prices using GDPR export from loyalty cards
@@ -1446,7 +1446,7 @@ abstract class AppLocalizations {
   /// **'Filter by category'**
   String get category;
 
-  /// No description provided for @category_all.
+  /// Top meta-entry on a category filter
   ///
   /// In en, this message translates to:
   /// **'All'**
@@ -1653,13 +1653,13 @@ abstract class AppLocalizations {
   /// Button label: For adding a picture of the packaging of a product
   ///
   /// In en, this message translates to:
-  /// **'Packaging information'**
+  /// **'Recycling instructions'**
   String get packaging_information;
 
   /// No description provided for @packaging_information_photo.
   ///
   /// In en, this message translates to:
-  /// **'Packaging information photo'**
+  /// **'Recycling instructions photo'**
   String get packaging_information_photo;
 
   /// No description provided for @missing_product.
@@ -1838,7 +1838,7 @@ abstract class AppLocalizations {
   /// No description provided for @recycling_photo_title.
   ///
   /// In en, this message translates to:
-  /// **'Recycling Photo'**
+  /// **'Recycling instructions Photo'**
   String get recycling_photo_title;
 
   /// No description provided for @take_photo_title.
@@ -8975,7 +8975,7 @@ abstract class AppLocalizations {
   /// No description provided for @photo_field_packaging.
   ///
   /// In en, this message translates to:
-  /// **'Packaging information photo'**
+  /// **'Recycling instructions photo'**
   String get photo_field_packaging;
 
   /// No description provided for @photo_already_exists.

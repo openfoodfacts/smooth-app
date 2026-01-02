@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informations sur l'emballage",
+  "packaging_information": "Consignes de tri / recyclage",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Photo des informations sur l'emballage",
+  "packaging_information_photo": "Consignes de tri ou recyclage",
   "@packaging_information_photo": {},
   "missing_product": "Vous avez trouvé un nouveau produit !",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Photo de l'emballage de face",
   "ingredients_photo_title": "Photo des ingrédients",
   "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
-  "recycling_photo_title": "Photo du recyclage",
+  "recycling_photo_title": "Photo des consignes de tri ou recyclage",
   "take_photo_title": "Prendre une photo",
   "take_more_photo_title": "Prendre plus de photos",
   "front_photo_uploaded": "Photo de la face avant téléchargée",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Photo du produit",
   "photo_field_ingredients": "Photo des ingrédients",
   "photo_field_nutrition": "Informations nutritionnelles",
-  "photo_field_packaging": "Photo des informations sur l'emballage",
+  "photo_field_packaging": "Photo des consignes de tri/recyclage",
   "photo_already_exists": "Cette photo existe déjà",
   "photo_missing": "Cette photo est manquante",
   "date": "Date",
