@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Pakendiinfo",
+  "packaging_information": "Taaskasutusjuhised",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Pakendiinfo foto",
+  "packaging_information_photo": "Foto ringlussevõtu juhistest",
   "@packaging_information_photo": {},
   "missing_product": "Oled leidnud uue toote!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Esikülje pakendi foto",
   "ingredients_photo_title": "Koostisosade foto",
   "nutritional_facts_photo_title": "Toitumisalane teave Foto",
-  "recycling_photo_title": "Foto ringlussevõtt",
+  "recycling_photo_title": "Taaskasutusjuhised Foto",
   "take_photo_title": "Tehke foto",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Esikülgne foto üles laaditud",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Toote foto",
   "photo_field_ingredients": "Koostisosade foto",
   "photo_field_nutrition": "Toitumisfoto",
-  "photo_field_packaging": "Pakendiinfo foto",
+  "photo_field_packaging": "Foto ringlussevõtu juhistest",
   "photo_already_exists": "See foto on juba olemas",
   "photo_missing": "See foto puudub",
   "date": "Kuupäev",
