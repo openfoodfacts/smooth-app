@@ -3561,7 +3561,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'S\'estan començant a realitzar les accions del servidor per a les actualitzacions de folksonomy emmagatzemades localment.';
 
   @override
   String get background_task_title_top_n =>

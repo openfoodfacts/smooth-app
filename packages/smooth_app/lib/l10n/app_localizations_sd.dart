@@ -3516,7 +3516,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'مقامي طور تي ذخيرو ٿيل فولڪ سونامي اپڊيٽس لاءِ سرور ڪارروايون ڪرڻ شروع ڪري رهيو آهي';
 
   @override
   String get background_task_title_top_n =>
@@ -4082,7 +4082,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'گرين اسڪور لاڳو ناهي';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new => 'الٽرا پروسيس ٿيل کاڌو - نووا گروپس';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4488,7 +4488,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA لوگو';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '4 نووا گروپ';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5301,7 +5301,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. Open Prices اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5607,7 +5607,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'اوپن فوڊ فيڪٽس هڪ کاڌي جي شين جو ڊيٽابيس آهي **هر ڪنهن پاران، هر ڪنهن لاءِ ٺاهيو ويو آهي**.\nتوهان ان کي بهتر کاڌي جي چونڊ ڪرڻ لاءِ استعمال ڪري سگهو ٿا، ۽ جيئن ته اهو **کليل ڊيٽا** آهي، ڪو به ان کي **ڪنهن به مقصد لاءِ ٻيهر استعمال ڪري سگهي ٿو**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5658,7 +5658,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'اوپن فوڊ فيڪٽس ويب سائيٽ تي';
 
   @override
   String get preferences_manage_account_title => 'منهنجو اڪائونٽ منظم ڪريو';
@@ -5741,7 +5741,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'دريافت ڪريو ته نيوٽري-اسڪور ڪيئن ڳڻيو ويندو آهي';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5771,7 +5771,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوال - اڪثر پڇيا ويندڙ سوال';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'دي اوپن فوڊ فيڪٽس اين جي او';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5793,7 +5793,7 @@ class AppLocalizationsSd extends AppLocalizations {
       'اسان جي ورچوئل تقريب ۾ شرڪت ڪندي شامل ٿيو';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'اوپن فوڊ فيڪٽس بلاگ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5908,7 +5908,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'اوپن فوڊ فيڪٽس ۾ مون نوان پراڊڪٽس شامل ڪيا آهن.';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5934,7 +5934,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'پنهنجي ملڪ ۾ نيوٽري-اسڪور ۽ گرين-اسڪور جي ڳڻپ ۾ مدد ڪريو.';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'منهنجي ڏنل قيمتون';
@@ -6002,7 +6002,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'کاڌي جي حقيقتن کي کولڻ ۾ مدد ڪرڻ جا آسان طريقا';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6115,7 +6115,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'پنهنجي ٻولي ۾ کليل کاڌي جا حقيقت آڻيو';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -3523,7 +3523,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'A’ tòiseachadh air gnìomhan an fhrithealaiche a dhèanamh airson ùrachaidhean folksonomy a tha air an stòradh gu h-ionadail';
 
   @override
   String get background_task_title_top_n =>
@@ -5798,7 +5798,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Ceistean Bitheanta - Ceistean Bitheanta';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'NGO Fiosrachadh Biadh Fosgailte';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5820,7 +5820,8 @@ class AppLocalizationsGd extends AppLocalizations {
       'Gabh pàirt le bhith an làthair aig aon de na tachartasan brìgheil againn';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Am blog Fiosrachadh Biadh Fosgailte';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6150,7 +6151,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Thoir Fiosrachadh Biadh Fosgailte don chànan agad';
 
   @override
   String get preferences_contribute_enroll_alpha =>

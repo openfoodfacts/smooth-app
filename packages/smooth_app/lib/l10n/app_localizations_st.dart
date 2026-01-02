@@ -3519,7 +3519,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ho qala ho etsa liketso tsa seva bakeng sa liapdeite tsa folksonomy tse bolokiloeng sebakeng sa heno';
 
   @override
   String get background_task_title_top_n =>
@@ -6022,7 +6022,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Mekhoa e bonolo ea ho thusa Bula Lintlha tsa Lijo';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6137,7 +6137,7 @@ class AppLocalizationsSt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tlisa Lintlha tse Bulehileng tsa Lijo puong ea hau';
 
   @override
   String get preferences_contribute_enroll_alpha =>

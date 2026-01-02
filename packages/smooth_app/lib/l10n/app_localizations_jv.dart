@@ -3518,7 +3518,7 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Miwiti nindakake tumindak server kanggo nganyari folksonomy sing disimpen sacara lokal';
 
   @override
   String get background_task_title_top_n =>
