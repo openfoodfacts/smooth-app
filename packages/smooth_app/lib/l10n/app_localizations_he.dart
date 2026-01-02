@@ -641,6 +641,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unknownBrand => 'מותג לא ידוע';
 
   @override
+  String get unknownQuantity => 'Unknown brand';
+
+  @override
   String get unknownProductName => 'שם המוצר אינו ידוע';
 
   @override
@@ -3507,7 +3510,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'מתחיל לבצע את פעולות השרת עבור עדכוני פולקסונומיה המאוחסנים באופן מקומי';
 
   @override
   String get background_task_title_top_n =>
@@ -5278,7 +5281,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'מידע נוסף';
@@ -5738,7 +5741,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_faq_title => 'שאלות נפוצות - שאלות נפוצות';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'עמותת \"עובדות על אוכל פתוח\"';
 
   @override
   String get preferences_about_information_title => 'פרטים';
@@ -5759,7 +5762,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'הבלוג של עובדות המזון הפתוחות';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6068,14 +6071,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'מעבדות Open Food Facts';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'חשבון';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'הביאו עובדות פתוחות על מזון לשפה שלכם';
 
   @override
   String get preferences_contribute_enroll_alpha =>
