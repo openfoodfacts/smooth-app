@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "פרטי אריזה",
+  "packaging_information": "הוראות מיחזור",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "תמונת פרטי אריזה",
+  "packaging_information_photo": "תמונת הנחיות מיחזור",
   "@packaging_information_photo": {},
   "missing_product": "מצאת מוצר חדש!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "תמונת חזית האריזה",
   "ingredients_photo_title": "תמונת רכיבים",
   "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
-  "recycling_photo_title": "תמונת מיחזור",
+  "recycling_photo_title": "הוראות מיחזור תמונה",
   "take_photo_title": "צילום תמונה",
   "take_more_photo_title": "צילום תמונות נוספות",
   "front_photo_uploaded": "תמונת החזית נשלחה",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "תמונת המוצר",
   "photo_field_ingredients": "תמונת רכיבים",
   "photo_field_nutrition": "תמונת מפרט תזונתי",
-  "photo_field_packaging": "תמונת פרטי אריזה",
+  "photo_field_packaging": "תמונת הנחיות מיחזור",
   "photo_already_exists": "התמונה הזאת כבר קיימת",
   "photo_missing": "התמונה הזאת חסרה",
   "date": "תאריך",
