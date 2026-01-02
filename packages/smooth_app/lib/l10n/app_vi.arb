@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Thông tin bao bì",
+  "packaging_information": "Hướng dẫn tái chế",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Ảnh chụp thông tin bao bì",
+  "packaging_information_photo": "Ảnh hướng dẫn tái chế",
   "@packaging_information_photo": {},
   "missing_product": "Bạn đã tìm thấy một sản phẩm mới!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Ảnh bao bì phía trước",
   "ingredients_photo_title": "Ảnh thành phần",
   "nutritional_facts_photo_title": "Ảnh chụp thông tin dinh dưỡng",
-  "recycling_photo_title": "Ảnh quy định tái chế",
+  "recycling_photo_title": "Hướng dẫn tái chế (Ảnh)",
   "take_photo_title": "Chụp ảnh",
   "take_more_photo_title": "Chụp thêm ảnh",
   "front_photo_uploaded": "Đã tải ảnh mặt trước lên",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Ảnh sản phẩm",
   "photo_field_ingredients": "Ảnh chụp thành phần",
   "photo_field_nutrition": "Ảnh dinh dưỡng",
-  "photo_field_packaging": "Ảnh chụp thông tin bao bì",
+  "photo_field_packaging": "Ảnh hướng dẫn tái chế",
   "photo_already_exists": "Bức ảnh này đã tồn tại",
   "photo_missing": "Bức ảnh này bị mất",
   "date": "Ngày",
