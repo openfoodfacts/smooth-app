@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Информация на опаковката",
+  "packaging_information": "Инструкции за рециклиране",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Снимка с информация за опаковката",
+  "packaging_information_photo": "Снимка с инструкции за рециклиране",
   "@packaging_information_photo": {},
   "missing_product": "Откри нов продукт!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Снимка на предната част на опаковката",
   "ingredients_photo_title": "Снимка на съставките",
   "nutritional_facts_photo_title": "Снимка на хранителните стойности",
-  "recycling_photo_title": "Снимка на указанията за рециклиране",
+  "recycling_photo_title": "Инструкции за рециклиране Снимка",
   "take_photo_title": "Направи снимка",
   "take_more_photo_title": "Направи още снимки",
   "front_photo_uploaded": "Снимката на предната страна е качена",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Снимка на продукта",
   "photo_field_ingredients": "Снимка на съставките",
   "photo_field_nutrition": "Снимка за хранене",
-  "photo_field_packaging": "Снимка с информация за опаковката",
+  "photo_field_packaging": "Снимка с инструкции за рециклиране",
   "photo_already_exists": "Тази снимка вече съществува",
   "photo_missing": "Тази снимка липсва",
   "date": "Дата",
