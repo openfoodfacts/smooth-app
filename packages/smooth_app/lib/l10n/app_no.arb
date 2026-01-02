@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Emballasjeinformasjon",
+  "packaging_information": "Instruksjoner for resirkulering",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Emballasjeinformasjonsbilde",
+  "packaging_information_photo": "Instruksjoner for resirkulering, bilde",
   "@packaging_information_photo": {},
   "missing_product": "Du har funnet et nytt produkt!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Foto av forsiden av emballasjen",
   "ingredients_photo_title": "Ingredienser Foto",
   "nutritional_facts_photo_title": "Næringsinnhold Foto",
-  "recycling_photo_title": "Resirkuleringsfoto",
+  "recycling_photo_title": "Instruksjoner for resirkulering Foto",
   "take_photo_title": "Ta et bilde",
   "take_more_photo_title": "Ta flere bilder",
   "front_photo_uploaded": "Frontbilde lastet opp",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Produktbilde",
   "photo_field_ingredients": "Ingredienser bilde",
   "photo_field_nutrition": "Næringsinnholdsbilde",
-  "photo_field_packaging": "Emballasjeinformasjonsbilde",
+  "photo_field_packaging": "Instruksjoner for resirkulering, bilde",
   "photo_already_exists": "Dette bildet finnes allerede",
   "photo_missing": "Dette bildet mangler",
   "date": "Dato",
