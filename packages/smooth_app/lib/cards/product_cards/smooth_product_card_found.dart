@@ -80,7 +80,11 @@ class SmoothProductCardItemFound extends StatelessWidget {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       Text(
-                        getProductBrands(product, appLocalizations),
+                        getProductBrandsList(
+                              product,
+                              appLocalizations,
+                            ).firstOrNull ??
+                            appLocalizations.unknownBrand,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: themeData.textTheme.bodyMedium,

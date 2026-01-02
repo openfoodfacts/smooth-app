@@ -631,7 +631,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknownBrand => '不明なブランド';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => '不明な製品名';

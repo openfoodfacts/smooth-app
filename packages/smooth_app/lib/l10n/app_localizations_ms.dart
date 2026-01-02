@@ -653,7 +653,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get unknownBrand => 'Jenama tidak diketahui';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Nama produk yang tidak diketahui';

@@ -666,7 +666,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unknownBrand => 'Άγνωστη μάρκα';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Άγνωστο όνομα προϊόντος';

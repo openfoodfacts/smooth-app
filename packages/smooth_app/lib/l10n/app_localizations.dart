@@ -1533,7 +1533,7 @@ abstract class AppLocalizations {
   /// Message when the quantity is not available
   ///
   /// In en, this message translates to:
-  /// **'Unknown brand'**
+  /// **'Unknown quantity'**
   String get unknownQuantity;
 
   /// Message when the product name is not available

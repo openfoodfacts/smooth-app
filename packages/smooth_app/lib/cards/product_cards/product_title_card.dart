@@ -225,7 +225,7 @@ class _ProductTitleCardBrandsState extends State<_ProductTitleCardBrands> {
     if (brands.isEmpty) {
       return AppLocalizations.of(context).unknownBrand;
     }
-    if (_expanded || !widget.expandable) {
+    if (_expanded) {
       return brands.join(', ');
     }
     return brands.first;

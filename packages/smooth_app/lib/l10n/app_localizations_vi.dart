@@ -659,7 +659,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unknownBrand => 'Thương hiệu không xác định';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Tên sản phẩm không xác định';

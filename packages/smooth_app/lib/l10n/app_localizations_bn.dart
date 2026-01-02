@@ -665,7 +665,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get unknownBrand => 'অজানা ব্র্যান্ড';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'অজানা পণ্যের নাম';

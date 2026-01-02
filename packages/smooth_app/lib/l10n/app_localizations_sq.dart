@@ -662,7 +662,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unknownBrand => 'Markë e panjohur';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Emer i panjohur produkti.';

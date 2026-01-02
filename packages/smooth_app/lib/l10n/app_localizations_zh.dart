@@ -620,7 +620,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unknownBrand => '未知品牌';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => '未知產品名稱';

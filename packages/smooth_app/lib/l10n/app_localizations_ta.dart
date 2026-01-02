@@ -669,7 +669,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get unknownBrand => 'தெரியாத பிராண்ட்';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'தெரியாத தயாரிப்பு பெயர்';

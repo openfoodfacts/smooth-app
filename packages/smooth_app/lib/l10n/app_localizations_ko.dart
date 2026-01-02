@@ -630,7 +630,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unknownBrand => '알 수 없는 상표';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => '알 수 없는 상품명';

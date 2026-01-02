@@ -656,7 +656,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unknownBrand => 'Tundmatu kaubamärk';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Tundmatu tootenimi';

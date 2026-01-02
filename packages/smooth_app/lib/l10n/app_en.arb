@@ -538,7 +538,7 @@
   "@unknownBrand": {
     "description": "Message when the brand is not available"
   },
-  "unknownQuantity": "Unknown brand",
+  "unknownQuantity": "Unknown quantity",
   "@unknownQuantity": {
     "description": "Message when the quantity is not available"
   },

@@ -659,7 +659,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unknownBrand => 'Невідома марка';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Невідомий продукт';

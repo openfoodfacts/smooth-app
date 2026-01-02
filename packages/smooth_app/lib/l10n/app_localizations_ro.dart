@@ -662,7 +662,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unknownBrand => 'Marcă necunoscută';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Produs cu nume necunoscut';

@@ -661,7 +661,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get unknownBrand => 'Неизвестна марка';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Неразпознат продукт';

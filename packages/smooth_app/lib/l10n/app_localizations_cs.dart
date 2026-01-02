@@ -660,7 +660,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unknownBrand => 'Neznámá značka';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Neznámý název produktu';

@@ -657,7 +657,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get unknownBrand => 'Ukjent merke';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Ukjent produktnavn';

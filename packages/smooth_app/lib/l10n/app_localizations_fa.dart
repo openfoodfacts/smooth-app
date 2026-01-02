@@ -653,7 +653,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unknownBrand => 'مارک ناشناس';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'نام محصول ناشناخته است';

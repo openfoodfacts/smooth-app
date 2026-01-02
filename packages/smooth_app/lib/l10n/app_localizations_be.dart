@@ -662,7 +662,7 @@ class AppLocalizationsBe extends AppLocalizations {
   String get unknownBrand => 'Брэнд невядомы';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Назва прадукту невядома';

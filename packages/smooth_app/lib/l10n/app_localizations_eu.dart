@@ -656,7 +656,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get unknownBrand => 'Marka ezezaguna';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Produktu-izen ezezaguna';

@@ -651,7 +651,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unknownBrand => 'علامة تجارية مجهولة';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'إسم منتج غير معروف';

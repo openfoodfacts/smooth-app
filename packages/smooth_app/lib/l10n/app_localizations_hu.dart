@@ -664,7 +664,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unknownBrand => 'Ismeretlen márka';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Ismeretlen terméknév';

@@ -659,7 +659,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get unknownBrand => 'Marca sconosciuta';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Nome del prodotto sconosciuto';

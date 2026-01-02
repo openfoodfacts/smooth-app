@@ -662,7 +662,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get unknownBrand => 'Nezināms zīmols';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Nezināms produkta nosaukums';

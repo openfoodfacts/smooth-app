@@ -658,7 +658,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get unknownBrand => 'Merek tidak dikenal';
 
   @override
-  String get unknownQuantity => 'Unknown brand';
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Nama produk tidak dikenal';
