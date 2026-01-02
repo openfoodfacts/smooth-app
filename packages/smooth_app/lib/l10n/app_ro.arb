@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informații despre ambalaj",
+  "packaging_information": "Instrucțiuni de reciclare",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto cu informații despre ambalaj",
+  "packaging_information_photo": "Fotografie cu instrucțiuni de reciclare",
   "@packaging_information_photo": {},
   "missing_product": "Ai gasit un produs nou!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Fotografie ambalaj frontal",
   "ingredients_photo_title": "Fotografie cu ingredientele",
   "nutritional_facts_photo_title": "Informații nutriționale Foto",
-  "recycling_photo_title": "Imaginea cu metoda de reciclare",
+  "recycling_photo_title": "Instrucțiuni de reciclare Fotografie",
   "take_photo_title": "Faceți o fotografie",
   "take_more_photo_title": "Faceți mai multe poze",
   "front_photo_uploaded": "Fotografia frontală a fost încărcată",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Fotografie de produs",
   "photo_field_ingredients": "Foto ingrediente",
   "photo_field_nutrition": "Fotografie nutrițională",
-  "photo_field_packaging": "Foto cu informații despre ambalaj",
+  "photo_field_packaging": "Fotografie cu instrucțiuni de reciclare",
   "photo_already_exists": "Această fotografie există deja",
   "photo_missing": "Această fotografie lipsește",
   "date": "Data",
