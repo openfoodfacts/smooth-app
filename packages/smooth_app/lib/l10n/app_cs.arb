@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informace o balení",
+  "packaging_information": "Pokyny pro recyklaci",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informační foto balení",
+  "packaging_information_photo": "Fotografie pokynů pro recyklaci",
   "@packaging_information_photo": {},
   "missing_product": "Našli jste nový produkt!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Fotografie předního obalu",
   "ingredients_photo_title": "Fotografie ingrediencí",
   "nutritional_facts_photo_title": "Fotografie nutričních údajů",
-  "recycling_photo_title": "Fotografie recyklace",
+  "recycling_photo_title": "Pokyny k recyklaci Fotografie",
   "take_photo_title": "Vyfotit",
   "take_more_photo_title": "Vyfotit další obrázky",
   "front_photo_uploaded": "Přední fotka nahrána",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Fotografie produktu",
   "photo_field_ingredients": "Fotografie ingrediencí",
   "photo_field_nutrition": "Fotografie výživových údajů",
-  "photo_field_packaging": "Informační foto balení",
+  "photo_field_packaging": "Fotografie pokynů pro recyklaci",
   "photo_already_exists": "Tato fotografie již existuje",
   "photo_missing": "Tato fotografie chybí",
   "date": "Datum",
