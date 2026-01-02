@@ -163,7 +163,7 @@ class ProductPageTabsGenerator {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) => KnowledgePanelPage(
                     panelId: id.replaceAll('simplified_', ''),
                     product: product,
