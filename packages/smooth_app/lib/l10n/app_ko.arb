@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "포장 정보",
+  "packaging_information": "재활용 지침",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "포장 정보 사진",
+  "packaging_information_photo": "재활용 지침 사진",
   "@packaging_information_photo": {},
   "missing_product": "새 상품을 찾았습니다!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "전면 포장 사진",
   "ingredients_photo_title": "재료 사진",
   "nutritional_facts_photo_title": "영양 성분 사진",
-  "recycling_photo_title": "재활용 사진",
+  "recycling_photo_title": "재활용 지침 사진",
   "take_photo_title": "사진을 촬영",
   "take_more_photo_title": "더 많은 사진을 찍어보세요",
   "front_photo_uploaded": "전면 사진 갱신됨",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "제품 사진",
   "photo_field_ingredients": "재료 사진",
   "photo_field_nutrition": "영양 사진",
-  "photo_field_packaging": "포장 정보 사진",
+  "photo_field_packaging": "재활용 지침 사진",
   "photo_already_exists": "이 사진은 이미 존재합니다",
   "photo_missing": "이 사진이 없습니다",
   "date": "날짜",
