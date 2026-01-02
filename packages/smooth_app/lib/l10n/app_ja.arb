@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "パッケージ情報",
+  "packaging_information": "リサイクル手順",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "パッケージ情報の画像",
+  "packaging_information_photo": "リサイクル手順の画像",
   "@packaging_information_photo": {},
   "missing_product": "新しい製品を見つけました！",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "パッケージの正面の画像",
   "ingredients_photo_title": "原材料の画像",
   "nutritional_facts_photo_title": "栄養成分表の画像",
-  "recycling_photo_title": "リサイクル情報の画像",
+  "recycling_photo_title": "リサイクル手順写真",
   "take_photo_title": "画像を撮る",
   "take_more_photo_title": "もっと写真を撮ります",
   "front_photo_uploaded": "正面の画像をアップロードしました",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "製品写真",
   "photo_field_ingredients": "原材料の画像",
   "photo_field_nutrition": "栄養写真",
-  "photo_field_packaging": "パッケージ情報の画像",
+  "photo_field_packaging": "リサイクル手順の画像",
   "photo_already_exists": "この写真は既に存在します",
   "photo_missing": "この写真がありません",
   "date": "日付",
