@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informacije o embalaži",
+  "packaging_information": "Navodila za recikliranje",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Slika informacij o embalaži",
+  "packaging_information_photo": "Fotografija navodil za recikliranje",
   "@packaging_information_photo": {},
   "missing_product": "Našli ste nov izdelek!",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Fotografija sprednje embalaže",
   "ingredients_photo_title": "Slika sestavin",
   "nutritional_facts_photo_title": "Fotografija hranilnih vrednosti",
-  "recycling_photo_title": "Fotografija recikliranja",
+  "recycling_photo_title": "Navodila za recikliranje Fotografija",
   "take_photo_title": "Posnemi fotografijo",
   "take_more_photo_title": "Naredite več slik",
   "front_photo_uploaded": "Sprednja fotografija je naložena",
@@ -4461,7 +4461,7 @@
   "photo_field_front": "Fotografija izdelka",
   "photo_field_ingredients": "Slike sestavin",
   "photo_field_nutrition": "Fotografija prehrane",
-  "photo_field_packaging": "Slika informacij o embalaži",
+  "photo_field_packaging": "Fotografija navodil za recikliranje",
   "photo_already_exists": "Ta fotografija že obstaja",
   "photo_missing": "Ta fotografija manjka",
   "date": "Datum",
