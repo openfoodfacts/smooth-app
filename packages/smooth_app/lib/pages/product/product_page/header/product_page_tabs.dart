@@ -127,6 +127,22 @@ class ProductPageTabsGenerator {
         continue;
       }
 
+      children.add(
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => KnowledgePanelPage(
+                  panelId: id.replaceAll('simplified_', ''),
+                  product: product,
+                ),
+              ),
+            );
+          },
+          child: Text(AppLocalizations.of(context).learnMore),
+        ),
+      );
+
       final KnowledgePanelTitle knowledgePanelTitle =
           children.first as KnowledgePanelTitle;
 
