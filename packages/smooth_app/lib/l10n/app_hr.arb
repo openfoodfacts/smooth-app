@@ -36,7 +36,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "Prethodno",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "trag",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2290,7 +2290,7 @@
   "product_type_label_food": "Food",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Ostalo",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2369,7 +2369,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "Proizvod nije pronađen",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2398,7 +2398,7 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_mandatory": "Obavezno",
   "prices_category_optional": "Izborno",
   "prices_category_error_mandatory": "Kategorija je obavezna",
   "prices_barcode_reader_action": "Barcode reader",
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Početak izvršavanja radnji poslužitelja za lokalno pohranjena ažuriranja folksonomyja",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3841,7 +3845,7 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "Zeleni rezultat",
   "environmental_score_a_new": "Zelena ocjena A",
   "environmental_score_b_new": "Zelena ocjena B",
   "environmental_score_c_new": "Zeleni rezultat C",
@@ -3866,7 +3870,7 @@
   "contact_title_pro_email": "Producer Contact",
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "Pretplatite se na naš newsletter",
   "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Please give us a few seconds…",
   "hunger_games_loading_line2": "We're downloading the questions!",
@@ -3910,7 +3914,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Što je Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3942,7 +3946,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "Zeleni rezultat",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3962,12 +3966,12 @@
   "guide_greenscore_lca_arg1_text2": "**Analiza životnog ciklusa** je standardizirana metoda procjene za provođenje višefazne i višekriterijske procjene utjecaja na okoliš.",
   "guide_greenscore_lca_arg1_text3": "**Mjeri:**",
   "guide_greenscore_lca_arg2_title": "6 koraka proizvodnje",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "Poljoprivreda",
+  "guide_greenscore_lca_arg2_processing": "Obrada",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "Prijevoz",
+  "guide_greenscore_lca_arg2_distribution": "Distribucija",
+  "guide_greenscore_lca_arg2_consumption": "Potrošnja",
   "guide_greenscore_lca_arg3_title": "14 pokazatelja utjecaja na okoliš",
   "guide_greenscore_lca_arg3_text1": "Klimatske promjene/ugljični otisak",
   "guide_greenscore_lca_arg3_text2": "Oštećenje ozonskog omotača",
@@ -4461,11 +4465,11 @@
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "Zakreni lijevo",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "Zakreni desno",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4675,7 +4679,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Ukupno",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4695,7 +4699,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "Potrošnja",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4707,7 +4711,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Ljepota",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4779,7 +4783,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Ostalo",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4867,7 +4871,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "Proizvodi modificirani",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Blog Otvorene činjenice o hrani",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Prenesite činjenice o otvorenoj hrani na svoj jezik",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

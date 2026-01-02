@@ -152,7 +152,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   /// Uploads the product changes.
   @override
-  Future<void> upload() async {
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
+    );
     final Product product = getProductChange();
     if (product.packagings != null || product.packagingsComplete != null) {
       // For the moment, some fields can only be saved in V3,

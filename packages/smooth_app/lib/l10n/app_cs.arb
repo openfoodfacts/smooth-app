@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Zahájení provádění akcí serveru pro lokálně uložené aktualizace folksonomy",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Zahájení stahování nejoblíbenějších produktů",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4036,7 +4040,7 @@
   "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Predátorské a finanční aspekty ultraprocessingu",
   "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_title": "Zdravotní riziko",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
@@ -4044,65 +4048,65 @@
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Vítejte na Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Co je to Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **kolaborativní**, **bezplatná** a **otevřená** databáze potravinářských produktů z celého světa.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Věříme, že každý by měl mít přístup k informacím o tom, co jí. Shromažďováním údajů o složkách, alergenech, nutričních hodnotách a dalších údajích **umožňujeme spotřebitelům činit informovaná rozhodnutí** a posouváme potravinářský průmysl **k větší transparentnosti**.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_features_title": "Vlastnosti Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
   "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_tips_arg1_title": "Co nedělat",
+  "guide_open_food_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
+  "guide_open_food_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
+  "guide_open_food_facts_tips_arg1_text3": "Nevyřezávejte části textu.",
+  "guide_open_food_facts_tips_arg1_text4": "Vyhněte se rušivému pozadí.",
+  "guide_open_food_facts_tips_arg2_title": "Co dělat",
+  "guide_open_food_facts_tips_arg2_text1": "Používejte dobré, rovnoměrné osvětlení.",
+  "guide_open_food_facts_tips_arg2_text2": "Ujistěte se, že text je ostrý a čitelný.",
+  "guide_open_food_facts_tips_arg2_text3": "Zaznamenejte si celý seznam ingrediencí.",
+  "guide_open_food_facts_tips_arg2_text4": "Dejte výrobek na rovný povrch.",
+  "guide_open_food_facts_scores_title": "Pomozte nám vybudovat \"Wikipedii potravin\"",
+  "guide_open_food_facts_scores_arg1_title": "Skóre nutriční kvality",
+  "guide_open_food_facts_scores_arg2_title": "Skóre, jak se vyhnout ultrazpracovaným potravinám",
+  "guide_open_food_facts_scores_arg3_title": "Skóre pro planetu",
   "guide_open_food_facts_share_link": "https://world-cs.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Vítejte v Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Co je Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts rozšiřuje naši misi na naše chlupaté přátele! Je to **databáze krmiv pro kočky, psy a další domácí mazlíčky**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Shromažďujeme informace o **složení**, **nutriční analýze** a krmných pokynech, abychom majitelům domácích mazlíčků pomohli vybrat nejlepší krmivo pro jejich zvířata.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_pet_food_facts_features_title": "Vlastnosti Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Je váš mazlíček alergický na nějaké složky? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!",
   "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
+  "guide_open_pet_food_facts_tips_arg1_title": "Co nedělat",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Nevyřezávejte části textu.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Vyhněte se rušivému pozadí.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Co dělat",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Používejte dobré, rovnoměrné osvětlení.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ujistěte se, že text je ostrý a čitelný.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Zaznamenejte si celý seznam ingrediencí.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Dejte výrobek na rovný povrch.",
+  "guide_open_pet_food_facts_scores_title": "Poznámka k bodování",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
   "guide_open_pet_food_facts_share_link": "https://world-cs.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
@@ -4119,22 +4123,22 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
   "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_beauty_facts_tips_arg1_title": "Co nedělat",
+  "guide_open_beauty_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Nevyřezávejte části textu.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Vyhněte se rušivému pozadí.",
+  "guide_open_beauty_facts_tips_arg2_title": "Co dělat",
+  "guide_open_beauty_facts_tips_arg2_text1": "Používejte dobré, rovnoměrné osvětlení.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ujistěte se, že text je ostrý a čitelný.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Zaznamenejte si celý seznam ingrediencí.",
   "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
   "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
+  "guide_open_beauty_facts_tips_arg2_text6": "Dejte výrobek na rovný povrch.",
+  "guide_open_beauty_facts_scores_title": "Poznámka k bodování",
   "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://world-cs.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Welcome to Open Prices!",
@@ -4195,7 +4199,7 @@
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://world-cs.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
+  "guide_coming_soon_button_title": "Již brzy",
   "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Náhled",
   "@preview_badge": {
@@ -4787,7 +4791,7 @@
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Při načítání statistik došlo k chybě.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
@@ -5108,15 +5112,15 @@
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Objevte Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Objevte Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Objevte Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Blog Otevřená fakta o jídle",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Přineste fakta o otevřeném jídle do svého jazyka",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5607,12 +5611,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Podrobnosti o poloze",
   "location_map_details_name": "Jméno",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Ulice",
+  "location_map_details_city": "Město",
+  "location_map_details_postcode": "PSČ",
   "location_map_details_country": "Země",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Souřadnice",
+  "location_map_details_osm_id": "ID OSM"
 }

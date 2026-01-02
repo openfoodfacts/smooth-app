@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -586,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informations sur l'emballage",
+  "packaging_information": "Consignes de tri / recyclage",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Photo des informations sur l'emballage",
+  "packaging_information_photo": "Consignes de tri ou recyclage",
   "@packaging_information_photo": {},
   "missing_product": "Vous avez trouvé un nouveau produit !",
   "@missing_product": {},
@@ -688,7 +688,7 @@
   "front_packaging_photo_title": "Photo de l'emballage de face",
   "ingredients_photo_title": "Photo des ingrédients",
   "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
-  "recycling_photo_title": "Photo du recyclage",
+  "recycling_photo_title": "Photo des consignes de tri ou recyclage",
   "take_photo_title": "Prendre une photo",
   "take_more_photo_title": "Prendre plus de photos",
   "front_photo_uploaded": "Photo de la face avant téléchargée",
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Démarrage des actions serveur pour les mises à jour de folksonomie stockées localement",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Démarrage du téléchargement des produits les plus populaires",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4457,7 +4461,7 @@
   "photo_field_front": "Photo du produit",
   "photo_field_ingredients": "Photo des ingrédients",
   "photo_field_nutrition": "Informations nutritionnelles",
-  "photo_field_packaging": "Photo des informations sur l'emballage",
+  "photo_field_packaging": "Photo des consignes de tri/recyclage",
   "photo_already_exists": "Cette photo existe déjà",
   "photo_missing": "Cette photo est manquante",
   "date": "Date",
@@ -5372,7 +5376,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

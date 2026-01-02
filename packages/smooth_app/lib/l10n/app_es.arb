@@ -1068,11 +1068,11 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Añade una categoría para calcular la puntuación Nutri-Score.",
+  "product_improvement_add_category": "Añade una categoría para calcular la Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Añade la información nutricional para calcular la puntuación Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Añade la información nutricional para calcular la Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
@@ -1080,7 +1080,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la puntuación Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
+  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Iniciando la ejecución de las acciones del servidor para las actualizaciones de folksonomía almacenadas localmente.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Iniciando la descarga de los productos más populares",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3827,7 +3831,7 @@
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "Puntuación Nutri-Score {letter} (Nuevo cálculo)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (Nuevo cálculo)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3836,18 +3840,18 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Puntuación Nutri-Score (Nuevo cálculo)",
+  "nutriscore_new_formula_title": "Nutri-Score (Nuevo cálculo)",
   "nutriscore_unknown": "Nutri-Score desconocido",
-  "nutriscore_unknown_new_formula": "Puntuación Nutri-Score desconocida (Nuevo cálculo)",
+  "nutriscore_unknown_new_formula": "Nutri-Score desconocida (Nuevo cálculo)",
   "nutriscore_not_applicable": "No es posible aplicar el Nutri-Score",
   "nutriscore_not_applicable_new_formula": "El Nutri-Score no es aplicable (Nuevo cálculo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Puntuación verde A",
-  "environmental_score_b_new": "Puntuación verde B",
-  "environmental_score_c_new": "Puntuación verde C",
-  "environmental_score_d_new": "Puntuación verde D",
-  "environmental_score_e_new": "Puntuación verde E",
-  "environmental_score_unknown_new": "Puntuación verde desconocida",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score desconocida",
   "environmental_score_not_applicable_new": "El Green-Score no es aplicable",
   "nova_group_generic_new": "Alimentos ultraprocesados - Grupos NOVA",
   "nova_group_1": "Grupo NOVA 1",
@@ -4170,7 +4174,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "¿Qué es Open Products Facts?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts es una base de datos masiva y abierta para **cualquier producto con código de barras, que no sea alimento, cosmético o comida para mascotas**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Características de Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts tiene como objetivo proporcionar a los consumidores soluciones circulares para **extender la vida útil de los objetos**, permitiéndoles mantener, **reparar**, **reciclar** sus objetos o darles un nuevo propietario.",
   "guide_open_products_facts_features_arg1_title": "Huella de carbono de algunos productos",
   "guide_open_products_facts_features_arg1_text": "**Impacto CO2**, de la Autoridad de Medio Ambiente francesa ADEME, proporciona el **impacto de carbono** de muchas categorías; asegúrese de clasificar los productos con precisión.",
@@ -5100,15 +5104,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Descubra Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Descubre Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Descubre Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5120,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Descubra Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "El blog de Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },

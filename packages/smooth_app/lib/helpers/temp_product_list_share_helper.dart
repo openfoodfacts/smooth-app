@@ -6,7 +6,14 @@ Uri shareProductList(
   final List<String> barcodes,
   final ProductType productType,
 ) {
-  final String barcodesString = barcodes.join(',');
+  final StringBuffer barcodesString = StringBuffer();
+  for (final String barcode in barcodes) {
+    if (barcodesString.isNotEmpty) {
+      barcodesString.write('+');
+    }
+
+    barcodesString.write(Uri.encodeComponent(barcode));
+  }
 
   return UriHelper.replaceSubdomain(
     ProductQuery.getUriProductHelper(

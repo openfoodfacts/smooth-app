@@ -1683,7 +1683,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Điểm số dinh dưỡng, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Bắt đầu tải xuống các sản phẩm phổ biến nhất",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3822,10 +3826,10 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_a": "Điểm dinh dưỡng A",
+  "nutriscore_b": "Điểm dinh dưỡng B",
   "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_d": "Điểm dinh dưỡng D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Tính toán mới)",
   "@nutriscore_new_formula": {
@@ -4088,7 +4092,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Đặc điểm của Thực phẩm cho thú cưng mở",
   "guide_open_pet_food_facts_features_arg1_title": "Nhận cảnh báo về các thành phần không mong muốn của bạn",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Thú cưng của bạn có bị dị ứng với bất kỳ thành phần nào không? Bạn có thể thiết lập danh sách các thành phần mỹ phẩm cần tránh ngay trong ứng dụng!",
   "guide_open_pet_food_facts_tips_title": "Mẹo chụp ảnh đẹp",
@@ -4179,7 +4183,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Tính năng của Sản phẩm Mở Sự kiện",
   "guide_open_products_facts_features_text": "Open Products Facts hướng đến mục tiêu cung cấp cho người tiêu dùng giải pháp **kéo dài tuổi thọ của đồ vật** bằng cách cung cấp các giải pháp tuần hoàn để bảo trì, **sửa chữa**, **tái chế** đồ vật hoặc trao cho họ chủ sở hữu mới.",
   "guide_open_products_facts_features_arg1_title": "Dấu chân carbon của một số sản phẩm",
   "guide_open_products_facts_features_arg1_text": "**Tác động CO2** của Cơ quan Môi trường Pháp ADEME cung cấp **tác động carbon** của nhiều danh mục, hãy đảm bảo phân loại sản phẩm chính xác.",
@@ -5148,7 +5152,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Blog Sự thật về Thực phẩm Mở",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

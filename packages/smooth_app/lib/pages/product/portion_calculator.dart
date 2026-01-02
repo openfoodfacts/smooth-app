@@ -200,6 +200,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     }
     final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
       context,
+      widget.product.productType,
     );
     if (cache == null) {
       _onComputationError();

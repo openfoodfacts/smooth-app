@@ -2644,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Saiba mais sobre Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3264,6 +3264,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Iniciando a execução das ações do servidor para atualizações de folksonomia armazenadas localmente.",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Iniciar o descarregamento dos produtos mais populares",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3842,12 +3846,12 @@
   "nutriscore_not_applicable": "Nutri-Score não aplicável",
   "nutriscore_not_applicable_new_formula": "O Nutri-Score não é aplicável (novo cálculo)",
   "environmental_score_generic_new": "Eco-Pontuação",
-  "environmental_score_a_new": "Pontuação Verde A",
-  "environmental_score_b_new": "Pontuação Verde B",
-  "environmental_score_c_new": "Pontuação Verde C",
-  "environmental_score_d_new": "Pontuação Verde D",
-  "environmental_score_e_new": "Pontuação Verde E",
-  "environmental_score_unknown_new": "Pontuação Verde Desconhecida",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score Desconhecida",
   "environmental_score_not_applicable_new": "Green-Score não é aplicável",
   "nova_group_generic_new": "Alimentos ultraprocessados - Grupos NOVA",
   "nova_group_1": "NOVA Grupo 1",
@@ -3988,8 +3992,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Embalagem",
   "guide_greenscore_bonuses_penalties_arg4_text": "Uma penalidade é calculada observando a circularidade das embalagens (uso de material reciclado, reciclabilidade e excesso de embalagem).",
   "guide_greenscore_transparency_title": "Uma maior necessidade de transparência para melhor medir e reduzir os impactos ambientais",
-  "guide_greenscore_transparency_intro1": "Para calcular com exatidão a Pontuação Verde, é necessário ter **informações que não são necessariamente especificados na embalagem** (tal como a origem ou exata porcentagem de cada ingrediente) ou os quais são raramente disponíveis em formas utilizáveis (como a lista com todos os componentes da embalagem com os tipos precisos de plásticos usados).",
-  "guide_greenscore_transparency_intro2": "Valores médios são usados quando essas informações ainda não estão disponíveis, mas agora estamos convocando todos para nos ajudar a coletar esses dados, que serão muito úteis para a Pontuação Verde e outros usos.",
+  "guide_greenscore_transparency_intro1": "Para calcular com exatidão a Green-Score, é necessário ter **informações que não são necessariamente especificados na embalagem** (tal como a origem ou exata porcentagem de cada ingrediente) ou os quais são raramente disponíveis em formas utilizáveis (como a lista com todos os componentes da embalagem com os tipos precisos de plásticos usados).",
+  "guide_greenscore_transparency_intro2": "Valores médios são usados quando essas informações ainda não estão disponíveis, mas agora estamos convocando todos para nos ajudar a coletar esses dados, que serão muito úteis para a Green-Score e outros usos.",
   "guide_greenscore_transparency_arg1_title": "Como os cidadãos podem ajudar?",
   "guide_greenscore_transparency_arg1_text": "Todos podem ajudar a reunir e estruturar as informações presentes nos produtos ou que possam ser deduzidas deles, como informações sobre embalagem: “Missão Embalagens” — um grande inventário colaborativo de embalagens de alimentos (em francês).",
   "guide_greenscore_transparency_arg2_title": "Como os fabricantes podem ajudar",
@@ -4135,7 +4139,7 @@
   "guide_open_beauty_facts_tips_arg2_text5": "Pode ser necessário remover o rótulo para ver a lista de ingredientes.",
   "guide_open_beauty_facts_tips_arg2_text6": "Mantenha o produto sobre uma superfície plana.",
   "guide_open_beauty_facts_scores_title": "Uma observação sobre a pontuação",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_scores_paragraph1": "Diferente dos produtos alimentícios, o mundo dos cosméticos **não possui um sistema de pontuação reconhecido e respaldado por governos, como o Nutri-Score**. Os efeitos dos ingredientes podem ser altamente pessoais e depender do tom de pele, alergias e preocupações individuais.",
   "guide_open_beauty_facts_share_link": "https://world-en.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Bem-vindo ao Open Prices!",
   "@guide_open_prices_title": {
@@ -5100,7 +5104,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Descubra Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },

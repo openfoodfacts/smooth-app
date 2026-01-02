@@ -93,7 +93,6 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     with SingleTickerProviderStateMixin {
-  // just 1D formats and ios supported
   static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
     BarcodeFormat.code39,
     BarcodeFormat.code93,
@@ -103,6 +102,9 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.itf,
     BarcodeFormat.upcA,
     BarcodeFormat.upcE,
+    // 2D formats for GS1 Sunrise 2027
+    BarcodeFormat.dataMatrix,
+    BarcodeFormat.qrCode,
   ];
 
   static const ValueKey<String> _visibilityKey = ValueKey<String>(

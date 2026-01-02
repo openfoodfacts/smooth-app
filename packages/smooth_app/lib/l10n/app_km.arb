@@ -2677,7 +2677,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "ប្តូររវាង price.openfoodfacts.org (PROD) និង test env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -3263,6 +3263,10 @@
   "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
+  },
+  "background_task_title_folksonomy": "ចាប់ផ្តើមអនុវត្តសកម្មភាពម៉ាស៊ីនមេសម្រាប់ការអាប់ដេត folksonomy ដែលរក្សាទុកក្នុងមូលដ្ឋាន",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
@@ -5088,7 +5092,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "Discover how the Nutri-Score is computed",
+  "preferences_faq_nutriscore_subtitle": "ស្វែងយល់ពីរបៀបដែលពិន្ទុ Nutri ត្រូវបានគណនា",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5372,7 +5376,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "វិធីសាមញ្ញដើម្បីជួយបើកការពិតអំពីអាហារ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5580,7 +5584,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "នាំយកការពិតអាហារបើកចំហទៅកាន់ភាសារបស់អ្នក។",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

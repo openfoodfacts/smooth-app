@@ -24,6 +24,7 @@ class NutritionPageLoader {
     if (context.mounted) {
       final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
         context,
+        product.productType,
       );
       if (context.mounted) {
         if (cache == null) {
