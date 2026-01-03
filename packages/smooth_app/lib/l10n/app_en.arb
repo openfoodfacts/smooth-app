@@ -99,7 +99,7 @@
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't consume.",
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
