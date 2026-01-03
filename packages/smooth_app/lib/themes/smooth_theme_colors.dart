@@ -16,10 +16,13 @@ class SmoothColorsThemeExtension
     required this.secondaryVibrant,
     required this.secondaryLight,
     required this.error,
+    required this.errorGradient,
     required this.successBackground,
     required this.warning,
+    required this.warningGradient,
     required this.warningBackground,
     required this.success,
+    required this.successGradient,
     required this.errorBackground,
     required this.greyDark,
     required this.greyNormal,
@@ -43,10 +46,13 @@ class SmoothColorsThemeExtension
       secondaryVibrant = const Color(0xFFFB8229),
       secondaryLight = const Color(0xFFEE8858),
       success = const Color(0xFF219653),
+      successGradient = const Color(0xFF499459),
       successBackground = const Color(0xFFDEEDDB),
       warning = const Color(0xFFFB8229),
+      warningGradient = const Color(0xFFF2994A),
       warningBackground = const Color(0xFFF2E2D6),
       error = const Color(0xFFEB5757),
+      errorGradient = const Color(0xFFEB5757),
       errorBackground = const Color(0xFFF6E4E4),
       greyDark = const Color(0xFF666666),
       greyNormal = const Color(0xFF6C6C6C),
@@ -84,12 +90,18 @@ class SmoothColorsThemeExtension
   final Color secondaryVibrant;
   final Color secondaryLight;
 
+  /// When used alone
   final Color error;
   final Color errorBackground;
   final Color warning;
   final Color warningBackground;
   final Color success;
   final Color successBackground;
+
+  /// When used together
+  final Color errorGradient;
+  final Color warningGradient;
+  final Color successGradient;
 
   final Color greyDark;
   final Color greyNormal;
@@ -114,10 +126,13 @@ class SmoothColorsThemeExtension
     Color? secondaryLight,
     Color? secondaryVibrant,
     Color? error,
+    Color? errorGradient,
     Color? errorBackground,
     Color? warning,
+    Color? warningGradient,
     Color? warningBackground,
     Color? success,
+    Color? successGradient,
     Color? successBackground,
     Color? greyDark,
     Color? greyNormal,
@@ -140,10 +155,13 @@ class SmoothColorsThemeExtension
       secondaryLight: secondaryLight ?? this.secondaryLight,
       secondaryVibrant: secondaryVibrant ?? this.secondaryVibrant,
       error: error ?? this.error,
+      errorGradient: errorGradient ?? this.errorGradient,
       errorBackground: errorBackground ?? this.errorBackground,
       warning: warning ?? this.warning,
+      warningGradient: warningGradient ?? this.warningGradient,
       warningBackground: warningBackground ?? this.warningBackground,
       success: success ?? this.success,
+      successGradient: successGradient ?? this.successGradient,
       successBackground: successBackground ?? this.successBackground,
       greyDark: greyDark ?? this.greyDark,
       greyNormal: greyDark ?? this.greyDark,
@@ -184,15 +202,19 @@ class SmoothColorsThemeExtension
         other.secondaryVibrant,
         t,
       )!,
+
       error: Color.lerp(error, other.error, t)!,
+      errorGradient: Color.lerp(errorGradient, other.errorGradient, t)!,
       errorBackground: Color.lerp(errorBackground, other.errorBackground, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
+      warningGradient: Color.lerp(warningGradient, other.warningGradient, t)!,
       warningBackground: Color.lerp(
         warningBackground,
         other.warningBackground,
         t,
       )!,
       success: Color.lerp(success, other.success, t)!,
+      successGradient: Color.lerp(successGradient, other.successGradient, t)!,
       successBackground: Color.lerp(
         successBackground,
         other.successBackground,

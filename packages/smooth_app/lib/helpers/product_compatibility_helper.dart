@@ -78,6 +78,8 @@ class ProductCompatibilityHelper {
 
     return NumberFormat('00').format(_score.toInt());
   }
+
+  double? get score => _score;
 }
 
 extension MatchedScoreV2Extension on MatchedScoreV2 {

@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/folksonomy/product_folksonomy_tab.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/for_me/product_for_me_tab.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/prices/product_prices_tab.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -22,14 +23,23 @@ import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
 enum ProductPageHarcodedTabs {
   FOR_ME(key: 'for_me'),
-  WEBSITE(key: 'website'),
   PRICES(key: 'prices'),
-  FOLKSONOMY(key: 'folksonomy'),
-  RAW_DATA(key: 'raw_data');
+  FOLKSONOMY(key: 'folksonomy');
 
   const ProductPageHarcodedTabs({required this.key});
 
   final String key;
+
+  String label(AppLocalizations appLocalizations) {
+    return switch (this) {
+      ProductPageHarcodedTabs.FOR_ME =>
+        appLocalizations.product_page_tab_for_me,
+      ProductPageHarcodedTabs.PRICES =>
+        appLocalizations.product_page_tab_prices,
+      ProductPageHarcodedTabs.FOLKSONOMY =>
+        appLocalizations.product_page_tab_folksonomy,
+    };
+  }
 }
 
 class ProductPageTab {
@@ -161,25 +171,23 @@ class ProductPageTabsGenerator {
     Product product,
     List<ProductPageTab> tabs,
   ) {
-    /* until we have something interesting to put there
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     tabs.insert(
       0,
       ProductPageTab(
         id: ProductPageHarcodedTabs.FOR_ME.key,
-        labelBuilder: (BuildContext context) =>
-            AppLocalizations.of(context).product_page_tab_for_me,
-        builder: (BuildContext context, _) => ListView(
-          padding: EdgeInsetsDirectional.zero,
-          children: const <Widget>[],
-        ),
+        labelBuilder: (_) =>
+            ProductPageHarcodedTabs.FOR_ME.label(appLocalizations),
+        builder: (BuildContext context, _) => const ProductForMeTab(),
       ),
     );
-    */
+
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.PRICES.key,
-        labelBuilder: (BuildContext context) =>
-            AppLocalizations.of(context).product_page_tab_prices,
+        labelBuilder: (_) =>
+            ProductPageHarcodedTabs.PRICES.label(appLocalizations),
         builder: (_, Product product) => ProductPricesTab(product),
         suffix: FutureBuilder<int?>(
           future: _getPricesTotal(product, context),
@@ -196,8 +204,8 @@ class ProductPageTabsGenerator {
     tabs.add(
       ProductPageTab(
         id: ProductPageHarcodedTabs.FOLKSONOMY.key,
-        labelBuilder: (BuildContext context) =>
-            AppLocalizations.of(context).product_page_tab_folksonomy,
+        labelBuilder: (_) =>
+            ProductPageHarcodedTabs.FOLKSONOMY.label(appLocalizations),
         builder: (_, Product product) => ProductFolksonomyTab(product),
         suffix: FutureBuilder<int?>(
           future: _getFolksonomyTotal(product),

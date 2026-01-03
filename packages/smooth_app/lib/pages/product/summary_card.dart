@@ -43,7 +43,7 @@ class SummaryCard extends StatefulWidget {
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isPictureVisible = true,
-    this.attributeGroupsClickable = true,
+    this.attributeGroupsVisible = true,
     this.scrollableContent = false,
     this.isTextSelectable,
     this.margin,
@@ -71,8 +71,8 @@ class SummaryCard extends StatefulWidget {
   /// If true, a picture will be display next to the product name…
   final bool isPictureVisible;
 
-  /// If true, all chips / groups are clickable
-  final bool attributeGroupsClickable;
+  /// If true, all chips / groups are visible
+  final bool attributeGroupsVisible;
 
   /// If true, the text will be selectable
   final bool? isTextSelectable;
@@ -226,87 +226,6 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       excludedAttributeIds,
     );
 
-    final List<Widget> displayedGroups = <Widget>[];
-
-    // First, a virtual group with mandatory attributes of all groups
-    final List<Widget> attributeChips = _buildAttributeChips(
-      getMandatoryAttributes(
-        upToDateProduct,
-        _ATTRIBUTE_GROUP_ORDER,
-        _attributesToExcludeIfStatusIsUnknown,
-        widget._productPreferences,
-      ),
-      padding,
-    );
-    if (attributeChips.isNotEmpty) {
-      displayedGroups.add(
-        SummaryAttributeGroup(
-          attributeChips: attributeChips,
-          isClickable: widget.attributeGroupsClickable,
-          isFirstGroup: displayedGroups.isEmpty,
-          groupName: null,
-        ),
-      );
-    }
-    // Then, all groups, each with very important and important attributes
-    for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
-      if (upToDateProduct.attributeGroups == null) {
-        continue;
-      }
-      final Iterable<AttributeGroup> groupIterable = upToDateProduct
-          .attributeGroups!
-          .where((AttributeGroup group) => group.id == groupId);
-
-      if (groupIterable.isEmpty) {
-        continue;
-      }
-      final AttributeGroup group = groupIterable.single;
-      final List<Widget> attributeChips = _buildAttributeChips(
-        getFilteredAttributes(
-          group,
-          PreferenceImportance.ID_VERY_IMPORTANT,
-          _attributesToExcludeIfStatusIsUnknown,
-          widget._productPreferences,
-        ),
-        padding,
-      );
-      attributeChips.addAll(
-        _buildAttributeChips(
-          getFilteredAttributes(
-            group,
-            PreferenceImportance.ID_IMPORTANT,
-            _attributesToExcludeIfStatusIsUnknown,
-            widget._productPreferences,
-          ),
-          padding,
-        ),
-      );
-      if (attributeChips.isNotEmpty) {
-        displayedGroups.add(
-          SummaryAttributeGroup(
-            attributeChips: attributeChips,
-            isClickable: widget.attributeGroupsClickable,
-            isFirstGroup: displayedGroups.isEmpty,
-            groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
-                ? group.name!
-                : null,
-          ),
-        );
-      }
-    }
-
-    final Widget attributesContainer = displayedGroups.isNotEmpty
-        ? Container(
-            alignment: AlignmentDirectional.topStart,
-            margin: const EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
-              bottom: LARGE_SPACE,
-            ),
-            child: Column(children: displayedGroups),
-          )
-        : const SizedBox(height: SMALL_SPACE);
-    // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-
     final List<Widget> summaryCardButtons = <Widget>[];
 
     if (widget.isFullVersion) {
@@ -360,7 +279,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             child: ProductIncompleteCard(product: upToDateProduct),
           ),
         ..._getAttributes(scoreAttributes),
-        attributesContainer,
+        if (widget.attributeGroupsVisible) _attributesContainer(padding),
         Padding(
           padding: padding,
           child: Column(children: summaryCardButtons),
@@ -373,6 +292,90 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     } else {
       return child;
     }
+  }
+
+  Widget _attributesContainer(EdgeInsetsGeometry padding) {
+    final List<Widget> displayedGroups = <Widget>[];
+
+    // First, a virtual group with mandatory attributes of all groups
+    final List<Widget> attributeChips = _buildAttributeChips(
+      getMandatoryAttributes(
+        upToDateProduct,
+        _ATTRIBUTE_GROUP_ORDER,
+        _attributesToExcludeIfStatusIsUnknown,
+        widget._productPreferences,
+      ),
+      padding,
+    );
+    if (attributeChips.isNotEmpty) {
+      displayedGroups.add(
+        SummaryAttributeGroup(
+          attributeChips: attributeChips,
+          isClickable: false,
+          isFirstGroup: displayedGroups.isEmpty,
+          groupName: null,
+        ),
+      );
+    }
+    // Then, all groups, each with very important and important attributes
+    for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
+      if (upToDateProduct.attributeGroups == null) {
+        continue;
+      }
+      final Iterable<AttributeGroup> groupIterable = upToDateProduct
+          .attributeGroups!
+          .where((AttributeGroup group) => group.id == groupId);
+
+      if (groupIterable.isEmpty) {
+        continue;
+      }
+      final AttributeGroup group = groupIterable.single;
+      final List<Widget> attributeChips = _buildAttributeChips(
+        getFilteredAttributes(
+          group,
+          PreferenceImportance.ID_VERY_IMPORTANT,
+          _attributesToExcludeIfStatusIsUnknown,
+          widget._productPreferences,
+        ),
+        padding,
+      );
+      attributeChips.addAll(
+        _buildAttributeChips(
+          getFilteredAttributes(
+            group,
+            PreferenceImportance.ID_IMPORTANT,
+            _attributesToExcludeIfStatusIsUnknown,
+            widget._productPreferences,
+          ),
+          padding,
+        ),
+      );
+      if (attributeChips.isNotEmpty) {
+        displayedGroups.add(
+          SummaryAttributeGroup(
+            attributeChips: attributeChips,
+            isClickable: false,
+            isFirstGroup: displayedGroups.isEmpty,
+            groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
+                ? group.name!
+                : null,
+          ),
+        );
+      }
+    }
+
+    final Widget attributesContainer = displayedGroups.isNotEmpty
+        ? Container(
+            alignment: AlignmentDirectional.topStart,
+            margin: const EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              bottom: LARGE_SPACE,
+            ),
+            child: Column(children: displayedGroups),
+          )
+        : const SizedBox(height: SMALL_SPACE);
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
+    return attributesContainer;
   }
 
   List<Widget> _getAttributes(List<Attribute> scoreAttributes) {

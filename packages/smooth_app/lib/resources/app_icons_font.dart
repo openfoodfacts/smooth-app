@@ -259,6 +259,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData horizontal_bar_indicator = IconData(
+    0xe832,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData heart_monitor = IconData(
     0xe833,
     fontFamily: _kFontFam,

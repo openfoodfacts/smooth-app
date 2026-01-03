@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/filters/product_for_me_collection.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -93,6 +94,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
   static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
   static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
+  static const String _TAG_PRODUCT_PAGE_FOR_ME_FILTER =
+      '_product_page_for_me_filter';
   static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
       'ready_for_price_tag_validation';
   static const String _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD =
@@ -609,6 +612,26 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setProductPageTabs(final List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
+    notifyListeners();
+  }
+
+  ForMeAttributesFilterType? get forMeAttributesFilterType {
+    final String? key = _sharedPreferences.getString(
+      _TAG_PRODUCT_PAGE_FOR_ME_FILTER,
+    );
+    if (key?.isNotEmpty != true) {
+      return null;
+    }
+    return ForMeAttributesFilterType.fromKey(key!);
+  }
+
+  Future<void> setForMeAttributesFilterType(
+    final ForMeAttributesFilterType filter,
+  ) async {
+    await _sharedPreferences.setString(
+      _TAG_PRODUCT_PAGE_FOR_ME_FILTER,
+      filter.key,
+    );
     notifyListeners();
   }
 }
