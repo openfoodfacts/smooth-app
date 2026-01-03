@@ -15,7 +15,7 @@ class IntroductionPage extends StatelessWidget {
       'Allergies',
       'Ce que je ne mange pas',
       'Ce que je préfère éviter',
-      "Préférence en matière d'environnement",
+      "Préférences en matière d'environnement",
     ];
 
     return Padding(
