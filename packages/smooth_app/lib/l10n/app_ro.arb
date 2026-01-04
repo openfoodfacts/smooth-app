@@ -535,9 +535,17 @@
   "product": "Produs",
   "@product": {},
   "unknownBrand": "Marcă necunoscută",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Cantitate necunoscută",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Produs cu nume necunoscut",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Reîmprospătare",
   "@label_refresh": {
     "description": "Refresh the cached product"
