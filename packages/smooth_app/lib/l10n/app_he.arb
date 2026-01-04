@@ -535,9 +535,17 @@
   "product": "מוצר",
   "@product": {},
   "unknownBrand": "מותג לא ידוע",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "כמות לא ידועה",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "שם המוצר אינו ידוע",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "רענון",
   "@label_refresh": {
     "description": "Refresh the cached product"
