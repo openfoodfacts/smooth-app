@@ -535,9 +535,17 @@
   "product": "สินค้า",
   "@product": {},
   "unknownBrand": "ไม่ทราบยี่ห้อ",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "ปริมาณที่ไม่ทราบแน่ชัด",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "ผลิตภัณฑ์ที่ไม่รู้จัก",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "โหลดใหม่",
   "@label_refresh": {
     "description": "Refresh the cached product"
