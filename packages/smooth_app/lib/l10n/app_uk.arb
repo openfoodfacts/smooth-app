@@ -535,9 +535,17 @@
   "product": "Продукт",
   "@product": {},
   "unknownBrand": "Невідома марка",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Невідома кількість",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Невідомий продукт",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Оновлення",
   "@label_refresh": {
     "description": "Refresh the cached product"
