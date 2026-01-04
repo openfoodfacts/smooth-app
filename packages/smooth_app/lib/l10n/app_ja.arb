@@ -535,9 +535,17 @@
   "product": "製品",
   "@product": {},
   "unknownBrand": "不明なブランド",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "不明な数量",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "不明な製品名",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "再読み込み",
   "@label_refresh": {
     "description": "Refresh the cached product"
