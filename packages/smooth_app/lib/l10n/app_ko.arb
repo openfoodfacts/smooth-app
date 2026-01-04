@@ -535,9 +535,17 @@
   "product": "생성물",
   "@product": {},
   "unknownBrand": "알 수 없는 상표",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "알 수 없는 양",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "알 수 없는 상품명",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "새로고침",
   "@label_refresh": {
     "description": "Refresh the cached product"
