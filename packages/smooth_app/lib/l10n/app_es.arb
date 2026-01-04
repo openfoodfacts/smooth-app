@@ -535,9 +535,17 @@
   "product": "Producto",
   "@product": {},
   "unknownBrand": "Marca desconocida",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Cantidad desconocida",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nombre de producto desconocido",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Actualizar",
   "@label_refresh": {
     "description": "Refresh the cached product"
