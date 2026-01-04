@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Açık Fiyatlar hakkında daha fazla bilgi edinin.",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Puanlama hakkında bir not",
   "guide_open_beauty_facts_scores_paragraph1": "Gıda ürünlerinin aksine, kozmetik dünyasında **Nutri-Score gibi evrensel olarak kabul görmüş, devlet destekli bir puanlama sistemi** bulunmamaktadır. İçeriklerin etkileri kişiden kişiye büyük ölçüde değişebilir ve cilt tipine, alerjilere ve bireysel endişelere bağlıdır.",
   "guide_open_beauty_facts_share_link": "https://world-tr.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Açık Fiyatlar'a hoş geldiniz!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Açık Fiyatlar nedir?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices, **dünya genelindeki ürünlerin fiyatlarını toplamak ve paylaşmak** amacıyla oluşturulmuş bir projedir. Araştırma, analiz ve daha birçok amaç için kullanılabilen, herkese açık bir veri setidir. Open Prices, Open Food Facts tarafından geliştirilmekte ve sürdürülmektedir.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Açık Fiyatlandırma sistemi nasıl çalışır?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Açık kaynaklı bir fiyat veri seti oluşturmak için kitle kaynak yöntemini kullanıyoruz.** Kullanıcılar bu web uygulaması veya resmi Open Food Facts mobil uygulaması aracılığıyla fiyat ekleyebilirler. Perakendeciler veya üçüncü taraf uygulamalar da API'mizi kullanarak katkıda bulunabilirler.",
   "guide_open_prices_how_arg1_title": "Koridorlardaki fiyat etiketlerinin fotoğraflarını toplayın.",
   "guide_open_prices_how_arg2_title": "Fişlerin fotoğraflarını toplayın.",
@@ -4173,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Yakınınızdaki fiyatları karşılaştırın",
   "guide_open_prices_why_arg2_text": "Daha fazla fiyat bilgisi edindikçe, **çevrenizdeki en ucuz mağazaları** tespit edebileceksiniz.",
   "guide_open_prices_scrapping_title": "Perakendecilerin web sitelerinden fiyatları kazımayı düşündünüz mü?",
-  "guide_open_prices_scrapping_paragraph1": "Yasal ve teknik nedenlerden dolayı, **perakendecilerin web sitelerinden fiyat verilerini çekmeyi Açık Fiyatlar'a katkıda bulunmanın geçerli bir yolu olarak görmüyoruz**. Topladığımız fiyatların doğru ve güncel olduğundan emin olmak istiyoruz ve katkıda bulunanlardan çekilen fiyatları almak bunu yapmamıza olanak sağlamıyor.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Fiyat kazıma işlemi, Open Prices'ın gelecekteki bir sürümünde düşünülen bir seçenektir, ancak bu işlem Open Prices tarafından yapılacaktır, böylece HTML sayfasına dayalı olarak fiyatın kanıtını elde edebiliriz.",
   "guide_open_prices_retailers_title": "Ben bir perakendeciyim ve fiyatlara katkıda bulunmak istiyorum. Bunu nasıl yapabilirim?",
   "guide_open_prices_retailers_paragraph1": "API'mizi kullanarak fiyat katkısında bulunabilirsiniz.\nBüyük ölçekte fiyat katkısında bulunmak istiyorsanız lütfen prices@openfoodfacts.org adresinden bizimle iletişime geçin.",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Açık Fiyatları Keşfedin",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

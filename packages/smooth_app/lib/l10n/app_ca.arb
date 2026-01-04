@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Ajudeu a millorar Open Food Informations al vostre país",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Més informació sobre els preus oberts",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Una nota sobre la puntuació",
   "guide_open_beauty_facts_scores_paragraph1": "A diferència dels productes alimentaris, el món dels cosmètics **no té un sistema de puntuació universalment reconegut i avalat pel govern com el Nutri-Score**. Els efectes dels ingredients poden ser molt personals i depenen del tipus de pell, les al·lèrgies i les preocupacions individuals.",
   "guide_open_beauty_facts_share_link": "https://world-ca.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Benvinguts a Preus Oberts!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Què són els preus oberts?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices és un projecte per **recopilar i compartir preus de productes a tot el món**. És un conjunt de dades disponible públicament que es pot utilitzar per a la recerca, l'anàlisi i més. Open Prices està desenvolupat i mantingut per Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Descobreix els preus oberts",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

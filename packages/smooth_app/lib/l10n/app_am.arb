@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "በአገርዎ ውስጥ ክፍት የምግብ እውነታዎችን ለማሻሻል ያግዙ",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -711,7 +711,7 @@
   "nutritional_facts_input_button_label": "የአመጋገብ እውነታዎችን ይሙሉ",
   "nutritional_facts_added": "የአመጋገብ እውነታዎች ተጨምረዋል",
   "categories_added": "ምድቦች ታክለዋል",
-  "new_product_title_nutriscore": "የኑትሪ-ነጥብ ስሌት",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "ቢያንስ አንድ ምድብ እና የአመጋገብ እሴቶችን በመሙላት ያግዙን",
   "new_product_title_environmental_score": "አረንጓዴውን ውጤት አስላ",
   "new_product_subtitle_environmental_score": "ቢያንስ አንድ ምድብ በመሙላት ያግኙት",
@@ -720,7 +720,7 @@
   "new_product_subtitle_nova": "የምግብ ምድቡን እና ግብዓቶቹን በመሙላት ያግኙት",
   "new_product_desc_nova_unknown": "የምግብ ማቀነባበሪያ ደረጃ አይታወቅም",
   "new_product_title_pictures": "አዲስ ምርት",
-  "new_product_title_pictures_details": "እባክዎን የሚከተሉትን ፎቶዎች ያንሱ እና የክፍት ምግብ እውነታዎች ሞተር የቀረውን ማወቅ ይችላል!",
+  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "እና አንዳንድ መሰረታዊ መረጃዎች…",
   "new_product_done_msg": "\"{username}\" ላበረከቱት አስተዋጽኦ እናመሰግናለን!",
   "@new_product_done_msg": {
@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "ስለ ክፍት ዋጋዎች የበለጠ ይወቁ",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3835,9 +3835,9 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "የኑትሪ-ውጤት ቢ",
-  "nutriscore_c": "የኑትሪ-ስኬር ሲ",
-  "nutriscore_d": "የኑትሪ-ውጤት ዲ",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (አዲስ ስሌት)",
   "@nutriscore_new_formula": {
@@ -3849,8 +3849,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (አዲስ ስሌት)",
-  "nutriscore_unknown": "ያልታወቀ የኑትሪ-ስኬር",
-  "nutriscore_unknown_new_formula": "ያልታወቀ የኑትሪ-ነጥብ (አዲስ ስሌት)",
+  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score ተፈጻሚ አይሆንም",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ተፈጻሚ አይሆንም (አዲስ ስሌት)",
   "environmental_score_generic_new": "Green-Score",
@@ -3862,11 +3862,11 @@
   "environmental_score_unknown_new": "ያልታወቀ አረንጓዴ-ውጤት",
   "environmental_score_not_applicable_new": "አረንጓዴ-ውጤት ተፈጻሚ አይሆንም",
   "nova_group_generic_new": "እጅግ በጣም የተቀነባበሩ ምግቦች - NOVA ቡድኖች",
-  "nova_group_1": "የኖቫ ቡድን 1",
-  "nova_group_2": "ኖቫ ግሩፕ 2",
-  "nova_group_3": "የኖቫ ቡድን 3",
-  "nova_group_4": "ኖቫ ግሩፕ 4",
-  "nova_group_unknown": "ያልታወቀ የኖቫ ቡድን",
+  "nova_group_1": "NOVA Group 1",
+  "nova_group_2": "NOVA Group 2",
+  "nova_group_3": "NOVA Group 3",
+  "nova_group_4": "NOVA Group 4",
+  "nova_group_unknown": "Unknown NOVA Group",
   "nutrition_facts": "የአመጋገብ ደረጃዎች",
   "faq_title_partners": "የመንግስታዊ ያልሆነ ድርጅት አጋሮች እና ደጋፊዎች",
   "faq_title_vision": "ክፍት የምግብ እውነታዎች ራዕይ፣ ተልዕኮ፣ እሴቶች እና ፕሮግራሞች",
@@ -4149,12 +4149,12 @@
   "guide_open_beauty_facts_scores_title": "ስለ ውጤት ማስቆጠር ማስታወሻ",
   "guide_open_beauty_facts_scores_paragraph1": "ከምግብ ምርቶች በተለየ መልኩ የመዋቢያዎች ዓለም **እንደ Nutri-Score** ያለ በዓለም አቀፍ ደረጃ የታወቀ፣ በመንግስት የሚደገፍ የውጤት አሰጣጥ ስርዓት የለውም። የንጥረ ነገሮች ተፅእኖዎች በጣም ግላዊ ሊሆኑ እና በቆዳ አይነት፣ በአለርጂዎች እና በግለሰብ ጉዳዮች ላይ የተመሰረቱ ሊሆኑ ይችላሉ።",
   "guide_open_beauty_facts_share_link": "https://world-am.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "ወደ ክፍት ዋጋዎች እንኳን በደህና መጡ!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ክፍት ዋጋዎች ምንድን ናቸው?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "ክፍት ዋጋዎች **በዓለም ዙሪያ የምርት ዋጋዎችን ለመሰብሰብ እና ለማጋራት የሚያስችል ፕሮጀክት ነው**። ለምርምር፣ ለመተንተን እና ለሌሎችም ጥቅም ላይ ሊውል የሚችል በይፋ የሚገኝ የውሂብ ስብስብ ነው። ክፍት ዋጋዎች የሚዘጋጁት በክፍት የምግብ እውነታዎች ነው።",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ክፍት ዋጋዎች እንዴት ይሰራሉ?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**ዋጋዎችን ክፍት ምንጭ የውሂብ ስብስብ እያሰባሰብን ነው**። ዋጋዎች በተጠቃሚዎች በዚህ የድር መተግበሪያ ወይም በይፋዊው የክፍት ምግብ እውነታዎች የሞባይል መተግበሪያ በኩል ሊታከሉ ይችላሉ። ቸርቻሪዎች ወይም የሶስተኛ ወገን መተግበሪያዎች የእኛን ኤፒአይ በመጠቀምም አስተዋጽዖ ማድረግ ይችላሉ።",
   "guide_open_prices_how_arg1_title": "የዋጋ መለያዎችን ፎቶዎች በመተላለፊያዎች ውስጥ ይሰብስቡ",
   "guide_open_prices_how_arg2_title": "የደረሰኞችን ፎቶዎች ይሰብስቡ",
@@ -4173,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "በአቅራቢያዎ ያሉ ዋጋዎችን ያወዳድሩ",
   "guide_open_prices_why_arg2_text": "ተጨማሪ ዋጋዎችን ስናገኝ፣ **በዙሪያዎ በጣም ርካሹን መደብሮች** ማግኘት ይችላሉ።",
   "guide_open_prices_scrapping_title": "ከቸርቻሪዎች ድረ-ገጾች ላይ የዋጋ ቅነሳዎችን አስበዋል?",
-  "guide_open_prices_scrapping_paragraph1": "በሕግ እና በቴክኒካል ምክንያቶች፣ **ከቸርቻሪዎች ድረ-ገጾች የሚወጡ ዋጋዎችን መገልበጥ ለክፍት ዋጋዎች አስተዋጽኦ ለማድረግ እንደ ትክክለኛ መንገድ አድርገን አንቆጥረውም። የምንሰበስበው ዋጋ ትክክለኛ እና ወቅታዊ መሆኑን ማረጋገጥ እንፈልጋለን፣ እና ከአስተዋጽዖ አበርካቾች የተጣሉ ዋጋዎችን መቀበል ያንን እንድናደርግ አይፈቅድልንም።",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "የዋጋ ቅየራ (Preces scraping) ወደፊት በሚካሄደው የOpen Prices ስሪት ውስጥ እንደ አማራጭ የሚወሰድ ቢሆንም፣ በHTML ገጹ ላይ ተመስርቶ የዋጋውን ማረጋገጫ ማግኘት እንድንችል በክፍት Prices ራሱ ይከናወናል።",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "የእኛን ኤፒአይ በመጠቀም ዋጋዎችን ማበርከት ይችላሉ።\nዋጋዎችን በስፋት ማበርከት ከፈለጉ፣ እባክዎን በprices@openfoodfacts.org ያግኙን።",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "ክፍት ዋጋዎችን ያግኙ",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
