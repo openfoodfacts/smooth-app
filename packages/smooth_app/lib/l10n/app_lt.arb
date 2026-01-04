@@ -535,9 +535,17 @@
   "product": "Produktas",
   "@product": {},
   "unknownBrand": "Nežinomas prekės ženklas",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Nežinomas kiekis",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nežinomas produkto pavadinimas",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Atnaujinti",
   "@label_refresh": {
     "description": "Refresh the cached product"
