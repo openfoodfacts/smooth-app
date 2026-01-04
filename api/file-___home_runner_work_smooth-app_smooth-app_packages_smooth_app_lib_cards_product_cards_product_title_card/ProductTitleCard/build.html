@@ -71,8 +71,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Widget trailing = _ProductTitleCardTrailing(selectable: isSelectable);
-
   final Size imageSize = Size.square(
     MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25),
   );
@@ -88,9 +86,9 @@ Widget build(BuildContext context) {
         child: _ProductTitleCardName(selectable: isSelectable, dense: dense),
       ),
       const SizedBox(height: SMALL_SPACE),
-      _ProductTitleCardBrand(selectable: isSelectable, dense: dense),
+      _ProductTitleCardBrands(dense: dense, expandable: expandableBrands),
       const SizedBox(height: 2.0),
-      trailing,
+      _ProductTitleCardQuantity(selectable: isSelectable),
     ],
   );
 
@@ -191,6 +189,7 @@ Widget build(BuildContext context) {
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/dense.html">dense</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/expandableBrands.html">expandableBrands</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/heroTag.html">heroTag</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isPictureVisible.html">isPictureVisible</a></li>
