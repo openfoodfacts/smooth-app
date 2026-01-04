@@ -535,9 +535,17 @@
   "product": "Producte",
   "@product": {},
   "unknownBrand": "Marca desconeguda",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Quantitat desconeguda",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nom de producte desconegut",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresca",
   "@label_refresh": {
     "description": "Refresh the cached product"
