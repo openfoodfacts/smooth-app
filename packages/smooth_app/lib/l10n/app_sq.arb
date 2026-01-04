@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Markë e panjohur",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Sasi e panjohur",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Emer i panjohur produkti.",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Rifresko.",
   "@label_refresh": {
     "description": "Refresh the cached product"
