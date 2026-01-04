@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Chapa isiyojulikana",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Kiasi kisichojulikana",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Jina la bidhaa lisilojulikana",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
