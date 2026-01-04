@@ -535,9 +535,17 @@
   "product": "Produktua",
   "@product": {},
   "unknownBrand": "Marka ezezaguna",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Kantitate ezezaguna",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Produktu-izen ezezaguna",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Freskatu",
   "@label_refresh": {
     "description": "Refresh the cached product"
