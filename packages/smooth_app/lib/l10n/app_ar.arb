@@ -535,9 +535,17 @@
   "product": "نتاج",
   "@product": {},
   "unknownBrand": "علامة تجارية مجهولة",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "كمية غير معروفة",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "إسم منتج غير معروف",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "تحديث",
   "@label_refresh": {
     "description": "Refresh the cached product"
