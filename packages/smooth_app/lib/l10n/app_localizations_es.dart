@@ -673,6 +673,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get unknownBrand => 'Marca desconocida';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Nombre de producto desconocido';
 
   @override
@@ -1387,11 +1390,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Añade una categoría para calcular la puntuación Nutri-Score.';
+      'Añade una categoría para calcular la Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Añade la información nutricional para calcular la puntuación Nutri-Score.';
+      'Añade la información nutricional para calcular la Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
@@ -1399,7 +1402,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'No se ha podido calcular la puntuación Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.';
+      'No se ha podido calcular la Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -3587,7 +3590,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Iniciando la ejecución de las acciones del servidor para las actualizaciones de folksonomía almacenadas localmente.';
 
   @override
   String get background_task_title_top_n =>
@@ -4125,19 +4128,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Puntuación Nutri-Score $letter (Nuevo cálculo)';
+    return 'Nutri-Score $letter (Nuevo cálculo)';
   }
 
   @override
-  String get nutriscore_new_formula_title =>
-      'Puntuación Nutri-Score (Nuevo cálculo)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (Nuevo cálculo)';
 
   @override
   String get nutriscore_unknown => 'Nutri-Score desconocido';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Puntuación Nutri-Score desconocida (Nuevo cálculo)';
+      'Nutri-Score desconocida (Nuevo cálculo)';
 
   @override
   String get nutriscore_not_applicable =>
@@ -4151,22 +4153,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Puntuación verde A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Puntuación verde B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Puntuación verde C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Puntuación verde D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Puntuación verde E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Puntuación verde desconocida';
+  String get environmental_score_unknown_new => 'Green-Score desconocida';
 
   @override
   String get environmental_score_not_applicable_new =>
@@ -5016,7 +5018,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      '¿Qué es Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5028,7 +5030,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Características de Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5872,21 +5874,21 @@ class AppLocalizationsEs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubre el proyecto';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Descubra Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'Descubre Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Descubre Open Pet Food Facts';
 
   @override
   String get preferences_faq_discover_op_title => 'Descubra Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Descubra Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Preguntas frecuentes';
@@ -5914,7 +5916,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Participe asistiendo a uno de nuestros eventos virtuales';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'El blog de Open Food Facts';
 
   @override
   String get preferences_connect_blog_subtitle =>

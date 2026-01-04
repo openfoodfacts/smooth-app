@@ -22,19 +22,19 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
+      'Er du sikker på at du vil slette kontoen din?\nHvis det er en spesifikk grunn, vennligst del den nedenfor.';
 
   @override
-  String get reason => 'Reason';
+  String get reason => 'Grunn';
 
   @override
-  String get okay => 'Okay';
+  String get okay => 'Greit';
 
   @override
   String get validate => 'Validate';
 
   @override
-  String get create => 'Create';
+  String get create => 'Skape';
 
   @override
   String get applyButtonText => 'Apply';
@@ -43,7 +43,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get next_label => 'Neste';
 
   @override
-  String get continue_label => 'Continue';
+  String get continue_label => 'Fortsette';
 
   @override
   String get exit_label => 'Exit';
@@ -52,13 +52,13 @@ class AppLocalizationsNo extends AppLocalizations {
   String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'Go back to top';
+  String get go_back_to_top => 'Gå tilbake til toppen';
 
   @override
   String get save => 'Lagr';
 
   @override
-  String get save_confirmation => 'Are you sure you want to save?';
+  String get save_confirmation => 'Er du sikker på at du vil lagre?';
 
   @override
   String get skip => 'Skip';
@@ -67,7 +67,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'Ignore';
+  String get ignore => 'Overse';
 
   @override
   String get close => 'Close';
@@ -76,292 +76,297 @@ class AppLocalizationsNo extends AppLocalizations {
   String get no => 'Nei';
 
   @override
-  String get stop => 'Stop';
+  String get stop => 'Stoppe';
 
   @override
-  String get finish => 'Finish';
+  String get finish => 'Fullfør';
 
   @override
-  String get calculate => 'Calculate';
+  String get calculate => 'Kalkulere';
 
   @override
-  String get reset_food_prefs => 'Reset food preferences';
+  String get reset_food_prefs => 'Tilbakestill matpreferanser';
 
   @override
-  String get error => 'Something went wrong';
+  String get error => 'Noe gikk galt';
 
   @override
-  String get error_occurred => 'An error occurred';
+  String get error_occurred => 'Det oppsto en feil';
 
   @override
   String get featureInProgress =>
-      'We\'re still working on this feature, stay tuned';
+      'Vi jobber fortsatt med denne funksjonen, følg med';
 
   @override
-  String get label_web => 'View on the web';
+  String get label_web => 'Vis på nettet';
 
   @override
-  String get learnMore => 'Learn more';
+  String get learnMore => 'Lær mer';
 
   @override
-  String get unknown => 'Unknown';
+  String get unknown => 'Ukjent';
 
   @override
-  String get match_very_good => 'Very good match';
+  String get match_very_good => 'Veldig god kamp';
 
   @override
-  String get match_good => 'Good match';
+  String get match_good => 'God match';
 
   @override
-  String get match_poor => 'Poor match';
+  String get match_poor => 'Dårlig kamp';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Does not match';
+  String get match_does_not => 'Stemmer ikke overens';
 
   @override
-  String get match_unknown => 'Unknown match';
+  String get match_unknown => 'Ukjent treff';
 
   @override
-  String get match_short_very_good => 'Very good match';
+  String get match_short_very_good => 'Veldig god kamp';
 
   @override
-  String get match_short_good => 'Good match';
+  String get match_short_good => 'God match';
 
   @override
-  String get match_short_poor => 'Poor match';
+  String get match_short_poor => 'Dårlig kamp';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Does not match';
+  String get match_short_does_not => 'Stemmer ikke overens';
 
   @override
-  String get match_short_unknown => 'Unknown match';
+  String get match_short_unknown => 'Ukjent treff';
 
   @override
   String get licenses => 'Licences';
 
   @override
-  String get looking_for => 'Looking for';
+  String get looking_for => 'Leter etter';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
+  String get welcomeToOpenFoodFacts => 'Velkommen til Åpne matfakta';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts is a global non-profit powered by local communities.';
+      'Open Food Facts er en global ideell organisasjon drevet av lokalsamfunn.';
 
   @override
   String get productDataUtility =>
-      'See the food data relevant to your preferences.';
+      'Se matdataene som er relevante for dine preferanser.';
 
   @override
-  String get healthCardUtility => 'Choose foods that are good for you.';
+  String get healthCardUtility => 'Velg matvarer som er bra for deg.';
 
   @override
-  String get ecoCardUtility => 'Choose foods that are good for the planet.';
+  String get ecoCardUtility => 'Velg matvarer som er bra for planeten.';
 
   @override
   String get server_error_open_new_issue =>
-      'No server response! You may open an issue with the following link.';
+      'Ingen serverrespons! Du kan åpne et problem med følgende lenke.';
 
   @override
   String get sign_in_text =>
-      'Sign in to your Open Food Facts account to save your contributions';
+      'Logg inn på Open Food Facts-kontoen din for å lagre bidragene dine';
 
   @override
-  String get incorrect_credentials => 'Incorrect username or password.';
+  String get incorrect_credentials => 'Feil brukernavn eller passord.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'Denne e-postadressen eller brukernavnet finnes ikke. Vennligst sjekk påloggingsinformasjonen din.';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'Vi opplever for tiden nedgang på serverne våre, og vi beklager dette. Prøv igjen senere.';
 
   @override
   String get login => 'Username';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable =>
+      'Nettverket er utilgjengelig';
 
   @override
   String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+      'Problem på serveren. Prøv senere.';
 
   @override
-  String get login_page_username_or_email => 'Please enter username or e-mail';
+  String get login_page_username_or_email =>
+      'Vennligst skriv inn brukernavn eller e-post';
 
   @override
-  String get login_page_password_error_empty => 'Please enter a password';
+  String get login_page_password_error_empty =>
+      'Vennligst skriv inn et passord';
 
   @override
-  String get create_account => 'Create account';
+  String get create_account => 'Opprett konto';
 
   @override
   String get sign_in => 'Logg inn';
 
   @override
-  String get sign_in_mandatory => 'For that feature we need you to sign in.';
+  String get sign_in_mandatory => 'For den funksjonen må du logge inn.';
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'Hjelp med å forbedre Open Food Facts i landet ditt';
 
   @override
-  String get sign_out => 'Sign out';
+  String get sign_out => 'Logg ut';
 
   @override
-  String get sign_out_confirmation => 'Are you sure you want to sign out?';
+  String get sign_out_confirmation => 'Er du sikker på at du vil logge ut?';
 
   @override
   String get password => 'Passord';
 
   @override
-  String get forgot_password => 'Forgot password';
+  String get forgot_password => 'Glemt passord';
 
   @override
   String get forgot_password_question => 'Glemt passord?';
 
   @override
-  String get view_profile => 'View profile';
+  String get view_profile => 'Vis profil';
 
   @override
-  String get reset_password => 'Reset password';
+  String get reset_password => 'Tilbakestill passord';
 
   @override
   String get reset_password_explanation_text =>
-      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
+      'Hvis du har glemt passordet, skriv inn brukernavnet eller e-postadressen din for å motta instruksjoner for tilbakestilling av passord. Husk også å sjekke spam-mappen.';
 
   @override
-  String get username_or_email => 'Username or e-mail';
+  String get username_or_email => 'Brukernavn eller e-post';
 
   @override
   String get reset_password_done =>
-      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
+      'En e-post med en lenke for å tilbakestille passordet ditt er sendt til e-postadressen som er knyttet til kontoen din. Sjekk også spam-mappen din.';
 
   @override
-  String get send_reset_password_mail => 'Change password';
+  String get send_reset_password_mail => 'Endre passord';
 
   @override
-  String get enter_some_text => 'Please enter some text';
+  String get enter_some_text => 'Vennligst skriv inn litt tekst';
 
   @override
-  String get sign_up_page_title => 'Sign Up';
+  String get sign_up_page_title => 'Registrer deg';
 
   @override
-  String get sign_up_page_action_button => 'Sign Up';
+  String get sign_up_page_action_button => 'Registrer deg';
 
   @override
-  String get sign_up_page_action_doing_it => 'Signing up…';
+  String get sign_up_page_action_doing_it => 'Registrering…';
 
   @override
   String get sign_up_page_action_ok =>
-      'Congratulations! Your account has just been created.';
+      'Gratulerer! Kontoen din er nettopp opprettet.';
 
   @override
   String get sign_up_page_display_name_hint => 'Navn';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Please enter the display name you want to use';
+      'Vennligst skriv inn visningsnavnet du vil bruke';
 
   @override
-  String get sign_up_page_email_hint => 'E-mail';
+  String get sign_up_page_email_hint => 'E-post';
 
   @override
-  String get sign_up_page_email_error_empty => 'E-mail is required';
+  String get sign_up_page_email_error_empty => 'E-post er påkrevd';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
+  String get sign_up_page_email_error_invalid => 'Ugyldig e-post';
 
   @override
-  String get sign_up_page_username_hint => 'Username: Publicly visible';
+  String get sign_up_page_username_hint => 'Brukernavn: Offentlig synlig';
 
   @override
-  String get sign_up_page_username_error_empty => 'Please enter a username';
+  String get sign_up_page_username_error_empty =>
+      'Vennligst skriv inn et brukernavn';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Please enter a valid username';
+      'Vennligst skriv inn et gyldig brukernavn';
 
   @override
   String get sign_up_page_username_description =>
-      'Username cannot contains spaces, caps or special characters.';
+      'Brukernavnet kan ikke inneholde mellomrom, store bokstaver eller spesialtegn.';
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Username cannot exceed $value characters';
+    return 'Brukernavnet kan ikke overskride $value tegn';
   }
 
   @override
   String get sign_up_page_password_hint => 'Passord';
 
   @override
-  String get sign_up_page_password_error_empty => 'Please enter a password';
+  String get sign_up_page_password_error_empty =>
+      'Vennligst skriv inn et passord';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Please enter a valid password (at least 6 characters)';
+      'Vennligst skriv inn et gyldig passord (minst 6 tegn)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Confirm Password';
+  String get sign_up_page_confirm_password_hint => 'Bekreft passord';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Please confirm the password';
+      'Vennligst bekreft passordet';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Passwords don\'t match';
+      'Passordene samsvarer ikke';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text => 'Jeg godtar de åpne matfaktaene';
 
   @override
-  String get sign_up_page_terms_text => 'terms of use and contribution';
+  String get sign_up_page_terms_text => 'bruksvilkår og bidrag';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
+      'Når du oppretter en konto, er det obligatorisk å godta bruksvilkårene, men anonyme bidrag kan fortsatt gis gjennom appen.';
 
   @override
-  String get sign_up_page_producer_checkbox => 'I am a food producer';
+  String get sign_up_page_producer_checkbox => 'Jeg er en matprodusent';
 
   @override
-  String get sign_up_page_producer_hint => 'Producer/brand';
+  String get sign_up_page_producer_hint => 'Produsent/merke';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Please enter a producer or a brand name';
+      'Vennligst skriv inn en produsent eller et merkenavn';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'Jeg vil gjerne abonnere på nyhetsbrevet fra Open Food Facts (du kan når som helst melde deg av)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'The user name already exists, please choose another username.';
+      'Brukernavnet finnes allerede, vennligst velg et annet brukernavn.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'already exists, login to the account or try with another email.';
+      'finnes allerede, logg inn på kontoen eller prøv med en annen e-postadresse.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Please provide a valid email address.';
+      'Vennligst oppgi en gyldig e-postadresse.';
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'Vi beklager på det sterkeste, men vi har hatt noen tekniske problemer med å opprette kontoen din. Prøv igjen senere.';
 
   @override
   String get settingsTitle => 'Innstillinger';
@@ -379,141 +384,140 @@ class AppLocalizationsNo extends AppLocalizations {
   String get darkmode_system_default => 'Systemstandard';
 
   @override
-  String get thanks_for_contributing => 'Thanks for contributing!';
+  String get thanks_for_contributing => 'Takk for bidraget!';
 
   @override
-  String get contributors_label => 'They are building the app';
+  String get contributors_label => 'De bygger appen';
 
   @override
   String get contributors_dialog_title => 'Bidragere';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Contributor: $name';
+    return 'Bidragsyter: $name';
   }
 
   @override
   String get contributors_description =>
-      'A list of all contributors of this app';
+      'En liste over alle bidragsytere til denne appen';
 
   @override
-  String get support => 'Support';
+  String get support => 'Støtte';
 
   @override
-  String get support_join_slack => 'Ask for help in our Slack channel';
+  String get support_join_slack => 'Be om hjelp i Slack-kanalen vår';
 
   @override
-  String get support_via_forum => 'Ask for help on our forum';
+  String get support_via_forum => 'Be om hjelp på forumet vårt';
 
   @override
-  String get support_via_email => 'Send us an e-mail';
+  String get support_via_email => 'Send oss en e-post';
 
   @override
-  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
+  String get support_via_email_include_logs_dialog_title => 'Send applogger?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Do you wish to include application logs in attachment to your email?';
+      'Ønsker du å legge ved applikasjonslogger som vedlegg i e-posten din?';
 
   @override
-  String get termsOfUse => 'Terms of use';
+  String get termsOfUse => 'Bruksvilkår';
 
   @override
-  String get legalNotices => 'Legal notices';
+  String get legalNotices => 'Juridiske merknader';
 
   @override
-  String get privacy_policy => 'Privacy policy';
+  String get privacy_policy => 'Personvernerklæring';
 
   @override
-  String get about_this_app => 'About this app';
+  String get about_this_app => 'Om denne appen';
 
   @override
   String get contribute => 'Contribute';
 
   @override
-  String get contribute_sw_development => 'Software development';
+  String get contribute_sw_development => 'Programvareutvikling';
 
   @override
   String get contribute_develop_text =>
-      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
+      'Koden for alle Open Food Facts-produkter er tilgjengelig på GitHub. Du er velkommen til å gjenbruke koden (den er åpen kildekode) og hjelpe oss med å forbedre den, for alle, på hele planeten.';
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'Du kan bli med i Open Food Facts Slack-chatten, som er den foretrukne måten å stille spørsmål på.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV Mode?';
+  String get contribute_develop_dev_mode_title => 'DEV-modus?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
+  String get contribute_develop_dev_mode_subtitle => 'Aktiver DEV-modus';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'Doner til Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'Vær oppmerksom på at med den interne alfaversjonen er fullstendig tap av data mulig, og appen kan bli ubrukelig når som helst!';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Products to be completed';
+      'Produkter som skal fullføres';
 
   @override
-  String get contribute_improve_header => 'Improving';
+  String get contribute_improve_header => 'Forbedring';
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'Databasen er kjernen i prosjektet. Det er enkelt og raskt å hjelpe. Du kan laste ned mobilappen til telefonen din og begynne å legge til eller forbedre produkter.\n\nPå den annen side tilbyr nettstedet Open Food Facts mange måter å bidra på: ';
 
   @override
-  String get contribute_translate_header => 'Translate';
+  String get contribute_translate_header => 'Oversett';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Start Translating';
+  String get contribute_translate_link_text => 'Begynn å oversette';
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      'Open Food Facts er et globalt prosjekt som inneholder produkter fra mer enn 160 land. Open Food Facts er oversatt til en rekke språk, med innhold i stadig utvikling.';
 
   @override
   String get contribute_translate_text_2 =>
-      'Translations is one of the key tasks of the project';
+      'Oversettelser er en av prosjektets hovedoppgaver';
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'Bidra med ferdighetene dine til Open Food Facts. Bli med i ferdighetspoolen!';
 
   @override
-  String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+  String get contribute_share_header => 'Del Åpne matfakta med vennene dine';
 
   @override
   String get contribute_share_content =>
-      'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app';
+      'Jeg ville fortelle deg om appen jeg har brukt, Open Food Facts, som lar deg få informasjon om helse- og miljøpåvirkningen av maten din på en personlig måte. Den fungerer ved å skanne strekkodene på emballasjen. Den er gratis, krever ikke registrering, og du kan til og med bidra til å øke antallet produkter som dekrypteres. Her er lenken for å laste den ned til telefonen din: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Bidra til priser ved å be om GDPR-eksport av lojalitetskortdataene dine';
 
   @override
-  String get tap_to_answer => 'Tap here to answer questions';
+  String get tap_to_answer => 'Trykk her for å svare på spørsmål';
 
   @override
   String get tap_to_answer_hint =>
-      'Tap here to answer questions about this product';
+      'Trykk her for å svare på spørsmål om dette produktet';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Please wait while questions about this product are loaded';
+      'Vent mens spørsmål om dette produktet lastes inn';
 
   @override
-  String get saving_answer => 'Saving your answer';
+  String get saving_answer => 'Lagrer svaret ditt';
 
   @override
   String get contribute_to_get_rewards =>
@@ -521,109 +525,110 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'Logg inn på Open Food Facts-kontoen din for å få kreditt for bidragene dine';
 
   @override
-  String get question_yes_button_accessibility_value => 'Answer with yes';
+  String get question_yes_button_accessibility_value => 'Svar med ja';
 
   @override
-  String get question_no_button_accessibility_value => 'Answer with no';
+  String get question_no_button_accessibility_value => 'Svar med nei';
 
   @override
-  String get question_skip_button_accessibility_value => 'Skip this question';
+  String get question_skip_button_accessibility_value =>
+      'Hopp over dette spørsmålet';
 
   @override
-  String get tap_to_edit_search => 'Tap to edit search';
+  String get tap_to_edit_search => 'Trykk for å redigere søket';
 
   @override
-  String get myPreferences => 'My preferences';
+  String get myPreferences => 'Mine preferanser';
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'Opprett din konto og bli med i Open Food Facts-fellesskapet for å bidra til å bygge matkunnskap over hele verden!';
 
   @override
-  String get join_us => 'Join us';
+  String get join_us => 'Bli med oss';
 
   @override
-  String get myPreferences_profile_title => 'Your Profile';
+  String get myPreferences_profile_title => 'Din profil';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Manage your Open Food Facts contributor account.';
+      'Administrer din Open Food Facts-bidragsyterkonto.';
 
   @override
-  String get myPreferences_settings_title => 'App Settings';
+  String get myPreferences_settings_title => 'Appinnstillinger';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'Mørk modus, Språk…';
 
   @override
-  String get myPreferences_food_title => 'Food Preferences';
+  String get myPreferences_food_title => 'Matpreferanser';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Choose what information about food matters most to you.';
+      'Velg hvilken informasjon om mat som er viktigst for deg.';
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'Velg hvilken informasjon om mat som er viktigst for deg, for å rangere mat i henhold til dine preferanser, se informasjonen du bryr deg om først, og få et kompatibilitetssammendrag. Disse matpreferansene forblir på enheten din, og er ikke knyttet til din Open Food Facts-bidragsyterkonto hvis du har en.';
 
   @override
-  String get confirmResetPreferences => 'Reset your food preferences?';
+  String get confirmResetPreferences => 'Tilbakestille matpreferansene dine?';
 
   @override
-  String get myPersonalizedRanking => 'My personalized ranking';
+  String get myPersonalizedRanking => 'Min personlige rangering';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'A great match for you';
+  String get ranking_subtitle_match_yes => 'En flott match for deg';
 
   @override
-  String get ranking_subtitle_match_no => 'Very poor match';
+  String get ranking_subtitle_match_no => 'Veldig dårlig kamp';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Unknown match';
+  String get ranking_subtitle_match_maybe => 'Ukjent treff';
 
   @override
   String get refresh_with_new_preferences =>
-      'Refresh the list with your new preferences';
+      'Oppdater listen med de nye innstillingene dine';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Reloaded with your new preferences';
+      'Lastet inn på nytt med dine nye preferanser';
 
   @override
   String get profile_navbar_label => 'Community';
 
   @override
-  String get scan_navbar_label => 'Scan';
+  String get scan_navbar_label => 'Skann';
 
   @override
   String get history_navbar_label => 'Logg';
 
   @override
-  String get list_navbar_label => 'Lists';
+  String get list_navbar_label => 'Lister';
 
   @override
-  String get category => 'Filter by category';
+  String get category => 'Filtrer etter kategori';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(category search)';
+  String get category_search => '(kategorisøk)';
 
   @override
   String get filter => 'Filter';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'Produkter fra skanneskjermen';
 
   @override
-  String get scan_history => 'Scan history';
+  String get scan_history => 'Skanningshistorikk';
 
   @override
   String get search => 'Søk';
@@ -639,169 +644,173 @@ class AppLocalizationsNo extends AppLocalizations {
   String get search_history => 'Søkelogg';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'Søk etter en butikk';
 
   @override
   String get search_store_help => 'Hint: legg til byen eller landet';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get tap_for_more => 'Trykk for å se mer informasjon…';
 
   @override
   String get product => 'Produkt';
 
   @override
-  String get unknownBrand => 'Unknown brand';
+  String get unknownBrand => 'Ukjent merke';
 
   @override
-  String get unknownProductName => 'Unknown product name';
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
+  String get unknownProductName => 'Ukjent produktnavn';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Last inn på nytt';
 
   @override
-  String get image => 'Image';
+  String get image => 'Bilde';
 
   @override
-  String get front_photo => 'Front photo';
+  String get front_photo => 'Forsidebilde';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (dette bildet kan være utdatert)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'kan være utdatert';
 
   @override
   String get ingredients => 'Ingredienser';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'Behold den opprinnelige rekkefølgen. Angi prosentandelen når den er spesifisert. Skill med komma eller bindestrek, og bruk parenteser for ingrediensene til en ingrediens.';
 
   @override
-  String get ingredients_editing_error => 'Failed to save the ingredients.';
+  String get ingredients_editing_error => 'Kunne ikke lagre ingrediensene.';
 
   @override
   String get ingredients_editing_image_error =>
-      'Failed to get a new ingredients image.';
+      'Klarte ikke å hente et nytt ingrediensbilde.';
 
   @override
-  String get ingredients_editing_title => 'Edit Ingredients';
+  String get ingredients_editing_title => 'Rediger ingredienser';
 
   @override
-  String get ingredients_photo => 'Ingredients photo';
+  String get ingredients_photo => 'Ingredienser bilde';
 
   @override
   String get packaging_editing_instructions =>
-      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
+      'List opp alle emballasjedeler atskilt med komma eller linjeskift, med mengde (f.eks. 1 eller 6), type (f.eks. flaske, eske, boks), materiale (f.eks. plast, metall, aluminium) og hvis tilgjengelig størrelse (f.eks. 33 cl) og resirkuleringsinstruksjoner.\nEksempel: 1 glassflaske til resirkulering, 1 plastkork til kasting';
 
   @override
-  String get packaging_editing_error => 'Failed to save the packaging.';
+  String get packaging_editing_error => 'Klarte ikke å lagre emballasjen.';
 
   @override
   String get packaging_editing_image_error =>
-      'Failed to get a new packaging image.';
+      'Klarte ikke å hente et nytt emballasjebilde.';
 
   @override
-  String get packaging_editing_title => 'Edit Packaging';
+  String get packaging_editing_title => 'Rediger emballasje';
 
   @override
   String get nutrition => 'Næring';
 
   @override
-  String get nutrition_facts_photo => 'Nutrition facts photo';
+  String get nutrition_facts_photo => 'Næringsinnholdsinformasjonsbilde';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Rediger næringsinnhold';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Emballasjeinformasjon';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Emballasjeinformasjonsbilde';
 
   @override
-  String get missing_product => 'You found a new product!';
+  String get missing_product => 'Du har funnet et nytt produkt!';
 
   @override
   String get add_product_take_photos =>
-      'Take photos of the packaging to add this product to Open Food Facts';
+      'Ta bilder av emballasjen for å legge til dette produktet i Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Please take some photos first. You may always complete the product at a later time.';
+      'Ta noen bilder først. Du kan alltids fullføre produktet senere.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'New Product';
+  String get new_product => 'Nytt produkt';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'Nytt produkt funnet!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Vår samarbeidsdatabase inneholder mer enn **3 millioner produkter**, men denne strekkoden finnes ikke: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'Forlate denne siden?';
 
   @override
   String get new_product_leave_message =>
-      'It looks like you didn\'t input anything. Do you really want to leave this page?';
+      'Det ser ut som du ikke har skrevet inn noe. Vil du virkelig forlate denne siden?';
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'Vennligst ta bilder av emballasjen for å legge dette produktet til i vår felles database.';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'En illustrasjon med ukjent Nutri-Score og Green Score';
 
   @override
-  String get front_packaging_photo_button_label => 'Front packaging photo';
+  String get front_packaging_photo_button_label =>
+      'Foto av forsiden av emballasjen';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Confirm upload of Front packaging photo';
+      'Bekreft opplasting av bilde av frontemballasjen';
 
   @override
-  String get confirm_button_label => 'Confirm';
+  String get confirm_button_label => 'Bekrefte';
 
   @override
-  String get send_image_button_label => 'Send image';
+  String get send_image_button_label => 'Send bilde';
 
   @override
-  String get crop_page_action_saving => 'Saving the image…';
+  String get crop_page_action_saving => 'Lagrer bildet…';
 
   @override
-  String get crop_page_action_cropping => 'Cropping the image…';
+  String get crop_page_action_cropping => 'Beskjæring av bildet…';
 
   @override
-  String get crop_page_action_local => 'Saving a local version…';
+  String get crop_page_action_local => 'Lagre en lokal versjon…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Oops… there\'s something with your photo!';
+      'Ups… det er noe galt med bildet ditt!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
+      'Vi kan ikke behandle bildet lokalt før vi sender det til serveren vår. Prøv igjen senere, eller kontakt oss hvis problemet vedvarer.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'Ta et bilde på nytt';
 
   @override
-  String get crop_page_too_small_image_title => 'The image is too small!';
+  String get crop_page_too_small_image_title => 'Bildet er for lite!';
 
   @override
   String crop_page_too_small_image_message(
@@ -810,23 +819,23 @@ class AppLocalizationsNo extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
+    return 'Minimumsstørrelsen i piksler for bildeopplasting er ${expectedMinWidth}x$expectedMinHeight. Det nåværende bildet er ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'Preparing a call to the server…';
+  String get crop_page_action_server => 'Forbereder et kall til serveren…';
 
   @override
-  String get front_packaging_photo_title => 'Front Packaging Photo';
+  String get front_packaging_photo_title => 'Foto av forsiden av emballasjen';
 
   @override
-  String get ingredients_photo_title => 'Ingredients Photo';
+  String get ingredients_photo_title => 'Ingredienser Foto';
 
   @override
-  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
+  String get nutritional_facts_photo_title => 'Næringsinnhold Foto';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Resirkuleringsfoto';
 
   @override
   String get take_photo_title => 'Ta et bilde';
@@ -835,159 +844,163 @@ class AppLocalizationsNo extends AppLocalizations {
   String get take_more_photo_title => 'Ta flere bilder';
 
   @override
-  String get front_photo_uploaded => 'Front photo uploaded';
+  String get front_photo_uploaded => 'Frontbilde lastet opp';
 
   @override
-  String get ingredients_photo_button_label => 'Ingredients photo';
+  String get ingredients_photo_button_label => 'Ingredienser bilde';
 
   @override
-  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
+  String get ingredients_photo_uploaded => 'Ingrediensbilde lastet opp';
 
   @override
   String get nutrition_cache_loading_error =>
-      'Unable to load nutrients from cache';
+      'Kan ikke laste inn næringsstoffer fra hurtigbufferen';
 
   @override
-  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
+  String get nutritional_facts_photo_button_label =>
+      'Næringsinnholdsinformasjonsbilde';
 
   @override
-  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
+  String get nutritional_facts_input_button_label => 'Fyll inn næringsinnhold';
 
   @override
-  String get nutritional_facts_added => 'Nutrition facts added';
+  String get nutritional_facts_added => 'Næringsinnhold lagt til';
 
   @override
-  String get categories_added => 'Categories added';
+  String get categories_added => 'Kategorier lagt til';
 
   @override
-  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
+  String get new_product_title_nutriscore => 'Beregn ernæringspoengsummen';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Help us by filling at least a category and nutritional values';
+      'Hjelp oss ved å fylle ut minst én kategori og næringsverdier';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score =>
+      'Beregn den grønne poengsummen';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'Få det ved å fylle ut minst én kategori';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'Gjør beregningen av Green Score mer presis med opprinnelse, emballasje og mer';
 
   @override
-  String get new_product_title_nova =>
-      'Compute the food processing level (NOVA)';
+  String get new_product_title_nova => 'Beregn matforedlingsnivået (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Get it by filling the food category and ingredients';
+      'Få det ved å fylle ut matkategorien og ingrediensene';
 
   @override
-  String get new_product_desc_nova_unknown => 'Food processing level unknown';
+  String get new_product_desc_nova_unknown => 'Matforedlingsnivå ukjent';
 
   @override
-  String get new_product_title_pictures => 'New product';
+  String get new_product_title_pictures => 'Nytt produkt';
 
   @override
   String get new_product_title_pictures_details =>
-      'Please take the following photos and the Open Food Facts engine can work out the rest!';
+      'Ta følgende bilder, så kan Open Food Facts-motoren finne ut av resten!';
 
   @override
-  String get new_product_title_misc => 'And some basic data…';
+  String get new_product_title_misc => 'Og noen grunnleggende data…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return 'Takk for bidraget ditt «$username»!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user => 'Takk for bidraget ditt!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'Oppdag det ferdige produktet';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Trykk for å svare på 3 spørsmål NÅ for å beregne Nutri-Score, Green Score og Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'Trykk nå for å svare på to spørsmål som kan hjelpe deg med å analysere dette produktet!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'Trykk nå for å svare på tre spørsmål som kan hjelpe deg med å analysere dette dyrefôrproduktet!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'Trykk nå for å fullføre dette produktet!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'Nutrition facts photo uploaded';
+      'Bilde av næringsinnhold lastet opp';
 
   @override
-  String get recycling_photo_button_label => 'Recycling photo';
+  String get recycling_photo_button_label => 'Resirkuleringsbilde';
 
   @override
-  String get recycling_photo_uploaded => 'Recycling photo uploaded';
+  String get recycling_photo_uploaded => 'Resirkuleringsbilde lastet opp';
 
   @override
   String get take_more_photo_button_label => 'Ta flere bilder';
 
   @override
-  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
+  String get other_photo_uploaded => 'Diverse bilder lastet opp';
 
   @override
-  String get retake_photo_button_label => 'Retake';
+  String get retake_photo_button_label => 'Ta på nytt';
 
   @override
-  String get selecting_photo => 'Selecting photo';
+  String get selecting_photo => 'Velger bilde';
 
   @override
-  String get uploading_image => 'Uploading photo to the server';
+  String get uploading_image => 'Laster opp bilde til serveren';
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'Laster opp frontbilde til Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'Laster opp ingrediensbilde til Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'Laster opp ernæringsbilde til Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'Laster opp emballasjebilde til Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+      'Laster opp et annet bilde til Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+      'Laster opp bilde til Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients => 'Add missing ingredients';
+  String get score_add_missing_ingredients => 'Legg til manglende ingredienser';
 
   @override
-  String get score_add_missing_packaging_image => 'Add missing packaging image';
+  String get score_add_missing_packaging_image =>
+      'Legg til manglende emballasjebilde';
 
   @override
-  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
+  String get score_add_missing_nutrition_facts =>
+      'Legg til manglende næringsinnhold';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Legg til manglende produktspor';
 
   @override
-  String get score_add_missing_product_category => 'Select a category';
+  String get score_add_missing_product_category => 'Velg en kategori';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -995,36 +1008,40 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Add missing product countries';
+      'Legg til manglende produktland';
 
   @override
   String get score_add_missing_product_emb =>
-      'Add missing product traceability codes';
+      'Legg til manglende sporbarhetskoder for produkter';
 
   @override
-  String get score_add_missing_product_labels => 'Add missing product labels';
+  String get score_add_missing_product_labels =>
+      'Legg til manglende produktetiketter';
 
   @override
-  String get score_add_missing_product_origins => 'Add missing product origins';
+  String get score_add_missing_product_origins =>
+      'Legg til manglende produktopprinnelser';
 
   @override
-  String get score_add_missing_product_stores => 'Add missing product stores';
+  String get score_add_missing_product_stores =>
+      'Legg til manglende produktbutikker';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands =>
+      'Legg til manglende produktmerker';
 
   @override
-  String get score_update_nutrition_facts => 'Update nutrition facts';
+  String get score_update_nutrition_facts => 'Oppdater næringsinnhold';
 
   @override
-  String get nutrition_page_title => 'Nutrition Facts';
+  String get nutrition_page_title => 'Næringsinnhold';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Næringsinnhold';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Verdier spesifisert på produktet:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Ja';
@@ -1033,61 +1050,61 @@ class AppLocalizationsNo extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Nei';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Åpne bildet';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'God praksis: Næringsinnhold';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Noen ganger er næringsinnholdet **ikke spesifisert på emballasjen** eller på et dokument som følger med produktet. I dette tilfellet, og bare i dette tilfellet, kan du sette verdien til **NEI**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Næringsinnhold:';
 
   @override
-  String get nutrition_page_per_100g => 'per 100g';
+  String get nutrition_page_per_100g => 'per 100 g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'per 100 g/ml';
 
   @override
   String get nutrition_page_per_serving => 'per porsjon';
 
   @override
-  String get nutrition_page_add_nutrient => 'Add a nutrient';
+  String get nutrition_page_add_nutrient => 'Tilsett et næringsstoff';
 
   @override
   String get nutrition_page_serving_size => 'Porsjonstørrelse';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Skriv inn en porsjonsstørrelse (f.eks. 100 g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'God praksis: Serveringsstørrelse';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Denne verdien bidrar til å **lage en proporsjonal beregning av hvert næringsstoff per porsjonsstørrelse**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Tillatte enheter** er: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公卨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 g**, **60 g** eller **60 G** (foretrekk den første)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** eller **1 l**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'Ugyldig enhet';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1095,88 +1112,88 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Ugyldige enheter';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **godteri** og 2 **kjeks**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Manglende enhet';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Invalid number';
+  String get nutrition_page_invalid_number => 'Ugyldig nummer';
 
   @override
   String get nutrition_page_update_running =>
-      'Updating the product on the server…';
+      'Oppdaterer produktet på serveren…';
 
   @override
-  String get nutrition_page_update_done => 'Product updated!';
+  String get nutrition_page_update_done => 'Produkt oppdatert!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'Bruk produktmengden som porsjonsstørrelse';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'Kan ikke laste inn bildet';
 
   @override
-  String get more_photos => 'More interesting photos';
+  String get more_photos => 'Flere interessante bilder';
 
   @override
   String get view_more_photo_button =>
-      'View all existing photos for this product';
+      'Se alle eksisterende bilder for dette produktet';
 
   @override
-  String get no_product_found => 'No product found';
+  String get no_product_found => 'Ingen produkt funnet';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'Ingen plassering funnet';
 
   @override
-  String get not_found => 'not found:';
+  String get not_found => 'ikke funnet:';
 
   @override
-  String get refreshing_product => 'Refreshing product';
+  String get refreshing_product => 'Forfriskende produkt';
 
   @override
-  String get product_refreshed => 'Product refreshed';
+  String get product_refreshed => 'Produktet er oppdatert';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'Bilde tatt $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'Bildet er tatt $date. Dette bildet kan være utdatert';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated => 'Dette bildet kan være utdatert';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'Dette bildet kan være utdatert';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'Dette bildet ble tatt for over et år siden.\n**Sjekk at det fortsatt er oppdatert**.\n\nDette er **bare en advarsel**. Hvis innholdet fortsatt er det samme, kan du ignorere denne meldingen.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'Erstatt bilde ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'Legg til et bilde ($type)';
   }
 
   @override
@@ -1186,92 +1203,91 @@ class AppLocalizationsNo extends AppLocalizations {
   String get product_image_action_take_picture => 'Ta et bilde';
 
   @override
-  String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+  String get product_image_action_from_gallery => 'Velg fra telefonens galleri';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+      'Velg fra produktbildene';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'Informasjon om bildet';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Fra produsenten';
 
   @override
   String get product_image_details_contributor => 'Bidrager';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'Bidragsyter (produsent)';
 
   @override
-  String get product_image_details_date => 'Date';
+  String get product_image_details_date => 'Dato';
 
   @override
-  String get product_image_details_date_unknown => 'Unknown';
+  String get product_image_details_date_unknown => 'Ukjent';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Welcome to Open Food Facts';
+      'Velkommen til Åpne matfakta';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      '**Skann** en strekkode eller\n**søk** etter et produkt';
 
   @override
   String get homepage_main_card_search_field_hint => 'Søk etter et produkt';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'Start søk';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'Siste nytt: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Do you like the app?';
+  String get tagline_app_review => 'Liker du appen?';
 
   @override
-  String get tagline_app_review_button_positive => 'I love it! 😍';
+  String get tagline_app_review_button_positive => 'Jeg elsker det! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Not really…';
+  String get tagline_app_review_button_negative => 'Ikke egentlig…';
 
   @override
-  String get tagline_app_review_button_later => 'Ask me later';
+  String get tagline_app_review_button_later => 'Spør meg senere';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'Lær mer';
 
   @override
-  String get app_review_negative_modal_title => 'You don\'t like our app?';
+  String get app_review_negative_modal_title => 'Liker du ikke appen vår?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Could you take a few seconds to tell us why?';
+      'Kan du bruke noen sekunder på å fortelle oss hvorfor?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
+  String get app_review_negative_modal_positive_button => 'Ja, absolutt!';
 
   @override
   String get app_review_negative_modal_negative_button => 'Nei';
 
   @override
-  String get could_not_refresh => 'Could not refresh product';
+  String get could_not_refresh => 'Kunne ikke oppdatere produktet';
 
   @override
-  String get product_internet_error_modal_title => 'An error has occurred!';
+  String get product_internet_error_modal_title => 'Det har oppstått en feil!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'Vi kan ikke hente informasjon om dette produktet på grunn av en nettverksfeil. Sjekk internettforbindelsen din og prøv på nytt.\n\nIntern feil:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'Produktegenskaper';
 
   @override
   String get no_product_tags_found_message =>
@@ -1288,28 +1304,28 @@ class AppLocalizationsNo extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Legg til egenskaper';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'Legg til eller rediger egenskaper';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'Rediger egenskap';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'Fjern egenskap';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'Eiendom';
 
   @override
   String get tag_keys => 'Eiendommer';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'Egenskap (kan ikke redigeres)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'Skriv inn en egenskap';
 
   @override
   String get tag_value => 'Value';
@@ -1318,29 +1334,29 @@ class AppLocalizationsNo extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Skriv inn en verdi';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Eiendom:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Verdi:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'En nøkkel må være liten og uten mellomrom.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return 'En tagg med en egenskap $property finnes allerede!';
   }
 
   @override
   String get product_internet_error =>
-      'Impossible to fetch information about this product due to a network error.';
+      'Umulig å hente informasjon om dette produktet på grunn av en nettverksfeil.';
 
   @override
-  String get cached_results_from => 'Show results from:';
+  String get cached_results_from => 'Vis resultater fra:';
 
   @override
   String get product_search_same_category => 'Finn alternativer';
@@ -1350,40 +1366,40 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'Denne funksjonen kan bare brukes for produkter med en kategori.\n\nVennligst rediger produktet for å legge til en kategori.';
 
   @override
   String get product_improvement_add_category =>
-      'Add a category to calculate the Nutri-Score.';
+      'Legg til en kategori for å beregne Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+      'Legg til næringsinnhold for å beregne Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      'Legg til næringsinnhold og en kategori for å beregne Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
+      'Næringspoengsummen for dette produktet kan ikke beregnes, noe som for eksempel kan skyldes en ikke-standard kategori. Hvis dette anses som en feil, vennligst kontakt oss.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'The nutrition image is obsolete: please refresh it.';
+      'Ernæringsbildet er utdatert: vennligst oppdater det.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'Den grønne poengsummen tar hensyn til ingrediensenes opprinnelse. Vennligst ta et bilde av ingredienslisten og/eller eventuelle geografiske påstander, eller rediger produktet, slik at de kan tas i betraktning.';
 
   @override
-  String get country_chooser_label => 'Please choose a country';
+  String get country_chooser_label => 'Vennligst velg et land';
 
   @override
   String get currency_chooser_label => 'Velg en valuta';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'Du har nettopp byttet land.';
 
   @override
   String currency_auto_change_message(
@@ -1394,55 +1410,57 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'Vennligst velg et land:';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'Landet ditt';
 
   @override
   String get country_selection_explanation =>
-      'Some environmental features are location-specific';
+      'Noen miljøtrekk er stedsspesifikke';
 
   @override
-  String get product_removed_comparison => 'Product removed from comparison';
+  String get product_removed_comparison =>
+      'Produkt fjernet fra sammenligningen';
 
   @override
-  String get native_app_settings => 'Native App Settings';
+  String get native_app_settings => 'Innstillinger for integrerte apper';
 
   @override
   String get native_app_description =>
-      'Open systems settings for Open Food Facts';
+      'Åpne systeminnstillinger for Åpne matfakta';
 
   @override
-  String get product_removed_history => 'Product removed from history';
+  String get product_removed_history => 'Produkt fjernet fra historikken';
 
   @override
-  String get product_removed_list => 'Product removed from list';
+  String get product_removed_list => 'Produkt fjernet fra listen';
 
   @override
-  String get product_could_not_remove => 'Could not remove product';
+  String get product_could_not_remove => 'Kunne ikke fjerne produktet';
 
   @override
-  String get no_prodcut_in_list => 'There is no product in this list';
+  String get no_prodcut_in_list => 'Det finnes ikke noe produkt i denne listen';
 
   @override
-  String get no_product_in_section => 'There is no product in this section';
+  String get no_product_in_section =>
+      'Det finnes ikke noe produkt i denne seksjonen';
 
   @override
-  String get recently_seen_products => 'All viewed products';
+  String get recently_seen_products => 'Alle viste produkter';
 
   @override
   String get clear => 'Tøm';
 
   @override
-  String get clear_long => 'Empty the list';
+  String get clear_long => 'Tøm listen';
 
   @override
-  String get really_clear => 'Do you really want to delete this list?';
+  String get really_clear => 'Vil du virkelig slette denne listen?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% match';
+    return '$percent% samsvar';
   }
 
   @override
@@ -1450,8 +1468,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count days ago',
-      one: 'one day ago',
+      other: '$count for dager siden',
+      one: 'for én dag siden',
     );
     return '$_temp0';
   }
@@ -1461,8 +1479,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count hours ago',
-      one: 'one hour ago',
+      other: '$count for timer siden',
+      one: 'for én time siden',
     );
     return '$_temp0';
   }
@@ -1472,9 +1490,9 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count minutes ago',
-      one: 'one minute ago',
-      zero: 'less than a minute ago',
+      other: '$count for minutter siden',
+      one: 'for ett minutt siden',
+      zero: 'for mindre enn ett minutt siden',
     );
     return '$_temp0';
   }
@@ -1484,8 +1502,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count months ago',
-      one: 'one month ago',
+      other: '$count for måneder siden',
+      one: 'for én måned siden',
     );
     return '$_temp0';
   }
@@ -1495,8 +1513,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count weeks ago',
-      one: 'one week ago',
+      other: '$count for uker siden',
+      one: 'for én uke siden',
     );
     return '$_temp0';
   }
@@ -1506,8 +1524,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Compare $count Products',
-      one: 'Compare one Product',
+      other: 'Sammenlign $count Produkter',
+      one: 'Sammenlign ett produkt',
     );
     return '$_temp0';
   }
@@ -1517,86 +1535,86 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count valgte produkter',
+      one: 'Ett valgt produkt',
+      zero: 'Ingen valgte produkter',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'Sammenlign utvalgte produkter';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'Slett valgte produkter';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'Velg alle produkter';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'Velg ingen';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Please select at least two products';
+      'Vennligst velg minst to produkter';
 
   @override
-  String get retry_button_label => 'Retry';
+  String get retry_button_label => 'Prøv på nytt';
 
   @override
-  String get connect_with_us => 'Connect with us';
+  String get connect_with_us => 'Ta kontakt med oss';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Følg oss på TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Follow us on Instagram';
+  String get instagram => 'Følg oss på Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Follow us on X (formerly Twitter)';
+  String get twitter => 'Følg oss på X (tidligere Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Følg oss på Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Følg oss på BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'Blog';
+  String get blog => 'Blogg';
 
   @override
-  String get faq => 'FAQ';
+  String get faq => 'Vanlige spørsmål';
 
   @override
   String get discover => 'Utforsk';
 
   @override
-  String get how_to_contribute => 'How to Contribute';
+  String get how_to_contribute => 'Hvordan bidra';
 
   @override
   String get hint_knowledge_panel_message =>
-      'Your can tap on any part of the card to get more details about what you see. Try it now!';
+      'Du kan trykke på hvilken som helst del av kortet for å få mer informasjon om hva du ser. Prøv det nå!';
 
   @override
-  String get permissions_page_title => 'Camera access';
+  String get permissions_page_title => 'Kameratilgang';
 
   @override
   String get permissions_page_body1 =>
@@ -1604,7 +1622,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
+      'Hvis du ombestemmer deg, kan dette alternativet aktiveres og deaktiveres når som helst fra innstillingene.';
 
   @override
   String contact_form_body_android(
@@ -1615,7 +1633,7 @@ class AppLocalizationsNo extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
+    return 'OS: Android (SDK Int: $sdkInt / Utgivelse: $release)\nModell: $model\nProdukt: $product\nEnhet: $device\nMerke:$brand';
   }
 
   @override
@@ -1624,7 +1642,7 @@ class AppLocalizationsNo extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
+    return 'OS: iOS ($version)\nModell: $model\nLokalisert modell: $localizedModel';
   }
 
   @override
@@ -1634,67 +1652,67 @@ class AppLocalizationsNo extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
+    return '$osContent\nAppversjon:$appVersion\nAppens byggenummer:$appBuildNumber\nAppens pakkenavn:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Refuse';
+  String get refuse_button_label => 'Avslå';
 
   @override
-  String get ask_me_later_button_label => 'Later';
+  String get ask_me_later_button_label => 'Seinere';
 
   @override
-  String get are_you_sure => 'Are you sure?';
+  String get are_you_sure => 'Er du sikker?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Go further on $sourceName';
+    return 'Gå videre på $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'Velkommen!';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'Appen som hjelper deg med å velge mat som er bra for **deg** og **planeten**!';
 
   @override
-  String get onboarding_continue_button => 'Continue';
+  String get onboarding_continue_button => 'Fortsette';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Loading your first example product';
+      'Laster inn ditt første eksempelprodukt';
 
   @override
   String get onboarding_welcome_warning =>
       'Beklager, dette er vårt eksempelprodukt, du kan ikke redigere det :)';
 
   @override
-  String get product_list_your_ranking => 'Your ranking';
+  String get product_list_your_ranking => 'Din rangering';
 
   @override
-  String get product_list_empty_icon_desc => 'History not available';
+  String get product_list_empty_icon_desc => 'Historikk ikke tilgjengelig';
 
   @override
-  String get product_list_empty_title => 'Start scanning';
+  String get product_list_empty_title => 'Start skanning';
 
   @override
   String get product_list_empty_message =>
-      'Scanned products will appear here and you can check detailed information about them';
+      'Skannede produkter vil vises her, og du kan sjekke detaljert informasjon om dem';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
-      one: 'product',
-      zero: 'product',
+      other: 'produkter',
+      one: 'produkt',
+      zero: 'produkt',
     );
-    return 'Refreshing $_temp0 in your history';
+    return 'Oppdaterer $_temp0 i historikken din';
   }
 
   @override
@@ -1702,94 +1720,96 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Products',
-      one: 'Product',
-      zero: 'Product',
+      other: 'Produkter',
+      one: 'Produkt',
+      zero: 'Produkt',
     );
-    return '$_temp0 refresh complete';
+    return '$_temp0 oppdatering fullført';
   }
 
   @override
   String get product_list_compare_side_by_side => 'Sammenlign side om side';
 
   @override
-  String get loading_dialog_default_title => 'Downloading data';
+  String get loading_dialog_default_title => 'Laster ned data';
 
   @override
-  String get loading_dialog_default_error_message => 'Could not download data';
+  String get loading_dialog_default_error_message =>
+      'Kunne ikke laste ned data';
 
   @override
-  String get account_delete => 'Delete account';
+  String get account_delete => 'Slett konto';
 
   @override
   String get account_delete_title => 'Slett kontoen min';
 
   @override
-  String get user_profile => 'Account';
+  String get user_profile => 'Konto';
 
   @override
-  String get user_profile_title_guest => 'Welcome!';
+  String get user_profile_title_guest => 'Velkomst!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'Logg inn eller registrer deg for å bli med i Open Food Facts-fellesskapet';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'Åpne Matfakta-innlogging: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Welcome $id!';
+    return 'Velkommen $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Delete account';
+  String get email_subject_account_deletion => 'Slett konto';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'Hei, vennligst slett Open Food Facts-kontoen min: $userId';
   }
 
   @override
-  String get settings_app_app => 'Application';
+  String get settings_app_app => 'Søknad';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Camera';
+  String get settings_app_camera => 'Kamera';
 
   @override
   String get settings_app_products => 'Produkter';
 
   @override
-  String get settings_app_miscellaneous => 'Miscellaneous';
+  String get settings_app_miscellaneous => 'Diverse';
 
   @override
-  String get camera_play_sound_title => 'Play a sound on scan';
+  String get camera_play_sound_title => 'Spill av en lyd ved skanning';
 
   @override
-  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
+  String get camera_play_sound_subtitle =>
+      'Vil pipe ved hver vellykket skanning';
 
   @override
   String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+      'Skann en strekkode med kameraet ditt';
 
   @override
-  String get app_haptic_feedback_title => 'Vibration & Haptics';
+  String get app_haptic_feedback_title => 'Vibrasjon og haptikk';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Vibrations after executing some actions (barcode decoded, product removed…).';
+      'Vibrasjoner etter utførelse av enkelte handlinger (strekkode dekodet, produkt fjernet…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'Når det er aktivert, sendes krasjrapporter automatisk til Open Food Facts\' feilsporingssystem, slik at feil kan rettes og dermed forbedre appen.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1799,149 +1819,157 @@ class AppLocalizationsNo extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Edit Photo';
+  String get product_edit_photo_title => 'Rediger bilde';
 
   @override
-  String get permission_photo_error => 'Error';
+  String get permission_photo_error => 'Feil';
 
   @override
   String get permission_photo_denied_title =>
-      'Allow camera use to scan barcodes';
+      'Tillat kamerabruk for å skanne strekkoder';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
+    return 'For en forbedret opplevelse, vennligst gi $appName tilgang til kameraet ditt. Du vil kunne skanne strekkoder direkte.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Allow';
+  String get permission_photo_denied_button => 'Tillate';
 
   @override
   String get permission_photo_denied_dialog_settings_title =>
-      'Permission denied';
+      'Tillatelse nektet';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
+      'Siden du tidligere har nektet kameratillatelse, må du tillate det manuelt fra Innstillingene.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Open settings';
+      'Åpne innstillinger';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'No camera detected';
+  String get permission_photo_none_found => 'Ingen kamera oppdaget';
 
   @override
-  String get permission_photo_denied => 'No camera access granted';
+  String get permission_photo_denied => 'Ingen kameratilgang gitt';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Vis produktbilder';
 
   @override
   String get edit_product_label => 'Redigér produkt';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Laster opp redigeringene dine…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'Redigeringene dine sendes i bakgrunnen (eller senere ved feil).\nDu kan fortsette å redigere andre produktfelt.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'Redigerelsene dine sendes i bakgrunnen (eller senere ved feil).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return 'Hvordan skriver man inn «$value»?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'Vennligst skriv inn en verdi som ikke er tom!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+      'Denne verdien er allerede der!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand =>
+      'Legg til et nytt merke';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label =>
+      'Legg til en ny etikett';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'Legg til en ny butikk';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin =>
+      'Legg til en ny opprinnelse';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'Legg til en ny sporbarhetskode';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country =>
+      'Legg til et nytt land';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category =>
+      'Legg til en ny kategori';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Legg til et nytt spor';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Legg til forslag';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Avvis forslaget';
 
   @override
-  String get edit_product_form_item_details_title => 'Basic details';
+  String get edit_product_form_item_details_title => 'Grunnleggende detaljer';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Product name, brand, quantity';
+      'Produktnavn, merke, antall';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Additional details';
+  String get edit_product_form_item_other_details_title =>
+      'Ytterligere detaljer';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Website…';
+  String get edit_product_form_item_other_details_subtitle => 'Nettsted…';
 
   @override
-  String get edit_product_form_item_photos_title => 'Photos';
+  String get edit_product_form_item_photos_title => 'Bilder';
 
   @override
-  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
+  String get edit_product_form_item_photos_subtitle =>
+      'Legg til eller oppdater bilder';
 
   @override
-  String get edit_product_form_item_labels_title => 'Labels & Certifications';
+  String get edit_product_form_item_labels_title =>
+      'Etiketter og sertifiseringer';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Environmental, Quality labels…';
+      'Miljø, kvalitetsmerker…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'Skriv inn en etikett (f.eks.: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'etikett';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'God praksis: Etiketter';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Enhver egenskap ved produktet **som er faktisk** og forskjellig fra de andre feltene.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1949,7 +1977,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Laget i Belgia, produsert i Bretagne…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1957,28 +1985,28 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Rik på fiber, kilde til jern…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Rettferdig handel, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Butikker';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Legg inn en butikk';
 
   @override
   String get edit_product_form_item_stores_type => 'butikk';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'God praksis: Butikker';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Skriv inn butikken der du kjøpte produktet.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -1993,74 +2021,74 @@ class AppLocalizationsNo extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Origins';
+  String get edit_product_form_item_origins_title => 'Opprinnelse';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'Skriv inn en opprinnelse (f.eks. Tyskland)';
 
   @override
   String get edit_product_form_item_origins_type => 'land';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'God praksis: Opprinnelse';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Legg til **eventuelle opprinnelsesangivelser du finner på emballasjen**.\nDu trenger ikke å bekymre deg for opprinnelsesangivelser som er angitt direkte i ingredienslisten.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Storfekjøtt fra Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Soyaen kommer ikke fra EU';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'Skriv inn et land (f.eks. Tyskland)';
 
   @override
   String get edit_product_form_item_countries_type => 'land';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'God praksis: Land';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Land der produktet er allment tilgjengelig** (ikke inkludert butikker som spesialiserer seg på utenlandske produkter).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
+  String get edit_product_form_item_emb_codes_title => 'Sporbarhetskoder';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Skriv inn en kode (f.eks.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'traceability code';
+  String get edit_product_form_item_emb_codes_type => 'sporbarhetskode';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'God praksis: Sporbarhetskoder';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'I denne delen kan du legge inn koder relatert til **emballasjemerker**, **identifikasjonsmerker** eller **helsemerker**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Eksempler på sporbarhetskoder';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**EF-koder** brukt i Det europeiske fellesskap for å identifisere matprodusenter eller -pakkere:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2068,11 +2096,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: landskode for **Frankrike**\n**72.264.002**: geografiske data\n**CE**: Det europeiske fellesskap';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**EMB-koder** brukt i Frankrike:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2086,7 +2114,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Skriv inn et spor (f.eks. soyabønner)';
 
   @override
   String get edit_product_form_item_categories_title => 'Kategorier';
@@ -2096,101 +2124,102 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'Skriv inn en kategori (f.eks.: Appelsinjuice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'God praksis: Kategorier';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Angi **kun den mest spesifikke kategorien**.\nOverordnede kategorier vil bli lagt til automatisk.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Mangler kategori?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Hvis en kategori **ikke er tilgjengelig i autofullføring**, kan du gjerne legge den til likevel.\nDette vil hjelpe oss med å forbedre Open Food Facts i landet ditt.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardiner i olivenolje';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Appelsinjuice fra konsentrat';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'Avslutte uten å lagre?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Do you want to save your changes before leaving this page?';
+      'Vil du lagre endringene dine før du forlater denne siden?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Save changes';
+      'Lagre endringer';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Discard changes';
+      'Forkast endringer';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredienser';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Zoom inn og ut ved å klype skjermen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Zoom inn og ut av bildet';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'Ved å bruke **Klyp-for-å-zoome-bevegelsen** kan du zoome inn eller ut av bildet:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Legg til';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Please enter a text first';
+      'Vennligst skriv inn en tekst først';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Remove';
+  String get edit_product_form_item_remove_item_tooltip => 'Fjerne';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Lagre redigeringen din';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Avbryt redigeringen din';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Recycling instructions photo';
+      'Instruksjoner for resirkulering, bilde';
 
   @override
   String get edit_product_form_item_nutrition_facts_title => 'Næringsfakta';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Nutrition, alcohol content…';
+      'Næringsinnhold, alkoholinnhold…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'God praksis: Næringsinnhold';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Næringsverdier';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Først velger du om **verdiene er oppgitt**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2198,52 +2227,53 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Deretter skriver du inn næringsverdiene **som angitt på emballasjen**. Hvis det ikke finnes noen verdi, kan du klikke på «Øye»-ikonet.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Mangler et felt?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Hvis en oppføring mangler, kan du **klikke på «Pluss»-ikonet** for å legge den til (f.eks.: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'Ingredients photo';
+  String get edit_product_ingredients_photo_title => 'Ingredienser bilde';
 
   @override
   String get edit_product_ingredients_list_title => 'Ingrediensliste';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'Emballasjebilde';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'Pakkeliste';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => 'Ingen data tilgjengelig';
 
   @override
-  String get product_field_website_title => 'Website';
+  String get product_field_website_title => 'Nettsted';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Rediger opprinnelse';
 
   @override
-  String get completed_basic_details_btn_text => 'Complete basic details';
+  String get completed_basic_details_btn_text =>
+      'Fullfør grunnleggende detaljer';
 
   @override
-  String get not_implemented_snackbar_text => 'Not implemented yet';
+  String get not_implemented_snackbar_text => 'Ikke implementert ennå';
 
   @override
   String get category_picker_page_appbar_text => 'Kategorier';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'Hent ut ingredienser fra bildet';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2251,204 +2281,204 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'Uttrekk av ingredienser\nfra bildet';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'Laster inn bilde…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Hvorfor ser jeg denne meldingen?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'For å bruke funksjonen «Trekke ut ingredienser», må bildet lastes opp først.\n\nVent noen sekunder eller skriv dem inn manuelt.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_ingredients_refresh_photo_btn_text => 'Oppdater bildet';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+      'Hent ut emballasje\nfra bildet';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'Ekstraktemballasje';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+      'Utpakking av emballasje fra bildet';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'Laster inn bilde…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Hvorfor ser jeg denne meldingen?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'For å bruke funksjonen «Pakk ut emballasje» må bildet lastes opp først.\n\nVent noen sekunder eller skriv dem inn manuelt.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_packaging_refresh_photo_btn_text => 'Oppdater bildet';
 
   @override
-  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
+  String get edit_ocr_extract_failed => 'Klarte ikke å oppdage tekst i bildet.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Ikke noe bilde!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'For å bruke tekstuttrekkingsfunksjonen må du først ta et bilde.';
 
   @override
-  String get user_list_dialog_new_title => 'New list of products';
+  String get user_list_dialog_new_title => 'Ny produktliste';
 
   @override
-  String get user_list_dialog_rename_title => 'Rename list';
+  String get user_list_dialog_rename_title => 'Gi nytt navn til listen';
 
   @override
-  String get user_list_subtitle_product => 'Lists';
+  String get user_list_subtitle_product => 'Lister';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'Add the product to your lists';
+  String get user_list_add_product => 'Legg produktet til i listene dine';
 
   @override
-  String get user_list_button_new => 'Create a new list';
+  String get user_list_button_new => 'Opprett en ny liste';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Add to list';
+  String get user_list_button_add_product => 'Legg til i listen';
 
   @override
-  String get added_to_list_msg => 'Added to list';
+  String get added_to_list_msg => 'Lagt til i listen';
 
   @override
-  String get user_list_popup_clear => 'Clear your history';
+  String get user_list_popup_clear => 'Tøm historikken din';
 
   @override
-  String get user_list_popup_rename => 'Rename';
+  String get user_list_popup_rename => 'Gi nytt navn';
 
   @override
-  String get user_list_name_hint => 'My list';
+  String get user_list_name_hint => 'Min liste';
 
   @override
-  String get user_list_name_error_empty => 'Name is mandatory';
+  String get user_list_name_error_empty => 'Navn er obligatorisk';
 
   @override
-  String get user_list_name_error_already => 'That name is already used';
+  String get user_list_name_error_already => 'Det navnet er allerede brukt';
 
   @override
-  String get user_list_name_error_same => 'That is the same name';
+  String get user_list_name_error_same => 'Det er det samme navnet';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'Navnet på listen';
 
   @override
-  String get try_again => 'Try Again';
+  String get try_again => 'Prøv igjen';
 
   @override
-  String get there_was_an_error => 'There was an error';
+  String get there_was_an_error => 'Det oppsto en feil';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'No category found for $items';
+    return 'Ingen kategori funnet for $items';
   }
 
   @override
-  String get camera_toggle_camera => 'Switch between back and front camera';
+  String get camera_toggle_camera => 'Bytt mellom bak- og frontkamera';
 
   @override
-  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
+  String get camera_toggle_flash => 'Slå PÅ eller AV blitsen på kameraet';
 
   @override
-  String get camera_enable_flash => 'Enable flash';
+  String get camera_enable_flash => 'Aktiver blits';
 
   @override
-  String get camera_disable_flash => 'Disable flash';
+  String get camera_disable_flash => 'Deaktiver blits';
 
   @override
-  String get camera_flash_error_dialog_title => 'An error occurred!';
+  String get camera_flash_error_dialog_title => 'Det oppsto en feil!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
+      'Det oppsto en feil under endring av blitstilstanden. Sørg for at lommelykten ikke allerede er aktivert på smarttelefonen din.';
 
   @override
-  String get category_picker_no_category_found_button => 'Back';
+  String get category_picker_no_category_found_button => 'Tilbake';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Click to open in your browser or in the application (if installed)';
+      'Klikk for å åpne i nettleseren din eller i applikasjonen (hvis installert)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV Mode';
+  String get dev_preferences_screen_title => 'DEV-modus';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Få tilgang til eksperimentelle funksjoner og utviklingsverktøy';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
+  String get dev_preferences_reset_onboarding_title =>
+      'Start omstart av onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'You then have to restart the App to see it again.';
+      'Deretter må du starte appen på nytt for å se den igjen.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Switch between openfoodfacts.org (PROD) and test env';
+      'Bytt mellom openfoodfacts.org (PROD) og testmiljø';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Test environment parameters';
+      'Parametere for testmiljø';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Base URL for current test env: $url';
+    return 'Basis-URL for gjeldende testmiljø: $url';
   }
 
   @override
-  String get dev_preferences_test_environment_dialog_title =>
-      'Test environment host';
+  String get dev_preferences_test_environment_dialog_title => 'Testmiljøvert';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Use ML Kit';
+  String get dev_preferences_ml_kit_title => 'Bruk ML-settet';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'then you have to restart this app';
+      'så må du starte denne appen på nytt';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Additional button on product page';
+      'Ekstra knapp på produktsiden';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Edit ingredients via a knowledge panel button';
+      'Rediger ingredienser via en kunnskapspanelknapp';
 
   @override
-  String get dev_preferences_export_history_title => 'Export History';
+  String get dev_preferences_export_history_title => 'Eksportlogg';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'exception';
+  String get dev_preferences_export_history_progress_error => 'unntak';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'product found';
+  String get dev_preferences_export_history_progress_found => 'produkt funnet';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'product NOT found';
+      'produktet IKKE funnet';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Export history';
+  String get dev_preferences_export_history_dialog_title => 'Eksportlogg';
 
   @override
   String get dev_preferences_button_positive => 'OK';
@@ -2457,7 +2487,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title => 'Data migration from V1';
+  String get dev_preferences_migration_title => 'Datamigrering fra V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
@@ -2466,91 +2496,91 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'success or fresh install';
+      'suksess eller ny installasjon';
 
   @override
-  String get dev_preferences_migration_status_success => 'success';
+  String get dev_preferences_migration_status_success => 'suksess';
 
   @override
-  String get dev_preferences_migration_status_error => 'error';
+  String get dev_preferences_migration_status_error => 'feil';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'in progress';
+  String get dev_preferences_migration_status_in_progress => 'pågår';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'required (click to start)';
+      'obligatorisk (klikk for å starte)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'unknown';
+  String get dev_preferences_migration_status_not_started => 'ukjent';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Will clear history and put 3 products in there';
+      'Vil slette historikken og legge inn 3 produkter der';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title =>
+      'Tilpasset URL for nyheter';
 
   @override
   String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+      'URL-adressen til JSON-filen:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Not set';
+  String get dev_preferences_news_custom_url_empty_value => 'Ikke angitt';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Last refresh: $date';
+    return 'Siste oppdatering: $date';
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'Mat';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'Personlig pleie';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'Kjæledyrfôr';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Produkttype';
 
   @override
-  String get product_type_selection_subtitle =>
-      'Select the type of this product';
+  String get product_type_selection_subtitle => 'Velg typen av dette produktet';
 
   @override
   String get product_type_selection_empty =>
-      'You need to select a product type first!';
+      'Du må velge en produkttype først!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'Du kan ikke endre produkttypen ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+      'Snarvei til Priser-appen på produktsiden';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'Gå til Priser-appen';
 
   @override
   String get prices_website_button => 'Åpne på nettsiden for åpne priser';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Legg til prislapper direkte fra galleriet';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Når du har valgt bilder, kan du ikke redigere dem!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2561,10 +2591,10 @@ class AppLocalizationsNo extends AppLocalizations {
       'La fellesskapet validere priser hentet ut av AI.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Flere prislapper';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Masseopplasting av bevis';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Velge filer';
@@ -2588,15 +2618,15 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Prices';
+  String get prices_generic_title => 'Priser';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'Legg til $count priser',
+      one: 'Legg til en pris',
     );
     return '$_temp0';
   }
@@ -2606,42 +2636,42 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'Send $count priser',
+      one: 'Send prisen',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'Legg til et element';
 
   @override
-  String get prices_add_a_price => 'Add a price';
+  String get prices_add_a_price => 'Legg til en pris';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'Legg til en kvittering';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'Legg til prislapper';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'Denne strekkoden ($barcode) er allerede i listen!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'Ingen produkt ennå';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'Leter etter $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'Skriv inn strekkoden';
 
   @override
   String get prices_category_enter => 'Vare uten strekkode';
@@ -2668,10 +2698,10 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_category_error_mandatory => 'Kategorien er obligatorisk';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'Strekkodeleser';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'Se prisene';
 
   @override
   String get prices_list_title => 'Prisliste';
@@ -2719,8 +2749,8 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count priser',
+      one: '1 pris',
     );
     return '$_temp0 for $product';
   }
@@ -2730,16 +2760,16 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'Alle $count priser',
+      one: 'Kun én pris',
+      zero: 'Ingen pris ennå',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'Siste $pageSize priser (totalt: $total)';
   }
 
   @override
@@ -2749,32 +2779,32 @@ class AppLocalizationsNo extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'Pris: $price / Butikk: \"$location\" / Publisert $date av \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return 'Åpne bevis for «$user»';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'Åpen prisbevis';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'Alle $count bevis',
+      one: 'Bare ett bevis',
+      zero: 'Ingen bevis ennå',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'Siste $pageSize bevis (totalt: $total)';
   }
 
   @override
@@ -2786,7 +2816,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'Topp $pageSize bidragsytere (totalt: $total)';
   }
 
   @override
@@ -2798,7 +2828,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'Topp $pageSize steder (totalt: $total)';
   }
 
   @override
@@ -2806,9 +2836,9 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count bevis',
+      one: 'Ett bevis',
+      zero: 'Ingen bevis',
     );
     return '$_temp0';
   }
@@ -2818,9 +2848,9 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count produkter',
+      one: 'Ett produkt',
+      zero: 'Ingen produkter',
     );
     return '$_temp0';
   }
@@ -2830,9 +2860,9 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count brukere',
+      one: 'Én bruker',
+      zero: 'Ingen bruker',
     );
     return '$_temp0';
   }
@@ -2842,9 +2872,9 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count priser',
+      one: 'Én pris',
+      zero: 'Ingen pris',
     );
     return '$_temp0';
   }
@@ -2853,50 +2883,50 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Pris lagt til tidligere';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'Beløp';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'Er det rabattert?';
 
   @override
-  String get prices_amount_price_normal => 'Price';
+  String get prices_amount_price_normal => 'Pris';
 
   @override
-  String get prices_amount_price_discounted => 'Discounted price';
+  String get prices_amount_price_discounted => 'Rabattert pris';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'Opprinnelig pris';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'Ett produkt mangler!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'Feil verdi';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'Obligatorisk verdi';
 
   @override
   String get prices_currency_subtitle => 'Valuta';
 
   @override
-  String get prices_date_subtitle => 'Date';
+  String get prices_date_subtitle => 'Dato';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'Butikk';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'Finn en butikk';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'Du må velge en butikk!';
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'Fant du ikke det du lette etter? La oss prøve et bredere søk!';
 
   @override
-  String get prices_proof_subtitle => 'Proof';
+  String get prices_proof_subtitle => 'Bevis';
 
   @override
   String get prices_proof_empty_title => 'Ingen bevis ennå!';
@@ -2906,103 +2936,104 @@ class AppLocalizationsNo extends AppLocalizations {
       'Start med å legge til et bilde av en **kvittering** eller en **prislapp**!';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_find => 'Velg et bevis';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Endringsbevis';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_receipt => 'Kvittering';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_price_tag => 'Prislapp';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_mandatory => 'Du må velge et bevis!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'Valideringsfeil';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'Personvernadvarsel';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_unknown_product => 'Ukjent produkt';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Prisene **vil være offentlige**, sammen med butikken de refererer til.\n\nDet kan gjøre det mulig for folk som kjenner til pseudonymet ditt fra Open Food Facts å:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Gjenkjenn hvilket område du bor i';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+  String get prices_privacy_warning_message_bullet_2 => 'Vit hva du kjøper';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Hvis du er usikker på det, kan du endre pseudonymet ditt, eller opprette en ny Open Food Facts-konto og logge inn på appen med den.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Jeg nekter';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Jeg aksepterer';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Endre valutaen?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'Din nåværende valuta er **$currency**. Vil du endre den til **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Ja, bruk $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Nei, behold $currency';
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Lær mer om åpne priser';
 
   @override
-  String get dev_preferences_import_history_result_success => 'Done';
+  String get dev_preferences_import_history_result_success => 'Ferdig';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'Serverkonfigurasjon';
 
   @override
-  String get dev_mode_section_news => 'News provider configuration';
+  String get dev_mode_section_news => 'Konfigurasjon av nyhetsleverandør';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'Produktside';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'Brukergrensesnitt';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features =>
+      'Eksperimentelle funksjoner';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title =>
+      'Ekskluder grønn poengsum';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'Bruk en stavekontroll for OCR-skjermer';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+      '(Ingredienser og emballasje)';
 
   @override
   String get dev_mode_reset_app_language_title => 'Tilbakestill appspråk';
@@ -3015,14 +3046,15 @@ class AppLocalizationsNo extends AppLocalizations {
       'Bytt mellom prices.openfoodfacts.org (PROD) og testmiljø';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get search_history_item_edit_tooltip =>
+      'Bruk og rediger dette søket på nytt';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'Fjerne';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'You\'ve downloaded all the $totalSize products.';
+    return 'Du har lastet ned alle $totalSize -produktene.';
   }
 
   @override
@@ -3031,38 +3063,39 @@ class AppLocalizationsNo extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
+    return 'Last ned $count flere produkter\nAllerede lastet ned $downloaded av $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
+    return 'Søket ditt etter $search pågår.\n\nVent noen sekunder…';
   }
 
   @override
-  String get user_search_contributor_title => 'Products I added';
+  String get user_search_contributor_title => 'Produkter jeg har lagt til';
 
   @override
-  String get user_search_informer_title => 'Products I edited';
+  String get user_search_informer_title => 'Produkter jeg redigerte';
 
   @override
-  String get user_search_photographer_title => 'Products I photographed';
+  String get user_search_photographer_title => 'Produkter jeg fotograferte';
 
   @override
-  String get user_search_to_be_completed_title => 'My to-be-completed products';
+  String get user_search_to_be_completed_title =>
+      'Mine produkter som skal fullføres';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'Mine priser';
 
   @override
-  String get user_search_proofs_title => 'My proofs';
+  String get user_search_proofs_title => 'Mine bevis';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'Mitt bevis';
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Bevis fra «$user»';
   }
 
   @override
@@ -3071,17 +3104,17 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'Siste priser lagt til';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title => 'De største prisbidragsyterne';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+      'Butikkene med de høyeste prisene';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'Assistent for prisbidrag';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3090,63 +3123,66 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Legg til flere bevis';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title =>
+      'Priser i en butikk';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+      'Produktene med høyest pris';
 
   @override
-  String get all_search_to_be_completed_title => 'All to-be-completed products';
+  String get all_search_to_be_completed_title =>
+      'Alle produkter som skal ferdigstilles';
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'Hjelp med å kategorisere produkter i landet ditt';
 
   @override
-  String get edit_product_action_retake_picture => 'Retake photo';
+  String get edit_product_action_retake_picture => 'Ta bildet på nytt';
 
   @override
-  String get edit_product_action_take_picture => 'Take photo';
+  String get edit_product_action_take_picture => 'Ta bilde';
 
   @override
-  String get edit_product_action_confirm => 'Confirm';
+  String get edit_product_action_confirm => 'Bekrefte';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+      'Jeg godtar de åpne matfaktaene ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
+  String get signup_page_terms_of_use_line2 => 'bruksvilkår og bidrag';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Analytics icon';
+  String get analytics_consent_image_semantic_label => 'Analytics-ikon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Fatal feil: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Fatal feil: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details => 'Complete basic details';
+  String get summary_card_button_add_basic_details =>
+      'Fullfør grunnleggende detaljer';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'Unselect photo';
+  String get edit_photo_unselect_button_label => 'Fjern valg av bilde';
 
   @override
   String get edit_photo_select_existing_button_label =>
-      'Select an existing image';
+      'Velg et eksisterende bilde';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3154,52 +3190,52 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'Velg et bilde ved å klikke på det';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Retrieving existing images…';
+      'Henter eksisterende bilder…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'There are no images previously uploaded related to this product.';
+      'Det er ingen bilder lastet opp tidligere relatert til dette produktet.';
 
   @override
   String get edit_photo_language_not_this_one =>
-      'No image in that language yet';
+      'Ingen bilder på det språket ennå';
 
   @override
-  String get edit_photo_language_none => 'No image yet';
+  String get edit_photo_language_none => 'Ikke noe bilde ennå';
 
   @override
   String get category_picker_screen_title => 'Kategorier';
 
   @override
-  String get basic_details => 'Basic Details';
+  String get basic_details => 'Grunnleggende detaljer';
 
   @override
-  String get product_name => 'Product Name';
+  String get product_name => 'Produktnavn';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Produktnavn';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Legg til en ny oversettelse';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Før du validerer, må du bare legge til en oversettelse **hvis språket står på emballasjen**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'Se forsidebilde';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo => 'Ta et bilde foran';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'Skriv inn navnet på produktet (f.eks. Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3213,41 +3249,41 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'Gode eksempler';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'Dårlige eksempler';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'God praksis: Produktnavn';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'Produktnavnet er **hovednavnet som er trykt på emballasjen**. Det kan være et registrert varemerke.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**Merk:** Vennligst ikke legg til en oversettelse **hvis språket ikke finnes på emballasjen**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'Tomatketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'Ikke ta med merkevaren i navnet';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'Tomatketchup **fra Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'Ikke bruk symbolene ®, ™, © eller lignende';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3258,58 +3294,59 @@ class AppLocalizationsNo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count andre oversettelser',
+      one: '$count annen oversettelse',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Brand name';
+  String get brand_name => 'Merkenavn';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'Merkenavn';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'Please enter the brand name';
+      'Vennligst skriv inn merkenavnet';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'Merker av innsatsfaktorer (f.eks. Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'God praksis: Merker';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Skriv inn **alle merkene til produktet**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'Hovedmerke';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      '**Hovedmerket**, som vanligvis vises tydelig på forsiden av pakken, skal **oppgis først**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'Andre merker';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Når det selges **av et stort selskap**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel** selges av **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Når det selges med sitt merke **oversatt til flere språk**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Nature Valley** skrives noen ganger som **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3319,181 +3356,182 @@ class AppLocalizationsNo extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Quantity and weight';
+  String get quantity => 'Mengde og vekt';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'Skriv inn vekten og om nødvendig mengden (f.eks.: 4 x 100 g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'God praksis: Mengde';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Kopier verdien som er angitt på produktet, og **ikke glem enhetene**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 g** eller **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (for 6 egg)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 g**\n(for et produkt med 3 esker, hver på 150 g)';
 
   @override
   String get barcode => 'Strekkode';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Barcode: $barcode';
+    return 'Strekkode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Invalid barcode';
+  String get barcode_invalid_error => 'Ugyldig strekkode';
 
   @override
-  String get basic_details_add_success => 'Basic details added successfully';
+  String get basic_details_add_success => 'Grunnleggende detaljer er lagt til';
 
   @override
   String get basic_details_add_error =>
-      'Unable to add basic details. Please try again after some time';
+      'Kan ikke legge til grunnleggende detaljer. Prøv igjen om en stund.';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'Fjern søket ditt';
 
   @override
   String get confirm_clear =>
-      'You\'re about to clear your entire history: are you sure you want to continue?';
+      'Du er i ferd med å slette hele historikken din: er du sikker på at du vil fortsette?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'You\'re about to clear selected items in your history';
+      'Du er i ferd med å slette valgte elementer i historikken din';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'Are you sure you want to continue?';
+      'Er du sikker på at du vil fortsette?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Please select one or more items to clear';
+      'Vennligst velg ett eller flere elementer som skal fjernes';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
+    return 'Du er i ferd med å tømme denne listen ($name): er du sikker på at du vil fortsette?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'Slette listen?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
+    return 'Du er i ferd med å slette listen «$name».\nEr du sikker på at du vil fortsette?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'Ja, jeg bekrefter';
 
   @override
   String importance_label(String name, String id) {
-    return '$name importance: $id';
+    return '$name viktighet: $id';
   }
 
   @override
-  String get user_list_all_title => 'Lists';
+  String get user_list_all_title => 'Lister';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'Lag din første liste';
 
   @override
-  String get product_list_select => 'Select a list';
+  String get product_list_select => 'Velg en liste';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'Empty list',
+      other: '$count produkter',
+      one: 'Ett produkt',
+      zero: 'Tom liste',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Add list';
+  String get add_list_label => 'Legg til liste';
 
   @override
-  String get open_food_preferences_tooltip => 'Edit your food preferences';
+  String get open_food_preferences_tooltip => 'Rediger matpreferansene dine';
 
   @override
-  String get add_photo_button_label => 'Add photo';
+  String get add_photo_button_label => 'Legg til bilde';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Take photos of any packaging/recycling information';
+      'Ta bilder av all emballasje-/resirkuleringsinformasjon';
 
   @override
   String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+      'Ta bilder av all opprinnelsesinformasjon';
 
   @override
   String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+      'Ta bilder av all sporbarhetskodeinformasjon';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'Ta bilder av all informasjon om etiketter og sertifiseringer';
 
   @override
-  String get choose_image_source_title => 'Choose image source';
+  String get choose_image_source_title => 'Velg bildekilde';
 
   @override
-  String get choose_image_source_body => 'Please choose a image source';
+  String get choose_image_source_body => 'Vennligst velg en bildekilde';
 
   @override
-  String get gallery_source_label => 'Gallery';
+  String get gallery_source_label => 'Galleri';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Access denied';
+  String get gallery_source_access_denied_dialog_title => 'Tilgang nektet';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
+      'Dessverre har ikke appen tilgang til galleriet ditt, siden du tidligere har nektet tillatelsen.\n\nGå til appinnstillingene i telefonen din Innstillinger -> Bilder';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button =>
+      'Åpne innstillingene';
 
   @override
   String get share => 'Del';
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'Ta en titt på dette produktet på Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'Ta en titt på dette produktet på Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'Ta en titt på dette produktet på Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'Ta en titt på dette produktet på Åpne produktfakta: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'Ta en titt på produktlisten min på Open Food Facts: $url';
   }
 
   @override
@@ -3503,172 +3541,172 @@ class AppLocalizationsNo extends AppLocalizations {
   String get capture_new_picture => 'Ta et bilde';
 
   @override
-  String get choose_from_gallery => 'Choose from gallery';
+  String get choose_from_gallery => 'Velg fra galleriet';
 
   @override
   String get image_upload_queued =>
-      'The image will be uploaded in the background as soon as possible.';
+      'Bildet lastes opp i bakgrunnen så snart som mulig.';
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'Prisen vil bli sendt til serveren så snart som mulig.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Starting the refresh of all the products locally stored';
+      'Starter oppdateringen av alle produktene som er lagret lokalt';
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Begynner å utføre serverhandlingene for folksonomi-oppdateringer som er lagret lokalt';
 
   @override
   String get background_task_title_top_n =>
-      'Starting the download of the most popular products';
+      'Starter nedlastingen av de mest populære produktene';
 
   @override
-  String get expand_nutrition_facts => 'Expand nutrition facts table';
+  String get expand_nutrition_facts => 'Utvid tabellen over næringsinnhold';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Keep the nutrition facts table expanded';
+      'Hold næringsinnholdstabellen utvidet';
 
   @override
-  String get expand_ingredients => 'Expand ingredients';
+  String get expand_ingredients => 'Utvid ingredienser';
 
   @override
-  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
+  String get expand_ingredients_body => 'Hold ingredienspanelet utvidet';
 
   @override
-  String get no_internet_connection => 'No internet connection';
+  String get no_internet_connection => 'Ingen internettforbindelse';
 
   @override
-  String get world_results_label => 'Entire world';
+  String get world_results_label => 'Hele verden';
 
   @override
-  String get world_results_action => 'Extend your search to the world';
+  String get world_results_action => 'Utvid søket ditt til verden';
 
   @override
-  String get copy_to_clipboard => 'Copy';
+  String get copy_to_clipboard => 'Kopiere';
 
   @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'Lim inn fra utklippstavlen';
 
   @override
   String get no_data_available_in_clipboard =>
-      'No data available in your clipboard';
+      'Ingen data tilgjengelig på utklippstavlen';
 
   @override
-  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
+  String get clipboard_barcode_copy => 'Kopier strekkoden til utklippstavlen';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Barcode $barcode copied to the clipboard!';
+    return 'Strekkode $barcode kopiert til utklippstavlen!';
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'Åpne dette produktet på nettsiden';
 
   @override
-  String get language_picker_label => 'Your language';
+  String get language_picker_label => 'Språket ditt';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'Landet ditt';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Din valuta';
 
   @override
-  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
+  String get help_with_openfoodfacts => 'Hjelp med OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'The product will be updated in the background as soon as possible.';
+      'Produktet vil bli oppdatert i bakgrunnen så snart som mulig.';
 
   @override
-  String get no_email_client_available_dialog_title => 'No email apps!';
+  String get no_email_client_available_dialog_title => 'Ingen e-postapper!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'Send oss en e-post manuelt til mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'All Images';
+  String get all_images => 'Alle bilder';
 
   @override
-  String get selected_images => 'Selected Images';
+  String get selected_images => 'Utvalgte bilder';
 
   @override
-  String get product_card_remove_product_tooltip => 'Remove product';
+  String get product_card_remove_product_tooltip => 'Fjern produktet';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'New barcode scanned: $barcode';
+    return 'Ny strekkode skannet: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Remove all products from the carousel';
+      'Fjern alle produkter fra karusellen';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Please scan at least two products to compare them';
+      'Vennligst skann minst to produkter for å sammenligne dem';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Click to compare the products you have scanned';
+      'Klikk for å sammenligne produktene du har skannet';
 
   @override
-  String get scan_product_loading => 'You have scanned\nthe barcode:';
+  String get scan_product_loading => 'Du har skannet\nstrekkoden:';
 
   @override
   String get scan_product_loading_initial =>
-      'We\'re looking for this product!\nPlease wait a few seconds…';
+      'Vi ser etter dette produktet!\nVent noen sekunder…';
 
   @override
   String get scan_product_loading_long_request =>
-      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
+      'Vi leter fortsatt etter dette produktet!\nSynes du det tar lang tid å laste? Det gjør vi også…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'Vi leter fortsatt etter dette produktet.\nVil du starte søket på nytt?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'Start søket på nytt';
 
   @override
   String get portion_calculator_description =>
-      'Calculate nutrition facts for a specific quantity';
+      'Beregn næringsinnhold for en bestemt mengde';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'Antall i';
 
   @override
   String get portion_calculator_accessibility =>
-      'Input a quantity to calculate nutrition facts';
+      'Skriv inn en mengde for å beregne næringsinnhold';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Please enter a quantity between $min and $max g';
+    return 'Vennligst skriv inn en mengde mellom $min og $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'Manglende data. Beregningen kunne ikke utføres.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Nutrition facts for $grams g (or ml)';
+    return 'Næringsinnhold for $grams g (eller ml)';
   }
 
   @override
-  String get offline_data => 'Offline Data';
+  String get offline_data => 'Frakoblede data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Upload an image to automatically extract the information it contains.';
+      'Last opp et bilde for å automatisk hente ut informasjonen det inneholder.';
 
   @override
-  String get upload_image => 'Upload Photo';
+  String get upload_image => 'Last opp bilde';
 
   @override
   String get word_separator_char => ',';
@@ -3677,388 +3715,389 @@ class AppLocalizationsNo extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Failed to download image';
+  String get image_download_error => 'Kunne ikke laste ned bildet';
 
   @override
   String get image_edit_url_error =>
-      'Failed to edit image because the image URL was not set.';
+      'Kunne ikke redigere bildet fordi bilde-URL-en ikke ble angitt.';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'Husk valget mitt';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'Spør hver gang';
 
   @override
-  String get robotoff_continue => 'Continue';
+  String get robotoff_continue => 'Fortsette';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count questions',
-      one: 'question',
+      other: '$count spørsmål',
+      one: 'spørsmål',
     );
-    return 'Next $_temp0';
+    return 'Neste $_temp0';
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'Vis passord';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'Produsentens oppgitte verdier';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'Med den logoen fremhever vi data levert av produsenten, og som kanskje ikke kan redigeres.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'Lukk denne informasjonen';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'Dette bildet er levert av produsenten. Det kan hende det ikke kan redigeres.';
 
   @override
-  String get edit_packagings_title => 'Packaging components';
+  String get edit_packagings_title => 'Emballasjekomponenter';
 
   @override
-  String get edit_packagings_element_add => 'Add a packaging component';
+  String get edit_packagings_element_add => 'Legg til en emballasjekomponent';
 
   @override
-  String get edit_packagings_completed => 'The packaging is complete';
+  String get edit_packagings_completed => 'Emballasjen er komplett';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Packaging component #$index';
+    return 'Emballasjekomponent #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Number of units';
+  String get edit_packagings_element_field_units => 'Antall enheter';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Enter the number of packaging units of the same shape and material contained in the product.';
+      'Angi antall emballasjeenheter av samme form og materiale som produktet inneholder.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Shape';
+  String get edit_packagings_element_field_shape => 'Form';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
+      'Skriv inn formnavnet som er oppført i resirkuleringsinstruksjonene hvis de er tilgjengelige, eller velg en form.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Bottle';
+  String get edit_packagings_element_example_shape => 'Flaske';
 
   @override
-  String get edit_packagings_element_field_material => 'Material';
+  String get edit_packagings_element_field_material => 'Materiale';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
+      'Oppgi det spesifikke materialet hvis det kan bestemmes (en materialkode inni en trekant finnes ofte på emballasjedelene), eller et generisk materiale (for eksempel plast eller metall) hvis du er usikker.';
 
   @override
   String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Recycling instruction';
+  String get edit_packagings_element_field_recycling =>
+      'Instruksjoner for resirkulering';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Enter recycling instructions only if they are listed on the product.';
+      'Skriv bare inn resirkuleringsinstruksjoner hvis de er oppført på produktet.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Recycle';
+  String get edit_packagings_element_example_recycling => 'Resirkulere';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Net quantity of product per unit';
+      'Netto mengde produkt per enhet';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
+      'Skriv inn nettovekten eller nettovolumet og angi enheten (for eksempel g eller ml).';
 
   @override
-  String get edit_packagings_element_field_weight =>
-      'Weight of one empty unit (g)';
+  String get edit_packagings_element_field_weight => 'Vekt av én tom enhet (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
+      'Fjern eventuelle matrester og vask og tørk emballasjen før veiing. Bruk om mulig en vekt med 0,1 g eller 0,01 g presisjon.';
 
   @override
-  String get background_task_title => 'Pending contributions';
+  String get background_task_title => 'Ventende bidrag';
 
   @override
   String get background_task_subtitle =>
-      'Your contributions are automatically saved to our server, but not always in real-time.';
+      'Bidragene dine lagres automatisk på serveren vår, men ikke alltid i sanntid.';
 
   @override
-  String get background_task_list_empty => 'No Pending Background Tasks';
+  String get background_task_list_empty => 'Ingen ventende bakgrunnsoppgaver';
 
   @override
-  String get background_task_error_server_time_out => 'Server timeout';
+  String get background_task_error_server_time_out => 'Servertidsavbrudd';
 
   @override
   String get background_task_error_no_internet =>
-      'Internet connection error. Try later.';
+      'Internett-tilkoblingsfeil. Prøv senere.';
 
   @override
-  String get background_task_operation_unknown => 'unknown operation type';
+  String get background_task_operation_unknown => 'ukjent operasjonstype';
 
   @override
-  String get background_task_operation_details => 'detailed changes';
+  String get background_task_operation_details => 'detaljerte endringer';
 
   @override
-  String get background_task_operation_image => 'photo upload';
+  String get background_task_operation_image => 'bildeopplasting';
 
   @override
   String get background_task_operation_refresh =>
-      'refresh delayed after photo upload';
+      'oppdatering forsinket etter bildeopplasting';
 
   @override
-  String get background_task_run_started => 'started';
+  String get background_task_run_started => 'startet';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'ikke startet ennå';
 
   @override
-  String get background_task_run_to_be_deleted => 'to be deleted';
+  String get background_task_run_to_be_deleted => 'skal slettes';
 
   @override
   String get background_task_question_stop =>
-      'Do you want to stop that task ASAP?';
+      'Vil du stoppe den oppgaven så fort som mulig?';
 
   @override
-  String get feed_back => 'Feedback';
+  String get feed_back => 'Tilbakemelding';
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'Angre';
 
   @override
-  String get copy_email_to_clip_board => 'Copy email to clipboard';
+  String get copy_email_to_clip_board => 'Kopier e-post til utklippstavlen';
 
   @override
-  String get please_send_us_an_email_to =>
-      'Please send us manually an email to';
+  String get please_send_us_an_email_to => 'Send oss en e-post manuelt til';
 
   @override
-  String get email_copied_to_clip_board => 'Email copied to clipboard!';
+  String get email_copied_to_clip_board => 'E-post kopiert til utklippstavlen!';
 
   @override
-  String get select_accent_color => 'Select Accent Color';
+  String get select_accent_color => 'Velg aksentfarge';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Blue';
+  String get color_blue => 'Blå';
 
   @override
   String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'Green';
+  String get color_green => 'Grønn';
 
   @override
-  String get color_light_brown => 'Default';
+  String get color_light_brown => 'Misligholde';
 
   @override
   String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'Orange';
+  String get color_orange => 'Oransje';
 
   @override
-  String get color_pink => 'Pink';
+  String get color_pink => 'Rosa';
 
   @override
-  String get color_red => 'Red';
+  String get color_red => 'Rød';
 
   @override
   String get color_rust => 'Rust';
 
   @override
-  String get color_teal => 'Teal';
+  String get color_teal => 'Blågrønn';
 
   @override
-  String get text_contrast_mode => 'Text Contrast';
+  String get text_contrast_mode => 'Tekstkontrast';
 
   @override
-  String get contrast_high => 'High';
+  String get contrast_high => 'Høy';
 
   @override
   String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Low';
+  String get contrast_low => 'Lav';
 
   @override
-  String get product_refresher_internet_not_found => 'Product not found!';
+  String get product_refresher_internet_not_found =>
+      'Produktet ble ikke funnet!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'You are not connected to internet!';
+      'Du er ikke koblet til internett!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server down ($host)';
+    return 'Server nede ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server error ($exception)';
+    return 'Serverfeil ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Product not found!';
+  String get product_loader_not_found_title => 'Produktet ble ikke funnet!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
+    return 'Et produkt med følgende strekkode finnes ikke i databasen vår: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'No internet connection!';
+  String get product_loader_network_error_title =>
+      'Ingen internettforbindelse!';
 
   @override
   String get product_loader_network_error_message =>
-      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
+      'Sjekk at smarttelefonen din er på et WiFi-nettverk eller at mobildata er aktivert';
 
   @override
-  String get page_not_found_title => 'Page not found!';
+  String get page_not_found_title => 'Siden ble ikke funnet!';
 
   @override
-  String get page_not_found_button => 'Go back to the homepage';
+  String get page_not_found_button => 'Gå tilbake til hjemmesiden';
 
   @override
-  String get download_data => 'Download data';
+  String get download_data => 'Last ned data';
 
   @override
   String get download_top_products =>
-      'Download the top 1000 products in your country for instant scanning';
+      'Last ned de 1000 beste produktene i landet ditt for umiddelbar skanning';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
+      other: '$count produktene',
     );
-    return 'Download the top $_temp0 in your country for instant scanning';
+    return 'Last ned de beste $_temp0 i ditt land for umiddelbar skanning';
   }
 
   @override
-  String get download_in_progress => 'Downloading data\nThis may take a while';
+  String get download_in_progress => 'Laster ned data\nDette kan ta en stund';
 
   @override
   String downloaded_products(int num) {
-    return '$num products added';
+    return '$num produkter lagt til';
   }
 
   @override
-  String get update_offline_data => 'Update offline product data';
+  String get update_offline_data => 'Oppdater produktdata frakoblet';
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'Oppdater den lokale produktdatabasen med de nyeste dataene fra Open Food Facts';
 
   @override
-  String get clear_local_database => 'Clear offline product data';
+  String get clear_local_database => 'Fjern produktdata frakoblet';
 
   @override
   String get clear_local_database_sub =>
-      'Clear all local product data from your app to free up space';
+      'Fjern all lokal produktdata fra appen din for å frigjøre plass';
 
   @override
   String deleted_products(int num) {
-    return '$num products deleted';
+    return '$num produkter slettet';
   }
 
   @override
   String get loading => 'Laster inn…';
 
   @override
-  String get know_more => 'Know More';
+  String get know_more => 'Lær mer';
 
   @override
-  String get offline_data_desc => 'Click to know more about offline data';
+  String get offline_data_desc => 'Klikk for å finne ut mer om frakoblet data';
 
   @override
-  String get offline_product_data_title => 'Offline product data';
+  String get offline_product_data_title => 'Produktdata frakoblet';
 
   @override
   String available_for_download(int num) {
-    return '$num products available for immediate scaning';
+    return '$num produkter tilgjengelig for umiddelbar skanning';
   }
 
   @override
-  String get country_selector_title => 'Select your country:';
+  String get country_selector_title => 'Velg ditt land:';
 
   @override
   String get currency_selector_title => 'Velg valuta:';
 
   @override
-  String get language_selector_title => 'Select your language:';
+  String get language_selector_title => 'Velg språk:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Valgte språk';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'Ofte brukt';
 
   @override
   String get action_delete_list => 'Slett';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'Endre gjeldende liste';
 
   @override
-  String get product_list_create => 'Create';
+  String get product_list_create => 'Skape';
 
   @override
-  String get product_list_create_tooltip => 'Create a new list';
+  String get product_list_create_tooltip => 'Opprett en ny liste';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => 'Næringsscore A';
 
   @override
-  String get nutriscore_b => 'Nutri-Score B';
+  String get nutriscore_b => 'Næringsscore B';
 
   @override
-  String get nutriscore_c => 'Nutri-Score C';
+  String get nutriscore_c => 'Næringsscore C';
 
   @override
-  String get nutriscore_d => 'Nutri-Score D';
+  String get nutriscore_d => 'Næringsscore D';
 
   @override
-  String get nutriscore_e => 'Nutri-Score E';
+  String get nutriscore_e => 'Næringsscore E';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (New calculation)';
+    return 'Nutri-Score $letter (Ny beregning)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (Ny beregning)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Ukjent ernæringspoengsum';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'Ukjent ernæringspoengsum (ny beregning)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => 'Nutri-Score er ikke aktuelt';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Nutri-Score er ikke aktuelt (ny beregning)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4089,93 +4128,93 @@ class AppLocalizationsNo extends AppLocalizations {
   String get nova_group_generic_new => 'Ultrabearbeidet mat - NOVA-grupper';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'NOVA Gruppe 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'NOVA Gruppe 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'NOVA Gruppe 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'NOVA Gruppe 4';
 
   @override
-  String get nova_group_unknown => 'Unknown NOVA Group';
+  String get nova_group_unknown => 'Ukjent NOVA-gruppe';
 
   @override
-  String get nutrition_facts => 'Nutrient Levels';
+  String get nutrition_facts => 'Næringsnivåer';
 
   @override
-  String get faq_title_partners => 'Partners & Patrons of the NGO';
+  String get faq_title_partners => 'Partnere og beskyttere av NGO-en';
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Open Food Facts visjon, oppdrag, verdier og programmer';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'Installer Open Beauty Facts for å opprette en kosmetisk database';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'Installer Open Pet Food Facts for å opprette en database med kjæledyrfôr';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'Installer Open Products Facts for å opprette en produktdatabase for å forlenge levetiden til objekter.';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'Ny beregning av Nutri-Score: hva er nytt?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+      'Pro? Importer produktene dine i Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'Produsentkontakt';
 
   @override
-  String get contact_title_press_page => 'Press Page';
+  String get contact_title_press_page => 'Presseside';
 
   @override
-  String get contact_title_press_email => 'Press Contact';
+  String get contact_title_press_email => 'Pressekontakt';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'Abonner på vår fellesskapskalender';
 
   @override
-  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
+  String get hunger_games_loading_line1 => 'Vennligst gi oss noen sekunder…';
 
   @override
-  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
+  String get hunger_games_loading_line2 => 'Vi laster ned spørsmålene!';
 
   @override
   String get hunger_games_error_label =>
-      'Argh! Something went wrong… and we couldn\'t load the questions.';
+      'Æsj! Noe gikk galt… , og vi kunne ikke laste inn spørsmålene.';
 
   @override
-  String get hunger_games_error_retry_button => 'Let\'s retry!';
+  String get hunger_games_error_retry_button => 'La oss prøve på nytt!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'Endre rekkefølgen på attributtene';
 
   @override
   String get link_cant_be_opened =>
-      'This link can\'t be opened on your device. Please check that you have a browser installed.';
+      'Denne lenken kan ikke åpnes på enheten din. Sjekk at du har en nettleser installert.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'Detaljer for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return 'Detaljer for $pageName med $productName';
   }
 
   @override
@@ -4264,15 +4303,15 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'Hvor finner jeg den nye Nutri-Score-beregningen?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'Nutri-Score brukes i 7 land: Frankrike, Tyskland, Belgia, Spania, Luxembourg, Nederland og Sveits.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Produsentene har maksimalt **2 år** etter at dekretet er undertegnet **til å erstatte** den gamle beregningen med den nye.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4380,7 +4419,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'For å belønne bedre produkter innenfor en kategori, bruker vi deretter **bonuser og straffer basert på flere kriterier**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4388,7 +4427,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'En **bonus** gis til produkter som har en **offisiell etikett, en etikett eller en sertifisering som garanterer miljøfordeler** (økologisk, rettferdig handel, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4396,7 +4435,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'En **bonus** tildeles basert på ingrediensenes opprinnelse. Denne bonusen tar hensyn til **påvirkningen på transport** og også **miljøpolitikken** i hver produsents land.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4404,14 +4443,14 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      'Det gis en **straff** til produkter som inneholder ingredienser som har betydelig **negativ innvirkning på biologisk mangfold og økosystemer**, som for eksempel palmeolje, hvis produksjon er ansvarlig for massiv avskoging.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Emballasje';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      'En **straff** beregnes for å ta hensyn til **emballasjens sirkularitet** (bruk av resirkulert råmateriale og resirkulerbarhet) og overpakking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4419,19 +4458,19 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'For å beregne Green-Score nøyaktig er det nødvendig med **informasjon som ikke nødvendigvis er spesifisert på emballasjen** (som opprinnelse og den nøyaktige prosentandelen av hver ingrediens) eller som sjelden er tilgjengelig i brukbar form (som en liste over alle komponentene i emballasjen med de nøyaktige plasttypene som brukes).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Gjennomsnittsverdier brukes når denne informasjonen ikke er tilgjengelig ennå**, men vi ber nå alle om å hjelpe oss med å samle inn denne informasjonen, som vil være svært nyttig for Green-Score, men også for mange andre bruksområder.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Hvordan kan innbyggere hjelpe?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Alle borgere kan hjelpe oss med å samle og strukturere informasjonen som finnes på produkter eller som kan utledes fra dem, for eksempel informasjon om **emballasje**: «Mission Emballages»: en storstilt samarbeidende inventarisering av emballasje for alle matvarer (på fransk).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4505,7 +4544,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Ubearbeidet (eller naturlig) mat er de **spiselige delene av planter** (frø, frukt, blader, stilker, røtter) **eller dyr** (muskler, innmat, egg, melk), samt sopp, alger og vann, etter å ha blitt separert fra naturen.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
@@ -4538,7 +4577,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Mange er **utvunnet fra videre bearbeiding av matbestanddeler**, som hydrogenerte eller interesterifiserte oljer, hydrolyserte proteiner, soyaproteinisolat, maltodekstrin, invertsukker og maissirup med høyt fruktoseinnhold.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4546,7 +4585,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Tilsetningsstoffer i ultrabearbeidet mat inkluderer noen som også brukes i bearbeidet mat, for eksempel konserveringsmidler, antioksidanter og stabilisatorer. Klasser av tilsetningsstoffer som bare finnes i ultrabearbeidede produkter inkluderer de som brukes **for å imitere eller forbedre de sensoriske egenskapene til matvarer eller for å skjule usmakelige aspekter ved sluttproduktet**. Disse tilsetningsstoffene inkluderer fargestoffer og andre farger, fargestabilisatorer; smakstilsetninger, smaksforsterkere, ikke-sukkerholdige søtningsmidler; og prosesseringshjelpemidler som kullsyre-, fasthets-, fyllings- og antifylningsmidler, skumdempende, antiklumpe- og glaseringsmidler, emulgatorer, sekvestreringsmidler og fuktighetsbevarende midler.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4554,7 +4593,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**En rekke prosesssekvenser brukes** for å kombinere de vanligvis mange ingrediensene og for å lage sluttproduktet (derav «ultraprosessert»). Prosessene inkluderer flere **uten innenlandske ekvivalenter**, som hydrogenering og hydrolysering, ekstrudering og støping, og forbehandling for steking.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4562,104 +4601,105 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Det overordnede formålet med ultraprosessering er å skape merkevareprodukter som er **praktiske** (holdbare, klare til konsum), **attraktive** (hypervelsmakende) og **svært lønnsomme** (lavkostingredienser) og er utformet for å fortrenge alle andre matvaregrupper. Ultraprosesserte matvarer pakkes vanligvis attraktivt og markedsføres intensivt.**';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'En helsefare';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Siden 2018 har de første koblingene mellom **forbruk av ultraprosessert mat og økt risiko for kreft, hjerte- og karsykdommer og diabetes blitt fremhevet** med NutriNet-Santé. I dag bekrefter mer enn 90 studier over hele verden disse funnene.\nDe sterkeste assosiasjonene er knyttet til **fedme, hjerte- og kardødelighet og depressive symptomer**. Hos barn observeres effektene primært på vekt og lipidubalanser.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Land anbefaler å begrense dem';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Noen land bruker NOVA-gruppene for sine kostholdsretningslinjer eller -mål, for eksempel:\n\n- **🇧🇷 Brasils** kostholdsretningslinjer **anbefaler å begrense forbruket** av bearbeidet mat og unngå ultrabearbeidet mat.\n\n- **🇫🇷 Frankrikes** ernæringspolitiske mål for folkehelse for 2018–2022 har som mål å **redusere forbruket av ultrabearbeidet mat i gruppe 4 med 20 %**.';
 
   @override
   String get guide_nova_share_link => 'https://world-no.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'Velkommen til Åpne matfakta!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Hva er åpne matfakta?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts er en **samarbeidsbasert**, **gratis** og **åpen** database med matvarer fra hele verden.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Vi mener at alle bør ha tilgang til informasjon om hva de spiser. Ved å samle inn data om ingredienser, allergener, næringsinnhold og mer, **gir vi forbrukerne mulighet til å ta informerte valg** og driver matindustrien **mot større åpenhet**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Funksjoner ved åpne matfakta';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Få varsler om uønskede ingredienser';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title => 'Tips for å ta flotte bilder';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Ikke gjør';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Unngå skygger og gjenskinn.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ingen uskarp eller uskarp tekst.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ikke beskjær ut deler av teksten.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Unngå travle bakgrunner.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Gjør-det-selv';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Bruk god, jevn belysning.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Sørg for at teksten er skarp og lesbar.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ta opp hele ingredienslisten.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Oppbevar produktet på en flat overflate.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Hjelp oss å bygge «Matens Wikipedia»';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'En poengsum på næringskvaliteten';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'En poengsum for å unngå ultraprosessert mat';
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+      'En poengsum for planeten';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4667,236 +4707,240 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Velkommen til Åpne fakta om kjæledyrmat!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Hva er åpne fakta om kjæledyrfôr?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts utvider vårt oppdrag til våre pelskledde venner! Det er en **database med kjæledyrfôrprodukter for katter, hunder og andre følgesvenner**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Vi samler informasjon om **ingredienser**, **ernæringsanalyse** og fôringsretningslinjer for å hjelpe dyreeiere med å velge det beste fôret for dyrenes behov.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Funksjoner ved åpne kjæledyrfôrfakta';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Få varsler om uønskede ingredienser';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Er kjæledyret ditt allergisk mot noen ingredienser? Du kan sette opp en liste over kosmetiske ingredienser du bør unngå, rett i appen!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tips for å ta flotte bilder';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Ikke gjør';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Unngå skygger og gjenskinn.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ingen uskarp eller uskarp tekst.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ikke beskjær ut deler av teksten.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Unngå travle bakgrunner.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Gjør-det-selv';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Bruk god, jevn belysning.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Sørg for at teksten er skarp og lesbar.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ta opp hele ingredienslisten.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Oppbevar produktet på en flat overflate.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'En merknad om poengberegning';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Å utvikle et poengsystem for kjæledyrfôr **er ikke en prioritet akkurat nå**. Metodikken ville være kompleks, ettersom ernæringsbehovene varierer sterkt etter art, alder og helsetilstand. Vi har ennå ikke funnet noe uavhengig vitenskapelig team som er i stand til å utvikle en slik poengsum.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-no.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Velkommen til Åpne skjønnhetsfakta!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Hva er åpne skjønnhetsfakta?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts er en samarbeidende database med **kosmetikkprodukter**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Målet vårt er å tyde ingredienslister for å hjelpe deg med å **forstå hva som finnes i dine personlige pleieprodukter**. Fra fuktighetskremer til sminke samler vi inn data om ingredienser, allergener og emballasje for å fremme åpenhet i kosmetikkindustrien.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Funksjoner ved åpne skjønnhetsfakta';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Få varsler om uønskede ingredienser';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Er du allergisk mot noen ingredienser? Vil du unngå komedogene stoffer? Vil du unngå kontroversielle komponenter? Du kan angi en liste over kosmetiske ingredienser du vil unngå, rett i appen!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tips for å ta flotte bilder';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Ikke gjør';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Unngå skygger og gjenskinn.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ingen uskarp eller uskarp tekst.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ikke beskjær ut deler av teksten.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Unngå travle bakgrunner.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Gjør-det-selv';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Bruk god, jevn belysning.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Sørg for at teksten er skarp og lesbar.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ta opp hele ingredienslisten.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Ta så mange bilder som nødvendig hvis flasken er buet.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Du må kanskje rive av etiketten for å se ingredienslisten.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Oppbevar produktet på en flat overflate.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'En merknad om poengberegning';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'I motsetning til matvarer har ikke kosmetikkverdenen et universelt anerkjent, myndighetsstøttet poengsystem som Nutri-Score. Ingrediensenes effekt kan være svært personlig og avhenge av hudtype, allergier og individuelle bekymringer.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-no.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Velkommen til Åpne priser!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Hva er åpningspriser?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices er et prosjekt for å **samle inn og dele priser på produkter over hele verden**. Det er et offentlig tilgjengelig datasett som kan brukes til forskning, analyse og mer. Open Prices er utviklet og vedlikeholdt av Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Hvordan fungerer åpne priser?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Vi bruker crowdsourcing til å finne et åpen kildekode-datasett med priser.** Priser kan legges til av brukere via denne nettappen eller via den offisielle Open Food Facts-mobilappen. Forhandlere eller tredjepartsapper kan også bidra ved å bruke API-et vårt.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Samle bilder av prislapper i gangene';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Samle bilder av kvitteringer';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Hvorfor gjør Open Food Facts dette?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Prisinformasjon er av største betydning for å forstå matsystemer. Det er en nøkkelfaktor for å forstå kostnadene ved mat og for å fremme sunnere kosthold. Å åpne prisdata er en måte å gjøre det enklere for forskere, journalister og innbyggere å **få en bedre forståelse av hvordan matprisene varierer geografisk og over tid**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Spor prisutviklingen over tid';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Se **prisutviklingen**: krympeinflasjon, billiginflasjon, vi kan spore dem sammen!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Sammenlign priser i nærheten av deg';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Etter hvert som vi får flere priser, kan du finne **de billigste butikkene i nærheten**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Har du vurdert å hente priser fra forhandlernes nettsider?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til åpne priser**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Prisskraping er et vurdert alternativ i en fremtidig versjon av Open Prices, men det vil bli gjort av Open Prices selv, slik at vi kan ha et bevis på prisen basert på HTML-siden.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4904,7 +4948,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Du kan bidra med priser ved å bruke API-et vårt.\nHvis du ønsker å bidra med priser i stor skala, kan du ta kontakt med oss på prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4912,149 +4956,148 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Velkommen til fakta om åpne produkter!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Hva er fakta om åpne produkter?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts er en massiv, åpen database for **alle produkter med strekkode, som ikke er mat, kosmetikk eller dyrefôr**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Fra **elektronikk** til **leker**, og **klær** til **rengjøringsartikler**, hvis det har en strekkode, kan det legges til. Dette prosjektet har som mål å skape et «tingenes internett» for hverdagsgjenstander, og gjøre informasjon om dem universelt tilgjengelig.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Funksjoner i åpne produktfakta';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Open Products Facts har som mål å gi forbrukere muligheten til å **forlenge levetiden til gjenstander** ved å tilby sirkulære løsninger for å vedlikeholde, **reparere**, **resirkulere** gjenstandene sine eller gi dem en ny eier.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Karbonavtrykk for noen produkter';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**CO2-påvirkning** fra den franske miljømyndigheten ADEME gir **karbonpåvirkningen** for mange kategorier. Sørg for å kategorisere produktene nøyaktig.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Reparasjonsindeks for mange produkter';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Når en fransk reparerbarhetsindeks er tilgjengelig, viser vi den. Dessuten **kan du begynne å samle inn variablene ved hjelp av Folksonomy Engine**, slik at vi kan beregne den på nytt selv i fremtiden, selv i land der den ikke er tilgjengelig.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Finn måter å donere/videreselge produktet ditt på';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Vi tilbyr lenker til **tredjeparts sirkulærvennlige tjenester** som hjelper deg med å få den typen produkt du leter etter, som et bruktprodukt, for å være mer skånsom mot planetens ressurser.\nMerk at vi ikke får betalt for å gjøre det, og at systemet bare fungerer som et eksempel for to nettsteder i Frankrike. Du kan bidra til å utvide dette systemet ved å dokumentere flere nettsteder på wikien.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Hvilken informasjon er nyttig?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'For et så bredt spekter av elementer er **dataene vi samler inn fleksible**. For å gjøre det har **vi laget Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title => 'Folksonomi-motoren';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'Folksonomy-motoren er et verktøy som hjelper deg med å fullføre produkter med relevante egenskaper. Dette bidrar til å forbedre søk og synlighet, men også beregne og vise interessante ting i fremtiden.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Du kan legge til hvilke som helst nøkler og verdier som: **kompatibilitet_med_5G_mobilnettverk: ja**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Du får automatiske forslag til mulige egenskaper, og du er hjertelig velkommen til å legge til og dokumentere nye på dine favorittprodukter.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-no.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title => 'Åpne matpreferanser';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Kommer snart';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Trykk for å finne ut mer';
 
   @override
-  String get preview_badge => 'Preview';
+  String get preview_badge => 'Forhåndsvisning';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'Klikk her for å sende oss din tilbakemelding om denne nye funksjonen!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'Velg en handling';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'Feil ved lasting av bilde';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'Bruk som…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip => 'Bruk dette bildet som…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'Bruk dette bildet som… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'Detaljer';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'Detaljer om dette bildet';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'Detaljer om bildet';
 
   @override
   String get photo_viewer_details_contributor_title => 'Bidrager';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'Størrelse';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height piksler';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Date';
+  String get photo_viewer_details_date_title => 'Dato';
 
   @override
-  String get photo_viewer_details_url_title => 'URL';
+  String get photo_viewer_details_url_title => 'URL-adresse';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'Kompatibel';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'Flervalg';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'Din kompatibilitetspoengsum: $score%';
   }
 
   @override
@@ -5065,164 +5108,165 @@ class AppLocalizationsNo extends AppLocalizations {
       'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label => 'Ernæringsbilde';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label => 'Emballasjebilde';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'Annet bilde';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message => 'Dette bildet kan være utdatert';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (dette bildet kan være utdatert)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (dette bildet kan være låst av produsenten)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'Klarte ikke å laste inn bildet!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return 'Kan ikke laste inn $type (nettverksfeil?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'Ikke noe\nbilde!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'Ingen bilder tilgjengelig for dette produktet';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'Endre rekkefølgen på eller skjul handlinger';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title =>
+      'Rediger handlinger';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'Flytt opp';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'Flytt ned';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Aktiver handling';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Deaktiver handling';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Laster opp redigeringene dine…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'Dataene som vises på denne siden **gjenspeiler ikke endringene dine ennå**.\nVent noen sekunder…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Legg til et språk';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Strekkode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'Fjern dette produktet fra karusellen';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Ustøttet strekkode!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Ups!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'Strekkoden som skannes støttes ikke av Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'Feil!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'Det er kjipt!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'Vi kunne ikke laste ned informasjon om denne strekkoden:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'Sjekk internettforbindelsen din, eller klikk på denne knappen:';
 
   @override
-  String get carousel_error_button => 'Retry';
+  String get carousel_error_button => 'Prøv på nytt';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'Ukjent produkt';
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'Gratulerer!\nDu har funnet __den sjeldne juvelen!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Vår samarbeidsdatabase inneholder mer enn **3 millioner produkter**, men denne strekkoden finnes ikke: ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'Laster inn informasjon ...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'Du har nettopp skannet et produkt med følgende strekkode:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'Vi søker etter det i databasen vår med mer enn **3 millioner produkter!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food => 'Grønnsaker, frukt, frossenmat…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'Sminke, såper, tannkremer…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Mat til hunder og katter…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Smarttelefoner, møbler…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Produktbilde';
 
   @override
-  String get photo_field_ingredients => 'Ingredients photo';
+  String get photo_field_ingredients => 'Ingredienser bilde';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Næringsinnholdsbilde';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Emballasjeinformasjonsbilde';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Dette bildet finnes allerede';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Dette bildet mangler';
 
   @override
-  String get date => 'Date';
+  String get date => 'Dato';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5231,76 +5275,76 @@ class AppLocalizationsNo extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'Angre forrige handling';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'Et verdenskart over $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'OpenStreetMap-bidragsytere';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'Ikke aktuelt';
 
   @override
   String get knowledge_panel_warning_text => 'Advarsel';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Hvorfor er denne næringsverdien forskjellig fra den på pakken?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'Det er to mulige forklaringer:\nListen over ingredienser og/eller næringsinnholdet er ikke oppdatert.\n\nVi tilbyr den «nye beregningen» av Nutri-Score (eller V2). Sjekk at du har banneret «Ny beregning» på pakken.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Sjekk ingrediensene';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Sjekk næringsinnholdet';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'Dessverre kan vi ikke åpne URL-en:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Eksport';
 
   @override
   String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Vis strekkode';
 
   @override
   String get product_footer_action_barcode_short => 'Strekkode';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Åpne nettsiden';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Rapportere';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'Hjelp';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Datakvalitet';
 
   @override
   String get product_page_tab_for_me => 'For meg';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Nettsted';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Priser';
 
   @override
   String get prices_explanation_card_title => 'Hvorfor priser?';
@@ -5310,10 +5354,10 @@ class AppLocalizationsNo extends AppLocalizations {
       '**Open Prices** er et prosjekt for å samle inn og dele priser på produkter over hele verden 🌍. Open Prices er utviklet og vedlikeholdt av Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'Lær mer';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folkesonomi';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5328,11 +5372,11 @@ class AppLocalizationsNo extends AppLocalizations {
       'Disse egenskapene er opprettet og arkivert av bidragsytere for alle typer bruk.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Åpne ekstern lenke';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Eksterne lenker kan være utrygge. Vil du virkelig besøke dem?';
 
   @override
   String get prices_products_empty_title => 'Ingen pris tilgjengelig';
@@ -5342,41 +5386,41 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'Topp $pageSize produkter (totalt: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Liker du denne appen?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Kunne gjort det bedre';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'Ikke dårlig';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Jeg elsker det!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Hjelp oss med å forbedre applikasjonen vår';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Hvis du har noen minutter, kan du svare på dette skjemaet slik at **vi kan forbedre oss i fremtidige oppdateringer**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Svar på skjemaet';
 
   @override
-  String get app_review_feedback_modal_later => 'Ask me later';
+  String get app_review_feedback_modal_later => 'Spør meg senere';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'NYTT: Du kan automatisk trekke ut næringsstoffene fra bildet!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Uttrekk nå';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Uttrekking pågår…';
@@ -5386,19 +5430,19 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'Klarte ikke å hente ut næringsstoffer fra bildet';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Statistikk';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Prisstatistikk';
 
   @override
-  String get prices_stats_prices_section => 'Prices';
+  String get prices_stats_prices_section => 'Priser';
 
   @override
   String get prices_stats_products_section => 'Produkter';
@@ -5416,7 +5460,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Miscellaneous';
+  String get prices_stats_misc_section => 'Diverse';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5440,7 +5484,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'Mat';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -5449,7 +5493,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_stats_products => 'Produkter';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'Kjæledyrfôr';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -5461,10 +5505,10 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'Prislapp';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'Kvittering';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5488,35 +5532,36 @@ class AppLocalizationsNo extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Website';
+  String get prices_stats_website => 'Nettsted';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
 
   @override
-  String get prices_stats_api => 'API';
+  String get prices_stats_api => 'API-en';
 
   @override
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Sist oppdatert';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'Det oppsto en feil under lasting av statistikk.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered =>
+      'Spørsmålet er besvart!';
 
   @override
-  String get product_edit_robotoff_proof => 'Proof';
+  String get product_edit_robotoff_proof => 'Bevis';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'Priser';
 
   @override
   String get preferences_prices_subtitle =>
@@ -5556,7 +5601,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get preferences_card_help => 'Hjelp og støtte';
 
   @override
-  String get preferences_faq_title => 'FAQ';
+  String get preferences_faq_title => 'Vanlige spørsmål';
 
   @override
   String get preferences_faq_subtitle => 'Få svar på spørsmålene dine';
@@ -5608,7 +5653,7 @@ class AppLocalizationsNo extends AppLocalizations {
       'Bruksvilkår, personvernregler og mer';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'Bruksvilkår';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5618,7 +5663,7 @@ class AppLocalizationsNo extends AppLocalizations {
       'Open Food Facts er en database med matvarer **laget av alle, for alle**.\nDu kan bruke den til å ta bedre matvalg, og siden den er **åpne data**, kan hvem som helst **gjenbruke den til ethvert formål**.';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Personvernerklæring';
 
   @override
   String get preferences_licenses => 'Lisenser';
@@ -5796,7 +5841,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Abonner på vår fellesskapskalender';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -5902,7 +5947,7 @@ class AppLocalizationsNo extends AppLocalizations {
       'Enkle trinn for å øke åpenheten om mat i landet ditt';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Datakvalitet';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -5929,10 +5974,10 @@ class AppLocalizationsNo extends AppLocalizations {
       'Alle ufullstendige produkter';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Priser';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Mine priser';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6124,11 +6169,11 @@ class AppLocalizationsNo extends AppLocalizations {
       'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Konto';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Få åpne matfakta på språket ditt';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6142,7 +6187,7 @@ class AppLocalizationsNo extends AppLocalizations {
       'Ikke vis folkesonomi';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Konto';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6150,26 +6195,26 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Stedsdetaljer';
 
   @override
   String get location_map_details_name => 'Navn';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Gate';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'By';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Postnummer';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordinater';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'OSM-ID';
 }

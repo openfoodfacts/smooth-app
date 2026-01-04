@@ -653,6 +653,9 @@ class AppLocalizationsGu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'સ્થાનિક રીતે સંગ્રહિત ફોલ્કસોનોમી અપડેટ્સ માટે સર્વર ક્રિયાઓ કરવાનું શરૂ કરી રહ્યા છીએ';
 
   @override
   String get background_task_title_top_n =>
@@ -5581,7 +5584,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'સેટિંગ શોધો (દા.ત. ન્યુટ્રી-સ્કોર)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5658,7 +5661,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get preferences_tips => 'ટિપ્સ';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'નવા ન્યુટ્રી-સ્કોર શોધો';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5747,7 +5750,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'ન્યુટ્રી-સ્કોરની ગણતરી કેવી રીતે થાય છે તે શોધો';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5941,7 +5944,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'તમારા દેશમાં ન્યુટ્રી-સ્કોર અને ગ્રીન-સ્કોરની ગણતરી કરવામાં મદદ કરો';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'મેં ફાળો આપેલા ભાવો';
@@ -5962,7 +5965,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ઓપન પ્રાઈસ સમુદાય દ્વારા ઉમેરવામાં આવેલી નવીનતમ કિંમતો';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6010,7 +6013,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'ખોરાકની હકીકતો ખોલવામાં મદદ કરવાની સરળ રીતો';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6124,7 +6127,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'તમારી ભાષામાં ખુલ્લા ખોરાકના તથ્યો લાવો';
 
   @override
   String get preferences_contribute_enroll_alpha =>

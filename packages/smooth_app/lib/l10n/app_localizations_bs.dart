@@ -654,6 +654,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Početak izvršavanja serverskih akcija za lokalno pohranjena ažuriranja folksonomyja';
 
   @override
   String get background_task_title_top_n =>
@@ -5785,7 +5788,8 @@ class AppLocalizationsBs extends AppLocalizations {
   String get preferences_faq_faq_title => 'ČPP - Često postavljana pitanja';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Nevladina organizacija Otvorene činjenice o hrani';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5807,7 +5811,8 @@ class AppLocalizationsBs extends AppLocalizations {
       'Uključite se posjetom jednom od naših virtualnih događaja';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Blog Otvorene činjenice o hrani';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6133,7 +6138,7 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Prenesite činjenice o otvorenoj hrani na svoj jezik';
 
   @override
   String get preferences_contribute_enroll_alpha =>

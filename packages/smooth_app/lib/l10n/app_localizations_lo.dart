@@ -653,6 +653,9 @@ class AppLocalizationsLo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3515,7 +3518,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ເລີ່ມຕົ້ນປະຕິບັດການປະຕິບັດຂອງເຄື່ອງແມ່ຂ່າຍສໍາລັບການອັບເດດ folksonomy ເກັບຮັກສາໄວ້ຢູ່ໃນທ້ອງຖິ່ນ';
 
   @override
   String get background_task_title_top_n =>
@@ -5777,7 +5780,8 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - ຄໍາຖາມທີ່ຖາມເລື້ອຍໆ';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6120,7 +6124,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ';
 
   @override
   String get preferences_contribute_enroll_alpha =>

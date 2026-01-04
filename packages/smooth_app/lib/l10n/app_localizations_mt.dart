@@ -653,6 +653,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3518,7 +3521,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Nibdew inwettqu l-azzjonijiet tas-server għall-aġġornamenti tal-folksonomija maħżuna lokalment';
 
   @override
   String get background_task_title_top_n =>
@@ -5806,7 +5809,8 @@ class AppLocalizationsMt extends AppLocalizations {
       'Involvi ruħek billi tattendi wieħed mill-avvenimenti virtwali tagħna';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Il-blogg tal-Fatti dwar l-Ikel Miftuħ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6134,7 +6138,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ġib il-Fatti Miftuħa dwar l-Ikel fil-lingwa tiegħek';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -648,6 +648,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get unknownBrand => 'ไม่ทราบยี่ห้อ';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'ผลิตภัณฑ์ที่ไม่รู้จัก';
 
   @override
@@ -3511,7 +3514,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'เริ่มดำเนินการเซิร์ฟเวอร์สำหรับการอัปเดต Folksonomy ที่เก็บไว้ในเครื่อง';
 
   @override
   String get background_task_title_top_n =>
@@ -6103,7 +6106,8 @@ class AppLocalizationsTh extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title => 'Open Food Facts';
+  String get preferences_page_open_food_facts_labs_title =>
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

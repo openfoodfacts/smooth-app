@@ -50,7 +50,7 @@ class ScoreCard extends StatelessWidget {
     this.margin,
   }) : type = ScoreCardType.title,
        iconUrl = titleElement.iconUrl,
-       description = titleElement.title,
+       description = titleElement.title ?? '',
        cardEvaluation = getCardEvaluationFromKnowledgePanelTitleElement(
          titleElement,
        );

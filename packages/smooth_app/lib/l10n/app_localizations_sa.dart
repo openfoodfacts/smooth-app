@@ -654,6 +654,9 @@ class AppLocalizationsSa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'स्थानीयरूपेण संगृहीतस्य folksonomy अद्यतनस्य कृते सर्वरक्रियाः कर्तुं आरभते';
 
   @override
   String get background_task_title_top_n =>

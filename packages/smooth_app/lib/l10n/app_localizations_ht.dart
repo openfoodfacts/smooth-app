@@ -654,6 +654,9 @@ class AppLocalizationsHt extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ap kòmanse fè aksyon sèvè a pou mizajou folksonomy ki estoke lokalman.';
 
   @override
   String get background_task_title_top_n =>
@@ -5798,7 +5801,8 @@ class AppLocalizationsHt extends AppLocalizations {
       'Patisipe nan youn nan evènman vityèl nou yo';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Blog Enfòmasyon Ouvè sou Manje a';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6124,7 +6128,7 @@ class AppLocalizationsHt extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Pote Enfòmasyon Ouvè sou Manje nan lang ou';
 
   @override
   String get preferences_contribute_enroll_alpha =>

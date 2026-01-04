@@ -654,6 +654,9 @@ class AppLocalizationsLa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Incipio actiones servitoris exsequi pro renovationibus folksonomy localiter servatis.';
 
   @override
   String get background_task_title_top_n =>
@@ -5787,7 +5790,8 @@ class AppLocalizationsLa extends AppLocalizations {
       'Quaestiones Frequentes - Quaestiones Frequentes';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Consociatio Non-Governativa de Cibis Apertis Factis (vel Notitiae Ciborum Apertae)';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5809,7 +5813,8 @@ class AppLocalizationsLa extends AppLocalizations {
       'Participa participando unum ex eventibus nostris virtualibus';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Diarium de rebus cibariis apertis';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5974,7 +5979,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Pretia recentissima a communitate Pretiorum Apertorum addita';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6136,7 +6141,7 @@ class AppLocalizationsLa extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Affer Facta Cibaria Aperta in Linguam Tuam';
 
   @override
   String get preferences_contribute_enroll_alpha =>

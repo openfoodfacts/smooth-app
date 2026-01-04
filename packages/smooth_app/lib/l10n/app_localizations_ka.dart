@@ -653,6 +653,9 @@ class AppLocalizationsKa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3518,7 +3521,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ლოკალურად შენახული folksonomy-ის განახლებებისთვის სერვერის მოქმედებების შესრულება იწყება';
 
   @override
   String get background_task_title_top_n =>
@@ -5808,7 +5811,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'ჩაერთეთ ჩვენს ერთ-ერთ ვირტუალურ ღონისძიებაში';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'ღია კვების ფაქტების ბლოგი';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6131,7 +6134,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Factsს ლაბორატორიები';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

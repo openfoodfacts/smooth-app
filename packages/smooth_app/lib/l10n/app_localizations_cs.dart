@@ -660,6 +660,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unknownBrand => 'Neznámá značka';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Neznámý název produktu';
 
   @override
@@ -3540,7 +3543,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Zahájení provádění akcí serveru pro lokálně uložené aktualizace folksonomy';
 
   @override
   String get background_task_title_top_n =>
@@ -4587,7 +4590,7 @@ class AppLocalizationsCs extends AppLocalizations {
       '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Zdravotní riziko';
 
   @override
   String get guide_nova_explanations_arg5_text =>
@@ -4605,83 +4608,83 @@ class AppLocalizationsCs extends AppLocalizations {
   String get guide_nova_share_link => 'https://world-cs.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'Vítejte na Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Co je to Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts je **kolaborativní**, **bezplatná** a **otevřená** databáze potravinářských produktů z celého světa.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Věříme, že každý by měl mít přístup k informacím o tom, co jí. Shromažďováním údajů o složkách, alergenech, nutričních hodnotách a dalších údajích **umožňujeme spotřebitelům činit informovaná rozhodnutí** a posouváme potravinářský průmysl **k větší transparentnosti**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Vlastnosti Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Získejte upozornění na nežádoucí přísady';
 
   @override
   String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Co nedělat';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vyhněte se stínům a přesvícení.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Žádný rozmazaný nebo nezaostřený text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Nevyřezávejte části textu.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Vyhněte se rušivému pozadí.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Co dělat';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Používejte dobré, rovnoměrné osvětlení.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ujistěte se, že text je ostrý a čitelný.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Zaznamenejte si celý seznam ingrediencí.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Dejte výrobek na rovný povrch.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Pomozte nám vybudovat \"Wikipedii potravin\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Skóre nutriční kvality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Skóre, jak se vyhnout ultrazpracovaným potravinám';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Skóre pro planetu';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4689,76 +4692,76 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Vítejte v Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Co je Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts rozšiřuje naši misi na naše chlupaté přátele! Je to **databáze krmiv pro kočky, psy a další domácí mazlíčky**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Shromažďujeme informace o **složení**, **nutriční analýze** a krmných pokynech, abychom majitelům domácích mazlíčků pomohli vybrat nejlepší krmivo pro jejich zvířata.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Vlastnosti Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Získejte upozornění na nežádoucí přísady';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Je váš mazlíček alergický na nějaké složky? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
       'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Co nedělat';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vyhněte se stínům a přesvícení.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Žádný rozmazaný nebo nezaostřený text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Nevyřezávejte části textu.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Vyhněte se rušivému pozadí.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Co dělat';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Používejte dobré, rovnoměrné osvětlení.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ujistěte se, že text je ostrý a čitelný.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Zaznamenejte si celý seznam ingrediencí.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Dejte výrobek na rovný povrch.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title => 'Poznámka k bodování';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
@@ -4789,7 +4792,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Získejte upozornění na nežádoucí přísady';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
@@ -4800,38 +4803,38 @@ class AppLocalizationsCs extends AppLocalizations {
       'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Co nedělat';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vyhněte se stínům a přesvícení.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Žádný rozmazaný nebo nezaostřený text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Nevyřezávejte části textu.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Vyhněte se rušivému pozadí.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Co dělat';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Používejte dobré, rovnoměrné osvětlení.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ujistěte se, že text je ostrý a čitelný.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Zaznamenejte si celý seznam ingrediencí.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
@@ -4843,10 +4846,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Dejte výrobek na rovný povrch.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'Poznámka k bodování';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
@@ -5012,7 +5015,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Již brzy';
 
   @override
   String get guide_learn_more_subtitle => 'Tap to learn more';
@@ -5529,8 +5532,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_stats_last_updated => 'Naposled aktualizováno';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'Při načítání statistik došlo k chybě.';
 
   @override
   String get product_edit_robotoff_question_answered => 'Question answered!';
@@ -5794,14 +5796,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Objevte Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title => 'Objevte Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Objevte Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
@@ -5831,7 +5833,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zapojte se účastí na jedné z našich virtuálních akcí';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Otevřená fakta o jídle';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6157,7 +6159,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Přineste fakta o otevřeném jídle do svého jazyka';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6179,26 +6181,26 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Podrobnosti o poloze';
 
   @override
   String get location_map_details_name => 'Jméno';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Ulice';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Město';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'PSČ';
 
   @override
   String get location_map_details_country => 'Země';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Souřadnice';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

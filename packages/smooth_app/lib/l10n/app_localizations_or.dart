@@ -657,6 +657,9 @@ class AppLocalizationsOr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3524,7 +3527,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ସ୍ଥାନୀୟ ଭାବରେ ସଂରକ୍ଷିତ ଲୋକସମ୍ବନ୍ଧୀୟ ଅପଡେଟ୍ ପାଇଁ ସର୍ଭର କାର୍ଯ୍ୟଗୁଡ଼ିକ କରିବା ଆରମ୍ଭ କରୁଛି';
 
   @override
   String get background_task_title_top_n =>
@@ -5313,7 +5316,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**ଓପନ୍ ପ୍ରାଇସେସ୍** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। ଓପନ୍ ପ୍ରାଇସେସ୍ Open Food Facts ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।';
 
   @override
   String get explanation_card_learn_more_button => 'ଅଧିକ ଜାଣନ୍ତୁ';
@@ -5590,7 +5593,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'ଏକ ସେଟିଂ ଖୋଜନ୍ତୁ (ଯଥା ନ୍ୟୁଟ୍ରି-ସ୍କୋର)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5668,7 +5671,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get preferences_tips => 'ପରାମର୍ଶ';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'ନୂଆ ନ୍ୟୁଟ୍ରି-ସ୍କୋର ଆବିଷ୍କାର କରନ୍ତୁ';
 
   @override
   String get preferences_on_off_website_subtitle => 'Open Food Facts ୱେବସାଇଟରେ';
@@ -5756,7 +5759,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'ନ୍ୟୁଟ୍ରି-ସ୍କୋର କିପରି ଗଣନା କରାଯାଏ ତାହା ଜାଣନ୍ତୁ';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5950,7 +5953,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'ଆପଣଙ୍କ ଦେଶରେ ନ୍ୟୁଟ୍ରି-ସ୍କୋର୍ ଏବଂ ଗ୍ରୀନ୍-ସ୍କୋର୍ ଗଣନା କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'ମୁଁ ଦେଇଥିବା ମୂଲ୍ୟ';
@@ -6020,7 +6023,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'ଖାଦ୍ୟ ତଥ୍ୟ ଖୋଲିବାରେ ସାହାଯ୍ୟ କରିବାର ସରଳ ଉପାୟ';
 
   @override
   String get preferences_page_faq_subtitle =>

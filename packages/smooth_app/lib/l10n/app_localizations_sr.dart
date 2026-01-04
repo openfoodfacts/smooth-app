@@ -653,6 +653,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -5783,7 +5786,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_faq_title => 'ЧПП - Често постављана питања';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
 
   @override
   String get preferences_about_information_title => 'Informacija';
@@ -5805,7 +5808,8 @@ class AppLocalizationsSr extends AppLocalizations {
       'Укључите се тако што ћете присуствовати једном од наших виртуелних догађаја';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Блог „Чињенице о отвореној храни“';
 
   @override
   String get preferences_connect_blog_subtitle =>

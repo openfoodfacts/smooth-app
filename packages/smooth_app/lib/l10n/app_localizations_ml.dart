@@ -654,6 +654,9 @@ class AppLocalizationsMl extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3520,7 +3523,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'പ്രാദേശികമായി സംഭരിച്ചിരിക്കുന്ന ഫോക്ക്‌സോണമി അപ്‌ഡേറ്റുകൾക്കായി സെർവർ പ്രവർത്തനങ്ങൾ നടത്താൻ ആരംഭിക്കുന്നു.';
 
   @override
   String get background_task_title_top_n =>
@@ -5925,7 +5928,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5973,7 +5976,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6022,7 +6025,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6131,7 +6134,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts ലാബുകൾ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

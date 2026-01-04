@@ -654,6 +654,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3520,7 +3523,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Жергілікті сақталған фольксономиялық жаңартулар үшін сервер әрекеттерін орындауды бастау';
 
   @override
   String get background_task_title_top_n =>
@@ -5787,7 +5790,8 @@ class AppLocalizationsKk extends AppLocalizations {
       'Жиі қойылатын сұрақтар - Жиі қойылатын сұрақтар';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      '«Ашық азық-түлік фактілері» үкіметтік емес ұйымы';
 
   @override
   String get preferences_about_information_title => 'Ақпарат';
@@ -6134,7 +6138,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ашық тағам фактілерін тіліңізге жеткізіңіз';
 
   @override
   String get preferences_contribute_enroll_alpha =>

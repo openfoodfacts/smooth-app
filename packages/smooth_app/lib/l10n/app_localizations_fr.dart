@@ -218,7 +218,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'Aidez-nous à améliorer Open Food Facts dans votre pays';
 
   @override
   String get sign_out => 'Se déconnecter';
@@ -670,6 +670,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unknownBrand => 'Marque inconnue';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Produit inconnu';
 
   @override
@@ -739,11 +742,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Modifier les informations nutritionnelles';
 
   @override
-  String get packaging_information => 'Informations sur l\'emballage';
+  String get packaging_information => 'Consignes de tri / recyclage';
 
   @override
-  String get packaging_information_photo =>
-      'Photo des informations sur l\'emballage';
+  String get packaging_information_photo => 'Consignes de tri ou recyclage';
 
   @override
   String get missing_product => 'Vous avez trouvé un nouveau produit !';
@@ -848,7 +850,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Photo des valeurs nutritionnelles';
 
   @override
-  String get recycling_photo_title => 'Photo du recyclage';
+  String get recycling_photo_title => 'Photo des consignes de tri ou recyclage';
 
   @override
   String get take_photo_title => 'Prendre une photo';
@@ -3603,7 +3605,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Démarrage des actions serveur pour les mises à jour de folksonomie stockées localement';
 
   @override
   String get background_task_title_top_n =>
@@ -5331,7 +5333,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get photo_field_nutrition => 'Informations nutritionnelles';
 
   @override
-  String get photo_field_packaging => 'Photo des informations sur l\'emballage';
+  String get photo_field_packaging => 'Photo des consignes de tri/recyclage';
 
   @override
   String get photo_already_exists => 'Cette photo existe déjà';
@@ -6141,7 +6143,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Des moyens simples pour aider Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6256,7 +6258,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Traduire Open Food Facts dans votre langue';
 
   @override
   String get preferences_contribute_enroll_alpha =>

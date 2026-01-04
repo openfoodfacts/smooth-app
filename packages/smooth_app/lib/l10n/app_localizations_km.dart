@@ -653,6 +653,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3010,7 +3013,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'ប្តូររវាង price.openfoodfacts.org (PROD) និង test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3517,7 +3520,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ចាប់ផ្តើមអនុវត្តសកម្មភាពម៉ាស៊ីនមេសម្រាប់ការអាប់ដេត folksonomy ដែលរក្សាទុកក្នុងមូលដ្ឋាន';
 
   @override
   String get background_task_title_top_n =>
@@ -5747,7 +5750,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'ស្វែងយល់ពីរបៀបដែលពិន្ទុ Nutri ត្រូវបានគណនា';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -6008,7 +6011,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'វិធីសាមញ្ញដើម្បីជួយបើកការពិតអំពីអាហារ';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6123,7 +6126,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'នាំយកការពិតអាហារបើកចំហទៅកាន់ភាសារបស់អ្នក។';
 
   @override
   String get preferences_contribute_enroll_alpha =>

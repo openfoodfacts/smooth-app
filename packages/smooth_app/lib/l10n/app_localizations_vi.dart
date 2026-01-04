@@ -659,6 +659,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unknownBrand => 'Thương hiệu không xác định';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Tên sản phẩm không xác định';
 
   @override
@@ -1966,7 +1969,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      'Điểm số dinh dưỡng, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -3550,7 +3553,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ';
 
   @override
   String get background_task_title_top_n =>
@@ -4060,16 +4063,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => 'Điểm dinh dưỡng A';
 
   @override
-  String get nutriscore_b => 'Nutri-Score B';
+  String get nutriscore_b => 'Điểm dinh dưỡng B';
 
   @override
   String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Nutri-Score D';
+  String get nutriscore_d => 'Điểm dinh dưỡng D';
 
   @override
   String get nutriscore_e => 'Nutri-Score E';
@@ -4725,7 +4728,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Đặc điểm của Thực phẩm cho thú cưng mở';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4971,7 +4974,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Tính năng của Sản phẩm Mở Sự kiện';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5854,7 +5857,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tham gia bằng cách tham dự một trong các sự kiện trực tuyến của chúng tôi';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Sự thật về Thực phẩm Mở';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6177,7 +6180,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn';
 
   @override
   String get preferences_contribute_enroll_alpha =>

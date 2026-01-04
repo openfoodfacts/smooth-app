@@ -664,6 +664,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unknownBrand => 'Ismeretlen márka';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Ismeretlen terméknév';
 
   @override
@@ -907,7 +910,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Please take the following photos and the Open Food Facts engine can work out the rest!';
+      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -3556,7 +3559,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'A helyileg tárolt folksonomy-frissítésekhez kapcsolódó kiszolgálói műveletek végrehajtásának megkezdése';
 
   @override
   String get background_task_title_top_n =>
@@ -6183,7 +6186,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Hozd el a Nyílt Élelmiszerinformációkat a saját nyelvedre';
 
   @override
   String get preferences_contribute_enroll_alpha =>

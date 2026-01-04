@@ -653,6 +653,9 @@ class AppLocalizationsCv extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3517,7 +3520,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Вырӑнта упранакан folksonomy ҫӗнетӗвӗсем валли сервер ӗҫӗсене пурнӑҫлама пуҫласси';
 
   @override
   String get background_task_title_top_n =>
@@ -5663,7 +5666,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче';
 
   @override
   String get preferences_manage_account_title => 'Манӑн аккаунта тытса пырӑр';
@@ -5781,7 +5784,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - час-часах ыйтакан ыйтусем';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => '«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5803,7 +5806,7 @@ class AppLocalizationsCv extends AppLocalizations {
       'Пирӗн виртуаллӑ мероприятисенчен пӗрне хутшӑнса хутшӑнӑр';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6128,7 +6131,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -662,6 +662,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unknownBrand => 'Markë e panjohur';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Emer i panjohur produkti.';
 
   @override
@@ -3533,7 +3536,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Duke filluar të kryhen veprimet e serverit për përditësimet e folksonomisë të ruajtura lokalisht';
 
   @override
   String get background_task_title_top_n =>
@@ -5823,7 +5826,8 @@ class AppLocalizationsSq extends AppLocalizations {
       'Angazhohuni duke marrë pjesë në një nga eventet tona virtuale';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Blogu i Fakte të Hapura Ushqimore';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5989,7 +5993,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6038,7 +6042,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Mënyra të thjeshta për të ndihmuar në Hapjen e Fakte Ushqimore';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6153,7 +6157,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Sillni Fakte Ushqimore të Hapura në gjuhën tuaj';
 
   @override
   String get preferences_contribute_enroll_alpha =>

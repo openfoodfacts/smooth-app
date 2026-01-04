@@ -655,6 +655,9 @@ class AppLocalizationsMi extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3525,7 +3528,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ka timata ki te mahi i nga mahi a te kaimau mo nga whakahōutanga folksonomy kua rongoa i te rohe';
 
   @override
   String get background_task_title_top_n =>
@@ -6028,7 +6031,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Nga huarahi ngawari hei awhina i nga Meka Kai Tuwhera';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6143,7 +6146,7 @@ class AppLocalizationsMi extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Kawea mai nga Meka Kai Tuwhera ki to reo';
 
   @override
   String get preferences_contribute_enroll_alpha =>

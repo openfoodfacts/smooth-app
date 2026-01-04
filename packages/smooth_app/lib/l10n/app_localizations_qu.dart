@@ -654,6 +654,9 @@ class AppLocalizationsQu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3015,7 +3018,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3522,7 +3525,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Servidor ruwaykunata ruwayta qallariy folksonomy musuqyachiykunapaq kitipi waqaychasqa';
 
   @override
   String get background_task_title_top_n =>
@@ -4067,23 +4070,22 @@ class AppLocalizationsQu extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Verde-Puntuación A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
-  String get environmental_score_b_new => 'Verde-Puntuación B';
+  String get environmental_score_b_new => 'Green-Score B';
 
   @override
-  String get environmental_score_c_new => 'Verde-Puntuación C';
+  String get environmental_score_c_new => 'Green-Score C';
 
   @override
-  String get environmental_score_d_new => 'Verde-Puntuación D';
+  String get environmental_score_d_new => 'Green-Score D';
 
   @override
-  String get environmental_score_e_new => 'Verde-Puntuación E';
+  String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new =>
-      'Mana riqsisqa Verde-Puntuación';
+  String get environmental_score_unknown_new => 'Mana riqsisqa Green-Score';
 
   @override
   String get environmental_score_not_applicable_new =>
@@ -4311,7 +4313,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_logos_caption =>
-      'Chay Verde-Puntuación nisqa logotipokuna';
+      'Chay Green-Score nisqa logotipokuna';
 
   @override
   String get guide_greenscore_lca_title =>
@@ -4476,7 +4478,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg3_text =>
-      'Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Verde-Puntuación nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.';
+      'Sustentable mikhuy akllayqa sasachakuymi sientekunman. Etiquetakunaqa pantasqam, willakuykunapas achka kutipim faltan. Green-Score nisqa ruwasqa karqan mana sasa kananpaq, **sut’i**, **ciencia nisqapi ruwasqa**, hinallataq **chuya** pachamamamanta chaninchayta qusunki mikhuy rurukunapaq, maypichus necesitasqaykipipuni: rantikuchkaptiyki.';
 
   @override
   String get guide_greenscore_better_product_arg4_title =>
@@ -4484,7 +4486,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'Mana propiedad etiquetakuna hinachu, Verde-Puntuación yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.';
+      'Mana propiedad etiquetakuna hinachu, Green-Score yupayqa **tukuy kichasqa** chaymanta **pillapas chiqaqchasqa kayta atin**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -5319,7 +5321,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Precios Abiertos** nisqaqa huk proyectom, pachantinpi rurukunapa chaninkunata huñunapaq hinaspa rakinapaq 🌍. Kichasqa Precios nisqakunaqa Kichasqa Mikhuy Chiqapkuna nisqawanmi ruwasqa hinaspa waqaychasqa.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5628,7 +5630,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Kichasqa Mikhuy Chiqap willakuykunaqa mikhuy rurukunap willay tantana wasim **llapa runap rurasqan, llapa runapaq**.\nAswan allin mikhuy akllanapaq llamk\'achiy atikunki, chaymanta **kichasqa willay** kasqanrayku, pipas **imapaqpas wakmanta llamk\'achiyta atin**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5679,7 +5681,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Kichasqa Mikhuy Chiqap web nisqapi';
 
   @override
   String get preferences_manage_account_title => 'Cuentayta kamachiy';
@@ -5796,7 +5798,8 @@ class AppLocalizationsQu extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Sapa kuti tapusqa tapukuykuna';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Kichasqa Mikhuymanta Chiqap ONG nisqa';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5818,7 +5821,8 @@ class AppLocalizationsQu extends AppLocalizations {
       'Huknin virtual ruwayniykuman rispa involucrakuy';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Kichasqa Mikhuy Chiqap blog nisqa';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5982,7 +5986,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Kichasqa Chanikuna ayllumanta yapasqa qhipa chaninkuna';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6031,7 +6035,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Kichasqa Mikhuy Chiqap yanapakuykunata yanapanapaq sasan ñankuna';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6148,7 +6152,7 @@ class AppLocalizationsQu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Kichasqa Mikhuy Chiqap willakuykunata simiykiman apamuy';
 
   @override
   String get preferences_contribute_enroll_alpha =>

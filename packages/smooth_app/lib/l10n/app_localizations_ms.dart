@@ -653,6 +653,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get unknownBrand => 'Jenama tidak diketahui';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Nama produk yang tidak diketahui';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Mula melakukan tindakan pelayan untuk kemas kini folksonomy yang disimpan secara setempat';
 
   @override
   String get background_task_title_top_n =>
@@ -6125,7 +6128,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Makmal Open Food Facts';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

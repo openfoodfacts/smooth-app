@@ -653,6 +653,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unknownBrand => 'مارک ناشناس';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'نام محصول ناشناخته است';
 
   @override
@@ -3517,7 +3520,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'شروع به انجام اقدامات سرور برای به‌روزرسانی‌های folksonomy که به صورت محلی ذخیره شده‌اند، می‌کند.';
 
   @override
   String get background_task_title_top_n =>
@@ -5607,7 +5610,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'اطلاعات عمومی غذا یک پایگاه داده محصولات غذایی است **که توسط همه و برای همه ساخته شده است**.\nشما می‌توانید از آن برای انتخاب‌های غذایی بهتر استفاده کنید و از آنجایی که **داده‌های باز** است، هر کسی می‌تواند **از آن برای هر هدفی دوباره استفاده کند**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5654,11 +5657,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_tips => 'نکات';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'با نوتری-اسکور جدید آشنا شوید';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'در وب‌سایت حقایق غذایی آزاد';
 
   @override
   String get preferences_manage_account_title => 'مدیریت حساب من';
@@ -5771,7 +5774,8 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوالات متداول - سوالات متداول';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'سازمان مردم نهاد حقایق غذایی آزاد';
 
   @override
   String get preferences_about_information_title => 'اطلاعات';
@@ -5793,7 +5797,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'با شرکت در یکی از رویدادهای مجازی ما، مشارکت کنید';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'وبلاگ حقایق غذای آزاد';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5934,7 +5938,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'به محاسبه امتیاز تغذیه‌ای و امتیاز سبز در کشور خود کمک کنید';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6118,7 +6122,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'حقایق غذایی آزاد را به زبان خود بیاورید';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -654,6 +654,9 @@ class AppLocalizationsTn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3016,7 +3019,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3523,7 +3526,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Go simolola go dira ditiro tsa sefara tsa dintšhwafatso tsa folksonomy tse di bolokilweng mo lefelong la gaeno';
 
   @override
   String get background_task_title_top_n =>
@@ -4917,7 +4920,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://ditlhwatlhwa.dintlha tsa dijo tse di bulegileng.org/ka ga';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5316,7 +5319,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ke porojeke ya go kokoanya le go abelana ditlhwatlhwa tsa dikumo lefatshe ka bophara 🌍. Ditheko tse Bulehileng di ntshetswa pele le ho bolokwa ke Dintlha tsa Dijo tse Bulehileng.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5931,7 +5934,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Dikumo tse disha tse ke di tsentseng mo Dintlhang tsa Dijo tse di Buletsweng';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5957,7 +5960,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Thusa go balelela Maduo a Dikotla le Green-Score mo nageng ya gaeno';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -5980,7 +5983,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Ditlhwatlhwa tsa bosheng tse di tsentsweng ke baagi ba Ditlhwatlhwa tse di Buletsweng';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6031,7 +6034,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Ditsela tse di bonolo tsa go thusa go Bula Dintlha tsa Dijo';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6147,7 +6150,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tlisa Dintlha tsa Dijo tse di Bulegileng mo puong ya gago';
 
   @override
   String get preferences_contribute_enroll_alpha =>

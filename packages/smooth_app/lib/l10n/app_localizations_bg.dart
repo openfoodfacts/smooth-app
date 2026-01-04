@@ -661,6 +661,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get unknownBrand => 'Неизвестна марка';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Неразпознат продукт';
 
   @override
@@ -1982,7 +1985,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      'Нутри-Скор, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -3017,7 +3020,7 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Научете повече за отворените цени';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -3578,7 +3581,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Започване на изпълнението на действията на сървъра за актуализации на folksonomy, съхранявани локално';
 
   @override
   String get background_task_title_top_n =>
@@ -4112,7 +4115,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (Ново изчисление)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Неизвестен хранителен резултат';
 
   @override
   String get nutriscore_unknown_new_formula =>
@@ -4154,16 +4157,16 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nova_group_generic_new => 'Ултрапреработени храни - NOVA groups';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'NOVA Груп 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'NOVA Груп 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'NOVA Груп 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'NOVA Груп 4';
 
   @override
   String get nova_group_unknown => 'Неизвестна група NOVA';
@@ -4555,7 +4558,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
-      'Класификацията NOVA позволява категоризирането на храните в **4 групи** въз основа на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).';
+      'Класификацията NOVA позволява категоризирането на храните в **4 групи** въз осNOVA на тяхната **степен на промишлена обработка** (минимално преработени или непреработени храни, кулинарни съставки, преработени храни, ултрапреработени храни).';
 
   @override
   String get guide_nova_logos_caption => 'Логотата на NOVA';
@@ -4739,7 +4742,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Какво представляват фактите за храната за домашни любимци в Open Pet Food?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4821,7 +4824,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Какво представляват откритите факти за красотата?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4910,7 +4913,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Какво представляват отворените цени?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4921,7 +4924,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Как работят отворените цени?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4987,7 +4990,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Какво представляват фактите за отворените продукти?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4999,7 +5002,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Характеристики на отворените продукти Факти';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -6219,7 +6222,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Внесете фактите за отворените храни на вашия език';
 
   @override
   String get preferences_contribute_enroll_alpha =>

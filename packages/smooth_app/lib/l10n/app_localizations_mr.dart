@@ -654,6 +654,9 @@ class AppLocalizationsMr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3517,7 +3520,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'स्थानिक पातळीवर संग्रहित केलेल्या लोकसाहित्य अद्यतनांसाठी सर्व्हर क्रिया करण्यास सुरुवात करत आहे';
 
   @override
   String get background_task_title_top_n =>
@@ -4084,7 +4087,8 @@ class AppLocalizationsMr extends AppLocalizations {
       'ग्रीन-स्कोअर लागू नाही.';
 
   @override
-  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
+  String get nova_group_generic_new =>
+      'अल्ट्रा-प्रक्रिया केलेले अन्न - नोव्हा गट';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4491,7 +4495,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA लोगो';
 
   @override
-  String get guide_nova_groups_title => 'The 4 NOVA groups';
+  String get guide_nova_groups_title => '४ नोव्हा गट';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5581,7 +5585,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'सेटिंग शोधा (उदा. न्यूट्री-स्कोअर)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5659,7 +5663,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_tips => 'टिपा';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'नवीन न्यूट्री-स्कोअर शोधा';
 
   @override
   String get preferences_on_off_website_subtitle => 'Open Food Facts वेबसाइटवर';
@@ -5745,7 +5749,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'न्यूट्री-स्कोअर कसा मोजला जातो ते शोधा';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5940,7 +5944,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'तुमच्या देशातील न्यूट्री-स्कोअर आणि ग्रीन-स्कोअरची गणना करण्यात मदत करा.';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'मी दिलेल्या किमती';
@@ -6010,7 +6014,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'अन्न तथ्ये उघडण्यास मदत करण्याचे सोपे मार्ग';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6125,7 +6129,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'तुमच्या भाषेत खुल्या अन्नाचे तथ्य आणा';
 
   @override
   String get preferences_contribute_enroll_alpha =>

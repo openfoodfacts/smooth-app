@@ -653,6 +653,9 @@ class AppLocalizationsHy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3517,7 +3520,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Սկսվում է սերվերի գործողությունների կատարումը տեղականորեն պահված folksonomy թարմացումների համար';
 
   @override
   String get background_task_title_top_n =>
@@ -5618,7 +5621,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Բաց սննդի փաստերը սննդամթերքի տվյալների շտեմարան է, **ստեղծված բոլորի կողմից, բոլորի համար**:\nԴուք կարող եք օգտագործել այն՝ սննդի ավելի լավ ընտրություն կատարելու համար, և քանի որ դա **բաց տվյալ** է, յուրաքանչյուրը կարող է **վերաօգտագործել այն ցանկացած նպատակով**:';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5668,8 +5671,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get tips_discover_nutriscore => 'Բացահայտեք նոր Nutri-Score-ը';
 
   @override
-  String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+  String get preferences_on_off_website_subtitle => 'Բաց սննդի փաստերի կայքում';
 
   @override
   String get preferences_manage_account_title => 'Կառավարել իմ հաշիվը';
@@ -5787,7 +5789,7 @@ class AppLocalizationsHy extends AppLocalizations {
       'Հաճախակի տրվող հարցեր - Հաճախակի տրվող հարցեր';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => '«Բաց սննդի փաստեր» ՀԿ';
 
   @override
   String get preferences_about_information_title => 'Տեղեկատվություն';
@@ -5809,7 +5811,7 @@ class AppLocalizationsHy extends AppLocalizations {
       'Մասնակցեք մեր վիրտուալ միջոցառումներից մեկին';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Բաց սննդի փաստերի բլոգ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5925,7 +5927,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Բաց սննդի փաստերին ավելացված նոր ապրանքներ';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6133,7 +6135,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Բաց սննդի փաստերը բերեք ձեր լեզվով';
 
   @override
   String get preferences_contribute_enroll_alpha =>

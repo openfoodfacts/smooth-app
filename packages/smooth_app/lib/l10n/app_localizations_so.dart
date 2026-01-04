@@ -653,6 +653,9 @@ class AppLocalizationsSo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Bilaabida samaynta ficilada serverka ee cusboonaysiinta folksonomi ee lagu kaydiyay gudaha';
 
   @override
   String get background_task_title_top_n =>
@@ -6024,7 +6027,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6139,7 +6142,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Keen Xaqiiqo Cunno Furan luqadaada';
 
   @override
   String get preferences_contribute_enroll_alpha =>

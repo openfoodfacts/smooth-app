@@ -515,7 +515,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get contribute_to_get_rewards =>
-      'Become an actor of food transparency';
+      'Bli en aktör för livsmedelstransparens';
 
   @override
   String get question_sign_in_text =>
@@ -651,6 +651,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get unknownBrand => 'Okänt varumärke';
+
+  @override
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Okänt produktnamn';
@@ -2042,7 +2045,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Sojan kommer inte från Europeiska unionen';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Land';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2578,7 +2581,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-      'AI will run on your proofs to extract prices.';
+      'AI kommer att använda dina bevis för att extrahera priser.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
@@ -2996,7 +2999,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Läs mer om öppna priser';
 
   @override
   String get dev_preferences_import_history_result_success => 'Klar';
@@ -3110,7 +3113,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_contribution_assistant => 'Prisbidragsassistent';
 
   @override
-  String get prices_validation_assistant => 'Price Validation Assistant';
+  String get prices_validation_assistant => 'Prisvalideringsassistent';
 
   @override
   String get prices_challenges_page => 'Utmaningar';
@@ -3548,7 +3551,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Börjar utföra serveråtgärderna för folksonomy-uppdateringar som lagras lokalt';
 
   @override
   String get background_task_title_top_n =>
@@ -4223,7 +4226,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'What is the Nutri-Score?';
+      'Vad är Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4450,7 +4453,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_title =>
-      'An increased need for transparency to better measure and reduce environmental impacts';
+      'Ett ökat behov av transparens för att bättre mäta och minska miljöpåverkan';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
@@ -4622,7 +4625,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Vad är öppna matfakta?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4875,11 +4878,11 @@ class AppLocalizationsSv extends AppLocalizations {
       'https://world-sv.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Välkommen till Öppna Priser!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Vad är öppningspriser?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4887,10 +4890,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
+      'Det finns för närvarande få företag som äger stora databaser med produktpriser på streckkodsnivå. Dessa priser är inte fritt tillgängliga, utan säljs till ett högt pris till privata aktörer, forskare och andra organisationer som har råd med dem.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Hur fungerar öppna priser?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4931,7 +4934,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Av juridiska och tekniska skäl **anser vi inte att det är ett giltigt sätt att bidra till öppna priser att hämta priser från återförsäljares webbplatser.** Vi vill se till att de priser vi samlar in är korrekta och aktuella, och att ta emot hämtade priser från bidragsgivare tillåter oss inte att göra det.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -4939,7 +4942,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      'I\'m a retailer and I want to contribute prices. How can I do that?';
+      'Jag är en återförsäljare och jag vill bidra med priser. Hur kan jag göra det?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -4955,7 +4958,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Vad är fakta om öppna produkter?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4967,7 +4970,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Funktioner i öppna produktfakta';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5507,10 +5510,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get prices_stats_receipt => 'Kvitto';
 
   @override
-  String get prices_stats_gdpr_request => 'GDPR request';
+  String get prices_stats_gdpr_request => 'GDPR-begäran';
 
   @override
-  String get prices_stats_shop_import => 'Shop import';
+  String get prices_stats_shop_import => 'Butiksimport';
 
   @override
   String get prices_stats_challenges => 'Utmaningar';
@@ -5649,7 +5652,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get preferences_terms_of_use => 'Användningsvillkor';
 
   @override
-  String get preferences_legal_mentions => 'Legal mentions';
+  String get preferences_legal_mentions => 'Juridiska omnämnanden';
 
   @override
   String get preferences_legal_header =>
@@ -6203,7 +6206,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get location_map_details_postcode => 'Postnummer';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Land';
 
   @override
   String get location_map_details_coordinates => 'Koordinater';

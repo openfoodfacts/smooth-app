@@ -654,6 +654,9 @@ class AppLocalizationsGl extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Comezando a executar as accións do servidor para as actualizacións de folksonomía almacenadas localmente';
 
   @override
   String get background_task_title_top_n =>
@@ -4067,7 +4070,7 @@ class AppLocalizationsGl extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Puntuación verde A';
+  String get environmental_score_a_new => 'Green-Score A';
 
   @override
   String get environmental_score_b_new => 'Green-Score B';
@@ -4082,11 +4085,11 @@ class AppLocalizationsGl extends AppLocalizations {
   String get environmental_score_e_new => 'Green-Score E';
 
   @override
-  String get environmental_score_unknown_new => 'Puntuación verde descoñecida';
+  String get environmental_score_unknown_new => 'Green-Score descoñecida';
 
   @override
   String get environmental_score_not_applicable_new =>
-      'A puntuación verde non é aplicable';
+      'A Green-Score non é aplicable';
 
   @override
   String get nova_group_generic_new =>
@@ -4480,7 +4483,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get guide_greenscore_better_product_arg4_text =>
-      'A diferenza das etiquetas propietarias, o cálculo da puntuación verde é **completamente aberto** e calquera pode **verificalo**.';
+      'A diferenza das etiquetas propietarias, o cálculo da Green-Score é **completamente aberto** e calquera pode **verificalo**.';
 
   @override
   String get guide_nova_title => 'Ultra-processed foods';
@@ -5957,7 +5960,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Axuda a calcular a Nutri-Score e a Green-Score no teu país';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'Prezos que aportei';

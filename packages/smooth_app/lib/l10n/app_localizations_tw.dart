@@ -653,6 +653,9 @@ class AppLocalizationsTw extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3520,7 +3523,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Worefi ase ayɛ server nneyɛe ama folksonomy updates a wɔde asie wɔ mpɔtam hɔ';
 
   @override
   String get background_task_title_top_n =>
@@ -4916,7 +4919,7 @@ class AppLocalizationsTw extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://prices.openfoodfacts.org/ɛfa';
 
   @override
   String get guide_open_products_facts_title =>

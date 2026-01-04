@@ -653,6 +653,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3518,7 +3521,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Byrja að framkvæma aðgerðir á netþjóni fyrir uppfærslur á fólksonomíunni sem eru geymdar á staðnum';
 
   @override
   String get background_task_title_top_n =>
@@ -5580,7 +5583,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Leita að stillingu (t.d. næringarstig)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Aðgengi: Sýna emoji';
@@ -5941,7 +5944,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Hjálpaðu til við að reikna út næringargildið og græna gildið í þínu landi';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'Verð sem ég lagði til';

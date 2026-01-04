@@ -654,6 +654,9 @@ class AppLocalizationsOc extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3523,7 +3526,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Començant a realizar las accions del servidor per las mesas a jorn de folksonomia enregistradas localament';
 
   @override
   String get background_task_title_top_n =>
@@ -5818,7 +5821,8 @@ class AppLocalizationsOc extends AppLocalizations {
       'Participatz-vos en assistissent a un de nòstres eveniments virtuals';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Lo blòg dels faches de l\'alimentacion dobèrta';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6034,7 +6038,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'De biaisses simples d\'ajudar a dobrir los faches alimentaris';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6149,7 +6153,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Portatz de faches alimentaris dobèrts a vòstra lenga';
 
   @override
   String get preferences_contribute_enroll_alpha =>

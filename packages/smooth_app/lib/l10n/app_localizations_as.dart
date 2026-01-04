@@ -654,6 +654,9 @@ class AppLocalizationsAs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3518,7 +3521,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'স্থানীয়ভাৱে সংৰক্ষণ কৰা লোকছ\'নমি আপডেইটসমূহৰ বাবে চাৰ্ভাৰ কাৰ্য্যসমূহ সম্পাদন কৰিবলে আৰম্ভ কৰা';
 
   @override
   String get background_task_title_top_n =>
@@ -5659,7 +5662,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_tips => 'কিটিপসমূহ';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5747,7 +5750,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'নিউট্ৰি-স্ক’ৰ কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -6113,14 +6116,14 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'খোলা Open Food Facts লেব';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'আপোনাৰ ভাষালৈ মুকলি খাদ্যৰ তথ্য আনিব';
 
   @override
   String get preferences_contribute_enroll_alpha =>

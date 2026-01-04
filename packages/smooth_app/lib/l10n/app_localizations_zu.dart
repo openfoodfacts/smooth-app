@@ -653,6 +653,9 @@ class AppLocalizationsZu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Iqala ukwenza izenzo zeseva ngezibuyekezo ze-folksonomy ezigcinwe endaweni';
 
   @override
   String get background_task_title_top_n =>
@@ -6139,7 +6142,7 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Letha Amaqiniso Okudla Okuvulekile olimini lwakho';
 
   @override
   String get preferences_contribute_enroll_alpha =>

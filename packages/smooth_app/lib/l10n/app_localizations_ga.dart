@@ -654,6 +654,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3524,7 +3527,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ag tosú ag déanamh gníomhartha an fhreastalaí le haghaidh nuashonruithe folksonomy atá stóráilte go háitiúil';
 
   @override
   String get background_task_title_top_n =>
@@ -5667,7 +5670,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_tips => 'Leideanna';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Faigh amach an Scór Cothaithe nua';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5787,7 +5790,8 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ceisteanna Coitianta - Ceisteanna Coitianta';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'An Eagraíocht Neamhrialtasach Fíricí Bia Oscailte';
 
   @override
   String get preferences_about_information_title => 'Eolas';
@@ -5809,7 +5813,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bí páirteach trí fhreastal ar cheann dár n-imeachtaí fíorúla';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blag Fíricí Bia Oscailte';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6138,7 +6142,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tabhair Fíricí Bia Oscailte chuig do theanga';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -654,6 +654,9 @@ class AppLocalizationsTe extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3521,7 +3524,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'స్థానికంగా నిల్వ చేయబడిన ఫోల్క్‌సోనమీ నవీకరణల కోసం సర్వర్ చర్యలను ప్రారంభించడం.';
 
   @override
   String get background_task_title_top_n =>
@@ -5585,7 +5588,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'సెట్టింగ్ కోసం శోధించండి (ఉదా. న్యూట్రి-స్కోర్)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5663,7 +5666,7 @@ class AppLocalizationsTe extends AppLocalizations {
   String get preferences_tips => 'చిట్కాలు';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'కొత్త న్యూట్రి-స్కోర్‌ను కనుగొనండి';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5751,7 +5754,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'న్యూట్రి-స్కోర్ ఎలా గణించబడుతుందో కనుగొనండి';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5945,7 +5948,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'మీ దేశంలో న్యూట్రి-స్కోర్ & గ్రీన్-స్కోర్‌ను లెక్కించడంలో సహాయం చేయండి';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'నేను అందించిన ధరలు';
@@ -6123,7 +6126,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts ల్యాబ్స్';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

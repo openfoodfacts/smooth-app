@@ -657,6 +657,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get unknownBrand => 'Neznana znamka';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Neznano ime izdelka';
 
   @override
@@ -2998,7 +3001,7 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Več o odprtih cenah';
 
   @override
   String get dev_preferences_import_history_result_success => 'Opravljeno';
@@ -3555,7 +3558,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Začetek izvajanja dejanj strežnika za lokalno shranjene posodobitve folksonomy';
 
   @override
   String get background_task_title_top_n =>
@@ -4068,7 +4071,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-Score A';
+  String get nutriscore_a => 'Nutri-ocena A';
 
   @override
   String get nutriscore_b => 'Nutri-Score B';
@@ -4091,11 +4094,11 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (nov izračun)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => 'Neznana hranilna vrednost';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+      'Neznan nutri-rezultat (nov izračun)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score se ne uporablja.';
@@ -4156,7 +4159,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Vizija, poslanstvo, vrednote in programi Odprtega programa za živila';
 
   @override
   String get faq_title_install_beauty =>
@@ -4632,7 +4635,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Kaj so odprta dejstva o hrani?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4644,7 +4647,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Značilnosti odprtih dejstev o hrani';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4729,7 +4732,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Značilnosti odprtih dejstev o hrani za hišne ljubljenčke';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4799,7 +4802,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Kaj so odprta dejstva o lepoti?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4883,11 +4886,11 @@ class AppLocalizationsSl extends AppLocalizations {
       'https://world-sl.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Dobrodošli na Odprtih cenah!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Kaj so odprte cene?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4898,7 +4901,7 @@ class AppLocalizationsSl extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Kako delujejo odprte cene?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4964,7 +4967,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Kaj so dejstva o odprtih izdelkih?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4976,7 +4979,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Značilnosti odprtih izdelkov Dejstva';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -6182,7 +6185,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Prinesite odprta dejstva o hrani v svoj jezik';
 
   @override
   String get preferences_contribute_enroll_alpha =>

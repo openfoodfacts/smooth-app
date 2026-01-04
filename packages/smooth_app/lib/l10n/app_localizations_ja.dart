@@ -631,6 +631,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknownBrand => '不明なブランド';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => '不明な製品名';
 
   @override
@@ -3382,7 +3385,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します';
 
   @override
   String get background_task_title_top_n => '最も人気のある製品のダウンロードを開始します';
@@ -3891,11 +3894,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (新しい計算)';
 
   @override
-  String get nutriscore_unknown => 'Unknown Nutri-Score';
+  String get nutriscore_unknown => '不明な栄養スコア';
 
   @override
-  String get nutriscore_unknown_new_formula =>
-      'Unknown Nutri-Score (New calculation)';
+  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Scoreは適用されません';
@@ -4490,8 +4492,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちは、ペットの飼い主が動物のニーズに最適な食べ物を選択できるように、**原材料**、**栄養分析**、給餌ガイドラインに関する情報を収集しています。';
 
   @override
-  String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+  String get guide_open_pet_food_facts_features_title => 'オープンペットフードファクトの特徴';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4564,8 +4565,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちの目標は、**パーソナルケア製品に何が含まれているのか**を理解していただくために、成分リストを解読することです。保湿剤から化粧品まで、化粧品業界の透明性を高めるために、成分、アレルゲン、パッケージに関するデータを収集しています。';
 
   @override
-  String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+  String get guide_open_beauty_facts_features_title => 'オープンビューティーファクトの特徴';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4719,8 +4719,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '**電化製品**から**おもちゃ**、**衣類**から**掃除用品**まで、バーコードがあれば追加できます。このプロジェクトは、日常のあらゆるモノに「モノのインターネット」を構築し、それらに関する情報を誰もがアクセスできるようにすることを目的としています。';
 
   @override
-  String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+  String get guide_open_products_facts_features_title => 'オープンプロダクトの特徴';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5840,7 +5839,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title => 'Open Food Factsラボ';
+  String get preferences_page_open_food_facts_labs_title =>
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'アカウント';

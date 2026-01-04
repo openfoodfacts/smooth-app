@@ -341,6 +341,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             heroTag: widget.heroTag,
             dense: !widget.isFullVersion,
             isPictureVisible: widget.isPictureVisible,
+            expandableBrands: widget.isTextSelectable ?? true,
             onRemove: (BuildContext context) async {
               HideableContainerState.of(context).hide(() async {
                 final ContinuousScanModel model = context

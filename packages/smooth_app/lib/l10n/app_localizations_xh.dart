@@ -654,6 +654,9 @@ class AppLocalizationsXh extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ukuqala ukwenza iintshukumo zeseva kuhlaziyo lwefolksonomy olugcinwe ekuhlaleni';
 
   @override
   String get background_task_title_top_n =>
@@ -5622,7 +5625,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Vula Iinyaniso zoKutya yidatha yemveliso yokutya ** eyenziwe ngumntu wonke, kumntu wonke **.\nUnokuyisebenzisa ukwenza ukhetho olungcono lokutya, kwaye njengoko i-*idatha evulekileyo **, nabani na unako ** ukuphinda ayisebenzise nayiphi na injongo **.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5812,7 +5815,8 @@ class AppLocalizationsXh extends AppLocalizations {
       'Zibandakanye ngokuzimasa omnye wemisitho yethu ebonakalayo';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Ibhlog yeeNkcukacha zoKutya ezivulekileyo';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5976,7 +5980,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Amaxabiso akutshanje ongezwe luluntu lwamaxabiso avulekileyo';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6139,7 +6143,7 @@ class AppLocalizationsXh extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Yiza neenyaniso ezivulekileyo zokutya kulwimi lwakho';
 
   @override
   String get preferences_contribute_enroll_alpha =>

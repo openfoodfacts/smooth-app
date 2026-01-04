@@ -663,6 +663,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownBrand => 'Неизвестный бренд';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Неизвестный продукт';
 
   @override
@@ -2063,7 +2066,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Соя не из Европейского Союза';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Страна';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3045,7 +3048,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Know more about Open Prices';
+  String get prices_menu_know_more => 'Узнайте больше об открытых ценах';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -3084,7 +3087,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -3603,7 +3606,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Начало выполнения действий сервера для обновлений folksonomy, хранящихся локально.';
 
   @override
   String get background_task_title_top_n =>
@@ -4959,7 +4962,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'В настоящее время лишь немногие компании владеют большими базами данных цен на продукты на уровне штрих-кодов. Эти цены не находятся в свободном доступе, а продаются по высокой цене частным лицам, исследователям и другим организациям, которые могут себе их позволить.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Как работают цены открытия?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5882,7 +5885,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Откройте для себя Open Beauty Factsе';
 
   @override
   String get preferences_faq_discover_opff_title =>
@@ -5899,7 +5903,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'НПО «Открытые факты о еде»';
 
   @override
   String get preferences_about_information_title => 'Информация';
@@ -6285,7 +6289,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get location_map_details_postcode => 'Почтовый индекс';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Страна';
 
   @override
   String get location_map_details_coordinates => 'Координаты';

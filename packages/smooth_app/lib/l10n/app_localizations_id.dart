@@ -658,6 +658,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get unknownBrand => 'Merek tidak dikenal';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Nama produk tidak dikenal';
 
   @override
@@ -2041,7 +2044,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Kedelai tidak berasal dari Uni Eropa';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Negara';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3548,7 +3551,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Mulai melakukan tindakan server untuk pembaruan folksonomi yang disimpan secara lokal';
 
   @override
   String get background_task_title_top_n =>
@@ -6165,7 +6168,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorium Open Food Facts';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Akun';
@@ -6209,7 +6212,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Negara';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

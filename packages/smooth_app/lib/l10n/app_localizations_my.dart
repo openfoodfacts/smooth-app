@@ -655,6 +655,9 @@ class AppLocalizationsMy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3020,7 +3023,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3527,7 +3530,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'စက်တွင်းသိမ်းဆည်းထားသော folksonomy အပ်ဒိတ်များအတွက် ဆာဗာလုပ်ဆောင်ချက်များကို စတင်လုပ်ဆောင်နေပါသည်။';
 
   @override
   String get background_task_title_top_n =>
@@ -6037,7 +6040,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ';
 
   @override
   String get preferences_page_faq_subtitle =>

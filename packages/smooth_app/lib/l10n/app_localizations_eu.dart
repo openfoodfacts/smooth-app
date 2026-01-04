@@ -656,6 +656,9 @@ class AppLocalizationsEu extends AppLocalizations {
   String get unknownBrand => 'Marka ezezaguna';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Produktu-izen ezezaguna';
 
   @override
@@ -3528,7 +3531,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Tokikoki gordetako folksonomy eguneratzeetarako zerbitzariaren ekintzak egiten hasten da';
 
   @override
   String get background_task_title_top_n =>
@@ -5823,7 +5826,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Parte hartu gure ekitaldi birtualetako batean parte hartuz';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Elikagaien Datu Irekien bloga';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6152,7 +6155,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ekarri Janari Informazio Irekia zure hizkuntzara';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -662,6 +662,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unknownBrand => 'Marcă necunoscută';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Produs cu nume necunoscut';
 
   @override
@@ -1386,15 +1389,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+      'Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      'Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
+      'Scorul Nutritiv pentru acest produs nu poate fi calculat, ceea ce se poate datora, de exemplu, unei categorii nestandard. Dacă aceasta este considerată o eroare, vă rugăm să ne contactați.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -3589,7 +3592,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Începerea efectuării acțiunilor serverului pentru actualizările folksonomy stocate local';
 
   @override
   String get background_task_title_top_n =>
@@ -4133,11 +4136,11 @@ class AppLocalizationsRo extends AppLocalizations {
       'Nutri-Score necunoscut (calcul nou)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Scorul Nutri nu este aplicabil (calcul nou)';
 
   @override
   String get environmental_score_generic_new => 'Scor Ecologic';
@@ -4757,7 +4760,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Care sunt informațiile despre hrana pentru animale de companie?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4769,7 +4772,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Caracteristicile hranei deschise pentru animale de companie';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4926,7 +4929,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'What is Open Prices?';
+      'Ce sunt prețurile deschise?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4937,7 +4940,8 @@ class AppLocalizationsRo extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title =>
+      'Cum funcționează Prețurile Deschise?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5005,7 +5009,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Care sunt informațiile despre produsele deschise?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5017,7 +5021,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Caracteristici ale produselor deschise';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -6119,7 +6123,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Modalități simple de a ajuta la Open Food Informations';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6234,7 +6238,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Adu informații despre alimentele deschise în limba ta';
 
   @override
   String get preferences_contribute_enroll_alpha =>

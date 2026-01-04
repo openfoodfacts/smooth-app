@@ -4469,7 +4469,7 @@
   "photo_field_front": "Photo du produit",
   "photo_field_ingredients": "Photo des ingrédients",
   "photo_field_nutrition": "Informations nutritionnelles",
-  "photo_field_packaging": "Photo des informations de recyclage",
+  "photo_field_packaging": "Photo des consignes de tri/recyclage",
   "photo_already_exists": "Cette photo existe déjà",
   "photo_missing": "Cette photo est manquante",
   "date": "Date",

@@ -653,6 +653,9 @@ class AppLocalizationsCy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3519,7 +3522,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Dechrau cyflawni\'r gweithredoedd gweinydd ar gyfer diweddariadau folksonomy sydd wedi\'u storio\'n lleol';
 
   @override
   String get background_task_title_top_n =>
@@ -5586,7 +5589,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Chwiliwch am leoliad (e.e. Sgôr Maeth)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Hygyrchedd: Dangos emoji';
@@ -5663,7 +5666,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_tips => 'Awgrymiadau';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
 
   @override
   String get preferences_on_off_website_subtitle => 'Ar wefan Open Food Facts';
@@ -6124,7 +6127,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Labordai Open Food Facts';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';

@@ -653,6 +653,9 @@ class AppLocalizationsBm extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ka daminɛ ka sèrwɛri walew kɛ folksonomy updates maralenw na sigida la';
 
   @override
   String get background_task_title_top_n =>
@@ -5791,7 +5794,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'FAQ - Ɲininkali minnu bɛ kɛ tuma caman na';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'ONG min bɛ dumuni dafalenw kofɔ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5813,7 +5816,7 @@ class AppLocalizationsBm extends AppLocalizations {
       'Aw ye aw sen don a la ni aw taara an ka ko kɛlen dɔ la min bɛ kɛ virtuel (virtuel) la';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Dumuni dafalenw ka bulɔgu';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6139,7 +6142,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Aw ka na ni Dumuni Dabɔlenw Tiɲɛw ye aw ka kan na';
 
   @override
   String get preferences_contribute_enroll_alpha =>

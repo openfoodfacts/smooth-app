@@ -1156,10 +1156,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+      sha256: e3641ec5d63ebf0d9b41bd43201a66e3fc79a65db5f61fc181f04cd27aab950c
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.16.0"
   mgrs_dart:
     dependency: transitive
     description:
@@ -1236,10 +1236,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "9904f7c674eca885862583cca8e158f29f0b1c31dcf90e4051e9a1fb27cf7f46"
+      sha256: "546110801e10314d703120e9fe09872dd49cfc92652d74c9253aee59ee90962a"
       url: "https://pub.dev"
     source: hosted
-    version: "3.28.0"
+    version: "3.29.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1791,10 +1791,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: ab2726c1a94d3176a45960b6234466ec367179b87dd74f1611adb1f3b5fb9d55
+      sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.7"
+    version: "0.7.6"
   timing:
     dependency: transitive
     description:

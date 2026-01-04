@@ -659,6 +659,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unknownBrand => 'Невідома марка';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Невідомий продукт';
 
   @override
@@ -3561,7 +3564,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Початок виконання дій сервера для оновлень folksonomy, що зберігаються локально.';
 
   @override
   String get background_task_title_top_n =>
@@ -4388,7 +4391,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Обробляється';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Упаковка';
+  String get guide_greenscore_lca_arg2_packaging => 'Пакування';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Транспортування';
@@ -4460,7 +4463,7 @@ class AppLocalizationsUk extends AppLocalizations {
       '**Штраф** накладається на продукти, що містять інгредієнти, які мають значний **негативний вплив на біорізноманіття та екосистеми**, такі як пальмова олія, виробництво якої є причиною масового вирубування лісів.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Пакування';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -5846,7 +5849,8 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Часті запитання';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Громадська організація «Факти про відкриту їжу»';
 
   @override
   String get preferences_about_information_title => 'Інформація';
@@ -5868,7 +5872,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Долучайтеся, відвідавши один із наших віртуальних заходів';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Блог «Факти про відкриту їжу»';
 
   @override
   String get preferences_connect_blog_subtitle =>

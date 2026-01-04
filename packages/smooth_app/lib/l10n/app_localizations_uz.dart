@@ -654,6 +654,9 @@ class AppLocalizationsUz extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3520,7 +3523,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Mahalliy ravishda saqlangan folksonomiya yangilanishlari uchun server amallarini bajarishni boshlash';
 
   @override
   String get background_task_title_top_n =>
@@ -5789,7 +5792,8 @@ class AppLocalizationsUz extends AppLocalizations {
       'Tez-tez so\'raladigan savollar - tez-tez so\'raladigan savollar';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Ochiq oziq-ovqat faktlari nodavlat tashkiloti';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5811,7 +5815,8 @@ class AppLocalizationsUz extends AppLocalizations {
       'Virtual tadbirlarimizdan birida ishtirok eting';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Ochiq oziq-ovqat faktlari blogi';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6141,7 +6146,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ochiq oziq-ovqat faktlarini tilingizga olib keling';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -654,6 +654,9 @@ class AppLocalizationsKu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3523,7 +3526,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Dest bi pêkanîna çalakiyên serverê ji bo nûvekirinên folksonomy yên ku li herêmê hatine hilanîn dike';
 
   @override
   String get background_task_title_top_n =>
@@ -5786,7 +5789,8 @@ class AppLocalizationsKu extends AppLocalizations {
       'Pirsên Pir tên Pirsîn - Pirsên Pir tên Pirsîn';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî';
 
   @override
   String get preferences_about_information_title => 'Agahî';
@@ -5973,7 +5977,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin';
 
   @override
   String get preferences_prices_top_contributors_title =>

@@ -654,6 +654,9 @@ class AppLocalizationsBr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3522,7 +3525,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Kregiñ da seveniñ oberoù an dafariad evit an hizivadennoù folksonomy enrollet lec\'hel';
 
   @override
   String get background_task_title_top_n =>
@@ -5953,7 +5956,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Sikour da jediñ ar Skor Nutri hag ar Skor Glas en ho bro';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6140,7 +6143,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Degas fedoù boued digor d\'ho yezh';
 
   @override
   String get preferences_contribute_enroll_alpha =>

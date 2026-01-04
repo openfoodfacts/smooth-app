@@ -656,6 +656,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unknownBrand => 'Bilinmeyen marka';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Bilinmeyen ürün adı';
 
   @override
@@ -2033,7 +2036,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Soya Avrupa Birliği\'nden gelmiyor';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Ülke';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3539,7 +3542,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Yerel olarak depolanan folklor güncellemeleri için sunucu eylemlerinin gerçekleştirilmeye başlanması';
 
   @override
   String get background_task_title_top_n =>
@@ -4448,7 +4451,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Vatandaşlak nasıl yardım edebilir?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
@@ -5692,7 +5695,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Açık Gıda Bilgileri web sitesinde';
 
   @override
   String get preferences_manage_account_title => 'Hesabımı yönet';
@@ -5807,7 +5810,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get preferences_faq_faq_title => 'SSS - Sıkça Sorulan Sorular';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Açık Gıda Gerçekleri STK\'sı';
 
   @override
   String get preferences_about_information_title => 'Bilgi';
@@ -5829,7 +5832,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sanal etkinliklerimizden birine katılarak dahil olun';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Açık Gıda Gerçekleri blogu';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5945,7 +5948,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Açık Gıda Bilgilerine eklediğim yeni ürünler';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6157,7 +6160,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Açık Gıda Gerçeklerini kendi dilinize getirin';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6194,7 +6197,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Ülke';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';

@@ -49,7 +49,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get exit_label => 'Exit';
 
   @override
-  String get previous_label => 'Previous';
+  String get previous_label => 'Prethodno';
 
   @override
   String get go_back_to_top => 'Go back to top';
@@ -652,6 +652,9 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get unknownBrand => 'Unknown brand';
+
+  @override
+  String get unknownQuantity => 'Unknown quantity';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -2083,7 +2086,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get edit_product_form_item_traces_title => 'Traces';
 
   @override
-  String get edit_product_form_item_traces_hint => 'trace';
+  String get edit_product_form_item_traces_hint => 'trag';
 
   @override
   String get edit_product_form_item_traces_type =>
@@ -2518,7 +2521,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get product_type_label_pet_food => 'Pet food';
 
   @override
-  String get product_type_label_product => 'Other';
+  String get product_type_label_product => 'Ostalo';
 
   @override
   String get product_type_selection_title => 'Product type';
@@ -2632,7 +2635,7 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => 'Product not found';
+  String get prices_barcode_search_not_found => 'Proizvod nije pronađen';
 
   @override
   String get prices_barcode_search_none_yet => 'No product yet';
@@ -2661,7 +2664,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_per_unit_short => ' / jedinica';
 
   @override
-  String get prices_category_mandatory => 'Mandatory';
+  String get prices_category_mandatory => 'Obavezno';
 
   @override
   String get prices_category_optional => 'Izborno';
@@ -3522,7 +3525,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Početak izvršavanja radnji poslužitelja za lokalno pohranjena ažuriranja folksonomyja';
 
   @override
   String get background_task_title_top_n =>
@@ -4064,7 +4067,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'Zeleni rezultat';
 
   @override
   String get environmental_score_a_new => 'Zelena ocjena A';
@@ -4146,7 +4149,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get contact_title_press_email => 'Press Contact';
 
   @override
-  String get contact_title_newsletter => 'Subscribe to our newsletter';
+  String get contact_title_newsletter => 'Pretplatite se na naš newsletter';
 
   @override
   String get contact_title_calendar => 'Subscribe to our community calendar';
@@ -4193,7 +4196,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'What is the Nutri-Score?';
+      'Što je Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4293,7 +4296,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => 'Zeleni rezultat';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4333,22 +4336,22 @@ class AppLocalizationsHr extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6 koraka proizvodnje';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
+  String get guide_greenscore_lca_arg2_agriculture => 'Poljoprivreda';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'Processing';
+  String get guide_greenscore_lca_arg2_processing => 'Obrada';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
+  String get guide_greenscore_lca_arg2_transportation => 'Prijevoz';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
+  String get guide_greenscore_lca_arg2_distribution => 'Distribucija';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
+  String get guide_greenscore_lca_arg2_consumption => 'Potrošnja';
 
   @override
   String get guide_greenscore_lca_arg3_title =>
@@ -5227,10 +5230,10 @@ class AppLocalizationsHr extends AppLocalizations {
   String get date => 'Date';
 
   @override
-  String get photo_rotate_left => 'Rotate left';
+  String get photo_rotate_left => 'Zakreni lijevo';
 
   @override
-  String get photo_rotate_right => 'Rotate right';
+  String get photo_rotate_right => 'Zakreni desno';
 
   @override
   String get photo_undo_action => 'Undo the previous action';
@@ -5422,7 +5425,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
-  String get prices_stats_total => 'Total';
+  String get prices_stats_total => 'Ukupno';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5437,7 +5440,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'Consumption';
+  String get prices_stats_consumption => 'Potrošnja';
 
   @override
   String get prices_stats_with_price => 'With a price';
@@ -5446,7 +5449,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_stats_food => 'Food';
 
   @override
-  String get prices_stats_beauty => 'Beauty';
+  String get prices_stats_beauty => 'Ljepota';
 
   @override
   String get prices_stats_products => 'Products';
@@ -5500,7 +5503,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'Other';
+  String get prices_stats_other => 'Ostalo';
 
   @override
   String get prices_stats_last_updated => 'Last updated on';
@@ -5572,7 +5575,7 @@ class AppLocalizationsHr extends AppLocalizations {
       'Hvala vam što ste jedan od naših članova!';
 
   @override
-  String get preferences_app_bar_products_modified => 'Products modified';
+  String get preferences_app_bar_products_modified => 'Proizvodi modificirani';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
@@ -5808,7 +5811,8 @@ class AppLocalizationsHr extends AppLocalizations {
       'Uključite se posjetom jednom od naših virtualnih događaja';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Blog Otvorene činjenice o hrani';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6135,7 +6139,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Prenesite činjenice o otvorenoj hrani na svoj jezik';
 
   @override
   String get preferences_contribute_enroll_alpha =>

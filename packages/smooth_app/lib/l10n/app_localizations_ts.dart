@@ -653,6 +653,9 @@ class AppLocalizationsTs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3521,7 +3524,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ku sungula ku endla swiendlo swa sevha swa ku pfuxetiwa ka folksonomy loku hlayisiweke laha kaya';
 
   @override
   String get background_task_title_top_n =>
@@ -4912,7 +4915,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prices.openfoodfacts.org/about';
+      'https://minxavo.vulavula bya swakudya.org/malunghana na';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5980,7 +5983,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Latest prices added by the Open Prices community';
+      'Minxavo ya sweswinyana leyi engeteriweke hi vaaki va Minxavo leyi Pfulekeke';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6031,7 +6034,7 @@ class AppLocalizationsTs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Tindlela to olova to pfuna ku Pfula Tinhla ta Swakudya';
 
   @override
   String get preferences_page_faq_subtitle =>

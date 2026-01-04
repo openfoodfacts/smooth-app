@@ -653,6 +653,9 @@ class AppLocalizationsSs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -3015,7 +3018,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Switch between prices.openfoodfacts.org (PROD) and test env';
+      'Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3522,7 +3525,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Kucala kwenta tento teseva tetibuyeketo te-folksonomy letigcinwe endzaweni';
 
   @override
   String get background_task_title_top_n =>
@@ -5676,7 +5679,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5792,7 +5795,8 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'I-NGO yeMaciniso Ekudla Lokuvulekile';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5814,7 +5818,8 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6027,7 +6032,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Simple ways to help Open Food Facts';
+      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
 
   @override
   String get preferences_page_faq_subtitle =>

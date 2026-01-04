@@ -620,6 +620,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unknownBrand => '未知品牌';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => '未知產品名稱';
 
   @override
@@ -5835,7 +5838,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts實驗室';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => '账户';
@@ -7787,7 +7790,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '这种大豆并非来自欧盟。';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => '国家/地区';
 
   @override
   String get edit_product_form_item_countries_hint => '输入国家（例如：德国）';
@@ -9202,6 +9205,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get background_task_title_full_refresh => '开始刷新本地存储的所有产品';
 
   @override
+  String get background_task_title_folksonomy => '开始执行本地存储的民间分类更新的服务器操作';
+
+  @override
   String get background_task_title_top_n => '开始下载最受欢迎的产品';
 
   @override
@@ -9923,7 +9929,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '对于制造商来说，Nutri-Score 的显示**仍然是可选的**。';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => '绿色评分';
 
   @override
   String get guide_greenscore_what_is_greenscore_title => '什么是绿色分数？';
@@ -10484,7 +10490,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      '什么是开放产品信息？';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -10495,8 +10501,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '从电子产品到玩具，从服装到清洁用品，只要有条形码，都可以添加进去。本项目旨在为日常物品构建“物联网”，使所有相关信息都能被普遍获取。';
 
   @override
-  String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+  String get guide_open_products_facts_features_title => '开放产品事实的特点';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -11596,7 +11601,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts实验室';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => '账户';
@@ -11638,7 +11643,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get location_map_details_postcode => '邮政编码';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => '国家/地区';
 
   @override
   String get location_map_details_coordinates => '坐标';
