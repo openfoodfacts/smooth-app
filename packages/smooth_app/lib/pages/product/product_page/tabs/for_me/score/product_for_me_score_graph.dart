@@ -35,7 +35,7 @@ class ProductForMeScoreGraph extends StatelessWidget {
 
         final int? score = int.tryParse(value.score ?? '-');
 
-        final Color scoreColor = _getColorForScore(score, theme);
+        final Color scoreColor = value.color ?? theme.greyNormal;
         final String label = score != null
             ? appLocalizations.product_page_for_me_compatibility_score_value(
                 score,
@@ -120,31 +120,6 @@ class ProductForMeScoreGraph extends StatelessWidget {
         );
       },
     );
-  }
-
-  Color _getColorForScore(int? score, SmoothColorsThemeExtension colors) {
-    if (score == null) {
-      return colors.greyNormal;
-    }
-
-    double cumulativeThreshold = 0.0;
-    for (int i = 0; i < _steps.length; i++) {
-      cumulativeThreshold += _steps[i];
-      if (score <= cumulativeThreshold * 100) {
-        switch (i) {
-          case 0:
-            return colors.errorGradient; // Bad (0-10%)
-          case 1:
-            return colors.warningGradient; // Average (10-50%)
-          case 2:
-            return colors.successGradient; // Good (50-100%)
-          default:
-            return colors.greyNormal;
-        }
-      }
-    }
-
-    return colors.successGradient;
   }
 }
 
