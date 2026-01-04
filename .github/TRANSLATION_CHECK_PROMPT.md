@@ -63,6 +63,7 @@ Apply same logic for:
 
 ### 4. Validation Commands
 
+#### Basic Validation (Brand Names & URLs)
 Run the automated validation script:
 ```bash
 python3 .github/scripts/validate_translations.py
@@ -75,6 +76,58 @@ This script checks for:
 - Locale-specific URL language codes
 - Open Prices URL integrity
 - 404 errors on translated URL paths
+
+#### Advanced Quality Checks (Placeholders, Consistency, Style)
+Run the advanced translation quality checker:
+```bash
+python3 .github/scripts/advanced_translation_check.py --verbose
+```
+
+This script uses gettext and translate-toolkit to check for:
+- **Placeholder consistency**: `{variable}` must match between source and translation
+- **Punctuation consistency**: Sentence-ending punctuation should match
+- **Whitespace issues**: Extra spaces, tabs, leading/trailing whitespace
+- **Length discrepancies**: Translations significantly longer or shorter than source
+- **Untranslated strings**: Strings identical to English (potentially missed)
+
+#### Using gettext Tools Directly
+
+Check format strings with msgfmt (after converting ARB to PO):
+```bash
+# Convert ARB to PO format (requires custom converter)
+# Then validate with msgfmt
+msgfmt --check --check-format --check-domain translation.po
+```
+
+Count translation statistics with pocount:
+```bash
+pocount translation.po
+```
+
+Run quality filters with pofilter:
+```bash
+pofilter -t variables translation.po  # Check variable consistency
+pofilter -t brackets translation.po   # Check bracket matching
+pofilter -t printf translation.po     # Check printf format strings
+pofilter -t urls translation.po       # Check URL consistency
+```
+
+#### Using translate-toolkit Tools
+
+Debug translations with podebug (adds markers to help identify issues):
+```bash
+podebug input.po output.po
+```
+
+Check for translation conflicts:
+```bash
+poconflicts translation.po
+```
+
+Merge translations:
+```bash
+pomerge -t template.pot -i old.po -o new.po
+```
 
 ### 5. Review Checklist
 
@@ -107,10 +160,48 @@ If unsure whether a term should be translated:
 
 ### 8. Tools and Resources
 
-- **Validation Script**: `.github/scripts/validate_translations.py`
-- **GitHub Action**: `.github/workflows/translation-validation.yml` (runs automatically on PRs)
+#### Validation Scripts
+- **Basic Validation**: `.github/scripts/validate_translations.py`
+  - Checks brand names, URLs, and project-specific rules
+- **Advanced Quality Check**: `.github/scripts/advanced_translation_check.py`
+  - Uses gettext and translate-toolkit for comprehensive quality analysis
+
+#### GitHub Actions
+- **Basic Validation**: `.github/workflows/translation-validation.yml`
+  - Runs on every PR with translation changes
+- **Advanced Check**: `.github/workflows/advanced-translation-check.yml`
+  - Comprehensive quality check with multiple tools
+- **Plural Check**: `.github/workflows/translation-plural-check.yml`
+  - Checks for plural form issues
+
+#### Open Source Tools Used
+- **gettext** (msgfmt, msgcat, msgcmp, etc.)
+  - Industry-standard translation tools
+  - Format string validation
+  - PO file manipulation
+  - Installation: `apt-get install gettext`
+  
+- **translate-toolkit** (pocount, pofilter, podebug, etc.)
+  - Translation quality analysis
+  - Format checking and statistics
+  - Automated quality filters
+  - Installation: `apt-get install translate-toolkit` or `pip install translate-toolkit`
+  
+- **polib** (Python library)
+  - Programmatic access to PO/POT files
+  - Installation: `pip install polib`
+  
+- **babel** (Python library)
+  - Internationalization utilities
+  - Locale data and formatting
+  - Installation: `pip install babel`
+
+#### External Resources
 - **Crowdin**: Translation platform used for managing translations
+  - https://crowdin.com/project/openfoodfacts
 - **Open Food Facts Wiki**: https://wiki.openfoodfacts.org/ (for project terminology)
+- **gettext Manual**: https://www.gnu.org/software/gettext/manual/
+- **translate-toolkit Docs**: https://docs.translatehouse.org/projects/translate-toolkit/
 
 ## Common Keys That Must Not Be Translated
 
@@ -148,15 +239,45 @@ When using this prompt with AI language models:
 
 ```
 Review the translation files in packages/smooth_app/lib/l10n/ and:
-1. Check all brand names are preserved correctly
-2. Verify all URLs are properly formatted
-3. Ensure locale-specific URLs use correct language codes
-4. Flag any literal translations of brand terms
-5. Provide a summary of issues found with specific file names and keys
+1. Check all brand names are preserved correctly (Open Food Facts, Nutri-Score, NOVA, Green-Score, Open Prices)
+2. Verify all URLs are properly formatted and use correct language codes
+3. Ensure placeholders like {variable} match between source and translation
+4. Check punctuation and whitespace consistency
+5. Flag any literal translations of brand terms
+6. Identify potentially untranslated strings (identical to English when they shouldn't be)
+7. Check for length discrepancies (translations much longer/shorter than source)
+8. Provide a summary of issues found with specific file names and keys
+9. Run both validation scripts to get comprehensive coverage
 ```
+
+## Automated Checks in CI/CD
+
+All PRs with translation changes automatically trigger:
+1. **Basic validation** - Brand names and URLs
+2. **Advanced quality check** - Placeholders, consistency, style
+3. **Plural form check** - Ensures proper plural handling
+
+Results are posted as PR comments with actionable feedback.
+
+## Quick Reference Card
+
+| Issue Type | Tool | Command |
+|------------|------|---------|
+| Brand names not preserved | validate_translations.py | `python3 .github/scripts/validate_translations.py` |
+| URLs incorrect | validate_translations.py | `python3 .github/scripts/validate_translations.py` |
+| Placeholder mismatch | advanced_translation_check.py | `python3 .github/scripts/advanced_translation_check.py` |
+| Punctuation issues | advanced_translation_check.py | `python3 .github/scripts/advanced_translation_check.py` |
+| Format strings | gettext msgfmt | `msgfmt --check translation.po` |
+| Translation statistics | translate-toolkit | `pocount translation.po` |
+| Quality filters | translate-toolkit | `pofilter -t variables translation.po` |
 
 ---
 
-**Last Updated**: 2026-01-04
-**Maintained By**: Open Food Facts Contributors
-**Related**: `.github/scripts/validate_translations.py`, `.github/workflows/translation-validation.yml`
+**Last Updated**: 2026-01-04  
+**Maintained By**: Open Food Facts Contributors  
+**Related Files**: 
+- `.github/scripts/validate_translations.py`
+- `.github/scripts/advanced_translation_check.py`
+- `.github/workflows/translation-validation.yml`
+- `.github/workflows/advanced-translation-check.yml`
+- `.github/workflows/translation-plural-check.yml`
