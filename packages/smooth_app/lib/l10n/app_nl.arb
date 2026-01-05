@@ -4177,7 +4177,7 @@
   "guide_open_prices_scrapping_paragraph2": "Prijsscraping is een optie die wordt overwogen voor een toekomstige versie van Open Prices, maar dit zou door Open Prices zelf worden gedaan, zodat we een bewijs van de prijs op basis van de HTML-pagina kunnen hebben.",
   "guide_open_prices_retailers_title": "Ik ben een retailer en ik wil prijzen bijdragen. Hoe kan ik dat doen?",
   "guide_open_prices_retailers_paragraph1": "U kunt prijzen aanleveren via onze API. Als u op grote schaal prijzen wilt aanleveren, neem dan contact met ons op via prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://prijzen.openfoodfacts.org/over",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welkom bij Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
