@@ -720,7 +720,7 @@
   "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
   "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
   "new_product_title_pictures": "Új termék",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!",
   "new_product_title_misc": "És pár alapvető adat…",
   "new_product_done_msg": "Köszönjük a közreműködését, {username}!",
   "@new_product_done_msg": {
@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Tudjon meg többet a nyitott árakról",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Megjegyzés a pontozásról",
   "guide_open_beauty_facts_scores_paragraph1": "Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.",
   "guide_open_beauty_facts_share_link": "https://world-hu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Üdvözöljük a Nyílt Árak oldalán!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mit jelent a Nyitott Ár?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Az Open Prices egy olyan projekt, amelynek célja a **világ minden tájáról származó termékek árainak gyűjtése és megosztása**. Ez egy nyilvánosan elérhető adathalmaz, amely kutatásra, elemzésre és egyebekre felhasználható. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Hogyan működnek a Nyílt Árak?",
   "guide_open_prices_how_paragraph1": "**Nyílt forráskódú áradatbázist gyűjtünk közösségi finanszírozásból**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
   "guide_open_prices_how_arg1_title": "Gyűjtsön fotókat az árcédulákról a folyosókon",
   "guide_open_prices_how_arg2_title": "Gyűjtsd össze a nyugták fotóit",
@@ -4173,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Hasonlítsa össze az árakat a közelben",
   "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatod **a környékeden a legolcsóbb üzleteket**.",
   "guide_open_prices_scrapping_title": "Fontolóra vetted már, hogy lemásolod az árakat a kiskereskedők weboldalairól?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Jogi és technikai okokból **nem tekintjük érvényes módnak az árak kiskereskedők weboldalairól történő lekérdezését a Nyílt Árakhoz való hozzájárulásra**. Biztosak akarunk lenni abban, hogy az általunk gyűjtött árak pontosak és naprakészek, és a közreműködőktől lemásolt árak fogadása ezt nem teszi lehetővé számunkra.",
   "guide_open_prices_scrapping_paragraph2": "Az árlekaparás egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhatsz.\nHa nagyobb mennyiségben szeretnél árakat megadni, kérjük, vedd fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Fedezze fel a nyitott árakat",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
